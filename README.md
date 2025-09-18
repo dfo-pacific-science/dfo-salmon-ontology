@@ -4,7 +4,9 @@
 **License:** CC-BY 4.0  
 **Status:** Draft Work in Progress. 
 
-The DFO Salmon Ontology is an ** OWL ontology** for salmon science data at Fisheries and Oceans Canada (DFO). It aligns with the Darwin Core (DwC) conceptual layer where helpful and adds DFO-specific concepts for stock assessment and genetics.  
+The DFO Salmon Ontology is an ** OWL ontology** for salmon data at Fisheries and Oceans Canada (DFO). It's main focus is on describing operations, data, data flows, data analytics, and reporting in support of the *Fisheries Act* and the Wild Salmon Policy for the purposes of data quality assessment, data integration, and data stewardship generally. It broadly reflects the functional, operational, and organizational entities and relationships of salmon data collection through to publication. It's modularized into functional vertical domains including escapement, fisheries management, habitat, an enhancement as well as cross cutting domains such as genetics, policy, and management.
+
+It aligns with the Darwin Core (DwC) Conceptual Model layer where helpful and adds DFO-specific concepts for stock assessment and genetics.  
 **Goal:** Make salmon data interoperable, discoverable, and analyzable with minimal friction for scientists, data stewards, and managers.
 
 ---
@@ -31,153 +33,74 @@ The DFO Salmon Ontology is an ** OWL ontology** for salmon science data at Fishe
 ## Overview
 
 - **One file**: `dfo-salmon.ttl` (OWL/Turtle).
-- **No SKOS, no SHACL** for now; focus on **classes + properties**.
-- **Reuse before invent**: align to DwC (`dwc:Event`, `dwc:MaterialSample`, `dwc:MeasurementOrFact`) via `rdfs:subClassOf`, but don’t import DwC yet.
+- **OWL + SKOS**: OWL for formal relationships, SKOS for controlled vocabularies.
+- **Darwin Core aligned**: Uses DwC classes as top-level framework for interoperability.
+- **OBO Foundry principles**: Open, interoperable, logically well-formed, scientifically accurate.
 - **Units**: QUDT/OM **IRIs stored as literals** (starter convention).
 - **Community-aligned**: builds on NCEAS Salmon Ontology, ENVO, and OBO Foundry vocabularies.
 
 ---
 
-## Quickstart (WebProtégé & OntoGraf)
+## Quickstart
 
-1. Create a new project in **Protégé Desktop** and upload `dfo-salmon.ttl`.
-2. Use **OntoGraf** to explore class/property relationships interactively.
-3. Export the updated `.ttl` from Protégé.
-4. Discuss proposed edits in **GitHub Issues**.
-5. **Approved edits** become PRs applied directly to `dfo-salmon.ttl` in GitHub.
-6. **IRIs are permanent**: update labels/comments, not IRIs.
+### For Contributors
+1. **Read the [Conventions Guide](DFO%20Salmon%20Ontology%20Conventions.md)** for detailed modeling guidelines
+2. **Use Protégé Desktop** to edit `dfo-salmon.ttl` with OntoGraf for visualization
+3. **Use ROBOT** for quality control: `robot reason --input dfo-salmon.ttl --reasoner ELK`
+4. **Discuss changes** in GitHub Issues before creating PRs
+5. **Follow OBO practices**: Use competency questions, design patterns, and quality checklists
+
+### For Users
+1. **Browse terms** using Protégé or online ontology browsers
+2. **Query data** using SPARQL with the ontology as a schema
+3. **Integrate** with Darwin Core-compatible systems for interoperability
 
 ---
 
 ## Workflow & Editing Guidelines
 
-- We are maintaining **one ontology file** in OWL format (`.ttl`) on GitHub as the single source of truth.
-- All editing is done via **GitHub Pull Requests (PRs)**.
-- Use **WebProtégé + OntoGraf** to visualize and verify connections.
-- **Before creating a new term**: search WebProtégé to ensure it doesn’t already exist.
-- **Be consistent**: follow the conventions below.
-- **Keep it simple**: avoid complex restrictions (e.g., `someValuesFrom`) unless agreed.
-- **Document everything**: always include `rdfs:comment` and, if possible, a `dcterms:source`.
-- **Discuss major changes**: use GitHub Issues for uncertain modeling decisions.
+- **Single source of truth**: One ontology file (`dfo-salmon.ttl`) on GitHub
+- **OBO-style workflow**: Use ROBOT for quality control and release management
+- **GitHub-based collaboration**: All changes via Pull Requests with Issues for discussion
+- **Quality first**: Use competency questions and design patterns to guide development
+- **Before creating terms**: Search existing terms and check competency questions
+- **Document everything**: Always include `rdfs:comment` and `dcterms:source`
+- **Test with data**: Validate terms with sample data and SPARQL queries
 
 ---
 
 ## Modeling Approach
 
-- **OWL-only**: all terms are `owl:Class`, `owl:ObjectProperty`, or `owl:DatatypeProperty`.
-- **Human + machine friendly**: every term has a label + definition.
-- **Domain fit**: initial focus on stock assessment and genetics; expand iteratively.
-- **Minimal constraints**: use domains/ranges only when they improve data quality.
-- **Visualization**: OntoGraf in Protégé helps verify relationships and explain the ontology. WebVOWL is also handy for this.
+- **OWL + SKOS**: OWL for formal relationships, SKOS for controlled vocabularies
+- **Darwin Core framework**: Uses DwC classes as top-level for international interoperability
+- **OBO Foundry aligned**: Follows OBO principles for open, interoperable ontologies
+- **Competency-driven**: Every term answers specific research questions
+- **Quality assured**: Uses ROBOT validation and systematic quality checklists
+- **Human + machine friendly**: Clear labels, definitions, and examples
 
 ---
 
-## Conventions (Updated)
+## Conventions
 
-### Classes
+**For detailed modeling conventions, see [DFO Salmon Ontology Conventions Guide](DFO%20Salmon%20Ontology%20Conventions.md).**
 
-Required:
-
-- `a owl:Class`
-- `rdfs:label "Human Name"@en`
-- `rdfs:comment "1–2 sentence definition."@en`
-- `rdfs:isDefinedBy <https://w3id.org/dfo/salmon>`
-
-Optional:
-
-- `dcterms:source <URL or citation>`
-- `dcterms:description "Example usage."@en`
-- `oboInOwl:hasExactSynonym` (if relevant)
-
-### Object Properties
-
-- `a owl:ObjectProperty`
-- `rdfs:label` + `rdfs:comment`
-- Domain/Range only when it helps data quality (avoid over-constraining early)
-- **Naming**: lowerCamelCase from subject → object (e.g., `aboutStock`, `usesMethod`)
-- Always add `rdfs:isDefinedBy`
-
-### Datatype Properties
-
-- `a owl:DatatypeProperty`
-- `rdfs:label` + `rdfs:comment`
-- Range must be an explicit XSD type (`xsd:string`, `xsd:decimal`, `xsd:date`, etc.)
-- Units & IRIs as **literals** (starter convention)
-- Always add `rdfs:isDefinedBy`
+**Quick reference:**
+- All terms need: `rdfs:label`, `rdfs:comment`, `rdfs:isDefinedBy`
+- Use lowerCamelCase for property names (e.g., `aboutStock`, `usesMethod`)
+- Store QUDT unit IRIs as literals in `…UnitIRI` properties
+- Follow the membership pattern for MU ▶ CU ▶ Stock relationships
 
 ---
 
-## Hierarchy & Relationships
+## Key Modeling Patterns
 
-- **Subclassing required**: If a new class is a type of an existing one, assert `rdfs:subClassOf`.  
-  _Example_: `EscapementSurveyEvent ⊑ SurveyEvent`.
-- **Equivalence (optional)**: Use `owl:equivalentClass` only when two classes are truly identical.
-- **Disjointness (optional)**: Use `owl:disjointWith` or `owl:AllDisjointClasses` if sibling classes must not overlap.  
-  _Example_: `AutomatedCountingMethods` vs `ExpertOpinion`.
-- **Part–whole (optional)**: Use `hasPart` / `partOf` sparingly; for management hierarchies prefer the **membership** pattern below.
-- **No SKOS broader/narrower** for taxonomies in v0.1; use OWL subclassing.
+**For detailed modeling conventions, see [DFO Salmon Ontology Conventions Guide](DFO%20Salmon%20Ontology%20Conventions.md).**
 
----
-
-## Membership / Roll-up Pattern (MU ▶ CU ▶ Stock)
-
-We explicitly model that **Management Units contain Conservation Units**, and **Conservation Units contain Stocks**.
-
-**Generic transitive membership**
-
-- `dfo:hasMember` (Transitive) and inverse `dfo:isMemberOf`.
-
-**Tier-specific subproperties**
-
-- MU ▶ CU: `dfo:hasMemberCU` / `dfo:isMemberOfMU`
-- CU ▶ Stock: `dfo:hasMemberStock` / `dfo:isMemberOfCU`
-
-**Why this pattern**
-
-- Human-readable, type-safe properties per tier.
-- Transitivity gives automatic roll-ups: MU `hasMemberCU` CU & CU `hasMemberStock` Stock ⇒ MU `hasMember` Stock (inferred).
-
-**Deprecation note**
-
-- Older `hasConservationUnit` (Stock→CU) is **deprecated**; prefer `isMemberOfCU` for clarity.
-
-**Governance to decide**
-
-- Can a **CU belong to multiple MUs**? If NO, later mark `isMemberOfMU` as `owl:FunctionalProperty`.
-- Can a **Stock belong to multiple CUs**? If NO, later mark `isMemberOfCU` as `owl:FunctionalProperty`.
-- Should **MU, CU, Stock** be declared **disjoint**? (recommended once stable)
-
-**Query ideas**
-
-- “All Stocks in MU X” → follow transitive `hasMember`.
-- “All CUs in MU X” → `hasMemberCU`.
-- “MU(s) for Stock Y” → chain `isMemberOf`.
-
----
-
-## Measurement & GSI Conventions
-
-- **EscapementMeasurement** must connect to:
-  - `aboutStock` (which stock it describes)
-  - `observedDuring` (which SurveyEvent)
-  - `usesMethod` (family in `EscapementMethod`)
-- **Units**:
-  - Counts: store QUDT unit IRI in `countUnitIRI` (e.g., `http://qudt.org/vocab/unit/Each`).
-  - Composition estimates: adopt **one** convention and stick to it:
-    - **Fraction** 0–1 with `estimateUnitIRI = http://qudt.org/vocab/unit/One`, **or**
-    - **Percent** 0–100 with `estimateUnitIRI = http://qudt.org/vocab/unit/Percent`.
-  - Document the choice in this README; later enforce with SHACL.
-- **GSI specifics**:
-  - `GSICompositionMeasurement` is RU-centric; link via `aboutReportingUnit`.
-  - Maintain RU↔CU mapping policy; use `ruExactMatch` / `ruCloseMatch` with documented criteria.
-  - Future: property chain (e.g., `Sample ofStock` + `Stock isMemberOfCU` ⇒ `Sample ofConservationUnit`).
-
----
-
-## External Alignments (Pragmatic)
-
-- Store external references as **literal IRIs** for now (e.g., `taxonIRI`, QUDT unit IRIs).
-- Plan a later move to **object links** via imports (GBIF, ENVO, OBI, QUDT) when stable.
+**Key patterns:**
+- **Membership hierarchy**: SMU ▶ CU ▶ Population with transitive `hasMember` relationships
+- **Measurement requirements**: EscapementMeasurements must link to stock, event, and method
+- **Darwin Core integration**: Use DwC classes and predicates where appropriate
+- **Quality validation**: Use ROBOT and competency questions for validation
 
 ---
 
@@ -208,28 +131,30 @@ We explicitly model that **Management Units contain Conservation Units**, and **
 
 - **Base IRI**: `https://w3id.org/dfo/salmon#`
 - **Instances**: mint under same base (e.g., `…#Stock/SkeenaSockeye`)
-- **External alignments**: literal IRIs for now (e.g., GBIF taxon → `dfo:taxonIRI`)
-- **Units**: QUDT IRIs as literals in `…UnitIRI` properties
-- **Versioning**
-  - Maintain `owl:versionInfo` and `owl:versionIRI` in ontology header
-  - Tag GitHub releases (e.g., `v0.1.0`)
-  - Archive via Zenodo for DOI
+- **Versioning**: Tag GitHub releases, maintain version info in ontology header
+- **For detailed conventions**: See [DFO Salmon Ontology Conventions Guide](DFO%20Salmon%20Ontology%20Conventions.md)
 
 ---
 
 ## Contribution Workflow
 
-- Propose changes in **GitHub Issues**.
-- Discuss/agree on definitions before structural edits.
-- Keep edits **atomic** (one conceptual change per PR).
-- Do not rename IRIs; if refactoring, **deprecate** and add `rdfs:seeAlso`.
+### OBO-Style Development Process
+1. **Start with competency questions** to guide design
+2. **Use ROBOT for quality control**:
+   ```bash
+   robot reason --input dfo-salmon.ttl --reasoner ELK
+   robot validate --input dfo-salmon.ttl
+   ```
+3. **Create terms following conventions** in the [Conventions Guide](DFO%20Salmon%20Ontology%20Conventions.md)
+4. **Test with sample data** and competency questions
+5. **Submit via GitHub Issues and PRs**
 
-**Definition quality checklist**
-
-- One clear concept per term
-- Human-readable label and comment
-- Example/source if contentious
-- Avoid over-constraining with domains/ranges
+### Quality Standards
+- **Competency-driven**: Every term answers specific research questions
+- **OBO Foundry aligned**: Open, interoperable, logically well-formed
+- **Darwin Core compatible**: Uses DwC framework for interoperability
+- **Well-documented**: Clear labels, definitions, and examples
+- **Tested**: Validated with sample data and SPARQL queries
 
 ---
 
