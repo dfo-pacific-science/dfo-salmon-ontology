@@ -1,0 +1,460 @@
+@prefix :        <http://example.org/salmon-inspections#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ro:      <http://purl.obolibrary.org/obo/RO_> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix geo:     <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+
+
+### Root classes
+:Environmental a rdfs:Class ;
+    rdfs:label "Environmental Factors" ;
+    :description "Environmental features relevant to salmon stream inspections." .
+
+:Salmon a rdfs:Class ;
+    rdfs:label "Salmon Characteristics" .
+
+:InspectionDetails a rdfs:Class ;
+    rdfs:label "Inspection Details" .
+
+### ——— Environmental branch ———
+
+:Environmental a rdfs:Class ;
+    rdfs:label "Environmental Factors" ;
+    :description "Environmental features relevant to salmon stream inspections." .
+
+### Custom description property (for narrative text)
+:description a rdfs:Property ;
+    rdfs:label "Description" ;
+    rdfs:subPropertyOf dcterms:description ;
+    rdfs:comment "Narrative description; use skos:definition for the formal definition and dcterms:source for a citation link." .
+
+### —— Hydrologic connectivity ——
+:flowsInto a rdfs:Property ;
+  rdfs:label "flows into" ;
+  rdfs:domain :Environmental ;
+  rdfs:range  :Environmental ;
+  :description "Downstream connectivity: this waterbody flows into the target waterbody." .
+
+### Impacts
+:Impact a rdfs:Class ;
+  rdfs:label "Impact" ;
+  :description "Potential ecological or operational consequence relevant to salmon stream inspections." .
+
+:possibleImpact a rdfs:Property ;
+  rdfs:label "possible impact" ;
+  rdfs:subPropertyOf ro:0002556 ;   # RO:affects
+  rdfs:domain :StreamCondition ;
+  rdfs:range  :Impact ;
+  :description "Links an observed stream condition to a potential impact on habitat, fish passage, or inspection objectives." .
+
+:FishPassageBarrier a rdfs:Class ;
+  rdfs:subClassOf :Impact ;
+  rdfs:label "Fish Passage Barrier" ;
+  skos:definition "A condition or structure that impedes or prevents fish movement." ;
+  dcterms:source <https://en.wikipedia.org/wiki/Fish_ladder#Barriers_to_fish_migration> ;
+  :description "Used when movement between habitats is obstructed." .
+
+:IncreasedSedimentation a rdfs:Class ;
+  rdfs:subClassOf :Impact ;
+  rdfs:label "Increased Sedimentation" ;
+  skos:definition "Elevation in fine sediment delivery or deposition within the channel." ;
+  dcterms:source <https://en.wikipedia.org/wiki/Sediment> ;
+  :description "Can smother redds and reduce habitat quality." .
+
+:ReducedConnectivity a rdfs:Class ;
+  rdfs:subClassOf :Impact ;
+  rdfs:label "Reduced Connectivity" ;
+  skos:definition "Loss or reduction of hydraulic connection among channel segments or habitats." ;
+  dcterms:source <https://en.wikipedia.org/wiki/River_continuum_concept> ;
+  :description "Limits access to spawning/rearing areas." .
+
+:SpawningHabitatScour a rdfs:Class ;
+  rdfs:subClassOf :Impact ;
+  rdfs:label "Spawning Habitat Scour" ;
+  skos:definition "Removal or disturbance of spawning gravels due to high flows." ;
+  dcterms:source <https://en.wikipedia.org/wiki/Scour> ;
+  :description "Destroys redds and alters substrate." .
+
+### Water Body Types
+:LenticWaterBody a rdfs:Class ;
+    rdfs:subClassOf :Environmental ;
+    rdfs:label "Lentic Water Body" ;
+    skos:definition "Standing or still freshwater ecosystems." ;
+    dcterms:source <https://en.wikipedia.org/wiki/Lentic_ecosystems> ;
+    :description "Covers lakes, ponds, and other still-water habitats." .
+
+:Lake a rdfs:Class ;
+    rdfs:subClassOf :LenticWaterBody ;
+    rdfs:label "Lake" ;
+    skos:definition "A relatively large, inland body of standing water." ;
+    dcterms:source <https://en.wikipedia.org/wiki/Lake> ;
+    :description "Use for sites identified as lakes in inspection records." .
+
+:Pond a rdfs:Class ;
+    rdfs:subClassOf :LenticWaterBody ;
+    rdfs:label "Pond" ;
+    skos:definition "A small, still body of water, generally smaller than a lake." ;
+    dcterms:source <https://en.wikipedia.org/wiki/Pond> ;
+    :description "Use for small, still waterbodies in the survey area." .
+
+:LoticWaterBody a rdfs:Class ;
+    rdfs:subClassOf :Environmental ;
+    rdfs:label "Lotic Water Body" ;
+    skos:definition "Flowing freshwater ecosystems, such as rivers, streams, and creeks." ;
+    dcterms:source <https://en.wikipedia.org/wiki/Lotic_ecosystem> ;
+    :description "Covers all flowing freshwater systems relevant to salmon inspections." .
+
+:Creek a rdfs:Class ;
+    rdfs:subClassOf :LoticWaterBody ;
+    rdfs:label "Creek" ;
+    skos:definition "A small, narrow freshwater channel; typically smaller than a stream." ;
+    dcterms:source <https://en.wikipedia.org/wiki/Creek> ;
+    :description "Small channel observed during inspection." .
+
+:Stream a rdfs:Class ;
+    rdfs:subClassOf :LoticWaterBody ;
+    rdfs:label "Stream" ;
+    skos:definition "A body of flowing water larger than a creek but smaller than a river." ;
+    dcterms:source <https://en.wikipedia.org/wiki/Stream> ;
+    :description "General flowing watercourse category in field notes." .
+
+:River a rdfs:Class ;
+    rdfs:subClassOf :LoticWaterBody ;
+    rdfs:label "River" ;
+    skos:definition "A large, natural flow of water moving within a channel toward an ocean, lake, or another river." ;
+    dcterms:source <https://en.wikipedia.org/wiki/River> ;
+    :description "Use when inspection site is on a river mainstem." .
+
+:Slough a rdfs:Class ;
+    rdfs:subClassOf :LoticWaterBody ;
+    rdfs:label "Slough" ;
+    skos:definition "A slow-moving side channel or backwater, often associated with floodplains or wetlands." ;
+    dcterms:source <https://en.wikipedia.org/wiki/Slough_(wetland)> ;
+    :description "Side channel/backwater connected to a lotic system." .
+
+### Stream Condition
+:StreamCondition a rdfs:Class ;
+    rdfs:subClassOf :Environmental ;
+    rdfs:label "Stream Condition" ;
+    skos:definition "Dynamic states or disturbances affecting the stream or river at the time of inspection." ;
+    dcterms:source <https://en.wikipedia.org/wiki/Stream_hydrology> ;
+    :description "Covers hydrological and geomorphic conditions observed during inspection." .
+
+:WaterFlow a rdfs:Class ;
+    rdfs:subClassOf :StreamCondition ;
+    rdfs:label "Water Flow" ;
+    skos:definition "The relative discharge or velocity of stream water at the time of observation." ;
+    dcterms:source <https://en.wikipedia.org/wiki/Streamflow> ;
+    :description "Categorized as high flow or low flow." .
+
+:HighFlow a rdfs:Class ;
+    rdfs:subClassOf :WaterFlow ;
+    rdfs:label "High Flow" ;
+    skos:definition "Stream discharge or velocity that is higher than typical seasonal levels." ;
+    dcterms:source <https://en.wikipedia.org/wiki/Streamflow> ;
+    :description "May indicate flood conditions or recent precipitation events." ;
+    :possibleImpact :SpawningHabitatScour , :IncreasedSedimentation .
+
+:LowFlow a rdfs:Class ;
+    rdfs:subClassOf :WaterFlow ;
+    rdfs:label "Low Flow" ;
+    skos:definition "Stream discharge or velocity that is lower than typical seasonal levels." ;
+    dcterms:source <https://en.wikipedia.org/wiki/Streamflow> ;
+    :description "May indicate drought conditions or seasonal drying." ;
+    :possibleImpact :ReducedConnectivity , :FishPassageBarrier .
+
+:StreamObstruction a rdfs:Class ;
+    rdfs:subClassOf :StreamCondition ;
+    rdfs:label "Stream Obstruction" ;
+    skos:definition "Physical barriers or blockages impeding the natural flow of a stream." ;
+    dcterms:source <https://en.wikipedia.org/wiki/Stream_restoration#Obstructions> ;
+    :description "Includes debris jams, culvert blockages, and natural log jams." ;
+    :possibleImpact :FishPassageBarrier .
+
+:ObstructionPassability a rdfs:Class ;
+    rdfs:subClassOf :StreamObstruction ;
+    rdfs:label "Obstruction Passability" ;
+    skos:definition "Classification of a stream obstruction based on whether fish can pass it." ;
+    dcterms:source <https://en.wikipedia.org/wiki/Fish_passage> ;
+    :description "Used to record if an obstruction is passable or impassable." .
+
+:Passable a rdfs:Class ;
+    rdfs:subClassOf :ObstructionPassability ;
+    rdfs:label "Passable" ;
+    skos:definition "An obstruction that does not fully block fish movement." ;
+    dcterms:source <https://en.wikipedia.org/wiki/Fish_passage> ;
+    :description "Includes partial barriers that salmon can bypass or overcome." ;
+    :possibleImpact :ReducedConnectivity .
+
+:Impassable a rdfs:Class ;
+    rdfs:subClassOf :ObstructionPassability ;
+    rdfs:label "Impassable" ;
+    skos:definition "An obstruction that fully prevents fish movement." ;
+    dcterms:source <https://en.wikipedia.org/wiki/Fish_passage> ;
+    :description "Examples include high dams, poorly designed culverts, or large debris jams." ;
+    :possibleImpact :FishPassageBarrier , :ReducedConnectivity .
+
+:ObstructionOrigin a rdfs:Class ;
+    rdfs:subClassOf :StreamObstruction ;
+    rdfs:label "Obstruction Origin" ;
+    skos:definition "Classification of a stream obstruction based on whether it is natural or artificial." ;
+    dcterms:source <https://en.wikipedia.org/wiki/Stream_obstacle> ;
+    :description "Helps distinguish between human-made barriers and natural features." .
+
+:NaturalObstruction a rdfs:Class ;
+    rdfs:subClassOf :ObstructionOrigin ;
+    rdfs:label "Natural Obstruction" ;
+    skos:definition "An obstruction created by natural processes such as log jams, beaver dams, or landslides." ;
+    dcterms:source <https://en.wikipedia.org/wiki/Beaver_dam> ;
+    :description "Natural in origin, sometimes temporary or seasonal." ;
+    :possibleImpact :FishPassageBarrier , :IncreasedSedimentation .
+
+:ArtificialObstruction a rdfs:Class ;
+    rdfs:subClassOf :ObstructionOrigin ;
+    rdfs:label "Artificial Obstruction" ;
+    skos:definition "An obstruction resulting from human-made structures or debris, such as culverts, dams, or weirs." ;
+    dcterms:source <https://en.wikipedia.org/wiki/Fish_passage_barrier> ;
+    :description "Human-caused barriers, often persistent or requiring remediation." ;
+    :possibleImpact :FishPassageBarrier , :ReducedConnectivity .
+
+:SlopeInstability a rdfs:Class ;
+    rdfs:subClassOf :StreamCondition ;
+    rdfs:label "Slope Instability" ;
+    skos:definition "Loss of stability in stream banks or adjacent slopes leading to erosion or landslides." ;
+    dcterms:source <https://en.wikipedia.org/wiki/Landslide> ;
+    :description "May contribute sediment and alter channel morphology." .
+
+:Debris a rdfs:Class ;
+    rdfs:subClassOf :StreamCondition ;
+    rdfs:label "Debris" ;
+    skos:definition "Material such as woody debris, sediment, or human-made waste present in the stream channel." ;
+    dcterms:source <https://en.wikipedia.org/wiki/Woody_debris> ;
+    :description "Can obstruct fish passage or alter stream hydraulics." ;
+    :possibleImpact :FishPassageBarrier .
+
+:BankErosion a rdfs:Class ;
+    rdfs:subClassOf :StreamCondition ;
+    rdfs:label "Bank Erosion" ;
+    skos:definition "The wearing away of stream banks by flowing water, weather, or human activity." ;
+    dcterms:source <https://en.wikipedia.org/wiki/Bank_erosion> ;
+    :description "Often contributes sediment and reduces habitat quality." ;
+    :possibleImpact :IncreasedSedimentation .
+
+:Drought a rdfs:Class ;
+    rdfs:subClassOf :StreamCondition ;
+    rdfs:label "Drought" ;
+    skos:definition "A prolonged period of deficient water flow in streams due to low precipitation." ;
+    dcterms:source <https://en.wikipedia.org/wiki/Drought> ;
+    :description "Can reduce available habitat and impair salmon migration." ;
+    :possibleImpact :ReducedConnectivity .
+
+:Flood a rdfs:Class ;
+    rdfs:subClassOf :StreamCondition ;
+    rdfs:label "Flood" ;
+    skos:definition "Overflow of water that submerges normally dry streambanks or floodplains." ;
+    dcterms:source <https://en.wikipedia.org/wiki/Flood> ;
+    :description "Can scour habitats, displace salmon, or create new side channels." ;
+    :possibleImpact :SpawningHabitatScour .
+
+### Region hierarchy
+:Region a rdfs:Class ;
+  rdfs:label "Region" ;
+  :description "Geographic region or waterbody area relevant to salmon distribution." .
+
+:OceanBasin a rdfs:Class ;
+  rdfs:subClassOf :Region ;
+  rdfs:label "Ocean Basin" .
+
+:LandRegion a rdfs:Class ;
+  rdfs:subClassOf :Region ;
+  rdfs:label "Land Region" .
+
+:CountryOrState a rdfs:Class ;
+  rdfs:subClassOf :Region ;
+  rdfs:label "Country or State/Province" .
+
+:partOf a rdfs:Property ;
+  rdfs:label "part of" ;
+  rdfs:domain :Region ;
+  rdfs:range  :Region ;
+  :description "Hierarchy relation connecting subregions to larger regions." .
+
+:NorthPacific a :OceanBasin ; rdfs:label "North Pacific Ocean" .
+:NorthAtlantic a :OceanBasin ; rdfs:label "North Atlantic Ocean" .
+
+:NorthAmerica a :LandRegion ; rdfs:label "North America" .
+:Europe a :LandRegion ; rdfs:label "Europe" .
+:NortheastAsia a :LandRegion ; rdfs:label "Northeast Asia" .
+
+:Alaska a :CountryOrState ; rdfs:label "Alaska" ; :partOf :NorthAmerica .
+:BritishColumbia a :CountryOrState ; rdfs:label "British Columbia" ; :partOf :NorthAmerica .
+:WashingtonState a :CountryOrState ; rdfs:label "Washington State" ; :partOf :NorthAmerica .
+:California a :CountryOrState ; rdfs:label "California" ; :partOf :NorthAmerica .
+:Russia a :CountryOrState ; rdfs:label "Russia" ; :partOf :NortheastAsia .
+:Siberia a :CountryOrState ; rdfs:label "Siberia" ; :partOf :Russia .
+
+### ——— Region refinements & subregions ———
+
+### Optional subtype for estuarine areas
+:Estuary a rdfs:Class ;
+  rdfs:subClassOf :Region ;
+  rdfs:label "Estuary" ;
+  :description "Semi-enclosed coastal water body where freshwater mixes with seawater." .
+
+### Add missing admin region used below
+:Oregon a :CountryOrState ;
+  rdfs:label "Oregon" ;
+  :partOf :NorthAmerica .
+
+### Named rivers and estuary (typed as Region so species can link to them)
+:FraserRiver a :River, :Region ;
+  rdfs:label "Fraser River" ;
+  :partOf :BritishColumbia, :PacificNorthwest, :NorthAmerica, :NorthPacific ;
+  :flowsInto :StraitOfGeorgia ;
+  :description "Major river in British Columbia draining to the Strait of Georgia." .
+
+:ColumbiaRiver a :River, :Region ;
+  rdfs:label "Columbia River" ;
+  :partOf :BritishColumbia, :WashingtonState, :Oregon, :PacificNorthwest, :NorthAmerica, :NorthPacific ;
+  :flowsInto :PacificOcean ;
+  :description "Transboundary river flowing from BC through WA/OR to the Pacific." .
+
+:PugetSound a :Estuary ;
+  rdfs:label "Puget Sound" ;
+  :partOf :WashingtonState, :PacificNorthwest, :NorthAmerica, :NorthPacific ;
+  :description "Large estuarine system in Washington State connected to the Salish Sea." .
+
+:PacificNorthwest a :LandRegion ;
+  rdfs:label "Pacific Northwest" ;
+  :partOf :NorthAmerica ;
+  :description "Cultural and biogeographic region of western North America including parts of British Columbia, Washington, and Oregon." .
+
+:StraitOfGeorgia a :Estuary ;
+  rdfs:label "Strait of Georgia" ;
+  :partOf :BritishColumbia, :PacificNorthwest, :NorthAmerica, :NorthPacific .
+
+:PacificOcean a :OceanBasin ; rdfs:label "Pacific Ocean" .
+
+### —— Waterbody identifiers (separate records) ——
+:WaterbodyIdentifier a rdfs:Class ;
+  rdfs:label "Waterbody Identifier" ;
+  :description "Administrative/registry record for a waterbody (codes, schemes, authority, validity)." .
+
+:hasIdentifier a rdfs:Property ;
+  rdfs:label "has identifier" ;
+  rdfs:domain :Environmental ;
+  rdfs:range  :WaterbodyIdentifier ;
+  :description "Links a waterbody/environmental feature to one or more identifier records." .
+
+:identifierCode a rdfs:DatatypeProperty ;
+  rdfs:label "identifier code" ;
+  rdfs:domain :WaterbodyIdentifier ;
+  rdfs:range  xsd:string ;
+  :description "The code or ID string assigned by the scheme/authority." .
+
+:identifierScheme a rdfs:DatatypeProperty ;
+  rdfs:label "identifier scheme" ;
+  rdfs:domain :WaterbodyIdentifier ;
+  rdfs:range  xsd:string ;
+  :description "Name of the coding system (e.g., 'BC Watershed Code', 'Federal Waterbody ID')." .
+
+:issuingAuthority a rdfs:DatatypeProperty ;
+  rdfs:label "issuing authority" ;
+  rdfs:domain :WaterbodyIdentifier ;
+  rdfs:range  xsd:string ;
+  :description "Organization or agency that issued the identifier." .
+
+:validFrom a rdfs:DatatypeProperty ;
+  rdfs:label "valid from" ;
+  rdfs:domain :WaterbodyIdentifier ;
+  rdfs:range  xsd:date ;
+  :description "Date on which the identifier became valid (if known)." .
+
+:validTo a rdfs:DatatypeProperty ;
+  rdfs:label "valid to" ;
+  rdfs:domain :WaterbodyIdentifier ;
+  rdfs:range  xsd:date ;
+  :description "Date on which the identifier ceased to be valid (if applicable)." .
+
+### Optional citation link for the identifier record
+:identifierSource a rdfs:DatatypeProperty ;
+  rdfs:label "identifier source (URL)" ;
+  rdfs:domain :WaterbodyIdentifier ;
+  rdfs:range  xsd:anyURI ;
+  :description "Link to registry entry or documentation for the identifier." .
+
+### —— Names & geolocation on Environmental features ——
+:officialName a rdfs:DatatypeProperty ;
+  rdfs:label "official name" ;
+  rdfs:domain :Environmental ;
+  rdfs:range  xsd:string ;
+  :description "Officially recognized name for the feature." .
+
+:localName a rdfs:DatatypeProperty ;
+  rdfs:label "local name" ;
+  rdfs:domain :Environmental ;
+  rdfs:range  xsd:string ;
+  :description "Locally used name (colloquial/traditional)." .
+
+# Alternative names can also reuse SKOS altLabel (string list)
+# geo:lat and geo:long (WGS84) for a representative coordinate/centroid
+#   geo:lat / geo:long ranges are xsd:decimal
+
+### —— Hydrologic connectivity ——
+:flowsInto a rdfs:Property ;
+  rdfs:label "flows into" ;
+  rdfs:domain :Environmental ;
+  rdfs:range  :Environmental ;
+  :description "Downstream connectivity: this waterbody flows into the target waterbody." .
+
+### —— Minimal targets to connect to ——
+:PacificOcean a :OceanBasin ; rdfs:label "Pacific Ocean" .
+:StraitOfGeorgia a :Estuary ;
+  rdfs:label "Strait of Georgia" ;
+  :partOf :NorthPacific, :BritishColumbia, :PacificNorthwest .
+
+### —— Worked examples (multiple identifiers + names + coords + connectivity) ——
+
+:FraserRiver a :River, :Region ;
+  rdfs:label "Fraser River" ;
+  :officialName "Fraser River" ;
+  skos:altLabel "Fraser" ;
+  :localName "Fraser (mainstem)" ;
+  geo:lat 49.2 ;            # representative centroid (example)
+  geo:long -122.8 ;         # representative centroid (example)
+  :partOf :BritishColumbia, :PacificNorthwest, :NorthAmerica, :NorthPacific ;
+  :flowsInto :StraitOfGeorgia ;
+  :hasIdentifier :Fraser_WSBC_ID , :Fraser_Federal_ID .
+
+:Fraser_WSBC_ID a :WaterbodyIdentifier ;
+  rdfs:label "Fraser River — BC Watershed Code" ;
+  :identifierCode "WSBC-900-123456" ;
+  :identifierScheme "BC Watershed Code" ;
+  :issuingAuthority "Province of British Columbia" ;
+  :identifierSource "https://example.gov.bc.ca/watershed/WSBC-900-123456"^^xsd:anyURI ;
+  :validFrom "2001-01-01"^^xsd:date .
+
+:Fraser_Federal_ID a :WaterbodyIdentifier ;
+  rdfs:label "Fraser River — Federal Waterbody ID" ;
+  :identifierCode "FED-WB-CA-000001" ;
+  :identifierScheme "Federal Waterbody Registry" ;
+  :issuingAuthority "Government of Canada" ;
+  :identifierSource "https://example.canada.ca/waterbodies/FED-WB-CA-000001"^^xsd:anyURI .
+
+:ColumbiaRiver a :River, :Region ;
+  rdfs:label "Columbia River" ;
+  :officialName "Columbia River" ;
+  skos:altLabel "Columbia" ;
+  geo:lat 46.2 ;
+  geo:long -123.6 ;
+  :partOf :BritishColumbia, :WashingtonState, :Oregon, :PacificNorthwest, :NorthAmerica, :NorthPacific ;
+  :flowsInto :PacificOcean ;
+  :hasIdentifier :Columbia_State_ID .
+
+:Columbia_State_ID a :WaterbodyIdentifier ;
+  rdfs:label "Columbia River — State Waterbody ID" ;
+  :identifierCode "WA-OR-WB-778899" ;
+  :identifierScheme "State Waterbody Index" ;
+  :issuingAuthority "WA Dept. of Ecology / OR DEQ" .

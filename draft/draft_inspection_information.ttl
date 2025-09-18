@@ -1,0 +1,297 @@
+@prefix :        <http://example.org/salmon-inspections#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ro:      <http://purl.obolibrary.org/obo/RO_> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix geo:     <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+
+### ——— Inspection branch ———
+
+:Inspection a rdfs:Class ;
+  rdfs:label "Inspection" ;
+  :description "A single field observation event capturing methods, counts, time, and observations." .
+
+:InspectionMethod a rdfs:Class ;
+  rdfs:label "Inspection Method" ;
+  :description "Controlled list of methods (e.g., visual survey, snorkel, drone, eDNA)." .
+
+:hasMethod a rdfs:Property ;
+  rdfs:label "has method" ;
+  rdfs:domain :Inspection ;
+  rdfs:range  :InspectionMethod ;
+  :description "Links an inspection event to the method used." .
+
+:observedAtWaterBody a rdfs:Property ;
+  rdfs:label "observed at water body" ;
+  rdfs:domain :Inspection ;
+  rdfs:range  :Environmental ;
+  :description "Water body type/location associated with the inspection." .
+
+:observedSalmonAspect a rdfs:Property ;
+  rdfs:label "observed salmon aspect" ;
+  rdfs:domain :Inspection ;
+  rdfs:range  :Salmon ;
+  :description "Which salmon-related concept was observed (e.g., Redd, Jack, PredatorObservation)." .
+
+:observedCondition a rdfs:Property ;
+  rdfs:label "observed condition" ;
+  rdfs:domain :Inspection ;
+  rdfs:range  :StreamCondition ;
+  :description "Environmental condition(s) observed during the inspection (e.g., LowFlow, StreamObstruction)." .
+
+:fishCount a rdfs:DatatypeProperty ;
+  rdfs:label "fish count" ;
+  rdfs:domain :Inspection ;
+  rdfs:range  xsd:integer ;
+  :description "Total number of fish observed (or method-specific count)." .
+
+:inspectionTime a rdfs:DatatypeProperty ;
+  rdfs:label "inspection time" ;
+  rdfs:domain :Inspection ;
+  rdfs:range  xsd:dateTime ;
+  :description "Timestamp for the observation." .
+
+:notes a rdfs:DatatypeProperty ;
+  rdfs:label "notes" ;
+  rdfs:domain :Inspection ;
+  rdfs:range  xsd:string ;
+  :description "Free-text notes captured during the inspection." .
+
+### ——— Inspection Methods: Ground vs Aerial ———
+
+:GroundMethod a rdfs:Class ;
+  rdfs:subClassOf :InspectionMethod ;
+  rdfs:label "Ground-based Method" ;
+  :description "Methods conducted from the ground or water surface at site level." .
+
+:AerialMethod a rdfs:Class ;
+  rdfs:subClassOf :InspectionMethod ;
+  rdfs:label "Aerial Method" ;
+  :description "Methods conducted from aircraft for wide-area or rapid assessment." .
+
+### Ground methods
+:Bankwalk a rdfs:Class ;
+  rdfs:subClassOf :GroundMethod ;
+  rdfs:label "Bankwalk" ;
+  :description "Observers walk stream banks recording salmon, redds, and conditions." .
+
+:StreamWalk a rdfs:Class ;
+  rdfs:subClassOf :GroundMethod ;
+  rdfs:label "Stream Walk" ;
+  :description "Wading or along-channel walking to observe fish and habitat." .
+
+:SnorkelSurvey a rdfs:Class ;
+  rdfs:subClassOf :GroundMethod ;
+  rdfs:label "Snorkel" ;
+  :description "In-water snorkeling to enumerate/identify fish and assess habitat." .
+
+:BoatSurvey a rdfs:Class ;
+  rdfs:subClassOf :GroundMethod ;
+  rdfs:label "Boat Survey" ;
+  :description "Boat-based visual survey of reaches unsuitable for walking/snorkel." .
+
+:ReddCount a rdfs:Class ;
+  rdfs:subClassOf :GroundMethod ;
+  rdfs:label "Redd Count" ;
+  :description "Standardized enumeration of redds within defined reaches." .
+
+:DeadPitch a rdfs:Class ;
+  rdfs:subClassOf :GroundMethod ;
+  rdfs:label "Dead Pitch" ;
+  :description "Carcass (dead fish) tally used for escapement or mortality assessment." .
+
+:StripCount a rdfs:Class ;
+  rdfs:subClassOf rdfs:Class ;
+  rdfs:subClassOf :GroundMethod ;
+  rdfs:label "Strip Count" ;
+  :description "Visual count along a fixed-width strip/transect for index estimates." .
+
+:FenceCount a rdfs:Class ;
+  rdfs:subClassOf :GroundMethod ;
+  rdfs:label "Fence Count" ;
+  :description "Enumeration at fish fence/weir (passage structure) over time." .
+
+### Aerial methods
+:AerialFixedWing a rdfs:Class ;
+  rdfs:subClassOf :AerialMethod ;
+  rdfs:label "Fixed-wing Aerial Survey" ;
+  :description "Aircraft-based visual survey of channels or shorelines." .
+
+:AerialHelicopter a rdfs:Class ;
+  rdfs:subClassOf:AerialMethod ;
+  rdfs:label "Helicopter Aerial Survey" ;
+  :description "Low-altitude helicopter survey for detailed counts/conditions." .
+
+### (Optional) align earlier example to Ground
+:VisualSurvey a rdfs:Class ;
+  rdfs:subClassOf :GroundMethod ;
+  rdfs:label "Visual Survey" .
+
+### Example waterbody instance (inspection site as a Creek)
+:MistyCreek_SiteA a :Creek ;
+  rdfs:label "Misty Creek – Site A" .
+
+### ——— Inspection Details branch ———
+
+:InspectionDetails a rdfs:Class ;
+  rdfs:label "Inspection Details" ;
+  :description "Controlled vocabularies, roles, and metadata used to describe inspection events." .
+
+### Core vocab buckets
+:InspectionMethod a rdfs:Class ;
+  rdfs:subClassOf :InspectionDetails ;
+  rdfs:label "Inspection Method" ;
+  :description "Standardized methods (e.g., visual survey, snorkel, drone, eDNA)." .
+
+:DetectionMethod a rdfs:Class ;
+  rdfs:subClassOf :InspectionDetails ;
+  rdfs:label "Detection Method" ;
+  :description "How organisms/evidence were detected (visual, acoustic, imagery, eDNA)." .
+
+:Gear a rdfs:Class ;
+  rdfs:subClassOf :InspectionDetails ;
+  rdfs:label "Gear" ;
+  :description "Equipment used during inspection (e.g., camera, drone, GPS, waders)." .
+
+:Protocol a rdfs:Class ;
+  rdfs:subClassOf :InspectionDetails ;
+  rdfs:label "Protocol" ;
+  :description "Survey/recording standards or SOPs followed." .
+
+:CountType a rdfs:Class ;
+  rdfs:subClassOf :InspectionDetails ;
+  rdfs:label "Count Type" ;
+  :description "How counts were interpreted (absolute census vs. index/estimate)." .
+
+:EffortUnit a rdfs:Class ;
+  rdfs:subClassOf :InspectionDetails ;
+  rdfs:label "Effort Unit" ;
+  :description "Units for standardizing effort (e.g., hours, km, site-visits)." .
+
+:MediaObject a rdfs:Class ;
+  rdfs:subClassOf :InspectionDetails ;
+  rdfs:label "Media Object" ;
+  :description "Photos, videos, audio, or documents linked to an inspection." .
+
+:Person a rdfs:Class ;
+  rdfs:subClassOf :InspectionDetails ;
+  rdfs:label "Person" ;
+  :description "Individual participating in the inspection (observer, reviewer, etc.)." .
+
+:Organization a rdfs:Class ;
+  rdfs:subClassOf :InspectionDetails ;
+  rdfs:label "Organization" ;
+  :description "Affiliation responsible for or participating in inspections." .
+
+:Role a rdfs:Class ;
+  rdfs:subClassOf :InspectionDetails ;
+  rdfs:label "Role" ;
+  :description "Functional role in the inspection workflow (Observer, Lead, QA Reviewer)." .
+
+:Permit a rdfs:Class ;
+  rdfs:subClassOf :InspectionDetails ;
+  rdfs:label "Permit" ;
+  :description "Authorization or permit applicable to the inspection." .
+
+:DataQualityFlag a rdfs:Class ;
+  rdfs:subClassOf :InspectionDetails ;
+  rdfs:label "Data Quality Flag" ;
+  :description "Curation status of the record (e.g., Provisional, Verified, Corrected)." .
+
+### Link properties from Inspection → these details
+:hasMethod a rdfs:Property ;
+  rdfs:label "has method" ;
+  rdfs:domain :Inspection ;
+  rdfs:range  :InspectionMethod ;
+  :description "Links an inspection to a standardized method." .
+
+:usedDetection a rdfs:Property ;
+  rdfs:label "used detection" ;
+  rdfs:domain :Inspection ;
+  rdfs:range  :DetectionMethod ;
+  :description "Detection approach used to observe salmon/evidence." .
+
+:usedGear a rdfs:Property ;
+  rdfs:label "used gear" ;
+  rdfs:domain :Inspection ;
+  rdfs:range  :Gear ;
+  :description "Equipment used during the inspection." .
+
+:followedProtocol a rdfs:Property ;
+  rdfs:label "followed protocol" ;
+  rdfs:domain :Inspection ;
+  rdfs:range  :Protocol ;
+  :description "Survey/SOP reference followed." .
+
+:countType a rdfs:Property ;
+  rdfs:label "count type" ;
+  rdfs:domain :Inspection ;
+  rdfs:range  :CountType ;
+  :description "Indicates whether counts are absolute, indexed, estimated, etc." .
+
+:effortValue a rdfs:DatatypeProperty ;
+  rdfs:label "effort value" ;
+  rdfs:domain :Inspection ;
+  rdfs:range  xsd:decimal ;
+  :description "Numeric effort magnitude (e.g., 2.5)." .
+
+:effortUnit a rdfs:Property ;
+  rdfs:label "effort unit" ;
+  rdfs:domain :Inspection ;
+  rdfs:range  :EffortUnit ;
+  :description "The unit that qualifies effortValue (hours, km, site-visits)." .
+
+:observer a rdfs:Property ;
+  rdfs:label "observer" ;
+  rdfs:domain :Inspection ;
+  rdfs:range  :Person ;
+  :description "Primary person who made the observation(s)." .
+
+:actedAs a rdfs:Property ;
+  rdfs:label "acted as" ;
+  rdfs:domain :Person ;
+  rdfs:range  :Role ;
+  :description "Role fulfilled by a specific person in the inspection." .
+
+:affiliatedWith a rdfs:Property ;
+  rdfs:label "affiliated with" ;
+  rdfs:domain :Person ;
+  rdfs:range  :Organization ;
+  :description "Person’s organizational affiliation for the inspection." .
+
+:hasPermit a rdfs:Property ;
+  rdfs:label "has permit" ;
+  rdfs:domain :Inspection ;
+  rdfs:range  :Permit ;
+  :description "Permit under which the inspection was conducted." .
+
+:mediaAttached a rdfs:Property ;
+  rdfs:label "media attached" ;
+  rdfs:domain :Inspection ;
+  rdfs:range  :MediaObject ;
+  :description "Media linked to the inspection (photos/videos/docs)." .
+
+:qualityFlag a rdfs:Property ;
+  rdfs:label "quality flag" ;
+  rdfs:domain :Inspection ;
+  rdfs:range  :DataQualityFlag ;
+  :description "Curation status of the inspection record." .
+
+### Minimal seed instances (optional; keep light)
+:VisualSurvey a :InspectionMethod ; rdfs:label "Visual Survey" .
+:Hours a :EffortUnit ; rdfs:label "Hours" .
+:Census a :CountType ; rdfs:label "Census (Absolute Count)" .
+:IndexCount a :CountType ; rdfs:label "Index (Relative Count)" .
+:Observer a :Role ; rdfs:label "Observer" .
+:QAReviewer a :Role ; rdfs:label "QA Reviewer" .
+
+### Example inspection event (complete demo record)
+:Inspection_2025-08-21_MistyCreekA a :Inspection ;
+  :hasMethod :VisualSurvey ;
+  :observedAtWaterBody :MistyCreek_SiteA ;
+  :observedSalmonAspect :Redd , :BearPredator ;
+  :observedCondition :LowFlow , :NaturalObstruction ;
+  :fishCount 42 ;
+  :inspectionTime "2025-08-21T09:30:00-07:00"^^xsd:dateTime ;
+  :notes "Two active redds; bear foraging on carcasses near riffle; visibility fair; culvert intact." .
