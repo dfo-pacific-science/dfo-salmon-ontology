@@ -1,0 +1,118 @@
+@prefix dfo:     <https://w3id.org/dfo/salmon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh:      <http://www.w3.org/ns/shacl#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix :        <https://w3id.org/dfo/salmon#> .
+
+#################################################################
+# SHACL Shapes for DFO Salmon Ontology
+# Validation rules for data quality
+#################################################################
+
+<https://w3id.org/dfo/salmon/shapes> a owl:Ontology ;
+  rdfs:label "DFO Salmon Ontology SHACL Shapes"@en ;
+  rdfs:comment "SHACL validation shapes for DFO Salmon Ontology data quality"@en ;
+  owl:imports <https://w3id.org/dfo/salmon> .
+
+#################################################################
+# General Survey Event Validation
+#################################################################
+
+:SurveyEventShape a sh:NodeShape ;
+    sh:targetClass dfo:EscapementSurveyEvent ;
+    sh:property [
+        sh:path dfo:usesEnumerationMethod ;
+        sh:minCount 1 ;
+        sh:message "Survey must specify an enumeration method"
+    ] ;
+    sh:property [
+        sh:path dfo:usesEstimateMethod ;
+        sh:minCount 1 ;
+        sh:message "Survey must specify an estimate method"
+    ] ;
+    sh:property [
+        sh:path dfo:measuredVisits ;
+        sh:datatype xsd:integer ;
+        sh:minInclusive 1 ;
+        sh:message "Number of visits must be a positive integer"
+    ] ;
+    sh:property [
+        sh:path dfo:measuredReachCoverage ;
+        sh:datatype xsd:decimal ;
+        sh:minInclusive 0.0 ;
+        sh:maxInclusive 1.0 ;
+        sh:message "Reach coverage must be between 0.0 and 1.0"
+    ] ;
+    sh:property [
+        sh:path dfo:measuredVisibility ;
+        sh:in ( "Excellent" "Good" "Fair" "Poor" ) ;
+        sh:message "Visibility must be one of: Excellent, Good, Fair, Poor"
+    ] .
+
+#################################################################
+# Snorkel Survey Specific Validation
+#################################################################
+
+:SnorkelSurveyShape a sh:NodeShape ;
+    sh:targetClass dfo:EscapementSurveyEvent ;
+    sh:property [
+        sh:path dfo:usesEnumerationMethod ;
+        sh:hasValue :VisualSnorkelCount ;
+        sh:message "Snorkel surveys must use VisualSnorkelCount method"
+    ] ;
+    sh:property [
+        sh:path dfo:measuredObserverEfficiency ;
+        sh:datatype xsd:decimal ;
+        sh:minInclusive 0.0 ;
+        sh:maxInclusive 1.0 ;
+        sh:message "Observer efficiency must be between 0.0 and 1.0"
+    ] ;
+    sh:property [
+        sh:path dfo:percentRiverSwam ;
+        sh:datatype xsd:decimal ;
+        sh:minInclusive 0.0 ;
+        sh:maxInclusive 100.0 ;
+        sh:message "Percent river swam must be between 0.0 and 100.0"
+    ] .
+
+#################################################################
+# Aerial Survey Specific Validation
+#################################################################
+
+:AerialSurveyShape a sh:NodeShape ;
+    sh:targetClass dfo:EscapementSurveyEvent ;
+    sh:property [
+        sh:path dfo:usesEnumerationMethod ;
+        sh:hasValue :AerialSurveyCount ;
+        sh:message "Aerial surveys must use AerialSurveyCount method"
+    ] .
+
+#################################################################
+# Measurement Validation
+#################################################################
+
+:MeasurementShape a sh:NodeShape ;
+    sh:targetClass dfo:EscapementMeasurement ;
+    sh:property [
+        sh:path dfo:aboutStock ;
+        sh:minCount 1 ;
+        sh:message "Measurement must be about a stock"
+    ] ;
+    sh:property [
+        sh:path dfo:observedDuring ;
+        sh:minCount 1 ;
+        sh:message "Measurement must be observed during a survey event"
+    ] ;
+    sh:property [
+        sh:path dfo:countValue ;
+        sh:datatype xsd:integer ;
+        sh:minInclusive 0 ;
+        sh:message "Count value must be a non-negative integer"
+    ] ;
+    sh:property [
+        sh:path dfo:countUnitIRI ;
+        sh:datatype xsd:anyURI ;
+        sh:message "Count unit must be a valid IRI"
+    ] .

@@ -1,0 +1,128 @@
+@prefix dfo:     <https://w3id.org/dfo/salmon#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix dwc:     <http://rs.tdwg.org/dwc/terms/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix :        <https://w3id.org/dfo/salmon#> .
+
+#################################################################
+# Sample Survey Data for Testing
+# This file contains instance data (not schema)
+#################################################################
+
+# Sample Stock
+:SkeenaSockeyeStock a dfo:Stock ;
+    rdfs:label "Skeena Sockeye Stock"@en ;
+    dfo:taxonIRI <http://www.gbif.org/species/2447516> .
+
+# Sample Conservation Unit
+:SkeenaSockeyeCU a dfo:ConservationUnit ;
+    rdfs:label "Skeena Sockeye Conservation Unit"@en .
+
+# Sample Management Unit
+:SkeenaMU a dfo:StockManagementUnit ;
+    rdfs:label "Skeena Management Unit"@en .
+
+# Sample Survey Event 1: Snorkel Survey (Type 2)
+:SkeenaSnorkel2022_001 a dfo:EscapementSurveyEvent ;
+    rdfs:label "Skeena Snorkel Survey 2022-001"@en ;
+    dfo:usesEnumerationMethod :VisualSnorkelCount ;
+    dfo:usesEstimateMethod :AreaUnderTheCurve ;
+    dfo:measuredVisits 6 ;
+    dfo:measuredReachCoverage 0.85 ;
+    dfo:measuredVisibility "Good" ;
+    dfo:measuredObserverEfficiency 0.8 ;
+    dfo:percentRiverSwam 75.0 ;
+    dfo:hasDocumentation :SIL_2022_001 ;
+    dfo:hasQAReport :QA_2022_001 ;
+    dwc:eventDate "2022-08-15"^^xsd:date ;
+    dwc:samplingProtocol :DFOSnorkelProtocol .
+
+# Sample Survey Event 2: Snorkel Survey (Type 3)
+:SkeenaSnorkel2022_002 a dfo:EscapementSurveyEvent ;
+    rdfs:label "Skeena Snorkel Survey 2022-002"@en ;
+    dfo:usesEnumerationMethod :VisualSnorkelCount ;
+    dfo:usesEstimateMethod :PeakCountAnalysis ;
+    dfo:measuredVisits 4 ;
+    dfo:measuredReachCoverage 0.65 ;
+    dfo:measuredVisibility "Fair" ;
+    dfo:measuredObserverEfficiency 0.7 ;
+    dfo:percentRiverSwam 60.0 ;
+    dfo:hasDocumentation :SIL_2022_002 ;
+    dwc:eventDate "2022-08-20"^^xsd:date ;
+    dwc:samplingProtocol :DFOSnorkelProtocol .
+
+# Sample Survey Event 3: Aerial Survey (Type 3)
+:SkeenaAerial2022_001 a dfo:EscapementSurveyEvent ;
+    rdfs:label "Skeena Aerial Survey 2022-001"@en ;
+    dfo:usesEnumerationMethod :AerialSurveyCount ;
+    dfo:usesEstimateMethod :PeakCountAnalysis ;
+    dfo:measuredVisits 3 ;
+    dfo:measuredReachCoverage 0.90 ;
+    dfo:measuredVisibility "Excellent" ;
+    dwc:eventDate "2022-08-25"^^xsd:date ;
+    dwc:samplingProtocol :DFOAerialProtocol .
+
+# Sample Survey Event 4: Snorkel Survey (Type 4 - low visits)
+:SkeenaSnorkel2022_003 a dfo:EscapementSurveyEvent ;
+    rdfs:label "Skeena Snorkel Survey 2022-003"@en ;
+    dfo:usesEnumerationMethod :VisualSnorkelCount ;
+    dfo:usesEstimateMethod :PeakCountAnalysis ;
+    dfo:measuredVisits 2 ;
+    dfo:measuredReachCoverage 0.40 ;
+    dfo:measuredVisibility "Poor" ;
+    dfo:measuredObserverEfficiency 0.6 ;
+    dfo:percentRiverSwam 30.0 ;
+    dwc:eventDate "2022-08-30"^^xsd:date ;
+    dwc:samplingProtocol :DFOSnorkelProtocol .
+
+# Sample Survey Event 5: Missing documentation (should trigger DOC downgrade)
+:SkeenaSnorkel2022_004 a dfo:EscapementSurveyEvent ;
+    rdfs:label "Skeena Snorkel Survey 2022-004"@en ;
+    dfo:usesEnumerationMethod :VisualSnorkelCount ;
+    dfo:usesEstimateMethod :PeakCountAnalysis ;
+    dfo:measuredVisits 5 ;
+    dfo:measuredReachCoverage 0.80 ;
+    dfo:measuredVisibility "Good" ;
+    dfo:measuredObserverEfficiency 0.8 ;
+    dfo:percentRiverSwam 70.0 ;
+    dwc:eventDate "2022-09-01"^^xsd:date ;
+    dwc:samplingProtocol :DFOSnorkelProtocol .
+
+# Sample Measurements
+:SkeenaCount2022_001 a dfo:EscapementMeasurement ;
+    rdfs:label "Skeena Count 2022-001"@en ;
+    dfo:aboutStock :SkeenaSockeyeStock ;
+    dfo:observedDuring :SkeenaSnorkel2022_001 ;
+    dfo:countValue 1250 ;
+    dfo:countUnitIRI <http://qudt.org/vocab/unit/Each> .
+
+:SkeenaCount2022_002 a dfo:EscapementMeasurement ;
+    rdfs:label "Skeena Count 2022-002"@en ;
+    dfo:aboutStock :SkeenaSockeyeStock ;
+    dfo:observedDuring :SkeenaSnorkel2022_002 ;
+    dfo:countValue 980 ;
+    dfo:countUnitIRI <http://qudt.org/vocab/unit/Each> .
+
+# Sample Documentation
+:SIL_2022_001 a dcterms:Document ;
+    rdfs:label "SIL 2022-001"@en ;
+    dcterms:title "Survey Information Log 2022-001"@en .
+
+:SIL_2022_002 a dcterms:Document ;
+    rdfs:label "SIL 2022-002"@en ;
+    dcterms:title "Survey Information Log 2022-002"@en .
+
+:QA_2022_001 a dcterms:Document ;
+    rdfs:label "QA 2022-001"@en ;
+    dcterms:title "Quality Assurance Report 2022-001"@en .
+
+# Sample Protocols
+:DFOSnorkelProtocol a dcterms:Standard ;
+    rdfs:label "DFO Snorkel Protocol"@en ;
+    dcterms:title "DFO Standard Snorkel Survey Protocol"@en .
+
+:DFOAerialProtocol a dcterms:Standard ;
+    rdfs:label "DFO Aerial Protocol"@en ;
+    dcterms:title "DFO Standard Aerial Survey Protocol"@en .

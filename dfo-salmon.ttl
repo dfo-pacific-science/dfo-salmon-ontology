@@ -9,6 +9,9 @@
 @prefix dwciri:  <http://rs.tdwg.org/dwc/iri/> .
 @prefix unit:    <http://qudt.org/vocab/unit/> .
 @prefix qudt:    <http://qudt.org/schema/qudt/> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix oboInOwl: <http://www.geneontology.org/formats/oboInOwl#> .
+@prefix :        <https://w3id.org/dfo/salmon#> .
 
 #################################################################
 # Ontology header
@@ -22,11 +25,177 @@
   dcterms:publisher "Fisheries and Oceans Canada (DFO) — Pacific Region Science Branch"@en ;
   dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
   dcterms:created "2025-09-06"^^xsd:date ;
-  dcterms:description "Single-file, OWL-only ontology for DFO salmon data: stocks/CUs/MUs, survey events, escapement measurements, and GSI constructs; aligns to DwC via rdfs:subClassOf; external alignments initially as literal IRIs."@en ;
+  dcterms:description "OWL + SKOS ontology for DFO salmon data: stocks/CUs/MUs, survey events, escapement measurements, and GSI constructs; aligns to DwC via rdfs:subClassOf; hybrid approach with SKOS for methods and OWL for events."@en ;
   rdfs:seeAlso <https://github.com/dfo-pacific-science/salmon-ontology> ;
-  owl:versionInfo "0.1.0 (single-file, OWL-only)" ;
-  owl:versionIRI <https://w3id.org/dfo/salmon/0.1.0> ;
-  rdfs:comment "Single-file, OWL-only ontology for DFO salmon data. Aligns to Darwin Core classes via rdfs:subClassOf. No SKOS."@en .
+  owl:versionInfo "0.2.0 (hybrid OWL+SKOS approach)" ;
+  owl:versionIRI <https://w3id.org/dfo/salmon/0.2.0> ;
+  rdfs:comment "Hybrid OWL+SKOS ontology for DFO salmon data. Uses SKOS for controlled vocabularies (methods, criteria) and OWL for formal relationships and events."@en .
+
+#################################################################
+# SKOS Schemes for Controlled Vocabularies
+#################################################################
+
+:EnumerationMethodScheme a skos:ConceptScheme ;
+    skos:prefLabel "Enumeration Method Scheme"@en ;
+    skos:definition "Controlled vocabulary for salmon enumeration methods"@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+:EstimateMethodScheme a skos:ConceptScheme ;
+    skos:prefLabel "Estimate Method Scheme"@en ;
+    skos:definition "Controlled vocabulary for salmon estimate methods"@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+:DowngradeCriteriaScheme a skos:ConceptScheme ;
+    skos:prefLabel "Downgrade Criteria Scheme"@en ;
+    skos:definition "Controlled vocabulary for estimate type downgrade criteria"@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+:EstimateTypeScheme a skos:ConceptScheme ;
+    skos:prefLabel "Estimate Type Scheme"@en ;
+    skos:definition "Controlled vocabulary for Hyatt 1997 estimate types"@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+#################################################################
+# SKOS Enumeration Methods (from escapement_estimate_type_guidance.txt)
+#################################################################
+
+:CensusByManualCountAtFixedSite a skos:Concept ;
+    skos:prefLabel "Census by Manual Count at Fixed Site"@en ;
+    skos:definition "Salmon are guided through a controlled opening in a fence/weir where trained observers visually tally each passage event on a continuous or daily schedule. Counting chambers/windows and SIL/SEN daily logs document coverage; bypass routes are monitored and closed where possible."@en ;
+    skos:inScheme :EnumerationMethodScheme ;
+    skos:broader :EnumerationMethod ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+:VisualSnorkelCount a skos:Concept ;
+    skos:prefLabel "Visual Snorkel Count"@en ;
+    skos:definition "Two or more trained snorkelers conduct standardized passes within defined segments, tallying live/dead by species. Field forms capture visibility class, segment boundaries, and repeat‑visit schedule; counts are aggregated across observers/passes."@en ;
+    skos:inScheme :EnumerationMethodScheme ;
+    skos:broader :EnumerationMethod ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+:AerialSurveyCount a skos:Concept ;
+    skos:prefLabel "Aerial Survey Count"@en ;
+    skos:definition "Repeated overflights enumerate visible spawners over defined waterbodies using helicopter fixed wing or drone platforms. Flight lines altitude sensor settings and ground sampling distance are documented and imagery may be reviewed post flight."@en ;
+    skos:inScheme :EnumerationMethodScheme ;
+    skos:broader :EnumerationMethod ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+:EnumerationMethod a skos:Concept ;
+    skos:prefLabel "Enumeration Method"@en ;
+    skos:definition "A method used to enumerate or count salmon in the field"@en ;
+    skos:inScheme :EnumerationMethodScheme ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+#################################################################
+# SKOS Estimate Methods (from escapement_estimate_type_guidance.txt)
+#################################################################
+
+:FixedStationTally a skos:Concept ;
+    skos:prefLabel "Fixed‑Station Tally"@en ;
+    skos:definition "Seasonal total = roll‑up of daily/continuous counts from a fixed (non‑sonar) station; simple arithmetic with documented coverage."@en ;
+    skos:inScheme :EstimateMethodScheme ;
+    skos:broader :EstimateMethod ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+:AreaUnderTheCurve a skos:Concept ;
+    skos:prefLabel "Area Under the Curve (AUC)"@en ;
+    skos:definition "Integrates serial counts over time using a survey‑life parameter; may apply observer efficiency."@en ;
+    skos:inScheme :EstimateMethodScheme ;
+    skos:broader :EstimateMethod ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+:PeakCountAnalysis a skos:Concept ;
+    skos:prefLabel "Peak Count Analysis"@en ;
+    skos:definition "Uses the peak survey (live ± dead variants) as the season estimate/index."@en ;
+    skos:inScheme :EstimateMethodScheme ;
+    skos:broader :EstimateMethod ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+:EstimateMethod a skos:Concept ;
+    skos:prefLabel "Estimate Method"@en ;
+    skos:definition "A method used to analyze and estimate salmon abundance from enumeration data"@en ;
+    skos:inScheme :EstimateMethodScheme ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+#################################################################
+# SKOS Downgrade Criteria (from escapement_estimate_type_guidance.txt)
+#################################################################
+
+:VISITS a skos:Concept ;
+    skos:prefLabel "Number of visits"@en ;
+    skos:definition "Too few site visits for the claimed precision tier (e.g., <5 for high‑effort visual programs)."@en ;
+    skos:inScheme :DowngradeCriteriaScheme ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+:REACH_COVERAGE a skos:Concept ;
+    skos:prefLabel "Spatial coverage"@en ;
+    skos:definition "Fraction of intended reaches/segments not surveyed."@en ;
+    skos:inScheme :DowngradeCriteriaScheme ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+:VISIBILITY a skos:Concept ;
+    skos:prefLabel "Visibility/turbidity/lighting"@en ;
+    skos:definition "Poor water clarity, glare, or lighting limits detection (visual/video/sonar)."@en ;
+    skos:inScheme :DowngradeCriteriaScheme ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+:DOC a skos:Concept ;
+    skos:prefLabel "Documentation/Evidence"@en ;
+    skos:definition "Missing/insufficient SIL/SEN/field notes/parameter records to support the claimed Type."@en ;
+    skos:inScheme :DowngradeCriteriaScheme ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+#################################################################
+# SKOS Estimate Types (Hyatt 1997)
+#################################################################
+
+:Type1 a skos:Concept ;
+    skos:prefLabel "Type-1, True Abundance, high resolution"@en ;
+    skos:definition "Total, seasonal counts through fence or fishway; virtually no bypass. Simple, often single step analysis. Reliable resolution of between year differences >10% (in absolute units)."@en ;
+    skos:inScheme :EstimateTypeScheme ;
+    skos:broader :EstimateType ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+:Type2 a skos:Concept ;
+    skos:prefLabel "Type-2, True Abundance, medium resolution"@en ;
+    skos:definition "High effort (5 or more trips), standard methods (e.g. mark-recapture, serial counts for area under curve, etc.). Simple to complex multi-step, but always rigorous. Reliable resolution of between year differences >25% (in absolute units)."@en ;
+    skos:inScheme :EstimateTypeScheme ;
+    skos:broader :EstimateType ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+:Type3 a skos:Concept ;
+    skos:prefLabel "Type-3, Relative Abundance, high resolution"@en ;
+    skos:definition "High effort (5 or more trips), standard methods (e.g. equal effort surveys executed by walk, swim, overflight, etc.). Simple to complex multi-step, but always rigorous. Reliable resolution of between year differences >25% (in relative units)."@en ;
+    skos:inScheme :EstimateTypeScheme ;
+    skos:broader :EstimateType ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+:Type4 a skos:Concept ;
+    skos:prefLabel "Type-4, Relative Abundance, medium resolution"@en ;
+    skos:definition "Low to moderate effort (1-4 trips), known survey method. Simple analysis by known methods. Reliable resolution of between year differences >200% (in relative units)."@en ;
+    skos:inScheme :EstimateTypeScheme ;
+    skos:broader :EstimateType ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+:Type5 a skos:Concept ;
+    skos:prefLabel "Type-5, Relative Abundance, low resolution"@en ;
+    skos:definition "Low effort (e.g. 1 trip), use of vaguely defined, inconsistent or poorly executed methods. Unknown to ill defined; inconsistent or poorly executed. Uncertain numeric comparisons, but high reliability for presence or absence."@en ;
+    skos:inScheme :EstimateTypeScheme ;
+    skos:broader :EstimateType ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+:Type6 a skos:Concept ;
+    skos:prefLabel "Type-6, Presence or Absence"@en ;
+    skos:definition "Any of above methods. Not required for analysis. Moderate to high reliability for presence/absence."@en ;
+    skos:inScheme :EstimateTypeScheme ;
+    skos:broader :EstimateType ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+:EstimateType a skos:Concept ;
+    skos:prefLabel "Estimate Type"@en ;
+    skos:definition "Classification of escapement estimate quality based on Hyatt 1997 framework"@en ;
+    skos:inScheme :EstimateTypeScheme ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
 #################################################################
 # Core classes
@@ -36,16 +205,19 @@
 dfo:Stock a owl:Class ;
   rdfs:label "Stock"@en ;
   rdfs:comment "A biologically meaningful but operationally focussed salmon demographic unit used in assessment and reporting."@en ;
+  rdfs:subClassOf dwc:Organism ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
 dfo:ConservationUnit a owl:Class ;
   rdfs:label "Conservation Unit"@en ;
   rdfs:comment "A Wild Salmon Policy Conservation Unit (CU)."@en ;
+  rdfs:subClassOf dwc:Event ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
 dfo:StockManagementUnit a owl:Class ;
   rdfs:label "Stock Management Unit"@en ;
   rdfs:comment "A management unit used for fisheries planning and reporting."@en ;
+  rdfs:subClassOf dwc:Event ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
 dfo:SurveyEvent a owl:Class ;
@@ -327,6 +499,35 @@ dfo:usesMethod a owl:ObjectProperty ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
   # TODO(QA): Should every EscapementMeasurement have exactly one method? If yes, enforce in SHACL later.
 
+# New properties for hybrid approach
+dfo:usesEnumerationMethod a owl:ObjectProperty ;
+  rdfs:label "uses enumeration method"@en ;
+  rdfs:comment "Links a survey event to the enumeration method used."@en ;
+  rdfs:domain dfo:EscapementSurveyEvent ;
+  rdfs:range :EnumerationMethod ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:usesEstimateMethod a owl:ObjectProperty ;
+  rdfs:label "uses estimate method"@en ;
+  rdfs:comment "Links a survey event to the estimate method used."@en ;
+  rdfs:domain dfo:EscapementSurveyEvent ;
+  rdfs:range :EstimateMethod ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:assignedEstimateType a owl:ObjectProperty ;
+  rdfs:label "assigned estimate type"@en ;
+  rdfs:comment "The Hyatt 1997 estimate type assigned to a survey event."@en ;
+  rdfs:domain dfo:EscapementSurveyEvent ;
+  rdfs:range :EstimateType ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:downgradeCriteriaMet a owl:ObjectProperty ;
+  rdfs:label "downgrade criteria met"@en ;
+  rdfs:comment "Downgrade criteria that apply to a survey event when thresholds are not met."@en ;
+  rdfs:domain dfo:EscapementSurveyEvent ;
+  rdfs:range :DowngradeCriteriaScheme ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
 dfo:hasIndicator a owl:ObjectProperty ;
   rdfs:label "has indicator"@en ;
   rdfs:comment "A stock has an associated indicator time series or value."@en ;
@@ -596,6 +797,56 @@ dfo:taxonIRI a owl:DatatypeProperty ;
   rdfs:range xsd:anyURI ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
   # TODO(Registry): Confirm canonical registry (GBIF/ITIS/etc.) and document choice.
+
+# New datatype properties for survey metadata
+dfo:measuredVisits a owl:DatatypeProperty ;
+  rdfs:label "measured visits"@en ;
+  rdfs:comment "Number of site visits conducted during the survey."@en ;
+  rdfs:domain dfo:EscapementSurveyEvent ;
+  rdfs:range xsd:integer ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:measuredReachCoverage a owl:DatatypeProperty ;
+  rdfs:label "measured reach coverage"@en ;
+  rdfs:comment "Fraction of intended reaches/segments surveyed (0.0 to 1.0)."@en ;
+  rdfs:domain dfo:EscapementSurveyEvent ;
+  rdfs:range xsd:decimal ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:measuredVisibility a owl:DatatypeProperty ;
+  rdfs:label "measured visibility"@en ;
+  rdfs:comment "Water clarity/visibility conditions during the survey."@en ;
+  rdfs:domain dfo:EscapementSurveyEvent ;
+  rdfs:range xsd:string ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:measuredObserverEfficiency a owl:DatatypeProperty ;
+  rdfs:label "measured observer efficiency"@en ;
+  rdfs:comment "Observer efficiency rate for the survey (0.0 to 1.0)."@en ;
+  rdfs:domain dfo:EscapementSurveyEvent ;
+  rdfs:range xsd:decimal ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:percentRiverSwam a owl:DatatypeProperty ;
+  rdfs:label "percent river swam"@en ;
+  rdfs:comment "Percentage of river length covered during snorkel surveys (0.0 to 100.0)."@en ;
+  rdfs:domain dfo:EscapementSurveyEvent ;
+  rdfs:range xsd:decimal ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:hasDocumentation a owl:ObjectProperty ;
+  rdfs:label "has documentation"@en ;
+  rdfs:comment "Links to documentation (SIL, SEN, field notes) for the survey."@en ;
+  rdfs:domain dfo:EscapementSurveyEvent ;
+  rdfs:range dcterms:Document ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:hasQAReport a owl:ObjectProperty ;
+  rdfs:label "has QA report"@en ;
+  rdfs:comment "Links to quality assurance report for the survey."@en ;
+  rdfs:domain dfo:EscapementSurveyEvent ;
+  rdfs:range dcterms:Document ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
 #################################################################
 # COMMENTED EXAMPLE INDIVIDUALS (for docs/training only)
