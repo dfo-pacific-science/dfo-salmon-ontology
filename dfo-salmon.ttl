@@ -202,16 +202,288 @@
 # DISCUSS(Label style): Use parentheses (e.g., 'Stock (Population)') or keep terse labels.
 #################################################################
 
-dfo:Stock a owl:Class ;
-  rdfs:label "Stock"@en ;
-  rdfs:comment "A biologically meaningful but operationally focussed salmon demographic unit used in assessment and reporting."@en ;
-  rdfs:subClassOf dwc:Organism ;
+dfo:AgeAtMaturity a owl:Class
+  rdfs:label "Age-at-maturity"@en ;
+  rdfs:comment "The age when salmon become sexually mature adults. Influenced by genetics and environment."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:BroodYear a owl:Class
+  rdfs:label "Brood year"@en ;
+  rdfs:comment "The parental year for a group of returning salmon (i.e., the calendar year when the majority of parents of these fish spawned)."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:Catch a owl:Class
+  rdfs:label "Catch"@en ;
+  rdfs:comment "The number of adult fishes that are caught in commercial, recreational, and First Nations fisheries."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:COSEWIC a owl:Class
+  rdfs:label "COSEWIC"@en ;
+  rdfs:comment "The Committee on the Status of Endangered Wildlife in Canada (COSEWIC) assesses the national status of wild species, subspecies, varieties, or other designatable units that are considered to be at risk in Canada. Designations are made on native wildlife species including the following taxonomic groups: mammals, birds, reptiles, amphibians, fishes, arthropods, molluscs, vascular plants, mosses, and lichens."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:COSEWICStatusCategory a owl:Class
+  rdfs:label "COSEWIC status category"@en ;
+  rdfs:comment "Extinct (X): A Wildlife Species that no longer exists; Extirpated (XT): A Wildlife Species that no longer exists in the wild in Canada, but exists elsewhere; Endangered (E): A Wildlife Species facing imminent extirpation or extinction; Threatened (T): A Wildlife Species that is likely to become an endangered if nothing is done to reverse the factors leading to its extirpation or extinction; Special Concern (SC): A Wildlife Species that may become threatened or endangered because of a combination of biological characteristics and identified threats; Data Deficient (DD): A category that applies when the available information is insufficient (a) to resolve a Wildlife Species' eligibility for assessment or (b) to permit an assessment of the Wildlife Species' risk of extinction; Not At Risk (NAR): A Wildlife Species that has been evaluated and found to be not at risk of extinction given the current circumstances."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:CriticalZone a owl:Class
+  rdfs:label "Critical zone"@en ;
+  rdfs:comment "One of three categorical stock status zones (Healthy, Cautious, Critical) under the Precautionary Approach framework to fisheries management in Canada. The stock status zone at which a fish stock level falls below the limit reference point (LRP) and there is a high probability that its productivity will be so impaired that serious harm will occur. In the critical zone, stock growth is promoted and removals are kept to the lowest possible level. The mature biomass, or its index, is less than or equal to 40% of BMSY. In other words:  Biomass ≤ 40% BMSY."@en ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
 dfo:ConservationUnit a owl:Class ;
   rdfs:label "Conservation Unit"@en ;
-  rdfs:comment "A Wild Salmon Policy Conservation Unit (CU)."@en ;
-  rdfs:subClassOf dwc:Event ;
+  rdfs:comment "A group of wild salmon sufficiently isolated from other groups that, if extirpated, is very unlikely to recolonize naturally within an acceptable timeframe."@en ;
+#  rdfs:subClassOf dwc:Event ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:CUStatusBasedLRP a owl:Class ;
+  rdfs:label "CU status-based limit reference point"@en ;
+  rdfs:comment "Stock Management Unit (SMU)-level limit reference points (LRPs) based on the status of component Wild Salmon Policy (WSP) Conservation Units (CUs) recommended to meet requirements of the Fisheries Act."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:CUBenchmarks a owl:Class ;
+  rdfs:label "CU benchmarks"@en ;
+  rdfs:comment "Identify biological production status and are used for management and coservation decisions."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:CULowerBenchmark a owl:Class ;
+  rdfs:label "CU lower benchmark"@en ;
+  rdfs:comment "A reference point in biological status associated with significant losses in production between the Amber and Red zones, and which allows for a substantial buffer between it and any level of abundance that could lead to a CU being considered at risk of extinction."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:CUHigherBenchmark a owl:Class ;
+  rdfs:label "CU higher benchmark"@en ;
+  rdfs:comment "A reference point in biological status to identify whether harvests are greater or less than the level expected to provide (on an average annual basis), the maximum annual catch for a CU, given existing environmental conditions."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:Dataset a owl:Class ;
+  rdfs:label "Dataset"@en ;
+  rdfs:comment "A data product registered in catalogues (e.g., GeoNetwork); aligns with schema:Dataset."@en ;
+  rdfs:subClassOf schema:Dataset ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:Enhancement a owl:Class
+  rdfs:label "Enhancement"@en ;
+  rdfs:comment "The application of biological and technical knowledge and capabilities to increase the productivity of fish stocks. It may be achieved by altering habitat attributes (e.g., habitat restoration) or by using fish culture techniques (e.g., hatcheries, spawning channels). In the context of the Wild Salmon Policy, only salmon originating from hatcheries and managed spawning channels will be considered enhanced."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:Escapement a owl:Class
+  rdfs:label "Escapement"@en ;
+  rdfs:comment "The process by which mature salmon pass through (or escape) fisheries and return to fresh water to spawn."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:EscapementMeasurement a owl:Class ;
+  rdfs:label "Escapement measurement"@en ;
+  rdfs:comment "A measurement or estimate of escapement tied to a stock and a survey event."@en ;
+  rdfs:subClassOf dwc:MeasurementOrFact ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:EquilibriumTradeoffAnalysis a owl:Class
+  rdfs:label "Equilibrium trade-off analysis"@en ;
+  rdfs:comment "Referring to the tradeoffs between conservation and socio-economic considerations using the equilibrium of UMSY and SMSY. "@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:ExploitationRate a owl:Class
+  rdfs:label "Exploitation rate"@en ;
+  rdfs:comment "Expressed as a percentage, the proportion of the total return of adult salmon in a given year that die (harvested or removed) as a result of fishing activity. ER = total fishing mortality / (total fishing mortality + escapement)"@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:Fecundity a owl:Class
+  rdfs:label "Fecundity"@en ;
+  rdfs:comment "The number of eggs an animal produces during each reproductive cycle; the potential reproductive capacity of an organism or population (similar to fertility)."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:FisheryReferencePoint a owl:Class
+  rdfs:label "Fishery reference point"@en ;
+  rdfs:comment "A benchmark against which the biomass or abundance of the stock or the fishing mortality rate (or exploitation rate) can be measured in order to determine its status. These reference points can be targets, thresholds or limits depending on their intended use."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:FishingEffort a owl:Class
+  rdfs:label "Fishing effort"@en ;
+  rdfs:comment "A measure of fishing activity using metrics such as: the number of nets or lines used, the number of fishing vessels deployed, and the number of hours spent fishing."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:FishingMortality a owl:Class
+  rdfs:label "Fishing mortality"@en ;
+  rdfs:comment "Measure of deaths in a stock due to all fishing activities, including: targeted fishing, bycatch and discards, other incidental mortality in other fisheries."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:GeneticDiversity a owl:Class
+  rdfs:label "Genetic diversity"@en ;
+  rdfs:comment "The variation at the level of individual genes, and provides a mechanism for populations to adapt to their ever-changing environment. It refers to the differences in genetic make-up between distinct species and to genetic variations within a single species."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:HarvestAdvice a owl:Class
+  rdfs:label "Harvest advice"@en ;
+  rdfs:comment "The scientific recommendation provided to fisheries managers on allowable levels of fish removals, derived from stock assessments, harvest control rules, and reference points. It reflects both the biological status of the stock and practical considerations such as ecosystem impacts, management measures, and market conditions. Harvest advice does not prescribe that the full allowable harvest must be taken, but rather defines the levels of harvest that are consistent with sustaining stock productivity and avoiding limit reference points."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:Hatchery a owl:Class
+  rdfs:label "Hatchery"@en ;
+  rdfs:comment "A hatchery is a facility where eggs are hatched under artificial conditions."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:HatcheryEnhancement a owl:Class
+  rdfs:label ""@en ;
+  rdfs:comment "The application of biological and technical knowledge and capabilities to increase the productivity of fish stocks originating from hatchery production."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:HatcheryOrigin a owl:Class
+  rdfs:label "Hatchery-origin"@en ;
+  rdfs:comment "Refers to broodstock fish that were born or reared in a hatchery and later selected for breeding purposes within the hatchery system."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:HatcheryProduction a owl:Class
+  rdfs:label "Hatchery production"@en ;
+  rdfs:comment "Production of broodstock fish within the hatchery system. The production planning process considers scientific information, Indigenous knowledge, hatchery capacity, and risk assessments to determine the type and number of fish to produce in hatcheries, as well as where and when to release the fish."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:IndexBased a owl:Class
+  rdfs:label "Index-based"@en ;
+  rdfs:comment "Index-based management procedures (MPs), in general, adjust the catch based on changes in a population index over time."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:Indicator a owl:Class ;
+  rdfs:label "Indicator"@en ;
+  rdfs:comment "A derived assessment index used in Fisheries Science Reports or stock status reporting."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:IndicatorPopulation a owl:Class
+  rdfs:label "Indicator population"@en ;
+  rdfs:comment "Indicator populations are directly assessed and deemed representative of other populations in the area that are not directly assessed. The concept of using indicator populations is based on an expectation of biological homogeneity over the geographic region represented by the indicator population. Often, indicator populations are hatchery-supplemented and only a portion of the hatchery-origin component of the population is tagged, and is assumed to be representative of the entire population, both of hatchery origin and natural origin. The indicator population is expected to be representative, in terms of life history, marine distribution, productivity, and exploitation pattern, of other populations within the indicator region."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:IndicatorStream a owl:Class
+  rdfs:label "Indicator stream"@en ;
+  rdfs:comment "All spawning streams that are listed to be monitored by DFO are classified as an indicator or non-indicator stream. Indicator streams are those that have been identified in some Regions as providing more reliable indices of spawner abundance. Indicator streams tend to give relatively accurate annual spawner abundance estimates, given that they use higher quality methodologies and are more intensively/regularly surveyed. Indicator streams are also assumed to be representative of spawner returns to other streams in close geographic proximity. Non-indicator streams are typically less consistently surveyed, using more variable methodologies, and/or may simply be difficult to survey (e.g., poor water quality, remote location, etc.)."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:KobePlot a owl:Class
+  rdfs:label "Kobe plot"@en ;
+  rdfs:comment "A visual way to show the status of a stock. The plot is divided into four panels which correspond to a particular condition of the stock (overfishing, underfishing, over-fished, and underfished). By developing a ratio of how much fishing is occurring (F) versus the estimated number of fish (B) for any particular fishery, a point can be plotted in one of those four panels, thus telling the status."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:LifeCycleModel a owl:Class
+  rdfs:label "Life cycle model"@en ;
+  rdfs:comment "The life cycle of a typical fish species can be used as a template for considering the assessment of project-induced impacts on fisheries productivity. Fisheries productivity results from individual fish completing their life cycle, and having vital rates (reproduction, growth, survival, etc.) that are sufficient to generate a sustainable yield at the population level. "@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:LimitReferencePoint a owl:Class
+  rdfs:label "Limit reference point (LRP)"@en ;
+  rdfs:comment "A fish stock experiencing serious harm may be depleted to the point where it has impaired productivity or reproductive capacity. As a result, the stock would be less resilient to fishing and could not easily rebuild. Serious harm may be irreversible, or only slowly reversible over the long-term, and can be due to fishing, other human-induced impacts, or natural causes. Under the Precautionary Approach policy and the Fish Stocks Provisions (FSPs), breaching the LRP is a trigger for a rebuilding plan."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:MarineSurvival a owl:Class
+  rdfs:label "Marine survival"@en ;
+  rdfs:comment "The number of adult salmon returning divided by the total juveile salmon population."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:MizedStockFishery a owl:Class
+  rdfs:label "Mixed-stock fishery"@en ;
+  rdfs:comment "Individual fish in different stocks might mix or migrate between different areas. Also referred to as 'multispecies fishery'."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:MaximumSustainableYield a owl:Class
+  rdfs:label "Maximum sustainable yield (MSY)"@en ;
+  rdfs:comment "The largest catch (yield) that can be taken on average from a population under existing environmental conditions. Catch will vary annually due to variation in a populations survival rate."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:NaturalOrigin a owl:Class
+  rdfs:label "Natural-origin"@en ;
+  rdfs:comment "Individuals that are born and reared in the wild (natural environment) but are later collected and used in breeding programs."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:OceanEntryYear a owl:Class
+  rdfs:label "Ocean entry year"@en ;
+  rdfs:comment "Ocean entry year (OEY) refers to the year in which salmon are released from the hatchery."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:OperationalControlPoint a owl:Class
+  rdfs:label "Operational control point (OCP)"@en ;
+  rdfs:comment "A value of an indicator or other input variable that acts as a trigger for a change in management actions, as for example in a Harvest Control Rule."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:PercentHatcheryOriginSpawners a owl:Class
+  rdfs:label "Percent of hatchery origin spawners"@en ;
+  rdfs:comment "Percent of salmon spawning in the natural environment that were reared in a hatchery and are first generation hatchery fish. Contrast with Natural origin spawners (not reared in a hatchery, but could be second generation hatchery) or wild salmon with no hatchery lineage."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:PreTerminalFishery a owl:Class
+  rdfs:label "Pre-terminal fishery"@en ;
+  rdfs:comment "Pre-terminal fisheries occur outside the river and areas immediately adjacent to the river systems."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:PrecautionaryApproach a owl:Class
+  rdfs:label "Precautionary Approach (PA)"@en ;
+  rdfs:comment "When used in an advisory context in support of decision-making by the Government of Canada, this term conveys the sense that the advice is provided in situations of high scientific uncertainty. It is intended to promote actions that would result in a low probability of harm that is serious or difficult to reverse."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:RebuildingPlan a owl:Class
+  rdfs:label "Rebuilding plan"@en ;
+  rdfs:comment "Rebuilding plans are standalone documents specifically intended to address statutory requirements under the 2019 amendments to the Fisheries Act for the prescribed major fish stock subject to the Fish Stocks provisions (FSP). The obligation to develop and implement a rebuilding plan is triggered when a stock declines to, or below, its LRP. A rebuilding plan for a prescribed major fish stock must be developed within 24 months of the day on which the Minister first has knowledge the stock has declined to or below its LRP. If a stock is at or below its LRP when it is prescribed under the FSP, the 24-month timeline to develop a rebuilding plan for the stock starts the day the stock is prescribed in regulation. The approved plan must be published on DFO’s website. The plan should be published within 120 days from the date of the plan’s approval by the Minister."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:RebuildingTarget a owl:Class
+  rdfs:label "Rebuilding target"@en ;
+  rdfs:comment "The rebuilding target for the stock must, at a minimum, be set at a level above the LRP such that there is a very low to low likelihood of the stock being below the LRP (<5-25% probability; as defined in Annex 2B of the 2009 Precautionary Approach Policy). A stock’s rebuilding plan will remain in effect until the stock reaches its rebuilding target."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:Recruitment a owl:Class
+  rdfs:label "Recruitment"@en ;
+  rdfs:comment "Occurs when new individuals are added to a population. In fisheries, it is commonly measured when small or young fish grow large or old enough to be caught in a fishery (which may be affected by catch limits or gear type) or scientific survey."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:RedZone a owl:Class
+  rdfs:label "Red zone"@en ;
+  rdfs:comment "A CU in the Red Zone is undesirable because of the risk of extirpation, and the loss of ecological benefits and salmon production. Changes in status will trigger management actions that will vary depending on species, geographic regions, and cause of the decline."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:ReferencePoint a owl:Class
+  rdfs:label ""@en ;
+  rdfs:comment ""@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:RemovalRate a owl:Class
+  rdfs:label "Removal rate"@en ;
+  rdfs:comment "The ratio of all human induced removals and total exploitable stock size."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:RemovalReference a owl:Class
+  rdfs:label "Removal reference (RR)"@en ;
+  rdfs:comment "Removal reference is the maximum removal rate of a fish stock. It is less than or equal to the stock's maximum sustainable yield. It can be expressed in terms of fishing mortality, harvest rate, and fishing effort."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:RunReconstructionMondel a owl:Class
+  rdfs:label "Run reconstruction model"@en ;
+  rdfs:comment "Run reconstruction models use escapement data, catch data, and knowledge of migratory paths and timing to calculate stock contribution and harvest rates."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:SizeAtAge a owl:Class
+  rdfs:label "Size-at-age"@en ;
+  rdfs:comment "A sample of individuals from a catch are measured for length and weight, and scales or otoliths are collected to be read for age determination."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:Sgen a owl:Class
+  rdfs:label "Sgen"@en ;
+  rdfs:comment "The spawner abundance/biomass (S) that will result in recruitment equal to spawners at SMSY in one generation in the absence of fishing under equilibrium conditions."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:SMSY a owl:Class
+  rdfs:label "SMSY"@en ;
+  rdfs:comment "SMSY refers to the spawning biomass (S) at which the Maximum Sustainable Yield (MSY) is achieved in a fish population. It is a key biological reference point used in fisheries management to maintain fish populations at sustainable levels."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:SpawnerAbundance a owl:Class
+  rdfs:label "Spawner abundance"@en ;
+  rdfs:comment "The total number of recruits which successfully return to spawn in freshwater habitats for a given brood year. Also called escapement'."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:Stock a owl:Class ;
+  rdfs:label "Stock"@en ;
+  rdfs:comment "A biologically meaningful but operationally-focused salmon demographic unit used in assessment and reporting."@en ;
+  rdfs:subClassOf dwc:Organism ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
 dfo:StockManagementUnit a owl:Class ;
@@ -220,27 +492,60 @@ dfo:StockManagementUnit a owl:Class ;
   rdfs:subClassOf dwc:Event ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
+dfo:StockRecruitmentRelationship a owl:Class
+  rdfs:label "Stock-recruitment relationship"@en ;
+  rdfs:comment "The relationships between the abundance or biomass of spawning adults in a stock and the expected number of recruits they can produce each year."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
 dfo:SurveyEvent a owl:Class ;
-  rdfs:label "Survey Event"@en ;
+  rdfs:label "Survey event"@en ;
   rdfs:comment "A field event associated with monitoring (e.g., escapement survey, fence count, sonar period)."@en ;
   rdfs:subClassOf dwc:Event ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
-dfo:EscapementMeasurement a owl:Class ;
-  rdfs:label "Escapement Measurement"@en ;
-  rdfs:comment "A measurement or estimate of escapement tied to a stock and a survey event."@en ;
-  rdfs:subClassOf dwc:MeasurementOrFact ;
+dfo:TargetReferencePoint a owl:Class
+  rdfs:label "Target reference point"@en ;
+  rdfs:comment "The overall stock level target. It is determined by setting productivity, broader ecological, and socio-economic objectives for the fishery. It is typically set at or above the USR."@en ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
-dfo:Indicator a owl:Class ;
-  rdfs:label "Index"@en ;
-  rdfs:comment "A derived assessment index used in Fisheries Sciene Reports or stock status reporting."@en ;
+dfo:TerminalFishery a owl:Class
+  rdfs:label "Terminal fishery"@en ;
+  rdfs:comment "Fisheries that occur near or in fresh water (e.g. at a river’s mouth) where the targeted species or stock has returned to spawn."@en ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
-dfo:Dataset a owl:Class ;
-  rdfs:label "Dataset"@en ;
-  rdfs:comment "A data product registered in catalogues (e.g., GeoNetwork); aligns with schema:Dataset."@en ;
-  rdfs:subClassOf schema:Dataset ;
+dfo:TotalAllowableCatch a owl:Class
+  rdfs:label "Total allowable catch (TAC)"@en ;
+  rdfs:comment "A catch limit set for a particular fishery. Also referred to as quota."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:UMSY a owl:Class
+  rdfs:label "UMSY"@en ;
+  rdfs:comment "The exploitation rate associated with the maximum sustainable yield (MSY). Usually expressed as an annual proportion. Exploitation rate is synonymous with harvest rate (U)."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:UpperStockReferencePoint a owl:Class
+  rdfs:label "Upper stock reference (USR)"@en ;
+  rdfs:comment "A threshold below which fishing must be reduced to avoid reaching the LRP. The USR must be set at an appropriate distance above the LRP to provide sufficient opportunity for managers to recognize a declining stock status and sufficient time for management actions to take effect. "@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:Wild a owl:Class
+  rdfs:label "Wild"@en ;
+  rdfs:comment "Individuals having spent their entire life cycle in the wild and originate from parents that were also produced by natural spawning and continuously lived in the wild."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:WildSalmonPolicy a owl:Class
+  rdfs:label "Wild Salmon Policy (WSP)"@en ;
+  rdfs:comment "Canada's Policy for Conservation of Wild Pacific Salmon is a framework designed to restore and maintain healthy and diverse salmon populations and their habitats for the benefit of Canadians in perpetuity. It prioritizes conservation of wild salmon through identifying and managing conservation units (CUs) that reflect the genetic and geographic diversity of salmon populations, while incorporating habitat protection, ecosystem management, and sustainable fisheries practices."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:WSPIntegratedStatus a owl:Class
+  rdfs:label "WSP integrated status"@en ;
+  rdfs:comment "Since CU status evaluations can include more than one metric, it is possible that different metrics could each indicate a different WSP status zone. A final step that synthesizes all metric and status-related information into an integrated status for each CU, and provides expert commentary on this information, is necessary as inputs into subsequent implementation of WSP Strategy 4 (Integrated Strategic Planning) to prioritize assessment activities and management actions ."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:WSPRapidStatus a owl:Class
+  rdfs:label "WSP rapid status"@en ;
+  rdfs:comment "The WSP rapid status assessment approach builds on previously completed WSP integrated status assessments. The detailed WSP integrated assessments are labour intensive, taking 10-40 experts up to three days to complete for each group of CUs. For this reason, assessments have only been completed for ~11% of the 377 current Pacific Salmon CUs, many of which are outdated. The WSP rapid approach can fill gaps by expanding coverage of CU statuses across time, species, and geographic areas. The WSP rapid status approach ensures statuses are scientifically objective, consistent, and comparable across BC/Yukon CUs. This approach is also relatively easy to implement, applicable to data rich and data poor CUs, and can be updated annually."@en ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
 #################################################################
