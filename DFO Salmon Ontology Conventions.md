@@ -13,7 +13,8 @@ The conventions here are **practical starting points**, not immutable rules. As 
 ### Essential Elements (Every Term Needs)
 - **Label**: `rdfs:label "Human Name"@en`
 - **Definition**: `rdfs:comment "1–2 sentence definition."@en`
-- **Source**: `rdfs:isDefinedBy <https://w3id.org/dfo/salmon>`
+- **Definition Source:** `dcterms:source "Reference to where this came from"`
+- **Source Ontology**: `rdfs:isDefinedBy <https://w3id.org/dfo/salmon>
 
 ### Naming Conventions
 - **Classes**: PascalCase (e.g., `EscapementMeasurement`)
@@ -258,12 +259,13 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
 - **Type declaration:** `a owl:ObjectProperty`
 - **Label:** `rdfs:label "Human Name"@en`
 - **Definition:** `rdfs:comment "1–2 sentence definition."@en`
-- **Source attribution:** `rdfs:isDefinedBy <https://w3id.org/dfo/salmon>`
+- **Definition Source:** `dcterms:source "Reference to where this came from"`
+- **Source ontology/controlled vocab attribution:** `rdfs:isDefinedBy <https://w3id.org/dfo/salmon>`
+
 
 **Optional but recommended:**
 - **Domain:** `rdfs:domain :ClassName` - What type of thing this property describes
 - **Range:** `rdfs:range :ClassName` - What type of thing this property points to
-- **Source:** `dcterms:source "Reference to where this came from"`
 - **Example:** `dcterms:description "Example usage"`
 
 **OBO annotation properties:**
