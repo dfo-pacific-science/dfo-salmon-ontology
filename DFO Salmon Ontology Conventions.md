@@ -401,7 +401,74 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
 - **Metadata on instances** - Observer efficiency, coverage, visibility are properties of specific surveys
 - **Automated classification** - Rules engine checks event metadata against method-specific thresholds
 
-### 2.5 Automated Classification with SHACL
+## 2.5 Framework and Upper Ontologies
+
+Our ontology builds on widely adopted semantic frameworks to maximize interoperability and reuse. Each item below includes a canonical reference for contributors.
+
+- **BFO — Basic Formal Ontology**  
+  High-level categories (e.g., continuant, occurrent) used for consistent upper-level alignment.  
+  Learn more: https://basic-formal-ontology.org/
+
+- **SOSA/SSN — Sensor, Observation, Sample, and Actuator**  
+  Patterns for observations, sampling, procedures, sensors, and results; we specialize salmon survey protocols from these.  
+  Learn more: https://www.w3.org/TR/vocab-ssn/ (spec) • https://www.w3.org/TR/vocab-ssn/#SOSA (SOSA core)
+
+- **Darwin Core Conceptual Model (DwC-CM)**  
+  Our primary framework for Events, Occurrences, Organisms, Agents, Media, and Measurements, including nested Event hierarchies.  
+  Learn more: https://dwc.tdwg.org/terms/ (terms) • https://dwc.tdwg.org/ (overview) • *Conceptual model page/diagram as adopted internally*
+
+- **SKOS — Simple Knowledge Organization System**  
+  Used for code lists/picklists (management groups, gear types, etc.) as SKOS concept schemes with persistent URIs.  
+  Learn more: https://www.w3.org/TR/skos-reference/
+
+- **PROV-O — Provenance Ontology**  
+  Records data lineage (who/what/when/how), supporting FSAR traceability and auditability.  
+  Learn more: https://www.w3.org/TR/prov-o/
+
+- **DCAT — Data Catalog Vocabulary**  
+  Describes datasets, distributions, and APIs for catalogs/portals.  
+  Learn more: https://www.w3.org/TR/vocab-dcat-3/
+
+- **QUDT — Quantities, Units, Dimensions and Data Types**  
+  Canonical URIs for units and quantity kinds (e.g., counts, rates).  
+  Learn more: https://qudt.org/
+
+- **UCUM — Unified Code for Units of Measure**  
+  Widely used machine-parsable unit codes; helpful for interoperability with clinical/engineering data.  
+  Learn more: https://ucum.org/ and reference table: https://ucum.org/ucum.html
+
+- **ENVO — Environment Ontology**  
+  Environmental features, habitats, and related terms relevant to salmon ecosystems.  
+  Learn more: https://environmentontology.org/ and OBO page: https://obofoundry.org/ontology/envo.html
+
+- **CF Standard Names**  
+  Standardized variable names for environmental/oceanographic data (temperature, salinity, etc.).  
+  Learn more: https://cfconventions.org/ and name table: https://cfconventions.org/standard-names.html
+
+**Contributor note (lookup order):**  
+1) Check **DwC/DwC-CM** for classes/relations tied to events, occurrences, organisms, agents, and measurements.  
+2) For observation/procedure patterns, reuse **SOSA/SSN** (and align to **OBI** patterns when needed).  
+3) For labels/controlled values, mint as **SKOS** concepts when a formal OWL class is unnecessary.  
+4) For units/quantities, prefer **QUDT** (URIs) and/or **UCUM** (codes).  
+5) For environmental features/variables, reuse **ENVO** and **CF Standard Names**.  
+6) Record lineage with **PROV-O** and describe published datasets with **DCAT**.
+
+Only mint a new local term when no suitable external equivalent exists; when reusing, include mappings (e.g., `skos:exactMatch`, `owl:equivalentClass`) in the term’s annotations.
+
+#### NCEAS Salmon Ontology
+
+We check for overlap and reuse opportunities in the **Salmon Ontology (NCEAS, BioPortal)**, which provides a broad salmon-domain ontology.  
+
+- **DFO-local vs. generic:** Terms that are specific to DFO operations (e.g., internal survey codes, methods) remain local. Terms with broad relevance (e.g., escapement survey, weir, hatchery release) should be proposed for inclusion in the Salmon Ontology through its community curation process.  
+- **Reuse method:** When importing terms, we follow MIREOT-style referencing (importing only the necessary term with its IRI and definition).  
+- **Alignment:** We use `owl:equivalentClass` or `skos:exactMatch` when a DFO-local class corresponds exactly to an external term. We use `skos:closeMatch`, `broadMatch`, or `narrowMatch` for partial alignments.  
+- **Term requests:** Contributors proposing broadly reusable salmon concepts should open a local issue and flag it as “candidate for Salmon Ontology (BioPortal).” Maintainers will coordinate with the NCEAS ontology curators.  
+
+**References:**  
+- Salmon Ontology on BioPortal: https://bioportal.bioontology.org/ontologies/SALMON  
+- OBO Foundry MIREOT guidelines: http://obi-ontology.org/page/MIREOT  
+
+### 2.6 Automated Classification with SHACL
 
 **Why SHACL?** SHACL (Shapes Constraint Language) provides validation rules that can enforce data quality and enable automated classification. It separates data validation from classification logic.
 
@@ -495,7 +562,7 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
 4. **Downgrade Flags** - Attach downgrade criteria when thresholds aren't met
 5. **Final Classification** - Apply downgrade rules to determine final type
 
-### 2.6 Naming Conventions
+### 2.7 Naming Conventions
 
 **Classes:** Use PascalCase (e.g., `EscapementMeasurement`, `GeneticSample`)
 **Properties:** Use lowerCamelCase (e.g., `aboutStock`, `usesMethod`, `hasMember`)
@@ -519,7 +586,7 @@ Every measurement must have:
 - `dfo:observedDuring` - Which event it was collected during
 - `dfo:usesMethod` - Which method was used
 
-**Example:**
+**Examples:**
 ```turtle
 :EscapementCount2022 a dfo:EscapementMeasurement ;
     dwc:measurementType "abundance" ;
@@ -568,13 +635,35 @@ Every measurement must have:
     dwc:samplingProtocol :SonarCountingProtocol .
 ```
 
+One example that ties this all together:
+
+**Example:**
+```turtle
+# Event hierarchy per DwC-CM
+:Project2025 a dwc:Event .
+:Survey2025_08 a dwc:Event ; dwc:parentEventID :Project2025 ;
+               dwc:samplingProtocol :DFOEscapementProtocol .
+:CountEvent2025_08_15 a dwc:Event ; dwc:parentEventID :Survey2025_08 .
+
+# Measurement attached to the event (DwC)
+:CountMeasurement2025_08_15 a dfo:EscapementMeasurement ;
+  dwc:measurementType "abundance" ;
+  dwc:measurementValue "1250"^^xsd:integer ;
+  dwc:measurementUnit "http://qudt.org/vocab/unit/Each" ;
+  dfo:aboutStock :SkeenaSockeye ;
+  dfo:observedDuring :CountEvent2025_08_15 ;
+  dwc:recordedBy :DFOFieldTeam .
+```
+
 ---
 
 ## 4. Darwin Core Integration
 
 ### 4.1 Core Classes
 
-**Why integrate with Darwin Core?** Darwin Core provides a widely-adopted standard for biodiversity data that enables interoperability with GBIF, OBIS, and other international biodiversity platforms. By aligning with Darwin Core, your salmon data becomes discoverable and usable by the broader scientific community.
+**Why integrate with Darwin Core?** Darwin Core provides a widely-adopted standard for biodiversity data that enables interoperability with GBIF, OBIS, and other international biodiversity platforms. By aligning with Darwin Core, your salmon data becomes discoverable and usable by the broader scientific community. 
+
+Our backbone: We use the Darwin Core Conceptual Model to structure events, occurrences, organisms, agents, media and protocols, including nested Event hierarchies (project → survey → measurement). We treat DFO classes like EscapementSurveyEvent as specializations of dwc:Event, and we attach measurements via DwC measurement terms.
 
 **Essential Core Classes:**
 - `dwc:Event` - Actions, processes, or circumstances occurring at a place and time
@@ -638,10 +727,43 @@ dfo:Stock rdfs:subClassOf dwc:Organism ;
 - [ ] Are all relationships properly typed (domain/range)?
 - [ ] Does the term avoid duplicating existing functionality?
 
-### 5.2 Validation Steps
+### 5.2 Contributor Process
+
+To propose a new term, contributors should follow this process:
+
+1. **Open a GitHub Issue**  
+   - Title: Proposed new term (e.g., “New Term: EscapementSurveyEvent”)  
+   - Provide background and motivation, including competency questions the term should help answer.  
+   - Suggest intended parent class (e.g., `dwc:Event`) and relationships.  
+
+2. **Fill in the Term Request Template**  
+   - Use the provided CSV or spreadsheet template with the following columns:  
+     - **Label**: Human-readable name of the term  
+     - **Definition**: Clear, genus-differentia style definition  
+     - **Source**: Literature, dataset, or standard the definition is drawn from  
+     - **Parent Class**: Intended superclass  
+     - **Example Usage**: Example sentence or dataset context  
+     - **Synonyms**: Optional, with type (exact, narrow, broad)  
+     - **Notes**: Any additional clarifications  
+
+3. **Provide a TTL Snippet (Optional for Stewards, Required for Maintainers)**  
+   - Format according to existing ontology conventions (label, definition, annotations, subclass statement).  
+   - Include mappings (`skos:exactMatch`, `skos:closeMatch`, `owl:equivalentClass`) where applicable.  
+
+4. **Submit for Review**  
+   - Attach the completed spreadsheet row (or CSV file) to the GitHub issue.  
+   - Maintainers will review for compliance with design patterns, integration with hierarchy, and annotation completeness.  
+   - Revisions may be requested before acceptance.  
+
+5. **Integration and Validation**  
+   - Once approved, the term will be added to the ontology source file.  
+   - Automated validation (ROBOT, SHACL) will run to check logical consistency and required annotations.  
+   - The issue will be closed once the term appears in the next ontology release.  
+
+### 5.3 Validation Steps
 
 **Logical Consistency:**
-- [ ] Run reasoner to check for unsatisfiable classes
+- [ ] Run reasoner (TODO: needs to be built first!) to check for unsatisfiable classes
 - [ ] Verify no classes appear under `owl:Nothing`
 - [ ] Check for circular dependencies in hierarchies
 - [ ] Validate domain/range restrictions are appropriate
@@ -666,7 +788,7 @@ dfo:Stock rdfs:subClassOf dwc:Organism ;
 - [ ] **Non-overlapping scope**: Clear boundaries with other ontologies
 - [ ] **Common syntax**: Uses OBO format and standard annotation properties
 
-### 5.3 Common Mistakes to Avoid
+### 5.4 Common Mistakes to Avoid
 
 **Naming Issues:**
 - Inconsistent naming conventions (e.g., mixing camelCase and snake_case)
@@ -682,6 +804,7 @@ dfo:Stock rdfs:subClassOf dwc:Organism ;
 - Vague or unclear definitions
 - Missing required annotations
 - Duplicating existing terms with different names
+
 
 ---
 
