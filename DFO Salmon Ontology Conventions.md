@@ -14,6 +14,8 @@ The conventions here are **practical starting points**, not immutable rules. As 
 - **Label**: `rdfs:label "Human Name"@en`
 - **Definition**: `rdfs:comment "1–2 sentence definition."@en`
 - **Source**: `rdfs:isDefinedBy <https://w3id.org/dfo/salmon>`
+TODO: clarify format for DC TERMS and URI linkage
+- **** **dcterms:source** ;
 
 ### Naming Conventions
 - **Classes**: PascalCase (e.g., `EscapementMeasurement`)
@@ -237,6 +239,7 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
 - **Label:** `rdfs:label "Human Name"@en` - A human-readable name in English
 - **Definition:** `rdfs:comment "1–2 sentence definition."@en` - A clear explanation of what this class represents
 - **Source attribution:** `rdfs:isDefinedBy <https://w3id.org/dfo/salmon>` - Links back to our ontology
+- **dcterms:source** "DFO Molecular Genetics Lab glossary 2024" ;
 
 **Why these are required:** Labels help humans understand what you mean, definitions prevent confusion about scope, and source attribution ensures proper credit and traceability.
 
