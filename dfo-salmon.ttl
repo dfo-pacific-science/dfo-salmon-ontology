@@ -291,9 +291,12 @@ dfo:EscapementMeasurement a owl:Class ;
   rdfs:label "Escapement measurement"@en ;
   rdfs:comment "A measurement or estimate of escapement tied to a stock and a survey event."@en ;
   rdfs:subClassOf dwc:MeasurementOrFact ;
-# dcterms:source ""@en ; 
-  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
-
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;
+  # Related synonym from Salmon Ontology (BioPortal)
+  oboInOwl:hasRelatedSynonym "Salmon escapement count"@en ;
+  # External cross-reference
+  oboInOwl:hasDbXref "http://purl.dataone.org/odo/SALMON_00000479" .
+  
 dfo:EquilibriumTradeoffAnalysis a owl:Class ;
   rdfs:label "Equilibrium trade-off analysis"@en ;
   rdfs:comment "Referring to the tradeoffs between conservation and socio-economic considerations using the equilibrium of UMSY and SMSY. "@en ;
