@@ -1,4 +1,6 @@
 @prefix dfo:     <https://w3id.org/dfo/salmon#> .
+@prefix bfo:     <http://purl.obolibrary.org/obo/bfo.owl> .
+@prefix iao:     <http://purl.obolibrary.org/obo/iao.owl> .
 @prefix owl:     <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
@@ -198,6 +200,11 @@
     rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
 #################################################################
+# Class Mappings
+#################################################################
+dwc:MeasurementOrFact rdfs:subClassOf iao:0000109 . # Align DwC to IAO 
+
+#################################################################
 # Core classes
 # DISCUSS(Label style): Use parentheses (e.g., 'Stock (Population)') or keep terse labels.
 #################################################################
@@ -290,7 +297,7 @@ dfo:Escapement a owl:Class ;
 dfo:EscapementMeasurement a owl:Class ;
   rdfs:label "Escapement measurement"@en ;
   rdfs:comment "A measurement or estimate of escapement tied to a stock and a survey event."@en ;
-  rdfs:subClassOf dwc:MeasurementOrFact ;
+  rdfs:subClassOf dwc:MeasurementOrFact , iao:0000109 ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;
   # Related synonym from Salmon Ontology (BioPortal)
   oboInOwl:hasRelatedSynonym "Salmon escapement count"@en ;
