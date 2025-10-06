@@ -1,6 +1,7 @@
 @prefix dfo:     <https://w3id.org/dfo/salmon#> .
 @prefix bfo:     <http://purl.obolibrary.org/obo/bfo.owl> .
 @prefix iao:     <http://purl.obolibrary.org/obo/iao.owl> .
+@prefix odo:     <http://purl.dataone.org/odo/SALMON_> .
 @prefix owl:     <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
@@ -213,19 +214,22 @@ dfo:AgeAtMaturity a owl:Class ;
   rdfs:label "Age-at-maturity"@en ;
   rdfs:comment "The age when salmon become sexually mature adults. Influenced by genetics and environment."@en ;
   dcterms:source "Revision of Catch- and Maturity- at Age Used to Assess the Northern Contingent of Atlantic Mackerel (Scomber scombrus)."@en ;
-  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;
+  rdfs:subClassOf odo:SALMON_00000407 .
 
 dfo:BroodYear a owl:Class ;
   rdfs:label "Brood year"@en ;
   rdfs:comment "The parental year for a group of returning salmon (i.e., the calendar year when the majority of parents of these fish spawned)."@en ;
-  dcterms:source "NCEAS Salmon Ontology"@en ;
-  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+  dcterms:source "Defined in the SALMON ontology (SALMON_00000520): 'The parental year for a group of returning salmon (i.e., the calendar year when the majority of parents of these fish spawned).'"@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;
+  oboInOwl:hasDbXref odo:SALMON_00000520 .
 
 dfo:Catch a owl:Class ;
   rdfs:label "Catch"@en ;
   rdfs:comment "The number of adult fishes that are caught in commercial, recreational, and First Nations fisheries."@en ;
   dcterms:source "Pacific Salmon Explorer Glossary"@en ;  
-  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;
+  rdfs:subClassOf dwc:MeasurementOrFact , iao:0000109.
 
 dfo:COSEWIC a owl:Class ;
   rdfs:label "COSEWIC"@en ;
@@ -247,13 +251,15 @@ dfo:CriticalZone a owl:Class ;
 
 dfo:ConservationUnit a owl:Class ;
   rdfs:label "Conservation Unit"@en ;
-  rdfs:comment "A group of wild salmon sufficiently isolated from other groups that, if extirpated, is very unlikely to recolonize naturally within an acceptable timeframe."@en ;
-#  rdfs:subClassOf dwc:Event ;
+  rdfs:comment "a group of fish sufficiently isolated from other groups that, if it goes locally extinct, is very unlikely to recolonize naturally."@en ;
+  rdfs:subClassOf dfo:Stock ;
+  dcterms:source "Introduction to stock assessment glossary"@en ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
 dfo:CUStatusBasedLRP a owl:Class ;
   rdfs:label "CU status-based limit reference point"@en ;
   rdfs:comment "Stock Management Unit (SMU)-level limit reference points (LRPs) based on the status of component Wild Salmon Policy (WSP) Conservation Units (CUs) recommended to meet requirements of the Fisheries Act."@en ;
+  rdfs:subClassOf dfo:ReferencePoint ;
   dcterms:source "Methodologies and Guidelines for Defining Limit Reference Points for Pacific Salmon"@en ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
@@ -299,10 +305,8 @@ dfo:EscapementMeasurement a owl:Class ;
   rdfs:comment "A measurement or estimate of escapement tied to a stock and a survey event."@en ;
   rdfs:subClassOf dwc:MeasurementOrFact , iao:0000109 ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;
-  # Related synonym from Salmon Ontology (BioPortal)
   oboInOwl:hasRelatedSynonym "Salmon escapement count"@en ;
-  # External cross-reference
-  oboInOwl:hasDbXref "http://purl.dataone.org/odo/SALMON_00000479" .
+  oboInOwl:hasDbXref odo:SALMON_00000479 .
   
 dfo:EquilibriumTradeoffAnalysis a owl:Class ;
   rdfs:label "Equilibrium trade-off analysis"@en ;
@@ -313,6 +317,7 @@ dfo:EquilibriumTradeoffAnalysis a owl:Class ;
 dfo:ExploitationRate a owl:Class ;
   rdfs:label "Exploitation rate"@en ;
   rdfs:comment "Expressed as a percentage, the proportion of the total return of adult salmon in a given year that die (harvested or removed) as a result of fishing activity. ER = total fishing mortality / (total fishing mortality + escapement)"@en ;
+  rdfs:subClassOf dfo:Indicator ;
   dcterms:source "Government of Canada Pacific Salmon Glossary"@en ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
@@ -415,13 +420,15 @@ dfo:LifeCycleModel a owl:Class ;
 dfo:LimitReferencePoint a owl:Class ;
   rdfs:label "Limit reference point (LRP)"@en ;
   rdfs:comment "A fish stock experiencing serious harm may be depleted to the point where it has impaired productivity or reproductive capacity. As a result, the stock would be less resilient to fishing and could not easily rebuild. Serious harm may be irreversible, or only slowly reversible over the long-term, and can be due to fishing, other human-induced impacts, or natural causes. Under the Precautionary Approach policy and the Fish Stocks Provisions (FSPs), breaching the LRP is a trigger for a rebuilding plan."@en ;
+  rdfs:subClassOf dfo:ReferencePoint ;
   dcterms:source "Introduction to Stock Assessment Glossary"@en ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
 dfo:MarineSurvival a owl:Class ;
   rdfs:label "Marine survival"@en ;
   rdfs:comment "The number of adult salmon returning divided by the total juvenile salmon population."@en ;
-# dcterms:source ""@en ;  
+  rdfs:subClassOf dfo:Indicator ;
+  # dcterms:source ""@en ;  
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
 dfo:MizedStockFishery a owl:Class ;
@@ -445,6 +452,7 @@ dfo:NaturalOrigin a owl:Class ;
 dfo:OceanEntryYear a owl:Class ;
   rdfs:label "Ocean entry year"@en ;
   rdfs:comment "Ocean entry year (OEY) refers to the year in which salmon are released from the hatchery."@en ;
+  rdfs:subClassOf odo:ECSO_00002050 ; #year of measurement; brood year is also a subclass
   dcterms:source "A Review of Hatchery Release Strategies"@en ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
@@ -463,6 +471,7 @@ dfo:PercentHatcheryOriginSpawners a owl:Class ;
 dfo:PreTerminalFishery a owl:Class ;
   rdfs:label "Pre-terminal fishery"@en ;
   rdfs:comment "Pre-terminal fisheries occur outside the river and areas immediately adjacent to the river systems."@en ;
+  rdfs:subClassOf odo:SALMON_00000137 ; #fishery type
   dcterms:source "Endangered Species Act Section 7(a)(2) Biological Opinion"@en ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
@@ -500,13 +509,15 @@ dfo:ReferencePoint a owl:Class ;
   rdfs:label "Reference point"@en ;
   rdfs:comment "Reference points are used as targets to achieve or as limits to avoid."@en ;
   dcterms:source "Introduction to stock assessment - Unit 1.3: Stock status and reference points"@en ;
-  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;
+  rdfs:subClassOf iao:0000030 ; # Information content entity.
 
 dfo:RemovalRate a owl:Class ;
   rdfs:label "Removal rate"@en ;
   rdfs:comment "The ratio of all human induced removals and total exploitable stock size."@en ;
   dcterms:source "Performance of alternative harvest control rules for two Pacific groundfish stocks with uncertain natural mortality: Bias, robustness and trade-offs"@en ;
-  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;
+  rdfs:subClassOf dfo:Indicator.
 
 dfo:RemovalReference a owl:Class ;
   rdfs:label "Removal reference (RR)"@en ;
@@ -524,7 +535,8 @@ dfo:SizeAtAge a owl:Class ;
   rdfs:label "Size-at-age"@en ;
   rdfs:comment "A sample of individuals from a catch are measured for length and weight, and scales or otoliths are collected to be read for age determination."@en ;
 # dcterms:source ""@en ;  
-  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;
+  rdfs:subClassOf odo:SALMON_00000167 . # fish measurement type
 
 dfo:Sgen a owl:Class ;
   rdfs:label "Sgen"@en ;
@@ -541,21 +553,24 @@ dfo:SMSY a owl:Class ;
 dfo:SpawnerAbundance a owl:Class ;
   rdfs:label "Spawner abundance"@en ;
   rdfs:comment "The total number of recruits which successfully return to spawn in freshwater habitats for a given brood year. Also called escapement'."@en ;
-  dcterms:source "NCEAS Salmon Ontology"@en ;
-  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+  dcterms:source "Defined in the SALMON ontology (SALMON_00000505): 'The total number of recruits which successfully return to spawn in freshwater habitats for a given brood year.'"@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;
+  oboInOwl:hasRelatedSynonym "Salmon escapement count"@en ;
+  oboInOwl:hasDbXref odo:SALMON_00000479 .
 
 dfo:Stock a owl:Class ;
   rdfs:label "Stock"@en ;
   rdfs:comment "A biologically meaningful but operationally-focused salmon demographic unit used in assessment and reporting."@en ;
-  rdfs:subClassOf dwc:Organism ;
-# dcterms:source ""@en ;  
-  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+  rdfs:subClassOf bfo:0000040 ; # Material entity
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;
+  oboInOwl:hasRelatedSynonym "Fish stock type"@en ;
+  oboInOwl:hasDbXref odo:SALMON_00000639.
 
 dfo:StockManagementUnit a owl:Class ;
   rdfs:label "Stock Management Unit"@en ;
-  rdfs:comment "A management unit used for fisheries planning and reporting."@en ;
-  rdfs:subClassOf dwc:Event ;
-# dcterms:source ""@en ;
+  rdfs:comment "A collections of stocks that are managed together with a joint stock status."@en ;
+  rdfs:subClassOf dfo:Stock ;
+  dcterms:source "Introduction to stock assessment glossary"@en ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
 dfo:StockRecruitmentRelationship a owl:Class ;
@@ -567,7 +582,7 @@ dfo:StockRecruitmentRelationship a owl:Class ;
 dfo:SurveyEvent a owl:Class ;
   rdfs:label "Survey event"@en ;
   rdfs:comment "A field event associated with monitoring (e.g., escapement survey, fence count, sonar period)."@en ;
-  rdfs:subClassOf dwc:Event ;
+  rdfs:subClassOf bfo:0000015 ; # Process
 # dcterms:source ""@en ;  
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
@@ -582,6 +597,7 @@ dfo:TerminalFishery a owl:Class ;
   rdfs:label "Terminal fishery"@en ;
   rdfs:comment "Fisheries that occur near or in fresh water (e.g. at a river’s mouth) where the targeted species or stock has returned to spawn."@en ;
   dcterms:source "Wild Salmon Policy 2018-2022 Implementation Plan"@en ;
+  rdfs:subClassOf odo:SALMON_00000137 ; #fishery type
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
 dfo:TotalAllowableCatch a owl:Class ;
