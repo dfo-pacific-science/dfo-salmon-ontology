@@ -362,7 +362,7 @@ dfo:Hatchery a owl:Class ;
   rdfs:comment "A hatchery is a facility where eggs are hatched under artificial conditions."@en ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
-dfo:HatcheryEnhancement a owl:Class
+dfo:HatcheryEnhancement a owl:Class ;
   rdfs:label "Hatchery enhancement"@en ;
   rdfs:comment "The application of biological and technical knowledge and capabilities to increase the productivity of fish stocks originating from hatchery production."@en ;
   dcterms:source "Canada's Policy for Conservation of Wild Pacific Salmon"@en ;
@@ -510,14 +510,14 @@ dfo:ReferencePoint a owl:Class ;
   rdfs:comment "Reference points are used as targets to achieve or as limits to avoid."@en ;
   dcterms:source "Introduction to stock assessment - Unit 1.3: Stock status and reference points"@en ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;
-  rdfs:subClassOf iao:0000030 ; # Information content entity.
+  rdfs:subClassOf iao:0000030 . # Information content entity.
 
 dfo:RemovalRate a owl:Class ;
   rdfs:label "Removal rate"@en ;
   rdfs:comment "The ratio of all human induced removals and total exploitable stock size."@en ;
   dcterms:source "Performance of alternative harvest control rules for two Pacific groundfish stocks with uncertain natural mortality: Bias, robustness and trade-offs"@en ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;
-  rdfs:subClassOf dfo:Indicator.
+  rdfs:subClassOf dfo:Indicator .
 
 dfo:RemovalReference a owl:Class ;
   rdfs:label "Removal reference (RR)"@en ;
