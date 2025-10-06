@@ -1,7 +1,7 @@
 @prefix dfo:     <https://w3id.org/dfo/salmon#> .
-@prefix bfo:     <http://purl.obolibrary.org/obo/bfo.owl> .
-@prefix iao:     <http://purl.obolibrary.org/obo/iao.owl> .
-@prefix odo:     <http://purl.dataone.org/odo/SALMON_> .
+@prefix bfo:     <http://purl.obolibrary.org/obo/BFO_> .
+@prefix iao:     <http://purl.obolibrary.org/obo/IAO_> .
+@prefix odo:     <http://purl.dataone.org/odo/> .
 @prefix owl:     <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
@@ -222,7 +222,7 @@ dfo:BroodYear a owl:Class ;
   rdfs:comment "The parental year for a group of returning salmon (i.e., the calendar year when the majority of parents of these fish spawned)."@en ;
   dcterms:source "Defined in the SALMON ontology (SALMON_00000520): 'The parental year for a group of returning salmon (i.e., the calendar year when the majority of parents of these fish spawned).'"@en ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;
-  oboInOwl:hasDbXref odo:SALMON_00000520 .
+  oboInOwl:hasDbXref odo:00000520 .
 
 dfo:Catch a owl:Class ;
   rdfs:label "Catch"@en ;
