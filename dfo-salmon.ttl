@@ -252,7 +252,7 @@ dfo:COSEWICStatusCategory a owl:Class ;
   rdfs:label "COSEWIC status category"@en ;
   rdfs:comment "The Committee on the Status of Endangered Wildlife in Canada (COSEWIC) assesses the national status of wild species, subspecies, varieties, or other designatable units that are considered to be at risk in Canada. Designations are made on native wildlife species including the following taxonomic groups: mammals, birds, reptiles, amphibians, fishes, arthropods, molluscs, vascular plants, mosses, and lichens."@en ;
   rdfs:subClassOf iao:0000030 ; # Information content entity
-  rdfs:seeAlso dfo:StockStatusZoneScheme ;
+  rdfs:seeAlso dfo:COSEWICStatusScheme ;
   dcterms:source "COSEWIC status categories"@en ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
