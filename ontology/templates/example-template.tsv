@@ -1,0 +1,6 @@
+# Example ROBOT template for adding new terms
+# This demonstrates the structure for term generation
+
+ID	Label	Definition	Parent	Source
+dfo:ExampleClass	Example Class	An example class for demonstration purposes	dfo:BaseClass	Example source document
+dfo:exampleProperty	example property	An example property for demonstration	dfo:BaseProperty	Example source document

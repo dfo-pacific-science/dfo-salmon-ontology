@@ -1,0 +1,92 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Java 11
+      uses: actions/setup-java@v4
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+    
+    - name: Download ROBOT
+      run: |
+        wget https://github.com/ontodev/robot/releases/download/v1.9.5/robot.jar -O tools/robot.jar
+    
+    - name: Extract version from tag
+      id: version
+      run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+    
+    - name: Annotate ontology with version
+      run: |
+        java -jar tools/robot.jar annotate \
+          --input ontology/dfo-salmon.ttl \
+          --ontology-iri "https://w3id.org/dfo/salmon" \
+          --version-iri "https://w3id.org/dfo/salmon/${{ steps.version.outputs.VERSION }}" \
+          --output ontology/dfo-salmon.ttl
+    
+    - name: Generate release artifacts
+      run: |
+        mkdir -p release/artifacts
+        java -jar tools/robot.jar convert --input ontology/dfo-salmon.ttl --output release/artifacts/dfo-salmon.owl
+        java -jar tools/robot.jar convert --input ontology/dfo-salmon.ttl --format json --output release/artifacts/dfo-salmon.json
+        cp ontology/dfo-salmon.ttl release/artifacts/
+    
+    - name: Create Release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        body: |
+          ## DFO Salmon Ontology Release ${{ github.ref }}
+          
+          ### Artifacts
+          - `dfo-salmon.ttl` - Turtle format
+          - `dfo-salmon.owl` - OWL/XML format  
+          - `dfo-salmon.json` - JSON-LD format
+          
+          ### Changes
+          See [changelog.md](release/changelog.md) for detailed changes.
+        draft: false
+        prerelease: false
+    
+    - name: Upload Release Assets
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: release/artifacts/dfo-salmon.ttl
+        asset_name: dfo-salmon.ttl
+        asset_content_type: text/turtle
+    
+    - name: Upload OWL Asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: release/artifacts/dfo-salmon.owl
+        asset_name: dfo-salmon.owl
+        asset_content_type: application/rdf+xml
+    
+    - name: Upload JSON Asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: release/artifacts/dfo-salmon.json
+        asset_name: dfo-salmon.json
+        asset_content_type: application/ld+json

@@ -1,0 +1,32 @@
+# Example SPARQL queries for DFO Salmon Ontology competency questions
+# These are placeholder queries to demonstrate the structure
+
+# Query 1: Find all stock status zones
+PREFIX dfo: <https://w3id.org/dfo/salmon#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?statusZone ?label ?definition WHERE {
+  ?statusZone a dfo:StockStatusZone ;
+              rdfs:label ?label ;
+              rdfs:comment ?definition .
+}
+
+# Query 2: Find all survey events with their protocols
+PREFIX dfo: <https://w3id.org/dfo/salmon#>
+PREFIX dwc: <http://rs.tdwg.org/dwc/terms/>
+
+SELECT ?event ?protocol ?date WHERE {
+  ?event a dfo:SurveyEvent ;
+         dwc:samplingProtocol ?protocol ;
+         dwc:eventDate ?date .
+}
+
+# Query 3: Find management units and their conservation units
+PREFIX dfo: <https://w3id.org/dfo/salmon#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?managementUnit ?conservationUnit WHERE {
+  ?managementUnit a dfo:ManagementUnit ;
+                  dfo:hasMember ?conservationUnit .
+  ?conservationUnit a dfo:ConservationUnit .
+}
