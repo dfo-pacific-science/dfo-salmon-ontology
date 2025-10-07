@@ -216,6 +216,10 @@
 dwc:MeasurementOrFact rdfs:subClassOf iao:0000109 . # Align DwC to IAO 
 
 #################################################################
+# Base superclasses
+#################################################################
+
+#################################################################
 # Core classes
 # DISCUSS(Label style): Use parentheses (e.g., 'Stock (Population)') or keep terse labels.
 #################################################################
@@ -678,7 +682,7 @@ dfo:HealthyZone a owl:Class , skos:Concept ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
 dfo:UncertainStatus a owl:Class , skos:Concept ;
-  rdfs:label "Uncertain status"en ;
+  rdfs:label "Uncertain status"@en ;
   rdfs:comment "For stocks that have an uncertain status, the uncertainty is factored into harvest level decisions. Greater uncertainty leads to more precautionary harvest levels."@en ;
   dcterms:source "A fishery decision-making framework incorporating the precautionary approach"@en ;
   skos:inScheme dfo:StockStatusZoneScheme ;
@@ -709,7 +713,7 @@ dfo:TerminalFishery a owl:Class ;
 
 dfo:TotalAllowableCatch a owl:Class ;
   rdfs:label "Total allowable catch (TAC)"@en ;
-  rdfs:comment "A catch limit set for a particular fishery. Also referred to as quota."@en ;
+  rdfs:comment "A policy-defined catch limit set for a particular fishery within a specified management period. Also referred to as quota."@en ;
   dcterms:source "Introduction to Stock Assessment Glossary"@en ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
@@ -930,7 +934,7 @@ dfo:hasMemberCU a owl:ObjectProperty ;
   rdfs:subPropertyOf dfo:hasMember ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
-dfo:isMemberOfMU a owl:ObjectProperty ;
+dfo:isMemberOfSMU a owl:ObjectProperty ;
   rdfs:label "is member of SMU"@en ;
   rdfs:comment "A Conservation Unit belongs to a Stock Management Unit."@en ;
   rdfs:domain dfo:ConservationUnit ;
@@ -968,8 +972,15 @@ dfo:hasReferencePoint a owl:ObjectProperty ;
   rdfs:range dfo:ReferencePoint ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
+dfo:hasCOSEWICStatusCategory a owl:ObjectProperty ;
+  rdfs:domain dfo:Stock ;
+  rdfs:range dfo:COSEWICStatusCategory ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
-
+dfo:hasStockStatusZone a owl:ObjectProperty ;
+  rdfs:domain dfo:Stock ;
+  rdfs:range dfo:StockStatusZone ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
 #################################################################
 # Optional class disjointness (safer modeling)
