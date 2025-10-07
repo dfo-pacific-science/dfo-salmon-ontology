@@ -59,12 +59,12 @@
     rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
 :StockStatusZoneScheme a skos:ConceptScheme ;
-    skos:preflabel "Stock Status Zone Scheme"@en ; 
+    skos:prefLabel "Stock Status Zone Scheme"@en ; 
     skos:definition "Controlled vocabulary for stock status zones under the Precautionary Approach."@en ;
     rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
 :COSEWICStatusScheme a skos:ConceptScheme ; 
-    skos:preflabel "COSEWIC Status Scheme"@en ;
+    skos:prefLabel "COSEWIC Status Scheme"@en ;
     skos:definition "Controlled vocabulary for COSEWIC statuses"@en ;
     rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
@@ -678,7 +678,7 @@ dfo:HealthyZone a owl:Class , skos:Concept ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
 dfo:UncertainStatus a owl:Class , skos:Concept ;
-  rdfs:label "Uncertain status"en ;
+  rdfs:label "Uncertain status"@en ;
   rdfs:comment "For stocks that have an uncertain status, the uncertainty is factored into harvest level decisions. Greater uncertainty leads to more precautionary harvest levels."@en ;
   dcterms:source "A fishery decision-making framework incorporating the precautionary approach"@en ;
   skos:inScheme dfo:StockStatusZoneScheme ;
