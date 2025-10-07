@@ -234,6 +234,7 @@ dfo:Catch a owl:Class ;
 dfo:COSEWIC a owl:Class ;
   rdfs:label "COSEWIC"@en ;
   rdfs:comment "The Committee on the Status of Endangered Wildlife in Canada (COSEWIC) assesses the national status of wild species, subspecies, varieties, or other designatable units that are considered to be at risk in Canada. Designations are made on native wildlife species including the following taxonomic groups: mammals, birds, reptiles, amphibians, fishes, arthropods, molluscs, vascular plants, mosses, and lichens."@en ;
+  rdfs:subClassOf schema:Organization ; 
   dcterms:source "COSEWIC List of wildlife species assessed (including October 2024)"@en ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
@@ -241,12 +242,6 @@ dfo:COSEWICStatusCategory a owl:Class ;
   rdfs:label "COSEWIC status category"@en ;
   rdfs:comment "Extinct (X): A Wildlife Species that no longer exists; Extirpated (XT): A Wildlife Species that no longer exists in the wild in Canada, but exists elsewhere; Endangered (E): A Wildlife Species facing imminent extirpation or extinction; Threatened (T): A Wildlife Species that is likely to become an endangered if nothing is done to reverse the factors leading to its extirpation or extinction; Special Concern (SC): A Wildlife Species that may become threatened or endangered because of a combination of biological characteristics and identified threats; Data Deficient (DD): A category that applies when the available information is insufficient (a) to resolve a Wildlife Species' eligibility for assessment or (b) to permit an assessment of the Wildlife Species' risk of extinction; Not At Risk (NAR): A Wildlife Species that has been evaluated and found to be not at risk of extinction given the current circumstances."@en ;
   dcterms:source "COSEWIC status categories"@en ;
-  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
-
-dfo:CriticalZone a owl:Class ;
-  rdfs:label "Critical zone"@en ;
-  rdfs:comment "One of three categorical stock status zones (Healthy, Cautious, Critical) under the Precautionary Approach framework to fisheries management in Canada. The stock status zone at which a fish stock level falls below the limit reference point (LRP) and there is a high probability that its productivity will be so impaired that serious harm will occur. In the critical zone, stock growth is promoted and removals are kept to the lowest possible level. The mature biomass, or its index, is less than or equal to 40% of BMSY. In other words:  Biomass ≤ 40% BMSY."@en ;
-  dcterms:source "A fishery decision-making framework incorporating the precautionary approach"@en ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
 dfo:ConservationUnit a owl:Class ;
@@ -579,6 +574,45 @@ dfo:StockRecruitmentRelationship a owl:Class ;
   dcterms:source "Introduction to stock assessment"@en ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
+dfo:StockStatusZone a owl:Class ;
+  rdfs:label "Stock status zone"@en ;
+  rdfs:comment "Categorical assessment of the biological status of a fish stock under the Precautionary Approach framework (Healthy, Cautious, Critical, Status uncertain) according to upper stock and limit reference points."@en ;
+  rdfs:subClassOf iao:0000030 ; # Information content entity
+  dcterms:source "A fishery decision-making framework incorporating the precautionary approach"@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:CriticalZone a owl:Class ;
+  rdfs:label "Critical zone"@en ;
+  rdfs:comment "In the critical zone, stock growth is promoted and removals are kept to the lowest possible level. The stock is considered to be in “the critical zone” if the mature biomass, or its index, is less than or equal to 40% of BMSY. In other words:  Biomass ≤ 40% BMSY."@en ;
+  dcterms:source "A fishery decision-making framework incorporating the precautionary approach"@en ;
+  rdfs:subClassOf dfo:StockStatusZone ;
+  dcterms:source "Status of key fish stocks"@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:CautiousZone a owl:Class ;
+  rdfs:label "Cautious zone"@en ;
+  rdfs:comment "In the cautious zone, decisions and strategies promote stock rebuilding to the healthy zone. The stock is considered to be in the “cautious zone” if the biomass, or its index, is higher than 40% of BMSY but lower than 80% of BMSY. In other words:  40% BMSY < Biomass < 80% BMSY."@en ;
+  dcterms:source "A fishery decision-making framework incorporating the precautionary approach"@en ;
+  rdfs:subClassOf dfo:StockStatusZone ;
+  dcterms:source "Status of key fish stocks"@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:HealthyZone a owl:Class ;
+  rdfs:label "Healthy zone"@en ;
+  rdfs:comment "In the healthy zone, the fish stock status is good, and fisheries management decisions and harvest strategies are designed to maintain fish stocks within this zone. The stock is considered to be “healthy” if the biomass, or its index, is higher than 80% of BMSY. In other words:  Biomass ≥ 80% BMSY."@en ;
+  dcterms:source "A fishery decision-making framework incorporating the precautionary approach"@en ;
+  rdfs:subClassOf dfo:StockStatusZone ;
+  dcterms:source "Status of key fish stocks"@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:UncertainStatus a owl:Class ;
+  rdfs:label "Uncertain status"en ;
+  rdfs:comment "For stocks that have an uncertain status, the uncertainty is factored into harvest level decisions. Greater uncertainty leads to more precautionary harvest levels."@en ;
+  dcterms:source "A fishery decision-making framework incorporating the precautionary approach"@en ;
+  rdfs:subClassOf dfo:StockStatusZone ;
+  dcterms:source "Status of key fish stocks"@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
 dfo:SurveyEvent a owl:Class ;
   rdfs:label "Survey event"@en ;
   rdfs:comment "A field event associated with monitoring (e.g., escapement survey, fence count, sonar period)."@en ;
@@ -628,6 +662,7 @@ dfo:Wild a owl:Class ;
 dfo:WildSalmonPolicy a owl:Class ;
   rdfs:label "Wild Salmon Policy (WSP)"@en ;
   rdfs:comment "Canada's Policy for Conservation of Wild Pacific Salmon is a framework designed to restore and maintain healthy and diverse salmon populations and their habitats for the benefit of Canadians in perpetuity. It prioritizes conservation of wild salmon through identifying and managing conservation units (CUs) that reflect the genetic and geographic diversity of salmon populations, while incorporating habitat protection, ecosystem management, and sustainable fisheries practices."@en ;
+  rdfs:subClassOf iao:0000643 ; # Directive information entity
   dcterms:source "Canada's Policy for Conservation of Wild Pacific Salmon Glossary"@en ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
