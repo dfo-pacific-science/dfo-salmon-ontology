@@ -58,6 +58,16 @@
     skos:definition "Controlled vocabulary for Hyatt 1997 estimate types"@en ;
     rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
+:StockStatusZoneScheme a skos:ConceptScheme ;
+    skos:preflabel "Stock Status Zone Scheme"@en ; 
+    skos:definition "Controlled vocabulary for stock status zones under the Precautionary Approach."@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+:COSEWICStatusScheme a skos:ConceptScheme ; 
+    skos:preflabel "COSEWIC Status Scheme"@en ;
+    skos:definition "Controlled vocabulary for COSEWIC statuses"@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
 #################################################################
 # SKOS Enumeration Methods (from escapement_estimate_type_guidance.txt)
 #################################################################
@@ -233,14 +243,72 @@ dfo:Catch a owl:Class ;
 
 dfo:COSEWIC a owl:Class ;
   rdfs:label "COSEWIC"@en ;
-  rdfs:comment "The Committee on the Status of Endangered Wildlife in Canada (COSEWIC) assesses the national status of wild species, subspecies, varieties, or other designatable units that are considered to be at risk in Canada. Designations are made on native wildlife species including the following taxonomic groups: mammals, birds, reptiles, amphibians, fishes, arthropods, molluscs, vascular plants, mosses, and lichens."@en ;
+  rdfs:comment "The Committee on the Status of Endangered Wildlife in Canada (COSEWIC) is an independent advisory panel to the Minister of Environment and Climate Change Canada that meets twice a year to assess the status of wildlife species at risk of extinction. Members are wildlife biology experts from academia, government, non-governmental organizations and the private sector responsible for designating wildlife species in danger of disappearing from Canada."@en ;
   rdfs:subClassOf schema:Organization ; 
-  dcterms:source "COSEWIC List of wildlife species assessed (including October 2024)"@en ;
+  dcterms:source "COSEWIC - Committee on the Status of Endangered Wildlife in Canada"@en ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
 dfo:COSEWICStatusCategory a owl:Class ;
   rdfs:label "COSEWIC status category"@en ;
-  rdfs:comment "Extinct (X): A Wildlife Species that no longer exists; Extirpated (XT): A Wildlife Species that no longer exists in the wild in Canada, but exists elsewhere; Endangered (E): A Wildlife Species facing imminent extirpation or extinction; Threatened (T): A Wildlife Species that is likely to become an endangered if nothing is done to reverse the factors leading to its extirpation or extinction; Special Concern (SC): A Wildlife Species that may become threatened or endangered because of a combination of biological characteristics and identified threats; Data Deficient (DD): A category that applies when the available information is insufficient (a) to resolve a Wildlife Species' eligibility for assessment or (b) to permit an assessment of the Wildlife Species' risk of extinction; Not At Risk (NAR): A Wildlife Species that has been evaluated and found to be not at risk of extinction given the current circumstances."@en ;
+  rdfs:comment "The Committee on the Status of Endangered Wildlife in Canada (COSEWIC) assesses the national status of wild species, subspecies, varieties, or other designatable units that are considered to be at risk in Canada. Designations are made on native wildlife species including the following taxonomic groups: mammals, birds, reptiles, amphibians, fishes, arthropods, molluscs, vascular plants, mosses, and lichens."@en ;
+  rdfs:subClassOf iao:0000030 ; # Information content entity
+  rdfs:seeAlso dfo:StockStatusZoneScheme ;
+  dcterms:source "COSEWIC status categories"@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:Extinct a owl:Class , skos:Concept ;
+  skos:prefLabel "Extinct (X)"@en ;
+  skos:definition "A Wildlife Species that no longer exists."@en ;
+  skos:inScheme dfo:COSEWICStatusScheme ;
+  rdfs:subClassOf dfo:COSEWICStatusCategory ;
+  dcterms:source "COSEWIC status categories"@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:Extirpated a owl:Class , skos:Concept ;
+  skos:prefLabel "Extirpated (XT)"@en ;
+  skos:definition "A Wildlife Species that no longer exists in the wild in Canada, but exists elsewhere."@en ;
+  skos:inScheme dfo:COSEWICStatusScheme ;
+  rdfs:subClassOf dfo:COSEWICStatusCategory ;
+  dcterms:source "COSEWIC status categories"@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:Endangered a owl:Class , skos:Concept ;
+  skos:prefLabel "Endangered (E)"@en ;
+  skos:definition "A Wildlife Species facing imminent extirpation or extinction."@en ;
+  skos:inScheme dfo:COSEWICStatusScheme ;
+  rdfs:subClassOf dfo:COSEWICStatusCategory ;
+  dcterms:source "COSEWIC status categories"@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:Threatened a owl:Class , skos:Concept ;
+  skos:prefLabel "Threatened (T)"@en ;
+  skos:definition "A Wildlife Species that is likely to become an endangered if nothing is done to reverse the factors leading to its extirpation or extinction."@en ;
+  skos:inScheme dfo:COSEWICStatusScheme ;
+  rdfs:subClassOf dfo:COSEWICStatusCategory ;
+  dcterms:source "COSEWIC status categories"@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:SpecialConcern a owl:Class , skos:Concept ;
+  skos:prefLabel "Special Concern (SC)"@en ;
+  skos:definition "A Wildlife Species that may become threatened or endangered because of a combination of biological characteristics and identified threats."@en ;
+  skos:inScheme dfo:COSEWICStatusScheme ;
+  rdfs:subClassOf dfo:COSEWICStatusCategory ;
+  dcterms:source "COSEWIC status categories"@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:DataDeficient a owl:Class , skos:Concept ;
+  skos:prefLabel "Data Deficient (DD)"@en ;
+  skos:definition "A category that applies when the available information is insufficient (a) to resolve a Wildlife Species' eligibility for assessment or (b) to permit an assessment of the Wildlife Species' risk of extinction."@en ;
+  skos:inScheme dfo:COSEWICStatusScheme ;
+  rdfs:subClassOf dfo:COSEWICStatusCategory ;
+  dcterms:source "COSEWIC status categories"@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+dfo:NotAtRisk a owl:Class , skos:Concept ;
+  skos:prefLabel "Not At Risk (NAR)"@en ;
+  skos:definition "A Wildlife Species that has been evaluated and found to be not at risk of extinction given the current circumstances."@en ;
+  skos:inScheme dfo:COSEWICStatusScheme ;
+  rdfs:subClassOf dfo:COSEWICStatusCategory ;
   dcterms:source "COSEWIC status categories"@en ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
@@ -578,13 +646,15 @@ dfo:StockStatusZone a owl:Class ;
   rdfs:label "Stock status zone"@en ;
   rdfs:comment "Categorical assessment of the biological status of a fish stock under the Precautionary Approach framework (Healthy, Cautious, Critical, Status uncertain) according to upper stock and limit reference points."@en ;
   rdfs:subClassOf iao:0000030 ; # Information content entity
+  rdfs:seeAlso dfo:StockStatusZoneScheme ;
   dcterms:source "A fishery decision-making framework incorporating the precautionary approach"@en ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
-dfo:CriticalZone a owl:Class ;
+dfo:CriticalZone a owl:Class , skos:Concept ;
   rdfs:label "Critical zone"@en ;
   rdfs:comment "In the critical zone, stock growth is promoted and removals are kept to the lowest possible level. The stock is considered to be in “the critical zone” if the mature biomass, or its index, is less than or equal to 40% of BMSY. In other words:  Biomass ≤ 40% BMSY."@en ;
   dcterms:source "A fishery decision-making framework incorporating the precautionary approach"@en ;
+  skos:inScheme dfo:StockStatusZoneScheme ;
   rdfs:subClassOf dfo:StockStatusZone ;
   dcterms:source "Status of key fish stocks"@en ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
@@ -593,6 +663,7 @@ dfo:CautiousZone a owl:Class ;
   rdfs:label "Cautious zone"@en ;
   rdfs:comment "In the cautious zone, decisions and strategies promote stock rebuilding to the healthy zone. The stock is considered to be in the “cautious zone” if the biomass, or its index, is higher than 40% of BMSY but lower than 80% of BMSY. In other words:  40% BMSY < Biomass < 80% BMSY."@en ;
   dcterms:source "A fishery decision-making framework incorporating the precautionary approach"@en ;
+  skos:inScheme dfo:StockStatusZoneScheme ;
   rdfs:subClassOf dfo:StockStatusZone ;
   dcterms:source "Status of key fish stocks"@en ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
@@ -601,6 +672,7 @@ dfo:HealthyZone a owl:Class ;
   rdfs:label "Healthy zone"@en ;
   rdfs:comment "In the healthy zone, the fish stock status is good, and fisheries management decisions and harvest strategies are designed to maintain fish stocks within this zone. The stock is considered to be “healthy” if the biomass, or its index, is higher than 80% of BMSY. In other words:  Biomass ≥ 80% BMSY."@en ;
   dcterms:source "A fishery decision-making framework incorporating the precautionary approach"@en ;
+  skos:inScheme dfo:StockStatusZoneScheme ;
   rdfs:subClassOf dfo:StockStatusZone ;
   dcterms:source "Status of key fish stocks"@en ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
@@ -609,6 +681,7 @@ dfo:UncertainStatus a owl:Class ;
   rdfs:label "Uncertain status"en ;
   rdfs:comment "For stocks that have an uncertain status, the uncertainty is factored into harvest level decisions. Greater uncertainty leads to more precautionary harvest levels."@en ;
   dcterms:source "A fishery decision-making framework incorporating the precautionary approach"@en ;
+  skos:inScheme dfo:StockStatusZoneScheme ;
   rdfs:subClassOf dfo:StockStatusZone ;
   dcterms:source "Status of key fish stocks"@en ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
