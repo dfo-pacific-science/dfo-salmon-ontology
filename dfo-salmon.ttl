@@ -659,7 +659,7 @@ dfo:CriticalZone a owl:Class , skos:Concept ;
   dcterms:source "Status of key fish stocks"@en ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
-dfo:CautiousZone a owl:Class ;
+dfo:CautiousZone a owl:Class , skos:Concept ;
   rdfs:label "Cautious zone"@en ;
   rdfs:comment "In the cautious zone, decisions and strategies promote stock rebuilding to the healthy zone. The stock is considered to be in the “cautious zone” if the biomass, or its index, is higher than 40% of BMSY but lower than 80% of BMSY. In other words:  40% BMSY < Biomass < 80% BMSY."@en ;
   dcterms:source "A fishery decision-making framework incorporating the precautionary approach"@en ;
@@ -668,7 +668,7 @@ dfo:CautiousZone a owl:Class ;
   dcterms:source "Status of key fish stocks"@en ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
-dfo:HealthyZone a owl:Class ;
+dfo:HealthyZone a owl:Class , skos:Concept ;
   rdfs:label "Healthy zone"@en ;
   rdfs:comment "In the healthy zone, the fish stock status is good, and fisheries management decisions and harvest strategies are designed to maintain fish stocks within this zone. The stock is considered to be “healthy” if the biomass, or its index, is higher than 80% of BMSY. In other words:  Biomass ≥ 80% BMSY."@en ;
   dcterms:source "A fishery decision-making framework incorporating the precautionary approach"@en ;
@@ -677,7 +677,7 @@ dfo:HealthyZone a owl:Class ;
   dcterms:source "Status of key fish stocks"@en ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
-dfo:UncertainStatus a owl:Class ;
+dfo:UncertainStatus a owl:Class , skos:Concept ;
   rdfs:label "Uncertain status"en ;
   rdfs:comment "For stocks that have an uncertain status, the uncertainty is factored into harvest level decisions. Greater uncertainty leads to more precautionary harvest levels."@en ;
   dcterms:source "A fishery decision-making framework incorporating the precautionary approach"@en ;
