@@ -2,53 +2,71 @@
 
 **Namespace:** `https://w3id.org/dfo/salmon#` (prefix: `dfo:`)  
 **License:** CC-BY 4.0  
-**Status:** Draft Work in Progress. 
+**Status:** Draft Work in Progress
 
-The DFO Salmon Ontology is an ** OWL ontology** for salmon data at Fisheries and Oceans Canada (DFO). It's main focus is on describing operations, data, data flows, data analytics, and reporting in support of the *Fisheries Act* and the Wild Salmon Policy for the purposes of data quality assessment, data integration, and data stewardship generally. It broadly reflects the functional, operational, and organizational entities and relationships of salmon data collection through to publication. It's modularized into functional vertical domains including escapement, fisheries management, habitat, an enhancement as well as cross cutting domains such as genetics, policy, and management.
+The DFO Salmon Ontology is a **data stewardship and operational process ontology** designed to provide a semantic framework for managing, integrating, and stewarding Pacific salmon data across Fisheries and Oceans Canada (DFO).
 
-It aligns with the Darwin Core (DwC) Conceptual Model layer where helpful and adds DFO-specific concepts for stock assessment and genetics.  
+**📋 For detailed purpose, competency questions, and scope, see [Ontology Purpose and Competency Guide](docs/COMPETENCY_QUESTIONS.md)**
+
 **Goal:** Make salmon data interoperable, discoverable, and analyzable with minimal friction for scientists, data stewards, and managers.
+
+## Repository Structure
+
+This repository follows the [AGENTS.md](AGENTS.md) directory layout for ontology development:
+
+```
+/ontology/
+  dfo-salmon.ttl            # main schema (OWL + SKOS + SHACL shapes as needed)
+  shapes/                   # optional modular SHACL shapes
+  imports/                  # pinned external imports (ENVO, QUDT, etc.) if vendored
+  templates/                # ROBOT templates (CSV/TSV) for term generation
+  sparql/                   # SPARQL queries/tests for competency questions
+  examples/                 # minimal instance examples used only for tests/docs
+/release/
+  changelog.md
+  artifacts/                # built artifacts (.owl, .ttl, .json) per release
+/tools/
+  robot.jar (optional)      # or rely on system-wide ROBOT
+/scripts/                   # automation scripts and utilities
+/docs/                      # documentation and guides
+```
+
+**Rule of thumb:** `/ontology/dfo-salmon.ttl` contains **schema only** (no instance facts, measurements, or survey rows). Instance data examples belong in `/ontology/examples/` and are *not* shipped inside the core ontology file.
 
 ---
 
 ## Table of Contents
 
-- Overview
-- Quickstart (WebProtégé & OntoGraf)
-- Workflow & Editing Guidelines
-- Modeling Approach
-- Conventions (Updated)
-- Hierarchy & Relationships
-- Membership / Roll-up Pattern (MU ▶ CU ▶ Stock)
-- Measurement & GSI Conventions
-- External Alignments (Pragmatic)
-- Ontology Scope
-- IRI & Versioning Policy
-- Contribution Workflow
-- Roadmap
-- Acknowledgments
+- [Purpose & Competency Questions](docs/COMPETENCY_QUESTIONS.md)
+- [Quickstart](#quickstart)
+- [Current Scope](#ontology-scope-current)
+- [Development Workflow](#contribution-workflow)
+- [Conventions Guide](docs/CONVENTIONS.md)
+- [Roadmap](#roadmap)
+- [Acknowledgments](#acknowledgments)
 
 ---
 
-## Overview
+## Technical Overview
 
-- **One file**: `dfo-salmon.ttl` (OWL/Turtle).
-- **OWL + SKOS**: OWL for formal relationships, SKOS for controlled vocabularies.
-- **Darwin Core aligned**: Uses DwC classes as top-level framework for interoperability.
-- **OBO Foundry principles**: Open, interoperable, logically well-formed, scientifically accurate.
-- **Units**: QUDT/OM **IRIs stored as literals** (starter convention).
-- **Community-aligned**: builds on NCEAS Salmon Ontology, ENVO, and OBO Foundry vocabularies.
+- **One file**: `dfo-salmon.ttl` (OWL/Turtle)
+- **Hybrid approach**: OWL for formal relationships, SKOS for controlled vocabularies
+- **Darwin Core aligned**: Uses DwC classes as top-level framework for interoperability
+- **OBO Foundry principles**: Open, interoperable, logically well-formed, scientifically accurate
+- **Units**: QUDT/OM IRIs stored as literals (starter convention)
+- **Community-aligned**: builds on NCEAS Salmon Ontology, ENVO, and OBO Foundry vocabularies
 
 ---
 
 ## Quickstart
 
 ### For Contributors
-1. **Read the [Conventions Guide](DFO%20Salmon%20Ontology%20Conventions.md)** for detailed modeling guidelines
-2. **Use Protégé Desktop** to edit `dfo-salmon.ttl` with OntoGraf for visualization
-3. **Use ROBOT** for quality control: `robot reason --input dfo-salmon.ttl --reasoner ELK`
-4. **Discuss changes** in GitHub Issues before creating PRs
-5. **Follow OBO practices**: Use competency questions, design patterns, and quality checklists
+1. **Read the [Purpose & Competency Guide](docs/COMPETENCY_QUESTIONS.md)** to understand scope and goals
+2. **Read the [Conventions Guide](docs/CONVENTIONS.md)** for detailed modeling guidelines
+3. **Use Protégé Desktop** to edit `dfo-salmon.ttl` with OntoGraf for visualization
+4. **Use ROBOT** for quality control: `robot reason --input dfo-salmon.ttl --reasoner ELK`
+5. **Discuss changes** in GitHub Issues before creating PRs
+6. **Follow OBO practices**: Use competency questions, design patterns, and quality checklists
 
 ### For Users
 1. **Browse terms** using Protégé or online ontology browsers
@@ -57,7 +75,7 @@ It aligns with the Darwin Core (DwC) Conceptual Model layer where helpful and ad
 
 ---
 
-## Workflow & Editing Guidelines
+## Development Workflow
 
 - **Single source of truth**: One ontology file (`dfo-salmon.ttl`) on GitHub
 - **OBO-style workflow**: Use ROBOT for quality control and release management
@@ -67,40 +85,9 @@ It aligns with the Darwin Core (DwC) Conceptual Model layer where helpful and ad
 - **Document everything**: Always include `rdfs:comment` and `dcterms:source`
 - **Test with data**: Validate terms with sample data and SPARQL queries
 
----
+**For detailed modeling conventions, see [DFO Salmon Ontology Conventions Guide](docs/CONVENTIONS.md).**
 
-## Modeling Approach
-
-- **OWL + SKOS**: OWL for formal relationships, SKOS for controlled vocabularies
-- **Darwin Core framework**: Uses DwC classes as top-level for international interoperability
-- **OBO Foundry aligned**: Follows OBO principles for open, interoperable ontologies
-- **Competency-driven**: Every term answers specific research questions
-- **Quality assured**: Uses ROBOT validation and systematic quality checklists
-- **Human + machine friendly**: Clear labels, definitions, and examples
-
----
-
-## Conventions
-
-**For detailed modeling conventions, see [DFO Salmon Ontology Conventions Guide](DFO%20Salmon%20Ontology%20Conventions.md).**
-
-**Quick reference:**
-- All terms need: `rdfs:label`, `rdfs:comment`, `rdfs:isDefinedBy`
-- Use lowerCamelCase for property names (e.g., `aboutStock`, `usesMethod`)
-- Store QUDT unit IRIs as literals in `…UnitIRI` properties
-- Follow the membership pattern for MU ▶ CU ▶ Stock relationships
-
----
-
-## Key Modeling Patterns
-
-**For detailed modeling conventions, see [DFO Salmon Ontology Conventions Guide](DFO%20Salmon%20Ontology%20Conventions.md).**
-
-**Key patterns:**
-- **Membership hierarchy**: SMU ▶ CU ▶ Population with transitive `hasMember` relationships
-- **Measurement requirements**: EscapementMeasurements must link to stock, event, and method
-- **Darwin Core integration**: Use DwC classes and predicates where appropriate
-- **Quality validation**: Use ROBOT and competency questions for validation
+**For agent-specific development guidelines, see [AGENTS.md](AGENTS.md).**
 
 ---
 
@@ -132,40 +119,39 @@ It aligns with the Darwin Core (DwC) Conceptual Model layer where helpful and ad
 - **Base IRI**: `https://w3id.org/dfo/salmon#`
 - **Instances**: mint under same base (e.g., `…#Stock/SkeenaSockeye`)
 - **Versioning**: Tag GitHub releases, maintain version info in ontology header
-- **For detailed conventions**: See [DFO Salmon Ontology Conventions Guide](DFO%20Salmon%20Ontology%20Conventions.md)
-
----
-
-## Contribution Workflow
-
-### OBO-Style Development Process
-1. **Start with competency questions** to guide design
-2. **Use ROBOT for quality control**:
-   ```bash
-   robot reason --input dfo-salmon.ttl --reasoner ELK
-   robot validate --input dfo-salmon.ttl
-   ```
-3. **Create terms following conventions** in the [Conventions Guide](DFO%20Salmon%20Ontology%20Conventions.md)
-4. **Test with sample data** and competency questions
-5. **Submit via GitHub Issues and PRs**
-
-### Quality Standards
-- **Competency-driven**: Every term answers specific research questions
-- **OBO Foundry aligned**: Open, interoperable, logically well-formed
-- **Darwin Core compatible**: Uses DwC framework for interoperability
-- **Well-documented**: Clear labels, definitions, and examples
-- **Tested**: Validated with sample data and SPARQL queries
+- **For detailed conventions**: See [DFO Salmon Ontology Conventions Guide](docs/CONVENTIONS.md)
 
 ---
 
 ## Roadmap
 
-- Fill missing `rdfs:comment` definitions.
-- Add minimal individuals for examples (docs/training).
-- Consider SHACL validation later (ranges, required fields).
-- Decide when to replace literal IRIs with object links (GBIF, QUDT).
-- Publish docs via pyLODE/Widoco.
-- Register W3ID redirects.
+### Phase 1: Foundation (Current)
+- ✅ Core class and property definitions
+- ✅ Basic measurement patterns
+- ✅ Stock hierarchy implementation
+- ✅ Darwin Core alignment
+- ✅ Competency questions with SPARQL queries
+- ✅ Repository structure conforming to AGENTS.md
+
+### Phase 2: Expansion
+- Fill missing `rdfs:comment` definitions
+- Add genetic analysis workflows
+- Implement advanced measurement types
+- External vocabulary integration
+- Quality control patterns
+
+### Phase 3: Integration
+- NCEAS Salmon Ontology alignment
+- International standard compliance
+- Advanced querying capabilities
+- Data validation tools
+
+### Phase 4: Policy and Integration
+- Policy benchmarks and reference points
+- Integration with NCEAS Salmon Ontology
+- Advanced querying and analytics
+- Publish docs via pyLODE/Widoco
+- Register W3ID redirects
 
 ---
 
