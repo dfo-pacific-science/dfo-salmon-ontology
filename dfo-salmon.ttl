@@ -375,7 +375,7 @@ dfo:CUStatusBasedLRP a owl:Class ;
 
 dfo:CUBenchmarks a owl:Class ;
   rdfs:label "Conservation Unit benchmarks"@en ;
-  rdfs:comment "Identify biological production status and are used for management and coservation decisions."@en ;
+  rdfs:comment "Identify biological production status under the Wild Salmon Policy to inform management and conservation decisions."@en ;
   dcterms:bibliographicCitation "Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
@@ -387,8 +387,9 @@ dfo:CULowerBenchmark a owl:Class ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
 dfo:CUHigherBenchmark a owl:Class ;
-  rdfs:label "CU higher benchmark"@en ;
+  rdfs:label "Conservation Unit higher benchmark"@en ;
   rdfs:comment "A reference point in biological status to identify whether harvests are greater or less than the level expected to provide (on an average annual basis), the maximum annual catch for a CU, given existing environmental conditions."@en ;
+  rdfs:subClassOf dfo:CUBenchmarks ;
   dcterms:bibliographicCitation "Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
