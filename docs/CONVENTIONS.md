@@ -22,11 +22,12 @@ The conventions here are **practical starting points**, not immutable rules. As 
 
 ### Core Patterns
 - **Measurements**: Must link to stock, event, and method
-- **Hierarchy**: SMU ▶ CU ▶ Population with `hasMember` relationships
+- **Hierarchy**: SMU ▶ CU ▶ Population with `hasMember` relationships (use correct OWL 2 transitivity syntax)
 - **Units**: Store QUDT IRIs as literals in `…UnitIRI` properties
 - **Darwin Core**: Use as top-level classes for interoperability
 - **Hybrid Approach**: SKOS for methods, OWL for events with metadata
 - **Automated Classification**: SHACL rules for type escapement estimate type assignment 1-6 (Hyatt 1997)
+- **OBO Relations Ontology for Relations**: Check the [Relations Ontology](https://obofoundry.org/ontology/ro.html) first before defining new relations; use subproperties when extending
 
 ### Quality Checklist
 - [ ] Can answer a competency question?
@@ -707,6 +708,8 @@ dfo:Stock rdfs:subClassOf dwc:Organism ;
 - [ ] **Scientifically accurate**: Definitions reflect current scientific knowledge
 - [ ] **Non-overlapping scope**: Clear boundaries with other ontologies
 - [ ] **Common syntax**: Uses OBO format and standard annotation properties
+- [ ] **OWL 2 compliant**: Uses correct OWL 2 syntax (e.g., `owl:TransitiveProperty` as type, not boolean)
+- [ ] **RO relation reuse**: Checks RO for existing relations before defining new ones
 
 ### 5.3 Common Mistakes to Avoid
 
@@ -724,6 +727,11 @@ dfo:Stock rdfs:subClassOf dwc:Organism ;
 - Vague or unclear definitions
 - Missing required annotations
 - Duplicating existing terms with different names
+
+**OWL 2 Syntax Issues:**
+- Using `owl:TransitiveProperty true` instead of `a owl:TransitiveProperty`
+- Incorrect transitivity declarations that violate OWL 2 specification
+- Missing RO relation checks before defining new relations
 
 ---
 
@@ -934,10 +942,9 @@ SELECT ?method ?stock ?event WHERE {
 **Implementation:**
 ```turtle
 # Define the base membership property
-:hasMember a owl:ObjectProperty ;
+:hasMember a owl:ObjectProperty, owl:TransitiveProperty ;
     rdfs:label "has member"@en ;
-    rdfs:comment "A transitive relationship indicating membership in a group"@en ;
-    owl:TransitiveProperty true .
+    rdfs:comment "A transitive relationship indicating membership in a group"@en .
 
 # Define type-specific subproperties
 :hasMemberCU rdfs:subPropertyOf :hasMember ;
@@ -1011,11 +1018,61 @@ SELECT ?method ?stock ?event WHERE {
 - **ENVO**: Environmental terms (http://purl.obolibrary.org/obo/ENVO_)
 - **GBIF Backbone**: Taxonomic names (http://www.gbif.org/species/)
 - **Darwin Core**: Biodiversity data standards (http://rs.tdwg.org/dwc/terms/)
+- **RO (Relations Ontology)**: Standard relations (http://purl.obolibrary.org/obo/RO_)
+
+**OBO Foundry Relation Reuse Requirements:**
+- **Check RO first**: Before defining new relations, check if equivalent relations exist in RO
+- **Use RO IRIs**: When equivalent relations exist, use the RO IRI directly or create subproperties
+- **Avoid label conflicts**: OBO Foundry review flags non-RO relations with RO-equivalent labels
+- **Subproperty alignment**: Create subproperties of RO relations when domain-specific extensions are needed
+
+**Example RO Alignment:**
+```turtle
+# Instead of defining a new "hasMember" property, align with RO
+:hasMember rdfs:subPropertyOf ro:has_part ;
+    rdfs:label "has member"@en ;
+    rdfs:comment "A transitive relationship indicating membership in a group"@en .
+
+# Or use RO directly when appropriate
+:populationOf ro:part_of :stock ;
+    rdfs:label "population of"@en .
+```
 
 **Implementation:**
 - Store external IRIs as literals in `…UnitIRI` properties
 - Use `dcterms:source` to reference external vocabularies
 - Plan to convert to object properties in future versions
+- Check RO for existing relations before defining new ones
+
+**Unit Property Enhancement (Non-breaking):**
+For richer unit semantics, consider adding object properties alongside datatype properties:
+
+```turtle
+# Current approach: Store QUDT IRIs as literals
+:measurementUnitIRI a owl:DatatypeProperty ;
+    rdfs:label "measurement unit IRI"@en ;
+    rdfs:comment "IRI of the unit used in a measurement"@en ;
+    rdfs:domain :Measurement ;
+    rdfs:range xsd:anyURI .
+
+# Enhanced approach: Add object property for reasoning
+:hasUnit a owl:ObjectProperty ;
+    rdfs:label "has unit"@en ;
+    rdfs:comment "Links a measurement to a unit (e.g., QUDT Unit)"@en ;
+    rdfs:domain :Measurement ;
+    rdfs:range qudt:Unit ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+
+# Example usage with both approaches
+:EscapementCount2022 a :EscapementMeasurement ;
+    :measurementUnitIRI "http://qudt.org/vocab/unit/Each"^^xsd:anyURI ;
+    :hasUnit qudt:Each .
+```
+
+**Trade-offs:**
+- **Datatype approach**: Pragmatic storage and mapping, but reasoning can't follow strings to unit classes
+- **Object property approach**: Enables richer unit semantics and reasoning, but requires unit ontology imports
+- **Hybrid approach**: Use both for maximum flexibility and backward compatibility
 
 ### 6.7 IRI and Versioning Policy
 
