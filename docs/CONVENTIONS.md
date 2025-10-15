@@ -128,7 +128,7 @@ Understanding these distinctions is crucial for proper data management and syste
 
 The **DFO Salmon Ontology** provides a domain-fit semantic layer for Pacific salmon data. It is designed to make datasets from **stock assessment, genetics, and management** interoperable and support **integration** across regional, national, and international systems.
 
-> **📋 Complete Purpose & Objectives**: See the [DFO Salmon Ontology: Purpose and Competency Guide](ONTOLOGY_PURPOSE_AND_COMPETENCY_GUIDE.md) for the complete overview of the ontology's purpose, objectives, and target users.
+> **📋 Complete Purpose & Objectives**: See the [DFO Salmon Ontology: Product Requirements Document](PRODUCT_REQUIREMENTS.md) for the complete overview of the ontology's purpose, objectives, and target users.
 
 We take inspiration from:
 - **Darwin Core (DwC) & the DwC Conceptual Model (DwC-CM)**  
@@ -637,7 +637,7 @@ Every measurement must have:
 
 **Why integrate with Darwin Core?** Darwin Core provides a widely-adopted standard for biodiversity data that enables interoperability with GBIF, OBIS, and other international biodiversity platforms. By aligning with Darwin Core, your salmon data becomes discoverable and usable by the broader scientific community.
 
-> **📋 Complete Darwin Core Integration**: See the [DFO Salmon Ontology: Purpose and Competency Guide](ONTOLOGY_PURPOSE_AND_COMPETENCY_GUIDE.md) for the complete technical approach, including hybrid modeling strategy, core patterns, and Darwin Core integration details.
+> **📋 Complete Darwin Core Integration**: See the [DFO Salmon Ontology: Product Requirements Document](PRODUCT_REQUIREMENTS.md) for the complete technical approach, including hybrid modeling strategy, core patterns, and Darwin Core integration details.
 
 **Key Darwin Core Classes to Use:**
 - `dwc:Event` - Actions, processes, or circumstances occurring at a place and time
@@ -747,7 +747,7 @@ dfo:Stock rdfs:subClassOf dwc:Organism ;
 - **Testing framework**: Enable systematic validation of the ontology's utility
 - **Community alignment**: Ensure all stakeholders understand the ontology's purpose
 
-> **📋 Complete Competency Questions**: See the [DFO Salmon Ontology: Purpose and Competency Guide](ONTOLOGY_PURPOSE_AND_COMPETENCY_GUIDE.md) for the complete, authoritative list of competency questions organized by domain (Stock Assessment, Genetics/GSI, Management & Policy, and Cross-Domain Integration).
+> **📋 Complete Competency Questions**: See the [DFO Salmon Ontology: Competency Questions](COMPETENCY_QUESTIONS.md) for the complete, authoritative list of competency questions organized by domain (Stock Assessment, Genetics/GSI, Management & Policy, and Cross-Domain Integration).
 
 #### 6.1.1 Using Competency Questions
 
@@ -1132,7 +1132,7 @@ dfo:EscapementMeasurement a owl:Class ;
 
 **Why follow Darwin Core?** Darwin Core provides a widely-adopted standard for biodiversity data that enables interoperability with GBIF, OBIS, and other international platforms.
 
-> **📋 Complete Darwin Core Integration**: See the [DFO Salmon Ontology: Purpose and Competency Guide](ONTOLOGY_PURPOSE_AND_COMPETENCY_GUIDE.md) for the complete technical approach and Darwin Core integration strategy.
+> **📋 Complete Darwin Core Integration**: See the [DFO Salmon Ontology: Product Requirements Document](PRODUCT_REQUIREMENTS.md) for the complete technical approach and Darwin Core integration strategy.
 
 ### 6.10 Common Modeling Scenarios
 
