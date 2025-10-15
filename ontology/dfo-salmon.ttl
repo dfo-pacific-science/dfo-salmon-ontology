@@ -672,7 +672,7 @@ dfo:SpawnerAbundance a owl:Class ;
   rdfs:label "Spawner abundance"@en ;
   rdfs:comment "Spawner abundance (also called “escapement”) provides information on the number of salmon that “escape” fisheries and make it back to spawn."@en ;
   dcterms:bibliographicCitation "Pacific Salmon Foundation. (2025). State of Salmon 2025 Report. Pacific Salmon Foundation, Vancouver, BC, Canada."@en; 
-  dcterms:identifier <info:doi/10.60740/stateofsalmon.2025>
+  dcterms:identifier <info:doi/10.60740/stateofsalmon.2025> ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;
   oboInOwl:hasRelatedSynonym "Salmon escapement count"@en ;
   oboInOwl:hasDbXref odo:SALMON_00000479 .
@@ -1031,7 +1031,7 @@ dfo:isMemberOfSMU a owl:ObjectProperty ;
   rdfs:label "is member of SMU"@en ;
   rdfs:comment "A Conservation Unit belongs to a Stock Management Unit."@en ;
   rdfs:domain dfo:ConservationUnit ;
-  rdfs:range  dfo:ManagementUnit ;
+  rdfs:range  dfo:StockManagementUnit ;
   owl:inverseOf dfo:hasMemberCU ;
   rdfs:subPropertyOf dfo:isMemberOf ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
