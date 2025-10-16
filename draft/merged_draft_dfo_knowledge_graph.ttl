@@ -7,12 +7,14 @@
 @prefix geo:     <http://www.w3.org/2003/01/geo/wgs84pos#> .
 
 ### Root classes
-:Environmental a rdfs:Class ;
-    rdfs:label "Environmental Factors" ;
+:Environmental rdf:type owl:Class; 
+    rdfs:label "Environmental"@IRI-based; 
+    rdfs:label "Environmental"@iri-based; 
+    rdfs:label "Environmental Factors"@en ;
     :description "Environmental features relevant to salmon stream inspections." .
 
 ### Stream Condition
-:StreamCondition a rdfs:Class ;
+:StreamCondition rdf:type owl:Class; 
     rdfs:subClassOf :Environmental ;
     rdfs:label "Stream Condition" ;
     skos:definition "Dynamic states or disturbances affecting the stream or river at the time of inspection." ;
@@ -20,7 +22,7 @@
     :description "Covers hydrological and geomorphic conditions observed during inspection." .
 
 ### Stream Condition
-:AtmosphericCondition a rdfs:Class ;
+:AtmosphericCondition rdf:type owl:Class ;
     rdfs:subClassOf :Environmental ;
     rdfs:label "Atmospheric Condition" ;
     skos:definition "Dynamic Atmospheric states or disturbances affecting the stream or river at the time of inspection." ;
@@ -28,11 +30,11 @@
 
 ### ——— Inspection branch ———
 
-:Inspection a rdfs:Class ;
+:Inspection rdf:type owl:Class ;
   rdfs:label "Inspection" ;
   :description "A single field observation event capturing methods, counts, time, and observations." .
 
-:InspectionMethod a rdfs:Class ;
+:InspectionMethod rdf:type owl:Class ;
   rdfs:label "Inspection Method" ;
   :description "Controlled list of methods (e.g., visual survey, snorkel, drone, eDNA)." .
 
@@ -80,43 +82,43 @@
 
 ### ——— Inspection Methods: Ground vs Aerial ———
 
-:GroundMethod a rdfs:Class ;
+:GroundMethod rdf:type owl:Class ;
   rdfs:subClassOf :InspectionMethod ;
   rdfs:label "Ground-based Method" ;
   :description "Methods conducted from the ground or water surface at site level." .
 
-:AerialMethod a rdfs:Class ;
+:AerialMethod rdf:type owl:Class ;
   rdfs:subClassOf :InspectionMethod ;
   rdfs:label "Aerial Method" ;
   :description "Methods conducted from aircraft for wide-area or rapid assessment." .
 
 ### Ground methods
-:SCBankwalk a rdfs:Class ;
+:SCBankwalk rdf:type owl:Class ;
   rdfs:subClassOf :GroundMethod ;
   rdfs:label "South Coast - Bankwalk" ;
   :description "South Coast - Observers walk stream banks recording salmon, redds, and conditions." .
 
-:SCStreamWalk a rdfs:Class ;
+:SCStreamWalk rdf:type owl:Class ;
   rdfs:subClassOf :GroundMethod ;
   rdfs:label "South Coast - Stream Walk" ;
   :description "South Coast - Wading or along-channel walking to observe fish and habitat." .
 
-:SCSnorkelSurvey a rdfs:Class ;
+:SCSnorkelSurvey rdf:type owl:Class ;
   rdfs:subClassOf :GroundMethod ;
   rdfs:label "South Coast - Snorkel" ;
   :description "South Coast - In-water snorkeling to enumerate/identify fish and assess habitat." .
 
-:SCBoatSurvey a rdfs:Class ;
+:SCBoatSurvey rdf:type owl:Class ;
   rdfs:subClassOf :GroundMethod ;
   rdfs:label "South Coast - Boat Survey" ;
   :description "South Coast - Boat-based visual survey of reaches unsuitable for walking/snorkel." .
 
-:SCDeadPitch a rdfs:Class ;
+:SCDeadPitch rdf:type owl:Class ;
   rdfs:subClassOf :GroundMethod ;
   rdfs:label "South Coast - Dead Pitch" ;
   :description "South Coast - Carcass (dead fish) tally used for escapement or mortality assessment." .
 
-:FIACOHOStreamWalk a rdfs:Class ;
+:FIACOHOStreamWalk rdf:type owl:Class ;
   rdfs:subClassOf :GroundMethod ;
   rdfs:label "FIACOHO - Stream Walk" ;
   :description """FIACOHO - Wading or along-channel walking to observe fish and habitat.
@@ -135,140 +137,140 @@
 * Surveyor efforts need to be consistent from one survey to the next and from one system to another. 
 """ .
 
-:FIACOHOBoatSurvey a rdfs:Class ;
+:FIACOHOBoatSurvey rdf:type owl:Class ;
   rdfs:subClassOf :GroundMethod ;
   rdfs:label "FIACOHO - Boat Survey" ;
   :description "FIACOHO - Boat-based visual survey of reaches unsuitable for walking/snorkel." .
 
-:FIACOHOBankwalk a rdfs:Class ;
+:FIACOHOBankwalk rdf:type owl:Class ;
   rdfs:subClassOf :GroundMethod ;
   rdfs:label "FIACOHO - Bankwalk" ;
   :description "FIACOHO - Observers walk stream banks recording salmon, redds, and conditions." .
 
-:WCVIBankwalk a rdfs:Class ;
+:WCVIBankwalk rdf:type owl:Class ;
   rdfs:subClassOf :GroundMethod ;
   rdfs:label "WCVI - Bankwalk" ;
   :description "WCVI - Observers walk stream banks recording salmon, redds, and conditions." .
 
-:WCVIStreamWalk a rdfs:Class ;
+:WCVIStreamWalk rdf:type owl:Class ;
   rdfs:subClassOf :GroundMethod ;
   rdfs:label "WCVI - Stream Walk" ;
   :description "WCVI - Wading or along-channel walking to observe fish and habitat." .
 
-:WCVISnorkelSurvey a rdfs:Class ;
+:WCVISnorkelSurvey rdf:type owl:Class ;
   rdfs:subClassOf :GroundMethod ;
   rdfs:label "WCVI - Snorkel" ;
   :description "WCVI - In-water snorkeling to enumerate/identify fish and assess habitat." .
 
-:WCVIDeadPitch a rdfs:Class ;
+:WCVIDeadPitch rdf:type owl:Class ;
   rdfs:subClassOf :GroundMethod ;
   rdfs:label "WCVI - Dead Pitch" ;
   :description "WCVI - Carcass (dead fish) tally used for escapement or mortality assessment." .
 
-:WCVIBoatSurvey a rdfs:Class ;
+:WCVIBoatSurvey rdf:type owl:Class ;
   rdfs:subClassOf :GroundMethod ;
   rdfs:label "WCVI - Boat Survey" ;
   :description "WCVI - Boat-based visual survey of reaches unsuitable for walking/snorkel." .
 
-:BC16Bankwalk a rdfs:Class ;
+:BC16Bankwalk rdf:type owl:Class ;
   rdfs:subClassOf :GroundMethod ;
   rdfs:label "BC16 - Bankwalk" ;
   :description "BC16 - Observers walk stream banks recording salmon, redds, and conditions." .
 
-:BC16StreamWalk a rdfs:Class ;
+:BC16StreamWalk rdf:type owl:Class ;
   rdfs:subClassOf :GroundMethod ;
   rdfs:label "BC16 - Stream Walk" ;
   :description "BC16 - Wading or along-channel walking to observe fish and habitat." .
 
-:BC16SnorkelSurvey a rdfs:Class ;
+:BC16SnorkelSurvey rdf:type owl:Class ;
   rdfs:subClassOf :GroundMethod ;
   rdfs:label "BC16 - Snorkel" ;
   :description "BC16 - In-water snorkeling to enumerate/identify fish and assess habitat." .
 
-:BC16BoatSurvey a rdfs:Class ;
+:BC16BoatSurvey rdf:type owl:Class ;
   rdfs:subClassOf :GroundMethod ;
   rdfs:label "BC16 - Boat Survey" ;
   :description "BC16 - Boat-based visual survey of reaches unsuitable for walking/snorkel." .
 
-:BC16ReddCount a rdfs:Class ;
+:BC16ReddCount rdf:type owl:Class ;
   rdfs:subClassOf :GroundMethod ;
   rdfs:label "BC16 - Redd Count" ;
   :description "BC16 - Standardized enumeration of redds within defined reaches." .
 
-:BC16DeadPitch a rdfs:Class ;
+:BC16DeadPitch rdf:type owl:Class ;
   rdfs:subClassOf :GroundMethod ;
   rdfs:label "BC16 - Dead Pitch" ;
   :description "BC16 - Carcass (dead fish) tally used for escapement or mortality assessment." .
 
-:BC16StripCount a rdfs:Class ;
+:BC16StripCount rdf:type owl:Class ;
   rdfs:subClassOf :GroundMethod ;
   rdfs:label "BC16 - Strip Count" ;
   :description "BC16 - Visual count along a fixed-width strip/transect for index estimates." .
 
-:BC16FenceCount a rdfs:Class ;
+:BC16FenceCount rdf:type owl:Class ;
   rdfs:subClassOf :GroundMethod ;
   rdfs:label "BC16 - Fence Count" ;
   :description "BC16 - Enumeration at fish fence/weir (passage structure) over time." .
 
 ### Aerial methods
-:BC16AerialFixedWing a rdfs:Class ;
+:BC16AerialFixedWing rdf:type owl:Class ;
   rdfs:subClassOf :AerialMethod ;
   rdfs:label "BC16 - Fixed-wing Aerial Survey" ;
   :description "BC16 - Aircraft-based visual survey of channels or shorelines." .
 
-:BC16AerialHelicopter a rdfs:Class ;
+:BC16AerialHelicopter rdf:type owl:Class ;
   rdfs:subClassOf:AerialMethod ;
   rdfs:label "BC16 - Helicopter Aerial Survey" ;
   :description "BC16 - Low-altitude helicopter survey for detailed counts/conditions." .
 
 ### ——— Inspection Details branch ———
 
-:InspectionDetails a rdfs:Class ;
+:InspectionDetails rdf:type owl:Class ;
   rdfs:label "Inspection Details" ;
   :description "Controlled vocabularies, roles, and metadata used to describe inspection events." .
 
 ### Core vocab buckets
-:InspectionMethod a rdfs:Class ;
+:InspectionMethod rdf:type owl:Class ;
   rdfs:subClassOf :InspectionDetails ;
   rdfs:label "Inspection Method" ;
   :description "Standardized methods (e.g., visual survey, snorkel, helicopter)." .
 
-:DetectionMethod a rdfs:Class ;
+:DetectionMethod rdf:type owl:Class ;
   rdfs:subClassOf :InspectionDetails ;
   rdfs:label "Detection Method" ;
   :description "How organisms/evidence were detected (visual, acoustic, imagery) to conduct inspections." .
 
-:Gear a rdfs:Class ;
+:Gear rdf:type owl:Class ;
   rdfs:subClassOf :InspectionDetails ;
   rdfs:label "Gear" ;
   :description "Equipment used during inspection (e.g., camera, drone, GPS, waders)." .
 
-:Protocol a rdfs:Class ;
+:Protocol rdf:type owl:Class ;
   rdfs:subClassOf :InspectionDetails ;
   rdfs:label "Protocol" ;
   :description "Survey/recording standards or SOPs followed." .
 
-:CountType a rdfs:Class ;
+:CountType rdf:type owl:Class ;
   rdfs:subClassOf :InspectionDetails ;
   rdfs:label "Count Type" ;
   :description "How counts were interpreted (absolute census vs. index/estimate)." .
 
-:MediaObject a rdfs:Class ;
+:MediaObject rdf:type owl:Class ;
   rdfs:subClassOf :InspectionDetails ;
   rdfs:label "Media Object" ;
   :description "Photos, videos, audio, or documents linked to an inspection." .
 
-:Person a rdfs:Class ;
+:Person rdf:type owl:Class ;
   rdfs:subClassOf :InspectionDetails ;
   rdfs:label "Person" ;
   :description "Individual participating in the inspection (observer, reviewer, etc.)." .
 
-:Organization a rdfs:Class ;
+:Organization rdf:type owl:Class ;
   rdfs:subClassOf :InspectionDetails ;
   rdfs:label "Organization" ;
   :description "Affiliation responsible for or participating in inspections." .
 
-:Role a rdfs:Class ;
+:Role rdf:type owl:Class ;
   rdfs:subClassOf :InspectionDetails ;
   rdfs:label "Role" ;
   :description "Functional role in the inspection workflow (Observer, Lead, QA Reviewer)." .
@@ -336,14 +338,14 @@
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 @prefix geo:     <http://www.w3.org/2003/01/geo/wgs84_pos#> .
 
-:BC16WaterFlow a rdfs:Class ;
+:BC16WaterFlow rdf:type owl:Class ;
     rdfs:subClassOf :StreamCondition ;
     rdfs:label "BC16WaterFlow" ;
     skos:definition "The relative discharge or velocity of stream water at the time of observation." ;
     dcterms:source <https://en.wikipedia.org/wiki/Streamflow> ;
     :description "Categorized as high flow or low flow." .
 
-:BC16HighFlow a rdfs:Class ;
+:BC16HighFlow rdf:type owl:Class ;
     rdfs:subClassOf :BC16WaterFlow ;
     rdfs:label "BC16HighFlow" ;
     skos:definition "Stream discharge or velocity that is higher than typical seasonal levels." ;
@@ -351,7 +353,7 @@
     :description "May indicate flood conditions or recent precipitation events." ;
     :possibleImpact :SpawningHabitatScour , :IncreasedSedimentation .
 
-:BC16LowFlow a rdfs:Class ;
+:BC16LowFlow rdf:type owl:Class ;
     rdfs:subClassOf :BC16WaterFlow ;
     rdfs:label "BC16LowFlow" ;
     skos:definition "Stream discharge or velocity that is lower than typical seasonal levels." ;
@@ -359,7 +361,7 @@
     :description "May indicate drought conditions or seasonal drying." ;
     :possibleImpact :ReducedConnectivity , :FishPassageBarrier .
 
-:BC16StreamObstruction a rdfs:Class ;
+:BC16StreamObstruction rdf:type owl:Class ;
     rdfs:subClassOf :StreamCondition ;
     rdfs:label "BC16StreamObstruction" ;
     skos:definition "Physical barriers or blockages impeding the natural flow of a stream." ;
@@ -367,14 +369,14 @@
     :description "Includes debris jams, culvert blockages, and natural log jams." ;
     :possibleImpact :FishPassageBarrier .
 
-:BC16ObstructionPassability a rdfs:Class ;
+:BC16ObstructionPassability rdf:type owl:Class ;
     rdfs:subClassOf :BC16StreamObstruction ;
     rdfs:label "BC16ObstructionPassability" ;
     skos:definition "Classification of a stream obstruction based on whether fish can pass it." ;
     dcterms:source <https://en.wikipedia.org/wiki/Fish_passage> ;
     :description "Used to record if an obstruction is passable or impassable." .
 
-:BC16Passable a rdfs:Class ;
+:BC16Passable rdf:type owl:Class ;
     rdfs:subClassOf :BC16ObstructionPassability ;
     rdfs:label "BC16Passable" ;
     skos:definition "An obstruction that does not fully block fish movement." ;
@@ -382,7 +384,7 @@
     :description "Includes partial barriers that salmon can bypass or overcome." ;
     :possibleImpact :ReducedConnectivity .
 
-:BC16Impassable a rdfs:Class ;
+:BC16Impassable rdf:type owl:Class ;
     rdfs:subClassOf :BC16ObstructionPassability ;
     rdfs:label "BC16Impassable" ;
     skos:definition "An obstruction that fully prevents fish movement." ;
@@ -390,13 +392,13 @@
     :description "Examples include high dams, poorly designed culverts, or large debris jams." ;
     :possibleImpact :FishPassageBarrier , :ReducedConnectivity .
 
-:BC16ObstructionOrigin a rdfs:Class ;
+:BC16ObstructionOrigin rdf:type owl:Class ;
     rdfs:subClassOf :BC16StreamObstruction ;
     rdfs:label "BC16ObstructionOrigin" ;
     skos:definition "Classification of a stream obstruction based on whether it is natural or artificial." ;
     :description "Helps distinguish between human-made barriers and natural features." .
 
-:BC16NaturalObstruction a rdfs:Class ;
+:BC16NaturalObstruction rdf:type owl:Class ;
     rdfs:subClassOf :BC16ObstructionOrigin ;
     rdfs:label "BC16NaturalObstruction" ;
     skos:definition "An obstruction created by natural processes such as log jams, beaver dams, or landslides." ;
@@ -404,21 +406,21 @@
     :description "Natural in origin, sometimes temporary or seasonal." ;
     :possibleImpact :FishPassageBarrier , :IncreasedSedimentation .
 
-:BC16ArtificialObstruction a rdfs:Class ;
+:BC16ArtificialObstruction rdf:type owl:Class ;
     rdfs:subClassOf :BC16ObstructionOrigin ;
     rdfs:label "BC16ArtificialObstruction" ;
     skos:definition "An obstruction resulting from human-made structures or debris, such as culverts, dams, or weirs." ;
     :description "Human-caused barriers, often persistent or requiring remediation." ;
     :possibleImpact :FishPassageBarrier , :ReducedConnectivity .
 
-:BC16SlopeInstability a rdfs:Class ;
+:BC16SlopeInstability rdf:type owl:Class ;
     rdfs:subClassOf :StreamCondition ;
     rdfs:label "BC16SlopeInstability" ;
     skos:definition "Loss of stability in stream banks or adjacent slopes leading to erosion or landslides." ;
     dcterms:source <https://en.wikipedia.org/wiki/Landslide> ;
     :description "May contribute sediment and alter channel morphology." .
 
-:BC16Debris a rdfs:Class ;
+:BC16Debris rdf:type owl:Class ;
     rdfs:subClassOf :StreamCondition ;
     rdfs:label "BC16Debris" ;
     skos:definition "Material such as woody debris, sediment, or human-made waste present in the stream channel." ;
@@ -426,7 +428,7 @@
     :description "Can obstruct fish passage or alter stream hydraulics." ;
     :possibleImpact :FishPassageBarrier .
 
-:BC16BankErosion a rdfs:Class ;
+:BC16BankErosion rdf:type owl:Class ;
     rdfs:subClassOf :StreamCondition ;
     rdfs:label "BC16BankErosion" ;
     skos:definition "The wearing away of stream banks by flowing water, weather, or human activity." ;
@@ -434,7 +436,7 @@
     :description "Often contributes sediment and reduces habitat quality." ;
     :possibleImpact :IncreasedSedimentation .
 
-:BC16Drought a rdfs:Class ;
+:BC16Drought rdf:type owl:Class ;
     rdfs:subClassOf :StreamCondition ;
     rdfs:label "BC16Drought" ;
     skos:definition "A prolonged period of deficient water flow in streams due to low precipitation." ;
@@ -442,7 +444,7 @@
     :description "Can reduce available habitat and impair salmon migration." ;
     :possibleImpact :ReducedConnectivity .
 
-:BC16Flood a rdfs:Class ;
+:BC16Flood rdf:type owl:Class ;
     rdfs:subClassOf :StreamCondition ;
     rdfs:label "BC16Flood" ;
     skos:definition "Overflow of water that submerges normally dry streambanks or floodplains." ;
@@ -450,7 +452,7 @@
     :description "Can scour habitats, displace salmon, or create new side channels." ;
     :possibleImpact :SpawningHabitatScour .
 
-:FIAFlood a rdfs:Class ;
+:FIAFlood rdf:type owl:Class ;
     rdfs:subClassOf :StreamCondition ;
     rdfs:label "FIAFlood" ;
     skos:definition "An unusual high magnitude water event that produces changes to the channel or enough bedload movement to significantly scour redds and eggs." ;
@@ -458,7 +460,7 @@
     :description "NA" ;
     :possibleImpact :SpawningHabitatScour .
 
-:FIADrought a rdfs:Class ;
+:FIADrought rdf:type owl:Class ;
     rdfs:subClassOf :StreamCondition ;
     rdfs:label "FIADrought" ;
     skos:definition "Conditions dry enough to impede normal fish passage/spawning or to desiccate (dry out) redds and eggs." ;
@@ -466,7 +468,7 @@
     :description "NA" ;
     :possibleImpact :SpawningHabitatScour .
 
-:FIAIce a rdfs:Class ;
+:FIAIce rdf:type owl:Class ;
     rdfs:subClassOf :StreamCondition ;
     rdfs:label "FIAIce" ;
     skos:definition "Freezing conditions that cause ice to form." ;
@@ -474,7 +476,7 @@
     :description "NA" ;
     :possibleImpact :SpawningHabitatScour .
 
-:FIADebris a rdfs:Class ;
+:FIADebris rdf:type owl:Class ;
     rdfs:subClassOf :StreamCondition ;
     rdfs:label "FIADebris" ;
     skos:definition "AThe appearance of unusual debris that results in jams or obstructions appearing since the last inspection." ;
@@ -482,7 +484,7 @@
     :description "NA" ;
     :possibleImpact :SpawningHabitatScour .
 
-:FIASilt a rdfs:Class ;
+:FIASilt rdf:type owl:Class ;
     rdfs:subClassOf :StreamCondition ;
     rdfs:label "FIASilt" ;
     skos:definition "An unusual deposition of fine particles sufficient to smother eggs." ;
@@ -490,7 +492,7 @@
     :description "NA" ;
     :possibleImpact :SpawningHabitatScour .
 
-:FIALostDebris a rdfs:Class ;
+:FIALostDebris rdf:type owl:Class ;
     rdfs:subClassOf :StreamCondition ;
     rdfs:label "FIALostDebris" ;
     skos:definition "The loss of debris that results in the elimination of jams or obstruction since the last inspection." ;
@@ -498,7 +500,7 @@
     :description "NA" ;
     :possibleImpact :SpawningHabitatScour .
 
-:FIABankErosion a rdfs:Class ;
+:FIABankErosion rdf:type owl:Class ;
     rdfs:subClassOf :StreamCondition ;
     rdfs:label "FIABankErosion" ;
     skos:definition "An unusual new degradation of the stream banks." ;
@@ -506,7 +508,7 @@
     :description "NA" ;
     :possibleImpact :SpawningHabitatScour .
 
-:FIASlides a rdfs:Class ;
+:FIASlides rdf:type owl:Class ;
     rdfs:subClassOf :StreamCondition ;
     rdfs:label "FIASlides" ;
     skos:definition "An unusual slope failure resulting in the deposition of large amounts of materials into the stream." ;
@@ -514,7 +516,7 @@
     :description "NA" ;
     :possibleImpact :SpawningHabitatScour .
 
-:FIARiparianLoss a rdfs:Class ;
+:FIARiparianLoss rdf:type owl:Class ;
     rdfs:subClassOf :StreamCondition ;
     rdfs:label "FIARiparianLoss" ;
     skos:definition "An unusual loss of the stream side vegetation." ;
@@ -522,7 +524,7 @@
     :description "NA" ;
     :possibleImpact :SpawningHabitatScour .
 
-:FIAPctBankfull a rdfs:Class ;
+:FIAPctBankfull rdf:type owl:Class ;
     rdfs:subClassOf :StreamCondition ;
     rdfs:label "FIAPctBankfull" ;
     skos:definition "The percentage of channel that is full of water." ;
@@ -530,7 +532,7 @@
     :description "NA" ;
     :possibleImpact :SpawningHabitatScour .
 
-:FIAWaterClarity a rdfs:Class ;
+:FIAWaterClarity rdf:type owl:Class ;
     rdfs:subClassOf :StreamCondition ;
     rdfs:label "FIAWaterClarity" ;
     skos:definition "A measure of how far you can reliably see. " ;
@@ -538,7 +540,7 @@
     :description "NA" ;
     :possibleImpact :SpawningHabitatScour .
 
-:FIAWaterTemperature a rdfs:Class ;
+:FIAWaterTemperature rdf:type owl:Class ;
     rdfs:subClassOf :StreamCondition ;
     rdfs:label "FIAWaterTemperature" ;
     skos:definition "The water temperature recorded in degrees Celsius." ;
@@ -546,14 +548,14 @@
     :description "NA" ;
     :possibleImpact :SpawningHabitatScour .
 
-:FIAPctCloudy a rdfs:Class ;
+:FIAPctCloudy rdf:type owl:Class ;
     rdfs:subClassOf :AtmosphericCondition ;
     rdfs:label "FIAPctCloudy" ;
     skos:definition "The percentage of cloud cover at the beginning of the inspection. " ;
     dcterms:source "CN CO SIL Manual" ;
     :description "NA" .
 
-:FIABrightness a rdfs:Class ;
+:FIABrightness rdf:type owl:Class ;
     rdfs:subClassOf :AtmosphericCondition ;
     rdfs:label "FIABrightness" ;
     skos:definition """The quality of light reaching the water surface:
@@ -565,14 +567,14 @@
     dcterms:source "CN CO SIL Manual" ;
     :description "NA" .
 
-:FIAPrecipType a rdfs:Class ;
+:FIAPrecipType rdf:type owl:Class ;
     rdfs:subClassOf :AtmosphericCondition ;
     rdfs:label "FIAPrecipType" ;
     skos:definition "This describes the type of precipitation observed." ;
     dcterms:source "CN CO SIL Manual" ;
     :description "NA" .
 
-:FIAPrecipIntensity a rdfs:Class ;
+:FIAPrecipIntensity rdf:type owl:Class ;
     rdfs:subClassOf :AtmosphericCondition ;
     rdfs:label "FIAPrecipIntensity" ;
     skos:definition "This describes the intensity of the precipitation." ;
@@ -586,18 +588,18 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-:Salmon a rdfs:Class ;
+:Salmon rdf:type owl:Class ;
     rdfs:label "Salmon Characteristics" ;
     :description "Biological states, observations, and pressures relevant to salmon during inspections." .
 
-:SalmonSpecies a rdfs:Class ;
+:SalmonSpecies rdf:type owl:Class ;
     rdfs:label "Salmon Species" ;
     :description "Covers species-specific observations, linked to habitat and inspection records." ;
     dcterms:source <https://en.wikipedia.org/wiki/Salmon> ;
     rdfs:subClassOf :Salmon ;
     skos:definition "Taxonomic species of salmon observed during inspections." .
 
-:AtlanticSalmon a rdfs:Class ;
+:AtlanticSalmon rdf:type owl:Class ;
     rdfs:subClassOf :SalmonSpecies ;
     rdfs:label "Atlantic Salmon" ;
     :description "Only salmon native to the Atlantic; widely farmed." ;
@@ -608,7 +610,7 @@
     dcterms:source <https://en.wikipedia.org/wiki/Atlantic_salmon> ;
     skos:altLabel "Salmo salar" .
 
-:ChinookSalmon a rdfs:Class ;
+:ChinookSalmon rdf:type owl:Class ;
     rdfs:subClassOf :SalmonSpecies ;
     rdfs:label "Chinook Salmon" ;
     :description "Largest Pacific salmon species; highly valued for size and taste." ;
@@ -624,7 +626,7 @@
     dcterms:source <https://en.wikipedia.org/wiki/Chinook_salmon> ;
     skos:altLabel "Blackmouth", "King Salmon", "Quinnat Salmon", "Spring Salmon", "Tyee Salmon" .
 
-:ChumSalmon a rdfs:Class ;
+:ChumSalmon rdf:type owl:Class ;
     rdfs:subClassOf :SalmonSpecies ;
     rdfs:label "Chum Salmon" ;
     :description "Noted for large canine-like teeth during spawning; important subsistence fish." ;
@@ -638,7 +640,7 @@
     skos:altLabel "Dog Salmon",
         "Keta Salmon" .
 
-:CohoSalmon a rdfs:Class ;
+:CohoSalmon rdf:type owl:Class ;
     rdfs:subClassOf :SalmonSpecies ;
     rdfs:label "Coho Salmon" ;
     :description "Known for acrobatic behavior and silver body; popular sport fish." ;
@@ -652,7 +654,7 @@
     dcterms:source <https://en.wikipedia.org/wiki/Coho_salmon> ;
     skos:altLabel "Silver Salmon" .
 
-:PinkSalmon a rdfs:Class ;
+:PinkSalmon rdf:type owl:Class ;
     rdfs:subClassOf :SalmonSpecies ;
     rdfs:label "Pink Salmon" ;
     :description "Smallest and most abundant Pacific salmon; two-year life cycle." ;
@@ -667,7 +669,7 @@
     skos:altLabel "Humpback Salmon",
         "Humpies" .
 
-:SockeyeSalmon a rdfs:Class ;
+:SockeyeSalmon rdf:type owl:Class ;
     rdfs:subClassOf :SalmonSpecies ;
     rdfs:label "Sockeye Salmon" ;
     :description "Renowned for bright red spawning color and critical role in ecosystems." ;
