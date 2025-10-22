@@ -11,6 +11,29 @@ This ontology models **operational processes and data structures** for Pacific s
 
 **This is NOT a biological domain ontology** about salmon ecology or behavior, but rather an **operational ontology** for data management and integration.
 
+# Competency Questions:
+
+SIL/SENS
+TODO: Engage with Area data managers to see what input they have (PSDCoP)
+Notes: Need differentiators between methods
+Product: Translation layer, SIL fields -> Working databases people use to generate their estimates.
+ 
+1) Was an expansion factor and if so which one in producing a Stream Inspection Log?
+2) Are the stream inspections conducted in the same place each year?
+3) If not in the sample place, why not?
+4) Are the observations performed on spawning beds or on channels before the spawning beds?
+5) What was the stream inspection method at a given site in a given year
+6) What factors affected the quality of those observations (downgrade categories)
+7) 
+
+## Modelling Competency Questions
+
+## Genetic Results
+
+## FSARs
+
+## SPSR
+
 # Competency Questions — DFO Salmon Ontology MVP (v0.1)
 
 **Scope:** Questions the MVP must answer across SPSR (hero), GRD, and SILS→Narratives, plus near‑term (v0.3) questions. Each item lists required fields/terms and whether it’s answerable **Now** (v0.1) or **Next** (v0.3).
