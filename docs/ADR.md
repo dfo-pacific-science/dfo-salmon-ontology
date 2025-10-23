@@ -40,7 +40,7 @@ We will use a hybrid approach combining OWL and SKOS:
 ### Consequences
 
 **Positive:**
-- Enables automated estimate type assignment (Hyatt 1997 framework)
+- Supports manual estimate type assignment (Hyatt 1997 framework) - automated classification deferred to post-MVP
 - Supports both human-readable vocabularies and machine-processable relationships
 - Aligns with existing salmon data management practices
 - Facilitates data quality validation through SHACL rules
@@ -193,7 +193,7 @@ We will strictly separate schema and data:
 
 We will use SHACL (Shapes Constraint Language) for:
 - Data validation and quality control
-- Automated estimate type assignment (Hyatt 1997 framework)
+- Manual estimate type assignment (Hyatt 1997 framework) - automated classification deferred to post-MVP
 - Method-specific threshold enforcement
 
 ### Rationale

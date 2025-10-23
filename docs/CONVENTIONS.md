@@ -26,7 +26,7 @@ The conventions here are **practical starting points**, not immutable rules. As 
 - **Units**: Store QUDT IRIs as literals in `…UnitIRI` properties
 - **Darwin Core**: Use as top-level classes for interoperability
 - **Hybrid Approach**: SKOS for methods, OWL for events with metadata
-- **Automated Classification**: SHACL rules for type escapement estimate type assignment 1-6 (Hyatt 1997)
+- **Manual Classification**: Estimate types are manually assigned based on Hyatt 1997 criteria
 - **OBO Relations Ontology for Relations**: Check the [Relations Ontology](https://obofoundry.org/ontology/ro.html) first before defining new relations; use subproperties when extending
 
 ### Quality Checklist
@@ -577,9 +577,11 @@ dfo:StatusAssessment rdfs:subClassOf bfo:0000015 .  # process
 - **Metadata on instances** - Observer efficiency, coverage, visibility are properties of specific surveys
 - **Automated classification** - Rules engine checks event metadata against method-specific thresholds
 
-### 2.5 Automated Classification with SHACL
+### 2.5 Data Validation with SHACL
 
-**Why SHACL?** SHACL (Shapes Constraint Language) provides validation rules that can enforce data quality and enable automated classification. It separates data validation from classification logic.
+**Why SHACL?** SHACL (Shapes Constraint Language) provides validation rules that can enforce data quality and ensure required fields are present. It separates data validation from classification logic.
+
+**Note:** Estimate types are manually assigned based on Hyatt 1997 criteria. Automated classification is deferred to post-MVP.
 
 **SHACL Shape for Method Validation:**
 ```turtle
@@ -611,65 +613,11 @@ dfo:StatusAssessment rdfs:subClassOf bfo:0000015 .  # process
     ] .
 ```
 
-**Automated Type Assignment Rules:**
-```turtle
-# SHACL Rules for Estimate Type Assignment
-:TypeAssignmentShape a sh:NodeShape ;
-    sh:targetClass :EscapementSurveyEvent ;
-    sh:rule [
-        a sh:TripleRule ;
-        sh:condition [
-            sh:property [
-                sh:path dfo:usesEnumerationMethod ;
-                sh:hasValue :SnorkelSurvey
-            ] ;
-            sh:property [
-                sh:path dfo:measuredVisits ;
-                sh:minInclusive 5
-            ] ;
-            sh:property [
-                sh:path dfo:measuredReachCoverage ;
-                sh:minInclusive 0.8
-            ] ;
-            sh:property [
-                sh:path dfo:measuredVisibility ;
-                sh:in ( :Good :Excellent )
-            ]
-        ] ;
-        sh:subject sh:this ;
-        sh:predicate dfo:assignedEstimateType ;
-        sh:object :Type2 ;
-        sh:message "Snorkel survey meets Type 2 criteria"
-    ] ;
-    sh:rule [
-        a sh:TripleRule ;
-        sh:condition [
-            sh:property [
-                sh:path dfo:usesEnumerationMethod ;
-                sh:hasValue :SnorkelSurvey
-            ] ;
-            sh:property [
-                sh:path dfo:measuredVisits ;
-                sh:minInclusive 3
-            ] ;
-            sh:property [
-                sh:path dfo:measuredReachCoverage ;
-                sh:minInclusive 0.5
-            ]
-        ] ;
-        sh:subject sh:this ;
-        sh:predicate dfo:assignedEstimateType ;
-        sh:object :Type3 ;
-        sh:message "Snorkel survey meets Type 3 criteria"
-    ] .
-```
-
 **Implementation Pipeline:**
 1. **Data Entry** - Users create survey events with metadata
 2. **SHACL Validation** - Ensures required fields are present and valid
-3. **Rule Application** - SHACL rules assign estimate types based on thresholds
-4. **Downgrade Flags** - Attach downgrade criteria when thresholds aren't met
-5. **Final Classification** - Apply downgrade rules to determine final type
+3. **Manual Classification** - Estimate types assigned based on Hyatt 1997 criteria
+4. **Quality Assessment** - Review data completeness and quality
 
 ### 2.6 Naming Conventions
 

@@ -182,7 +182,7 @@
 **File:** `ontology/dfo-salmon.ttl`
 
 - [ ] Add `dfo:grdRunID` DatatypeProperty for GRD Run_ID
-- [ ] Add `dfo:grdSampleID` DatatypeProperty for GRD Sample_ID  
+- [ ] Add `dfo:grdSampleID` DatatypeProperty for GRD Sample_ID
 - [ ] Add `dfo:grdAssayID` DatatypeProperty for GRD Assay_ID (optional)
 - [ ] Add `dfo:gsi_sample_size` DatatypeProperty for uncertainty tracking
 - [ ] Add `dfo:gsi_ci` DatatypeProperty for confidence intervals
