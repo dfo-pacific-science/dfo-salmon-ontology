@@ -16,7 +16,9 @@
 
 ## PR-000: Requirements and Design Review
 
-**Priority:** Critical | **Scope:** Foundation and alignment
+**Owner:** Brett  
+**Priority:** Critical  
+**Scope:** Foundation and alignment
 
 ### Commit 0.1: Review and Refine FSAR Tracer PRD
 
@@ -36,7 +38,15 @@
 - [ ] Ensure questions cover all six evidence chain nodes
 - [ ] Add genetics/GSI competency questions for GRD linkage
 
-### Commit 0.3: Review Minh Doan's SIL/SEN PR
+---
+
+## PR-000A: SIL/SEN Integration Review
+
+**Owner:** Brett + Minh Doan  
+**Priority:** High  
+**Scope:** Align with Minh Doan's escapement measurement work
+
+### Commit 0A.1: Review Minh Doan's SIL/SEN PR
 
 - [ ] Review Minh Doan's Stream Inspection Logs (SIL) terms
 - [ ] Review Escapement Narratives (SEN) terms
@@ -49,7 +59,9 @@
 
 ## PR-001: BFO MIREOT Import and DwC Mapping
 
-**Priority:** High | **Scope:** Upper ontology grounding via BFO
+**Owner:** Brett  
+**Priority:** High  
+**Scope:** Upper ontology grounding via BFO
 
 ### Commit 1.1: Add BFO MIREOT Definitions
 
@@ -75,11 +87,48 @@
 - [x] Update section title to "Class Mappings to Darwin Core and BFO Upper Ontology"
 - [ ] Verify reasoning works with ELK reasoner
 
+### Commit 1.3: Clean Up Estimate Type Classification Code
+
+- [x] Delete scripts/automated_classification.py (not needed for FSAR Tracer MVP)
+- [x] Update docs/CONVENTIONS.md: Remove automated classification references
+- [x] Update docs/VALIDATION_README.md: Change to manual classification
+- [x] Update docs/ADR.md: Note automation deferred to post-MVP
+- [x] Update scripts/test_shacl_validation.py: Remove assignedEstimateType query
+- [x] Keep EstimateTypeScheme and assignedEstimateType property in ontology
+
+### Commit 1.4: Enhance CONVENTIONS.md Import Policy
+
+**File:** `docs/CONVENTIONS.md`
+
+- [x] Add BFO rationale explaining why BFO is used for FSAR Tracer
+- [x] Add FSAR Tracer specific usage examples for BFO, DQV, and PROV-O
+- [x] Document how MIREOT terms map to FSAR evidence chain classes
+- [x] Explain PROV-O property usage patterns for provenance tracking
+
+### Commit 1.5: Update SHACL File Header
+
+**File:** `ontology/shapes/dfo-salmon-shapes.ttl`
+
+- [x] Clarify that SHACL shapes are for data quality validation, not automated classification
+- [x] Add note that estimate types are manually assigned based on Hyatt 1997 criteria
+- [x] Add note that no instance data goes in main ontology file; instances go in examples/
+
+### Commit 1.6: Fix ROBOT Validation
+
+**File:** `.github/workflows/ci.yml`
+
+- [x] Comment out ROBOT validate step that was causing GitHub Actions failures
+- [x] ROBOT validate command doesn't exist in v1.9.5 or needs profile setup
+- [x] Keep reasoning step which works correctly
+- [x] Add note to re-enable in PR-013: CI/CD and Quality Checks
+
 ---
 
 ## PR-002: DQV MIREOT Import for Quality Framework
 
-**Priority:** High | **Scope:** Evidence completeness and quality tracking
+**Owner:** Brett  
+**Priority:** High  
+**Scope:** Evidence completeness and quality tracking
 
 ### Commit 2.1: Add DQV MIREOT Definitions
 
@@ -118,7 +167,9 @@
 
 ## PR-003: FSAR Tracer Core Classes
 
-**Priority:** High | **Scope:** Evidence chain ontology classes
+**Owner:** Brett  
+**Priority:** High  
+**Scope:** Evidence chain ontology classes
 
 ### Commit 3.1: Add PROV-O Prefix and Documentation
 
@@ -163,9 +214,61 @@
 
 ---
 
+## PR-003A: W3ID Phase 1 Publication
+
+**Owner:** Brett  
+**Priority:** High (after PR-003)  
+**Scope:** Publish stable core terms to w3id.org
+
+### Commit 3A.1: Prepare Core Terms
+
+- [ ] Review/finalize labels and definitions for core terms
+- [ ] Update ontology IRI to https://w3id.org/dfo/salmon
+- [ ] Create version IRI: https://w3id.org/dfo/salmon/v0.1.0
+- [ ] Update all rdfs:isDefinedBy for core terms to w3id URIs
+- [ ] Document versioning strategy
+
+### Commit 3A.2: Create W3ID Configuration
+
+- [ ] Fork w3id.org repository
+- [ ] Create /dfo/salmon/.htaccess (content negotiation)
+- [ ] Add redirections: ontology file and term URIs
+- [ ] Create /dfo/salmon/README.md
+
+### Commit 3A.3: Test Locally
+
+- [ ] Test ontology file redirection
+- [ ] Test term URI redirection (#Stock, etc.)
+- [ ] Test content negotiation (text/turtle, application/rdf+xml)
+- [ ] Verify version URIs
+
+### Commit 3A.4: Submit W3ID PR
+
+- [ ] Submit to w3id.org repository
+- [ ] Document purpose in PR description
+- [ ] Respond to reviewers
+- [ ] Monitor for approval
+
+### Commit 3A.5: Update Post-Publication
+
+- [ ] Confirm all rdfs:isDefinedBy use w3id URIs
+- [ ] Test URI resolution
+- [ ] Update README with w3id links
+- [ ] Update CONVENTIONS with persistent URI guidelines
+
+**Phase 1 Terms List:**
+- Core: Stock, ConservationUnit, ManagementUnit
+- Events: EscapementMeasurement, EscapementSurveyEvent
+- Properties: aboutStock, hasMember, isMemberOf, usesEnumerationMethod, usesEstimateMethod, assignedEstimateType
+- SKOS: EstimateTypeScheme (Type1-6), EnumerationMethodScheme, EstimateMethodScheme
+
+---
+
 ## PR-004: Genetics Classes for GRD Integration
 
-**Priority:** High | **Scope:** Link to Genetics Results Database
+**Owner:** Brett  
+**Priority:** High  
+**Scope:** Link to Genetics Results Database
 
 ### Commit 4.1: Review Existing Genetics Classes
 
@@ -203,7 +306,9 @@
 
 ## PR-005: SIL/SEN SKOS Schemes Integration
 
-**Priority:** High | **Scope:** Align with Minh Doan's escapement measurement work
+**Owner:** Brett + Minh Doan  
+**Priority:** High  
+**Scope:** Align with Minh Doan's escapement measurement work
 
 ### Commit 5.1: Integrate SIL Enumeration Methods
 
@@ -237,11 +342,13 @@
 
 ---
 
-## PR-006: FSAR Required Fields
+## PR-006A: Data Source Properties
 
-**Priority:** High | **Scope:** Evidence completeness tracking properties
+**Owner:** Brett  
+**Priority:** High  
+**Scope:** Evidence completeness tracking properties
 
-### Commit 6.1: Add Data Source Properties
+### Commit 6A.1: Add Data Source Properties
 
 **File:** `ontology/dfo-salmon.ttl`
 
@@ -256,7 +363,15 @@
   - Set domain to `dfo:EscapementMeasurement`, range to `xsd:string`
   - Add comment: required when data_source_type contains "proxy"
 
-### Commit 6.2: Add Method Reproducibility Properties
+---
+
+## PR-006B: Method Reproducibility Properties
+
+**Owner:** Brett  
+**Priority:** High  
+**Scope:** Method reproducibility tracking
+
+### Commit 6B.1: Add Method Reproducibility Properties
 
 **File:** `ontology/dfo-salmon.ttl`
 
@@ -268,7 +383,15 @@
   - Set domain to `dfo:AnalysisMethod`, range to `xsd:string`
   - Add comment: Git commit hash/tag for reproducibility
 
-### Commit 6.3: Add Reference Point Properties
+---
+
+## PR-006C: Reference Points and Review Properties
+
+**Owner:** Brett  
+**Priority:** High  
+**Scope:** Reference points and review tracking
+
+### Commit 6C.1: Add Reference Point Properties
 
 **File:** `ontology/dfo-salmon.ttl`
 
@@ -282,7 +405,7 @@
   - Set range to `xsd:boolean`
   - Add comment: flag indicating sensitivity to assumptions
 
-### Commit 6.4: Add Status and Review Properties
+### Commit 6C.2: Add Status and Review Properties
 
 **File:** `ontology/dfo-salmon.ttl`
 
@@ -301,19 +424,29 @@
 
 ---
 
-## PR-007: SHACL Shapes for Evidence Completeness
+## PR-007A: SHACL Header and Documentation
 
-**Priority:** High | **Scope:** Validation rules
+**Owner:** Brett  
+**Priority:** High  
+**Scope:** SHACL validation setup
 
-### Commit 7.1: Update SHACL File Header
+### Commit 7A.1: Update SHACL File Header
 
 **File:** `ontology/shapes/dfo-salmon-shapes.ttl`
 
-- [ ] Add clarifying comment at top: "Validation shapes for data quality, NOT classification"
-- [ ] Add note: "Estimate types are manually assigned based on Hyatt 1997 criteria"
-- [ ] Add note: "No instance data in main ontology file; instances go in examples/"
+- [x] Add clarifying comment at top: "Validation shapes for data quality, NOT classification"
+- [x] Add note: "Estimate types are manually assigned based on Hyatt 1997 criteria"
+- [x] Add note: "No instance data in main ontology file; instances go in examples/"
 
-### Commit 7.2: Create Decision Context Shape
+---
+
+## PR-007B: SHACL Decision Context Shape
+
+**Owner:** Brett  
+**Priority:** High  
+**Scope:** Decision context validation
+
+### Commit 7B.1: Create Decision Context Shape
 
 **File:** `ontology/shapes/dfo-salmon-shapes.ttl`
 
@@ -329,7 +462,15 @@
   - `dfo:gsi_sample_size`
   - `dfo:benchmark_sensitivity`
 
-### Commit 7.3: Add Conditional Validation Rules
+---
+
+## PR-007C: SHACL Conditional Validation Rules
+
+**Owner:** Brett  
+**Priority:** High  
+**Scope:** Conditional validation logic
+
+### Commit 7C.1: Add Conditional Validation Rules
 
 **File:** `ontology/shapes/dfo-salmon-shapes.ttl`
 
@@ -343,7 +484,15 @@
   - Rule: StatusAssessment must have reviewer AND review_date
   - Add sh:message: "Status assessments require reviewer and date"
 
-### Commit 7.4: Add Provenance Validation
+---
+
+## PR-007D: SHACL Provenance Validation
+
+**Owner:** Brett  
+**Priority:** High  
+**Scope:** Provenance chain validation
+
+### Commit 7D.1: Add Provenance Validation
 
 **File:** `ontology/shapes/dfo-salmon-shapes.ttl`
 
@@ -359,9 +508,43 @@
 
 ---
 
+## PR-007E: W3ID Phase 2 Publication
+
+**Owner:** Brett  
+**Priority:** Medium (after FSAR implementation)  
+**Scope:** Publish FSAR Tracer terms
+
+### Commit 7E.1: Prepare FSAR Terms
+
+- [ ] Review/finalize FSAR Tracer classes and properties
+- [ ] Update version IRI to https://w3id.org/dfo/salmon/v0.5.0
+- [ ] Update rdfs:isDefinedBy for FSAR terms to w3id URIs
+- [ ] Test FSAR terms work correctly
+
+### Commit 7E.2: Update W3ID Configuration
+
+- [ ] Update /dfo/salmon/.htaccess for new version
+- [ ] Add redirections for FSAR term URIs
+- [ ] Update /dfo/salmon/README.md with FSAR Tracer information
+
+### Commit 7E.3: Submit W3ID Update
+
+- [ ] Submit PR to w3id.org repository
+- [ ] Document FSAR Tracer additions
+- [ ] Respond to reviewers
+- [ ] Monitor for approval
+
+**Phase 2 Terms List:**
+- Classes: StatusAssessment, ScientificOutput, ManagementDecision, AnalysisMethod
+- Properties: status_value, method_name, reviewer, review_date, data_source_type, spawner_origin
+
+---
+
 ## PR-008: SPARQL Query Pack
 
-**Priority:** High | **Scope:** Competency queries for UI
+**Owner:** Brett  
+**Priority:** High  
+**Scope:** Competency queries for UI
 
 ### Commit 8.1: Create Query File
 
@@ -419,7 +602,9 @@
 
 ## PR-009: Relations Ontology Alignment
 
-**Priority:** Medium | **Scope:** Documentation only (no code changes for MVP)
+**Owner:** Brett  
+**Priority:** Medium  
+**Scope:** Documentation only (no code changes for MVP)
 
 ### Commit 9.1: Document RO Alignment
 
@@ -434,22 +619,32 @@
 
 ---
 
-## PR-010: Documentation Updates
+## PR-010A: Import Policy Documentation
 
-**Priority:** High | **Scope:** README and CONVENTIONS
+**Owner:** Brett  
+**Priority:** High  
+**Scope:** CONVENTIONS documentation
 
-### Commit 10.1: Update CONVENTIONS.md Import Policy
+### Commit 10A.1: Update CONVENTIONS.md Import Policy
 
 **File:** `docs/CONVENTIONS.md`
 
-- [ ] Add new section 2.3.6 "Ontology Import Strategy"
-- [ ] Document three approaches: Full import, MIREOT, Prefix only
-- [ ] Add decision matrix table (BFO, IAO, DQV, PROV-O, RO, DPROD, SKOS, DwC)
-- [ ] Explain when to use each approach with examples
-- [ ] Add FSAR Tracer import decisions and rationale
-- [ ] Document MIREOT implementation pattern
+- [x] Add new section 2.3.6 "Ontology Import Strategy"
+- [x] Document three approaches: Full import, MIREOT, Prefix only
+- [x] Add decision matrix table (BFO, IAO, DQV, PROV-O, RO, DPROD, SKOS, DwC)
+- [x] Explain when to use each approach with examples
+- [x] Add FSAR Tracer import decisions and rationale
+- [x] Document MIREOT implementation pattern
 
-### Commit 10.2: Add FSAR Tracer Patterns to CONVENTIONS
+---
+
+## PR-010B: FSAR Tracer Pattern Documentation
+
+**Owner:** Brett  
+**Priority:** High  
+**Scope:** CONVENTIONS documentation
+
+### Commit 10B.1: Add FSAR Tracer Patterns to CONVENTIONS
 
 **File:** `docs/CONVENTIONS.md`
 
@@ -459,7 +654,15 @@
 - [ ] Explain DQV quality annotation pattern
 - [ ] Document required fields for evidence completeness
 
-### Commit 10.3: Update README.md Technical Overview
+---
+
+## PR-010C: README Updates
+
+**Owner:** Brett  
+**Priority:** High  
+**Scope:** README documentation
+
+### Commit 10C.1: Update README.md Technical Overview
 
 **File:** `README.md`
 
@@ -469,7 +672,7 @@
 - [ ] Add: "Provenance: PROV-O properties for FSAR evidence chains"
 - [ ] Add: "Quality: DQV dimensions for evidence completeness tracking"
 
-### Commit 10.4: Add FSAR Tracer Section to README
+### Commit 10C.2: Add FSAR Tracer Section to README
 
 **File:** `README.md`
 
@@ -482,11 +685,13 @@
 
 ---
 
-## PR-011: Sample Data and JSON-LD Export
+## PR-011A: Sample Data Creation
 
-**Priority:** Medium | **Scope:** Example instances for testing (NOT in main ontology)
+**Owner:** Brett  
+**Priority:** Medium  
+**Scope:** Example instances for testing (NOT in main ontology)
 
-### Commit 11.1: Create Barkley Sockeye Sample Instances
+### Commit 11A.1: Create Barkley Sockeye Sample Instances
 
 **File:** `ontology/examples/barkley-2025-sample.ttl` (NEW FILE)
 
@@ -503,7 +708,7 @@
 - [ ] Create sample `dfo:ScientificOutput` (FSAR advice)
 - [ ] Create sample `dfo:ManagementDecision` (TAC 2025)
 
-### Commit 11.2: Link Instances with PROV-O
+### Commit 11A.2: Link Instances with PROV-O
 
 **File:** `ontology/examples/barkley-2025-sample.ttl`
 
@@ -514,7 +719,7 @@
 - [ ] Link ScientificOutput to StatusAssessment via `prov:wasDerivedFrom`
 - [ ] Link ManagementDecision to ScientificOutput via `prov:used`
 
-### Commit 11.3: Annotate with DQV Quality
+### Commit 11A.3: Annotate with DQV Quality
 
 **File:** `ontology/examples/barkley-2025-sample.ttl`
 
@@ -524,7 +729,15 @@
 - [ ] Add version pins using `owl:versionInfo`
 - [ ] Document quality annotation pattern in comments
 
-### Commit 11.4: Create JSON-LD Context
+---
+
+## PR-011B: JSON-LD Context and Export
+
+**Owner:** Brett  
+**Priority:** Medium  
+**Scope:** JSON-LD export functionality
+
+### Commit 11B.1: Create JSON-LD Context
 
 **File:** `ontology/examples/fsar-tracer-context.jsonld` (NEW FILE)
 
@@ -534,7 +747,7 @@
 - [ ] Add @vocab for default namespace
 - [ ] Test context validates with JSON-LD playground
 
-### Commit 11.5: Export Sample Data as JSON-LD
+### Commit 11B.2: Export Sample Data as JSON-LD
 
 **File:** `ontology/examples/barkley-2025-sample.jsonld` (NEW FILE)
 
@@ -542,6 +755,59 @@
 - [ ] Validate JSON-LD syntax
 - [ ] Document export process in README
 - [ ] Add note: This is example data for testing, not production
+
+---
+
+## PR-012: W3ID Phase 3 Complete Publication
+
+**Owner:** Brett  
+**Priority:** Medium  
+**Scope:** Complete W3ID publication
+
+### Commit 12.1: Prepare Remaining Terms
+
+- [ ] Review and finalize all remaining terms
+- [ ] Update version IRI to https://w3id.org/dfo/salmon/v1.0.0
+- [ ] Update all rdfs:isDefinedBy to w3id URIs
+- [ ] Document complete versioning strategy
+
+### Commit 12.2: Final W3ID Update
+
+- [ ] Update /dfo/salmon/.htaccess for v1.0.0
+- [ ] Add redirections for all remaining term URIs
+- [ ] Update /dfo/salmon/README.md with complete documentation
+- [ ] Submit final PR to w3id.org repository
+
+### Commit 12.3: Post-Publication Verification
+
+- [ ] Test all URIs resolve correctly
+- [ ] Verify content negotiation works
+- [ ] Update all documentation with w3id links
+- [ ] Document w3id.org usage in README
+
+---
+
+## PR-013: CI/CD and Quality Checks
+
+**Owner:** Brett  
+**Priority:** Medium  
+**Scope:** CI/CD pipeline improvements
+
+### Commit 13.1: Fix ROBOT Validation
+
+**File:** `.github/workflows/ci.yml`
+
+- [ ] Investigate ROBOT validate command requirements
+- [ ] Determine if newer ROBOT version needed (>1.9.5)
+- [ ] Create OBO validation profile if needed
+- [ ] Re-enable validation in CI/CD pipeline
+
+### Commit 13.2: Add Quality Checks
+
+- [ ] Add ontology linting checks
+- [ ] Add SPARQL query validation
+- [ ] Add SHACL validation in CI
+- [ ] Add performance benchmarks
 
 ---
 
@@ -591,36 +857,6 @@
 
 ---
 
-## PR-012: W3ID URI Publication
-
-**Priority:** Medium | **Scope:** Persistent identifiers
-
-### Commit 12.1: Prepare W3ID Request
-
-- [ ] Review W3ID.org submission guidelines
-- [ ] Prepare .htaccess file for content negotiation
-- [ ] Document redirection rules for ontology versions
-- [ ] Create README for w3id.org/dfo/salmon
-- [ ] Test redirection locally
-
-### Commit 12.2: Submit W3ID Request
-
-- [ ] Fork w3id.org GitHub repository
-- [ ] Add dfo/salmon directory with configuration
-- [ ] Submit pull request to w3id.org
-- [ ] Respond to reviewer feedback
-- [ ] Monitor PR for merge
-
-### Commit 12.3: Update Ontology IRIs Post-Publication
-
-- [ ] Update ontology IRI to use w3id.org
-- [ ] Update version IRI to use w3id.org
-- [ ] Update rdfs:isDefinedBy for all terms
-- [ ] Test that all IRIs resolve correctly
-- [ ] Document w3id.org usage in README
-
----
-
 ## Deferred to Post-MVP
 
 ### DPROD Investigation
@@ -651,6 +887,14 @@
 - [ ] Test SPARQL queries across multiple SMUs
 - [ ] Add SMU/CU/Stock hierarchy instances
 - [ ] Document multi-SMU patterns
+
+### ROBOT Validation Setup
+
+- [ ] Investigate ROBOT validate command requirements
+- [ ] Determine if newer ROBOT version needed (>1.9.5)
+- [ ] Create OBO validation profile if needed
+- [ ] Re-enable validation in CI/CD pipeline
+- [ ] Add to PR-013: CI/CD and Quality Checks
 
 ---
 
@@ -699,4 +943,5 @@
 - **Instance data:** NO instances in main ontology file; all examples go in `ontology/examples/`
 - **Genetics:** Review and extend existing classes for GRD linkage
 - **SIL/SEN:** Integrate Minh Doan's SKOS schemes and classes
+- **W3ID Publication:** Phased approach - Phase 1 (core terms) after PR-003, Phase 2 (FSAR) after implementation, Phase 3 (complete) near MVP
 - **Focus:** Shortest path to working FSAR Tracer demo for Barkley Sockeye
