@@ -397,6 +397,119 @@ Use `dcterms:source` for the *persistent identifier* (prefer DOI/Handle/w3id/ARK
 - ✅ Use **`rdfs:seeAlso`** optionally for landing pages or download URLs
 - ✅ This pattern aligns with DCMI and W3C best practices for provenance and citation
 
+### 2.3.6 Ontology Import Strategy
+
+**Three Approaches: Import vs MIREOT vs Prefix**
+
+Understanding when to use each approach is critical for maintaining a lightweight, performant, and interoperable ontology.
+
+#### 2.3.6.1 Full owl:imports (NOT used in DFO Salmon Ontology)
+
+**Use ONLY when:**
+- Using >20 terms from the ontology AND
+- Need reasoning over imported axioms AND
+- Ontology is small (<100 terms total)
+
+**Risks:**
+- Imports entire ontology (100s-1000s of terms)
+- Slow loading and reasoning
+- Potential conflicts with other imports
+- Difficult to track which terms are actually used
+
+**DFO Salmon Decision:** No full imports for MVP
+
+#### 2.3.6.2 MIREOT (Minimum Information to Reference an External Ontology Term)
+
+**Use when:**
+- Need 3-20 specific terms with labels/definitions
+- Want documentation in your ontology
+- Don't need reasoning over the full imported ontology
+
+**Method:**
+1. Copy the term IRI (e.g., `bfo:0000015`)
+2. Add minimal metadata: `rdfs:label`, `oboInOwl:hasDefinition` (or `rdfs:comment`)
+3. Add `rdfs:isDefinedBy` pointing to source ontology
+4. Use the term as if it were native
+
+**Benefits:**
+- Lightweight (only terms you need)
+- No import bloat
+- Clear documentation
+- Tools like Protégé recognize the terms
+- Maintains semantic alignment with source
+
+**Example - BFO MIREOT:**
+```turtle
+# Import specific BFO term via MIREOT
+bfo:0000015 a owl:Class ;
+  rdfs:label "process"@en ;
+  oboInOwl:hasDefinition "An occurrent that has temporal parts."@en ;
+  rdfs:isDefinedBy <http://purl.obolibrary.org/obo/bfo.owl> .
+
+# Now use it in your ontology
+dfo:StatusAssessment rdfs:subClassOf bfo:0000015 .  # process
+```
+
+**DFO Salmon MIREOT Terms:**
+- **BFO** (3 terms): process, material entity, generically dependent continuant
+- **IAO** (4 terms): measurement datum, value specification, information content entity, directive information entity
+- **DQV** (5 terms): Dimension, QualityAnnotation, inDimension, Metric, Category
+
+#### 2.3.6.3 Prefix Declarations Only
+
+**Use when:**
+- Using properties only (not classes)
+- Terms are universally known (SKOS, Dublin Core)
+- Pure data typing (xsd:)
+- Lightweight alignment without local definitions
+
+**Method:**
+1. Declare prefix: `@prefix prov: <http://www.w3.org/ns/prov#>`
+2. Use terms directly in your ontology
+3. No local definitions needed
+4. Assumes external ontology is accessible
+
+**Benefits:**
+- Minimal overhead
+- Clean separation
+- Standard practice for well-known vocabularies
+
+**Example - PROV-O Prefix Only:**
+```turtle
+# Declare prefix (no import, no local definitions)
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+# Use PROV-O properties directly
+:BarkleyStatus2025 prov:used :EscapementDataset2025 ;
+  prov:wasGeneratedBy :SRBenchmarkMethod ;
+  prov:wasAttributedTo :StockAssessmentTeam .
+```
+
+**DFO Salmon Prefix-Only:**
+- **PROV-O** (~6 properties): wasGeneratedBy, wasDerivedFrom, used, wasAttributedTo, etc.
+- **RO** (alignment via rdfs:seeAlso): has_member, member_of
+- **SKOS** (extensive): Concept, ConceptScheme, prefLabel, definition, etc.
+- **DwC** (extensive): Event, Organism, MeasurementOrFact, etc.
+
+#### 2.3.6.4 Decision Matrix
+
+| Ontology | Approach | Terms Used | Rationale |
+|----------|----------|------------|-----------|
+| **BFO** | MIREOT | 3 classes | Upper ontology grounding |
+| **IAO** | MIREOT | 4 classes | Information artifacts (already in use) |
+| **DQV** | MIREOT | 5 terms | Evidence completeness tracking |
+| **PROV-O** | Prefix only | ~6 properties | Provenance relations |
+| **RO** | Prefix only | Alignment via rdfs:seeAlso | Semantic documentation |
+| **SKOS** | Prefix only | Extensive | Core W3C vocabulary |
+| **DwC** | Prefix only | Extensive | Biodiversity standard |
+| **SHACL** | Prefix only | Validation language | Not a domain ontology |
+
+**Why This Matters:**
+- **Performance**: MIREOT = fast loading; full imports = slow
+- **Clarity**: Local term definitions aid understanding in Protégé
+- **Maintenance**: Fewer dependencies = easier updates
+- **Interoperability**: Pragmatic balance between standards compliance and usability
+
 ### 2.4 Hybrid Modeling Approach for Automated Classification
 
 **Why a hybrid approach?** For automated classification systems (like Estimate Type assignment), we need both controlled vocabularies (methods) and rich data modeling (events with metadata). This hybrid approach separates concerns while enabling automation.

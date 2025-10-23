@@ -47,9 +47,9 @@
 
 ---
 
-## PR-001: BFO and DQV MIREOT Imports
+## PR-001: BFO MIREOT Import and DwC Mapping
 
-**Priority:** High | **Scope:** Upper ontology grounding and quality framework
+**Priority:** High | **Scope:** Upper ontology grounding via BFO
 
 ### Commit 1.1: Add BFO MIREOT Definitions
 
@@ -75,7 +75,13 @@
 - [ ] Update section title to "Class Mappings to Darwin Core and BFO Upper Ontology"
 - [ ] Verify reasoning works with ELK reasoner
 
-### Commit 1.3: Add DQV MIREOT Definitions
+---
+
+## PR-002: DQV MIREOT Import for Quality Framework
+
+**Priority:** High | **Scope:** Evidence completeness and quality tracking
+
+### Commit 2.1: Add DQV MIREOT Definitions
 
 **File:** `ontology/dfo-salmon.ttl`
 
@@ -87,7 +93,7 @@
 - [ ] Add rdfs:isDefinedBy for each term pointing to DQV namespace
 - [ ] Test DQV terms are recognized in Protégé
 
-### Commit 1.4: Create Evidence Completeness Dimensions
+### Commit 2.2: Create Evidence Completeness Dimensions
 
 **File:** `ontology/dfo-salmon.ttl`
 
@@ -97,7 +103,7 @@
 - [ ] Add skos:prefLabel and skos:definition for both dimensions
 - [ ] Add rdfs:isDefinedBy for each dimension
 
-### Commit 1.5: Create Quality Annotations (Evidence Badges)
+### Commit 2.3: Create Quality Annotations (Evidence Badges)
 
 **File:** `ontology/dfo-salmon.ttl`
 
@@ -110,11 +116,11 @@
 
 ---
 
-## PR-002: FSAR Tracer Core Classes
+## PR-003: FSAR Tracer Core Classes
 
 **Priority:** High | **Scope:** Evidence chain ontology classes
 
-### Commit 2.1: Add PROV-O Prefix and Documentation
+### Commit 3.1: Add PROV-O Prefix and Documentation
 
 **File:** `ontology/dfo-salmon.ttl`
 
@@ -129,7 +135,7 @@
   - `ScientificOutput prov:wasDerivedFrom StatusAssessment`
   - `ManagementDecision prov:used ScientificOutput`
 
-### Commit 2.2: Add FSAR Tracer Evidence Chain Classes
+### Commit 3.2: Add FSAR Tracer Evidence Chain Classes
 
 **File:** `ontology/dfo-salmon.ttl`
 
@@ -157,11 +163,11 @@
 
 ---
 
-## PR-003: Genetics Classes for GRD Integration
+## PR-004: Genetics Classes for GRD Integration
 
 **Priority:** High | **Scope:** Link to Genetics Results Database
 
-### Commit 3.1: Review Existing Genetics Classes
+### Commit 4.1: Review Existing Genetics Classes
 
 **File:** `ontology/dfo-salmon.ttl`
 
@@ -171,19 +177,19 @@
 - [ ] Check if `GSIRun` adequately models GRD run identifiers
 - [ ] Verify `GSICompositionMeasurement` can link to FSAR Tracer data products
 
-### Commit 3.2: Add GRD Linkage Properties
+### Commit 4.2: Add GRD Linkage Properties
 
 **File:** `ontology/dfo-salmon.ttl`
 
 - [ ] Add `dfo:grdRunID` DatatypeProperty for GRD Run_ID
-- [ ] Add `dfo:grdSampleID` DatatypeProperty for GRD Sample_ID
+- [ ] Add `dfo:grdSampleID` DatatypeProperty for GRD Sample_ID  
 - [ ] Add `dfo:grdAssayID` DatatypeProperty for GRD Assay_ID (optional)
 - [ ] Add `dfo:gsi_sample_size` DatatypeProperty for uncertainty tracking
 - [ ] Add `dfo:gsi_ci` DatatypeProperty for confidence intervals
 - [ ] Set appropriate domains and ranges
 - [ ] Add comments explaining GRD integration
 
-### Commit 3.3: Document Genetics-to-FSAR Linkage Pattern
+### Commit 4.3: Document Genetics-to-FSAR Linkage Pattern
 
 **File:** `docs/CONVENTIONS.md`
 
@@ -195,11 +201,11 @@
 
 ---
 
-## PR-004: SIL/SEN SKOS Schemes Integration
+## PR-005: SIL/SEN SKOS Schemes Integration
 
 **Priority:** High | **Scope:** Align with Minh Doan's escapement measurement work
 
-### Commit 4.1: Integrate SIL Enumeration Methods
+### Commit 5.1: Integrate SIL Enumeration Methods
 
 **File:** `ontology/dfo-salmon.ttl`
 
@@ -209,7 +215,7 @@
 - [ ] Add skos:inScheme links
 - [ ] Verify no duplicate or conflicting concepts
 
-### Commit 4.2: Integrate SEN Estimate Methods
+### Commit 5.2: Integrate SEN Estimate Methods
 
 **File:** `ontology/dfo-salmon.ttl`
 
@@ -219,7 +225,7 @@
 - [ ] Add skos:prefLabel, skos:definition, skos:broader for all
 - [ ] Verify scheme completeness
 
-### Commit 4.3: Add SIL/SEN Classes (if needed)
+### Commit 5.3: Add SIL/SEN Classes (if needed)
 
 **File:** `ontology/dfo-salmon.ttl`
 
@@ -231,11 +237,11 @@
 
 ---
 
-## PR-005: FSAR Required Fields
+## PR-006: FSAR Required Fields
 
 **Priority:** High | **Scope:** Evidence completeness tracking properties
 
-### Commit 5.1: Add Data Source Properties
+### Commit 6.1: Add Data Source Properties
 
 **File:** `ontology/dfo-salmon.ttl`
 
@@ -250,7 +256,7 @@
   - Set domain to `dfo:EscapementMeasurement`, range to `xsd:string`
   - Add comment: required when data_source_type contains "proxy"
 
-### Commit 5.2: Add Method Reproducibility Properties
+### Commit 6.2: Add Method Reproducibility Properties
 
 **File:** `ontology/dfo-salmon.ttl`
 
@@ -262,7 +268,7 @@
   - Set domain to `dfo:AnalysisMethod`, range to `xsd:string`
   - Add comment: Git commit hash/tag for reproducibility
 
-### Commit 5.3: Add Reference Point Properties
+### Commit 6.3: Add Reference Point Properties
 
 **File:** `ontology/dfo-salmon.ttl`
 
@@ -276,7 +282,7 @@
   - Set range to `xsd:boolean`
   - Add comment: flag indicating sensitivity to assumptions
 
-### Commit 5.4: Add Status and Review Properties
+### Commit 6.4: Add Status and Review Properties
 
 **File:** `ontology/dfo-salmon.ttl`
 
@@ -295,11 +301,11 @@
 
 ---
 
-## PR-006: SHACL Shapes for Evidence Completeness
+## PR-007: SHACL Shapes for Evidence Completeness
 
 **Priority:** High | **Scope:** Validation rules
 
-### Commit 6.1: Update SHACL File Header
+### Commit 7.1: Update SHACL File Header
 
 **File:** `ontology/shapes/dfo-salmon-shapes.ttl`
 
@@ -307,7 +313,7 @@
 - [ ] Add note: "Estimate types are manually assigned based on Hyatt 1997 criteria"
 - [ ] Add note: "No instance data in main ontology file; instances go in examples/"
 
-### Commit 6.2: Create Decision Context Shape
+### Commit 7.2: Create Decision Context Shape
 
 **File:** `ontology/shapes/dfo-salmon-shapes.ttl`
 
@@ -323,7 +329,7 @@
   - `dfo:gsi_sample_size`
   - `dfo:benchmark_sensitivity`
 
-### Commit 6.3: Add Conditional Validation Rules
+### Commit 7.3: Add Conditional Validation Rules
 
 **File:** `ontology/shapes/dfo-salmon-shapes.ttl`
 
@@ -337,7 +343,7 @@
   - Rule: StatusAssessment must have reviewer AND review_date
   - Add sh:message: "Status assessments require reviewer and date"
 
-### Commit 6.4: Add Provenance Validation
+### Commit 7.4: Add Provenance Validation
 
 **File:** `ontology/shapes/dfo-salmon-shapes.ttl`
 
@@ -353,11 +359,11 @@
 
 ---
 
-## PR-007: SPARQL Query Pack
+## PR-008: SPARQL Query Pack
 
 **Priority:** High | **Scope:** Competency queries for UI
 
-### Commit 7.1: Create Query File
+### Commit 8.1: Create Query File
 
 **File:** `ontology/sparql/fsar-tracer-queries.rq`
 
@@ -366,7 +372,7 @@
 - [ ] Add prefix declarations for all namespaces
 - [ ] Add table of contents listing Q1-Q9
 
-### Commit 7.2: Core Evidence Queries (Q1-Q4)
+### Commit 8.2: Core Evidence Queries (Q1-Q4)
 
 **File:** `ontology/sparql/fsar-tracer-queries.rq`
 
@@ -382,7 +388,7 @@
   - Return reference_point_type, benchmark_method, benchmark_sensitivity
   - List all reference points used in status assessment
 
-### Commit 7.3: Data Currency and Quality Queries (Q5-Q8)
+### Commit 8.3: Data Currency and Quality Queries (Q5-Q8)
 
 **File:** `ontology/sparql/fsar-tracer-queries.rq`
 
@@ -399,7 +405,7 @@
   - Return FSAR/Tech/Research document metadata
   - Include doc_type, title, identifier, issued date, URL
 
-### Commit 7.4: Genetics Integration Query (Q9)
+### Commit 8.4: Genetics Integration Query (Q9)
 
 **File:** `ontology/sparql/fsar-tracer-queries.rq`
 
@@ -411,11 +417,11 @@
 
 ---
 
-## PR-008: Relations Ontology Alignment
+## PR-009: Relations Ontology Alignment
 
 **Priority:** Medium | **Scope:** Documentation only (no code changes for MVP)
 
-### Commit 8.1: Document RO Alignment
+### Commit 9.1: Document RO Alignment
 
 **File:** `ontology/dfo-salmon.ttl`
 
@@ -428,11 +434,11 @@
 
 ---
 
-## PR-009: Documentation Updates
+## PR-010: Documentation Updates
 
 **Priority:** High | **Scope:** README and CONVENTIONS
 
-### Commit 9.1: Update CONVENTIONS.md Import Policy
+### Commit 10.1: Update CONVENTIONS.md Import Policy
 
 **File:** `docs/CONVENTIONS.md`
 
@@ -443,7 +449,7 @@
 - [ ] Add FSAR Tracer import decisions and rationale
 - [ ] Document MIREOT implementation pattern
 
-### Commit 9.2: Add FSAR Tracer Patterns to CONVENTIONS
+### Commit 10.2: Add FSAR Tracer Patterns to CONVENTIONS
 
 **File:** `docs/CONVENTIONS.md`
 
@@ -453,7 +459,7 @@
 - [ ] Explain DQV quality annotation pattern
 - [ ] Document required fields for evidence completeness
 
-### Commit 9.3: Update README.md Technical Overview
+### Commit 10.3: Update README.md Technical Overview
 
 **File:** `README.md`
 
@@ -463,7 +469,7 @@
 - [ ] Add: "Provenance: PROV-O properties for FSAR evidence chains"
 - [ ] Add: "Quality: DQV dimensions for evidence completeness tracking"
 
-### Commit 9.4: Add FSAR Tracer Section to README
+### Commit 10.4: Add FSAR Tracer Section to README
 
 **File:** `README.md`
 
@@ -476,11 +482,11 @@
 
 ---
 
-## PR-010: Sample Data and JSON-LD Export
+## PR-011: Sample Data and JSON-LD Export
 
 **Priority:** Medium | **Scope:** Example instances for testing (NOT in main ontology)
 
-### Commit 10.1: Create Barkley Sockeye Sample Instances
+### Commit 11.1: Create Barkley Sockeye Sample Instances
 
 **File:** `ontology/examples/barkley-2025-sample.ttl` (NEW FILE)
 
@@ -497,7 +503,7 @@
 - [ ] Create sample `dfo:ScientificOutput` (FSAR advice)
 - [ ] Create sample `dfo:ManagementDecision` (TAC 2025)
 
-### Commit 10.2: Link Instances with PROV-O
+### Commit 11.2: Link Instances with PROV-O
 
 **File:** `ontology/examples/barkley-2025-sample.ttl`
 
@@ -508,7 +514,7 @@
 - [ ] Link ScientificOutput to StatusAssessment via `prov:wasDerivedFrom`
 - [ ] Link ManagementDecision to ScientificOutput via `prov:used`
 
-### Commit 10.3: Annotate with DQV Quality
+### Commit 11.3: Annotate with DQV Quality
 
 **File:** `ontology/examples/barkley-2025-sample.ttl`
 
@@ -518,7 +524,7 @@
 - [ ] Add version pins using `owl:versionInfo`
 - [ ] Document quality annotation pattern in comments
 
-### Commit 10.4: Create JSON-LD Context
+### Commit 11.4: Create JSON-LD Context
 
 **File:** `ontology/examples/fsar-tracer-context.jsonld` (NEW FILE)
 
@@ -528,7 +534,7 @@
 - [ ] Add @vocab for default namespace
 - [ ] Test context validates with JSON-LD playground
 
-### Commit 10.5: Export Sample Data as JSON-LD
+### Commit 11.5: Export Sample Data as JSON-LD
 
 **File:** `ontology/examples/barkley-2025-sample.jsonld` (NEW FILE)
 
@@ -585,11 +591,11 @@
 
 ---
 
-## PR-011: W3ID URI Publication
+## PR-012: W3ID URI Publication
 
 **Priority:** Medium | **Scope:** Persistent identifiers
 
-### Commit 11.1: Prepare W3ID Request
+### Commit 12.1: Prepare W3ID Request
 
 - [ ] Review W3ID.org submission guidelines
 - [ ] Prepare .htaccess file for content negotiation
@@ -597,7 +603,7 @@
 - [ ] Create README for w3id.org/dfo/salmon
 - [ ] Test redirection locally
 
-### Commit 11.2: Submit W3ID Request
+### Commit 12.2: Submit W3ID Request
 
 - [ ] Fork w3id.org GitHub repository
 - [ ] Add dfo/salmon directory with configuration
@@ -605,7 +611,7 @@
 - [ ] Respond to reviewer feedback
 - [ ] Monitor PR for merge
 
-### Commit 11.3: Update Ontology IRIs Post-Publication
+### Commit 12.3: Update Ontology IRIs Post-Publication
 
 - [ ] Update ontology IRI to use w3id.org
 - [ ] Update version IRI to use w3id.org
