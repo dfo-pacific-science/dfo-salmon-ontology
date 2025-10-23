@@ -2,61 +2,61 @@ name: Continuous Integration
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [main, develop]
   pull_request:
-    branches: [ main, develop ]
+    branches: [main, develop]
 
 jobs:
   validate-ontology:
     runs-on: ubuntu-latest
-    
+
     steps:
-    - uses: actions/checkout@v4
-    
-    - name: Set up Java 11
-      uses: actions/setup-java@v4
-      with:
-        java-version: '11'
-        distribution: 'temurin'
-    
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.11'
-    
-    - name: Install Python dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install pyshacl rdflib
-    
-    - name: Download ROBOT
-      run: |
-        wget https://github.com/ontodev/robot/releases/download/v1.9.5/robot.jar -O tools/robot.jar
-    
-    # Disabled - ROBOT validate needs newer version or profile
-    # Re-enable in PR-013: CI/CD and Quality Checks
-    # - name: Validate ontology with ROBOT
-    #   run: |
-    #     java -jar tools/robot.jar validate --input ontology/dfo-salmon.ttl
-    
-    - name: Reason ontology with ROBOT
-      run: |
-        java -jar tools/robot.jar reason --input ontology/dfo-salmon.ttl --reasoner ELK --output ontology/dfo-salmon.reasoned.ttl
-    
-    - name: Validate SHACL shapes
-      run: |
-        python scripts/test_shacl_validation.py
-    
-    - name: Run SPARQL tests
-      run: |
-        # Add SPARQL test runner when implemented
-        echo "SPARQL tests not yet implemented"
-    
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v4
-      if: always()
-      with:
-        name: ontology-artifacts
-        path: |
-          ontology/dfo-salmon.reasoned.ttl
-          ontology/dfo-salmon.ttl
+      - uses: actions/checkout@v4
+
+      - name: Set up Java 11
+        uses: actions/setup-java@v4
+        with:
+          java-version: "11"
+          distribution: "temurin"
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyshacl rdflib
+
+      - name: Download ROBOT
+        run: |
+          wget https://github.com/ontodev/robot/releases/download/v1.9.5/robot.jar -O tools/robot.jar
+
+      # Disabled - ROBOT validate needs newer version or profile
+      # Re-enable in PR-013: CI/CD and Quality Checks
+      # - name: Validate ontology with ROBOT
+      #   run: |
+      #     java -jar tools/robot.jar validate --input ontology/dfo-salmon.ttl
+
+      - name: Reason ontology with ROBOT
+        run: |
+          java -jar tools/robot.jar reason --input ontology/dfo-salmon.ttl --reasoner ELK --output ontology/dfo-salmon.reasoned.ttl
+
+      - name: Validate SHACL shapes
+        run: |
+          python scripts/test_shacl_validation.py
+
+      - name: Run SPARQL tests
+        run: |
+          # Add SPARQL test runner when implemented
+          echo "SPARQL tests not yet implemented"
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ontology-artifacts
+          path: |
+            ontology/dfo-salmon.reasoned.ttl
+            ontology/dfo-salmon.ttl

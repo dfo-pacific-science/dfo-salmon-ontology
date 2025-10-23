@@ -11,16 +11,19 @@ The conventions here are **practical starting points**, not immutable rules. As 
 **For experienced contributors who need a quick reference:**
 
 ### Essential Elements (Every Term Needs)
+
 - **Label**: `rdfs:label "Human Name"@en`
 - **Definition**: `rdfs:comment "1–2 sentence definition."@en`
 - **Source**: `rdfs:isDefinedBy <https://w3id.org/dfo/salmon>`
 
 ### Naming Conventions
+
 - **Classes**: PascalCase (e.g., `EscapementMeasurement`)
 - **Properties**: lowerCamelCase (e.g., `aboutStock`, `usesMethod`)
 - **SKOS Concepts**: PascalCase (e.g., `SonarCounting`)
 
 ### Core Patterns
+
 - **Measurements**: Must link to stock, event, and method
 - **Hierarchy**: SMU ▶ CU ▶ Population with `hasMember` relationships (use correct OWL 2 transitivity syntax)
 - **Units**: Store QUDT IRIs as literals in `…UnitIRI` properties
@@ -30,6 +33,7 @@ The conventions here are **practical starting points**, not immutable rules. As 
 - **OBO Relations Ontology for Relations**: Check the [Relations Ontology](https://obofoundry.org/ontology/ro.html) first before defining new relations; use subproperties when extending
 
 ### Quality Checklist
+
 - [ ] Can answer a competency question?
 - [ ] Follows established design patterns?
 - [ ] All required annotations present?
@@ -42,12 +46,14 @@ The conventions here are **practical starting points**, not immutable rules. As 
 ## 📚 Table of Contents
 
 1. [Fundamentals](#1-fundamentals)
+
    - [1.1 What is Knowledge Modeling?](#11-what-is-knowledge-modeling)
    - [1.2 Ontology vs Knowledge Graph vs Graph Database](#12-ontology-vs-knowledge-graph-vs-graph-database)
    - [1.3 Why This Ontology?](#13-why-this-ontology)
    - [1.4 Modeling Approach](#14-modeling-approach)
 
 2. [Getting Started](#2-getting-started)
+
    - [2.1 Essential Concepts](#21-essential-concepts)
    - [2.2 Schema vs Data Separation](#22-schema-vs-data-separation)
    - [2.3 Core Conventions](#23-core-conventions)
@@ -56,6 +62,7 @@ The conventions here are **practical starting points**, not immutable rules. As 
    - [2.6 Naming Conventions](#26-naming-conventions)
 
 3. [Design Patterns](#3-design-patterns)
+
    - [3.1 Measurement Patterns](#31-measurement-patterns)
    - [3.2 Hierarchy Patterns](#32-hierarchy-patterns)
    - [3.3 Event Patterns](#33-event-patterns)
@@ -63,11 +70,13 @@ The conventions here are **practical starting points**, not immutable rules. As 
 4. [Darwin Core Integration](#4-darwin-core-integration)
 
 5. [Quality Assurance](#5-quality-assurance)
+
    - [5.1 Pre-Submission Checklist](#51-pre-submission-checklist)
    - [5.2 Validation Steps](#52-validation-steps)
    - [5.3 Common Mistakes](#53-common-mistakes)
 
 6. [Advanced Topics](#6-advanced-topics)
+
    - [6.1 Competency Questions](#61-competency-questions)
    - [6.2 Troubleshooting](#62-troubleshooting)
    - [6.3 External Alignments](#63-external-alignments)
@@ -86,6 +95,7 @@ The conventions here are **practical starting points**, not immutable rules. As 
 Knowledge modeling (also called ontology engineering) is the practice of creating formal representations of knowledge that both humans and computers can understand. Think of it as creating a shared vocabulary and set of rules that describe how concepts in a domain relate to each other.
 
 **Why do we need conventions?** Without consistent conventions, different people might model the same concept in different ways, leading to confusion and data that can't be easily combined or queried. Conventions ensure that:
+
 - Everyone uses the same terms for the same concepts
 - Data can be automatically validated and processed
 - Different systems can exchange information seamlessly
@@ -96,6 +106,7 @@ Knowledge modeling (also called ontology engineering) is the practice of creatin
 Understanding these distinctions is crucial for proper data management and system design.
 
 **Ontology (Schema)**
+
 - **What it is**: A formal specification of concepts, relationships, and rules in a domain
 - **Contains**: Classes, properties, SKOS vocabularies, axioms, constraints
 - **Purpose**: Defines the "vocabulary" and "grammar" for describing data
@@ -103,6 +114,7 @@ Understanding these distinctions is crucial for proper data management and syste
 - **File**: `dfo-salmon.ttl` (schema only, no instance data)
 
 **Knowledge Graph (Data)**
+
 - **What it is**: A collection of interconnected data instances following an ontology schema
 - **Contains**: Specific instances, facts, measurements, events
 - **Purpose**: Stores actual data using the ontology's vocabulary
@@ -110,6 +122,7 @@ Understanding these distinctions is crucial for proper data management and syste
 - **File**: Separate data files (e.g., `survey-data-2022.ttl`)
 
 **Graph Database (Storage)**
+
 - **What it is**: A database system optimized for storing and querying graph-structured data
 - **Contains**: Both schema and data, optimized for traversal and querying
 - **Purpose**: Efficient storage and retrieval of graph data
@@ -131,19 +144,21 @@ The **DFO Salmon Ontology** provides a domain-fit semantic layer for Pacific sal
 > **📋 Complete Purpose & Objectives**: See the [DFO Salmon Ontology: Product Requirements Document](PRODUCT_REQUIREMENTS.md) for the complete overview of the ontology's purpose, objectives, and target users.
 
 We take inspiration from:
-- **Darwin Core (DwC) & the DwC Conceptual Model (DwC-CM)**  
-- **NCEAS Salmon Ontology (SALMON.ttl)**  
+
+- **Darwin Core (DwC) & the DwC Conceptual Model (DwC-CM)**
+- **NCEAS Salmon Ontology (SALMON.ttl)**
 - **Standard vocabularies** like QUDT (units), ENVO (environments), and GBIF Backbone (taxa)
 
 ### 1.4 Modeling Approach
 
-- We model **primarily in OWL** (Web Ontology Language).  
-- We **also allow SKOS** for lightweight vocabularies (lists of methods, categories, codes).  
-- All terms must be represented in **Turtle (.ttl)** format.  
-- We emphasize **simplicity first**: one ontology file (`dfo-salmon.ttl`) is the starting point.  
+- We model **primarily in OWL** (Web Ontology Language).
+- We **also allow SKOS** for lightweight vocabularies (lists of methods, categories, codes).
+- All terms must be represented in **Turtle (.ttl)** format.
+- We emphasize **simplicity first**: one ontology file (`dfo-salmon.ttl`) is the starting point.
   - Later, we may modularize into separate files for stock, genetics, governance, etc.
 
 **OBO Foundry Alignment:**
+
 - Follow OBO Foundry principles for open, interoperable ontologies
 - Use ROBOT for ontology development workflows
 - Maintain logical well-formedness and scientific accuracy
@@ -170,6 +185,7 @@ We take inspiration from:
 The `dfo-salmon.ttl` file must contain **schema elements only** - no instance data. This separation is essential for maintainability, versioning, and interoperability.
 
 **What Goes in the Ontology File (`dfo-salmon.ttl`):**
+
 - **OWL Classes**: `EscapementSurveyEvent`, `Stock`, `Measurement`
 - **OWL Properties**: `usesEnumerationMethod`, `aboutStock`, `hasCountValue`
 - **SKOS Concepts**: `SnorkelSurvey`, `Type2`, `VISITS`
@@ -177,12 +193,14 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
 - **Metadata**: Labels, definitions, sources, examples
 
 **What Does NOT Go in the Ontology File:**
+
 - **Instance Data**: Specific survey events, stock measurements, count values
 - **Temporal Data**: Data from specific years, seasons, or time periods
 - **Location-Specific Data**: Data tied to specific rivers, regions, or sites
 - **Raw Measurements**: Actual count values, efficiency rates, coverage percentages
 
 **Where to Store Instance Data:**
+
 - **Separate RDF files**: `survey-data-2022.ttl`, `stock-data-2023.ttl`
 - **Graph databases**: Neo4j, Amazon Neptune, Apache Jena TDB
 - **Data management systems**: Custom applications with RDF storage
@@ -209,6 +227,7 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
 ```
 
 **Benefits of This Separation:**
+
 - **Stable Schema**: Ontology changes independently of data updates
 - **Reusable**: Same schema can be used for multiple datasets
 - **Maintainable**: Easier to validate and update schema separately
@@ -216,6 +235,7 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
 - **Versionable**: Schema and data can have different versioning cycles
 
 **SHACL Validation:**
+
 - **Schema Validation**: SHACL shapes in the ontology file validate data structure
 - **Data Validation**: Apply SHACL shapes to instance data files
 - **Quality Assurance**: Ensures data conforms to schema requirements
@@ -225,6 +245,7 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
 #### 2.3.1 Classes
 
 **Required elements for every class:**
+
 - **Type declaration:** `a owl:Class` - This tells the system this is a class
 - **Label:** `rdfs:label "Human Name"@en` - A human-readable name in English
 - **Definition:** `rdfs:comment "1–2 sentence definition."@en` - A clear explanation of what this class represents
@@ -233,8 +254,9 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
 **Why these are required:** Labels help humans understand what you mean, definitions prevent confusion about scope, and source attribution ensures proper credit and traceability.
 
 **Example:**
+
 ```turtle
-:GeneticSample a owl:Class ;  
+:GeneticSample a owl:Class ;
     rdfs:label "Genetic Sample"@en ;
     rdfs:comment "Tissue or material used in genetic stock identification analyses."@en ;
     rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;
@@ -247,18 +269,21 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
 **What are object properties?** Object properties link instances of one class to instances of another class. For example, "aboutStock" links a measurement to a stock.
 
 **Required elements for every object property:**
+
 - **Type declaration:** `a owl:ObjectProperty`
 - **Label:** `rdfs:label "Human Name"@en`
 - **Definition:** `rdfs:comment "1–2 sentence definition."@en`
 - **Source attribution:** `rdfs:isDefinedBy <https://w3id.org/dfo/salmon>`
 
 **Optional but recommended:**
+
 - **Domain:** `rdfs:domain :ClassName` - What type of thing this property describes
 - **Range:** `rdfs:range :ClassName` - What type of thing this property points to
 - **Source:** `dcterms:source "Reference to where this came from"`
 - **Example:** `dcterms:description "Example usage"`
 
 **OBO annotation properties:**
+
 - **Definition:** `oboInOwl:hasDefinition` - Formal definition
 - **Exact synonym:** `oboInOwl:hasExactSynonym` - Alternative names with same meaning
 - **Related synonym:** `oboInOwl:hasRelatedSynonym` - Related but not identical terms
@@ -267,6 +292,7 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
 - **Database cross-reference:** `oboInOwl:hasDbXref` - Links to external databases
 
 **Example:**
+
 ```turtle
 :aboutStock a owl:ObjectProperty ;
     rdfs:label "about stock"@en ;
@@ -282,17 +308,20 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
 **What are datatype properties?** Datatype properties link instances to literal values (text, numbers, dates). For example, "measurementValue" links a measurement to its numeric value.
 
 **Required elements for every datatype property:**
+
 - **Type declaration:** `a owl:DatatypeProperty`
 - **Label:** `rdfs:label "Human Name"@en`
 - **Definition:** `rdfs:comment "1–2 sentence definition."@en`
 - **Source attribution:** `rdfs:isDefinedBy <https://w3id.org/dfo/salmon>`
 
 **Optional but recommended:**
+
 - **Domain:** `rdfs:domain :ClassName`
 - **Range:** `rdfs:range xsd:datatype` (e.g., `xsd:string`, `xsd:integer`, `xsd:date`)
 - **Source:** `dcterms:source "Reference to where this came from"`
 
 **Example:**
+
 ```turtle
 :measurementValue a owl:DatatypeProperty ;
     rdfs:label "measurement value"@en ;
@@ -307,17 +336,20 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
 **What are SKOS concepts?** SKOS concepts are for controlled vocabularies - lists of standardized terms like methods, categories, or codes. Use SKOS when you need a picklist rather than a complex class hierarchy.
 
 **Terminology vs Ontology:**
+
 - **Terminology**: A collection of terms with definitions and synonyms (like a dictionary)
 - **Ontology**: A formal classification with logical relationships between terms (like a structured knowledge base)
 - **Our approach**: We use OWL for formal relationships and SKOS for simple controlled vocabularies
 
 **Required elements for every SKOS concept:**
+
 - **Type declaration:** `a skos:Concept`
 - **Label:** `skos:prefLabel "Human Name"@en`
 - **Definition:** `skos:definition "1–2 sentence definition."@en`
 - **Source attribution:** `rdfs:isDefinedBy <https://w3id.org/dfo/salmon>`
 
 **Example:**
+
 ```turtle
 :SonarCounting a skos:Concept ;
     skos:prefLabel "Sonar Counting"@en ;
@@ -325,20 +357,21 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
     rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;
     skos:broader :CountingMethod .
 ```
+
 #### 2.3.5 Provenance and Citation Conventions
 
 #### 2.3.5.1 Use of `dcterms:source`, `dcterms:bibliographicCitation`, and `rdfs:seeAlso`
 
 To ensure consistent provenance documentation and FAIR compliance, follow these conventions when citing the source of a definition, dataset, or external standard:
 
-| Property | Purpose | Expected Value Type | Example Use |
-|-----------|----------|--------------------|--------------|
-| **`dcterms:source`** | Persistent identifier (DOI/Handle/w3id/ARK) for the source resource. | IRI | `<https://doi.org/10.1234/dfostock.2023>` |
-| **`dcterms:bibliographicCitation`** | Human-readable citation text for the source. | Literal (string) | `"DFO (2023). Escapement Survey Manual, Pacific Region."@en` |
-| **`rdfs:seeAlso`** | Optional landing page or download URL for browsers and accessibility. | IRI | `<https://open.canada.ca/data/en/dataset/escapement-survey-manual-2023>` |
+| Property                            | Purpose                                                               | Expected Value Type | Example Use                                                              |
+| ----------------------------------- | --------------------------------------------------------------------- | ------------------- | ------------------------------------------------------------------------ |
+| **`dcterms:source`**                | Persistent identifier (DOI/Handle/w3id/ARK) for the source resource.  | IRI                 | `<https://doi.org/10.1234/dfostock.2023>`                                |
+| **`dcterms:bibliographicCitation`** | Human-readable citation text for the source.                          | Literal (string)    | `"DFO (2023). Escapement Survey Manual, Pacific Region."@en`             |
+| **`rdfs:seeAlso`**                  | Optional landing page or download URL for browsers and accessibility. | IRI                 | `<https://open.canada.ca/data/en/dataset/escapement-survey-manual-2023>` |
 
 **Guideline:**  
-Use `dcterms:source` for the *persistent identifier* (prefer DOI/Handle/w3id/ARK), `dcterms:bibliographicCitation` for the *human-readable citation text*, and optionally `rdfs:seeAlso` for *landing pages or download URLs*.
+Use `dcterms:source` for the _persistent identifier_ (prefer DOI/Handle/w3id/ARK), `dcterms:bibliographicCitation` for the _human-readable citation text_, and optionally `rdfs:seeAlso` for _landing pages or download URLs_.
 
 ---
 
@@ -350,22 +383,23 @@ Use `dcterms:source` for the *persistent identifier* (prefer DOI/Handle/w3id/ARK
     rdfs:comment "A survey event conducted to measure salmon escapement."@en ;
     rdfs:subClassOf dwc:Event ;
     rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;
-    
+
     # Non-literal source (preferred: DOI or other persistent IRI)
     dcterms:source <https://doi.org/10.1234/dfostock.2023> ;
-    
+
     # Human-readable citation text
     dcterms:bibliographicCitation
         "DFO (2023). Escapement Survey Manual, Pacific Region. Fisheries and Oceans Canada."@en ;
-    
+
     # Optional: landing page or download URL
     rdfs:seeAlso <https://open.canada.ca/data/en/dataset/escapement-survey-manual-2023> .
 ```
 
 **Explanation:**
-- `dcterms:source` provides a *persistent identifier* (DOI) that machines can resolve.
-- `dcterms:bibliographicCitation` provides a *human-readable citation* following standard bibliographic format.
-- `rdfs:seeAlso` provides a *landing page URL* for easy access and browser navigation.
+
+- `dcterms:source` provides a _persistent identifier_ (DOI) that machines can resolve.
+- `dcterms:bibliographicCitation` provides a _human-readable citation_ following standard bibliographic format.
+- `rdfs:seeAlso` provides a _landing page URL_ for easy access and browser navigation.
 
 ---
 
@@ -376,14 +410,14 @@ Use `dcterms:source` for the *persistent identifier* (prefer DOI/Handle/w3id/ARK
     rdfs:label "Baseline Genetic Dataset"@en ;
     rdfs:comment "A curated collection of reference genotypes used in genetic stock identification analyses."@en ;
     rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;
-    
+
     # Persistent identifier for the dataset
     dcterms:source <https://doi.org/10.1234/dfo-baseline-genotype-2024> ;
-    
+
     # Human-readable citation
     dcterms:bibliographicCitation
         "DFO Molecular Genetics Laboratory (2024). Baseline Genotype Reference Collection. Fisheries and Oceans Canada."@en ;
-    
+
     # Optional: data portal landing page
     rdfs:seeAlso <https://open.canada.ca/data/en/dataset/dfo-baseline-genotype-reference-collection> .
 ```
@@ -406,11 +440,13 @@ Understanding when to use each approach is critical for maintaining a lightweigh
 #### 2.3.6.1 Full owl:imports (NOT used in DFO Salmon Ontology)
 
 **Use ONLY when:**
+
 - Using >20 terms from the ontology AND
 - Need reasoning over imported axioms AND
 - Ontology is small (<100 terms total)
 
 **Risks:**
+
 - Imports entire ontology (100s-1000s of terms)
 - Slow loading and reasoning
 - Potential conflicts with other imports
@@ -421,17 +457,20 @@ Understanding when to use each approach is critical for maintaining a lightweigh
 #### 2.3.6.2 MIREOT (Minimum Information to Reference an External Ontology Term)
 
 **Use when:**
+
 - Need 3-20 specific terms with labels/definitions
 - Want documentation in your ontology
 - Don't need reasoning over the full imported ontology
 
 **Method:**
+
 1. Copy the term IRI (e.g., `bfo:0000015`)
 2. Add minimal metadata: `rdfs:label`, `oboInOwl:hasDefinition` (or `rdfs:comment`)
 3. Add `rdfs:isDefinedBy` pointing to source ontology
 4. Use the term as if it were native
 
 **Benefits:**
+
 - Lightweight (only terms you need)
 - No import bloat
 - Clear documentation
@@ -439,6 +478,7 @@ Understanding when to use each approach is critical for maintaining a lightweigh
 - Maintains semantic alignment with source
 
 **Example - BFO MIREOT:**
+
 ```turtle
 # Import specific BFO term via MIREOT
 bfo:0000015 a owl:Class ;
@@ -451,11 +491,13 @@ dfo:StatusAssessment rdfs:subClassOf bfo:0000015 .  # process
 ```
 
 **DFO Salmon MIREOT Terms:**
+
 - **BFO** (3 terms): process, material entity, generically dependent continuant
 - **IAO** (4 terms): measurement datum, value specification, information content entity, directive information entity
 - **DQV** (5 terms): Dimension, QualityAnnotation, inDimension, Metric, Category
 
 **Why BFO for FSAR Tracer:**
+
 - Clarifies entity types: processes (events, methods) vs material entities (organisms, samples) vs information entities (datasets, documents)
 - Enables OBO Foundry alignment: Most OBO ontologies (including IAO) are grounded in BFO
 - Improves reasoning: Proper BFO grounding enables better logical inference
@@ -464,23 +506,27 @@ dfo:StatusAssessment rdfs:subClassOf bfo:0000015 .  # process
 #### 2.3.6.3 Prefix Declarations Only
 
 **Use when:**
+
 - Using properties only (not classes)
 - Terms are universally known (SKOS, Dublin Core)
 - Pure data typing (xsd:)
 - Lightweight alignment without local definitions
 
 **Method:**
+
 1. Declare prefix: `@prefix prov: <http://www.w3.org/ns/prov#>`
 2. Use terms directly in your ontology
 3. No local definitions needed
 4. Assumes external ontology is accessible
 
 **Benefits:**
+
 - Minimal overhead
 - Clean separation
 - Standard practice for well-known vocabularies
 
 **Example - PROV-O Prefix Only:**
+
 ```turtle
 # Declare prefix (no import, no local definitions)
 @prefix prov: <http://www.w3.org/ns/prov#> .
@@ -492,6 +538,7 @@ dfo:StatusAssessment rdfs:subClassOf bfo:0000015 .  # process
 ```
 
 **DFO Salmon Prefix-Only:**
+
 - **PROV-O** (~6 properties): wasGeneratedBy, wasDerivedFrom, used, wasAttributedTo, etc.
 - **RO** (alignment via rdfs:seeAlso): has_member, member_of
 - **SKOS** (extensive): Concept, ConceptScheme, prefLabel, definition, etc.
@@ -499,18 +546,19 @@ dfo:StatusAssessment rdfs:subClassOf bfo:0000015 .  # process
 
 #### 2.3.6.4 Decision Matrix
 
-| Ontology | Approach | Terms Used | Rationale |
-|----------|----------|------------|-----------|
-| **BFO** | MIREOT | 3 classes | Upper ontology grounding |
-| **IAO** | MIREOT | 4 classes | Information artifacts (already in use) |
-| **DQV** | MIREOT | 5 terms | Evidence completeness tracking |
-| **PROV-O** | Prefix only | ~6 properties | Provenance relations |
-| **RO** | Prefix only | Alignment via rdfs:seeAlso | Semantic documentation |
-| **SKOS** | Prefix only | Extensive | Core W3C vocabulary |
-| **DwC** | Prefix only | Extensive | Biodiversity standard |
-| **SHACL** | Prefix only | Validation language | Not a domain ontology |
+| Ontology   | Approach    | Terms Used                 | Rationale                              |
+| ---------- | ----------- | -------------------------- | -------------------------------------- |
+| **BFO**    | MIREOT      | 3 classes                  | Upper ontology grounding               |
+| **IAO**    | MIREOT      | 4 classes                  | Information artifacts (already in use) |
+| **DQV**    | MIREOT      | 5 terms                    | Evidence completeness tracking         |
+| **PROV-O** | Prefix only | ~6 properties              | Provenance relations                   |
+| **RO**     | Prefix only | Alignment via rdfs:seeAlso | Semantic documentation                 |
+| **SKOS**   | Prefix only | Extensive                  | Core W3C vocabulary                    |
+| **DwC**    | Prefix only | Extensive                  | Biodiversity standard                  |
+| **SHACL**  | Prefix only | Validation language        | Not a domain ontology                  |
 
 **Why This Matters:**
+
 - **Performance**: MIREOT = fast loading; full imports = slow
 - **Clarity**: Local term definitions aid understanding in Protégé
 - **Maintenance**: Fewer dependencies = easier updates
@@ -519,15 +567,18 @@ dfo:StatusAssessment rdfs:subClassOf bfo:0000015 .  # process
 **FSAR Tracer Specific Usage:**
 
 BFO Classes (via MIREOT):
+
 - `bfo:0000015` (process) → StatusAssessment, AnalysisMethod, ManagementDecision
 - `bfo:0000040` (material entity) → Stock, GeneticSample
 - `bfo:0000031` (generically dependent continuant) → ScientificOutput
 
 DQV Classes (via MIREOT):
+
 - `dqv:Dimension` → EvidenceCompletenessDimension, DataCurrencyDimension
 - `dqv:QualityAnnotation` → CompleteEvidence, GapsEvidence, MissingCriticalEvidence
 
 PROV-O Properties (prefix-only):
+
 - `prov:used` → StatusAssessment uses Dataset/ReferencePoint
 - `prov:wasGeneratedBy` → StatusAssessment generated by AnalysisMethod
 - `prov:wasDerivedFrom` → ScientificOutput derived from StatusAssessment
@@ -545,6 +596,7 @@ PROV-O Properties (prefix-only):
 4. **Downgrade Criteria as SKOS** - Standardized criteria for automated type assignment
 
 **Complete Example:**
+
 ```turtle
 # Layer 1: SKOS Methods (Controlled Vocabularies)
 :SnorkelSurvey a skos:Concept ;
@@ -595,6 +647,7 @@ PROV-O Properties (prefix-only):
 ```
 
 **Key Principles:**
+
 - **Methods are vocabulary terms** - Use SKOS for enumeration methods, estimate methods, and downgrade criteria
 - **Events carry the data** - OWL classes for survey events with rich metadata properties
 - **Metadata on instances** - Observer efficiency, coverage, visibility are properties of specific surveys
@@ -607,6 +660,7 @@ PROV-O Properties (prefix-only):
 **Note:** Estimate types are manually assigned based on Hyatt 1997 criteria. Automated classification is deferred to post-MVP.
 
 **SHACL Shape for Method Validation:**
+
 ```turtle
 # SHACL Shape for Snorkel Survey Events
 :SnorkelSurveyShape a sh:NodeShape ;
@@ -637,6 +691,7 @@ PROV-O Properties (prefix-only):
 ```
 
 **Implementation Pipeline:**
+
 1. **Data Entry** - Users create survey events with metadata
 2. **SHACL Validation** - Ensures required fields are present and valid
 3. **Manual Classification** - Estimate types assigned based on Hyatt 1997 criteria
@@ -659,6 +714,7 @@ PROV-O Properties (prefix-only):
 
 **Basic Measurement Pattern:**
 Every measurement must have:
+
 - `dwc:measurementType` - What was measured
 - `dwc:measurementValue` - The measured value
 - `dwc:measurementUnit` - The unit of measurement
@@ -667,6 +723,7 @@ Every measurement must have:
 - `dfo:usesMethod` - Which method was used
 
 **Example:**
+
 ```turtle
 :EscapementCount2022 a dfo:EscapementMeasurement ;
     dwc:measurementType "abundance" ;
@@ -680,12 +737,14 @@ Every measurement must have:
 ### 3.2 Hierarchy Patterns
 
 **Management Hierarchy Pattern:**
+
 - Management Units contain Conservation Units
 - Conservation Units contain Stocks
 - Use transitive `dfo:hasMember` relationships
 - Create type-specific subproperties for clarity
 
 **Example:**
+
 ```turtle
 :BCInteriorMU a dfo:ManagementUnit ;
     dfo:hasMemberCU :FraserCUCoho .
@@ -699,11 +758,13 @@ Every measurement must have:
 ### 3.3 Event Patterns
 
 **Survey Event Pattern:**
+
 - Surveys contain multiple measurement events
 - Each measurement event has specific protocols
 - Events can be nested (project > survey > measurement)
 
 **Example:**
+
 ```turtle
 :SalmonSurvey2023 a eco:Survey ;
     dwc:eventDate "2023-05-01/2023-09-30"^^xsd:gYear ;
@@ -724,6 +785,7 @@ Every measurement must have:
 > **📋 Complete Darwin Core Integration**: See the [DFO Salmon Ontology: Product Requirements Document](PRODUCT_REQUIREMENTS.md) for the complete technical approach, including hybrid modeling strategy, core patterns, and Darwin Core integration details.
 
 **Key Darwin Core Classes to Use:**
+
 - `dwc:Event` - Actions, processes, or circumstances occurring at a place and time
 - `dwc:Occurrence` - A state of an organism in an event
 - `dwc:Organism` - A particular organism or defined group of organisms
@@ -734,6 +796,7 @@ Every measurement must have:
 - `dwc:Protocol` - Methods used during actions
 
 **DFO Extensions:**
+
 ```turtle
 # DFO-specific classes that extend Darwin Core
 dfo:ManagementUnit rdfs:subClassOf dwc:Event ;
@@ -756,6 +819,7 @@ dfo:Stock rdfs:subClassOf dwc:Organism ;
 ### 5.1 Pre-Submission Checklist
 
 **Before submitting new terms:**
+
 - [ ] Can you answer relevant competency questions with this term?
 - [ ] Does the term follow established design patterns?
 - [ ] Are all required annotations present (label, definition, source)?
@@ -768,24 +832,28 @@ dfo:Stock rdfs:subClassOf dwc:Organism ;
 ### 5.2 Validation Steps
 
 **Logical Consistency:**
+
 - [ ] Run reasoner to check for unsatisfiable classes
 - [ ] Verify no classes appear under `owl:Nothing`
 - [ ] Check for circular dependencies in hierarchies
 - [ ] Validate domain/range restrictions are appropriate
 
 **Content Quality:**
+
 - [ ] Definitions are clear and unambiguous
 - [ ] Labels follow naming conventions
 - [ ] Synonyms are appropriate and well-sourced
 - [ ] Examples are relevant and helpful
 
 **Integration Quality:**
+
 - [ ] Term integrates with existing classes
 - [ ] Relationships are properly defined
 - [ ] External references are valid and accessible
 - [ ] Competency questions can be answered
 
 **OBO Foundry Quality Standards:**
+
 - [ ] **Open**: Freely available under CC-BY or CC0 license
 - [ ] **Interoperable**: Uses standard OBO relations and formats
 - [ ] **Logically well-formed**: No logical inconsistencies
@@ -798,21 +866,25 @@ dfo:Stock rdfs:subClassOf dwc:Organism ;
 ### 5.3 Common Mistakes to Avoid
 
 **Naming Issues:**
+
 - Inconsistent naming conventions (e.g., mixing camelCase and snake_case)
 - Using abbreviations without explanation
 - Creating terms that are too specific or too general
 
 **Relationship Issues:**
+
 - Missing essential relationships
 - Over-constraining with unnecessary restrictions
 - Creating circular or contradictory relationships
 
 **Content Issues:**
+
 - Vague or unclear definitions
 - Missing required annotations
 - Duplicating existing terms with different names
 
 **OWL 2 Syntax Issues:**
+
 - Using `owl:TransitiveProperty true` instead of `a owl:TransitiveProperty`
 - Incorrect transitivity declarations that violate OWL 2 specification
 - Missing RO relation checks before defining new relations
@@ -826,6 +898,7 @@ dfo:Stock rdfs:subClassOf dwc:Organism ;
 **What are competency questions?** These are the specific questions your ontology should be able to answer. They guide design decisions and validate that the ontology serves its intended purpose. Competency questions are essential for ensuring your ontology can actually support the research and data integration needs of the salmon science community.
 
 **Why competency questions matter:**
+
 - **Design guidance**: Help determine what terms and relationships are needed
 - **Validation mechanism**: Ensure the ontology can answer the questions it's designed to address
 - **Testing framework**: Enable systematic validation of the ontology's utility
@@ -836,16 +909,19 @@ dfo:Stock rdfs:subClassOf dwc:Organism ;
 #### 6.1.1 Using Competency Questions
 
 **During Design:**
+
 - Write competency questions before creating new terms
 - Use them to identify missing relationships or classes
 - Ensure each new term contributes to answering at least one question
 
 **During Validation:**
+
 - Convert competency questions to SPARQL queries when possible
 - Test queries with sample data to ensure they return meaningful results
 - Use them to validate that the ontology serves its intended purpose
 
 **Example SPARQL Query:**
+
 ```sparql
 # Find all escapement methods used for Sockeye stocks in 2022
 PREFIX dfo: <https://w3id.org/dfo/salmon#>
@@ -868,23 +944,26 @@ SELECT ?method ?stock ?event WHERE {
 #### 6.2.1 Logical Consistency Issues
 
 **Problem: Term appears under owl:Nothing**
+
 - **Cause**: Logical inconsistency (e.g., conflicting restrictions, disjoint classes)
-- **Solution**: 
+- **Solution**:
   1. Click the ? button next to owl:Nothing to see explanation
   2. Check for disjoint class assertions that conflict
   3. Look for contradictory domain/range restrictions
   4. Remove or modify conflicting axioms
 
 **Problem: Missing inferred relationships**
+
 - **Cause**: Reasoner not run or missing logical axioms
-- **Solution**: 
+- **Solution**:
   1. Run the reasoner (ELK or HermiT)
   2. Add necessary equivalence axioms
   3. Check that subclass relationships are properly defined
 
 **Problem: Unexpected classification results**
+
 - **Cause**: Incorrect logical definitions or missing restrictions
-- **Solution**: 
+- **Solution**:
   1. Review equivalence axioms carefully
   2. Check that restrictions use correct quantifiers (some vs. only)
   3. Verify that property chains are properly defined
@@ -892,24 +971,27 @@ SELECT ?method ?stock ?event WHERE {
 #### 6.2.2 Content and Design Issues
 
 **Problem: Can't find existing term**
+
 - **Cause**: Search in wrong ontology or using wrong label
-- **Solution**: 
+- **Solution**:
   1. Use broader search terms
   2. Check synonyms and alternative names
   3. Search in the correct ontology namespace
   4. Use partial string matching
 
 **Problem: Term doesn't integrate with existing hierarchy**
+
 - **Cause**: Missing subclass relationships or incorrect placement
-- **Solution**: 
+- **Solution**:
   1. Identify the correct parent class
   2. Add appropriate subclass relationships
   3. Check that the term fits the intended hierarchy
   4. Consider if the term should be a different type (class vs. property)
 
 **Problem: Relationships don't work as expected**
+
 - **Cause**: Incorrect domain/range restrictions or missing properties
-- **Solution**: 
+- **Solution**:
   1. Check that domain/range restrictions are appropriate
   2. Verify that properties are properly typed
   3. Ensure that relationships are defined in the correct direction
@@ -918,24 +1000,27 @@ SELECT ?method ?stock ?event WHERE {
 #### 6.2.3 Technical Issues
 
 **Problem: Ontology won't load in Protégé**
+
 - **Cause**: Syntax errors, missing imports, or file corruption
-- **Solution**: 
+- **Solution**:
   1. Check for syntax errors in Turtle/RDF
   2. Verify that all imports are accessible
   3. Try loading a smaller subset of the ontology
   4. Check file encoding and line endings
 
 **Problem: Reasoner runs very slowly**
+
 - **Cause**: Complex logical definitions or large ontology
-- **Solution**: 
+- **Solution**:
   1. Use a faster reasoner (ELK instead of HermiT)
   2. Simplify complex logical definitions
   3. Consider modularizing the ontology
   4. Remove unnecessary axioms
 
 **Problem: SPARQL queries return no results**
+
 - **Cause**: Incorrect query syntax or missing data
-- **Solution**: 
+- **Solution**:
   1. Check query syntax carefully
   2. Verify that data exists for the query
   3. Test with simpler queries first
@@ -944,18 +1029,21 @@ SELECT ?method ?stock ?event WHERE {
 #### 6.2.4 Getting Help
 
 **When to ask for help:**
+
 - You've tried the troubleshooting steps but the problem persists
 - The issue affects multiple terms or relationships
 - You're unsure about the correct modeling approach
 - The problem seems to be a bug in the tools
 
 **How to ask for help:**
+
 - Provide a clear description of the problem
 - Include relevant code snippets or error messages
 - Explain what you've already tried
 - Specify which tools and versions you're using
 
 **Where to get help:**
+
 - GitHub Issues for the DFO Salmon Ontology
 - OBO Foundry community forums
 - Protégé user mailing lists
@@ -968,11 +1056,13 @@ SELECT ?method ?stock ?event WHERE {
 **What is subclassing?** Subclassing represents "is-a" relationships. For example, "Sockeye" is a subclass of "Salmon" because every sockeye is a salmon.
 
 **When to use subclassing:**
+
 - When one class is a more specific type of another
 - When all instances of the subclass are also instances of the superclass
 - When you want to inherit properties from the parent class
 
 **Example:**
+
 ```turtle
 :Sockeye rdfs:subClassOf :Salmon ;
     rdfs:label "Sockeye"@en ;
@@ -984,11 +1074,13 @@ SELECT ?method ?stock ?event WHERE {
 **What is equivalence?** Equivalence states that two classes are identical in meaning. Use this when two terms represent exactly the same concept.
 
 **When to use equivalence:**
+
 - When two classes have identical meaning but different names
 - When aligning with external vocabularies
 - When consolidating duplicate concepts
 
 **Example:**
+
 ```turtle
 :Escapement rdfs:subClassOf :Measurement ;
     owl:equivalentClass dwc:MeasurementOrFact ;
@@ -1000,11 +1092,13 @@ SELECT ?method ?stock ?event WHERE {
 **What is disjointness?** Disjointness states that two classes cannot have common instances. Use this when classes are mutually exclusive.
 
 **When to use disjointness:**
+
 - When classes represent mutually exclusive categories
 - When you want to prevent logical inconsistencies
 - When modeling taxonomic hierarchies
 
 **Example:**
+
 ```turtle
 :Freshwater rdfs:subClassOf :Environment ;
     owl:disjointWith :Marine .
@@ -1018,12 +1112,14 @@ SELECT ?method ?stock ?event WHERE {
 **What is the membership pattern?** This pattern represents the hierarchical relationship between Management Units, Conservation Units, and Stocks in salmon management.
 
 **The Pattern:**
+
 - Management Units contain Conservation Units
 - Conservation Units contain Stocks
 - Use transitive `hasMember` relationships
 - Create type-specific subproperties for clarity
 
 **Implementation:**
+
 ```turtle
 # Define the base membership property
 :hasMember a owl:ObjectProperty, owl:TransitiveProperty ;
@@ -1056,6 +1152,7 @@ SELECT ?method ?stock ?event WHERE {
 #### 6.5.1 Escapement Measurements
 
 **Required elements for every escapement measurement:**
+
 - `dwc:measurementType` - What was measured (e.g., "abundance")
 - `dwc:measurementValue` - The measured value
 - `dwc:measurementUnit` - The unit of measurement (QUDT IRI)
@@ -1064,6 +1161,7 @@ SELECT ?method ?stock ?event WHERE {
 - `dfo:usesMethod` - Which method was used
 
 **Example:**
+
 ```turtle
 :EscapementCount2022 a :EscapementMeasurement ;
     dwc:measurementType "abundance" ;
@@ -1077,6 +1175,7 @@ SELECT ?method ?stock ?event WHERE {
 #### 6.5.2 GSI Composition Measurements
 
 **Required elements for every GSI measurement:**
+
 - `dfo:aboutReportingUnit` - Which genetic reporting unit
 - `dfo:proportion` - The proportion of the sample
 - `dfo:confidence` - Confidence interval or quality measure
@@ -1084,6 +1183,7 @@ SELECT ?method ?stock ?event WHERE {
 - `dfo:basedOnSamples` - Which samples were analyzed
 
 **Example:**
+
 ```turtle
 :GSIResult2023_001 a :GSICompositionMeasurement ;
     dfo:aboutReportingUnit :FraserSockeyeRU ;
@@ -1098,6 +1198,7 @@ SELECT ?method ?stock ?event WHERE {
 **Why external alignments matter:** They ensure your ontology can work with other systems and datasets, making your data more discoverable and useful.
 
 **Key external vocabularies:**
+
 - **QUDT**: Units of measurement (http://qudt.org/vocab/unit/)
 - **ENVO**: Environmental terms (http://purl.obolibrary.org/obo/ENVO_)
 - **GBIF Backbone**: Taxonomic names (http://www.gbif.org/species/)
@@ -1105,12 +1206,14 @@ SELECT ?method ?stock ?event WHERE {
 - **RO (Relations Ontology)**: Standard relations (http://purl.obolibrary.org/obo/RO_)
 
 **OBO Foundry Relation Reuse Requirements:**
+
 - **Check RO first**: Before defining new relations, check if equivalent relations exist in RO
 - **Use RO IRIs**: When equivalent relations exist, use the RO IRI directly or create subproperties
 - **Avoid label conflicts**: OBO Foundry review flags non-RO relations with RO-equivalent labels
 - **Subproperty alignment**: Create subproperties of RO relations when domain-specific extensions are needed
 
 **Example RO Alignment:**
+
 ```turtle
 # Instead of defining a new "hasMember" property, align with RO
 :hasMember rdfs:subPropertyOf ro:has_part ;
@@ -1123,6 +1226,7 @@ SELECT ?method ?stock ?event WHERE {
 ```
 
 **Implementation:**
+
 - Store external IRIs as literals in `…UnitIRI` properties
 - Use `dcterms:source` to reference external vocabularies
 - Plan to convert to object properties in future versions
@@ -1154,6 +1258,7 @@ For richer unit semantics, consider adding object properties alongside datatype 
 ```
 
 **Trade-offs:**
+
 - **Datatype approach**: Pragmatic storage and mapping, but reasoning can't follow strings to unit classes
 - **Object property approach**: Enables richer unit semantics and reasoning, but requires unit ontology imports
 - **Hybrid approach**: Use both for maximum flexibility and backward compatibility
@@ -1169,6 +1274,7 @@ For richer unit semantics, consider adding object properties alongside datatype 
 **Instance IRIs:** `https://w3id.org/dfo/salmon#InstanceName`
 
 **Example:**
+
 ```turtle
 @prefix dfo: <https://w3id.org/dfo/salmon#> .
 
@@ -1180,12 +1286,14 @@ dfo:EscapementMeasurement a owl:Class ;
 #### 6.7.2 Versioning
 
 **Ontology versioning:**
+
 - Use `owl:versionInfo` for version numbers
 - Use `owl:versionIRI` for version-specific IRIs
 - Tag releases in GitHub
 - Maintain changelog
 
 **Example:**
+
 ```turtle
 <https://w3id.org/dfo/salmon> a owl:Ontology ;
     owl:versionInfo "1.0.0" ;
@@ -1198,6 +1306,7 @@ dfo:EscapementMeasurement a owl:Class ;
 **Why use templates?** Spreadsheet templates help domain experts contribute terms without needing to learn OWL syntax. They also ensure consistency and completeness.
 
 **Template columns:**
+
 - **Term Name**: The name of the term
 - **Type**: Class, ObjectProperty, DatatypeProperty, or SKOS Concept
 - **Label**: Human-readable name
@@ -1225,6 +1334,7 @@ dfo:EscapementMeasurement a owl:Class ;
 **Scenario:** Modeling a sonar count of sockeye escapement
 
 **Required elements:**
+
 - Event (when and where the count occurred)
 - Stock (which stock was counted)
 - Method (sonar counting)
@@ -1232,6 +1342,7 @@ dfo:EscapementMeasurement a owl:Class ;
 - Agent (who conducted the count)
 
 **Example:**
+
 ```turtle
 :SkeenaSurvey2023 a eco:Survey ;
     dwc:eventDate "2023-08-15"^^xsd:date ;
@@ -1256,12 +1367,14 @@ dfo:EscapementMeasurement a owl:Class ;
 **Scenario:** Modeling genetic stock identification results
 
 **Required elements:**
+
 - GSI Run (when and how the analysis was performed)
 - Samples (what was analyzed)
 - Reporting Units (genetic populations)
 - Composition Results (proportions and confidence)
 
 **Example:**
+
 ```turtle
 :GSIRun2023_001 a dfo:GSIRun ;
     dwc:eventDate "2023-06-15"^^xsd:date ;
@@ -1284,12 +1397,15 @@ dfo:EscapementMeasurement a owl:Class ;
 #### 6.11.1 Pre-Submission Review
 
 **Before submitting new terms:**
+
 1. **Self-review using competency questions**
+
    - Can this term answer a specific research question?
    - Does it integrate with existing terms?
    - Is it consistent with established patterns?
 
 2. **Technical validation**
+
    - Run reasoner to check for logical consistency
    - Validate that all required annotations are present
    - Test with sample data
@@ -1302,12 +1418,15 @@ dfo:EscapementMeasurement a owl:Class ;
 #### 6.11.2 Submission Process
 
 **How to submit new terms:**
+
 1. **Create a GitHub Issue**
+
    - Describe the term and its purpose
    - Explain how it fits with existing terms
    - Provide examples of usage
 
 2. **Create a Pull Request**
+
    - Include the new term in Turtle format
    - Follow all naming and annotation conventions
    - Include tests and examples
@@ -1320,6 +1439,7 @@ dfo:EscapementMeasurement a owl:Class ;
 #### 6.11.3 Feedback Integration
 
 **How to handle feedback:**
+
 - **Be responsive**: Acknowledge all feedback promptly
 - **Be collaborative**: Work with reviewers to improve terms
 - **Be thorough**: Address all concerns before resubmitting
@@ -1328,24 +1448,28 @@ dfo:EscapementMeasurement a owl:Class ;
 ### 6.12 Roadmap
 
 #### 6.12.1 Phase 1: Foundation (Current)
+
 - Core class and property definitions
 - Basic measurement patterns
 - Stock hierarchy implementation
 - Darwin Core alignment
 
 #### 6.12.2 Phase 2: Expansion
+
 - Genetic analysis workflows
 - Advanced measurement types
 - External vocabulary integration
 - Quality control patterns
 
 #### 6.12.3 Phase 3: Integration
+
 - NCEAS Salmon Ontology alignment
 - International standard compliance
 - Advanced querying capabilities
 - Data validation tools
 
 #### 6.12.4 Phase 4: Policy and Integration
+
 - Policy benchmarks and reference points
 - Integration with NCEAS Salmon Ontology
 - Advanced querying and analytics
@@ -1357,12 +1481,14 @@ dfo:EscapementMeasurement a owl:Class ;
 ### 7.1 Tools and Workflows
 
 **Essential Tools:**
+
 - **Protégé**: Visual ontology editor (https://protege.stanford.edu/)
 - **WebProtégé**: Collaborative online editor
 - **ROBOT**: Command-line ontology tools (http://robot.obolibrary.org/)
 - **OntoGraf**: Protégé plugin for visualizing relationships
 
 **OBO-Style Development Workflow:**
+
 1. **Start with competency questions** to guide design
 2. **Use ROBOT for quality control**:
    - `robot reason` to check logical consistency
@@ -1377,6 +1503,7 @@ dfo:EscapementMeasurement a owl:Class ;
 6. **Submit for community review**
 
 **ROBOT Commands for DFO Salmon Ontology:**
+
 ```bash
 # Check logical consistency
 robot reason --input dfo-salmon.ttl --reasoner ELK
@@ -1394,12 +1521,14 @@ robot annotate --input dfo-salmon.ttl --ontology-iri "https://w3id.org/dfo/salmo
 ### 7.2 Community Process
 
 **Getting Help:**
+
 - GitHub Issues for the DFO Salmon Ontology
 - OBO Foundry community forums
 - Protégé user mailing lists
 - Ontology development workshops and training
 
 **Contributing:**
+
 - Discuss major changes in GitHub Issues before implementing
 - Use WebProtégé to visualize and verify your work
 - Follow the quality assurance checklist
@@ -1408,12 +1537,14 @@ robot annotate --input dfo-salmon.ttl --ontology-iri "https://w3id.org/dfo/salmo
 ### 7.3 Key Takeaways
 
 **Essential Elements:**
+
 - Always define: **Label + Definition**
 - Use **OWL classes and properties** for structure
 - Use **SKOS** when you need a picklist or controlled list
 - Follow **Darwin Core** as your meta-framework for interoperability
 
 **Getting Started:**
+
 - Start with **competency questions** to guide your design
 - Use **design patterns** to ensure consistency
 - Don't stress about OWL syntax at first — focus on **clear terms and definitions**
@@ -1421,6 +1552,7 @@ robot annotate --input dfo-salmon.ttl --ontology-iri "https://w3id.org/dfo/salmo
 - Start simple and add complexity as needed
 
 **Quality and Community Process:**
+
 - Use the **quality assurance checklist** before submitting terms
 - Test your terms with **sample data** and **competency questions**
 - Discuss major changes in GitHub Issues before implementing
@@ -1428,6 +1560,7 @@ robot annotate --input dfo-salmon.ttl --ontology-iri "https://w3id.org/dfo/salmo
 - Ask questions — the community is here to help!
 
 **Darwin Core Integration Benefits:**
+
 - **International interoperability**: Your data becomes discoverable globally
 - **Standard predicates**: Use established, well-tested relationships
 - **Community alignment**: Follow patterns used by GBIF, OBIS, and others
@@ -1435,5 +1568,5 @@ robot annotate --input dfo-salmon.ttl --ontology-iri "https://w3id.org/dfo/salmo
 
 ---
 
-*Maintainer: Data Stewardship Unit, DFO Pacific Science*  
-*License: CC-BY 4.0*
+_Maintainer: Data Stewardship Unit, DFO Pacific Science_  
+_License: CC-BY 4.0_

@@ -42,7 +42,7 @@
 
 ## PR-000A: SIL/SEN Integration Review
 
-**Owner:** Brett + Minh Doan  
+**Owner:** Mel + Minh Doan  
 **Priority:** High  
 **Scope:** Align with Minh Doan's escapement measurement work
 
@@ -126,7 +126,7 @@
 
 ## PR-002: DQV MIREOT Import for Quality Framework
 
-**Owner:** Brett  
+**Owner:** Mel  
 **Priority:** High  
 **Scope:** Evidence completeness and quality tracking
 
@@ -167,7 +167,7 @@
 
 ## PR-003: FSAR Tracer Core Classes
 
-**Owner:** Brett  
+**Owner:** Mel  
 **Priority:** High  
 **Scope:** Evidence chain ontology classes
 
@@ -216,7 +216,7 @@
 
 ## PR-003A: W3ID Phase 1 Publication
 
-**Owner:** Brett  
+**Owner:** Mel  
 **Priority:** High (after PR-003)  
 **Scope:** Publish stable core terms to w3id.org
 
@@ -257,6 +257,7 @@
 - [ ] Update CONVENTIONS with persistent URI guidelines
 
 **Phase 1 Terms List:**
+
 - Core: Stock, ConservationUnit, ManagementUnit
 - Events: EscapementMeasurement, EscapementSurveyEvent
 - Properties: aboutStock, hasMember, isMemberOf, usesEnumerationMethod, usesEstimateMethod, assignedEstimateType
@@ -306,7 +307,7 @@
 
 ## PR-005: SIL/SEN SKOS Schemes Integration
 
-**Owner:** Brett + Minh Doan  
+**Owner:** Mel + Minh Doan  
 **Priority:** High  
 **Scope:** Align with Minh Doan's escapement measurement work
 
@@ -344,7 +345,7 @@
 
 ## PR-006A: Data Source Properties
 
-**Owner:** Brett  
+**Owner:** Mel  
 **Priority:** High  
 **Scope:** Evidence completeness tracking properties
 
@@ -367,7 +368,7 @@
 
 ## PR-006B: Method Reproducibility Properties
 
-**Owner:** Brett  
+**Owner:** Mel  
 **Priority:** High  
 **Scope:** Method reproducibility tracking
 
@@ -387,7 +388,7 @@
 
 ## PR-006C: Reference Points and Review Properties
 
-**Owner:** Brett  
+**Owner:** Mel  
 **Priority:** High  
 **Scope:** Reference points and review tracking
 
@@ -426,7 +427,7 @@
 
 ## PR-007A: SHACL Header and Documentation
 
-**Owner:** Brett  
+**Owner:** Mel  
 **Priority:** High  
 **Scope:** SHACL validation setup
 
@@ -442,7 +443,7 @@
 
 ## PR-007B: SHACL Decision Context Shape
 
-**Owner:** Brett  
+**Owner:** Mel  
 **Priority:** High  
 **Scope:** Decision context validation
 
@@ -466,7 +467,7 @@
 
 ## PR-007C: SHACL Conditional Validation Rules
 
-**Owner:** Brett  
+**Owner:** Mel  
 **Priority:** High  
 **Scope:** Conditional validation logic
 
@@ -486,7 +487,7 @@
 
 ---
 
-## PR-007D: SHACL Provenance Validation
+## PR-007D: Mel Provenance Validation
 
 **Owner:** Brett  
 **Priority:** High  
@@ -510,7 +511,7 @@
 
 ## PR-007E: W3ID Phase 2 Publication
 
-**Owner:** Brett  
+**Owner:** Mel  
 **Priority:** Medium (after FSAR implementation)  
 **Scope:** Publish FSAR Tracer terms
 
@@ -535,6 +536,7 @@
 - [ ] Monitor for approval
 
 **Phase 2 Terms List:**
+
 - Classes: StatusAssessment, ScientificOutput, ManagementDecision, AnalysisMethod
 - Properties: status_value, method_name, reviewer, review_date, data_source_type, spawner_origin
 
@@ -542,7 +544,7 @@
 
 ## PR-008: SPARQL Query Pack
 
-**Owner:** Brett  
+**Owner:** Mel  
 **Priority:** High  
 **Scope:** Competency queries for UI
 
@@ -602,7 +604,7 @@
 
 ## PR-009: Relations Ontology Alignment
 
-**Owner:** Brett  
+**Owner:** Mel  
 **Priority:** Medium  
 **Scope:** Documentation only (no code changes for MVP)
 
@@ -658,7 +660,7 @@
 
 ## PR-010C: README Updates
 
-**Owner:** Brett  
+**Owner:** Mel  
 **Priority:** High  
 **Scope:** README documentation
 
@@ -687,7 +689,7 @@
 
 ## PR-011A: Sample Data Creation
 
-**Owner:** Brett  
+**Owner:** Mel  
 **Priority:** Medium  
 **Scope:** Example instances for testing (NOT in main ontology)
 
@@ -760,7 +762,7 @@
 
 ## PR-012: W3ID Phase 3 Complete Publication
 
-**Owner:** Brett  
+**Owner:** Mel  
 **Priority:** Medium  
 **Scope:** Complete W3ID publication
 
