@@ -24,7 +24,7 @@
 - **Stories:** Use **Excel template + R validator + SHACL** to validate with fix hints; enter terms via **controlled‑vocab dropdowns**; open **Evidence Drawer** to verify provenance minimum.
 - **Acceptance:** **Validator** returns non‑zero on violations with row/column + fix hint; passes after correction. **Controlled‑vocab** fields (`spawner_origin`, `data_source_type`, `reference_point_type`) enforce dropdowns; off‑list rejected with message. **Evidence** shows `data_source`, `method`, `code_version/hash`, `reviewer`, `date`; missing items block **Ready**.
 
-## 2) UI/UX Inspiration (expanded but lean)
+## 2) UI/UX Inspiration
 
 **Single page** flow focused on clarity and drill‑downs. The page is split into a left **Advice Trace** and a right **Evidence Drawer**.
 
