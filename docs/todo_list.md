@@ -55,24 +55,24 @@
 
 **File:** `ontology/dfo-salmon.ttl`
 
-- [ ] Keep BFO prefix declaration at line 2: `@prefix bfo: <http://purl.obolibrary.org/obo/BFO_>`
-- [ ] Add BFO MIREOT section after line 240
-- [ ] Import `bfo:0000015` (process) with label and oboInOwl:hasDefinition
-- [ ] Import `bfo:0000040` (material entity) with label and oboInOwl:hasDefinition
-- [ ] Import `bfo:0000031` (generically dependent continuant) with label and oboInOwl:hasDefinition
-- [ ] Add section comment: "Upper ontology grounding for process/entity/quality hierarchy"
+- [x] Keep BFO prefix declaration at line 2: `@prefix bfo: <http://purl.obolibrary.org/obo/BFO_>`
+- [x] Add BFO MIREOT section after line 240
+- [x] Import `bfo:0000015` (process) with label and oboInOwl:hasDefinition
+- [x] Import `bfo:0000040` (material entity) with label and oboInOwl:hasDefinition
+- [x] Import `bfo:0000031` (generically dependent continuant) with label and oboInOwl:hasDefinition
+- [x] Add section comment: "Upper ontology grounding for process/entity/quality hierarchy"
 - [ ] Test ontology loads in Protégé without errors
 
 ### Commit 1.2: Update DwC-to-BFO Mappings
 
 **File:** `ontology/dfo-salmon.ttl`
 
-- [ ] Update lines 219-234 (Class Mappings section)
-- [ ] Change `dwc:Organism rdfs:subClassOf bfo:0000040` to use actual BFO class (not comment)
-- [ ] Change `dwc:Event rdfs:subClassOf bfo:0000015` to use actual BFO class
-- [ ] Change `dwc:MaterialEntity rdfs:subClassOf bfo:0000040`
-- [ ] Change `dwc:Agent rdfs:subClassOf bfo:0000040`
-- [ ] Update section title to "Class Mappings to Darwin Core and BFO Upper Ontology"
+- [x] Update lines 219-234 (Class Mappings section)
+- [x] Change `dwc:Organism rdfs:subClassOf bfo:0000040` to use actual BFO class (not comment)
+- [x] Change `dwc:Event rdfs:subClassOf bfo:0000015` to use actual BFO class
+- [x] Change `dwc:MaterialEntity rdfs:subClassOf bfo:0000040`
+- [x] Change `dwc:Agent rdfs:subClassOf bfo:0000040`
+- [x] Update section title to "Class Mappings to Darwin Core and BFO Upper Ontology"
 - [ ] Verify reasoning works with ELK reasoner
 
 ---
