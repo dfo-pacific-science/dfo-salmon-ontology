@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FSAR Tracer - Enhanced Timeline Version</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f8f9fa;
+            color: #333;
+        }
+
+        .header {
+            background: white;
+            border-bottom: 1px solid #e9ecef;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .smu-picker {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .decision-context {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            color: #1976d2;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 2px solid #2196f3;
+        }
+
+        .evidence-summary {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #f8f9fa;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: 1px solid #e9ecef;
+        }
+
+        .evidence-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .evidence-indicator.complete { background: #28a745; }
+        .evidence-indicator.gaps { background: #ffc107; }
+        .evidence-indicator.missing { background: #dc3545; }
+
+        .header-right {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .doc-links {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .doc-btn {
+            background: #6c757d;
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .doc-btn:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .doc-btn.new {
+            background: #dc3545;
+        }
+
+        .doc-btn.new::after {
+            content: "NEW";
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #ffc107;
+            color: #212529;
+            font-size: 0.6rem;
+            padding: 0.2rem 0.4rem;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .export-btn {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.8rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .export-btn:hover {
+            background: linear-gradient(135deg, #218838, #1ea085);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+        }
+
+        .main-content {
+            display: flex;
+            height: calc(100vh - 90px);
+        }
+
+        .timeline-section {
+            flex: 2;
+            padding: 2rem;
+            background: white;
+            margin: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .view-toggle {
+            display: flex;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 0.25rem;
+        }
+
+        .view-btn {
+            background: none;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .view-btn.active {
+            background: #007bff;
+            color: white;
+        }
+
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 3rem 0;
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #e9ecef, #dee2e6, #e9ecef);
+            z-index: 1;
+            border-radius: 2px;
+        }
+
+        .timeline-node {
+            background: white;
+            border: 4px solid #e9ecef;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .timeline-node:hover {
+            transform: scale(1.15);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
+
+        .timeline-node.active {
+            border-color: #007bff;
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            transform: scale(1.1);
+        }
+
+        .timeline-node.complete {
+            border-color: #28a745;
+            background: linear-gradient(135deg, #d4edda, #c3e6cb);
+        }
+
+        .timeline-node.gaps {
+            border-color: #ffc107;
+            background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+        }
+
+        .timeline-node.missing {
+            border-color: #dc3545;
+            background: linear-gradient(135deg, #f8d7da, #f5c6cb);
+        }
+
+        .node-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .node-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-align: center;
+            line-height: 1.2;
+            color: #495057;
+        }
+
+        .evidence-badge {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            background: #6c757d;
+            color: white;
+            border-radius: 15px;
+            padding: 0.4rem 0.8rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .evidence-badge.complete {
+            background: linear-gradient(135deg, #28a745, #20c997);
+        }
+
+        .evidence-badge.gaps {
+            background: linear-gradient(135deg, #ffc107, #ffb300);
+            color: #212529;
+        }
+
+        .evidence-badge.missing {
+            background: linear-gradient(135deg, #dc3545, #c82333);
+        }
+
+        .risk-chips {
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.3rem;
+            flex-wrap: wrap;
+            max-width: 140px;
+        }
+
+        .risk-chip {
+            background: #dc3545;
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.6rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .risk-chip:hover {
+            transform: scale(1.1);
+            box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3);
+        }
+
+        .risk-chip.warning {
+            background: #ffc107;
+            color: #212529;
+        }
+
+        .risk-chip.info {
+            background: #17a2b8;
+            color: white;
+        }
+
+        .progress-indicator {
+            position: absolute;
+            bottom: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.7rem;
+            color: #6c757d;
+            font-weight: 600;
+        }
+
+        .drawer-section {
+            flex: 1;
+            background: white;
+            margin: 1rem 1rem 1rem 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .drawer-header {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 1.5rem;
+            border-bottom: 1px solid #e9ecef;
+            border-radius: 12px 12px 0 0;
+        }
+
+        .drawer-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        .drawer-subtitle {
+            color: #6c757d;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .drawer-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .drawer-action {
+            background: #6c757d;
+            color: white;
+            border: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .drawer-action:hover {
+            background: #5a6268;
+        }
+
+        .drawer-action.primary {
+            background: #007bff;
+        }
+
+        .drawer-action.primary:hover {
+            background: #0056b3;
+        }
+
+        .drawer-tabs {
+            display: flex;
+            border-bottom: 1px solid #e9ecef;
+            background: #f8f9fa;
+        }
+
+        .drawer-tab {
+            padding: 1rem 1.2rem;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .drawer-tab:hover {
+            background: #e9ecef;
+        }
+
+        .drawer-tab.active {
+            border-bottom-color: #007bff;
+            color: #007bff;
+            background: white;
+        }
+
+        .drawer-tab.badge::after {
+            content: attr(data-badge);
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background: #dc3545;
+            color: white;
+            border-radius: 10px;
+            padding: 0.1rem 0.4rem;
+            font-size: 0.6rem;
+            font-weight: bold;
+        }
+
+        .drawer-content {
+            flex: 1;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        .provenance-minimum {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border-left: 5px solid #007bff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .provenance-minimum h4 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .provenance-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.8rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .provenance-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .provenance-label {
+            font-weight: 700;
+            color: #495057;
+        }
+
+        .provenance-value {
+            color: #6c757d;
+            font-weight: 500;
+        }
+
+        .data-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .data-item {
+            background: linear-gradient(135deg, #f8f9fa, #ffffff);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .data-item:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+
+        .data-item-title {
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: #2c3e50;
+            font-size: 1.1rem;
+        }
+
+        .data-item-content {
+            color: #6c757d;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .data-item.warning {
+            border-left: 4px solid #ffc107;
+            background: linear-gradient(135deg, #fff3cd, #ffffff);
+        }
+
+        .data-item.error {
+            border-left: 4px solid #dc3545;
+            background: linear-gradient(135deg, #f8d7da, #ffffff);
+        }
+
+        .data-item.success {
+            border-left: 4px solid #28a745;
+            background: linear-gradient(135deg, #d4edda, #ffffff);
+        }
+
+        .document-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .document-item:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+
+        .doc-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #dc3545, #c82333);
+            color: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3);
+        }
+
+        .doc-icon.tech {
+            background: linear-gradient(135deg, #17a2b8, #138496);
+        }
+
+        .doc-icon.research {
+            background: linear-gradient(135deg, #6f42c1, #5a32a3);
+        }
+
+        .doc-info {
+            flex: 1;
+        }
+
+        .doc-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        .doc-meta {
+            font-size: 0.85rem;
+            color: #6c757d;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .doc-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .doc-action {
+            background: #6c757d;
+            color: white;
+            border: none;
+            padding: 0.4rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .doc-action:hover {
+            background: #5a6268;
+            transform: translateY(-1px);
+        }
+
+        .doc-action.primary {
+            background: #007bff;
+        }
+
+        .doc-action.primary:hover {
+            background: #0056b3;
+        }
+
+        .currency-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            margin-bottom: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .currency-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .currency-item.stale {
+            border-color: #ffc107;
+            background: linear-gradient(135deg, #fff3cd, #ffffff);
+        }
+
+        .currency-item.critical {
+            border-color: #dc3545;
+            background: linear-gradient(135deg, #f8d7da, #ffffff);
+        }
+
+        .currency-name {
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .currency-date {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        .currency-version {
+            background: #e9ecef;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .currency-version.stale {
+            background: #ffc107;
+            color: #212529;
+        }
+
+        .currency-version.critical {
+            background: #dc3545;
+            color: white;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .tooltip {
+            position: absolute;
+            background: #333;
+            color: white;
+            padding: 0.8rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            z-index: 1000;
+            max-width: 250px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, #f8f9fa, #ffffff);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .metric-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            color: #6c757d;
+            font-weight: 600;
+        }
+
+        .metric-card.success .metric-value { color: #28a745; }
+        .metric-card.warning .metric-value { color: #ffc107; }
+        .metric-card.danger .metric-value { color: #dc3545; }
+
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .status-indicator.complete {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-indicator.gaps {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status-indicator.missing {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #007bff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 1000;
+            max-width: 300px;
+        }
+
+        .notification.success {
+            border-left: 4px solid #28a745;
+        }
+
+        .notification.warning {
+            border-left: 4px solid #ffc107;
+        }
+
+        .notification.error {
+            border-left: 4px solid #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-left">
+            <div class="smu-picker">Barkley Sockeye • 2025</div>
+            <div class="decision-context">TAC/HCR</div>
+            <div class="evidence-summary">
+                <div class="evidence-indicator complete"></div>
+                <span>2 Complete</span>
+                <div class="evidence-indicator gaps"></div>
+                <span>2 Gaps</span>
+                <div class="evidence-indicator missing"></div>
+                <span>2 Missing</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="doc-links">
+                <button class="doc-btn new">FSAR</button>
+                <button class="doc-btn">Tech Report</button>
+                <button class="doc-btn">Research</button>
+            </div>
+            <button class="export-btn">📦 Export Trace Pack</button>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="timeline-section">
+            <div class="section-header">
+                <h2 class="section-title">Advice Trace Timeline</h2>
+                <div class="view-toggle">
+                    <button class="view-btn active">Timeline</button>
+                    <button class="view-btn">Network</button>
+                </div>
+            </div>
+
+            <div class="metrics-grid">
+                <div class="metric-card success">
+                    <div class="metric-value">67%</div>
+                    <div class="metric-label">Evidence Complete</div>
+                </div>
+                <div class="metric-card warning">
+                    <div class="metric-value">3</div>
+                    <div class="metric-label">Risk Items</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">15</div>
+                    <div class="metric-label">Data Sources</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">2.1</div>
+                    <div class="metric-label">Method Version</div>
+                </div>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-node complete" data-node="data">
+                    <div class="evidence-badge complete">Complete</div>
+                    <div class="node-icon">📊</div>
+                    <div class="node-title">Data<br>Products</div>
+                    <div class="risk-chips">
+                        <div class="risk-chip warning">Proxy</div>
+                    </div>
+                    <div class="progress-indicator">15 sources</div>
+                </div>
+                <div class="timeline-node complete" data-node="method">
+                    <div class="evidence-badge complete">Complete</div>
+                    <div class="node-icon">⚙️</div>
+                    <div class="node-title">Analysis<br>Method</div>
+                    <div class="progress-indicator">v2.1</div>
+                </div>
+                <div class="timeline-node gaps" data-node="reference">
+                    <div class="evidence-badge gaps">Gaps</div>
+                    <div class="node-icon">🎯</div>
+                    <div class="node-title">Reference<br>Points</div>
+                    <div class="risk-chips">
+                        <div class="risk-chip">Sensitivity</div>
+                    </div>
+                    <div class="progress-indicator">3 of 4</div>
+                </div>
+                <div class="timeline-node active gaps" data-node="status">
+                    <div class="evidence-badge gaps">Gaps</div>
+                    <div class="node-icon">📈</div>
+                    <div class="node-title">Status<br>Assessment</div>
+                    <div class="risk-chips">
+                        <div class="risk-chip">Missing CI</div>
+                    </div>
+                    <div class="progress-indicator">Above USR</div>
+                </div>
+                <div class="timeline-node missing" data-node="advice">
+                    <div class="evidence-badge missing">Missing</div>
+                    <div class="node-icon">📝</div>
+                    <div class="node-title">Scientific<br>Output</div>
+                    <div class="progress-indicator">Draft</div>
+                </div>
+                <div class="timeline-node missing" data-node="decision">
+                    <div class="evidence-badge missing">Missing</div>
+                    <div class="node-icon">⚖️</div>
+                    <div class="node-title">Decision<br>Context</div>
+                    <div class="progress-indicator">Pending</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="drawer-section">
+            <div class="drawer-header">
+                <div class="drawer-title">Status Assessment</div>
+                <div class="drawer-subtitle">SR benchmark; Sgen=14.2k; prior=Ricker</div>
+                <div class="drawer-actions">
+                    <button class="drawer-action primary">Edit</button>
+                    <button class="drawer-action">Validate</button>
+                    <button class="drawer-action">Export</button>
+                </div>
+            </div>
+            <div class="drawer-tabs">
+                <div class="drawer-tab active" data-tab="overview">Overview</div>
+                <div class="drawer-tab" data-tab="inputs">Inputs</div>
+                <div class="drawer-tab" data-tab="methods">Methods</div>
+                <div class="drawer-tab badge" data-badge="2" data-tab="benchmarks">Benchmarks</div>
+                <div class="drawer-tab" data-tab="quality">Quality</div>
+                <div class="drawer-tab" data-tab="documents">Documents</div>
+                <div class="drawer-tab" data-tab="currency">Currency</div>
+            </div>
+            <div class="drawer-content">
+                <div id="overview" class="tab-content">
+                    <div class="provenance-minimum">
+                        <h4>🔍 Provenance Minimum</h4>
+                        <div class="provenance-item">
+                            <span class="provenance-label">Source:</span>
+                            <span class="provenance-value">SPSR Dataset 2025-001</span>
+                        </div>
+                        <div class="provenance-item">
+                            <span class="provenance-label">Method:</span>
+                            <span class="provenance-value">Stock-Recruit Analysis v2.1</span>
+                        </div>
+                        <div class="provenance-item">
+                            <span class="provenance-label">Code Commit:</span>
+                            <span class="provenance-value">abc123f (2025-01-15)</span>
+                        </div>
+                        <div class="provenance-item">
+                            <span class="provenance-label">Reviewer:</span>
+                            <span class="provenance-value">Dr. Jane Smith</span>
+                        </div>
+                        <div class="provenance-item">
+                            <span class="provenance-label">Date:</span>
+                            <span class="provenance-value">2025-01-20</span>
+                        </div>
+                    </div>
+
+                    <div class="data-grid">
+                        <div class="data-item success">
+                            <div class="data-item-title">✅ Status Result</div>
+                            <div class="data-item-content">Above Upper Stock Reference Point (USR)<br>
+                            <span class="status-indicator complete">Status: Complete</span></div>
+                        </div>
+                        <div class="data-item error">
+                            <div class="data-item-title">⚠️ Confidence Interval</div>
+                            <div class="data-item-content">Missing - Required for TAC/HCR decision context<br>
+                            <span class="status-indicator missing">Critical Gap</span></div>
+                        </div>
+                        <div class="data-item success">
+                            <div class="data-item-title">🧬 GSI Uncertainty</div>
+                            <div class="data-item-content">Propagated from genetic analysis (n=150, CI=0.05)<br>
+                            <span class="status-indicator complete">Uncertainty: Complete</span></div>
+                        </div>
+                        <div class="data-item warning">
+                            <div class="data-item-title">📊 Sample Size</div>
+                            <div class="data-item-content">Genetic sample size adequate for analysis<br>
+                            <span class="status-indicator gaps">Review Recommended</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="inputs" class="tab-content hidden">
+                    <div class="data-grid">
+                        <div class="data-item success">
+                            <div class="data-item-title">📈 Escapement Data</div>
+                            <div class="data-item-content">Skeena River sonar counts 2010-2024<br>
+                            <strong>Coverage:</strong> 15 years, 100% complete<br>
+                            <strong>Quality:</strong> High - consistent monitoring protocol</div>
+                        </div>
+                        <div class="data-item success">
+                            <div class="data-item-title">🧬 Genetic Data</div>
+                            <div class="data-item-content">GSI results from mixed-stock fishery samples<br>
+                            <strong>Sample Size:</strong> 150 individuals<br>
+                            <strong>Markers:</strong> 96 SNP panel v2.1</div>
+                        </div>
+                        <div class="data-item warning">
+                            <div class="data-item-title">⚠️ Proxy Justification</div>
+                            <div class="data-item-content">Genetic proxy used for stock composition<br>
+                            <span class="status-indicator gaps">Justification Pending Review</span></div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-item-title">🌊 Environmental Data</div>
+                            <div class="data-item-content">Water temperature, flow rates, ocean conditions<br>
+                            <strong>Source:</strong> DFO Environmental Monitoring</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="methods" class="tab-content hidden">
+                    <div class="data-grid">
+                        <div class="data-item success">
+                            <div class="data-item-title">📊 Analysis Method</div>
+                            <div class="data-item-content">Ricker Stock-Recruit Model<br>
+                            <strong>Version:</strong> 2.1 (2025-01-05)<br>
+                            <strong>Validation:</strong> Cross-validated with independent data</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-item-title">⚙️ Model Parameters</div>
+                            <div class="data-item-content">α=2.1, β=0.0001, σ=0.3<br>
+                            <strong>Estimation:</strong> Maximum Likelihood<br>
+                            <strong>Convergence:</strong> Achieved (1000 iterations)</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-item-title">💻 Code Repository</div>
+                            <div class="data-item-content">github.com/dfo-pacific/stock-assessment<br>
+                            <strong>Commit:</strong> abc123f (2025-01-15)<br>
+                            <strong>Branch:</strong> main</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-item-title">🔧 Software Environment</div>
+                            <div class="data-item-content">R 4.3.2, TMB 1.9.6, ADMB 12.3<br>
+                            <strong>Platform:</strong> Linux x86_64<br>
+                            <strong>Runtime:</strong> 2.3 minutes</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="benchmarks" class="tab-content hidden">
+                    <div class="data-grid">
+                        <div class="data-item success">
+                            <div class="data-item-title">🎯 Reference Point Type</div>
+                            <div class="data-item-content">Sgen (Spawner Abundance at Maximum Sustained Yield)<br>
+                            <strong>Value:</strong> 14,200 spawners<br>
+                            <strong>Confidence:</strong> 95% CI [12,800 - 15,600]</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-item-title">📊 Benchmark Method</div>
+                            <div class="data-item-content">Stock-Recruit Percentile Method<br>
+                            <strong>Percentile:</strong> 25th percentile<br>
+                            <strong>Data Period:</strong> 2010-2024</div>
+                        </div>
+                        <div class="data-item error">
+                            <div class="data-item-title">⚠️ Sensitivity Analysis</div>
+                            <div class="data-item-content">Flagged - requires review<br>
+                            <span class="status-indicator missing">Critical Issue</span><br>
+                            <strong>Issue:</strong> Parameter sensitivity exceeds threshold</div>
+                        </div>
+                        <div class="data-item warning">
+                            <div class="data-item-title">📈 Alternative Benchmarks</div>
+                            <div class="data-item-content">USR: 18,500, LRP: 8,900<br>
+                            <span class="status-indicator gaps">Under Review</span><br>
+                            <strong>Status:</strong> Pending peer review</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="quality" class="tab-content hidden">
+                    <div class="data-grid">
+                        <div class="data-item success">
+                            <div class="data-item-title">📊 Data Quality</div>
+                            <div class="data-item-content">High - 15 years of consistent monitoring<br>
+                            <strong>Completeness:</strong> 98.5%<br>
+                            <strong>Accuracy:</strong> Validated against independent sources</div>
+                        </div>
+                        <div class="data-item success">
+                            <div class="data-item-title">📈 Model Fit</div>
+                            <div class="data-item-content">R² = 0.73, p < 0.001<br>
+                            <strong>Residuals:</strong> Normally distributed<br>
+                            <strong>Autocorrelation:</strong> Not significant</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-item-title">✅ Validation</div>
+                            <div class="data-item-content">Cross-validated with independent data<br>
+                            <strong>Method:</strong> Leave-one-out cross-validation<br>
+                            <strong>Performance:</strong> RMSE = 0.12</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-item-title">🔍 Peer Review</div>
+                            <div class="data-item-content">Internal review completed<br>
+                            <strong>Reviewer:</strong> Dr. John Doe<br>
+                            <strong>Status:</strong> Approved with minor revisions</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="documents" class="tab-content hidden">
+                    <div class="document-item">
+                        <div class="doc-icon">FSAR</div>
+                        <div class="doc-info">
+                            <div class="doc-title">Barkley Sockeye FSAR 2025</div>
+                            <div class="doc-meta">
+                                <span>Doc #2025-001</span>
+                                <span>2025-01-20</span>
+                                <span>2.3 MB</span>
+                                <span>Public</span>
+                            </div>
+                        </div>
+                        <div class="doc-actions">
+                            <button class="doc-action primary">Open</button>
+                            <button class="doc-action">Download</button>
+                            <button class="doc-action">Cite</button>
+                        </div>
+                    </div>
+                    <div class="document-item">
+                        <div class="doc-icon tech">TECH</div>
+                        <div class="doc-info">
+                            <div class="doc-title">Stock Assessment Technical Report</div>
+                            <div class="doc-meta">
+                                <span>Doc #2025-TECH-001</span>
+                                <span>2025-01-15</span>
+                                <span>1.8 MB</span>
+                                <span>Internal</span>
+                            </div>
+                        </div>
+                        <div class="doc-actions">
+                            <button class="doc-action primary">Open</button>
+                            <button class="doc-action">Download</button>
+                            <button class="doc-action">Cite</button>
+                        </div>
+                    </div>
+                    <div class="document-item">
+                        <div class="doc-icon research">RES</div>
+                        <div class="doc-info">
+                            <div class="doc-title">Genetic Stock Identification Methods</div>
+                            <div class="doc-meta">
+                                <span>Doc #2025-RES-003</span>
+                                <span>2025-01-10</span>
+                                <span>3.1 MB</span>
+                                <span>Public</span>
+                            </div>
+                        </div>
+                        <div class="doc-actions">
+                            <button class="doc-action primary">Open</button>
+                            <button class="doc-action">Download</button>
+                            <button class="doc-action">Cite</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="currency" class="tab-content hidden">
+                    <div class="currency-item">
+                        <div class="currency-name">📊 Dataset</div>
+                        <div class="currency-date">2025-01-10</div>
+                        <div class="currency-version">v2.1</div>
+                    </div>
+                    <div class="currency-item">
+                        <div class="currency-name">⚙️ Method</div>
+                        <div class="currency-date">2025-01-05</div>
+                        <div class="currency-version">v2.1</div>
+                    </div>
+                    <div class="currency-item stale">
+                        <div class="currency-name">🎯 Reference Points</div>
+                        <div class="currency-date">2024-06-15</div>
+                        <div class="currency-version stale">v1.8</div>
+                    </div>
+                    <div class="currency-item">
+                        <div class="currency-name">📈 Status</div>
+                        <div class="currency-date">2025-01-20</div>
+                        <div class="currency-version">current</div>
+                    </div>
+                    <div class="currency-item critical">
+                        <div class="currency-name">📝 Scientific Output</div>
+                        <div class="currency-date">2024-12-01</div>
+                        <div class="currency-version critical">draft</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Enhanced timeline node interactions
+        document.querySelectorAll('.timeline-node').forEach(node => {
+            node.addEventListener('click', function() {
+                // Remove active class from all nodes
+                document.querySelectorAll('.timeline-node').forEach(n => n.classList.remove('active'));
+                // Add active class to clicked node
+                this.classList.add('active');
+                
+                // Update drawer content based on selected node
+                const nodeType = this.dataset.node;
+                updateDrawerContent(nodeType);
+                
+                // Show notification
+                showNotification('Node selected: ' + this.querySelector('.node-title').textContent, 'success');
+            });
+
+            // Add hover tooltip
+            node.addEventListener('mouseenter', function() {
+                const title = this.querySelector('.node-title').textContent;
+                const badge = this.querySelector('.evidence-badge').textContent;
+                showTooltip(this, `${title}\nStatus: ${badge}`);
+            });
+
+            node.addEventListener('mouseleave', function() {
+                hideTooltip();
+            });
+        });
+
+        // Enhanced tab switching
+        document.querySelectorAll('.drawer-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remove active class from all tabs
+                document.querySelectorAll('.drawer-tab').forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                this.classList.add('active');
+                
+                // Hide all tab contents
+                document.querySelectorAll('.tab-content').forEach(content => content.classList.add('hidden'));
+                // Show selected tab content
+                const tabId = this.dataset.tab;
+                document.getElementById(tabId).classList.remove('hidden');
+                
+                // Show notification
+                showNotification('Switched to ' + this.textContent + ' tab', 'success');
+            });
+        });
+
+        function updateDrawerContent(nodeType) {
+            const drawerTitle = document.querySelector('.drawer-title');
+            const drawerSubtitle = document.querySelector('.drawer-subtitle');
+            
+            const content = {
+                data: {
+                    title: 'Data Products',
+                    subtitle: '15 data sources including escapement counts, genetic samples, and environmental data'
+                },
+                method: {
+                    title: 'Analysis Method',
+                    subtitle: 'Stock-Recruit model v2.1 with Ricker parameters and cross-validation'
+                },
+                reference: {
+                    title: 'Reference Points',
+                    subtitle: 'Sgen=14.2k; SR method; sensitivity analysis flagged for review'
+                },
+                status: {
+                    title: 'Status Assessment',
+                    subtitle: 'Above USR; missing confidence interval required for TAC/HCR'
+                },
+                advice: {
+                    title: 'Scientific Output',
+                    subtitle: 'Management advice and recommendations (draft status)'
+                },
+                decision: {
+                    title: 'Decision Context',
+                    subtitle: 'TAC/HCR decision support framework (pending completion)'
+                }
+            };
+            
+            if (content[nodeType]) {
+                drawerTitle.textContent = content[nodeType].title;
+                drawerSubtitle.textContent = content[nodeType].subtitle;
+            }
+        }
+
+        // Enhanced risk chip interactions
+        document.querySelectorAll('.risk-chip').forEach(chip => {
+            chip.addEventListener('click', function() {
+                const riskType = this.textContent;
+                const riskDetails = {
+                    'Proxy': 'Genetic proxy used without documented justification. Review required.',
+                    'Missing CI': 'Confidence interval missing for status assessment. Critical for TAC/HCR decisions.',
+                    'Sensitivity': 'Parameter sensitivity exceeds acceptable threshold. Requires expert review.'
+                };
+                
+                showNotification(`Risk: ${riskType}\n${riskDetails[riskType] || 'Risk details not available'}`, 'warning');
+            });
+        });
+
+        // Enhanced export functionality
+        document.querySelector('.export-btn').addEventListener('click', function() {
+            showNotification('Generating Advice Trace Pack...', 'success');
+            
+            setTimeout(() => {
+                showNotification('Trace Pack generated successfully!', 'success');
+            }, 2000);
+        });
+
+        // Enhanced document actions
+        document.querySelectorAll('.doc-action').forEach(action => {
+            action.addEventListener('click', function() {
+                const actionType = this.textContent;
+                const docTitle = this.closest('.document-item').querySelector('.doc-title').textContent;
+                
+                showNotification(`${actionType} ${docTitle}`, 'success');
+            });
+        });
+
+        // View toggle functionality
+        document.querySelectorAll('.view-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                if (this.textContent === 'Network') {
+                    showNotification('Switching to network view...', 'info');
+                    // Here you would switch to network view
+                } else {
+                    showNotification('Switching to timeline view...', 'info');
+                }
+            });
+        });
+
+        // Notification system
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <div class="loading-spinner"></div>
+                    <div>${message}</div>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // Tooltip system
+        let tooltip = null;
+
+        function showTooltip(element, text) {
+            hideTooltip();
+            
+            tooltip = document.createElement('div');
+            tooltip.className = 'tooltip';
+            tooltip.textContent = text;
+            tooltip.style.whiteSpace = 'pre-line';
+            
+            document.body.appendChild(tooltip);
+            
+            const rect = element.getBoundingClientRect();
+            tooltip.style.left = rect.left + rect.width / 2 - tooltip.offsetWidth / 2 + 'px';
+            tooltip.style.top = rect.top - tooltip.offsetHeight - 10 + 'px';
+        }
+
+        function hideTooltip() {
+            if (tooltip) {
+                tooltip.remove();
+                tooltip = null;
+            }
+        }
+
+        // Initialize with first node active
+        document.querySelector('.timeline-node[data-node="status"]').click();
+    </script>
+</body>
+</html>
