@@ -31,6 +31,7 @@ jobs:
 
       - name: Download ROBOT
         run: |
+          mkdir -p tools
           wget https://github.com/ontodev/robot/releases/download/v1.9.5/robot.jar -O tools/robot.jar
 
       # Disabled - ROBOT validate needs newer version or profile
@@ -40,10 +41,12 @@ jobs:
       #     java -jar tools/robot.jar validate --input ontology/dfo-salmon.ttl
 
       - name: Reason ontology with ROBOT
+        if: ${{ hashFiles('ontology/dfo-salmon.ttl') != '' }}
         run: |
           java -jar tools/robot.jar reason --input ontology/dfo-salmon.ttl --reasoner ELK --output ontology/dfo-salmon.reasoned.ttl
 
       - name: Validate SHACL shapes
+        if: ${{ hashFiles('shapes/**/*.ttl') != '' && hashFiles('scripts/test_shacl_validation.py') != '' }}
         run: |
           python scripts/test_shacl_validation.py
 
@@ -57,6 +60,7 @@ jobs:
         if: always()
         with:
           name: ontology-artifacts
+          if-no-files-found: ignore
           path: |
             ontology/dfo-salmon.reasoned.ttl
             ontology/dfo-salmon.ttl
