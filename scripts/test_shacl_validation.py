@@ -101,7 +101,6 @@ def test_automated_classification(data_graph):
             dfo:measuredVisits ?visits ;
             dfo:measuredReachCoverage ?coverage ;
             dfo:measuredVisibility ?visibility .
-        OPTIONAL { ?survey dfo:assignedEstimateType ?assignedType }
     }
     ORDER BY ?survey
     """

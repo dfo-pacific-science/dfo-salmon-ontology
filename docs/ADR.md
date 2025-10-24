@@ -26,6 +26,7 @@ This document records the key architectural decisions made for the DFO Salmon On
 ### Decision
 
 We will use a hybrid approach combining OWL and SKOS:
+
 - **OWL classes** for formal relationships and structural entities (events, measurements, stocks)
 - **SKOS concepts** for controlled vocabularies (methods, criteria, status categories)
 - **SHACL shapes** for validation rules and automated classification
@@ -40,12 +41,14 @@ We will use a hybrid approach combining OWL and SKOS:
 ### Consequences
 
 **Positive:**
-- Enables automated estimate type assignment (Hyatt 1997 framework)
+
+- Supports manual estimate type assignment (Hyatt 1997 framework) - automated classification deferred to post-MVP
 - Supports both human-readable vocabularies and machine-processable relationships
 - Aligns with existing salmon data management practices
 - Facilitates data quality validation through SHACL rules
 
 **Negative:**
+
 - Increased complexity compared to pure OWL approach
 - Requires understanding of both OWL and SKOS modeling patterns
 - Potential confusion between OWL classes and SKOS concepts
@@ -67,6 +70,7 @@ We will use a hybrid approach combining OWL and SKOS:
 ### Decision
 
 We will align with Darwin Core (DwC) as the top-level framework:
+
 - Extend DwC classes (`dwc:Event`, `dwc:Organism`, `dwc:MeasurementOrFact`)
 - Use DwC predicates where applicable (`dwc:samplingProtocol`, `dwc:eventDate`)
 - Maintain DFO-specific extensions for salmon management concepts
@@ -81,12 +85,14 @@ We will align with Darwin Core (DwC) as the top-level framework:
 ### Consequences
 
 **Positive:**
+
 - Enables international data sharing and discovery
 - Leverages existing DwC infrastructure and tools
 - Provides standard predicates for common relationships
 - Supports integration with global biodiversity databases
 
 **Negative:**
+
 - Some DwC concepts may not perfectly fit salmon management needs
 - Requires careful mapping of DFO-specific concepts to DwC framework
 - Potential tension between DwC simplicity and DFO complexity requirements
@@ -108,6 +114,7 @@ We will align with Darwin Core (DwC) as the top-level framework:
 ### Decision
 
 We will start with a single ontology file (`dfo-salmon.ttl`) with potential for future modularization:
+
 - **Current**: One file containing all schema elements
 - **Future**: May split into modules (stock, genetics, governance) as complexity grows
 - **Shapes**: Separate SHACL shapes in `ontology/shapes/` directory
@@ -122,12 +129,14 @@ We will start with a single ontology file (`dfo-salmon.ttl`) with potential for 
 ### Consequences
 
 **Positive:**
+
 - Simpler development and maintenance initially
 - Easier for new contributors to understand
 - Better tool support and validation
 - Follows established OBO Foundry patterns
 
 **Negative:**
+
 - May become unwieldy as ontology grows
 - Potential for circular dependencies
 - Harder to reuse specific modules independently
@@ -150,6 +159,7 @@ We will start with a single ontology file (`dfo-salmon.ttl`) with potential for 
 ### Decision
 
 We will strictly separate schema and data:
+
 - **Ontology file**: Contains only schema elements (classes, properties, SKOS concepts)
 - **Instance data**: Stored in separate files or systems
 - **Examples**: Minimal test data in `ontology/examples/` for validation only
@@ -164,12 +174,14 @@ We will strictly separate schema and data:
 ### Consequences
 
 **Positive:**
+
 - Clean, focused ontology file
 - Easier schema validation and maintenance
 - Better separation of concerns
 - Enables schema reuse across different datasets
 
 **Negative:**
+
 - Requires discipline to maintain separation
 - May need additional tooling for data management
 - Potential confusion about where to put certain elements
@@ -192,8 +204,9 @@ We will strictly separate schema and data:
 ### Decision
 
 We will use SHACL (Shapes Constraint Language) for:
+
 - Data validation and quality control
-- Automated estimate type assignment (Hyatt 1997 framework)
+- Manual estimate type assignment (Hyatt 1997 framework) - automated classification deferred to post-MVP
 - Method-specific threshold enforcement
 
 ### Rationale
@@ -206,12 +219,14 @@ We will use SHACL (Shapes Constraint Language) for:
 ### Consequences
 
 **Positive:**
+
 - Enables automated quality assessment
 - Supports method-specific validation rules
 - Separates validation logic from schema definition
 - Provides clear error messages for data quality issues
 
 **Negative:**
+
 - Additional complexity in ontology development
 - Requires understanding of SHACL syntax and patterns
 - May need specialized tooling for SHACL validation
@@ -234,6 +249,7 @@ We will use SHACL (Shapes Constraint Language) for:
 ### Decision
 
 We will use:
+
 - **Base IRI**: `https://w3id.org/dfo/salmon#`
 - **Versioning**: Semantic versioning with `owl:versionInfo` and `owl:versionIRI`
 - **Stability**: No breaking changes to existing IRIs
@@ -248,12 +264,14 @@ We will use:
 ### Consequences
 
 **Positive:**
+
 - Stable identifiers for long-term use
 - Clear versioning enables proper dependency management
 - W3ID provides reliable resolution
 - Follows established community practices
 
 **Negative:**
+
 - Requires careful management of versioning
 - W3ID setup and maintenance overhead
 - Need to maintain backward compatibility
@@ -276,6 +294,7 @@ We will use:
 ### Decision
 
 We will align with external vocabularies using:
+
 - **Literal IRIs**: Store external vocabulary IRIs as literals (e.g., QUDT units)
 - **Object Properties**: Future migration to object properties when appropriate
 - **Cross-references**: Use `oboInOwl:hasDbXref` for external alignments
@@ -290,12 +309,14 @@ We will align with external vocabularies using:
 ### Consequences
 
 **Positive:**
+
 - Avoids complex import dependencies
 - Enables alignment with external standards
 - Provides flexibility for future evolution
 - Supports interoperability with other systems
 
 **Negative:**
+
 - Less formal than object property alignments
 - May need migration strategy for future versions
 - Requires documentation of alignment choices
@@ -318,6 +339,7 @@ We will align with external vocabularies using:
 ### Decision
 
 We will use ROBOT (ROBOT is an OWL Tool) for:
+
 - Ontology validation and reasoning
 - Format conversion (TTL, OWL, JSON)
 - Quality control and metrics
@@ -333,12 +355,14 @@ We will use ROBOT (ROBOT is an OWL Tool) for:
 ### Consequences
 
 **Positive:**
+
 - Industry-standard tooling
 - Comprehensive ontology operations
 - Active community support
 - Integrates well with OBO workflows
 
 **Negative:**
+
 - Requires Java installation
 - Learning curve for new users
 - Command-line interface may be intimidating
@@ -361,6 +385,7 @@ We will use ROBOT (ROBOT is an OWL Tool) for:
 ### Decision
 
 We will implement a multi-layered quality assurance framework:
+
 - **ROBOT validation**: Logical consistency and basic quality checks
 - **SHACL validation**: Data structure and business rule validation
 - **SPARQL testing**: Competency question validation
@@ -376,12 +401,14 @@ We will implement a multi-layered quality assurance framework:
 ### Consequences
 
 **Positive:**
+
 - High-quality ontology output
 - Early error detection and correction
 - Community-driven quality improvement
 - Systematic validation processes
 
 **Negative:**
+
 - Additional development overhead
 - Requires expertise in multiple validation approaches
 - May slow initial development
@@ -404,6 +431,7 @@ We will implement a multi-layered quality assurance framework:
 ### Decision
 
 We will use competency questions to drive ontology development:
+
 - **Competency Questions**: Define what the ontology should be able to answer
 - **Design Guidance**: Use questions to identify required terms and relationships
 - **Validation**: Test ontology against competency questions
@@ -419,12 +447,14 @@ We will use competency questions to drive ontology development:
 ### Consequences
 
 **Positive:**
+
 - User-focused ontology development
 - Clear success criteria
 - Systematic validation approach
 - Community alignment on purpose
 
 **Negative:**
+
 - Requires upfront work to define questions
 - May limit ontology scope initially
 - Requires ongoing maintenance of question mappings

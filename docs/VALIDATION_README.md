@@ -13,6 +13,7 @@ This directory contains the DFO Salmon Ontology with SHACL validation for automa
 ## Setup
 
 1. Install Python dependencies:
+
    ```bash
    pip install -r requirements.txt
    ```
@@ -25,19 +26,17 @@ This directory contains the DFO Salmon Ontology with SHACL validation for automa
 ## Architecture
 
 ### Hybrid Approach
+
 - **SKOS Concepts**: Enumeration methods, estimate methods, downgrade criteria, estimate types
 - **OWL Classes**: Survey events, measurements, stocks, genetic samples
 - **SHACL Shapes**: Validation rules and automated classification logic
 
-### Automated Classification
-The SHACL shapes automatically assign Hyatt 1997 estimate types (1-6) based on:
-- Enumeration method used
-- Number of visits
-- Reach coverage percentage
-- Visibility conditions
-- Documentation availability
+### Manual Classification
+
+Estimate types are manually assigned based on Hyatt 1997 criteria. Automated classification is deferred to post-MVP.
 
 ### Example Classification Rules
+
 - **Type 2**: Snorkel survey with ≥5 visits, ≥80% coverage, good/excellent visibility
 - **Type 3**: Snorkel survey with ≥3 visits, ≥50% coverage
 - **Type 4**: Snorkel survey with ≤2 visits
@@ -53,6 +52,7 @@ The SHACL shapes automatically assign Hyatt 1997 estimate types (1-6) based on:
 ## Validation Results
 
 The test script will show:
+
 - Validation pass/fail status
 - Automated type assignments
 - Applied downgrade criteria

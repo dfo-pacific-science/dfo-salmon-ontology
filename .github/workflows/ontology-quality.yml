@@ -1,0 +1,89 @@
+name: Ontology Quality Check
+
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - "ontology/**"
+      - "docs/**"
+      - "scripts/**"
+  pull_request:
+    branches: [main]
+    paths:
+      - "ontology/**"
+      - "docs/**"
+      - "scripts/**"
+
+jobs:
+  quality-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: "11"
+          distribution: "temurin"
+
+      - name: Download ROBOT
+        run: |
+          mkdir -p tools
+          wget -O tools/robot.jar https://github.com/ontodev/robot/releases/download/v1.9.8/robot.jar
+
+      - name: Run ROBOT Quality Check
+        run: |
+          ./scripts/robot-quality-check.sh
+
+      - name: Upload Quality Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: robot-quality-report
+          path: release/artifacts/robot-quality-report.html
+
+      - name: Comment PR with Quality Report
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+
+            // Check if report exists
+            const reportPath = 'release/artifacts/robot-quality-report.html';
+            if (fs.existsSync(reportPath)) {
+              const reportContent = fs.readFileSync(reportPath, 'utf8');
+              
+              // Extract violation summary (simplified)
+              const errorCount = (reportContent.match(/ERROR/g) || []).length;
+              const warnCount = (reportContent.match(/WARN/g) || []).length;
+              const infoCount = (reportContent.match(/INFO/g) || []).length;
+              
+              const comment = `## 🔍 Ontology Quality Check Results
+              
+              **Violation Summary:**
+              - ERROR: ${errorCount}
+              - WARN: ${warnCount}  
+              - INFO: ${infoCount}
+              
+              **Expected Violations (Acceptable):**
+              - 31 SKOS label "errors" (W3C SKOS compliant)
+              - 8 Darwin Core label "errors" (external imports)
+              - 7 hybrid OWL+SKOS definition "warnings" (ROBOT limitation)
+              - 3 BFO definition "warnings" (MIREOT approach)
+              - 8 Darwin Core definition "warnings" (external imports)
+              
+              📊 [View Full Report](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+              
+              📚 See [ROBOT_SETUP.md](docs/ROBOT_SETUP.md) for detailed explanation of expected violations.`;
+              
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: comment
+              });
+            }

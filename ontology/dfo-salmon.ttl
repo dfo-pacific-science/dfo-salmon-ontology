@@ -216,21 +216,43 @@
     rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
 #################################################################
-# Class Mappings
+# Class Mappings to Darwin Core and BFO Upper Ontology
+# Maps DwC classes to BFO upper ontology for logical grounding
 #################################################################
-# CONTINUANTS (Enduring Entities)
-dwc:Organism rdfs:subClassOf bfo:0000040 . # Material entity
-dwc:MaterialEntity rdfs:subClassOf bfo:0000040 . # Material entity  
-dwc:Agent rdfs:subClassOf bfo:0000040 . # Material entity (people, organizations)
-dwc:Media rdfs:subClassOf bfo:0000040 . # Material entity (physical media)
 
-# OCCURRENTS (Processes/Happenings)
-dwc:Event rdfs:subClassOf bfo:0000015 . # Process
-dwc:Occurrence rdfs:subClassOf bfo:0000015 . # Process (organism in event)
-dwc:Identification rdfs:subClassOf bfo:0000015 . # Process (act of identifying)
+# Material entities (BFO grounding)
+dwc:Organism rdfs:subClassOf bfo:0000040 .  # material entity
+dwc:MaterialEntity rdfs:subClassOf bfo:0000040 .  # material entity
+dwc:Agent rdfs:subClassOf bfo:0000040 .  # material entity (people, organizations)
+dwc:Media rdfs:subClassOf bfo:0000040 .  # material entity (physical media)
 
-# IMMATERIAL ENTITIES (Information)
-dwc:Protocol rdfs:subClassOf bfo:0000030 . # Immaterial entity (procedure/plan) 
+# Processes (BFO grounding)
+dwc:Event rdfs:subClassOf bfo:0000015 .  # process
+dwc:Occurrence rdfs:subClassOf bfo:0000015 .  # process (organism in event)
+dwc:Identification rdfs:subClassOf bfo:0000015 .  # process (act of identifying)
+
+# Information entities (IAO extends BFO; iao:0000030 is subclass of bfo:0000031)
+dwc:Protocol rdfs:subClassOf iao:0000030 .  # information content entity 
+
+#################################################################
+# Basic Formal Ontology (BFO) - MIREOT Import
+# Upper ontology grounding for process/entity/quality hierarchy
+#################################################################
+
+bfo:0000015 a owl:Class ;
+  rdfs:label "process"@en ;
+  oboInOwl:hasDefinition "An occurrent that has temporal parts and for some time t, p s-depends_on some material entity at t."@en ;
+  rdfs:isDefinedBy <http://purl.obolibrary.org/obo/bfo.owl> .
+
+bfo:0000040 a owl:Class ;
+  rdfs:label "material entity"@en ;
+  oboInOwl:hasDefinition "An independent continuant that is spatially extended whose identity is independent of that of other entities and can be maintained through time."@en ;
+  rdfs:isDefinedBy <http://purl.obolibrary.org/obo/bfo.owl> .
+
+bfo:0000031 a owl:Class ;
+  rdfs:label "generically dependent continuant"@en ;
+  oboInOwl:hasDefinition "A continuant that is dependent on one or more independent continuants and whose instances can be multiply instantiated."@en ;
+  rdfs:isDefinedBy <http://purl.obolibrary.org/obo/bfo.owl> .
 
 #################################################################
 # Base superclasses
@@ -432,7 +454,7 @@ dfo:ExploitationRate a owl:Class ;
   rdfs:label "Exploitation rate"@en ;
   rdfs:comment "Expressed as a percentage, the proportion of the total return of adult salmon in a given year that die (harvested or removed) as a result of fishing activity. ER = total fishing mortality / (total fishing mortality + escapement)"@en ;
   rdfs:subClassOf dfo:Indicator ;
-  dcterms:bibliographicCitation "Fisheries and Oceans Canada. (2019). Government of Canada. Pacific Salmon - Glossary. https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html. [Accessed 09-10-2025] "@en ;
+  dcterms:bibliographicCitation "Fisheries and Oceans Canada. (2019). Government of Canada. Pacific Salmon - Glossary. https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html. [Accessed 09-10-2025]"@en ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
 dfo:Fecundity a owl:Class ;

@@ -70,6 +70,8 @@ This repository follows the [AGENTS.md](AGENTS.md) directory layout for ontology
 - **Hybrid approach**: OWL for formal relationships, SKOS for controlled vocabularies
 - **Darwin Core aligned**: Uses DwC classes as top-level framework for interoperability
 - **OBO Foundry principles**: Open, interoperable, logically well-formed, scientifically accurate
+- **Pragmatic imports**: MIREOT for BFO/IAO/DQV (~12 terms); prefix-only for PROV-O/RO/SKOS
+- **Upper ontology**: BFO grounding for process/entity hierarchy
 - **Units**: QUDT/OM IRIs stored as literals (starter convention)
 - **Community-aligned**: builds on NCEAS Salmon Ontology, ENVO, and OBO Foundry vocabularies
 

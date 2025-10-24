@@ -8,7 +8,10 @@
 
 #################################################################
 # SHACL Shapes for DFO Salmon Ontology
-# Validation rules for data quality
+# Validation rules for data quality, NOT automated classification
+#
+# Note: Estimate types are manually assigned based on Hyatt 1997 criteria
+# Note: No instance data in main ontology file; instances go in examples/
 #################################################################
 
 <https://w3id.org/dfo/salmon/shapes> a owl:Ontology ;
