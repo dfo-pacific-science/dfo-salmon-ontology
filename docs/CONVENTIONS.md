@@ -348,6 +348,8 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
 - **Definition:** `skos:definition "1–2 sentence definition."@en`
 - **Source attribution:** `rdfs:isDefinedBy <https://w3id.org/dfo/salmon>`
 
+**Note on ROBOT Validation:** ROBOT reports missing `rdfs:label` for SKOS concepts that have `skos:prefLabel`. This is a ROBOT limitation - per W3C SKOS specification, `skos:prefLabel` is a subproperty of `rdfs:label`, so these concepts ARE properly labeled. Do not add redundant `rdfs:label` properties to satisfy ROBOT.
+
 **Example:**
 
 ```turtle
@@ -1026,7 +1028,16 @@ SELECT ?method ?stock ?event WHERE {
   3. Test with simpler queries first
   4. Check that namespaces are properly declared
 
-#### 6.2.4 Getting Help
+#### 6.2.4 Known Tool Warnings
+
+**Problem: JFact datatype warning for EstimateType**
+
+- **Warning**: `ERROR uk.ac.manchester.cs.jfact.datatypes.DatatypeFactory - A known datatype for https://w3id.org/dfo/salmon#EstimateType cannot be found; literal will be replaced with rdfs:Literal`
+- **Root Cause**: `EstimateType` is correctly modeled as `skos:Concept` (not a datatype). JFact's datatype checking system is confused by SKOS concept usage as object property ranges.
+- **Impact**: None - all reasoners (ELK, HermiT, JFact) produce identical results (2183 lines). Ontology is logically consistent.
+- **Action**: This warning can be safely ignored.
+
+#### 6.2.5 Getting Help
 
 **When to ask for help:**
 

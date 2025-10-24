@@ -454,7 +454,7 @@ dfo:ExploitationRate a owl:Class ;
   rdfs:label "Exploitation rate"@en ;
   rdfs:comment "Expressed as a percentage, the proportion of the total return of adult salmon in a given year that die (harvested or removed) as a result of fishing activity. ER = total fishing mortality / (total fishing mortality + escapement)"@en ;
   rdfs:subClassOf dfo:Indicator ;
-  dcterms:bibliographicCitation "Fisheries and Oceans Canada. (2019). Government of Canada. Pacific Salmon - Glossary. https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html. [Accessed 09-10-2025] "@en ;
+  dcterms:bibliographicCitation "Fisheries and Oceans Canada. (2019). Government of Canada. Pacific Salmon - Glossary. https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html. [Accessed 09-10-2025]"@en ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
 dfo:Fecundity a owl:Class ;
