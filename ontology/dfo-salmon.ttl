@@ -1,4 +1,4 @@
-@prefix dfoc:     <https://w3id.org/dfoc/salmon#> . 
+@prefix dfoc:    <https://w3id.org/dfoc/salmon#> . 
 @prefix bfo:     <http://purl.obolibrary.org/obo/BFO_> .
 @prefix iao:     <http://purl.obolibrary.org/obo/IAO_> .
 @prefix odo:     <http://purl.dataone.org/odo/> .
