@@ -903,12 +903,17 @@ dfo:WSPRapidStatus a owl:Class , skos:Concept;
   rdfs:comment "The WSP rapid status assessment approach builds on previously completed WSP integrated status assessments. The detailed WSP integrated assessments are labour intensive, taking 10-40 experts up to three days to complete for each group of CUs. For this reason, assessments have only been completed for ~11% of the 377 current Pacific Salmon CUs, many of which are outdated. The WSP rapid approach can fill gaps by expanding coverage of CU statuses across time, species, and geographic areas. The WSP rapid status approach ensures statuses are scientifically objective, consistent, and comparable across BC/Yukon CUs. This approach is also relatively easy to implement, applicable to data rich and data poor CUs, and can be updated annually."@en ;
   skos:inScheme dfo:WSPBiologicalStatusZoneScheme ;
   rdfs:subClassOf dfo:WSPBiologicalStatusZone ;
-  dcterms:bibliographicCitation "Pestal, G., MacDonald, B. L., Grant, S. C. H., and Holt, C. A. (2023). State of the Salmon: rapid status assessment approach for Pacific salmon under Canada’s Wild Salmon Policy. Can. Tech. Rep. Fish. Aquat. Sci. 3570: xiv + 200 p."@en ;
+  dcterms:bibliographicCitation "Pestal, G., MacDonald, B. L., Grant, S. C. H., and Holt, C. A. (2023). State of the Salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Can. Tech. Rep. Fish. Aquat. Sci. 3570: xiv + 200 p."@en ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
 #################################################################
 # Stock assessment specializations
 #################################################################
+
+dfo:StockAssessment a owl:Class ;
+  rdfs:label "Stock assessment"@en ;
+  rdfs:comment "A stock assessment event that evaluates the status of a stock management unit or conservation unit."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
 dfo:EscapementSurveyEvent a owl:Class ;
   rdfs:label "Escapement Survey Event"@en ;

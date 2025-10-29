@@ -1,0 +1,370 @@
+@prefix dfo:     <https://w3id.org/dfo/salmon#> .
+@prefix fsar:    <https://w3id.org/dfo/salmon/fsar#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix dqv:     <http://www.w3.org/ns/dqv#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix schema:  <https://schema.org/> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+
+#################################################################
+# Ontology Header (FSAR Module)
+#################################################################
+
+<https://w3id.org/dfo/salmon/fsar>
+    a owl:Ontology ;
+    dcterms:title "DFO Salmon Ontology — FSAR Module"@en ;
+    dcterms:description "Ontology module for Fisheries Stock Assessment Reports (FSAR). Adds FSAR-specific classes and properties for assessment instances, policy readiness (WSP/PA compliance), CU accounting, GSI usage, change logs, and threat factors. Designed to integrate with the core DFO Salmon Ontology and support the FSAR Tracer evidence chain. OWL2 DL compliant."@en ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:creator "DFO Pacific Science – Data Stewardship Unit"@en ;
+    dcterms:modified "2025-10-28"^^xsd:date ;
+    rdfs:seeAlso <https://w3id.org/dfo/salmon> .
+
+#################################################################
+# Core FSAR Classes
+#################################################################
+
+# A concrete, reproducible stock assessment for one SMU in one year (cycle).
+fsar:StockAssessment a owl:Class ;
+    rdfs:subClassOf dfo:StockAssessment ;  # Align with core ontology class
+    rdfs:label "Stock assessment (cycle)"@en ;
+    rdfs:comment "An assessment instance for a specific Stock Management Unit (SMU) in a given year or cycle. Links input data, methods, reference points (LRP/USR), derived indicators, and the resulting status zone (with uncertainty notes)."@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon/fsar> .
+
+# Represents the policy & legal checks needed for advice to be 'ready' (WSP, PA, Fish Stocks Act compliance).
+fsar:PolicyReadiness a owl:Class ;
+    rdfs:label "Policy and legal readiness"@en ;
+    rdfs:comment "A summary of policy/legal gate conditions for the assessment – e.g., whether the stock is below the limit reference point (triggering a rebuilding plan), which harvest control rule is applied, etc. Ensures the advice aligns with WSP status zones, Precautionary Approach requirements, and Fish Stocks provisions."@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon/fsar> .
+
+# A management decision record (downstream of scientific advice).
+fsar:ManagementDecision a owl:Class ;
+    rdfs:label "Management decision"@en ;
+    rdfs:comment "A fisheries management decision taken as a result of the scientific advice (e.g., setting a Total Allowable Catch, exploitation rate, closures or other measures). This is distinct from the scientific harvest advice – it represents the action or decision by management, with attributes like date, decision-maker, and rationale."@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon/fsar> .
+
+# Explicit CU inclusion/proxy accounting per assessment – records whether each CU in the SMU was included, excluded, or represented by a proxy.
+fsar:CUInclusion a owl:Class ;
+    rdfs:label "CU accounting entry"@en ;
+    rdfs:comment "An entry recording how a particular Conservation Unit (CU) is treated in this assessment cycle: included (directly assessed), excluded, or proxied via another CU. Includes a justification and review info. This addresses transparency about data gaps or combined units in the assessment."@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon/fsar> .
+
+# Genetic Stock Identification (GSI) usage details for mixed-stock scenarios.
+fsar:GSIUsage a owl:Class ;
+    rdfs:label "Genetic stock ID usage"@en ;
+    rdfs:comment "Details on the use of Genetic Stock Identification data in the assessment, particularly for mixed-stock fisheries. Indicates whether GSI was used, the sample size, and any assignment uncertainty (e.g., misassignment rates) associated with apportioning catches to CUs."@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon/fsar> .
+
+# Change log entry – documents changes from the previous assessment cycle.
+fsar:ChangeLogEntry a owl:Class ;
+    rdfs:label "Advice change log entry"@en ;
+    rdfs:comment "A structured record of a change in this assessment compared to the previous cycle. For example, noting if data inputs changed, methods were updated, benchmarks were recalculated, status designation shifted, or advice text altered. Helps track the evolution of advice over time."@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon/fsar> .
+
+#################################################################
+# FSAR Object Properties
+#################################################################
+
+fsar:assessesUnit a owl:ObjectProperty ;
+    rdfs:label "assesses unit"@en ;
+    rdfs:domain fsar:StockAssessment ;
+    rdfs:range dfo:StockManagementUnit ;
+    rdfs:comment "Relates a StockAssessment to the Stock Management Unit (SMU) it evaluates. Binds the assessment instance to its corresponding management unit identifier."@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon/fsar> .
+
+fsar:assessedYear a owl:DatatypeProperty ;
+    rdfs:label "assessed year"@en ;
+    rdfs:domain fsar:StockAssessment ;
+    rdfs:range xsd:gYear ;
+    rdfs:comment "The year (or cycle year) of the assessment. Typically the terminal year of data or the year the assessment/advice is for (e.g., 2025)."@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon/fsar> .
+
+# Note: dfo:hasReferencePoint is defined in the core ontology (domain dfo:StockAssessment). We reuse that for linking reference point instances (LRP, USR, etc.) to the assessment.
+# fsar:hasReferencePoint rdfs:subPropertyOf dfo:hasReferencePoint .  # (If needed, but core already covers it)
+
+fsar:hasStatusZone a owl:ObjectProperty ;
+    rdfs:label "has status zone"@en ;
+    rdfs:domain fsar:StockAssessment ;
+    rdfs:range skos:Concept ;  # Expecting a concept in WSPBiologicalStatusZoneScheme (e.g., :WSP_Green, :WSP_Amber, :WSP_Red)
+    rdfs:comment "The biological status zone outcome of the assessment under the Wild Salmon Policy (or analogous scheme). For instance, Green, Amber, or Red status for the worst-off CU(s) assessed. By convention, if any CU is Red, the SMU status zone is Red; else if any CU is Amber, it's Amber; otherwise Green:contentReference[oaicite:76]{index=76}."@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon/fsar> .
+
+fsar:usesDataset a owl:ObjectProperty ;
+    rdfs:label "uses dataset"@en ;
+    rdfs:domain fsar:StockAssessment ;
+    rdfs:range dfo:Dataset ;
+    rdfs:subPropertyOf prov:used ;
+    rdfs:comment "Associates the assessment with a primary input dataset used in the analysis. This could be a time series of spawner abundances, catch data, etc., likely identified by a dataset ID in SPSR. (Multiple datasets can feed one assessment.)"@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon/fsar> .
+
+fsar:usesMethod a owl:ObjectProperty ;
+    rdfs:label "uses method"@en ;
+    rdfs:domain fsar:StockAssessment ;
+    rdfs:range skos:Concept ;  # The method is indicated by a concept from a Method scheme (e.g., an escapement estimation method or stock-recruit model type)
+    rdfs:comment "Indicates a method or analytical protocol applied in the assessment, such as an estimation method for abundance or a model used for reference point calculation. The specific version or implementation details are captured via provenance (e.g., code commits). The value is a controlled term (skos:Concept) from an enumeration of methods."@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon/fsar> .
+
+fsar:supportsAdvice a owl:ObjectProperty ;
+    rdfs:label "supports advice"@en ;
+    rdfs:domain fsar:StockAssessment ;
+    rdfs:range dfo:HarvestAdvice ;
+    rdfs:comment "Links a StockAssessment to the HarvestAdvice (scientific output) that it supports. Essentially, this connects the assessment findings to the written advisory recommendation it underpins."@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon/fsar> .
+
+fsar:ledToDecision a owl:ObjectProperty ;
+    rdfs:label "led to decision"@en ;
+    rdfs:domain dfo:HarvestAdvice ;
+    rdfs:range fsar:ManagementDecision ;
+    rdfs:comment "Connects a HarvestAdvice (the science advice) to a resulting ManagementDecision. This indicates that a particular piece of advice directly informed or triggered a management action/decision."@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon/fsar> .
+
+fsar:hasPolicyReadiness a owl:ObjectProperty ;
+    rdfs:label "has policy readiness"@en ;
+    rdfs:domain fsar:StockAssessment ;
+    rdfs:range fsar:PolicyReadiness ;
+    rdfs:comment "Associates the assessment with a PolicyReadiness record. This object consolidates key policy checks (WSP zone classification, PA zone triggers, Fish Stocks Act requirements) for the assessment, used to determine if the advice is 'ready' from a policy standpoint."@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon/fsar> .
+
+fsar:hasCUInclusion a owl:ObjectProperty ;
+    rdfs:label "has CU inclusion"@en ;
+    rdfs:domain fsar:StockAssessment ;
+    rdfs:range fsar:CUInclusion ;
+    rdfs:comment "Links a StockAssessment to a CUInclusion entry. In practice, there would be one CUInclusion instance per Conservation Unit in the SMU, each indicating whether that CU was included, excluded, or proxied in this assessment."@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon/fsar> .
+
+fsar:hasGSIUsage a owl:ObjectProperty ;
+    rdfs:label "has GSI usage"@en ;
+    rdfs:domain fsar:StockAssessment ;
+    rdfs:range fsar:GSIUsage ;
+    rdfs:comment "Links a StockAssessment to a GSIUsage record detailing how genetic stock identification data was used for this assessment (if at all)."@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon/fsar> .
+
+fsar:hasChangeLogEntry a owl:ObjectProperty ;
+    rdfs:label "has change log entry"@en ;
+    rdfs:domain fsar:StockAssessment ;
+    rdfs:range fsar:ChangeLogEntry ;
+    rdfs:comment "Links a StockAssessment to a ChangeLogEntry, documenting a particular change from the previous cycle. Multiple change log entries can be linked if numerous aspects changed."@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon/fsar> .
+
+fsar:hasThreatFactor a owl:ObjectProperty ;
+    rdfs:label "has threat factor"@en ;
+    rdfs:domain fsar:StockAssessment ;
+    rdfs:range skos:Concept ;
+    rdfs:comment "Links the assessment to an identified threat or limiting factor affecting the stock, such as environmental or anthropogenic factors (e.g., 'High river temperature', 'Habitat degradation', 'Overharvest in mixed-stock fishery'). The value should be a term from a threat factor vocabulary. This allows capturing climate change or ecosystem drivers noted in the assessment."@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon/fsar> .
+
+#################################################################
+# FSAR Datatype Properties
+#################################################################
+
+fsar:belowLRP a owl:DatatypeProperty ;
+    rdfs:label "below LRP flag"@en ;
+    rdfs:domain fsar:PolicyReadiness ;
+    rdfs:range xsd:boolean ;
+    rdfs:comment "Indicates whether the stock (SMU or its key CU) is below its Limit Reference Point in this assessment (true/false). If true, a rebuilding plan is required under policy – the Tracer can use this to flag mandatory actions."@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon/fsar> .
+
+fsar:hcrIdentifier a owl:DatatypeProperty ;
+    rdfs:label "HCR identifier"@en ;
+    rdfs:domain fsar:PolicyReadiness ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Identifier or name of the Harvest Control Rule (HCR) in effect for this stock. Could be a reference to a specific harvest rule in an Integrated Fisheries Management Plan or a shorthand (e.g., 'Fraser Sockeye HCR-2020')."@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon/fsar> .
+
+fsar:hcrParameters a owl:DatatypeProperty ;
+    rdfs:label "HCR parameters"@en ;
+    rdfs:domain fsar:PolicyReadiness ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Parameters of the applied Harvest Control Rule, if applicable, serialized as a short string (for example, exploitation rate caps or control rule shape parameters). This provides context on how the HCR is tuned."@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon/fsar> .
+
+fsar:rebuildingPlanURL a owl:DatatypeProperty ;
+    rdfs:label "rebuilding plan URL"@en ;
+    rdfs:domain fsar:PolicyReadiness ;
+    rdfs:range xsd:anyURI ;
+    rdfs:comment "Link (URL or URI) to a rebuilding or management plan document, if the stock is below the LRP. This field should be populated when belowLRP = true, pointing to the plan addressing stock recovery."@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon/fsar> .
+
+fsar:uncertaintyNote a owl:DatatypeProperty ;
+    rdfs:label "uncertainty note"@en ;
+    rdfs:domain fsar:StockAssessment ;
+    rdfs:range xsd:string ;
+    rdfs:comment "A human-readable note summarizing uncertainty considerations for the assessment. E.g., 'High uncertainty due to low sample size; status borderline Amber/Red.' This complements structured uncertainty fields by capturing any qualitative caveats."@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon/fsar> .
+
+fsar:statusCI a owl:DatatypeProperty ;
+    rdfs:label "status confidence interval"@en ;
+    rdfs:domain fsar:StockAssessment ;
+    rdfs:range xsd:string ;
+    rdfs:comment "An optional confidence measure for the status zone assignment, expressed as text. For example, 'P(Green)=0.1, P(Amber)=0.7, P(Red)=0.2' or '80% CI: Amber (with 20% chance of Red)'. This allows encoding the statistical confidence or probability around the status designation."@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon/fsar> .
+
+fsar:downgradeReason a owl:ObjectProperty ;
+    rdfs:label "downgrade reason"@en ;
+    rdfs:domain fsar:StockAssessment ;
+    rdfs:range skos:Concept ;  # from a DowngradeCriteria scheme (e.g., visibility, bias, etc.)
+    rdfs:comment "If any estimates (e.g., spawner estimates) were 'downgraded' in quality (per established criteria) before use, this property indicates the reason/criterion. For example, a concept indicating 'Poor survey visibility' or 'Methodological bias' that caused a quality downgrade."@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon/fsar> .
+
+fsar:cuDecision a owl:DatatypeProperty ;
+    rdfs:label "CU decision"@en ;
+    rdfs:domain fsar:CUInclusion ;
+    rdfs:range xsd:string ;  # expected values like "included", "excluded", "proxied"
+    rdfs:comment "Specifies how the CU was handled in the assessment: 'included' (directly assessed), 'excluded' (left out due to no data or other reasons), or 'proxied' (not directly assessed, but represented by another CU’s data). In future, this could be a controlled vocabulary."@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon/fsar> .
+
+fsar:justification a owl:DatatypeProperty ;
+    rdfs:label "justification"@en ;
+    rdfs:domain fsar:CUInclusion ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Explanation for the CU decision if it’s not simply 'included'. For excluded CUs, why it was excluded (e.g., lack of recent survey); for proxied CUs, which other CU is standing in and why that is reasonable."@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon/fsar> .
+
+fsar:reviewedBy a owl:DatatypeProperty ;
+    rdfs:label "reviewed by"@en ;
+    rdfs:domain fsar:CUInclusion ;
+    rdfs:range xsd:string ;  # could be an Agent reference; using name for now
+    rdfs:comment "The name or identifier of the reviewer who confirmed/approved this CU inclusion decision (if such review is part of the process). This adds accountability for exclusions/proxies."@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon/fsar> .
+
+fsar:reviewDate a owl:DatatypeProperty ;
+    rdfs:label "review date"@en ;
+    rdfs:domain fsar:CUInclusion ;
+    rdfs:range xsd:date ;
+    rdfs:comment "The date on which the CU inclusion decision (include/exclude/proxy) was reviewed/approved by the reviewer. Provides a timeline reference."@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon/fsar> .
+
+fsar:gsiUsed a owl:DatatypeProperty ;
+    rdfs:label "GSI used"@en ;
+    rdfs:domain fsar:GSIUsage ;
+    rdfs:range xsd:boolean ;
+    rdfs:comment "Whether genetic stock identification (GSI) data were used in this assessment (true/false). If false, the other GSI fields may be nil – but explicitly noting false can be useful to indicate a lack of genetic data."@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon/fsar> .
+
+fsar:gsiSampleSize a owl:DatatypeProperty ;
+    rdfs:label "GSI sample size"@en ;
+    rdfs:domain fsar:GSIUsage ;
+    rdfs:range xsd:integer ;
+    rdfs:comment "The total number of genetic samples analyzed for stock identification in this assessment (if GSI was used). This gives a sense of the coverage of genetic data."@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon/fsar> .
+
+fsar:gsiAssignmentUncertainty a owl:DatatypeProperty ;
+    rdfs:label "GSI assignment uncertainty"@en ;
+    rdfs:domain fsar:GSIUsage ;
+    rdfs:range xsd:string ;
+    rdfs:comment "A summary of uncertainty in genetic stock assignments – for example, a misassignment rate or confidence interval for assignment proportions. E.g., 'MisID ~ 5%' or '95% CI on stock proportions given baseline size.' This contextualizes how reliable the GSI-based apportionment is."@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon/fsar> .
+
+fsar:changeCategory a owl:DatatypeProperty ;
+    rdfs:label "change category"@en ;
+    rdfs:domain fsar:ChangeLogEntry ;
+    rdfs:range xsd:string ;  # e.g., "data", "methods", "benchmarks", "status", "advice"
+    rdfs:comment "The category of change being logged. This is a keyword indicating what aspect changed compared to the previous assessment. Examples: 'data' (new or updated data), 'methods' (analytical methods changed), 'benchmarks' (reference points changed), 'status' (status designation changed), 'advice' (text/recommendation changed)."@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon/fsar> .
+
+fsar:changeDetail a owl:DatatypeProperty ;
+    rdfs:label "change detail"@en ;
+    rdfs:domain fsar:ChangeLogEntry ;
+    rdfs:range xsd:string ;
+    rdfs:comment "A human-readable description of the specific change. For example: 'Lower benchmark (LRP) revised from 20k to 25k spawners based on updated stock-recruit analysis', or 'Included new data from 2024 brood year, affecting recent averages.' This provides context for the change category."@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon/fsar> .
+
+#################################################################
+# Alignment Annotations (to maintain DL-safety, no logical axioms beyond subclass)
+#################################################################
+
+# (Optional descriptive alignment notes – not using owl:equivalentClass or imports to stay OWL DL clean)
+fsar:StockAssessment dcterms:description 
+    "Alignment: Use dfo:StockAssessment as a superclass for FSAR instances. This class aligns with a 'Stock Status Assessment' concept (each instance corresponds to an assessment event/outcome for a stock group in a year)."@en .
+
+fsar:PolicyReadiness dcterms:description 
+    "Note: This aggregates policy metrics for the assessment. It is not a policy decision itself, but rather metadata ensuring the science advice addresses policy requirements (WSP zones, PA zones, legal triggers)."@en .
+
+# (Further alignment or documentation could be added here if needed, e.g., linking to DPROD for datasets, etc., but skipped for brevity)
+
+#################################################################
+# Example Individuals (ABox) – Illustrative FSAR Trace for Barkley Sockeye
+#################################################################
+
+# Example SMU individual (from core, identifier matches SPSR code for Barkley Sockeye SMU)
+dfo:SMU_SEL_SC_03 a dfo:StockManagementUnit ;
+    rdfs:label "SEL-SC-03 Barkley Sockeye SMU"@en .
+
+# Assessment instance for Barkley Sockeye in 2025
+fsar:assess_Barkley_2025 a fsar:StockAssessment ;
+    fsar:assessesUnit dfo:SMU_SEL_SC_03 ;
+    fsar:assessedYear "2025"^^xsd:gYear ;
+    fsar:usesDataset dfo:Dataset_BarkleySPSR ;        # core Dataset instance for Barkley data (assume defined in data catalog)
+    fsar:usesMethod :EscapementModel_SR_v3 ;          # placeholder skos:Concept for the method (e.g., a stock-recruit model for benchmarks)
+    fsar:hasStatusZone :WSP_Amber ;                   # outcome: Amber zone (some CU below USR) – WSP status zone concept
+    fsar:uncertaintyNote "Moderate uncertainty: one CU has no direct data and was proxied; status near Amber/Red boundary."@en ;
+    fsar:downgradeReason :Downgrade_LowSurveyQuality .  # example concept from DowngradeCriteria (e.g., surveys with low visibility)
+
+# Policy readiness info for this assessment
+fsar:policy_Barkley_2025 a fsar:PolicyReadiness ;
+    fsar:belowLRP false ;  # not below LRP (no immediate rebuilding plan needed)
+    fsar:hcrIdentifier "DFO-PA-HCR-2019" ;
+    fsar:hcrParameters "Fcap=0.20; buffer=0.60; ceiling=500k" ;
+    fsar:rebuildingPlanURL <https://dfosite.example.org/rebuilding/BarkleySockeyePlan> .
+
+fsar:assess_Barkley_2025 fsar:hasPolicyReadiness fsar:policy_Barkley_2025 .
+
+# Harvest advice and linkage to management decision
+fsar:advice_Barkley_2025 a dfo:HarvestAdvice ;
+    rdfs:label "2025 Harvest Advice – Barkley Sockeye"@en ;
+    dcterms:date "2025-10-15"^^xsd:date ;
+    dcterms:creator "DFO Stock Assessment Biologist (South Coast)"@en ;
+    dcterms:description "Maintain exploitation rate below 20% given cautious status; implement precautionary closure if escapements fall below LRP."@en .
+
+fsar:assess_Barkley_2025 fsar:supportsAdvice fsar:advice_Barkley_2025 .
+
+fsar:decision_Barkley_2025 a fsar:ManagementDecision ;
+    rdfs:label "2025 Management Decision – Barkley Sockeye"@en ;
+    dcterms:date "2025-10-20"^^xsd:date ;
+    dcterms:description "For 2025, set total allowable harvest such that exploitation rate ≈18%. Include in-season monitoring triggers; if Hucuktlis CU falls below forecast, implement closure."@en .
+
+fsar:advice_Barkley_2025 fsar:ledToDecision fsar:decision_Barkley_2025 .
+
+# CU inclusion entries (illustrative for one CU, e.g., a CU that was proxied)
+fsar:cuacct_Hucuktlis_2025 a fsar:CUInclusion ;
+    fsar:cuDecision "proxied" ;
+    fsar:justification "No independent survey in 2023/2024; Hucuktlis CU abundance inferred from Great Central & Sproat trends."@en ;
+    fsar:reviewedBy "Jane Doe (Science peer reviewer)"@en ;
+    fsar:reviewDate "2025-05-28"^^xsd:date .
+
+fsar:assess_Barkley_2025 fsar:hasCUInclusion fsar:cuacct_Hucuktlis_2025 .
+
+# GSI usage entry (illustrative – assume genetic samples were used to apportion catch among the three CUs)
+fsar:gsi_Barkley_2025 a fsar:GSIUsage ;
+    fsar:gsiUsed true ;
+    fsar:gsiSampleSize 842 ;
+    fsar:gsiAssignmentUncertainty "Misassignment ~ 7% (95% CI: 4–10%). Stock proportions estimated with Bayesian mixture model."@en .
+
+fsar:assess_Barkley_2025 fsar:hasGSIUsage fsar:gsi_Barkley_2025 .
+
+# Change log entry (illustrative example of a change from the last cycle)
+fsar:chg_benchmarks_2025 a fsar:ChangeLogEntry ;
+    fsar:changeCategory "benchmarks" ;
+    fsar:changeDetail "Upper Stock Reference (USR) updated to 14,000 spawners (previously 12,000) based on inclusion of recent productivity data from 2015-2020."@en .
+
+fsar:assess_Barkley_2025 fsar:hasChangeLogEntry fsar:chg_benchmarks_2025 .
+
+# (Optional) Threat factor annotation – e.g., link to a climate factor concept
+:HighRiverTemperature a skos:Concept ;
+    skos:prefLabel "High river temperature"@en ;
+    skos:inScheme :ThreatFactorScheme .
+
+fsar:assess_Barkley_2025 fsar:hasThreatFactor :HighRiverTemperature .
+
+#################################################################
+# Provenance via RDF-star (optional, illustrating how provenance can be linked to specific assertions)
+#################################################################
+
+# Example: Annotating the status zone assignment with provenance of how it was generated
+<< fsar:assess_Barkley_2025 fsar:hasStatusZone :WSP_Amber >>
+    prov:wasGeneratedBy fsar:status_calc_job_2025 .
+
+fsar:status_calc_job_2025 a prov:Activity ;
+    dcterms:description "Status zone calculated via R script using data up to 2024, commit 9f3c1e on GitHub."@en ;
+    dcterms:identifier "git:9f3c1e" ;
+    dcterms:date "2025-10-10"^^xsd:date .

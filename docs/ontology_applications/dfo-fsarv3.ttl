@@ -1,0 +1,144 @@
+@prefix dfo:  <https://w3id.org/dfo/salmon#> .
+@prefix fsar: <https://w3id.org/dfo/salmon/fsar#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+#################################################################
+# Ontology header
+#################################################################
+
+fsar: a owl:Ontology ;
+  dcterms:title "DFO Salmon – FSAR Tracer Module (minimal triggers)"@en ;
+  dcterms:description "OWL2 DL module providing a minimal, reusable mapping from bottom-up assessment triggers to top-down requirement classes for UI/queries. It avoids tracking decision instances and does not duplicate core dfo: classes/properties. It is designed to work with SPSR metadata as-is, with a short TODO list for optional future fields."@en ;
+  dcterms:creator "Thunk Solutions – FSAR Tracer"@en ;
+  dcterms:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+  owl:versionInfo "0.4.0" .
+
+#################################################################
+# Core scaffolding (no instances)
+#################################################################
+
+fsar:TriggerCondition a owl:Class ;
+  rdfs:label "Trigger condition"@en ;
+  rdfs:comment "A general condition observed from assessment metadata (e.g., WSP zone=Red) that activates one or more requirements."@en .
+
+fsar:Requirement a owl:Class ;
+  rdfs:label "Requirement"@en ;
+  rdfs:comment "A high-level obligation/check that applies when certain triggers hold (e.g., rebuilding plan when below LRP)."@en .
+
+fsar:PolicyFramework a owl:Class ;
+  rdfs:label "Policy framework"@en ;
+  rdfs:comment "A legal/policy framework node (e.g., WSP, PA, Fisheries Act FSP). Used for lightweight citation only."@en .
+
+#################################################################
+# Minimal trigger set (derived from SPSR fields and common FSAR cues)
+#################################################################
+
+# NOTE: The app determines which trigger classes apply using SPSR fields:
+# - CU rapid status: CUStatus.WSP_RAPID_STATUS ∈ {Green, Amber, Red}
+# - (TODO) Mixed-stock flag: add a boolean field if needed (or infer from context)
+# - (TODO) GSI usage: add boolean or infer from GRD link
+# - (Optional) Confidence present: CUStatus.WSP_RAPID_STATUS_CONFIDENCE not empty
+
+fsar:BelowLRPTrigger a owl:Class ;
+  rdfs:subClassOf fsar:TriggerCondition ;
+  rdfs:label "Below LRP (WSP Red) trigger"@en ;
+  rdfs:comment "Use when WSP rapid status is Red (or CU at/below LRP). Minimal logic: CUStatus.WSP_RAPID_STATUS='Red'."@en .
+
+fsar:BetweenLRPUSRTrigger a owl:Class ;
+  rdfs:subClassOf fsar:TriggerCondition ;
+  rdfs:label "Cautious zone (between LRP and USR) trigger"@en ;
+  rdfs:comment "Use when WSP rapid status is Amber. Minimal logic: CUStatus.WSP_RAPID_STATUS='Amber'."@en .
+
+fsar:UncertaintyMissingConfidenceTrigger a owl:Class ;
+  rdfs:subClassOf fsar:TriggerCondition ;
+  rdfs:label "Missing confidence info trigger"@en ;
+  rdfs:comment "Use when confidence field is blank or not provided. Minimal logic: CUStatus.WSP_RAPID_STATUS_CONFIDENCE is null/empty."@en .
+
+# The following triggers are optional (require small SPSR metadata extensions)
+fsar:MixedStockNoGSITrigger a owl:Class ;
+  rdfs:subClassOf fsar:TriggerCondition ;
+  rdfs:label "Mixed-stock without GSI trigger (TODO field)"@en ;
+  rdfs:comment "Use when a fishery is mixed-stock but GSI apportionment was not used. Requires minimal flags (mixedStock=true, gsiUsed=false)."@en .
+
+fsar:CUProxiedTrigger a owl:Class ;
+  rdfs:subClassOf fsar:TriggerCondition ;
+  rdfs:label "CU proxied/excluded trigger (TODO field)"@en ;
+  rdfs:comment "Use when one or more CUs are proxied/excluded from assessment. Requires a simple boolean or enum at intake."@en .
+
+#################################################################
+# Lightweight requirement classes (no workflow/sign-off baked in)
+#################################################################
+
+fsar:RebuildingPlanRequirement a owl:Class ;
+  rdfs:subClassOf fsar:Requirement ;
+  rdfs:label "Rebuilding plan overview required"@en ;
+  rdfs:comment "Show that the stock/SMU is subject to rebuilding provisions when at/below LRP (e.g., link or note). No workflow implied."@en .
+
+fsar:CautiousHarvestReviewRequirement a owl:Class ;
+  rdfs:subClassOf fsar:Requirement ;
+  rdfs:label "Cautious-zone harvest measures overview"@en ;
+  rdfs:comment "Provide a brief overview of precautionary measures in Amber (e.g., reductions, HCR tuning, time/area/gear adjustments)."@en .
+
+fsar:UncertaintyDisclosureRequirement a owl:Class ;
+  rdfs:subClassOf fsar:Requirement ;
+  rdfs:label "Uncertainty disclosure"@en ;
+  rdfs:comment "Briefly indicate uncertainty/precision or note that it is currently unavailable."@en .
+
+fsar:MixedStockJustificationRequirement a owl:Class ;
+  rdfs:subClassOf fsar:Requirement ;
+  rdfs:label "Mixed-stock apportionment overview (TODO field)"@en ;
+  rdfs:comment "If mixed-stock and no GSI, note how impacts are controlled/monitored or why GSI not used. Minimal text, no workflow."@en .
+
+fsar:CUAccountingNoteRequirement a owl:Class ;
+  rdfs:subClassOf fsar:Requirement ;
+  rdfs:label "CU accounting note (TODO field)"@en ;
+  rdfs:comment "If CUs are proxied/excluded, provide a brief rationale. Minimal text, no reviewer features."@en .
+
+#################################################################
+# Policy frameworks (for lightweight citation, not logic)
+#################################################################
+
+fsar:FisheriesActFSP a fsar:PolicyFramework ;
+  rdfs:label "Fisheries Act – Fish Stocks Provisions (FSP)"@en .
+
+fsar:WildSalmonPolicy a fsar:PolicyFramework ;
+  rdfs:label "Canada’s Policy for Conservation of Wild Pacific Salmon (WSP)"@en .
+
+fsar:PrecautionaryApproach a fsar:PolicyFramework ;
+  rdfs:label "A Fishery Decision‑making Framework Incorporating the Precautionary Approach (PA)"@en .
+
+#################################################################
+# Generic mapping: triggers → requirements and requirements → frameworks
+#################################################################
+
+fsar:triggersRequirement a owl:ObjectProperty ;
+  rdfs:domain fsar:TriggerCondition ;
+  rdfs:range  fsar:Requirement ;
+  rdfs:label "triggers requirement"@en .
+
+fsar:requiredBy a owl:ObjectProperty ;
+  rdfs:domain fsar:Requirement ;
+  rdfs:range  fsar:PolicyFramework ;
+  rdfs:label "required by"@en .
+
+# Below LRP => Rebuilding plan (FSP); also ties to WSP/PA high-level language
+fsar:BelowLRPTrigger fsar:triggersRequirement fsar:RebuildingPlanRequirement .
+fsar:RebuildingPlanRequirement fsar:requiredBy fsar:FisheriesActFSP .
+fsar:RebuildingPlanRequirement fsar:requiredBy fsar:WildSalmonPolicy .
+fsar:RebuildingPlanRequirement fsar:requiredBy fsar:PrecautionaryApproach .
+
+# Amber zone => Cautious measures (PA/WSP)
+fsar:BetweenLRPUSRTrigger fsar:triggersRequirement fsar:CautiousHarvestReviewRequirement .
+fsar:CautiousHarvestReviewRequirement fsar:requiredBy fsar:WildSalmonPolicy .
+fsar:CautiousHarvestReviewRequirement fsar:requiredBy fsar:PrecautionaryApproach .
+
+# Missing confidence info => Uncertainty disclosure
+fsar:UncertaintyMissingConfidenceTrigger fsar:triggersRequirement fsar:UncertaintyDisclosureRequirement .
+fsar:UncertaintyDisclosureRequirement fsar:requiredBy fsar:PrecautionaryApproach .
+
+# Optional TODO triggers
+fsar:MixedStockNoGSITrigger fsar:triggersRequirement fsar:MixedStockJustificationRequirement .
+fsar:CUProxiedTrigger     fsar:triggersRequirement fsar:CUAccountingNoteRequirement .

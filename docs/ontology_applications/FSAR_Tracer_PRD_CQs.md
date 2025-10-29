@@ -262,6 +262,50 @@ This will be an interactive hierarchical tree style graph with progressive discl
 
 **Relations (PROV‑O flavored):** `StatusAssessment used DataProduct/ReferencePoint`, `StatusAssessment wasGeneratedBy Method`, `ScientificOutput wasDerivedFrom StatusAssessment`, `ScientificOutput supports Decision`, `Figure wasDerivedFrom {DataProduct,Method}`.
 
+**WSP Rapid-Status Support:**
+
+The ontology now supports WSP rapid-status assessments via `fsar:WSPMetric`, `fsar:MetricBenchmark`, and `fsar:AlgorithmThreshold` classes. The `dfo:StockAssessment` class links to WSP metrics via `fsar:assessesMetric`, and produces rapid statuses via `fsar:producesRapidStatus` with confidence categories via `fsar:hasConfidence`. Decision requirement patterns from v3 (e.g., `fsar:RebuildingPlanRequirement`) work with WSP trigger conditions linking metric positions to policy obligations.
+
+---
+
+### 2f. WSP Rapid-Status Support
+
+The FSAR Tracer now supports WSP rapid-status assessments through integration with the Learning Tree 3 decision-tree algorithm. This support enables tracking of the four standard WSP metrics, their benchmarks and algorithm thresholds, rapid status assignments, and confidence categories.
+
+**Four Standard WSP Metrics:**
+
+1. **Absolute Abundance**: Compares generational average spawner abundance to COSEWIC criterion D1 thresholds. Lower benchmark: 1,000 spawners; Upper benchmark: 10,000 spawners.
+2. **Relative Abundance**: Compares generational average spawner abundance to CU-specific benchmarks (typically Sgen lower, 80% SMSY upper, or habitat capacity-based).
+3. **Long-Term Trend**: Compares current generational average to long-term average spawner abundance. Lower benchmark: 50% of long-term average; Upper benchmark: 75% of long-term average.
+4. **Percent Change**: Quantifies linear change in spawner abundance over the most recent three generations. Lower benchmark: -25%; Upper benchmark: -15%.
+
+**Learning Tree 3 Decision-Tree Integration:**
+
+The Learning Tree 3 algorithm assigns rapid statuses (Red, Amber, Green) based on metric values and availability. The algorithm uses threshold values that differ from metric benchmarks by design, incorporating buffers and precautionary adjustments based on expert processes and CART analyses.
+
+**Metric Benchmarks vs. Algorithm Thresholds:**
+
+Algorithm thresholds intentionally diverge from benchmarks in several places:
+
+- **Absolute Abundance**: Benchmark lower threshold is 1,000 spawners (COSEWIC criterion D1), but Learning Tree 3 algorithm uses 1,500 (benchmark plus 500 buffer) to account for uncertainty and how experts treated individual years in generational averages.
+- **Relative Abundance**: Upper benchmark threshold in Learning Tree 3 equals the WSP upper benchmark plus 10% buffer to account for how this metric was treated in WSP integrated status processes.
+- **Long-Term Trend**: Benchmark thresholds are 50% (lower) and 75% (upper), but Learning Tree 3 uses 79% (lower) and 233% (upper). These thresholds emerged from CART analyses and are applied conditionally with other metrics.
+- **Percent Change**: Benchmark lower threshold is -25%, but Learning Tree 3 uses -70% (emerged from CART analyses). This threshold is only applied conditionally when long-term trend >= 79% and absolute abundance >= 10,000.
+
+**Confidence Category Output:**
+
+Each rapid status assessment includes a confidence category (High, Medium, or Low):
+
+- **High confidence**: Status assigned using absolute abundance or relative abundance metrics (both requiring higher quality data and benchmarks).
+- **Medium confidence**: Status based on long-term trend metrics with some abundance information available.
+- **Low confidence**: Status based on trend metrics alone without abundance benchmarks.
+
+These confidence ratings are derived from the algorithm branch (node) that determines the status, based on metric availability and data types used.
+
+**Decision Requirements:**
+
+WSP metric positions trigger decision requirements through `fsar:Condition` patterns that link to `fsar:DecisionRequirement` classes. For example, when rapid status is Red (below LRP), this triggers rebuilding plan requirements mandated by the Fisheries Act Fish Stocks Provisions.
+
 ---
 
 ## 2d) Global Acceptance Criteria
@@ -825,6 +869,78 @@ WHERE {
 ```
 
 **Required Fields Checklist (v0.2)** `data_source_type`, `spawner_origin`, `proxy_justification`, `method_name`, `method_version`, `code_commit`, `reference_point_type`, `benchmark_method`, `benchmark_sensitivity`, `status_value`, `status_ci`, `gsi_sample_size/ci`, `gsiUsed`, `gsiAssignmentUncertainty`, `baseline_reference`, `status_confidence`, `downgradeReason`, `belowLRP`, `rebuildingPlanURL`, `hcrIdentifier`, `hcrParameters`, `scientific_output_text`, `reviewer`, `date`, `decision_id`, `policy_readiness_flags`, `change_log`.
+
+### WSP Rapid-Status Questions
+
+**CQ-WSP-1: What are the metric benchmark values vs algorithm threshold values for each WSP metric?**
+
+```sparql
+SELECT ?metric ?metricLabel ?benchmarkType ?benchmarkValue ?benchmarkUnits ?thresholdValue ?thresholdUnits ?thresholdNote
+WHERE {
+  ?assessment a dfo:StockAssessment ;
+              fsar:assessesMetric ?metric .
+  ?metric rdfs:label ?metricLabel ;
+          fsar:hasBenchmark ?benchmark ;
+          fsar:hasAlgorithmThreshold ?threshold .
+  ?benchmark rdfs:label ?benchmarkType ;
+             fsar:numericValue ?benchmarkValue ;
+             fsar:units ?benchmarkUnits .
+  ?threshold fsar:numericValue ?thresholdValue ;
+             fsar:units ?thresholdUnits .
+  OPTIONAL { ?threshold fsar:note ?thresholdNote }
+}
+ORDER BY ?metricLabel ?benchmarkType
+```
+
+**CQ-WSP-2: What confidence category does the rapid status assessment have?**
+
+```sparql
+SELECT ?assessment ?rapidStatus ?confidence ?confidenceLabel
+WHERE {
+  ?assessment a dfo:StockAssessment ;
+              fsar:producesRapidStatus ?rapidStatus ;
+              fsar:hasConfidence ?confidence .
+  ?confidence skos:prefLabel ?confidenceLabel .
+  ?rapidStatus skos:prefLabel ?statusLabel .
+}
+```
+
+**CQ-WSP-3: What decision requirements are triggered by the status/metric positions?**
+
+```sparql
+SELECT ?assessment ?rapidStatus ?condition ?conditionLabel ?requirement ?requirementLabel ?framework ?frameworkLabel
+WHERE {
+  ?assessment a dfo:StockAssessment ;
+              fsar:producesRapidStatus ?rapidStatus .
+  ?rapidStatus skos:prefLabel ?statusLabel .
+  ?requirement a fsar:DecisionRequirement ;
+               rdfs:label ?requirementLabel ;
+               fsar:triggeredBy ?condition ;
+               fsar:mandatedBy ?framework .
+  ?condition rdfs:label ?conditionLabel .
+  ?framework rdfs:label ?frameworkLabel .
+  # Note: This query structure assumes conditions can be inferred from rapid status
+  # Actual implementation may require additional logic to connect status to conditions
+}
+```
+
+**CQ-WSP-4: How do WSP metric benchmarks relate to Learning Tree 3 algorithm thresholds?**
+
+```sparql
+SELECT ?metric ?metricLabel ?benchmarkValue ?benchmarkUnits ?thresholdValue ?thresholdUnits ?rationaleNote
+WHERE {
+  ?metric a fsar:WSPMetric ;
+          rdfs:label ?metricLabel ;
+          fsar:hasBenchmark ?benchmark ;
+          fsar:hasAlgorithmThreshold ?threshold .
+  ?benchmark fsar:numericValue ?benchmarkValue ;
+             fsar:units ?benchmarkUnits .
+  ?threshold fsar:numericValue ?thresholdValue ;
+             fsar:units ?thresholdUnits .
+  OPTIONAL { ?threshold fsar:note ?rationaleNote }
+}
+ORDER BY ?metricLabel
+```
 
 ---
 
