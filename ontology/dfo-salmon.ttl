@@ -16,6 +16,7 @@
 @prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
 @prefix oa:      <http://www.w3.org/ns/oa#> .
 @prefix envo:    <http://purl.obolibrary.org/obo/ENVO_> .
+@prefix org:     <http://www.w3.org/ns/org#> .
 @prefix :        <https://w3id.org/dfoc/salmon#> .
 
 #################################################################
@@ -531,6 +532,187 @@ envo:00000234 a owl:Class ;
   iao:0000115 "A small, slow-moving stream or creek; usually located in low-lying areas."@en ;
   rdfs:subClassOf envo:00000023 ;
   rdfs:isDefinedBy <http://purl.obolibrary.org/obo/envo.owl> .
+
+#################################################################
+# Core Organization Ontology (ORG)
+# Imported to model DFO organizational structure and ensure assert FAIR
+# practices by documenting project metadata 
+#################################################################
+
+org:Organization a owl:Class ;
+  skos:prefLabel "Organization"@en ;
+  iao:0000115 "Represents a collection of people organized together into a community or other social, commercial or political structure. The group has some common purpose or reason for existence which goes beyond the set of people belonging to it and can act as an Agent. Organizations are often decomposable into hierarchical structures."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/org> .
+
+org:OrganizationalUnit a owl:Class ;
+  skos:prefLabel "Organizational Unit"@en ;
+  rdfs:subClassOf org:Organization ;
+  iao:0000115 "An Organization such as a department or support unit which is part of some larger Organization and only has full recognition within the context of that Organization. In particular the unit would not be regarded as a legal entity in its own right."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/org> .
+
+org:hasUnit a owl:ObjectProperty ;
+  skos:prefLabel "has unit"@en ;
+  iao:0000115 "Indicates a unit which is part of this Organization, e.g., a Department within a larger Organization."@en ;
+  rdfs:domain org:Organization ;
+  rdfs:range org:OrganizationalUnit ;
+  rdfs:subPropertyOf org:hasSubOrganization ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/org> .
+
+org:hasSubOrganization a owl:ObjectProperty ;
+  skos:prefLabel "has sub-organization"@en ;
+  iao:0000115 "Represents hierarchical containment of Organizations or OrganizationalUnits; indicates an organization which is a sub-part or child of this organization."@en ;
+  rdfs:domain org:Organization ;
+  rdfs:range org:Organization ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/org> .
+
+#################################################################
+# DFO Organizational Structure
+#################################################################
+
+dfoc:Unit a owl:Class ;
+  skos:prefLabel "Unit"@en ;
+  skos:altLabel "Program"@en ;
+  rdfs:subClassOf org:OrganizationalUnit ;
+  iao:0000115 "A basic operational grouping within a Section, responsible for a defined set of tasks or functions and reporting to the Section leadership."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:Section a owl:Class ;
+  skos:prefLabel "Section"@en ;
+  rdfs:subClassOf org:OrganizationalUnit ;
+  iao:0000115 "A mid-level organisational unit within a Branch, tasked with coordinating and delivering a coherent set of related functions or programmes under the Branch’s mandate."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:Division a owl:Class ;
+  skos:prefLabel "Division"@en ;
+  rdfs:subClassOf org:OrganizationalUnit ;
+  iao:0000115 "A higher-level grouping above Section, organising several Sections under a common strategic or administrative theme; responsible for overall oversight of its component Sections."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:Branch a owl:Class ;
+  skos:prefLabel "Branch"@en ;
+  rdfs:subClassOf org:OrganizationalUnit ;
+  iao:0000115 "A major organisational division within DFO, typically responsible for a broad functional area (such as Science, Regulation, Aquatic Ecosystems) and composed of one or more Sections."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:Region a owl:Class ;
+  skos:prefLabel "Region"@en ;
+  rdfs:subClassOf org:OrganizationalUnit ;
+  iao:0000115 "A geographic organisational unit covering a specified area (province(s)/territories/coastal zone) within Canada; responsible for delivering DFO programmes and services regionally, and reporting to national headquarters and the Deputy Minister structure."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> . 
+
+dfoc:Sector a owl:Class ;
+  skos:prefLabel "Sector"@en ;
+  rdfs:subClassOf org:OrganizationalUnit ;
+  iao:0000115 "A top-tier organisational domain within DFO’s national structure (such as Innovation and Business Transformation, Fisheries and Harbour Management) led by an Assistant Deputy Minister; responsible for strategic leadership, policy, and national programme direction."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> . 
+
+dfoc:hasUnit a owl:ObjectProperty ;
+  skos:prefLabel "has unit"@en ;
+  rdfs:subPropertyOf org:hasUnit ;
+  rdfs:domain org:Organization ;
+  rdfs:range dfoc:Unit ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:hasSection a owl:ObjectProperty ;
+  skos:prefLabel "has section"@en ;
+  rdfs:subPropertyOf org:hasSubOrganization ;
+  rdfs:domain org:Organization ;
+  rdfs:range dfoc:Section ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:hasDivision a owl:ObjectProperty ;
+  skos:prefLabel "has division"@en ;
+  rdfs:subPropertyOf org:hasSubOrganization ;
+  rdfs:domain org:Organization ;
+  rdfs:range dfoc:Division ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:hasBranch a owl:ObjectProperty ;
+  skos:prefLabel "has branch"@en ;  
+  rdfs:subPropertyOf org:hasSubOrganization ;
+  rdfs:domain org:Organization ;
+  rdfs:range dfoc:Branch ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:hasRegion a owl:ObjectProperty ;
+  skos:prefLabel "has region"@en ;  
+  rdfs:subPropertyOf org:hasSubOrganization ;
+  rdfs:domain org:Organization ;
+  rdfs:range dfoc:Region ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:hasSector a owl:ObjectProperty ;
+  skos:prefLabel "has sector"@en ;
+  rdfs:subPropertyOf org:hasSubOrganization ;
+  rdfs:domain org:Organization ;
+  rdfs:range dfoc:Sector ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:organizationalUnitName a owl:ObjectProperty ;
+  skos:prefLabel "organizational unit name"@en ;
+  rdfs:subPropertyOf org:hasUnit;
+  iao:0000115 "The name of an organizational unit within Fisheries and Oceans Canada (DFO)."@en ;
+  rdfs:domain org:OrganizationalUnit ;
+  rdfs:range xsd:string ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:organizationalUnitCode a owl:ObjectProperty ;
+  skos:prefLabel "organizational unit code"@en ;
+  rdfs:subPropertyOf org:hasUnit;
+  iao:0000115 "The code of an organizational unit within Fisheries and Oceans Canada (DFO)."@en ;
+  rdfs:domain org:OrganizationalUnit ;
+  rdfs:range xsd:string ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:Project a owl:Class ;
+  skos:prefLabel "Project"@en ;
+  rdfs:subClassOf bfo:0000015 ;
+  iao:0000115 "A planned undertaking with defined objectives, scope, and resources, typically involving a series of coordinated activities to achieve specific goals within a set timeframe."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:managedBy a owl:ObjectProperty ;
+  skos:prefLabel "managed by"@en ;
+  iao:0000115 "Indicates the organizational unit responsible for managing a project within Fisheries and Oceans Canada (DFO)."@en ;
+  rdfs:domain dfoc:Project ;
+  rdfs:range dfoc:Unit ;
+  rdfs:inverseOf dfoc:manages ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:collaboratesWith a owl:ObjectProperty ;
+  skos:prefLabel "collaborates with"@en ;
+  iao:0000115 "Indicates a Unit that collaborates on a project within Fisheries and Oceans Canada (DFO)."@en ;
+  rdfs:domain dfoc:Project ;
+  rdfs:range dfoc:Unit ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:manages a owl:ObjectProperty ;
+  skos:prefLabel "manages"@en ;
+  iao:0000115 "Indicates the project managed by a Unit within Fisheries and Oceans Canada (DFO)."@en ;
+  rdfs:domain dfoc:Unit ;
+  rdfs:range dfoc:Project ;
+  rdfs:inverseOf dfoc:managedBy ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:projectTitle a owl:DatatypeProperty ;
+  skos:prefLabel "project title"@en ;
+  iao:0000115 "The title of a project within Fisheries and Oceans Canada (DFO)."@en ;
+  rdfs:domain dfoc:Project ;
+  rdfs:range xsd:string ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:projectFirstYear a owl:DatatypeProperty ;
+  skos:prefLabel "project first year"@en ;
+  iao:0000115 "The first year of a project within Fisheries and Oceans Canada (DFO)."@en ;
+  rdfs:domain dfoc:Project ;
+  rdfs:range xsd:gYear ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:projectLastYear a owl:DatatypeProperty ;
+  skos:prefLabel "project last year"@en ;
+  iao:0000115 "The last year of a project within Fisheries and Oceans Canada (DFO)."@en ;
+  rdfs:domain dfoc:Project ;
+  rdfs:range xsd:gYear ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
 #################################################################
 # Evidence Completeness Framework (DQV-based)
