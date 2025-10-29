@@ -10,6 +10,7 @@
 
 - **Goal:** Rapid assurance that the **evidence underpinning advice** is defensible, current, and **policy-ready**. Need to answer "Are we policy-ready and defensible today?" and "What changed since the last FSAR?"
 - **Stories:** Select **SMU + Year** → see **Policy & Legal Readiness** panel with hard gates; **Evidence Completeness** gauge; **Delta since last FSAR** summary; **download Advice Trace Pack** for briefing/audit.
+- **KPI Widgets:** Coverage (% SMUs with current FSAR), WSP status zone distribution, below-LRP triggers, evidence completeness (Complete / Gaps / Missing-Critical), timeliness (last update date)
 - **Acceptance:** **Policy & Legal Readiness** panel (hard gate on "Ready"):
   - WSP status zone for the SMU (with explicit mapping to LRP/USR and how assessed this cycle)
   - Precautionary Approach compliance: harvest control rule named + parameterized, with source & version
@@ -17,11 +18,20 @@
   - **Evidence Completeness** reports _Ready_ when all required evidence + policy gates pass; _Partial_ when optional items missing; _Blocked_ when required items missing
   - **Delta since last FSAR** (mandatory in Advice Trace Pack and on screen): Changed benchmarks, methods/code versions, data additions/removals, status zone, advice/rationale
   - **Export** downloads the pack with structured deltas vs. previous FSAR
+  - **AC:** Exec sees a red "Policy trigger" chip whenever an SMU is below LRP and a Rebuilding Plan link is present
 
-### Persona B — Stock Assessment Biologist / FSAR Lead Author / FSAR Reviewer
+### Persona B — FSAR Lead Author
+
+- **Goal:** Ensure narrative coherence, benchmark justification, proxy rationale, and reviewer response integration for submission-ready FSARs.
+- **Responsibilities:** Narrative coherence, benchmark justification, proxy rationale, reviewer response integration
+- **Stories:** Generate submission-ready trace packs with benchmarks, uncertainty notes, proxy decisions, and methods provenance; integrate reviewer feedback; ensure policy compliance.
+- **Acceptance:** **AC:** Lead Author can generate a "submission-ready" trace pack with benchmarks, uncertainty notes, proxy decisions, and methods provenance in ≤2 clicks.
+
+### Persona C — Reviewer / Stock Assessment Biologist
 
 - **Goal:** Verify methods, benchmarks, reproducibility; confirm uncertainty handling and scientific rigor.
 - **Stories:** Open **Method** → view parameters for both analytical and field methods (including field method downgrade criteria and Estimate Type Classification for specific SENs) + **exact code commit/tag/or dataset DOI**; inspect **Benchmarks** as first-class entities with derivation evidence; toggle **Uncertainty overlay** to confirm GSI/CI presence and propagation; review **CU inclusion/exclusion** transparency.
+- **One-click panels for:** benchmark derivation (type, value, method, sensitivity flags), uncertainty treatment (CIs/probabilities), GSI usage (used?, n, misassignment/CI), and downgrade criteria used
 - **Acceptance:** **Method** shows name/protocol/version/parameters + link to exact commit/tag/DOI used by figures/status. **Benchmarks** as explicit entities (dfo:LowerBenchmark, dfo:UpperBenchmark, dfo:TargetReference) with:
   - Derivation method, input dataset(s), time window, uncertainty method, and version/date
   - Back-calculable query (stored SPARQL and/or R script call) to regenerate the estimate
@@ -29,8 +39,9 @@
   - **Uncertainty overlay** badges missing **GSI**, **sample sizes**, or **status CIs**; click reveals missing fields
   - **CU Accounting**: CU list for the SMU explicitly lists included, excluded, and proxied CUs with machine-readable justification; GSI usage (Yes/No), sample sizes, and assignment uncertainty
   - **Downgrade Criteria**: Display downgrade criteria (from SKOS scheme) and make violations/assumptions visible
+  - **AC:** Reviewer can verify benchmark method & code version; GSI sample size & uncertainty are visible where relevant
 
-### Persona C — Data Steward / FSAR Analyst Co-author
+### Persona D — Data Steward / FSAR Analyst Co-author
 
 - **Goal:** Ensure data standards are met (terms, provenance, data quality, uncertainty); fail fast; identify missing metadata or poor data stewardship practices to help support FSAR authors meet best practices. Ship FSARs quickly. Upload draft data to check for compliance, completeness etc.
 - **Stories:**
@@ -45,6 +56,48 @@
   - **Provenance minimum** is visible at the top of the submission and in the Evidence Drawer: `data_source`, `method`, `code_version/hash`, `reviewer`, `date`.
   - **Schema alignment**: SPSR fields align with validator and FSAR reporting (explicit LRP/USR/TR records, status decision + rationale, CI fields).
   - **Submission lifecycle:** Draft → Validated → Ready → Ingested, with audit events (who/when/tool versions). Human review and approval required before ingestion.
+
+## 1b) User Stories & Acceptance Criteria (Reflect Real FSAR Concerns)
+
+### Benchmark Transparency (Core)
+
+**Story:** As a Reviewer, I need to verify that all reference points have transparent derivation methods and sensitivity flags.
+
+**Acceptance Criteria:**
+- Add controlled vocab for `reference_point_type` (e.g., LRP/USR/Sgen/Smsy) and `benchmark_method`
+- **AC:** Benchmarks must display type, value, method, sensitivity flags, and link to method/code provenance
+
+### Data Gaps & Proxies (CU Accounting)
+
+**Story:** As a Lead Author, I need to document CU inclusion decisions and proxy justifications with reviewer sign-off.
+
+**Acceptance Criteria:**
+- Add a CU inclusion/proxy table with fields: `decision` (included/excluded/proxied), `justification`, `reviewer`, `review_date`
+- **AC:** Any CU ≠ "included" requires justification + reviewer sign-off or it fails validation (flagged Missing-Critical)
+
+### Mixed-Stock Risk (GSI)
+
+**Story:** As a Reviewer, I need to assess GSI usage and assignment uncertainty for mixed-stock fisheries.
+
+**Acceptance Criteria:**
+- Add fields: `gsiUsed` (bool), `gsiSampleSize` (int), `gsiAssignmentUncertainty` (text/CI or % misID), `baseline_reference`
+- **AC:** If stock is mixed-fishery AND `gsiUsed` = false → show risk chip ("No GSI apportionment") and require rationale
+
+### Uncertainty Handling
+
+**Story:** As a Reviewer, I need to verify that key estimates include confidence intervals or documented rationale for absence.
+
+**Acceptance Criteria:**
+- Add `status_confidence` (probabilities/CI) and `downgradeReason` (controlled list) for quality-downgraded inputs
+- **AC:** Key estimates must include CI or flagged rationale for absence; status shows P(Green/Amber/Red) or a CI note
+
+### Policy Gates & Legal Readiness
+
+**Story:** As an Executive, I need to ensure compliance with Fisheries Act Fish Stocks provisions and rebuilding requirements.
+
+**Acceptance Criteria:**
+- Add explicit checks: `belowLRP` (bool), `RebuildingPlanURL`, `hcrIdentifier`/`hcrParameters`
+- **AC:** `belowLRP` = true requires a valid Rebuilding Plan link or shows Missing-Critical
 
 ## 2) UI/UX Inspiration
 
@@ -132,6 +185,66 @@ This will be an interactive hierarchical tree style graph with progressive discl
 - **Step 4 — Ready & Submit:** When no critical errors remain, mark **Ready**. Submissions require human review/approval before ingest to SPSR.
 - **Utilities:** "Download tailored template" endpoint pre‑seeds enumerations and column headers by scope (Population, CU, SMU, Indicator Stock, PFMA); "Save draft" persists current progress.
 
+## 2c) Usability & Data Input Workflow (Reduce Friction, Increase Trust)
+
+### Excel + R/SHACL Validator Enhancements
+
+**Story:** As a Data Steward, I need targeted error reporting with fix-hints to resolve validation issues efficiently.
+
+**Acceptance Criteria:**
+- Add row/column targeted errors with fix-hints, and mark error severity (Critical/High/Info)
+- Provide template tabs for read-only vocab sheets (RP types, methods, status zones) powering data validation dropdowns
+- **AC:** Authors resolve all Critical errors locally; validator returns 0 Critical before upload is permitted
+
+### Import Wizard in the Web UI
+
+**Story:** As a Data Steward, I need guided upload with preview and validation feedback to ensure data quality.
+
+**Acceptance Criteria:**
+- Add guided upload: preview parsed rows, validation report inline, diff vs last submission, idempotent re-upload
+- **AC:** Users can correct flagged fields in-app or re-upload; system preserves stable IDs for re-uploads
+
+### Evidence Drawer Quality of Life
+
+**Story:** As a Reviewer, I need quick access to all evidence links and citation information.
+
+**Acceptance Criteria:**
+- Add quick links to dataset DOI, code commit/DOI, method concept; copy citation button; peek of data dictionary fields
+- **AC:** From any status tile, user can open drawer and reach all evidence links ≤2 clicks
+
+### Risk Chips & Completeness Meter
+
+**Story:** As an Executive, I need visual indicators of coverage and completeness at a glance.
+
+**Acceptance Criteria:**
+- Add filterable risk chips (e.g., Missing CI, No GSI, Proxy w/o review, Below LRP w/o plan)
+- Add Evidence Completeness gauge per SMU (Complete / Gaps / Missing-Critical) and section-level mini-gauges
+- **AC:** Executive sees coverage and completeness at a glance; Reviewer filters by risk type to accelerate audits
+
+### Controlled Vocab Pickers + "Suggest Term" Flow
+
+**Story:** As a Data Steward, I need flexible vocab management that doesn't block workflow when new terms are needed.
+
+**Acceptance Criteria:**
+- Add inline pickers for methods/benchmarks; Suggest a new term creates a temporary local mapping and queues curation
+- **AC:** Off-list entries can't block; they're tracked and reconciled later (with audit trail)
+
+### Iteration & Comparison
+
+**Story:** As a Lead Author, I need to track changes between cycles and generate comparison reports.
+
+**Acceptance Criteria:**
+- Add change-log auto-generation (data/method/benchmark/status/advice) + cycle diff view
+- **AC:** Lead Author can export a Change Summary page between cycles
+
+### Accessibility & Presentation
+
+**Story:** As a user with accessibility needs, I need the interface to be usable with assistive technologies and printable.
+
+**Acceptance Criteria:**
+- Add color-blind-safe status palette, keyboard navigation, structured headings, printable Advice Trace Pack
+- **AC:** Trace Pack includes figures + evidence appendix with live links
+
 ### 2.3 Ontology Integration and Open Questions
 
 **Data Product Ontology Integration:**
@@ -151,23 +264,31 @@ This will be an interactive hierarchical tree style graph with progressive discl
 
 ---
 
-## 2b) Global Acceptance Criteria
+## 2d) Global Acceptance Criteria
 
-**A1. Benchmarks:** Each SMU year must include at least one LRP and one USR entity with derivation metadata (method, inputs, time window), version/DOI or commit, and an executable regeneration link (stored query or code pointer).
+**A1. Benchmarks:** Each SMU year must include at least one LRP and one USR entity with derivation metadata (method, inputs, time window), version/DOI or commit, and an executable regeneration link (stored query or code pointer). Benchmarks must display type, value, method, sensitivity flags, and link to method/code provenance.
 
-**A2. Uncertainty:** Status decision must include interval or categorical uncertainty; where estimates are downgraded, the downgrade criterion (from SKOS scheme) is recorded and shown.
+**A2. Uncertainty:** Status decision must include interval or categorical uncertainty; where estimates are downgraded, the downgrade criterion (from SKOS scheme) is recorded and shown. Key estimates must include CI or flagged rationale for absence; status shows P(Green/Amber/Red) or a CI note.
 
-**A3. Policy & Legal Readiness:** "Ready" requires: WSP zone computed and justified; named Harvest Control Rule with parameters and version; Fisheries Act Fish Stocks check (below-LRP flag) and, if true, link to Rebuilding Plan.
+**A3. Policy & Legal Readiness:** "Ready" requires: WSP zone computed and justified; named Harvest Control Rule with parameters and version; Fisheries Act Fish Stocks check (below-LRP flag) and, if true, link to Rebuilding Plan. `belowLRP` = true requires a valid Rebuilding Plan link or shows Missing-Critical.
 
-**A4. Change Log:** Advice Trace Pack must include structured deltas vs. previous FSAR: data, methods, benchmarks, status, advice, rationale.
+**A4. Change Log:** Advice Trace Pack must include structured deltas vs. previous FSAR: data, methods, benchmarks, status, advice, rationale. Lead Author can export a Change Summary page between cycles.
 
-**A5. CU Accounting:** CU list for the SMU must explicitly list included, excluded, and proxied CUs with machine-readable justification; GSI usage (Yes/No), sample sizes, and assignment uncertainty.
+**A5. CU Accounting:** CU list for the SMU must explicitly list included, excluded, and proxied CUs with machine-readable justification; GSI usage (Yes/No), sample sizes, and assignment uncertainty. Any CU ≠ "included" requires justification + reviewer sign-off or it fails validation (flagged Missing-Critical).
 
-**A6. Intake & Validation:** Controlled‑vocab fields are enforced via SKOS; SHACL + R validator must pass all critical checks before a submission becomes "Ready". Validation returns structured errors (severity, row/col, code, fix‑hint). Submission lifecycle is Draft → Validated → Ready → Ingested, with audit events and human approval before ingestion.
+**A6. Intake & Validation:** Controlled‑vocab fields are enforced via SKOS; SHACL + R validator must pass all critical checks before a submission becomes "Ready". Validation returns structured errors (severity, row/col, code, fix‑hint). Submission lifecycle is Draft → Validated → Ready → Ingested, with audit events and human approval before ingestion. Authors resolve all Critical errors locally; validator returns 0 Critical before upload is permitted.
+
+**A7. GSI Risk Assessment:** If stock is mixed-fishery AND `gsiUsed` = false → show risk chip ("No GSI apportionment") and require rationale. GSI usage fields must include `gsiUsed` (bool), `gsiSampleSize` (int), `gsiAssignmentUncertainty` (text/CI or % misID), `baseline_reference`.
+
+**A8. Executive KPIs:** Exec sees coverage and completeness at a glance; Reviewer filters by risk type to accelerate audits. Exec sees a red "Policy trigger" chip whenever an SMU is below LRP and a Rebuilding Plan link is present.
+
+**A9. Lead Author Workflow:** Lead Author can generate a "submission-ready" trace pack with benchmarks, uncertainty notes, proxy decisions, and methods provenance in ≤2 clicks.
+
+**A10. Reviewer Verification:** Reviewer can verify benchmark method & code version; GSI sample size & uncertainty are visible where relevant. From any status tile, user can open drawer and reach all evidence links ≤2 clicks.
 
 ---
 
-## 2c) Architecture Pattern & SPSR (Django) Integration
+## 2e) Architecture Pattern & SPSR (Django) Integration
 
 **Context:** SPSR is a **layered monolith** today (Presentation → Application → Domain → Infrastructure). The Advice Trace should respect that layering, add a thin ontology/graph layer, and keep a clean **contract** between SPSR data and the trace UI.
 
@@ -269,7 +390,14 @@ Browser ──(HTMX)──▶ Django Templates
 - **Evidence Drawer:** Basic provenance display with source, method, code commit, reviewer/date
 - **Document Hierarchy:** FSAR with precursor Research Documents
 - **Export Functionality:** Basic Advice Trace Pack generation
- - **Metadata Intake (Persona C):** Guided wizard to capture required metadata via controlled‑vocab dropdowns; attach `.xlsx`; validate and iterate until Ready.
+- **Metadata Intake (Persona D):** Guided wizard to capture required metadata via controlled‑vocab dropdowns; attach `.xlsx`; validate and iterate until Ready
+- **Benchmark Transparency:** Reference point types, methods, sensitivity flags with derivation evidence
+- **CU Accounting:** Inclusion/exclusion/proxy decisions with justification and reviewer sign-off
+- **GSI Risk Assessment:** Mixed-stock fishery risk chips and GSI usage tracking
+- **Uncertainty Handling:** Status confidence intervals and downgrade reason tracking
+- **Policy Gates:** Below-LRP triggers and rebuilding plan compliance checks
+- **Risk Chips & Completeness Meter:** Visual indicators for coverage and completeness
+- **Accessibility:** Color-blind-safe palette, keyboard navigation, printable trace packs
 
 **Technical Requirements:**
 
@@ -277,7 +405,13 @@ Browser ──(HTMX)──▶ Django Templates
 - **SPARQL Backend:** Core queries for CU-level, SMU-level, Advice-level evidence completeness, with Decision and Legal Framework as sub-queries
 - **JSON-LD Contract:** Standardized data exchange format supporting CU → SMU → Advice → Decision/Legal Framework structure
 - **Basic Validation:** SHACL shapes for status aggregation and evidence completeness
- - **Validation Loop:** SHACL + R validator adapters with normalized error JSON (severity, row/col, code, fix‑hint); submission state machine persisted.
+- **Validation Loop:** SHACL + R validator adapters with normalized error JSON (severity, row/col, code, fix‑hint); submission state machine persisted
+- **Enhanced Error Reporting:** Row/column targeted errors with fix-hints, error severity (Critical/High/Info)
+- **Template System:** Read-only vocab sheets powering data validation dropdowns
+- **Risk Assessment Engine:** Mixed-stock fishery + GSI usage risk chip generation
+- **Policy Compliance Engine:** Below-LRP trigger detection and rebuilding plan validation
+- **Accessibility Features:** Color-blind-safe status palette, keyboard navigation, structured headings
+- **Export Enhancement:** Printable Advice Trace Pack with figures and evidence appendix
 
 ### 3.2 Future Features (Post-MVP)
 
@@ -311,7 +445,7 @@ Ship a versioned JSON-LD bundle with:
 - **dfo:CUAccounting** (included/excluded/proxied CUs with justification)
 - **dfo:GSIUsage** (sample sizes, assignment uncertainty)
 
-**Required Fields Checklist (v0.1)** `data_source_type`, `spawner_origin`, `proxy_justification`, `method_name`, `method_version`, `code_commit`, `reference_point_type`, `benchmark_method`, `benchmark_sensitivity`, `status_value`, `status_ci`, `gsi_sample_size/ci`, `scientific_output_text`, `reviewer`, `date`, `decision_id`, `policy_readiness_flags`, `change_log`.
+**Required Fields Checklist (v0.2)** `data_source_type`, `spawner_origin`, `proxy_justification`, `method_name`, `method_version`, `code_commit`, `reference_point_type`, `benchmark_method`, `benchmark_sensitivity`, `status_value`, `status_ci`, `gsi_sample_size/ci`, `gsiUsed`, `gsiAssignmentUncertainty`, `baseline_reference`, `status_confidence`, `downgradeReason`, `belowLRP`, `rebuildingPlanURL`, `hcrIdentifier`, `hcrParameters`, `scientific_output_text`, `reviewer`, `date`, `decision_id`, `policy_readiness_flags`, `change_log`.
 
 ---
 
@@ -547,6 +681,125 @@ WHERE {
 }
 ```
 
+### Benchmark Transparency Questions
+
+**CQ-BENCH-1: What benchmark types and methods are used for each reference point?**
+```sparql
+SELECT ?rp ?rpType ?benchMethod ?sensitivity ?derivationMethod ?codeCommit
+WHERE {
+  ?smu a dfo:StockManagementUnit ;
+       rdfs:label "Barkley Sockeye"@en ;
+       dfo:hasLimitReferencePoint ?rp .
+  ?rp dfo:reference_point_type ?rpType ;
+      dfo:benchmark_method ?benchMethod ;
+      prov:wasGeneratedBy ?derivationMethod .
+  ?derivationMethod dfo:code_commit ?codeCommit .
+  OPTIONAL { ?rp dfo:benchmark_sensitivity ?sensitivity }
+}
+```
+
+**CQ-BENCH-2: What are the sensitivity flags and derivation evidence for each benchmark?**
+```sparql
+SELECT ?rp ?sensitivity ?inputDataset ?timeWindow ?uncertaintyMethod ?version
+WHERE {
+  ?smu a dfo:StockManagementUnit ;
+       rdfs:label "Barkley Sockeye"@en ;
+       dfo:hasLimitReferencePoint ?rp .
+  ?rp dfo:benchmark_sensitivity ?sensitivity ;
+      prov:used ?inputDataset ;
+      dfo:time_window ?timeWindow ;
+      dfo:uncertainty_method ?uncertaintyMethod ;
+      dfo:version ?version .
+}
+```
+
+### CU Proxy and Risk Questions
+
+**CQ-CU-PROXY-1: Which CUs are proxied and what is the justification?**
+```sparql
+SELECT ?cu ?inclusionStatus ?justification ?reviewer ?reviewDate ?riskLevel
+WHERE {
+  ?smu a dfo:StockManagementUnit ;
+       rdfs:label "Barkley Sockeye"@en ;
+       dfo:hasCUAccounting ?accounting .
+  ?accounting dfo:cuInclusion ?cu ;
+              dfo:inclusionStatus ?inclusionStatus ;
+              dfo:justification ?justification ;
+              dfo:reviewer ?reviewer ;
+              dfo:reviewDate ?reviewDate .
+  BIND(IF(?inclusionStatus != "included", "High", "Low") AS ?riskLevel)
+}
+```
+
+**CQ-GSI-RISK-1: What is the GSI usage and assignment uncertainty for mixed-stock fisheries?**
+```sparql
+SELECT ?smu ?gsiUsed ?sampleSize ?assignmentUncertainty ?baselineReference ?riskChip
+WHERE {
+  ?smu a dfo:StockManagementUnit ;
+       rdfs:label "Barkley Sockeye"@en ;
+       dfo:hasGSIUsage ?gsiUsage ;
+       dfo:fisheryType "mixed-stock" .
+  ?gsiUsage dfo:gsiUsed ?gsiUsed ;
+            dfo:sampleSize ?sampleSize ;
+            dfo:assignmentUncertainty ?assignmentUncertainty ;
+            dfo:baseline_reference ?baselineReference .
+  BIND(IF(?gsiUsed = false, "No GSI apportionment", "GSI Available") AS ?riskChip)
+}
+```
+
+### Uncertainty and Quality Questions
+
+**CQ-UNCERTAINTY-1: What uncertainty measures are available for status assessments?**
+```sparql
+SELECT ?assessment ?statusConfidence ?downgradeReason ?ciLower ?ciUpper ?probabilityGreen ?probabilityAmber ?probabilityRed
+WHERE {
+  ?smu a dfo:StockManagementUnit ;
+       rdfs:label "Barkley Sockeye"@en ;
+       dfo:hasStatusAssessment ?assessment .
+  ?assessment dfo:status_confidence ?statusConfidence .
+  OPTIONAL { ?assessment dfo:downgradeReason ?downgradeReason }
+  OPTIONAL { ?assessment dfo:ciLower ?ciLower ; dfo:ciUpper ?ciUpper }
+  OPTIONAL { 
+    ?assessment dfo:probabilityGreen ?probabilityGreen ;
+                dfo:probabilityAmber ?probabilityAmber ;
+                dfo:probabilityRed ?probabilityRed
+  }
+}
+```
+
+**CQ-UNCERTAINTY-2: Which estimates are missing confidence intervals or have downgrade reasons?**
+```sparql
+SELECT ?estimate ?estimateType ?missingCI ?downgradeReason ?qualityFlag
+WHERE {
+  ?smu a dfo:StockManagementUnit ;
+       rdfs:label "Barkley Sockeye"@en ;
+       dfo:hasStatusAssessment ?assessment .
+  ?assessment prov:used ?estimate .
+  ?estimate dfo:estimate_type ?estimateType .
+  BIND(NOT EXISTS { ?estimate dfo:confidenceInterval ?ci } AS ?missingCI)
+  OPTIONAL { ?estimate dfo:downgradeReason ?downgradeReason }
+  BIND(IF(?missingCI = true || BOUND(?downgradeReason), "Quality Concern", "Good") AS ?qualityFlag)
+}
+```
+
+### Policy and Legal Compliance Questions
+
+**CQ-POLICY-1: What policy triggers and legal requirements apply to this SMU?**
+```sparql
+SELECT ?smu ?belowLRP ?rebuildingPlanURL ?hcrIdentifier ?hcrParameters ?policyTrigger ?complianceStatus
+WHERE {
+  ?smu a dfo:StockManagementUnit ;
+       rdfs:label "Barkley Sockeye"@en ;
+       dfo:hasPolicyReadiness ?policy .
+  ?policy dfo:belowLRP ?belowLRP ;
+          dfo:hcrIdentifier ?hcrIdentifier ;
+          dfo:hcrParameters ?hcrParameters .
+  OPTIONAL { ?policy dfo:rebuildingPlanURL ?rebuildingPlanURL }
+  BIND(IF(?belowLRP = true && BOUND(?rebuildingPlanURL), "Compliant", "Policy Trigger") AS ?policyTrigger)
+  BIND(IF(?belowLRP = true && !BOUND(?rebuildingPlanURL), "Missing-Critical", "Ready") AS ?complianceStatus)
+}
+```
+
 ### Cross-Cutting Questions
 
 **CQ-TRACE-1: What is the complete evidence chain from CU data to management decision?**
@@ -571,7 +824,7 @@ WHERE {
 }
 ```
 
-**Required Fields Checklist (v0.1)** `data_source_type`, `spawner_origin`, `proxy_justification`, `method_name`, `method_version`, `code_commit`, `reference_point_type`, `benchmark_method`, `benchmark_sensitivity`, `status_value`, `status_ci`, `gsi_sample_size/ci`, `scientific_output_text`, `reviewer`, `date`, `decision_id`.
+**Required Fields Checklist (v0.2)** `data_source_type`, `spawner_origin`, `proxy_justification`, `method_name`, `method_version`, `code_commit`, `reference_point_type`, `benchmark_method`, `benchmark_sensitivity`, `status_value`, `status_ci`, `gsi_sample_size/ci`, `gsiUsed`, `gsiAssignmentUncertainty`, `baseline_reference`, `status_confidence`, `downgradeReason`, `belowLRP`, `rebuildingPlanURL`, `hcrIdentifier`, `hcrParameters`, `scientific_output_text`, `reviewer`, `date`, `decision_id`, `policy_readiness_flags`, `change_log`.
 
 ---
 
@@ -741,17 +994,14 @@ Your current SPSR tables already include LRP/USR/TR fields and rich age/harvest 
 
 **Critical (do now):**
 
-- **Add Benchmarks table** (or JSON field) with: `type` {LRP, USR, TR}, `value`, `units`, `method_ref`, `inputs_ref`, `time_window`, `uncertainty`, `version`, `derived_on`, `derived_by`
-- **Add StatusAssessment fieldset** per SMU-year: `status_zone`, `decision_basis` (link to benchmark ids), `uncertainty_summary`, `downgrade_reason?`, `reviewer`, `date`
-- **Add PolicyReadiness flags**: `below_lrp` (bool), `hcr_id`, `hcr_params`, `rebuilding_plan_url`
+- **Add Benchmarks table** (or JSON field) with: `type` {LRP, USR, TR}, `value`, `units`, `method_ref`, `inputs_ref`, `time_window`, `uncertainty`, `version`, `derived_on`, `derived_by`, `reference_point_type` (controlled vocab), `benchmark_method` (controlled vocab), `benchmark_sensitivity` (flags)
+- **Add StatusAssessment fieldset** per SMU-year: `status_zone`, `decision_basis` (link to benchmark ids), `uncertainty_summary`, `downgrade_reason?`, `reviewer`, `date`, `status_confidence` (probabilities/CI), `ciLower`, `ciUpper`, `probabilityGreen`, `probabilityAmber`, `probabilityRed`
+- **Add PolicyReadiness flags**: `below_lrp` (bool), `hcr_id`, `hcr_params`, `rebuilding_plan_url`, `hcrIdentifier`, `hcrParameters`
 - **Add Submission entities** (for intake):
   - `Submission`: `id`, `smu`, `year`, `user_id`, `state` {Draft|Validated|Ready|Ingested}, `provenance_minimum` fields (`method`, `version`, `code_commit`, `reviewer`, `date`), `created_at`, `updated_at`
   - `ValidationRun`: `submission_id`, `tool` {SHACL|R}, `version`, `timestamp`, `passed` (bool), `error_json`
-
-**High (soon):**
-
-- **Add InclusionLog** for CU list: `cu_id`, `{included|excluded|proxied}`, `justification`, `reviewer`, `date`
-- **Add GSIUsage fields**: `used` (bool), `sample_size`, `assignment_uncertainty`
+- **Add CU inclusion/proxy table** with fields: `cu_id`, `decision` (included/excluded/proxied), `justification`, `reviewer`, `review_date`
+- **Add GSI usage fields**: `gsiUsed` (bool), `gsiSampleSize` (int), `gsiAssignmentUncertainty` (text/CI or % misID), `baseline_reference`, `fisheryType` (mixed-stock/single-stock)
 
 **Medium:**
 
@@ -759,12 +1009,15 @@ Your current SPSR tables already include LRP/USR/TR fields and rich age/harvest 
 
 **Validator & Data Model Alignment:**
 
-- **Add/ensure fields:** `benchmark_method`, `reference_point_type`, `proxy_justification`, `code_commit`, `reviewer`, `date`, `gsi_sample_size`, `gsi_ci`
-- **SHACL shapes:** required vs optional by decision context; friendly messages
+- **Add/ensure fields:** `benchmark_method`, `reference_point_type`, `proxy_justification`, `code_commit`, `reviewer`, `date`, `gsi_sample_size`, `gsi_ci`, `gsiUsed`, `gsiAssignmentUncertainty`, `baseline_reference`, `status_confidence`, `downgradeReason`, `belowLRP`, `rebuildingPlanURL`, `hcrIdentifier`, `hcrParameters`
+- **SHACL shapes:** required vs optional by decision context; friendly messages; error severity (Critical/High/Info)
 - **R validator:** fail‑fast CLI (non‑zero on error), row/col pinpoint, fix‑hints mapping
 - **GRD join:** prefer `Run_ID + Sample_ID` (optional `Assay_ID`) for Barkley
 - **Error JSON contract:** Normalize validator output keys: `severity`, `code`, `message`, `row`, `column`, `file`, `hint`.
 - **Permissions & gating:** Only whitelisted users (Django auth/email list) can submit; human review required before ingestion.
+- **Template tabs:** Read-only vocab sheets (RP types, methods, status zones) powering data validation dropdowns
+- **Risk assessment:** Mixed-stock fishery + `gsiUsed` = false → show risk chip and require rationale
+- **Policy compliance:** `belowLRP` = true requires valid Rebuilding Plan link or shows Missing-Critical
 
 These are small additive tables/columns that unlock everything above without refactoring your time-series or age structures.
 
