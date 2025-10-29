@@ -19,6 +19,17 @@ We will strictly separate schema and data:
 3. **Versioning**: Schema and data can have different versioning cycles
 4. **Interoperability**: Other systems can import just the schema
 
+## Alternatives Considered
+
+1. **Mixed Schema and Data**: Including instance data directly in the ontology file
+   - **Rejected**: Would create versioning conflicts, make the ontology file large and unwieldy, and reduce reusability
+   
+2. **Data-Only Approach**: Creating separate ontology files for each dataset
+   - **Rejected**: Would lead to schema duplication and inconsistency across datasets
+   
+3. **Embedded Examples**: Including extensive example data within the schema file
+   - **Rejected**: Would blur the line between schema and data, making it harder to identify the core ontology structure
+
 ## Consequences
 
 **Positive:**

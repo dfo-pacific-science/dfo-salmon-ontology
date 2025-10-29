@@ -68,7 +68,7 @@ This repository follows the [AGENTS.md](AGENTS.md) directory layout for ontology
 
 - **One file**: `dfo-salmon.ttl` (OWL/Turtle)
 - **Hybrid approach**: OWL for formal relationships, SKOS for controlled vocabularies
-- **Darwin Core aligned**: Uses DwC classes as top-level framework for interoperability
+- **Darwin Core aligned**: Uses DwC classes as top-level framework for interoperability; **implements Darwin Core Conceptual Model (DwC-CM) patterns**
 - **OBO Foundry principles**: Open, interoperable, logically well-formed, scientifically accurate
 - **Pragmatic imports**: MIREOT for BFO/IAO/DQV (~12 terms); prefix-only for PROV-O/RO/SKOS
 - **Upper ontology**: BFO grounding for process/entity hierarchy
@@ -105,6 +105,8 @@ This repository follows the [AGENTS.md](AGENTS.md) directory layout for ontology
 - **Test with data**: Validate terms with sample data and SPARQL queries
 
 **For detailed modeling conventions, see [DFO Salmon Ontology Conventions Guide](docs/CONVENTIONS.md).**
+
+**For Darwin Core Conceptual Model (DwC-CM) implementation guidance, see [Conventions Guide - DwC-CM Section](docs/CONVENTIONS.md#44-darwin-core-conceptual-model-dwc-cm-alignment).**
 
 **For agent-specific development guidelines, see [AGENTS.md](AGENTS.md).**
 
@@ -158,6 +160,7 @@ This repository follows the [AGENTS.md](AGENTS.md) directory layout for ontology
 - Implement advanced measurement types
 - External vocabulary integration
 - Quality control patterns
+- **Darwin Core Conceptual Model (DwC-CM) implementation** ✅
 
 ### Phase 3: Integration
 - NCEAS Salmon Ontology alignment

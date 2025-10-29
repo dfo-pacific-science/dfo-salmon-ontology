@@ -84,3 +84,5 @@ MCP_POLICY.md
 MEMORY_POLICY.md
 docs/bretts-notes.md
 .Rhistory
+
+agent-config/*

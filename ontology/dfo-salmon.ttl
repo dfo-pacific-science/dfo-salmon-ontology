@@ -12,6 +12,7 @@
 @prefix dwciri:  <http://rs.tdwg.org/dwc/iri/> .
 @prefix unit:    <http://qudt.org/vocab/unit/> .
 @prefix qudt:    <http://qudt.org/schema/qudt/> .
+@prefix qudtunit: <http://qudt.org/vocab/unit/> .
 @prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
 @prefix oboInOwl: <http://www.geneontology.org/formats/oboInOwl#> .
 @prefix :        <https://w3id.org/dfo/salmon#> .
@@ -20,6 +21,14 @@
 # Ontology header
 # NOTE: Keep IRIs stable; evolve labels/comments over time.
 # TODO(Release): Update dcterms:modified and owl:versionInfo/IRI on each release.
+#
+# DARWIN CORE CONCEPTUAL MODEL (DwC-CM) IMPLEMENTATION:
+# This ontology implements the Darwin Core Conceptual Model (DwC-CM) patterns:
+# - Uses dwc:Assertion for measurement classes (replacing dwc:MeasurementOrFact)
+# - Uses dwc:Occurrence for individual organism observations (when applicable)
+# - Aligns property domains/ranges with DwC-CM constraints
+# - Ensures DwC Data Package (DwC-DP) compatibility for data sharing
+# See docs/CONVENTIONS.md for detailed DwC-CM implementation guidance.
 #################################################################
 
 <https://w3id.org/dfo/salmon> a owl:Ontology ;
@@ -229,6 +238,8 @@ dwc:Media rdfs:subClassOf bfo:0000040 .  # material entity (physical media)
 # Processes (BFO grounding)
 dwc:Event rdfs:subClassOf bfo:0000015 .  # process
 dwc:Occurrence rdfs:subClassOf bfo:0000015 .  # process (organism in event)
+# NOTE: DwC-CM defines dwc:Occurrence as "a state of an Organism in an Event"
+# Use for individual organism observations (e.g., genetic sampling data)
 dwc:Identification rdfs:subClassOf bfo:0000015 .  # process (act of identifying)
 
 # Information entities (IAO extends BFO; iao:0000030 is subclass of bfo:0000031)
@@ -253,6 +264,31 @@ bfo:0000031 a owl:Class ;
   rdfs:label "generically dependent continuant"@en ;
   oboInOwl:hasDefinition "A continuant that is dependent on one or more independent continuants and whose instances can be multiply instantiated."@en ;
   rdfs:isDefinedBy <http://purl.obolibrary.org/obo/bfo.owl> .
+
+#################################################################
+# Information Artifact Ontology (IAO) - MIREOT Import
+# Information entities for documents, datasets, and measurements
+#################################################################
+
+iao:0000109 a owl:Class ;
+  rdfs:label "measurement datum"@en ;
+  oboInOwl:hasDefinition "A data item that is a measurement datum."@en ;
+  rdfs:isDefinedBy <http://purl.obolibrary.org/obo/iao.owl> .
+
+iao:0000032 a owl:Class ;
+  rdfs:label "value specification"@en ;
+  oboInOwl:hasDefinition "A specification that consists of a value specification."@en ;
+  rdfs:isDefinedBy <http://purl.obolibrary.org/obo/iao.owl> .
+
+iao:0000030 a owl:Class ;
+  rdfs:label "information content entity"@en ;
+  oboInOwl:hasDefinition "An information content entity is an entity that is generically dependent on some material entity and stands in a relation of aboutness to some entity."@en ;
+  rdfs:isDefinedBy <http://purl.obolibrary.org/obo/iao.owl> .
+
+iao:0000643 a owl:Class ;
+  rdfs:label "directive information entity"@en ;
+  oboInOwl:hasDefinition "A directive information entity is an information content entity that is about a process."@en ;
+  rdfs:isDefinedBy <http://purl.obolibrary.org/obo/iao.owl> .
 
 #################################################################
 # Base superclasses
@@ -301,7 +337,7 @@ dfo:Catch a owl:Class ;
   rdfs:comment "The number of adult fishes that are caught in commercial, recreational, and First Nations fisheries."@en ;
   dcterms:bibliographicCitation "Pacific Salmon Foundation. (2025). Methods for Assessing Status and Trends in Pacific Salmon Conservation Units and their Freshwater Habitats. The Pacific Salmon Foundation, Vancouver BC, Canada. Version 13. Available at https://salmonwatersheds.ca/document/lib_475/ [Accessed 09-10-2025]."@en ;  
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;
-  rdfs:subClassOf dwc:MeasurementOrFact , iao:0000109.
+  rdfs:subClassOf dwc:Assertion , iao:0000109.
 
 dfo:COSEWIC a owl:Class ;
   rdfs:label "COSEWIC"@en ;
@@ -439,7 +475,7 @@ dfo:Escapement a owl:Class ;
 dfo:EscapementMeasurement a owl:Class ;
   rdfs:label "Escapement measurement"@en ;
   rdfs:comment "A measurement or estimate of escapement tied to a stock and a survey event."@en ;
-  rdfs:subClassOf dwc:MeasurementOrFact , iao:0000109 ;
+  rdfs:subClassOf dwc:Assertion , iao:0000109 ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;
   oboInOwl:hasRelatedSynonym "Salmon escapement count"@en ;
   oboInOwl:hasDbXref odo:SALMON_00000479 .
@@ -919,7 +955,7 @@ dfo:GSIRun a owl:Class ;
 dfo:GSICompositionMeasurement a owl:Class ;
   rdfs:label "GSI Composition Measurement"@en ;
   rdfs:comment "Estimated proportion of individuals assigned to a reporting unit in a GSI run."@en ;
-  rdfs:subClassOf dwc:MeasurementOrFact ;
+  rdfs:subClassOf dwc:Assertion ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
 dfo:ReportingUnit a owl:Class ;
@@ -1115,19 +1151,6 @@ dfo:hasBiologicalStatusZone a owl:ObjectProperty ;
 # owl:AllDisjointClasses [ owl:members ( dfo:ManagementUnit dfo:ConservationUnit dfo:Stock ) ] .
 #################################################################
 
-#################################################################
-# Deprecation (clarify membership naming)
-#################################################################
-
-# Previously: Stock→CU as hasConservationUnit. Keep for back-compat but prefer isMemberOfCU.
-dfo:hasConservationUnit a owl:ObjectProperty ;
-  owl:deprecated "true"^^xsd:boolean ;
-  rdfs:label "has conservation unit (deprecated; use isMemberOfCU)"@en ;
-  rdfs:comment "Deprecated alias for Stock→CU membership. Use dfo:isMemberOfCU instead for clarity."@en ;
-  rdfs:domain dfo:Stock ;
-  rdfs:range  dfo:ConservationUnit ;
-  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;
-  owl:equivalentProperty dfo:isMemberOfCU .
 
 #################################################################
 # Object properties (measurement & genetics)
@@ -1181,7 +1204,7 @@ dfo:downgradeCriteriaMet a owl:ObjectProperty ;
   rdfs:label "downgrade criteria met"@en ;
   rdfs:comment "Downgrade criteria that apply to a survey event when thresholds are not met."@en ;
   rdfs:domain dfo:EscapementSurveyEvent ;
-  rdfs:range :DowngradeCriteriaScheme ;
+  rdfs:range skos:Concept ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
 dfo:hasIndicator a owl:ObjectProperty ;
@@ -1333,13 +1356,39 @@ dfo:countValue a owl:DatatypeProperty ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
   # DISCUSS(Units): For non-integer estimates, allow decimal? If yes, add a separate estimateValue (xsd:decimal).
 
+#################################################################
+# Unit Property Enhancement (Hybrid Approach)
+# Provides both datatype and object property approaches for maximum flexibility
+#################################################################
+
+# Datatype approach: Store QUDT IRIs as literals for pragmatic storage and mapping
+# Object property approach: Link to QUDT Unit classes for semantic reasoning and validation
+# 
+# Usage examples:
+# :EscapementCount2022 a :EscapementMeasurement ;
+#     :countUnitIRI "http://qudt.org/vocab/unit/Each"^^xsd:anyURI ;  # Datatype approach
+#     :hasUnit qudtunit:Each .                                       # Object property approach
+#
+# Benefits:
+# - Datatype approach: Pragmatic storage, easy mapping, backward compatibility
+# - Object property approach: Enables unit reasoning, validation, conversion
+# - Hybrid approach: Maximum flexibility for different use cases
+
 dfo:countUnitIRI a owl:DatatypeProperty ;
   rdfs:label "count unit IRI"@en ;
   rdfs:comment "Unit IRI for the count/estimate (e.g., http://qudt.org/vocab/unit/Each)."@en ;
   rdfs:domain dfo:EscapementMeasurement ;
   rdfs:range xsd:anyURI ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
-  # DECIDE(Units): Standardize unit IRIs for counts (likely unit:Each). Document in README.
+  # IMPLEMENTED: Hybrid approach with both datatype and object properties for maximum flexibility
+
+dfo:hasUnit a owl:ObjectProperty ;
+  rdfs:label "has unit"@en ;
+  rdfs:comment "Links a measurement to a unit (e.g., QUDT Unit) for semantic reasoning and validation."@en ;
+  rdfs:domain dfo:EscapementMeasurement ;
+  rdfs:range qudt:Unit ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+  # Enhanced approach: Enables unit reasoning and validation
 
 dfo:region a owl:DatatypeProperty ;
   rdfs:label "region"@en ;
@@ -1365,7 +1414,15 @@ dfo:estimateUnitIRI a owl:DatatypeProperty ;
   rdfs:domain dfo:GSICompositionMeasurement ;
   rdfs:range xsd:anyURI ;
   rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
-  # TODO(QA): Add README table with approved unit IRIs and when to use each.
+  # IMPLEMENTED: Hybrid approach with both datatype and object properties for maximum flexibility
+
+dfo:hasEstimateUnit a owl:ObjectProperty ;
+  rdfs:label "has estimate unit"@en ;
+  rdfs:comment "Links a GSI composition measurement to its unit (e.g., QUDT Unit) for semantic reasoning."@en ;
+  rdfs:domain dfo:GSICompositionMeasurement ;
+  rdfs:range qudt:Unit ;
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+  # Enhanced approach: Enables unit reasoning for GSI measurements
 
 dfo:standardError a owl:DatatypeProperty ;
   rdfs:label "standard error"@en ;

@@ -1,6 +1,6 @@
 # Advice Trace Demo — UX & Interface Spec (FSAR Hero)
 
-**Goal:** For one SMU, show a transparent, reproducible chain: **data used → method → benchmarks/reference points → status → advice text → decision context**. Optimized for managers (clarity) and analysts (evidence).
+**Goal:** For one SMU, show a transparent, reproducible chain: **CU statuses → SMU aggregation → scientific advice → management decision → legal framework**. Optimized for managers (clarity) and analysts (evidence) with progressive disclosure starting from CU-level detail to high-level SMU aggregation and advice flow.
 
 ---
 
@@ -8,21 +8,43 @@
 
 ### Persona A — Executives / Directors / Branch & Division Managers
 
-- **Goal:** Rapid assurance that the **evidence underpinning advice** is defensible and current; see key risks and **data currency** (last‑updated/version pins). Also see coverage (how many SMUs have FSARs; proportion in zones).
-- **Stories:** Select **SMU + Year** → see an **Evidence Completeness** gauge and **Data Currency** panel; **download Advice Trace Pack** for briefing/audit.
-- **Acceptance:** **Evidence Completeness** reports _Complete_ when all required evidence for the chosen decision context exists; _Gaps_ lists missing optional items; _Missing‑Critical_ lists missing required items. **Data Currency** shows last‑updated timestamps and version pins for **Datasets/Methods/Ref Points/Status/Advice**. **Export** downloads the pack (trace.jsonld, evidence, figures, queries, PROV) with valid hashes/versions.
+- **Goal:** Rapid assurance that the **evidence underpinning advice** is defensible, current, and **policy-ready**. Need to answer "Are we policy-ready and defensible today?" and "What changed since the last FSAR?"
+- **Stories:** Select **SMU + Year** → see **Policy & Legal Readiness** panel with hard gates; **Evidence Completeness** gauge; **Delta since last FSAR** summary; **download Advice Trace Pack** for briefing/audit.
+- **Acceptance:** **Policy & Legal Readiness** panel (hard gate on "Ready"):
+  - WSP status zone for the SMU (with explicit mapping to LRP/USR and how assessed this cycle)
+  - Precautionary Approach compliance: harvest control rule named + parameterized, with source & version
+  - Fisheries Act Fish Stocks provisions: below-LRP indicator (Yes/No), if Yes → Rebuilding Plan link + plan version/date
+  - **Evidence Completeness** reports _Ready_ when all required evidence + policy gates pass; _Partial_ when optional items missing; _Blocked_ when required items missing
+  - **Delta since last FSAR** (mandatory in Advice Trace Pack and on screen): Changed benchmarks, methods/code versions, data additions/removals, status zone, advice/rationale
+  - **Export** downloads the pack with structured deltas vs. previous FSAR
 
-### Persona B — Stock Assessment Biologist / FSAR Reviewer
+### Persona B — Stock Assessment Biologist / FSAR Lead Author / FSAR Reviewer
 
-- **Goal:** Verify methods, benchmarks, reproducibility; confirm uncertainty handling.
-- **Stories:** Open **Method** → view parameters + **exact code commit/tag**; inspect **Reference Points** (type/value/derivation + **benchmark method**); toggle **Uncertainty overlay** to confirm GSI/CI presence and propagation.
-- **Acceptance:** **Method** shows name/version/parameters + link to exact commit/tag used by figures/status. **Reference Points** include type/value/derivation + benchmark method; sensitivity flagged. **Uncertainty overlay** badges missing **GSI**, **sample sizes**, or **status CIs**; click reveals missing fields.
+- **Goal:** Verify methods, benchmarks, reproducibility; confirm uncertainty handling and scientific rigor.
+- **Stories:** Open **Method** → view parameters for both analytical and field methods (including field method downgrade criteria and Estimate Type Classification for specific SENs) + **exact code commit/tag/or dataset DOI**; inspect **Benchmarks** as first-class entities with derivation evidence; toggle **Uncertainty overlay** to confirm GSI/CI presence and propagation; review **CU inclusion/exclusion** transparency.
+- **Acceptance:** **Method** shows name/protocol/version/parameters + link to exact commit/tag/DOI used by figures/status. **Benchmarks** as explicit entities (dfo:LowerBenchmark, dfo:UpperBenchmark, dfo:TargetReference) with:
+  - Derivation method, input dataset(s), time window, uncertainty method, and version/date
+  - Back-calculable query (stored SPARQL and/or R script call) to regenerate the estimate
+  - **Reference Points** include type/value/derivation + benchmark method; sensitivity flagged
+  - **Uncertainty overlay** badges missing **GSI**, **sample sizes**, or **status CIs**; click reveals missing fields
+  - **CU Accounting**: CU list for the SMU explicitly lists included, excluded, and proxied CUs with machine-readable justification; GSI usage (Yes/No), sample sizes, and assignment uncertainty
+  - **Downgrade Criteria**: Display downgrade criteria (from SKOS scheme) and make violations/assumptions visible
 
-### Persona C — Data Steward / Analyst
+### Persona C — Data Steward / FSAR Analyst Co-author
 
-- **Goal:** Meet standards (terms, provenance, uncertainty); fail fast; ship FSAR sections quickly.
-- **Stories:** Use **Excel template + R validator + SHACL** to validate with fix hints; enter terms via **controlled‑vocab dropdowns**; open **Evidence Drawer** to verify provenance minimum.
-- **Acceptance:** **Validator** returns non‑zero on violations with row/column + fix hint; passes after correction. **Controlled‑vocab** fields (`spawner_origin`, `data_source_type`, `reference_point_type`) enforce dropdowns; off‑list rejected with message. **Evidence** shows `data_source`, `method`, `code_version/hash`, `reviewer`, `date`; missing items block **Ready**.
+- **Goal:** Ensure data standards are met (terms, provenance, data quality, uncertainty); fail fast; identify missing metadata or poor data stewardship practices to help support FSAR authors meet best practices. Ship FSARs quickly. Upload draft data to check for compliance, completeness etc.
+- **Stories:**
+  - Start a new submission via a **Metadata Intake wizard**: select SMU + Year, fill required metadata using **controlled‑vocab dropdowns** sourced from SKOS, attach Excel/CSV.
+  - Click **Validate** to run SHACL + R validator; see inline errors (row/column, severity, code, fix‑hint); correct and re‑validate until state = **Ready**.
+  - Save/resume drafts; download a tailored **Excel template** for the selected scope (Population, CU, SMU, Indicator Stock, PFMA) pre‑filled with valid enumerations.
+  - Open **Evidence Drawer** for provenance minimum and submission audit (who/when, validator versions).
+- **Acceptance:**
+  - **Validator gating:** "Ready" is blocked unless all required metadata are present: method registry term + version, benchmark derivation record, data coverage window, unit + scale, provenance (PROV-O), and person‑time stamps (who/when).
+  - **Error contract:** Validation returns structured errors with severity (critical/optional), row/column/file, error code, message, and fix‑hint; non‑zero on critical errors; zero only when Ready.
+  - **Controlled‑vocab** enforcement for `spawner_origin`, `data_source_type`, `reference_point_type`, `downgrade_criterion` via SKOS schemes in `graph:vocab`; off‑list values rejected with friendly messages.
+  - **Provenance minimum** is visible at the top of the submission and in the Evidence Drawer: `data_source`, `method`, `code_version/hash`, `reviewer`, `date`.
+  - **Schema alignment**: SPSR fields align with validator and FSAR reporting (explicit LRP/USR/TR records, status decision + rationale, CI fields).
+  - **Submission lifecycle:** Draft → Validated → Ready → Ingested, with audit events (who/when/tool versions). Human review and approval required before ingestion.
 
 ## 2) UI/UX Inspiration
 
@@ -30,28 +52,85 @@
 
 ### 2.1 Visual Flow
 
-- **Header bar:** SMU + Year picker (Barkley Sockeye • 2025), Decision Context (e.g., TAC/HCR), **Documents** (FSAR / Tech Report / Research Document), Export.
-  - **Documents quick links:** buttons to open/download the current cycle’s **FSAR PDF** and any **Technical Reports/Research Documents** (new tab). If multiple docs exist, a dropdown lists title • doc number • year.
-- **Advice Trace timeline (left‑to‑right):** Six clickable nodes — **Data → Method → Reference Points → Status → Advice → Decision Context**.
-  - Each node shows a title, short subtitle (e.g., _SR benchmark_), and an **Evidence badge** with small **risk chips** (_Proxy w/out justification_, _Missing CI_, _Sensitivity flagged_).
-  - **Evidence badge states:** **Complete / Gaps / Missing‑Critical** (note: this reflects _evidence presence/quality_, not FSAR approval). Optionally show a **Review Stage** tag if the FSAR workflow exists (e.g., _Not started / In review / Approved_).
-  - **Hover**: quick tooltip with 1–2 key facts (e.g., _Sgen=14.2k; SR method; prior=Ricker_).
-  - **Click**: opens the right‑hand **Evidence Drawer** anchored to that node.
-- **Evidence Drawer (right slide‑over):** Tabs **Overview • Inputs • Methods • Benchmarks • Quality • Documents • Currency**. Always shows **provenance minimum** (source, method, code commit, reviewer/date) at the top.
-  - **Documents tab:** Lists linked artifacts with icon, title, doc number, year, size; actions: **Open**, **Download**, **Copy citation**.
-- **Export button:** Packages the **Advice Trace Pack** (_figures/_.png, summary pdf of advice trace node metadata (risks, status, relevant advice reports/documents in pdfs from DFO catalogue). Includes a **/docs/** subfolder with cached PDFs if allowed and an optional /data/ folder if toggled.
+- **Header bar:** SMU + Year picker (Barkley Sockeye • 2025), Export.
+- **Advice Trace Flow (hierarchical multi-branch tree, left-to-right with progressive disclosure):**
+  
+  **Level 0 (Initial View):**
+  ```
+  [CU₁] ┐
+  [CU₂] ├─→ [SMU] → [Advice]
+  [CU₃] ┘
+  ```
+  - **CU nodes**: Each shows CU name, status zone (color-coded: Red/Amber/Green), Evidence badge
+  - **SMU node**: Shows SMU name, year, aggregated status zone (color-coded: Red/Amber/Green), Evidence badge
+  - **Advice node**: Shows FSAR title, year, Evidence badge, Documents quick links (FSAR/Research/Tech Report)  
 
-This will be an interactive network graph/horizontal stepper (timeline) with clickable nodes. If we need richer relationships later (e.g., multiple datasets feeding multiple methods), we can add a **node‑link view** (toggle) using Cytoscape.js or D3. MVP keeps it simple.
+  **Level 1 (Click SMU - Reveals SMU Details):**
+  ```
+  [CU₁] ┐
+  [CU₂] ├─→ [SMU + Methods/Benchmarks] → [Advice]
+  [CU₃] ┘
+  ```
+  - **SMU expanded**: Shows aggregation methods, LRP calculation, USR, status derivation
+  - **Status color rule**: SMU color = worst-case of CU colors (any Red → Red; else any Amber → Amber; else Green)
+  
+  **Level 2 (Click CU - Reveals CU Details):**
+  ```
+  [CU₁ + Data/Methods/Benchmarks] → [SMU] → [Advice]
+  ```
+  - **CU expanded**: Shows:
+    - Data sources (escapement measurements, GSI, proxies with justifications)
+    - Methods (enumeration methods, estimate methods, code commits/DOIs)
+    - Benchmarks (Lower Benchmark, Upper Benchmark with derivation methods)
+    - Quality indicators (estimate type, downgrade criteria, uncertainty measures)
+  
+  **Level 2 (Click Advice - Reveals Documents and Decisions):**
+  ```
+  [CU₁] ┐
+  [CU₂] ├─→ [SMU] → [Advice + FSAR/Research Docs] → [Management Decision] → [Legal Framework]
+  [CU₃] ┘
+  ```
+  - **Advice expanded**: Shows:
+    - Documents quick links (FSAR/Research/Tech Report buttons)
+    - FSAR document (title, doc number, year, DOI, download link)
+    - Research Documents (precursors, with titles, doc numbers, DOIs)
+    - Technical Reports
+    - Advice text, reviewer, review date, version
+    - **Management Decision sub-node**: Shows decision type, date, decision maker (branch or division), rationale, supporting advice
+    - **Legal Framework sub-node**: Shows framework name, relevant sections, requirements, compliance status
+
+- **Evidence Drawer (right slide‑over):** Tabs **Data • Methods • Benchmarks • Uncertainty • Policy/Legal • Changes**. Always shows **provenance minimum** (source, method, code commit, reviewer/date) at the top.
+  - **Data tab:** Input datasets, data sources, coverage windows, units/scales, QC status
+  - **Methods tab:** Method registry terms, versions, parameters, code commits/DOIs, reproducibility links
+  - **Benchmarks tab:** LRP/USR/TR entities with derivation evidence, uncertainty methods, regeneration queries
+  - **Uncertainty tab:** Status intervals, GSI sample sizes, assignment uncertainty, downgrade criteria
+  - **Policy/Legal tab:** WSP zone mapping, HCR parameters, Fisheries Act triggers, rebuilding plan links
+  - **Changes tab:** Delta vs. last FSAR (data, methods, benchmarks, status, advice, rationale)
+  - **Documents tab:** Lists linked artifacts with icon, title, doc number, year, size; actions: **Open**, **Download**, **Copy citation**.
+- **Top ribbon:** Readiness pill (Ready / Partial / Blocked) + "Why not Ready?" popover with specific missing items
+- **Always show:** Last FSAR vs This Cycle mini-diff
+- **Export button:** Packages the **Advice Trace Pack** (versioned JSON-LD bundle with structured deltas vs. previous FSAR, figures, summary pdf of advice trace node metadata). Includes a **/docs/** subfolder with cached PDFs if allowed and an optional /data/ folder if toggled.
+
+This will be an interactive hierarchical tree style graph with progressive disclosure. The initial view shows all CUs for the selected SMU flowing to the SMU and then to Advice, with Management Decision and Legal Framework appearing as sub-nodes when Advice is expanded. Clicking any node reveals additional nodes and specific details in the Evidence Drawer. We need rich relationships (e.g., multiple datasets feeding multiple methods) and should use a **node‑link view** with a toggle for specific profiles for Biologist/Scientist, Data Steward/Custodian, and Executive/Director which shows different levels of details depending on their persona. Use Cytoscape.js or D3 or other custom javascript as needed.
 
 ### 2.2 Purpose of UI Elements
 
-- **Evidence badges (replacement for “readiness”):** Summarize **evidence presence/quality** for the decision context at each node:\
+- **Evidence badges:** Summarize **evidence presence/quality** for the decision context at each node:\
   **Complete** = all required evidence present; **Gaps** = optional elements missing; **Missing‑Critical** = required evidence missing. These roll up SHACL/validator results and CQ checks. _(Does not imply review approval.)_
 - **Risk chips:** Compact flags tied to specific CQs (e.g., _proxy justification missing_, _no status CI_). Clicking a chip focuses the Drawer on the missing field(s).
 - **Evidence Drawer:** The audit lens—shows the _who/what/when/how_ for the selected node: datasets, parameters, reference‑point derivations, code commit, reviewer/date, and links to figures or repos.
 - **Documents:** Surface authoritative downloads (FSAR, Technical Reports, Research Documents). Each item shows **doc type**, **title**, **doc number/identifier**, **issued date**, **version**, **size**, and a **canonical URL/DOI**; if internal, use a **pre‑signed URL**. A small badge indicates **Public** or **Internal**.
 - **Currency tab:** Shows last‑updated and version pins per component; highlights stale items with thresholds (e.g., >12 months).
 - **Drill‑down:** From Drawer items (e.g., a dataset row, code commit, or document), jump to the source in SPSR (record view), GRD (run/sample), CSAS/DFO publications page, or GitHub (exact commit/tag) or Zenodo Release. Breadcrumbs let you pop back to the node.
+
+### 2.4 Metadata Intake (Data Steward Mode)
+
+- **Header (Intake mode):** "Start New Submission" with SMU + Year selectors.
+- **Step 1 — Metadata form:** Controlled‑vocab dropdowns for `spawner_origin`, `data_source_type`, `reference_point_type`, `downgrade_criterion` (SKOS in `graph:vocab`); provenance minimum fields pinned.
+- **Step 2 — Attach files:** Upload `.xlsx` (current accepted format). Parse Metadata tab first; show a preview of parsed metadata fields.
+- **Step 3 — Validate:** Run SHACL + R validator; render inline errors (severity, row/col, code, fix‑hint). Provide "Re‑run validation" and "Download error report".
+- **Step 4 — Ready & Submit:** When no critical errors remain, mark **Ready**. Submissions require human review/approval before ingest to SPSR.
+- **Utilities:** "Download tailored template" endpoint pre‑seeds enumerations and column headers by scope (Population, CU, SMU, Indicator Stock, PFMA); "Save draft" persists current progress.
 
 ### 2.3 Ontology Integration and Open Questions
 
@@ -72,7 +151,23 @@ This will be an interactive network graph/horizontal stepper (timeline) with cli
 
 ---
 
-## 2b) Architecture Pattern & SPSR (Django) Integration
+## 2b) Global Acceptance Criteria
+
+**A1. Benchmarks:** Each SMU year must include at least one LRP and one USR entity with derivation metadata (method, inputs, time window), version/DOI or commit, and an executable regeneration link (stored query or code pointer).
+
+**A2. Uncertainty:** Status decision must include interval or categorical uncertainty; where estimates are downgraded, the downgrade criterion (from SKOS scheme) is recorded and shown.
+
+**A3. Policy & Legal Readiness:** "Ready" requires: WSP zone computed and justified; named Harvest Control Rule with parameters and version; Fisheries Act Fish Stocks check (below-LRP flag) and, if true, link to Rebuilding Plan.
+
+**A4. Change Log:** Advice Trace Pack must include structured deltas vs. previous FSAR: data, methods, benchmarks, status, advice, rationale.
+
+**A5. CU Accounting:** CU list for the SMU must explicitly list included, excluded, and proxied CUs with machine-readable justification; GSI usage (Yes/No), sample sizes, and assignment uncertainty.
+
+**A6. Intake & Validation:** Controlled‑vocab fields are enforced via SKOS; SHACL + R validator must pass all critical checks before a submission becomes "Ready". Validation returns structured errors (severity, row/col, code, fix‑hint). Submission lifecycle is Draft → Validated → Ready → Ingested, with audit events and human approval before ingestion.
+
+---
+
+## 2c) Architecture Pattern & SPSR (Django) Integration
 
 **Context:** SPSR is a **layered monolith** today (Presentation → Application → Domain → Infrastructure). The Advice Trace should respect that layering, add a thin ontology/graph layer, and keep a clean **contract** between SPSR data and the trace UI.
 
@@ -80,8 +175,8 @@ This will be an interactive network graph/horizontal stepper (timeline) with cli
 
 **"Layered Monolith + Contract + Graph Sidecar"**
 
-- **Presentation (Django)**: Pages/templates (HTMX/Alpine) render the **Advice Trace** timeline and open the **Evidence Drawer**.
-- **Application Services (Django)**: `AdviceTraceService` orchestrates pulls from SPSR, GRD, and the graph, assembles **DTOs** for the UI, and exposes a **DRF endpoint** returning **JSON‑LD**.
+- **Presentation (Django)**: Pages/templates (HTMX/Alpine) render the **CU-first Advice Trace** flow and open the **Evidence Drawer**.
+- **Application Services (Django)**: `AdviceTraceService` orchestrates pulls from SPSR, GRD, and the graph, assembles **DTOs** for the CU → SMU → Advice flow, and exposes a **DRF endpoint** returning **JSON‑LD**.
 - **Domain (SPSR)**: Your existing models; add a small **anti‑corruption layer (ACL)** that maps SPSR terms/fields → ontology terms (SKOS/JSON‑LD context) without polluting domain models.
 - **Infrastructure**:
   - **Graph sidecar** = **Jena Fuseki** (Docker) + SPARQL. It’s not embedded into SPSR; it sits alongside and is queried by the application service.
@@ -108,8 +203,8 @@ Browser ──(HTMX)──▶ Django Templates
 ### Integration Strategy (phased)
 
 1. **POC (Weeks 1–8)** — _Django‑native_
-   - Add `/api/advice-trace/{smu}/{year}` (DRF) returning JSON‑LD.
-   - Add `/advice-trace/?smu=…&year=…` Django view rendering the timeline (HTMX partials for Drawer).
+   - Add `/api/advice-trace/{smu}/{year}` (DRF) returning JSON‑LD for CU → SMU → Advice flow.
+   - Add `/advice-trace/?smu=…&year=…` Django view rendering the CU-first hierarchical flow (HTMX partials for Drawer).
    - Stand up **Fuseki** in Docker; connect via a tiny **SPARQL adapter** (e.g., `SPARQLWrapper`).
    - Compute **Badges** server‑side (combine SHACL results + SPARQL CQ results) → render as HTMX fragments.
 2. **Hardening**
@@ -121,15 +216,22 @@ Browser ──(HTMX)──▶ Django Templates
 ### Concrete Touchpoints (Django)
 
 - **Endpoints**
-  - `GET /api/advice-trace/{smu}/{year}` → JSON‑LD (trace)
-  - `GET /api/documents?smu=&year=` → PDFs/links metadata
+  - `GET /api/advice-trace/{smu}/{year}` → JSON‑LD (CU → SMU → Advice trace)
+  - `GET /api/documents?smu=&year=` → PDFs/links metadata (accessible via Advice node)
   - `GET /api/cq/{smu}/{year}` → CQ results used by badges (optional; or compute inline)
+  - `GET /advice-trace/intake` → Intake UI page (HTMX) for Persona C
+  - `GET /api/intake/vocab?scheme=reference_point_type` → SKOS options (label, IRI, notation)
+  - `POST /api/intake/validate` → Run SHACL + R; returns normalized error payload
+  - `POST /api/intake/submit` → Mark as Ready, queue for human review/ingestion
+  - `GET /api/intake/submissions` → List/filter drafts by user/state
+  - `GET /api/intake/template?scope=SMU&smu=&year=` → Tailored XLSX template download
 - **Adapters**
   - **SPARQL adapter**: small class wrapping query files (Q1–Q8); returns rows → DTOs
   - **ACL mappers**: SPSR models → ontology JSON‑LD (via `rdflib` or hand‑rolled JSON)
 - **Validators**
   - `python manage.py run_shacl` (pySHACL) against shapes; persist results for badge rollups
   - `validate_spsr.R` in CI; post results to a table or cache
+  - Investigation: R validator run mode (sync vs async) and error contract TBD; capture as decision in ADR/todo_list
 
 ### Libraries & Patterns (Django‑native)
 
@@ -138,12 +240,14 @@ Browser ──(HTMX)──▶ Django Templates
 - **JSON‑LD:** `rdflib` or plain JSON with a context; keep a versioned `@context`
 - **Caching:** `django‑redis` (per SMU/Year keyspace)
 - **Testing:** pytest + snapshot tests for SPARQL responses; SHACL as CI gate
+  - For intake: API contract tests for validator error payload; HTMX component tests for error rendering
 
 ### Where Badges, Drawer, and Drill‑downs live
 
-- **Badges**: computed server‑side from SPARQL + SHACL; rendered as small HTMX fragments per node (so they can refresh without full page reload).
+- **Badges**: computed server‑side from SPARQL + SHACL; rendered as small HTMX fragments per CU/SMU/Advice node (so they can refresh without full page reload).
 - **Evidence Drawer**: a Django partial that takes a node `id` and queries (via service) for provenance, parameters, documents, figures; deep‑links to SPSR record pages and CSAS/DFO docs.
 - **Drill‑downs**: standard Django routes for SPSR records (dataset, method configs), GRD run/sample pages, and external doc links (new tab). HTMX keeps the experience snappy.
+- **Documents**: accessible via Advice node expansion, showing FSAR/Research/Tech Report quick links and full document hierarchy.
 
 ### Migration/Scalability Notes
 
@@ -159,29 +263,32 @@ Browser ──(HTMX)──▶ Django Templates
 **Core Functionality:**
 
 - **Single SMU Focus:** Barkley Sockeye only for initial demonstration
-- **Basic Timeline:** Six-node advice trace (Data → Method → Reference Points → Status → Scientific Output → Decision)
-- **Evidence Badges:** Complete/Gaps/Missing-Critical status indicators
+- **Hierarchical Flow:** Progressive disclosure starting with all CUs → SMU → Advice, with Management Decision and Legal Framework as sub-nodes of Advice
+- **Status Aggregation:** SMU status derived from constituent CU statuses using worst-case rule
+- **Evidence Badges:** Complete/Gaps/Missing-Critical status indicators at CU, SMU, and Advice levels
 - **Evidence Drawer:** Basic provenance display with source, method, code commit, reviewer/date
-- **Document Links:** FSAR/Tech/Research document access
+- **Document Hierarchy:** FSAR with precursor Research Documents
 - **Export Functionality:** Basic Advice Trace Pack generation
+ - **Metadata Intake (Persona C):** Guided wizard to capture required metadata via controlled‑vocab dropdowns; attach `.xlsx`; validate and iterate until Ready.
 
 **Technical Requirements:**
 
-- **Django HTMX Interface:** Single-page application with timeline and drawer
-- **SPARQL Backend:** Core queries (Q1-Q6) for evidence completeness and data currency
-- **JSON-LD Contract:** Standardized data exchange format
-- **Basic Validation:** SHACL shapes for required fields
+- **Django HTMX Interface:** Single-page application with CU-first hierarchical flow and progressive disclosure
+- **SPARQL Backend:** Core queries for CU-level, SMU-level, Advice-level evidence completeness, with Decision and Legal Framework as sub-queries
+- **JSON-LD Contract:** Standardized data exchange format supporting CU → SMU → Advice → Decision/Legal Framework structure
+- **Basic Validation:** SHACL shapes for status aggregation and evidence completeness
+ - **Validation Loop:** SHACL + R validator adapters with normalized error JSON (severity, row/col, code, fix‑hint); submission state machine persisted.
 
 ### 3.2 Future Features (Post-MVP)
 
 **Enhanced Functionality:**
 
-- **Multi-SMU Support:** Expand beyond Barkley Sockeye
-- **Advanced Analytics:** Cross-cycle comparisons, trend analysis
-- **Rich Visualizations:** Node-link graphs, interactive dashboards
-- **Automated Classification:** SHACL-based estimate type assignment
-- **Integration APIs:** SPSR/GRD real-time data feeds
-- **Advanced Export:** Custom report generation, data visualization packages
+- **Multi-SMU Support:** Expand beyond Barkley Sockeye with cross-SMU comparisons
+- **Advanced Analytics:** Cross-cycle comparisons, trend analysis, status aggregation validation
+- **Rich Visualizations:** Interactive CU-first hierarchical graphs, network views, status zone dashboards
+- **Automated Classification:** SHACL-based estimate type assignment and status derivation
+- **Integration APIs:** SPSR/GRD real-time data feeds with hierarchical data structure
+- **Advanced Export:** Custom report generation, hierarchical data visualization packages
 
 **Advanced Technical Features:**
 
@@ -192,50 +299,279 @@ Browser ──(HTMX)──▶ Django Templates
 
 ---
 
-## 4) Competency Questions — Advice Trace (Barkley Sockeye)
+## 3b) Output Contract (Advice Trace Pack)
+
+Ship a versioned JSON-LD bundle with:
+
+- **dfo:StatusAssessment** (decision, uncertainty, inputs)
+- **dfo:LowerBenchmark** / **dfo:UpperBenchmark** / **dfo:TargetReference** (as first-class entities with derivation evidence)
+- **prov:wasGeneratedBy** links to code DOIs/commits and method registry terms
+- **dfo:PolicyReadiness** node (WSP zone, HCR id+params, Fish Stocks trigger + rebuilding link)
+- **dfo:ChangeLog** list of diffs vs last FSAR
+- **dfo:CUAccounting** (included/excluded/proxied CUs with justification)
+- **dfo:GSIUsage** (sample sizes, assignment uncertainty)
+
+**Required Fields Checklist (v0.1)** `data_source_type`, `spawner_origin`, `proxy_justification`, `method_name`, `method_version`, `code_commit`, `reference_point_type`, `benchmark_method`, `benchmark_sensitivity`, `status_value`, `status_ci`, `gsi_sample_size/ci`, `scientific_output_text`, `reviewer`, `date`, `decision_id`, `policy_readiness_flags`, `change_log`.
+
+---
+
+## 4) Competency Questions — Advice Trace (Hierarchical Flow)
 
 _(Each CQ backs a UI badge, drawer, or diff; fields listed must exist in data/template/SHACL. Questions marked with ⚠️ require ontology investigation.)_
 
-**Data Products** ⚠️
+### CU-Level Questions
 
-- What data products (using DPROD ontology) feed Barkley Sockeye's FSAR **status** this year, and do they declare `data_source_type`, `spawner_origin`, and **time coverage**? _(UI: Data node badge)_
-- Where is **proxy** used (e.g., GSI, index) and is `proxy_justification` present? _(Badge + Drawer)_
-- **Investigation needed:** How should we map existing `dfo:EscapementMeasurement` instances to DPROD `DataProduct` classes?
+**CQ-CU-1: What is the status of each Conservation Unit in an SMU?**
+```sparql
+SELECT ?cu ?cuLabel ?statusZone ?statusValue ?statusCI
+WHERE {
+  ?smu a dfo:StockManagementUnit ;
+       rdfs:label "Barkley Sockeye"@en ;
+       dfo:hasMemberCU ?cu .
+  ?cu rdfs:label ?cuLabel ;
+      dfo:hasStatusAssessment ?assessment .
+  ?assessment dfo:statusZone ?statusZone ;
+              dfo:statusValue ?statusValue .
+  OPTIONAL { ?assessment dfo:statusCI ?statusCI }
+}
+```
 
-**Method**
+**CQ-CU-2: What data sources feed each CU's status assessment?**
+```sparql
+SELECT ?cu ?cuLabel ?dataSource ?dataType ?spawnerOrigin ?proxyJustification
+WHERE {
+  ?cu a dfo:ConservationUnit ;
+      rdfs:label ?cuLabel ;
+      dfo:hasStatusAssessment ?assessment .
+  ?assessment prov:used ?dataSource .
+  ?dataSource dfo:data_source_type ?dataType ;
+              dfo:spawner_origin ?spawnerOrigin .
+  OPTIONAL { ?dataSource dfo:proxy_justification ?proxyJustification }
+}
+```
 
-- Which **method** (name/version) and **parameters** produced the status, and what **code commit/tag**? _(Drawer: Method)_
-- **Investigation needed:** How should we model method reproducibility and versioning in the ontology?
+**CQ-CU-3: What methods and benchmarks are used for each CU?**
+```sparql
+SELECT ?cu ?cuLabel ?method ?methodName ?lowerBenchmark ?upperBenchmark
+WHERE {
+  ?cu a dfo:ConservationUnit ;
+      rdfs:label ?cuLabel ;
+      dfo:hasStatusAssessment ?assessment .
+  ?assessment prov:wasGeneratedBy ?method .
+  ?method rdfs:label ?methodName .
+  
+  OPTIONAL {
+    ?cu dfo:hasLowerBenchmark ?lb .
+    ?lb dfo:benchmarkValue ?lowerBenchmark .
+  }
+  OPTIONAL {
+    ?cu dfo:hasUpperBenchmark ?ub .
+    ?ub dfo:benchmarkValue ?upperBenchmark .
+  }
+}
+```
 
-**Reference Points**
+### SMU-Level Questions
 
-- Which **reference_point_type** (Sgen/USR/LRP/…) and **benchmark_method** (SR/percentile/expert) were applied; is **benchmark_sensitivity** flagged? _(Badge + Drawer)_
+**CQ-SMU-1: What is the SMU status and how does it derive from CU statuses?**
+```sparql
+SELECT ?smu ?smuStatus ?cu ?cuStatus
+WHERE {
+  ?smu a dfo:StockManagementUnit ;
+       rdfs:label "Barkley Sockeye"@en ;
+       dfo:hasStatusAssessment ?smuAssessment ;
+       dfo:hasMemberCU ?cu .
+  ?smuAssessment dfo:statusZone ?smuStatus .
+  ?cu dfo:hasStatusAssessment ?cuAssessment .
+  ?cuAssessment dfo:statusZone ?cuStatus .
+}
+ORDER BY ?cuStatus
+```
 
-**Status**
+**CQ-SMU-2: What aggregation methods and reference points are used at the SMU level?**
+```sparql
+SELECT ?smu ?lrp ?lrpType ?lrpValue ?aggregationMethod
+WHERE {
+  ?smu a dfo:StockManagementUnit ;
+       rdfs:label "Barkley Sockeye"@en ;
+       dfo:hasLimitReferencePoint ?lrp .
+  ?lrp a dfo:CUStatusBasedLRP ;
+       dfo:referencePointValue ?lrpValue ;
+       prov:wasGeneratedBy ?aggregationMethod .
+  ?aggregationMethod rdfs:label ?aggregationMethodLabel .
+}
+```
 
-- What is the **status result** and **CI**; is **GSI uncertainty** recorded and propagated? _(Badge + Overlay)_
-- **Investigation needed:** How should we model uncertainty propagation from genetic analyses to status assessments?
+### Advice-Level Questions
 
-**Scientific Outputs** ⚠️
+**CQ-ADV-1: What scientific outputs (FSARs) exist for this SMU?**
+```sparql
+SELECT ?smu ?advice ?fsarTitle ?fsarYear ?fsarDOI ?researchDoc ?researchTitle
+WHERE {
+  ?smu a dfo:StockManagementUnit ;
+       rdfs:label "Barkley Sockeye"@en ;
+       dfo:hasScientificOutput ?advice .
+  ?advice dcterms:title ?fsarTitle ;
+          dcterms:issued ?fsarYear .
+  OPTIONAL { ?advice dcterms:identifier ?fsarDOI }
+  OPTIONAL {
+    ?advice dfo:hasPrecursorDocument ?researchDoc .
+    ?researchDoc dcterms:title ?researchTitle .
+  }
+}
+```
 
-- What scientific output text and assumptions were issued; who reviewed/approved and when? _(Drawer: Scientific Output)_
-- **Investigation needed:** What is the most appropriate term for scientific advice/recommendations? (Research DFO CSAS terminology)
+**CQ-ADV-2: What advice text and review information is available?**
+```sparql
+SELECT ?advice ?adviceText ?reviewer ?reviewDate ?version
+WHERE {
+  ?smu a dfo:StockManagementUnit ;
+       rdfs:label "Barkley Sockeye"@en ;
+       dfo:hasScientificOutput ?advice .
+  ?advice dfo:adviceText ?adviceText ;
+          dfo:reviewer ?reviewer ;
+          dfo:reviewDate ?reviewDate ;
+          dfo:version ?version .
+}
+```
 
-**Decision Support** ⚠️
+### Decision-Level Questions
 
-- For the chosen **decision** (e.g., TAC/HCR), are all required **indicators/ref points** present? If not, which **gaps** exist that prevent **Complete** evidence? _(Completeness widget)_
-- **Investigation needed:** Is `DecisionContext` the right term, or would `Decision` be sufficient for management decision support?
+**CQ-DEC-1: What management decisions are supported by this advice?**
+```sparql
+SELECT ?advice ?decision ?decisionType ?decisionDate ?decisionMaker
+WHERE {
+  ?smu a dfo:StockManagementUnit ;
+       rdfs:label "Barkley Sockeye"@en ;
+       dfo:hasScientificOutput ?advice .
+  ?advice dfo:supportsDecision ?decision .
+  ?decision dfo:decisionType ?decisionType ;
+            dfo:decisionDate ?decisionDate ;
+            dfo:decisionMaker ?decisionMaker .
+}
+```
 
-**Provenance & Data Currency**
+**CQ-DEC-2: What legal framework mandates this decision?**
+```sparql
+SELECT ?decision ?framework ?frameworkName ?relevantSections
+WHERE {
+  ?smu a dfo:StockManagementUnit ;
+       rdfs:label "Barkley Sockeye"@en ;
+       dfo:hasScientificOutput ?advice .
+  ?advice dfo:supportsDecision ?decision .
+  ?decision dfo:requiredBy ?framework .
+  ?framework rdfs:label ?frameworkName ;
+             dfo:relevantSections ?relevantSections .
+}
+```
 
-- When were the **DataProducts/Methods/Ref Points/Status/ScientificOutputs** last updated, and what version/commit is pinned? If not present, flag as a risk. _(Evidence Drawer + Currency panel)_
+### Policy & Legal Questions
 
-**SIL/SEN Integration** ⚠️
+**CQ-POL-1: What is the WSP status zone and how was it derived from benchmarks?**
+```sparql
+SELECT ?smu ?wspZone ?lrp ?usr ?statusDecision ?hcrUsed
+WHERE {
+  ?smu a dfo:StockManagementUnit ;
+       rdfs:label "Barkley Sockeye"@en ;
+       dfo:hasStatusAssessment ?assessment ;
+       dfo:hasLimitReferencePoint ?lrp ;
+       dfo:hasUpperStockReference ?usr .
+  ?assessment dfo:statusZone ?wspZone ;
+              dfo:statusDecision ?statusDecision ;
+              dfo:harvestControlRule ?hcrUsed .
+}
+```
 
-- **Investigation needed:** How should we align with Minh Doan's PR for Stream Inspection Logs (SIL) and Escapement Narratives (SEN) terms?
-- **Investigation needed:** How should we model the relationship between SIL/SEN data and escapement measurements?
+**CQ-POL-2: What Fisheries Act Fish Stocks provisions apply to this SMU?**
+```sparql
+SELECT ?smu ?belowLRP ?rebuildingPlan ?planVersion ?planDate
+WHERE {
+  ?smu a dfo:StockManagementUnit ;
+       rdfs:label "Barkley Sockeye"@en ;
+       dfo:hasPolicyReadiness ?policy .
+  ?policy dfo:belowLRP ?belowLRP .
+  OPTIONAL {
+    ?policy dfo:rebuildingPlan ?rebuildingPlan .
+    ?rebuildingPlan dfo:version ?planVersion ;
+                    dfo:issued ?planDate .
+  }
+}
+```
 
-**Required Fields Checklist (v0.1)**\*\* `data_source_type`, `spawner_origin`, `proxy_justification`, `method_name`, `method_version`, `code_commit`, `reference_point_type`, `benchmark_method`, `benchmark_sensitivity`, `status_value`, `status_ci`, `gsi_sample_size/ci`, `scientific_output_text`, `reviewer`, `date`, `decision_id`.
+### Change Intelligence Questions
+
+**CQ-CHG-1: What changed since the last FSAR cycle?**
+```sparql
+SELECT ?smu ?currentCycle ?previousCycle ?dataChanges ?methodChanges ?benchmarkChanges ?statusChanges
+WHERE {
+  ?smu a dfo:StockManagementUnit ;
+       rdfs:label "Barkley Sockeye"@en ;
+       dfo:hasChangeLog ?changeLog .
+  ?changeLog dfo:currentCycle ?currentCycle ;
+             dfo:previousCycle ?previousCycle ;
+             dfo:dataChanges ?dataChanges ;
+             dfo:methodChanges ?methodChanges ;
+             dfo:benchmarkChanges ?benchmarkChanges ;
+             dfo:statusChanges ?statusChanges .
+}
+```
+
+### CU Accounting Questions
+
+**CQ-CU-ACCT-1: Which CUs are included, excluded, or proxied in this SMU assessment?**
+```sparql
+SELECT ?smu ?cu ?inclusionStatus ?justification ?reviewer ?reviewDate
+WHERE {
+  ?smu a dfo:StockManagementUnit ;
+       rdfs:label "Barkley Sockeye"@en ;
+       dfo:hasCUAccounting ?accounting .
+  ?accounting dfo:cuInclusion ?cu ;
+              dfo:inclusionStatus ?inclusionStatus ;
+              dfo:justification ?justification ;
+              dfo:reviewer ?reviewer ;
+              dfo:reviewDate ?reviewDate .
+}
+```
+
+**CQ-CU-ACCT-2: What GSI usage and uncertainty information is available?**
+```sparql
+SELECT ?smu ?gsiUsed ?sampleSize ?assignmentUncertainty ?gsiMethod
+WHERE {
+  ?smu a dfo:StockManagementUnit ;
+       rdfs:label "Barkley Sockeye"@en ;
+       dfo:hasGSIUsage ?gsiUsage .
+  ?gsiUsage dfo:gsiUsed ?gsiUsed ;
+            dfo:sampleSize ?sampleSize ;
+            dfo:assignmentUncertainty ?assignmentUncertainty ;
+            dfo:gsiMethod ?gsiMethod .
+}
+```
+
+### Cross-Cutting Questions
+
+**CQ-TRACE-1: What is the complete evidence chain from CU data to management decision?**
+```sparql
+SELECT ?cu ?cuData ?cuMethod ?cuStatus ?smuStatus ?advice ?decision ?framework
+WHERE {
+  ?smu a dfo:StockManagementUnit ;
+       rdfs:label "Barkley Sockeye"@en ;
+       dfo:hasMemberCU ?cu ;
+       dfo:hasStatusAssessment ?smuAssessment ;
+       dfo:hasScientificOutput ?advice .
+
+  ?cu dfo:hasStatusAssessment ?cuAssessment .
+  ?cuAssessment prov:used ?cuData ;
+                prov:wasGeneratedBy ?cuMethod ;
+                dfo:statusZone ?cuStatus .
+
+  ?smuAssessment dfo:statusZone ?smuStatus .
+
+  ?advice dfo:supportsDecision ?decision .
+  ?decision dfo:requiredBy ?framework .
+}
+```
+
+**Required Fields Checklist (v0.1)** `data_source_type`, `spawner_origin`, `proxy_justification`, `method_name`, `method_version`, `code_commit`, `reference_point_type`, `benchmark_method`, `benchmark_sensitivity`, `status_value`, `status_ci`, `gsi_sample_size/ci`, `scientific_output_text`, `reviewer`, `date`, `decision_id`.
 
 ---
 
@@ -344,6 +680,26 @@ SELECT ?dataProduct ?title ?owner ?service WHERE {
 }
 ```
 
+**Q10 — Controlled‑Vocab Options by Scheme**
+
+```sparql
+SELECT ?concept ?label ?notation WHERE {
+  ?concept skos:inScheme :ReferencePointType ;
+           skos:prefLabel ?label .
+  OPTIONAL { ?concept skos:notation ?notation }
+}
+```
+
+**Q11 — Downgrade Criteria**
+
+```sparql
+SELECT ?criterion ?label ?definition WHERE {
+  ?criterion skos:inScheme :DowngradeCriteria ;
+            skos:prefLabel ?label .
+  OPTIONAL { ?criterion skos:definition ?definition }
+}
+```
+
 ---
 
 ## 5) Graph Database & Data Ingest (2‑Month POC)
@@ -379,12 +735,38 @@ SELECT ?dataProduct ?title ?owner ?service WHERE {
 
 ---
 
-## 6) SPSR Validator & Data Model Alignment (minimal changes)
+## 6) SPSR Schema Recommendations (minimal, high-leverage tweaks)
 
-- **Add/ensure fields:** `benchmark_method`, `reference_point_type`, `proxy_justification`, `code_commit`, `reviewer`, `date`, `gsi_sample_size`, `gsi_ci`.
-- **SHACL shapes:** required vs optional by decision context; friendly messages.
-- **R validator:** fail‑fast CLI (non‑zero on error), row/col pinpoint, fix‑hints mapping.
-- **GRD join:** prefer `Run_ID + Sample_ID` (optional `Assay_ID`) for Barkley.
+Your current SPSR tables already include LRP/USR/TR fields and rich age/harvest columns. To avoid a disruptive rewrite:
+
+**Critical (do now):**
+
+- **Add Benchmarks table** (or JSON field) with: `type` {LRP, USR, TR}, `value`, `units`, `method_ref`, `inputs_ref`, `time_window`, `uncertainty`, `version`, `derived_on`, `derived_by`
+- **Add StatusAssessment fieldset** per SMU-year: `status_zone`, `decision_basis` (link to benchmark ids), `uncertainty_summary`, `downgrade_reason?`, `reviewer`, `date`
+- **Add PolicyReadiness flags**: `below_lrp` (bool), `hcr_id`, `hcr_params`, `rebuilding_plan_url`
+- **Add Submission entities** (for intake):
+  - `Submission`: `id`, `smu`, `year`, `user_id`, `state` {Draft|Validated|Ready|Ingested}, `provenance_minimum` fields (`method`, `version`, `code_commit`, `reviewer`, `date`), `created_at`, `updated_at`
+  - `ValidationRun`: `submission_id`, `tool` {SHACL|R}, `version`, `timestamp`, `passed` (bool), `error_json`
+
+**High (soon):**
+
+- **Add InclusionLog** for CU list: `cu_id`, `{included|excluded|proxied}`, `justification`, `reviewer`, `date`
+- **Add GSIUsage fields**: `used` (bool), `sample_size`, `assignment_uncertainty`
+
+**Medium:**
+
+- **Standardize units** using QUDT IRIs stored alongside numerics (keep current "pragmatic literal + unit IRI" convention)
+
+**Validator & Data Model Alignment:**
+
+- **Add/ensure fields:** `benchmark_method`, `reference_point_type`, `proxy_justification`, `code_commit`, `reviewer`, `date`, `gsi_sample_size`, `gsi_ci`
+- **SHACL shapes:** required vs optional by decision context; friendly messages
+- **R validator:** fail‑fast CLI (non‑zero on error), row/col pinpoint, fix‑hints mapping
+- **GRD join:** prefer `Run_ID + Sample_ID` (optional `Assay_ID`) for Barkley
+- **Error JSON contract:** Normalize validator output keys: `severity`, `code`, `message`, `row`, `column`, `file`, `hint`.
+- **Permissions & gating:** Only whitelisted users (Django auth/email list) can submit; human review required before ingestion.
+
+These are small additive tables/columns that unlock everything above without refactoring your time-series or age structures.
 
 ---
 
@@ -404,27 +786,37 @@ SELECT ?dataProduct ?title ?owner ?service WHERE {
 - Extract Barkley data; publish vocab v0.1; define JSON‑LD context
 - **Stand up Fuseki graph database** with core graphs
 - Load `graph:vocab`/`graph:fsar:2025:barkley`
+- **Add SPSR schema enhancements** (Benchmarks table, StatusAssessment fieldset, PolicyReadiness flags)
 - **Investigate DPROD integration** requirements
+- Stand up **Intake UI skeleton** (HTMX) and vocab endpoints; persist `Submission` drafts
+- Parse `.xlsx` Metadata tab server‑side; preview parsed metadata
 
 **Weeks 3–4:**
 
-- Implement SPARQL Q1–Q6 (MVP queries)
-- SHACL v0.1 for basic validation
-- Excel template + R validator v0.1
-- Generate first Advice Trace Pack
-- **Investigate terminology** (Advice → Scientific Output, DecisionContext → Decision)
+- Implement SPARQL Q1–Q9 (enhanced MVP queries including Policy/Legal, Change Intelligence, CU Accounting)
+- SHACL v0.1 for basic validation + policy readiness gates
+- Excel template + R validator v0.1 with enhanced metadata requirements
+- Generate first Advice Trace Pack with structured deltas vs. previous FSAR
+- **Implement CU Accounting** (included/excluded/proxied CUs with justification)
+- Integrate **SHACL + R** adapters; return normalized error JSON; add submission state machine (Draft/Validated/Ready)
+- Define/decide **R validator run mode** (sync vs async) and document as decision
 
 **Weeks 5–6:**
 
-- Add **Data Currency** monitoring
-- Harden provenance tracking
-- Wire minimal UI (picker, timeline, drawer, export)
-- **Investigate genetics class updates** (GSIRun → AnalysisRun)
-- Stikine optional for parallel test
+- Add **Policy & Legal Readiness** panel with hard gates
+- Add **Change Intelligence** (delta vs. last FSAR)
+- Wire enhanced UI (picker, CU-first hierarchical flow, drawer with new tabs, export)
+- **Implement GSI Usage tracking** (sample sizes, assignment uncertainty)
+- **Add Downgrade Criteria** display and validation
+- Wire **intake submission review/approval** workflow (human gating) and ingestion stub
+- Add **tailored template** generator endpoint and error report download
 
 **Weeks 7–8:**
 
-- Acceptance sweep (badges, overlays, export validations)
+- Acceptance sweep (enhanced badges, policy overlays, export validations with deltas)
+- **Implement Benchmark entities** as first-class objects with derivation evidence
 - **Investigate SIL/SEN integration** with Minh Doan's PR
-- Docs + exec one‑pager; demo handoff
+- Docs + exec one‑pager; demo handoff with policy readiness demonstration
 - **Plan post-MVP features** and DPROD integration
+- Acceptance sweep for **intake** (permissions, audit events, Ready gating)
+- Document submission lifecycle and error contract; add API contract tests

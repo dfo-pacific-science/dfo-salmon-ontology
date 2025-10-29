@@ -19,6 +19,20 @@ We will use:
 3. **Stability**: Prevents breaking changes for existing users
 4. **Standards Compliance**: Follows OBO Foundry and W3C best practices
 
+## Alternatives Considered
+
+1. **GitHub-based IRIs**: Using GitHub raw URLs as identifiers
+   - **Rejected**: GitHub URLs can change with repository moves, less stable than W3ID
+   
+2. **Local IRIs**: Using local identifiers without resolvable URLs
+   - **Rejected**: Would prevent external systems from resolving and understanding our terms
+   
+3. **DOI-based IRIs**: Using Digital Object Identifiers for versioning
+   - **Rejected**: DOIs are better for publications than ontology terms; W3ID is more appropriate for semantic web resources
+   
+4. **No Versioning**: Using only base IRIs without version information
+   - **Rejected**: Would make it impossible to track changes and maintain backward compatibility
+
 ## Consequences
 
 **Positive:**

@@ -19,6 +19,17 @@ We will use a hybrid approach combining OWL and SKOS:
 3. **Separation of Concerns**: Methods as vocabulary terms, events as data carriers
 4. **Industry Standards**: Aligns with OBO Foundry principles and community practices
 
+## Alternatives Considered
+
+1. **Pure OWL Approach**: Using only OWL classes for everything
+   - **Rejected**: Would require complex OWL restrictions for controlled vocabularies, making the ontology harder to understand and maintain
+   
+2. **Pure SKOS Approach**: Using only SKOS concepts for everything
+   - **Rejected**: Would lose formal reasoning capabilities needed for automated classification and data validation
+   
+3. **OWL Enumerations**: Using OWL enumerated classes instead of SKOS
+   - **Rejected**: Less flexible for controlled vocabularies and doesn't align with community practices for method vocabularies
+
 ## Consequences
 
 **Positive:**

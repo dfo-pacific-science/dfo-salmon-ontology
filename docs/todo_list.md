@@ -6,11 +6,68 @@
 **Last Updated:** 2025-01-27  
 **Status:** Active development for FSAR Advice Trace (2-month critical path)
 
-**Important Notes:**
+---
 
-- **NO instance data in `ontology/dfo-salmon.ttl`** - Schema only; instances go in `ontology/examples/`
-- **Brett's tasks** (marked with 🔧) are application/infrastructure work, not ontology development
-- **Ontology tasks** focus on schema, classes, properties, SKOS schemes, and validation rules
+## SPSR (Django) External Work — Copy to SPSR Repo
+
+**Owner:** Brett  
+**Priority:** Critical  
+**Scope:** UI, API, models, permissions, validator adapters, and tests in SPSR
+
+### Intake UI (HTMX) and Workflow
+
+- [ ] Add Intake page: `GET /advice-trace/intake` (HTMX partials)
+- [ ] Step 1: Controlled‑vocab metadata form (SKOS‑backed dropdowns)
+- [ ] Step 2: File attach + Metadata tab parsing (`.xlsx`)
+- [ ] Step 3: Validate action; render inline errors with quick scroll; re‑run validation
+- [ ] Step 4: Mark Ready; display submission state chip with gating rationale
+- [ ] Evidence Drawer integration for submissions: show provenance minimum + audit (who/when/tool versions)
+
+### API Endpoints (Application Layer)
+
+- [ ] `GET /api/intake/vocab?scheme=reference_point_type` (SKOS options: label, IRI, notation)
+- [ ] `POST /api/intake/validate` (run SHACL + R; return normalized error JSON)
+- [ ] `POST /api/intake/submit` (mark Ready; queue for human review/ingestion)
+- [ ] `GET /api/intake/submissions` (list/filter drafts by user/state)
+- [ ] `GET /api/intake/template?scope=SMU&smu=&year=` (tailored template download)
+
+### Data Model & Permissions
+
+- [ ] Create `Submission` model: id, smu, year, user_id, state {Draft|Validated|Ready|Ingested}, provenance_minimum fields (`method`, `version`, `code_commit`, `reviewer`, `date`), created_at, updated_at
+- [ ] Create `ValidationRun` model: submission_id, tool {SHACL|R}, version, timestamp, passed (bool), error_json
+- [ ] Restrict submission to whitelisted users (Django auth/email list)
+- [ ] Add human review/approval workflow prior to ingestion
+- [ ] Persist audit events for state transitions and validation runs
+
+### Validator Integration
+
+- [ ] Implement SHACL run adapter; persist results and surface messages
+- [ ] Implement R validator adapter (sync or async per decision); normalize errors to contract
+- [ ] Normalize error JSON keys: `severity`, `code`, `message`, `row`, `column`, `file`, `hint`
+
+### Controlled‑Vocab (SKOS) Integration
+
+- [ ] Fetch SKOS options from graph sidecar; cache responses with version/ETag
+- [ ] Invalidate vocab cache on update; show labels + codes in dropdowns
+- [ ] Enforce off‑list rejection with friendly messages in UI and server validation
+
+### Templates & Reports
+
+- [ ] Implement tailored template generator (scopes: Population, CU, SMU, Indicator Stock, PFMA)
+- [ ] Add error report download (CSV/JSON) with row/col and fix‑hints
+
+### Testing
+
+- [ ] API contract tests for validator error payload
+- [ ] HTMX component tests for inline error rendering and state chips
+- [ ] Permission tests for uploaders and reviewers
+
+### Decisions to Record (SPSR ADR)
+
+- [ ] Validator run mode for R (sync vs async), timeouts, and retry policy
+- [ ] Submission lifecycle and audit requirements (Draft → Validated → Ready → Ingested)
+- [ ] File acceptance policy (current: `.xlsx` only) and size constraints
+- [ ] Tailored template scopes and parameters
 
 ---
 
@@ -42,7 +99,7 @@
 
 ## DFO Organizational Structure
 
-**Owner:** Brett  
+**Owner:** Mel  
 **Priority:** Medium  
 **Scope:** Organizational hierarchy classes and properties
 
@@ -148,7 +205,8 @@
 - [x] Change `dwc:MaterialEntity rdfs:subClassOf bfo:0000040`
 - [x] Change `dwc:Agent rdfs:subClassOf bfo:0000040`
 - [x] Update section title to "Class Mappings to Darwin Core and BFO Upper Ontology"
-- [ ] Verify reasoning works with ELK reasoner
+- [x] Verify reasoning works with ELK reasoner
+- [x] Implement DwC-CM alignment (dwc:Assertion transition)
 
 ### Clean Up Estimate Type Classification Code
 
@@ -184,6 +242,35 @@
 - [x] ROBOT validate command doesn't exist in v1.9.5 or needs profile setup
 - [x] Keep reasoning step which works correctly
 - [x] Add note to re-enable in PR-013: CI/CD and Quality Checks
+
+---
+
+## Darwin Core Conceptual Model (DwC-CM) Implementation
+
+**Owner:** Brett  
+**Priority:** High  
+**Scope:** DwC-CM alignment and implementation
+
+### Implement DwC-CM Patterns
+
+**File:** `ontology/dfo-salmon.ttl`
+
+- [x] Update ontology header with DwC-CM implementation comments
+- [x] Update `dfo:EscapementMeasurement` to subclass `dwc:Assertion` (replace `dwc:MeasurementOrFact`)
+- [x] Update `dfo:GSICompositionMeasurement` to subclass `dwc:Assertion` (replace `dwc:MeasurementOrFact`)
+- [x] Update `dfo:Catch` to subclass `dwc:Assertion` (replace `dwc:MeasurementOrFact`)
+- [x] Remove TODO comments for dwc:Assertion transition
+- [ ] Review property domains/ranges for DwC-CM alignment
+- [ ] Ensure DwC Data Package (DwC-DP) compatibility
+
+### Update Documentation for DwC-CM
+
+**Files:** `docs/CONVENTIONS.md`, `README.md`, `docs/onboarding.md`
+
+- [x] Update CONVENTIONS.md with DwC-CM implementation guidance
+- [x] Update README.md to reflect DwC-CM implementation
+- [x] Update onboarding.md with DwC-CM concepts
+- [x] Remove all transition language and present DwC-CM as implemented
 
 ---
 
@@ -974,7 +1061,7 @@
 | RO       | Prefix only | Alignment via rdfs:seeAlso                                            | Semantic alignment documentation |
 | DPROD    | Defer       | TBD                                                                   | Investigate post-MVP             |
 | SKOS     | Prefix only | Extensive (schemes, concepts)                                         | Core W3C vocab                   |
-| DwC      | Prefix only | Extensive (classes, properties)                                       | Biodiversity standard            |
+| DwC      | Prefix only | Extensive (classes, properties)                                       | Biodiversity standard + DwC-CM implementation |
 
 ---
 
@@ -1001,6 +1088,7 @@
 
 ## Key Decisions
 
+- **DwC-CM decision:** Implement dwc:Assertion pattern for measurement classes
 - **Import strategy:** MIREOT for BFO/IAO/DQV; prefix-only for PROV-O/RO
 - **BFO decision:** Keep and use properly via MIREOT; provides upper ontology grounding
 - **DPROD decision:** Defer to post-MVP; use schema:Dataset for now
