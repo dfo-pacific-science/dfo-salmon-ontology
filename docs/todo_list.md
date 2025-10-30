@@ -8,7 +8,7 @@
 
 ---
 
-## Requirements and Design Review
+## DONE Requirements and Design Review
 
 **Owner:** Brett  
 **Priority:** Critical  
@@ -21,7 +21,7 @@
 - [x] Finalize evidence chain requirements
 - [x] Document required fields checklist (v1.0)
 - [x] Ensure alignment with SPSR data model
-- [x] **COMPLETED 2025-01-27**: Comprehensive PRD update with personas, user stories, acceptance criteria, competency questions, schema recommendations, and MVP enhancements
+- [x] Comprehensive PRD update with personas, user stories, acceptance criteria, competency questions, schema recommendations, and MVP enhancements
 
 ### Review Competency Questions
 
@@ -115,7 +115,7 @@
 
 ---
 
-## BFO MIREOT Import and DwC Mapping
+## DONE BFO MIREOT Import and DwC Mapping
 
 **Owner:** Brett  
 **Priority:** High  
@@ -260,7 +260,8 @@
 
 ### FSAR Module Implementation Status
 
-**File:** `docs/ontology_applications/dfo-fsar.ttl`
+**File:** `docs/ontology_applications/dfo-fsar.ttl`  
+**Latest Version:** `docs/ontology_applications/dfo-fsar-v4.ttl` (includes WSP rapid-status support)
 
 - [x] **COMPLETED**: FSAR module ontology created with comprehensive class definitions
 - [x] **COMPLETED**: Core FSAR classes implemented:
@@ -283,6 +284,21 @@
 - [x] **COMPLETED**: Example instances created for Barkley Sockeye 2025 assessment
 - [x] **COMPLETED**: PROV-O provenance patterns implemented with RDF-star annotations
 
+### WSP Rapid-Status Support
+
+**File:** `docs/ontology_applications/dfo-fsar-v4.ttl`
+
+- [x] **COMPLETED**: WSP rapid-status support added to FSAR Tracer module (2025-01-27)
+  - Added WSP metric classes (`fsar:WSPMetric`, `fsar:MetricBenchmark`, `fsar:AlgorithmThreshold`)
+  - Added status and confidence categories using SKOS
+  - Added properties linking assessments to metrics, statuses, and confidence
+  - Added example benchmark and threshold instances
+  - Documented benchmark vs. algorithm threshold differences
+- [x] **COMPLETED**: Updated PRD with WSP rapid-status section (2f) and 4 new CQs (CQ-WSP-1 through CQ-WSP-4)
+- [ ] **NEXT**: Integrate WSP rapid-status into FSAR Tracer UI/application layer
+- [ ] **NEXT**: Add validation rules for benchmark/threshold consistency
+- [ ] **FUTURE**: Consider time-varying productivity support for relative abundance benchmarks
+
 ### Integration with Core Ontology
 
 **File:** `ontology/dfo-salmon.ttl`
@@ -292,6 +308,7 @@
   - Import or reference FSAR module classes in core ontology
   - Ensure alignment between `dfo:StockAssessment` and `fsar:StockAssessment`
   - **Note**: Consider namespace alignment - FSAR module uses `fsar:` prefix, core will use `dfoc:` prefix
+- [x] **COMPLETED**: Added `dfo:StockAssessment` class to core ontology (2025-01-27)
 - [ ] **NEXT**: Add missing core classes referenced by FSAR module:
   - `dfo:HarvestAdvice` (referenced by `fsar:supportsAdvice`)
   - Ensure `dfo:Dataset` class exists and is properly defined
