@@ -84,3 +84,7 @@ MCP_POLICY.md
 MEMORY_POLICY.md
 docs/bretts-notes.md
 .Rhistory
+
+agent-config/*
+ontology/dfo-salmon.txt
+.cursor/
