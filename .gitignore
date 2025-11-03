@@ -88,3 +88,5 @@ docs/bretts-notes.md
 agent-config/*
 ontology/dfo-salmon.txt
 .cursor/
+
+agent-config/

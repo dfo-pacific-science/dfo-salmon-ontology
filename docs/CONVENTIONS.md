@@ -13,7 +13,7 @@ The conventions here are **practical starting points**, not immutable rules. As 
 ### Essential Elements (Every Term Needs)
 
 - **Label**: `rdfs:label "Human Name"@en`
-- **Definition**: `rdfs:comment "1–2 sentence definition."@en`
+- **Definition**: `iao:0000115 "1–2 sentence definition."@en`
 - **Source**: `rdfs:isDefinedBy <https://w3id.org/dfo/salmon>`
 
 ### Naming Conventions
@@ -210,9 +210,10 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
 ```turtle
 # IN dfo-salmon.ttl (Schema Only)
 :EscapementSurveyEvent a owl:Class ;
-    skos:prefLabel "Escapement Survey Event"@en ;
+    rdfs:label "Escapement Survey Event"@en ;
     iao:0000115 "A specific survey event with measured parameters"@en ;
-    rdfs:subClassOf dwc:Event .
+    rdfs:subClassOf dwc:Event ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
 :SnorkelSurvey a skos:Concept ;
     skos:prefLabel "Visual Snorkel Count"@en ;
@@ -247,20 +248,30 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
 **Required elements for every class:**
 
 - **Type declaration:** `a owl:Class` - This tells the system this is a class
-- **Label:** `skos:prefLabel "Human Name"@en` - A human-readable name in English
-- **Definition:** `iao:0000115 "1–2 sentence definition."@en` - A clear explanation of what this class represents
-- **Source attribution:** `rdfs:isDefinedBy <https://w3id.org/dfo/salmon>` - Links back to our ontology
+- **Label:** `rdfs:label "Human Name"@en` - A human-readable name in English (required, one per language)
+- **Definition:** `iao:0000115 "1–2 sentence definition."@en` - A clear explanation of what this class represents (required, one only)
+- **Source attribution:** `rdfs:isDefinedBy <https://w3id.org/dfo/salmon>` - Links back to our ontology (required)
 
-**Why these are required:** Labels help humans understand what you mean, definitions prevent confusion about scope, and source attribution ensures proper credit and traceability.
+**Optional elements:**
+
+- **Definition source (text):** `iao:0000119 "Citation text here."@en` - Human-readable citation for where the definition came from (optional, 0..*)
+- **Definition source (link):** `dcterms:source <https://doi.org/...>` - Resolvable link to authoritative document or resource (optional, 0..*)
+- **Examples:** `iao:0000112 "Concrete example of usage."@en` - Concrete examples of how this class is used (optional, 0..*)
+- **Notes:** `rdfs:comment "Editorial note."@en` - Optional editorial notes (NOT a definition)
+- **Alternative label:** `skos:prefLabel "Alternative Label"@en` - Optional secondary label for SKOS consumers (non-normative)
+
+**Why these are required:** Labels help humans understand what you mean, definitions prevent confusion about scope, and source attribution ensures proper credit and traceability. Using `rdfs:label` and `IAO:0000115` aligns with OBO Foundry standards and ROBOT tooling expectations. The `skos:prefLabel` can optionally be added on OWL terms for SKOS consumers, but `rdfs:label` is primary and required.
 
 **Example:**
 
 ```turtle
 :GeneticSample a owl:Class ;
-    skos:prefLabel "Genetic Sample"@en ;
+    rdfs:label "Genetic Sample"@en ;
     iao:0000115 "Tissue or material used in genetic stock identification analyses."@en ;
     rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;
-    iao:0000119 "DFO Molecular Genetics Lab glossary 2024" ;
+    iao:0000119 "DFO Molecular Genetics Lab glossary 2024"@en ;
+    iao:0000112 "Fin clip sample from Fraser River sockeye collected in 2023."@en ;
+    dcterms:source <https://doi.org/10.1234/dfo-genetics-2024> ;
     skos:altLabel "DNA sample"@en .
 ```
 
@@ -271,28 +282,38 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
 **Required elements for every object property:**
 
 - **Type declaration:** `a owl:ObjectProperty`
-- **Label:** `skos:prefLabel "Human Name"@en`
-- **Definition:** `iao:0000115 "1–2 sentence definition."@en`
-- **Source attribution:** `rdfs:isDefinedBy <https://w3id.org/dfo/salmon>`
+- **Label:** `rdfs:label "Human Name"@en` - A human-readable name (required, one per language)
+- **Definition:** `iao:0000115 "1–2 sentence definition."@en` - A clear explanation of what this property represents (required, one only)
+- **Source attribution:** `rdfs:isDefinedBy <https://w3id.org/dfo/salmon>` - Links back to our ontology (required)
 
 **Optional but recommended:**
 
+- **Definition source (text):** `iao:0000119 "Citation text here."@en` - Human-readable citation for where the definition came from
+- **Definition source (link):** `dcterms:source <https://doi.org/...>` - Resolvable link to authoritative document or resource
+- **Examples:** `iao:0000112 "Concrete example of usage."@en` - Concrete examples of how this property is used
+
+**Optional domain and range:**
+
 - **Domain:** `rdfs:domain :ClassName` - What type of thing this property describes
 - **Range:** `rdfs:range :ClassName` - What type of thing this property points to
-- **Source:** `iao:0000119 "Reference to where this came from"`
-- **Example:** `dcterms:description "Example usage"`
+
+**Guidance on domain and range:** Prefer class restrictions (and SHACL for validation) over global `rdfs:domain`/`rdfs:range` unless the constraint is always true. Global domain/range declarations propagate broadly and can cause unintended logical consequences. Use them conservatively.
 
 **Example:**
 
 ```turtle
 :aboutStock a owl:ObjectProperty ;
-    skos:prefLabel "about stock"@en ;
+    rdfs:label "about stock"@en ;
     iao:0000115 "Links a measurement or observation to the specific stock it describes."@en ;
-    rdfs:domain :Measurement ;
-    rdfs:range :Stock ;
     rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;
-    iao:0000119 "DFO stock assessment protocols 2024" .
+    iao:0000119 "DFO stock assessment protocols 2024"@en ;
+    iao:0000112 "A sockeye escapement measurement about Fraser River sockeye stock."@en ;
+    rdfs:domain :Measurement ;  # Use conservatively - prefer class restrictions where possible
+    rdfs:range :Stock ;
+    dcterms:source <https://doi.org/10.1234/dfo-protocols-2024> .
 ```
+
+**Alignment with Relations Ontology (RO):** When aligning to RO, import and reuse RO properties, or use `owl:equivalentProperty` / `rdfs:subPropertyOf` where appropriate. Use `skos:exactMatch`/`skos:closeMatch` only for concept-level mappings, not for OWL properties. Do not use `rdfs:seeAlso` for property alignment.
 
 #### 2.3.3 Datatype Properties
 
@@ -301,25 +322,33 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
 **Required elements for every datatype property:**
 
 - **Type declaration:** `a owl:DatatypeProperty`
-- **Label:** `skos:prefLabel "Human Name"@en`
-- **Definition:** `iao:0000115 "1–2 sentence definition."@en`
-- **Source attribution:** `rdfs:isDefinedBy <https://w3id.org/dfo/salmon>`
+- **Label:** `rdfs:label "Human Name"@en` - A human-readable name (required, one per language)
+- **Definition:** `iao:0000115 "1–2 sentence definition."@en` - A clear explanation of what this property represents (required, one only)
+- **Source attribution:** `rdfs:isDefinedBy <https://w3id.org/dfo/salmon>` - Links back to our ontology (required)
 
 **Optional but recommended:**
 
+- **Definition source (text):** `iao:0000119 "Citation text here."@en` - Human-readable citation for where the definition came from
+- **Definition source (link):** `dcterms:source <https://doi.org/...>` - Resolvable link to authoritative document or resource
+- **Examples:** `iao:0000112 "Concrete example of usage."@en` - Concrete examples of how this property is used
+
+**Optional domain and range:**
+
 - **Domain:** `rdfs:domain :ClassName`
 - **Range:** `rdfs:range xsd:datatype` (e.g., `xsd:string`, `xsd:integer`, `xsd:date`)
-- **Source:** `iao:0000119 "Reference to where this came from"`
+
+**Guidance on domain and range:** Prefer class restrictions (and SHACL for validation) over global `rdfs:domain`/`rdfs:range` unless the constraint is always true. Global domain/range declarations propagate broadly and can cause unintended logical consequences. Use them conservatively.
 
 **Example:**
 
 ```turtle
 :measurementValue a owl:DatatypeProperty ;
-    skos:prefLabel "measurement value"@en ;
+    rdfs:label "measurement value"@en ;
     iao:0000115 "The numeric value of a measurement."@en ;
-    rdfs:domain :Measurement ;
-    rdfs:range xsd:decimal ;
-    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;
+    iao:0000112 "A count of 1,250 sockeye salmon."@en ;
+    rdfs:domain :Measurement ;  # Use conservatively - prefer class restrictions where possible
+    rdfs:range xsd:decimal .
 ```
 
 #### 2.3.4 SKOS Concepts
@@ -335,38 +364,66 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
 **Required elements for every SKOS concept:**
 
 - **Type declaration:** `a skos:Concept`
-- **Label:** `skos:prefLabel "Human Name"@en`
-- **Definition:** `skos:definition "1–2 sentence definition."@en`
-- **Source attribution:** `rdfs:isDefinedBy <https://w3id.org/dfo/salmon>`
+- **Label:** `skos:prefLabel "Human Name"@en` - A human-readable name (required, ≤1 per language)
+- **Scheme membership:** `skos:inScheme :SchemeName` - The concept scheme this concept belongs to (required)
+- **Definition:** `skos:definition "1–2 sentence definition."@en` - A clear explanation (recommended, 1×)
+- **Source attribution:** `rdfs:isDefinedBy <https://w3id.org/dfo/salmon>` - Links back to our ontology (required)
 
-**Note on ROBOT Validation:** ROBOT reports missing `rdfs:label` for SKOS concepts that have `skos:prefLabel`. This is a ROBOT limitation - per W3C SKOS specification, `skos:prefLabel` is a subproperty of `rdfs:label`, so these concepts ARE properly labeled. Do not add redundant `rdfs:label` properties to satisfy ROBOT.
+**Optional elements:**
+
+- **Alternative labels:** `skos:altLabel "Alternative"@en` - Alternative names (optional, 0..*)
+- **Broader/narrower/related:** `skos:broader :BroaderConcept` - Hierarchical relationships (optional)
+- **Definition source (link):** `dcterms:source <https://doi.org/...>` - Resolvable link to authoritative document (optional)
+- **Definition source (text):** `iao:0000119 "Citation text here."@en` - Human-readable citation (optional)
+- **Code (if applicable):** `skos:notation "CODE"^^ex:YourCodeSystemDatatype` - Formal scheme code (optional, typed literal)
+
+**Code guidance (skos:notation):**
+
+- Value MUST be a typed literal (code string + datatype IRI naming the code system)
+- Don't put codes in labels (`skos:prefLabel`) or in `dcterms:identifier`
+- If multiple code systems apply, include multiple `skos:notation` values (one per datatype)
+- Enforce: per concept per scheme, exactly one `skos:notation` with datatype per code system
+
+**Note on ROBOT Validation:** ROBOT may report missing `rdfs:label` for SKOS concepts that have `skos:prefLabel`. Per W3C SKOS specification, `skos:prefLabel` is a subproperty of `rdfs:label`, so these concepts ARE properly labeled. Either configure ROBOT to accept `skos:prefLabel` without requiring `rdfs:label` on SKOS concepts, or document that SKOS concepts will duplicate `skos:prefLabel → rdfs:label` for ROBOT compatibility.
 
 **Example:**
 
 ```turtle
+# Declare the code-system datatype
+ex:DFOEscMethodCode a rdfs:Datatype .
+
 :SonarCounting a skos:Concept ;
-    skos:prefLabel "Sonar Counting"@en ;
-    skos:definition "Method of counting fish using sonar technology."@en ;
+    skos:inScheme :EscapementMethodScheme ;
+    skos:prefLabel "Sonar counting"@en ;
+    skos:definition "Counting fish using active acoustic methods (e.g., DIDSON/ARIS) under a defined protocol."@en ;
+    skos:broader :CountingMethod ;
+    skos:notation "ESC-001"^^ex:DFOEscMethodCode ;  # code lives here, not in the label
     rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;
-    skos:broader :CountingMethod .
+    dcterms:source <https://doi.org/10.1234/dfo-esc-methods-2023> ;
+    iao:0000119 "DFO (2023). Escapement Survey Manual, Pacific Region."@en .
 ```
 
 #### 2.3.5 Provenance and Citation Conventions
 
-#### 2.3.5.1 Use of `iao:0000119`, `dcterms:identifier`, and `rdfs:seeAlso`
+#### 2.3.5.1 Use of `iao:0000119`, `dcterms:identifier`, `dcterms:source`, `dcterms:bibliographicCitation`, and `rdfs:seeAlso`
 
 To ensure consistent provenance documentation and FAIR compliance, follow these conventions when citing the source of a definition, dataset, or external standard:
 
 | Property                            | Purpose                                                               | Expected Value Type | Example Use                                                              |
 | ----------------------------------- | --------------------------------------------------------------------- | ------------------- | ------------------------------------------------------------------------ |
-| **`iao:0000119`** | Human-readable citation text for the source.                          | Literal (string)    | `"DFO (2023). Escapement Survey Manual, Pacific Region."@en`             |
-
-| **`dcterms:identifier`**                | Persistent identifier (DOI/Handle/w3id/ARK) for the source resource.  | IRI                 | `<info:doi/10.1234/dfostock.2023>`                                |
-
-| **`rdfs:seeAlso`**                  | Optional landing page or download URL for browsers and accessibility. | IRI                 | `<https://open.canada.ca/data/en/dataset/escapement-survey-manual-2023>` |
+| **`iao:0000119`** | Human-readable citation text specifically for the **definition source** (where the definition text came from). | Literal (string, language-tagged)    | `"DFO (2023). Escapement Survey Manual, Pacific Region."@en`             |
+| **`dcterms:bibliographicCitation`** | General bibliographic citation text (not specifically definition source). | Literal (string, language-tagged)    | `"Smith et al. (2020). Salmon Population Dynamics."@en`             |
+| **`dcterms:identifier`** | Internal textual identifier (human-readable local ID). **NOT an IRI, NOT a scheme code.** | Literal (string, plain)                 | `"DFO-SALMON:000123"`                                |
+| **`dcterms:source`** | Resolvable link to authoritative document or resource (DOI, Handle, w3id, ARK). | IRI                 | `<https://doi.org/10.1234/dfostock.2023>`                                |
+| **`rdfs:seeAlso`** | Optional helpful extra links (landing pages, download URLs, related resources). | IRI                 | `<https://open.canada.ca/data/en/dataset/escapement-survey-manual-2023>` |
 
 **Guideline:**  
-Use `dcterms:identifier` for the _persistent identifier_ (prefer DOI/Handle/w3id/ARK), `iao:0000119` for the _human-readable citation text_, and optionally `rdfs:seeAlso` for _landing pages or download URLs_.
+- **`iao:0000119`**: Use strictly for definition textual provenance (citation text for where the definition came from)
+- **`dcterms:bibliographicCitation`**: Use for general bibliographic strings that aren't specifically "definition source"
+- **`dcterms:source`**: Use for resolvable links (IRI) to authoritative documents or resources
+- **`dcterms:identifier`**: Use only for literal internal IDs (e.g., "DFO-SALMON:000123"), not IRIs, not codes
+- **`rdfs:seeAlso`**: Use optionally for helpful extra links, not as the primary provenance hook
+- **Codes**: Put scheme codes in `skos:notation` (typed literal), not in labels or identifiers
 
 ---
 
@@ -375,56 +432,158 @@ Use `dcterms:identifier` for the _persistent identifier_ (prefer DOI/Handle/w3id
 ```turtle
 :EscapementSurveyEvent a owl:Class ;
     rdfs:label "Escapement Survey Event"@en ;
-    rdfs:comment "A survey event conducted to measure salmon escapement."@en ;
+    iao:0000115 "A survey event conducted to measure salmon escapement."@en ;
     rdfs:subClassOf dwc:Event ;
     rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;
 
-    # Non-literal source (preferred: DOI or other persistent IRI)
-    dcterms:identifier <info:doi/10.1234/dfostock.2023> ;
+    # Resolvable link to authoritative document (IRI)
+    dcterms:source <https://doi.org/10.1234/dfostock.2023> ;
 
-    # Human-readable citation text
+    # Human-readable citation text for definition source
     iao:0000119 "DFO (2023). Escapement Survey Manual, Pacific Region. Fisheries and Oceans Canada."@en ;
 
-    # Optional: landing page or download URL
+    # Optional: helpful extra link (landing page)
     rdfs:seeAlso <https://open.canada.ca/data/en/dataset/escapement-survey-manual-2023> .
 ```
 
 **Explanation:**
 
-- `dcterms:identifier` provides a _persistent identifier_ (DOI) that machines can resolve.
-- `iao:0000119` provides a _human-readable citation_ following standard bibliographic format.
-- `rdfs:seeAlso` provides a _landing page URL_ for easy access and browser navigation.
+- `dcterms:source` provides a _resolvable link_ (DOI IRI) to the authoritative document.
+- `iao:0000119` provides a _human-readable citation_ specifically for where the definition text came from.
+- `rdfs:seeAlso` provides a _helpful extra link_ (landing page) for easy access and browser navigation.
+
+**Note:** This class definition is generic (no specific dataset DOI). For concrete resources, create them as instances in a data graph (e.g., `dcat:Dataset`) and link from there, rather than putting dataset-specific DOIs on OWL class definitions.
 
 ---
 
-#### 2.3.5.3 Example — Dataset or External Resource Reference
+#### 2.3.5.3 Example — Class Definition (Generic, Not Instance-Specific)
 
 ```turtle
 :BaselineGeneticDataset a owl:Class ;
-    skos:prefLabel "Baseline Genetic Dataset"@en ;
+    rdfs:label "Baseline Genetic Dataset"@en ;
     iao:0000115 "A curated collection of reference genotypes used in genetic stock identification analyses."@en ;
     rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;
 
-    # Persistent identifier for the dataset
-    dcterms:identifier <info:doi/10.1234/dfo-baseline-genotype-2024> ;
+    # Resolvable link to authoritative document (IRI)
+    dcterms:source <https://doi.org/10.1234/dfo-baseline-genotype-2024> ;
 
-    # Human-readable citation
+    # Human-readable citation text for definition source
     iao:0000119 "DFO Molecular Genetics Laboratory (2024). Baseline Genotype Reference Collection. Fisheries and Oceans Canada."@en ;
 
-    # Optional: data portal landing page
+    # Optional: helpful extra link (data portal landing page)
     rdfs:seeAlso <https://open.canada.ca/data/en/dataset/dfo-baseline-genotype-reference-collection> .
 ```
+
+**Note:** This class definition is generic. For specific dataset instances (e.g., the 2024 baseline genotype collection), create them as instances in a data graph (e.g., `dcat:Dataset`) rather than putting instance-specific DOIs on OWL class definitions.
 
 ---
 
 #### 2.3.5.4 Key Points
 
-- ✅ Use **IRI** for `dcterms:identifier` — prefer DOI/Handle/w3id/ARK for persistence
-- ✅ Use **`iao:0000119`** for human-readable citation text (not `dcterms:source`)
-- ✅ Use **`rdfs:seeAlso`** optionally for landing pages or download URLs
-- ✅ This pattern aligns with DCMI and W3C best practices for provenance and citation
+- ✅ **`dcterms:identifier`** is a **literal** internal ID (e.g., "DFO-SALMON:000123"), not an IRI, not a scheme code
+- ✅ Use **`dcterms:source`** for links to resources (IRIs), e.g., `<https://doi.org/10.1234/...>`
+- ✅ Put scheme **codes** in **`skos:notation`** (typed literal), not in labels or identifiers
+- ✅ Use **`iao:0000119`** strictly for definition textual provenance (citation text for where the definition came from)
+- ✅ Use **`dcterms:bibliographicCitation`** for general bibliographic strings (not specifically definition source)
+- ✅ Use **`rdfs:seeAlso`** optionally for helpful extra links, not as the primary provenance hook
+- ✅ This pattern aligns with DCMI, W3C, and OBO Foundry best practices for provenance and citation
 
-### 2.3.6 Ontology Import Strategy
+---
+
+#### 2.3.6 Authoritative Templates
+
+These templates represent the correct patterns for OWL and SKOS terms. All examples in this document should follow these patterns.
+
+**OWL Class / Property (authoritative template):**
+
+```turtle
+:ExampleClass a owl:Class ;
+  rdfs:label "Example class"@en ;           # required, 1× per lang
+  IAO:0000115 "Definition text."@en ;       # required, 1×
+  IAO:0000119 "DFO (2024) …"@en ;           # optional (definition citation string)
+  IAO:0000112 "Example usage …"@en ;        # optional example
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;  # required
+  dcterms:source <https://doi.org/10.xxxx/yyy> .    # optional (IRI link)
+```
+
+**SKOS Concept (authoritative template):**
+
+```turtle
+# Declare code-system datatype (if codes are used)
+ex:DFOEscMethodCode a rdfs:Datatype .
+
+:SonarCounting a skos:Concept ;
+  skos:inScheme :EscMethodScheme ;             # required
+  skos:prefLabel "Sonar counting"@en ;         # required, ≤1 per lang
+  skos:definition "Counting fish via active acoustics …"@en ;  # recommended
+  skos:notation "ESC-001"^^ex:DFOEscMethodCode ;  # optional, typed code
+  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;  # required
+  dcterms:source <https://doi.org/10.xxxx/zzz> ;   # optional (IRI)
+  IAO:0000119 "DFO (2023) Escapement Manual …"@en .  # optional (text)
+```
+
+**Key differences:**
+
+- **OWL terms**: Use `rdfs:label` (required) and `IAO:0000115` (required) for definition
+- **SKOS concepts**: Use `skos:prefLabel` (required) and `skos:definition` (recommended)
+- **Codes**: Always use `skos:notation` with typed literal, never in labels or identifiers
+- **Source links**: Use `dcterms:source` (IRI) for resolvable links, `IAO:0000119` (literal) for definition textual provenance
+- **Identifiers**: Use `dcterms:identifier` only for literal internal IDs, not IRIs or codes
+
+---
+
+#### 2.3.7 Language and Datatype Rules
+
+**Language-tagged strings** (with `@en` or other language tags):
+- `rdfs:label`, `skos:prefLabel`, `IAO:0000115`, `IAO:0000112`, `IAO:0000119`, `skos:definition`, `skos:altLabel`
+- All human-readable text should be language-tagged
+
+**Typed literals** (no language tag, with datatype IRI):
+- `skos:notation` - e.g., `"ESC-001"^^ex:DFOEscMethodCode`
+- Codes must be typed literals, not plain strings
+
+**Plain string literals** (no language tag, no datatype):
+- `dcterms:identifier` - e.g., `"DFO-SALMON:000123"`
+- Internal textual identifiers should be plain strings
+
+---
+
+#### 2.3.8 Synonym Policy
+
+**Default (recommended):** Use OBO In OWL synonym properties for typed synonyms:
+- `oboInOwl:hasExactSynonym` - Exact synonyms
+- `oboInOwl:hasRelatedSynonym` - Related but not exact synonyms
+- `oboInOwl:hasBroadSynonym` - Broader terms
+- `oboInOwl:hasNarrowSynonym` - Narrower terms
+
+**Minimalist fallback:** Use `IAO:0000118` ("alternative term") if avoiding oboInOwl. Note that this loses synonym scope typing.
+
+**On OWL terms:** If keeping `skos:altLabel` on OWL classes for convenience, state it's non-normative (no synonym scope). The primary approach should use oboInOwl properties.
+
+---
+
+#### 2.3.9 Punning Policy
+
+**Default:** No punning (different IRIs for OWL classes vs SKOS concepts). This maintains OWL 2 DL profile compliance and avoids confusion.
+
+**Exception:** If intentional punning is used (same IRI for both OWL class and SKOS concept), it must be:
+- Explicitly documented
+- Restricted: SKOS annotations only on the "concept" side
+- Validated: OWL 2 DL profile check must pass
+
+**Best practice:** Avoid punning unless there's a clear semantic need. Use distinct IRIs for OWL and SKOS terms.
+
+---
+
+#### 2.3.10 RDF 1.2 Stance
+
+- **Quoted triples** are out of scope for the core OWL module (not in OWL 2 DL's entailment regime)
+- Continue using **language-tagged literals** (optionally with language direction) per RDF 1.2
+- Keep the core ontology in OWL 2 DL profile for maximum tool compatibility
+
+---
+
+### 2.3.11 Ontology Import Strategy
 
 **Three Approaches: Import vs MIREOT vs Prefix**
 
@@ -458,7 +617,7 @@ Understanding when to use each approach is critical for maintaining a lightweigh
 **Method:**
 
 1. Copy the term IRI (e.g., `bfo:0000015`)
-2. Add minimal metadata: `skos:prefLabel`, `skos:definition`
+2. Add minimal metadata: `rdfs:label`, `iao:0000115` (definition)
 3. Add `rdfs:isDefinedBy` pointing to source ontology
 4. Use the term as if it were native
 
@@ -475,7 +634,7 @@ Understanding when to use each approach is critical for maintaining a lightweigh
 ```turtle
 # Import specific BFO term via MIREOT
 bfo:0000015 a owl:Class ;
-  skos:prefLabel "process"@en ;
+  rdfs:label "process"@en ;
   iao:0000115 "An occurrent that has temporal parts."@en ;
   rdfs:isDefinedBy <http://purl.obolibrary.org/obo/bfo.owl> .
 
@@ -627,7 +786,7 @@ PROV-O Properties (prefix-only):
 # Layer 3: OWL Event Classes
 :EscapementSurveyEvent a owl:Class ;
     rdfs:label "Escapement Survey Event"@en ;
-    rdfs:comment "A specific survey event with measured parameters"@en ;
+    iao:0000115 "A specific survey event with measured parameters"@en ;
     rdfs:subClassOf dwc:Event ;
     rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
@@ -804,15 +963,18 @@ Every measurement must have:
 # DFO-specific classes that extend Darwin Core
 dfo:ManagementUnit rdfs:subClassOf dwc:Event ;
     rdfs:label "Management Unit"@en ;
-    rdfs:comment "A geographic or administrative unit for salmon management"@en .
+    iao:0000115 "A geographic or administrative unit for salmon management"@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
 dfo:ConservationUnit rdfs:subClassOf dwc:Event ;
     rdfs:label "Conservation Unit"@en ;
-    rdfs:comment "A biologically meaningful unit for conservation planning"@en .
+    iao:0000115 "A biologically meaningful unit for conservation planning"@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
 dfo:Stock rdfs:subClassOf dwc:Organism ;
     rdfs:label "Stock"@en ;
-    rdfs:comment "A population of salmon with distinct characteristics"@en .
+    iao:0000115 "A population of salmon with distinct characteristics"@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 ```
 
 ---
@@ -1078,7 +1240,8 @@ SELECT ?method ?stock ?event WHERE {
 ```turtle
 :Sockeye rdfs:subClassOf :Salmon ;
     rdfs:label "Sockeye"@en ;
-    rdfs:comment "A species of salmon (Oncorhynchus nerka)"@en .
+    iao:0000115 "A species of salmon (Oncorhynchus nerka)"@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 ```
 
 #### 6.3.2 Equivalence
@@ -1136,7 +1299,8 @@ SELECT ?method ?stock ?event WHERE {
 # Define the base membership property
 :hasMember a owl:ObjectProperty, owl:TransitiveProperty ;
     rdfs:label "has member"@en ;
-    rdfs:comment "A transitive relationship indicating membership in a group"@en .
+    iao:0000115 "A transitive relationship indicating membership in a group"@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 
 # Define type-specific subproperties
 :hasMemberCU rdfs:subPropertyOf :hasMember ;
@@ -1220,28 +1384,41 @@ SELECT ?method ?stock ?event WHERE {
 **OBO Foundry Relation Reuse Requirements:**
 
 - **Check RO first**: Before defining new relations, check if equivalent relations exist in RO
-- **Use RO IRIs**: When equivalent relations exist, use the RO IRI directly or create subproperties
+- **Import and reuse RO properties**: Import RO and use its properties directly where appropriate
+- **Map via equivalence/subproperty**: Use `owl:equivalentProperty` or `rdfs:subPropertyOf` to align with RO
+- **For classes**: Use `owl:equivalentClass` or `rdfs:subClassOf` to align with external ontologies
+- **For SKOS concepts**: Use `skos:exactMatch` or `skos:closeMatch` for concept-level mappings (not for OWL properties)
+- **Do NOT use `rdfs:seeAlso` for alignment**: `rdfs:seeAlso` is for helpful extra links, not semantic alignment
 - **Avoid label conflicts**: OBO Foundry review flags non-RO relations with RO-equivalent labels
-- **Subproperty alignment**: Create subproperties of RO relations when domain-specific extensions are needed
 
 **Example RO Alignment:**
 
 ```turtle
-# Instead of defining a new "hasMember" property, align with RO
+# Option 1: Import RO and reuse directly
+# (Import RO ontology, then use ro:has_part directly)
+
+# Option 2: Create subproperty of RO relation
 :hasMember rdfs:subPropertyOf ro:has_part ;
     rdfs:label "has member"@en ;
-    rdfs:comment "A transitive relationship indicating membership in a group"@en .
+    iao:0000115 "A transitive relationship indicating membership in a group."@en .
 
-# Or use RO directly when appropriate
-:populationOf ro:part_of :stock ;
-    rdfs:label "population of"@en .
+# Option 3: Map via equivalence
+:hasMember owl:equivalentProperty ro:has_part ;
+    rdfs:label "has member"@en .
+
+# Do NOT do this for alignment:
+# :hasMember rdfs:seeAlso ro:has_part .  # Wrong - seeAlso is not for alignment
 ```
 
 **Implementation:**
 
-- Store external IRIs as literals in `…UnitIRI` properties
+- **Properties**: Import RO and reuse, or map via `owl:equivalentProperty` / `rdfs:subPropertyOf`
+- **Classes**: Import external ontologies or map via `owl:equivalentClass` / `rdfs:subClassOf`
+- **SKOS concepts**: Use `skos:exactMatch`/`skos:closeMatch` only for concept-level mappings
+- **rdfs:isDefinedBy**: Point at your ontology/module IRI (required)
+- **rdfs:seeAlso**: Use only for helpful extra links, not for semantic alignment
+- Store external IRIs as literals in `…UnitIRI` properties (for units, may transition to object properties)
 - Use `dcterms:source` to reference external vocabularies
-- Plan to convert to object properties in future versions
 - Check RO for existing relations before defining new ones
 
 **Unit Property Enhancement (Non-breaking):**
@@ -1251,17 +1428,18 @@ For richer unit semantics, consider adding object properties alongside datatype 
 # Current approach: Store QUDT IRIs as literals
 :measurementUnitIRI a owl:DatatypeProperty ;
     rdfs:label "measurement unit IRI"@en ;
-    rdfs:comment "IRI of the unit used in a measurement"@en ;
+    iao:0000115 "IRI of the unit used in a measurement"@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;
     rdfs:domain :Measurement ;
     rdfs:range xsd:anyURI .
 
 # Enhanced approach: Add object property for reasoning
 :hasUnit a owl:ObjectProperty ;
     rdfs:label "has unit"@en ;
-    rdfs:comment "Links a measurement to a unit (e.g., QUDT Unit)"@en ;
+    iao:0000115 "Links a measurement to a unit (e.g., QUDT Unit)"@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;
     rdfs:domain :Measurement ;
-    rdfs:range qudt:Unit ;
-    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+    rdfs:range qudt:Unit .
 
 # Example usage with both approaches
 :EscapementCount2022 a :EscapementMeasurement ;
@@ -1292,7 +1470,8 @@ For richer unit semantics, consider adding object properties alongside datatype 
 
 dfo:EscapementMeasurement a owl:Class ;
     rdfs:label "Escapement Measurement"@en ;
-    rdfs:comment "A measurement of salmon escapement"@en .
+    iao:0000115 "A measurement of salmon escapement"@en ;
+    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
 ```
 
 #### 6.7.2 Versioning
@@ -1363,7 +1542,7 @@ dfo:EscapementMeasurement a owl:Class ;
 
 :SkeenaSockeye a dfo:Stock ;
     rdfs:label "Skeena Sockeye"@en ;
-    rdfs:comment "Sockeye salmon from the Skeena River watershed"@en .
+    iao:0000115 "Sockeye salmon from the Skeena River watershed"@en .
 
 :SonarCount2023_08_15 a dfo:EscapementMeasurement ;
     dwc:measurementType "abundance" ;
@@ -1395,7 +1574,7 @@ dfo:EscapementMeasurement a owl:Class ;
 
 :FraserSockeyeRU a dfo:ReportingUnit ;
     rdfs:label "Fraser Sockeye Reporting Unit"@en ;
-    rdfs:comment "Genetic reporting unit for Fraser River sockeye"@en .
+    iao:0000115 "Genetic reporting unit for Fraser River sockeye"@en .
 
 :GSIResult2023_001 a dfo:GSICompositionMeasurement ;
     dfo:aboutReportingUnit :FraserSockeyeRU ;
@@ -1550,10 +1729,13 @@ robot annotate --input dfo-salmon.ttl --ontology-iri "https://w3id.org/dfo/salmo
 
 **Essential Elements:**
 
-- Always define: **Label + Definition**
-- Use **OWL classes and properties** for structure
-- Use **SKOS** when you need a picklist or controlled list
+- **OWL terms**: Always use `rdfs:label` (required) and `IAO:0000115` (required) for definitions
+- **SKOS concepts**: Use `skos:prefLabel` (required), `skos:inScheme` (required), and `skos:definition` (recommended)
+- Use **OWL classes and properties** for formal structure and logical relationships
+- Use **SKOS** when you need a picklist or controlled vocabulary
 - Follow **Darwin Core** as your meta-framework for interoperability
+- **Codes**: Use `skos:notation` with typed literal, never in labels or identifiers
+- **Source links**: Use `dcterms:source` (IRI) for resolvable links, `IAO:0000119` (literal) for definition textual provenance
 
 **Getting Started:**
 
