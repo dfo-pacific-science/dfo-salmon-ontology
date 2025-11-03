@@ -259,6 +259,7 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
 - **Examples:** `iao:0000112 "Concrete example of usage."@en` - Concrete examples of how this class is used (optional, 0..*)
 - **Notes:** `rdfs:comment "Editorial note."@en` - Optional editorial notes (NOT a definition)
 - **Alternative label:** `skos:prefLabel "Alternative Label"@en` - Optional secondary label for SKOS consumers (non-normative)
+- **SKOS mirror label:** When a class also carries `skos:prefLabel`, duplicate the same literal in `rdfs:label` so OWL tooling and SKOS consumers stay in sync.
 
 **Why these are required:** Labels help humans understand what you mean, definitions prevent confusion about scope, and source attribution ensures proper credit and traceability. Using `rdfs:label` and `IAO:0000115` aligns with OBO Foundry standards and ROBOT tooling expectations. The `skos:prefLabel` can optionally be added on OWL terms for SKOS consumers, but `rdfs:label` is primary and required.
 
@@ -291,6 +292,7 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
 - **Definition source (text):** `iao:0000119 "Citation text here."@en` - Human-readable citation for where the definition came from
 - **Definition source (link):** `dcterms:source <https://doi.org/...>` - Resolvable link to authoritative document or resource
 - **Examples:** `iao:0000112 "Concrete example of usage."@en` - Concrete examples of how this property is used
+- **SKOS mirror label:** If a property includes `skos:prefLabel`, repeat the same literal in `rdfs:label`; OWL labels remain the normative value.
 
 **Optional domain and range:**
 
@@ -331,6 +333,7 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
 - **Definition source (text):** `iao:0000119 "Citation text here."@en` - Human-readable citation for where the definition came from
 - **Definition source (link):** `dcterms:source <https://doi.org/...>` - Resolvable link to authoritative document or resource
 - **Examples:** `iao:0000112 "Concrete example of usage."@en` - Concrete examples of how this property is used
+- **SKOS mirror label:** When a datatype property keeps `skos:prefLabel` for SKOS tooling, mirror the literal in `rdfs:label`.
 
 **Optional domain and range:**
 
@@ -376,6 +379,7 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
 - **Definition source (link):** `dcterms:source <https://doi.org/...>` - Resolvable link to authoritative document (optional)
 - **Definition source (text):** `iao:0000119 "Citation text here."@en` - Human-readable citation (optional)
 - **Code (if applicable):** `skos:notation "CODE"^^ex:YourCodeSystemDatatype` - Formal scheme code (optional, typed literal)
+- **External alignments:** Use `skos:exactMatch` / `skos:closeMatch` for IRIs that denote aligned concepts. Reserve `skos:altLabel` for text synonyms with language tags.
 
 **Code guidance (skos:notation):**
 
@@ -566,12 +570,11 @@ ex:DFOEscMethodCode a rdfs:Datatype .
 
 **Default:** No punning (different IRIs for OWL classes vs SKOS concepts). This maintains OWL 2 DL profile compliance and avoids confusion.
 
-**Exception:** If intentional punning is used (same IRI for both OWL class and SKOS concept), it must be:
-- Explicitly documented
-- Restricted: SKOS annotations only on the "concept" side
-- Validated: OWL 2 DL profile check must pass
+**Strict separation:** Treat SKOS concept schemes as vocabulary artifacts only. Do not attach OWL structural axioms (`rdfs:subClassOf`, property domains/ranges, class expressions) to SKOS terms.
 
-**Best practice:** Avoid punning unless there's a clear semantic need. Use distinct IRIs for OWL and SKOS terms.
+**Punning only with intent:** If a future competency question requires the same IRI to behave as both an OWL class and SKOS concept, capture the decision in an ADR first, add explicit comments in the ontology, and run ROBOT validation to confirm OWL 2 DL compliance.
+
+In everyday modeling, mint distinct IRIs for OWL classes versus SKOS concepts and rely on SKOS properties (`skos:broader`, `skos:inScheme`, etc.) for hierarchical vocabulary structure.
 
 ---
 
