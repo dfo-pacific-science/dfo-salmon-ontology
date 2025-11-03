@@ -14,7 +14,7 @@ The conventions here are **practical starting points**, not immutable rules. As 
 
 - **Label**: `rdfs:label "Human Name"@en`
 - **Definition**: `iao:0000115 "1–2 sentence definition."@en`
-- **Source**: `rdfs:isDefinedBy <https://w3id.org/dfo/salmon>`
+- **Source**: `rdfs:isDefinedBy <https://w3id.org/dfoc/salmon>`
 
 ### Naming Conventions
 
@@ -213,7 +213,7 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
     rdfs:label "Escapement Survey Event"@en ;
     iao:0000115 "A specific survey event with measured parameters"@en ;
     rdfs:subClassOf dwc:Event ;
-    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+    rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
 :SnorkelSurvey a skos:Concept ;
     skos:prefLabel "Visual Snorkel Count"@en ;
@@ -250,7 +250,7 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
 - **Type declaration:** `a owl:Class` - This tells the system this is a class
 - **Label:** `rdfs:label "Human Name"@en` - A human-readable name in English (required, one per language)
 - **Definition:** `iao:0000115 "1–2 sentence definition."@en` - A clear explanation of what this class represents (required, one only)
-- **Source attribution:** `rdfs:isDefinedBy <https://w3id.org/dfo/salmon>` - Links back to our ontology (required)
+- **Source attribution:** `rdfs:isDefinedBy <https://w3id.org/dfoc/salmon>` - Links back to our ontology (required)
 
 **Optional elements:**
 
@@ -268,7 +268,7 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
 :GeneticSample a owl:Class ;
     rdfs:label "Genetic Sample"@en ;
     iao:0000115 "Tissue or material used in genetic stock identification analyses."@en ;
-    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;
+    rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> ;
     iao:0000119 "DFO Molecular Genetics Lab glossary 2024"@en ;
     iao:0000112 "Fin clip sample from Fraser River sockeye collected in 2023."@en ;
     dcterms:source <https://doi.org/10.1234/dfo-genetics-2024> ;
@@ -284,7 +284,7 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
 - **Type declaration:** `a owl:ObjectProperty`
 - **Label:** `rdfs:label "Human Name"@en` - A human-readable name (required, one per language)
 - **Definition:** `iao:0000115 "1–2 sentence definition."@en` - A clear explanation of what this property represents (required, one only)
-- **Source attribution:** `rdfs:isDefinedBy <https://w3id.org/dfo/salmon>` - Links back to our ontology (required)
+- **Source attribution:** `rdfs:isDefinedBy <https://w3id.org/dfoc/salmon>` - Links back to our ontology (required)
 
 **Optional but recommended:**
 
@@ -305,7 +305,7 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
 :aboutStock a owl:ObjectProperty ;
     rdfs:label "about stock"@en ;
     iao:0000115 "Links a measurement or observation to the specific stock it describes."@en ;
-    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;
+    rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> ;
     iao:0000119 "DFO stock assessment protocols 2024"@en ;
     iao:0000112 "A sockeye escapement measurement about Fraser River sockeye stock."@en ;
     rdfs:domain :Measurement ;  # Use conservatively - prefer class restrictions where possible
@@ -324,7 +324,7 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
 - **Type declaration:** `a owl:DatatypeProperty`
 - **Label:** `rdfs:label "Human Name"@en` - A human-readable name (required, one per language)
 - **Definition:** `iao:0000115 "1–2 sentence definition."@en` - A clear explanation of what this property represents (required, one only)
-- **Source attribution:** `rdfs:isDefinedBy <https://w3id.org/dfo/salmon>` - Links back to our ontology (required)
+- **Source attribution:** `rdfs:isDefinedBy <https://w3id.org/dfoc/salmon>` - Links back to our ontology (required)
 
 **Optional but recommended:**
 
@@ -345,7 +345,7 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
 :measurementValue a owl:DatatypeProperty ;
     rdfs:label "measurement value"@en ;
     iao:0000115 "The numeric value of a measurement."@en ;
-    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;
+    rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> ;
     iao:0000112 "A count of 1,250 sockeye salmon."@en ;
     rdfs:domain :Measurement ;  # Use conservatively - prefer class restrictions where possible
     rdfs:range xsd:decimal .
@@ -367,7 +367,7 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
 - **Label:** `skos:prefLabel "Human Name"@en` - A human-readable name (required, ≤1 per language)
 - **Scheme membership:** `skos:inScheme :SchemeName` - The concept scheme this concept belongs to (required)
 - **Definition:** `skos:definition "1–2 sentence definition."@en` - A clear explanation (recommended, 1×)
-- **Source attribution:** `rdfs:isDefinedBy <https://w3id.org/dfo/salmon>` - Links back to our ontology (required)
+- **Source attribution:** `rdfs:isDefinedBy <https://w3id.org/dfoc/salmon>` - Links back to our ontology (required)
 
 **Optional elements:**
 
@@ -398,7 +398,7 @@ ex:DFOEscMethodCode a rdfs:Datatype .
     skos:definition "Counting fish using active acoustic methods (e.g., DIDSON/ARIS) under a defined protocol."@en ;
     skos:broader :CountingMethod ;
     skos:notation "ESC-001"^^ex:DFOEscMethodCode ;  # code lives here, not in the label
-    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;
+    rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> ;
     dcterms:source <https://doi.org/10.1234/dfo-esc-methods-2023> ;
     iao:0000119 "DFO (2023). Escapement Survey Manual, Pacific Region."@en .
 ```
@@ -434,7 +434,7 @@ To ensure consistent provenance documentation and FAIR compliance, follow these 
     rdfs:label "Escapement Survey Event"@en ;
     iao:0000115 "A survey event conducted to measure salmon escapement."@en ;
     rdfs:subClassOf dwc:Event ;
-    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;
+    rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> ;
 
     # Resolvable link to authoritative document (IRI)
     dcterms:source <https://doi.org/10.1234/dfostock.2023> ;
@@ -462,7 +462,7 @@ To ensure consistent provenance documentation and FAIR compliance, follow these 
 :BaselineGeneticDataset a owl:Class ;
     rdfs:label "Baseline Genetic Dataset"@en ;
     iao:0000115 "A curated collection of reference genotypes used in genetic stock identification analyses."@en ;
-    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;
+    rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> ;
 
     # Resolvable link to authoritative document (IRI)
     dcterms:source <https://doi.org/10.1234/dfo-baseline-genotype-2024> ;
@@ -502,7 +502,7 @@ These templates represent the correct patterns for OWL and SKOS terms. All examp
   IAO:0000115 "Definition text."@en ;       # required, 1×
   IAO:0000119 "DFO (2024) …"@en ;           # optional (definition citation string)
   IAO:0000112 "Example usage …"@en ;        # optional example
-  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;  # required
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> ;  # required
   dcterms:source <https://doi.org/10.xxxx/yyy> .    # optional (IRI link)
 ```
 
@@ -517,7 +517,7 @@ ex:DFOEscMethodCode a rdfs:Datatype .
   skos:prefLabel "Sonar counting"@en ;         # required, ≤1 per lang
   skos:definition "Counting fish via active acoustics …"@en ;  # recommended
   skos:notation "ESC-001"^^ex:DFOEscMethodCode ;  # optional, typed code
-  rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;  # required
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> ;  # required
   dcterms:source <https://doi.org/10.xxxx/zzz> ;   # optional (IRI)
   IAO:0000119 "DFO (2023) Escapement Manual …"@en .  # optional (text)
 ```
@@ -788,7 +788,7 @@ PROV-O Properties (prefix-only):
     rdfs:label "Escapement Survey Event"@en ;
     iao:0000115 "A specific survey event with measured parameters"@en ;
     rdfs:subClassOf dwc:Event ;
-    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+    rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
 # Layer 4: Event Instance with Metadata
 :SkeenaSnorkel2022_001 a :EscapementSurveyEvent ;
@@ -805,7 +805,7 @@ PROV-O Properties (prefix-only):
     dfo:downgradeCriteriaMet :VISIBILITY, :REACH_COVERAGE ;
     dwc:eventDate "2022-08-15"^^xsd:date ;
     dwc:samplingProtocol :DFOSnorkelProtocol ;
-    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+    rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 ```
 
 **Key Principles:**
@@ -964,17 +964,17 @@ Every measurement must have:
 dfo:ManagementUnit rdfs:subClassOf dwc:Event ;
     rdfs:label "Management Unit"@en ;
     iao:0000115 "A geographic or administrative unit for salmon management"@en ;
-    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+    rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
 dfo:ConservationUnit rdfs:subClassOf dwc:Event ;
     rdfs:label "Conservation Unit"@en ;
     iao:0000115 "A biologically meaningful unit for conservation planning"@en ;
-    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+    rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
 dfo:Stock rdfs:subClassOf dwc:Organism ;
     rdfs:label "Stock"@en ;
     iao:0000115 "A population of salmon with distinct characteristics"@en ;
-    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+    rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 ```
 
 ---
@@ -1089,7 +1089,7 @@ dfo:Stock rdfs:subClassOf dwc:Organism ;
 
 ```sparql
 # Find all escapement methods used for Sockeye stocks in 2022
-PREFIX dfo: <https://w3id.org/dfo/salmon#>
+PREFIX dfo: <https://w3id.org/dfoc/salmon#>
 PREFIX dwc: <http://rs.tdwg.org/dwc/terms/>
 
 SELECT ?method ?stock ?event WHERE {
@@ -1195,7 +1195,7 @@ SELECT ?method ?stock ?event WHERE {
 
 **Problem: JFact datatype warning for EstimateType**
 
-- **Warning**: `ERROR uk.ac.manchester.cs.jfact.datatypes.DatatypeFactory - A known datatype for https://w3id.org/dfo/salmon#EstimateType cannot be found; literal will be replaced with rdfs:Literal`
+- **Warning**: `ERROR uk.ac.manchester.cs.jfact.datatypes.DatatypeFactory - A known datatype for https://w3id.org/dfoc/salmon#EstimateType cannot be found; literal will be replaced with rdfs:Literal`
 - **Root Cause**: `EstimateType` is correctly modeled as `skos:Concept` (not a datatype). JFact's datatype checking system is confused by SKOS concept usage as object property ranges.
 - **Impact**: None - all reasoners (ELK, HermiT, JFact) produce identical results (2183 lines). Ontology is logically consistent.
 - **Action**: This warning can be safely ignored.
@@ -1241,7 +1241,7 @@ SELECT ?method ?stock ?event WHERE {
 :Sockeye rdfs:subClassOf :Salmon ;
     rdfs:label "Sockeye"@en ;
     iao:0000115 "A species of salmon (Oncorhynchus nerka)"@en ;
-    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+    rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 ```
 
 #### 6.3.2 Equivalence
@@ -1300,7 +1300,7 @@ SELECT ?method ?stock ?event WHERE {
 :hasMember a owl:ObjectProperty, owl:TransitiveProperty ;
     rdfs:label "has member"@en ;
     iao:0000115 "A transitive relationship indicating membership in a group"@en ;
-    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+    rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
 # Define type-specific subproperties
 :hasMemberCU rdfs:subPropertyOf :hasMember ;
@@ -1429,7 +1429,7 @@ For richer unit semantics, consider adding object properties alongside datatype 
 :measurementUnitIRI a owl:DatatypeProperty ;
     rdfs:label "measurement unit IRI"@en ;
     iao:0000115 "IRI of the unit used in a measurement"@en ;
-    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;
+    rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> ;
     rdfs:domain :Measurement ;
     rdfs:range xsd:anyURI .
 
@@ -1437,7 +1437,7 @@ For richer unit semantics, consider adding object properties alongside datatype 
 :hasUnit a owl:ObjectProperty ;
     rdfs:label "has unit"@en ;
     iao:0000115 "Links a measurement to a unit (e.g., QUDT Unit)"@en ;
-    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> ;
+    rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> ;
     rdfs:domain :Measurement ;
     rdfs:range qudt:Unit .
 
@@ -1457,21 +1457,21 @@ For richer unit semantics, consider adding object properties alongside datatype 
 
 #### 6.7.1 IRI Structure
 
-**Base IRI:** `https://w3id.org/dfo/salmon#`
+**Base IRI:** `https://w3id.org/dfoc/salmon#`
 
-**Class IRIs:** `https://w3id.org/dfo/salmon#ClassName`
-**Property IRIs:** `https://w3id.org/dfo/salmon#propertyName`
-**Instance IRIs:** `https://w3id.org/dfo/salmon#InstanceName`
+**Class IRIs:** `https://w3id.org/dfoc/salmon#ClassName`
+**Property IRIs:** `https://w3id.org/dfoc/salmon#propertyName`
+**Instance IRIs:** `https://w3id.org/dfoc/salmon#InstanceName`
 
 **Example:**
 
 ```turtle
-@prefix dfo: <https://w3id.org/dfo/salmon#> .
+@prefix dfo: <https://w3id.org/dfoc/salmon#> .
 
 dfo:EscapementMeasurement a owl:Class ;
     rdfs:label "Escapement Measurement"@en ;
     iao:0000115 "A measurement of salmon escapement"@en ;
-    rdfs:isDefinedBy <https://w3id.org/dfo/salmon> .
+    rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 ```
 
 #### 6.7.2 Versioning
@@ -1486,9 +1486,9 @@ dfo:EscapementMeasurement a owl:Class ;
 **Example:**
 
 ```turtle
-<https://w3id.org/dfo/salmon> a owl:Ontology ;
+<https://w3id.org/dfoc/salmon> a owl:Ontology ;
     owl:versionInfo "1.0.0" ;
-    owl:versionIRI <https://w3id.org/dfo/salmon/1.0.0> ;
+    owl:versionIRI <https://w3id.org/dfoc/salmon/1.0.0> ;
     rdfs:label "DFO Salmon Ontology"@en .
 ```
 
@@ -1706,7 +1706,7 @@ robot validate --input dfo-salmon.ttl
 robot convert --input dfo-salmon.ttl --output dfo-salmon.owl
 
 # Add metadata
-robot annotate --input dfo-salmon.ttl --ontology-iri "https://w3id.org/dfo/salmon" --version-iri "https://w3id.org/dfo/salmon/1.0.0" --output dfo-salmon-annotated.ttl
+robot annotate --input dfo-salmon.ttl --ontology-iri "https://w3id.org/dfoc/salmon" --version-iri "https://w3id.org/dfoc/salmon/1.0.0" --output dfo-salmon-annotated.ttl
 ```
 
 ### 7.2 Community Process
