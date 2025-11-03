@@ -8,6 +8,23 @@
 
 ---
 
+## Term Table Automation
+
+**Owner:** Brett  **Priority:** High  **Scope:** Generate and surface ontology term tables with provenance
+
+### Extraction Pipeline
+
+- [ ] Create virtual environment and install `scripts/requirements.txt` dependencies
+- [ ] Run `python scripts/extract-term-tables.py` to publish initial CSV + metadata
+- [ ] Decide whether to version generated CSVs or rely solely on workflow artifacts
+
+### Cross-Repo Automation
+
+- [ ] Provision `REPO_DISPATCH_TOKEN` with `repo` scope for GitHub dispatch events
+- [ ] Coordinate with documentation repo to consume workflow artifacts or submodule updates
+- [ ] Add Widoco build step and update `widoco_base_url` once docs are hosted
+
+
 ## DONE Requirements and Design Review
 
 **Owner:** Brett  
