@@ -8,6 +8,12 @@
 
 ---
 
+## 2025-11-02 — Convention Compliance Cleanup
+
+- [x] Add missing `rdfs:label` annotations to OWL classes, object properties, and datatype properties.
+- [x] Reinstate required `IAO:0000115` definitions for COSEWIC statuses, `:DowngradeCriteria`, and imported SKOS upper classes.
+- [x] Replace `skos:altLabel` IRIs with `skos:exactMatch` or `rdfs:seeAlso` alignments and document intentional punning patterns.
+
 ## DONE Requirements and Design Review
 
 **Owner:** Brett  
