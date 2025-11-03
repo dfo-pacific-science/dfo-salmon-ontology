@@ -4,6 +4,18 @@ This document orients new contributors to the modeling conventions used in the *
 
 The conventions here are **practical starting points**, not immutable rules. As our community gains experience, we expect to refine and evolve them.
 
+### Scope and Standards
+
+- Scope (this guide):
+  - How to do things (operational guidance)
+  - Standards and patterns (naming conventions, required annotations)
+  - Quality checklists (what to check before submitting)
+  - Tool usage (Protégé, ROBOT commands)
+  - Modeling patterns (measurements, hierarchies, evidence, provenance)
+  - Workflow processes (how to contribute, review)
+- ADRs are for: why decisions were made, alternatives considered, high‑level strategy, technology/structural choices.
+- Standards compliance: We strictly adhere to OWL 2 DL, and support SKOS 1.2 and RDF 1.2.
+
 ---
 
 ## 🚀 Quick Start Cheatsheet
@@ -24,12 +36,10 @@ The conventions here are **practical starting points**, not immutable rules. As 
 
 ### Core Patterns
 
-- **Measurements**: Must link to stock, event, and method
 - **Hierarchy**: SMU ▶ CU ▶ Population with `hasMember` relationships (use correct OWL 2 transitivity syntax)
 - **Units**: Store QUDT IRIs as literals in `…UnitIRI` properties
 - **Darwin Core**: Use as top-level classes for interoperability
-- **Hybrid Approach**: SKOS for methods, OWL for events with metadata
-- **Manual Classification**: Estimate types are manually assigned based on Hyatt 1997 criteria
+- **Hybrid Approach**: SKOS for controlled vocab/enumerations/code lists (including methods); OWL for domain entities; SHACL for validation (not inference)
 - **OBO Relations Ontology for Relations**: Check the [Relations Ontology](https://obofoundry.org/ontology/ro.html) first before defining new relations; use subproperties when extending
 
 ### Quality Checklist
@@ -58,7 +68,7 @@ The conventions here are **practical starting points**, not immutable rules. As 
    - [2.2 Schema vs Data Separation](#22-schema-vs-data-separation)
    - [2.3 Core Conventions](#23-core-conventions)
    - [2.4 Hybrid Modeling Approach](#24-hybrid-modeling-approach-for-automated-classification)
-   - [2.5 Automated Classification](#25-automated-classification-with-shacl)
+   - [2.5 Data Validation with SHACL](#25-data-validation-with-shacl)
    - [2.6 Naming Conventions](#26-naming-conventions)
 
 3. [Design Patterns](#3-design-patterns)
@@ -90,81 +100,10 @@ The conventions here are **practical starting points**, not immutable rules. As 
 
 ## 1. Fundamentals
 
-### 1.1 What is Knowledge Modeling?
+This introductory material has moved to a dedicated onboarding guide for clarity and easier learning.
 
-Knowledge modeling (also called ontology engineering) is the practice of creating formal representations of knowledge that both humans and computers can understand. Think of it as creating a shared vocabulary and set of rules that describe how concepts in a domain relate to each other.
-
-**Why do we need conventions?** Without consistent conventions, different people might model the same concept in different ways, leading to confusion and data that can't be easily combined or queried. Conventions ensure that:
-
-- Everyone uses the same terms for the same concepts
-- Data can be automatically validated and processed
-- Different systems can exchange information seamlessly
-- Future users can understand and extend the work
-
-### 1.2 Ontology vs Knowledge Graph vs Graph Database
-
-Understanding these distinctions is crucial for proper data management and system design.
-
-**Ontology (Schema)**
-
-- **What it is**: A formal specification of concepts, relationships, and rules in a domain
-- **Contains**: Classes, properties, SKOS vocabularies, axioms, constraints
-- **Purpose**: Defines the "vocabulary" and "grammar" for describing data
-- **Example**: `EscapementSurveyEvent` class, `usesEnumerationMethod` property, `SnorkelSurvey` SKOS concept
-- **File**: `dfo-salmon.ttl` (schema only, no instance data)
-
-**Knowledge Graph (Data)**
-
-- **What it is**: A collection of interconnected data instances following an ontology schema
-- **Contains**: Specific instances, facts, measurements, events
-- **Purpose**: Stores actual data using the ontology's vocabulary
-- **Example**: `SkeenaSnorkel2022_001` survey event with specific measurements
-- **File**: Separate data files (e.g., `survey-data-2022.ttl`)
-
-**Graph Database (Storage)**
-
-- **What it is**: A database system optimized for storing and querying graph-structured data
-- **Contains**: Both schema and data, optimized for traversal and querying
-- **Purpose**: Efficient storage and retrieval of graph data
-- **Example**: Neo4j, Amazon Neptune, Apache Jena TDB
-- **File**: Database files, not human-readable
-
-**Why This Matters for DFO Salmon Ontology:**
-
-1. **Schema vs Data Separation**: Keep the ontology file clean and focused on definitions
-2. **Versioning**: Ontology changes independently of data updates
-3. **Reusability**: Same schema can be used for multiple datasets
-4. **Maintenance**: Easier to manage and validate schema separately
-5. **Interoperability**: Other systems can import just the schema
-
-### 1.3 Why This Ontology?
-
-The **DFO Salmon Ontology** provides a domain-fit semantic layer for Pacific salmon data. It is designed to make datasets from **stock assessment, genetics, and management** interoperable and support **integration** across regional, national, and international systems.
-
-> **📋 Complete Purpose & Objectives**: See the [DFO Salmon Ontology: Product Requirements Document](PRODUCT_REQUIREMENTS.md) for the complete overview of the ontology's purpose, objectives, and target users.
-
-We take inspiration from:
-
-- **Darwin Core (DwC) & the DwC Conceptual Model (DwC-CM)**
-- **NCEAS Salmon Ontology (SALMON.ttl)**
-- **Standard vocabularies** like QUDT (units), ENVO (environments), and GBIF Backbone (taxa)
-
-### 1.4 Modeling Approach
-
-- We model **primarily in OWL** (Web Ontology Language).
-- We **also allow SKOS** for lightweight vocabularies (lists of methods, categories, codes).
-- All terms must be represented in **Turtle (.ttl)** format.
-- We emphasize **simplicity first**: one ontology file (`dfo-salmon.ttl`) is the starting point.
-  - Later, we may modularize into separate files for stock, genetics, governance, etc.
-
-**OBO Foundry Alignment:**
-
-- Follow OBO Foundry principles for open, interoperable ontologies
-- Use ROBOT for ontology development workflows
-- Maintain logical well-formedness and scientific accuracy
-- Ensure non-overlapping and strictly-scoped content
-- Use standard OBO annotation properties and relations
-- Follow OBO naming conventions and best practices
+- Read: docs/onboarding.md for Fundamentals (what is modeling, ontology vs knowledge graph, why this ontology, basic approach).
+- This Conventions guide focuses on “how we do things” (operational guidance, patterns, QA, tools, workflows).
 
 ---
 
@@ -588,52 +527,19 @@ In everyday modeling, mint distinct IRIs for OWL classes versus SKOS concepts an
 
 ### 2.3.11 Ontology Import Strategy
 
-**Three Approaches: Import vs MIREOT vs Prefix**
+**Decision:** We use a pragmatic three-tier approach for external vocabulary integration. See [ADR-005: External Vocabulary Integration Strategy](../adr/005-external-vocabulary-integration.md) for the complete rationale and alternatives considered.
 
-Understanding when to use each approach is critical for maintaining a lightweight, performant, and interoperable ontology.
+**Implementation:**
 
-#### 2.3.6.1 Full owl:imports (NOT used in DFO Salmon Ontology)
-
-**Use ONLY when:**
-
-- Using >20 terms from the ontology AND
-- Need reasoning over imported axioms AND
-- Ontology is small (<100 terms total)
-
-**Risks:**
-
-- Imports entire ontology (100s-1000s of terms)
-- Slow loading and reasoning
-- Potential conflicts with other imports
-- Difficult to track which terms are actually used
-
-**DFO Salmon Decision:** No full imports for MVP
-
-#### 2.3.6.2 MIREOT (Minimum Information to Reference an External Ontology Term)
-
-**Use when:**
-
-- Need 3-20 specific terms with labels/definitions
-- Want documentation in your ontology
-- Don't need reasoning over the full imported ontology
+#### MIREOT Implementation (BFO/IAO/DQV)
 
 **Method:**
-
 1. Copy the term IRI (e.g., `bfo:0000015`)
 2. Add minimal metadata: `rdfs:label`, `iao:0000115` (definition)
 3. Add `rdfs:isDefinedBy` pointing to source ontology
 4. Use the term as if it were native
 
-**Benefits:**
-
-- Lightweight (only terms you need)
-- No import bloat
-- Clear documentation
-- Tools like Protégé recognize the terms
-- Maintains semantic alignment with source
-
 **Example - BFO MIREOT:**
-
 ```turtle
 # Import specific BFO term via MIREOT
 bfo:0000015 a owl:Class ;
@@ -642,7 +548,7 @@ bfo:0000015 a owl:Class ;
   rdfs:isDefinedBy <http://purl.obolibrary.org/obo/bfo.owl> .
 
 # Now use it in your ontology
-dfo:StatusAssessment rdfs:subClassOf bfo:0000015 .  # process
+dfo:StatusAssessment rdfs:subPropertyOf bfo:0000015 .  # process
 ```
 
 **DFO Salmon MIREOT Terms:**
@@ -680,14 +586,7 @@ dfo:StatusAssessment rdfs:subClassOf bfo:0000015 .  # process
 3. No local definitions needed
 4. Assumes external ontology is accessible
 
-**Benefits:**
-
-- Minimal overhead
-- Clean separation
-- Standard practice for well-known vocabularies
-
 **Example - PROV-O Prefix Only:**
-
 ```turtle
 # Declare prefix (no import, no local definitions)
 @prefix prov: <http://www.w3.org/ns/prov#> .
@@ -703,7 +602,7 @@ dfo:StatusAssessment rdfs:subClassOf bfo:0000015 .  # process
 - **PROV-O** (~6 properties): wasGeneratedBy, wasDerivedFrom, used, wasAttributedTo, etc.
 - **RO** (alignment via rdfs:seeAlso): has_member, member_of
 - **SKOS** (extensive): Concept, ConceptScheme, prefLabel, definition, etc.
-- **DwC** (extensive): Event, Organism, MeasurementOrFact, etc.
+- **DwC** (extensive): Event, Organism, Assertion, MaterialSample, etc.
 
 #### 2.3.6.4 Decision Matrix
 
@@ -751,14 +650,16 @@ PROV-O Properties (prefix-only):
 
 ### 2.4 Hybrid Modeling Approach for Automated Classification
 
-**Why a hybrid approach?** For automated classification systems (like Estimate Type assignment), we need both controlled vocabularies (methods) and rich data modeling (events with metadata). This hybrid approach separates concerns while enabling automation.
+**Decision:** We use a hybrid approach combining OWL and SKOS for classification. Automated approaches are deferred; see [ADR-001: Hybrid OWL+SKOS Modeling Approach](../adr/001-hybrid-owl-skos-modeling.md) for the complete rationale and alternatives considered.
+
+**Implementation:**
 
 **Four-Layer Architecture:**
 
-1. **Methods as SKOS Concepts** - Controlled vocabularies for enumeration and estimation methods
+1. **Methods as SKOS Concepts** - Enumeration and estimation methods are SKOS concepts in controlled vocabularies (e.g., `:SnorkelSurvey`, `:SonarCounting`, `:AreaUnderCurve`, `:FixedStationTally`).
 2. **Events as OWL Classes** - Survey/estimate events that extend Darwin Core Event
 3. **Metadata on Events** - Rich data about how methods were applied in specific surveys
-4. **Downgrade Criteria as SKOS** - Standardized criteria for automated type assignment
+4. **Downgrade Criteria as SKOS** - Standardized criteria for type assignment (manual now; automation later)
 
 **Complete Example:**
 
@@ -768,12 +669,13 @@ PROV-O Properties (prefix-only):
     skos:prefLabel "Visual Snorkel Count"@en ;
     skos:definition "Two or more trained snorkelers conduct standardized passes within defined segments"@en ;
     skos:inScheme :EnumerationMethodScheme ;
-    skos:broader :VisualSurveyMethod .
+    skos:broader :EnumerationMethod .
 
 :AreaUnderCurve a skos:Concept ;
     skos:prefLabel "Area Under the Curve (AUC)"@en ;
     skos:definition "Integrates serial counts over time using a survey-life parameter"@en ;
-    skos:inScheme :EstimateMethodScheme .
+    skos:inScheme :EstimateMethodScheme ;
+    skos:broader :EstimateMethod .
 
 # Layer 2: SKOS Downgrade Criteria
 :VISITS a skos:Concept ;
@@ -816,11 +718,46 @@ PROV-O Properties (prefix-only):
 - **Methods are vocabulary terms** - Use SKOS for enumeration methods, estimate methods, and downgrade criteria
 - **Events carry the data** - OWL classes for survey events with rich metadata properties
 - **Metadata on instances** - Observer efficiency, coverage, visibility are properties of specific surveys
-- **Automated classification** - Rules engine checks event metadata against method-specific thresholds
+ - **Classification (current)** - Estimate types are manually assigned based on criteria; SHACL flags inconsistencies. Automated classification is deferred (see 2.5).
+
+#### 2.4.1 Keep SKOS Concepts Separate from OWL Classes
+
+- SKOS concepts are used strictly for controlled lists (e.g., categories, downgrade criteria, status zones) and must not be treated as OWL classes in axioms.
+- Do not assert or infer SKOS concepts as `owl:Class` or use them as class expressions in restrictions.
+
+What not to do (anti-pattern):
+
+```turtle
+# ❌ Do NOT model a SKOS concept as an OWL class
+:RedZone a owl:Class .
+
+# ❌ Do NOT use a SKOS concept as if it were an OWL class in restrictions
+:EscapementSurveyEvent rdfs:subClassOf [
+  a owl:Restriction ;
+  owl:onProperty dfo:usesEnumerationMethod ;
+  owl:allValuesFrom :RedZone  # :RedZone should be a skos:Concept, not a class
+] .
+```
+
+Correct usage (pattern):
+
+```turtle
+# ✅ Keep :RedZone as a SKOS concept in a concept scheme
+:RedZone a skos:Concept ;
+  skos:prefLabel "Red Zone"@en ;
+  skos:inScheme :StatusZoneScheme .
+
+# ✅ Constrain with SHACL or document as guidance; keep OWL domain/range on properties
+:statusZone a owl:ObjectProperty ;
+  rdfs:domain :StatusAssessment ;
+  rdfs:range skos:Concept .
+```
+
+Why: Per SKOS and OWL best practices (W3C SKOS Reference) and community guidance (e.g., Steven Baskauf), mixing SKOS individuals as OWL classes leads to punning and can break OWL DL reasoning assumptions. Keep SKOS for terminology, OWL for logical class hierarchies.
 
 ### 2.5 Data Validation with SHACL
 
-**Why SHACL?** SHACL (Shapes Constraint Language) provides validation rules that can enforce data quality and ensure required fields are present. It separates data validation from classification logic.
+**Why SHACL?** SHACL (Shapes Constraint Language) provides validation rules that can enforce data quality and ensure required fields are present. It separates data validation from classification logic. In our stack, shapes are used for validation only, not for inference or automated classification.
 
 **Note:** Estimate types are manually assigned based on Hyatt 1997 criteria. Automated classification is deferred to post-MVP.
 
@@ -954,8 +891,9 @@ Every measurement must have:
 - `dwc:Event` - Actions, processes, or circumstances occurring at a place and time
 - `dwc:Occurrence` - A state of an organism in an event
 - `dwc:Organism` - A particular organism or defined group of organisms
-- `dwc:MaterialEntity` - Physical entities that can be identified and consist of matter
+- `dwc:MaterialSample` - Physical samples that can be identified and managed
 - `dwc:Identification` - Taxonomic determinations of organisms
+- [DwC-CM] `dwc:Assertion` (under review) - A generalized assertion (e.g., measurement/occurrence) with provenance
 - `dwc:Agent` - People, groups, organizations, machines, or software that can act
 - `dwc:Media` - Digital media (images, videos, sounds, text)
 - `dwc:Protocol` - Methods used during actions
@@ -1260,9 +1198,9 @@ SELECT ?method ?stock ?event WHERE {
 **Example:**
 
 ```turtle
-:Escapement rdfs:subClassOf :Measurement ;
-    owl:equivalentClass dwc:MeasurementOrFact ;
-    rdfs:label "Escapement"@en .
+:DFODataset rdfs:subClassOf :InformationEntity ;
+    owl:equivalentClass schema:Dataset ;
+    rdfs:label "Dataset"@en .
 ```
 
 #### 6.3.3 Disjointness
@@ -1383,6 +1321,10 @@ SELECT ?method ?stock ?event WHERE {
 - **GBIF Backbone**: Taxonomic names (http://www.gbif.org/species/)
 - **Darwin Core**: Biodiversity data standards (http://rs.tdwg.org/dwc/terms/)
 - **RO (Relations Ontology)**: Standard relations (http://purl.obolibrary.org/obo/RO_)
+- **AGROVOC**: Agricultural/fisheries thesaurus for common concepts (https://agrovoc.fao.org/)
+- **Schema.org/DCAT**: Web and catalog vocabularies for datasets and distributions
+- **IAO**: Information artifact ontology for documents and datasets
+- **ORG**: Organizational structure and units (https://www.w3.org/TR/vocab-org/)
 
 **OBO Foundry Relation Reuse Requirements:**
 
@@ -1424,6 +1366,11 @@ SELECT ?method ?stock ?event WHERE {
 - Use `dcterms:source` to reference external vocabularies
 - Check RO for existing relations before defining new ones
 
+Practical guidance for new relationships:
+
+- Before minting a custom property like `partOfRiver`, prefer the generic RO property `ro:part_of` and model “river” via the class hierarchy (e.g., `dfo:RiverSegment`).
+- When a domain-specific refinement is needed, define a custom subproperty aligned to RO (e.g., `dfo:hasMemberCU rdfs:subPropertyOf ro:has_part`). This keeps reasoning consistent and improves interoperability.
+
 **Unit Property Enhancement (Non-breaking):**
 For richer unit semantics, consider adding object properties alongside datatype properties:
 
@@ -1458,6 +1405,8 @@ For richer unit semantics, consider adding object properties alongside datatype 
 
 ### 6.7 IRI and Versioning Policy
 
+**Decision:** We use W3ID-based IRIs with semantic versioning. See [ADR-003: IRI and Versioning Policy](../adr/003-iri-versioning-policy.md) for the complete rationale and alternatives considered.
+
 #### 6.7.1 IRI Structure
 
 **Base IRI:** `https://w3id.org/dfoc/salmon#`
@@ -1467,7 +1416,6 @@ For richer unit semantics, consider adding object properties alongside datatype 
 **Instance IRIs:** `https://w3id.org/dfoc/salmon#InstanceName`
 
 **Example:**
-
 ```turtle
 @prefix dfo: <https://w3id.org/dfoc/salmon#> .
 
@@ -1480,14 +1428,12 @@ dfo:EscapementMeasurement a owl:Class ;
 #### 6.7.2 Versioning
 
 **Ontology versioning:**
-
 - Use `owl:versionInfo` for version numbers
 - Use `owl:versionIRI` for version-specific IRIs
 - Tag releases in GitHub
 - Maintain changelog
 
 **Example:**
-
 ```turtle
 <https://w3id.org/dfoc/salmon> a owl:Ontology ;
     owl:versionInfo "1.0.0" ;

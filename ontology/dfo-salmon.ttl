@@ -13,6 +13,7 @@
 @prefix dwciri:  <http://rs.tdwg.org/dwc/iri/> .
 @prefix unit:    <http://qudt.org/vocab/unit/> .
 @prefix qudt:    <http://qudt.org/schema/qudt/> .
+@prefix qudtunit: <http://qudt.org/vocab/unit/> .
 @prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
 @prefix oa:      <http://www.w3.org/ns/oa#> .
 @prefix envo:    <http://purl.obolibrary.org/obo/ENVO_> .
@@ -60,6 +61,14 @@ xsd:anyURI   a rdfs:Datatype .
 # Ontology header
 # NOTE: Keep IRIs stable; evolve labels/comments over time.
 # TODO(Release): Update dcterms:modified and owl:versionInfo/IRI on each release.
+#
+# DARWIN CORE CONCEPTUAL MODEL (DwC-CM) IMPLEMENTATION:
+# This ontology implements the Darwin Core Conceptual Model (DwC-CM) patterns:
+# - Uses dwc:Assertion for measurement classes (replacing dwc:MeasurementOrFact)
+# - Uses dwc:Occurrence for individual organism observations (when applicable)
+# - Aligns property domains/ranges with DwC-CM constraints
+# - Ensures DwC Data Package (DwC-DP) compatibility for data sharing
+# See docs/CONVENTIONS.md for detailed DwC-CM implementation guidance.
 #################################################################
 
 <https://w3id.org/dfoc/salmon> a owl:Ontology ;
