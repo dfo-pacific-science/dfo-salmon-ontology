@@ -39,7 +39,7 @@ The conventions here are **practical starting points**, not immutable rules. As 
 - **Hierarchy**: SMU ▶ CU ▶ Population with `hasMember` relationships (use correct OWL 2 transitivity syntax)
 - **Units**: Store QUDT IRIs as literals in `…UnitIRI` properties
 - **Darwin Core**: Use as top-level classes for interoperability
-- **Hybrid Approach**: SKOS for controlled vocab/enumerations/code lists; OWL for domain entities (including methods); SHACL for validation (not inference)
+- **Hybrid Approach**: SKOS for controlled vocab/enumerations/code lists (including methods); OWL for domain entities; SHACL for validation (not inference)
 - **OBO Relations Ontology for Relations**: Check the [Relations Ontology](https://obofoundry.org/ontology/ro.html) first before defining new relations; use subproperties when extending
 
 ### Quality Checklist
@@ -503,19 +503,20 @@ Uncertainty properties:
 Use this decision guide to choose the right modeling primitive:
 
 - SKOS Concept
-  - Use for controlled vocabulary/code-list values that don’t need logical axioms or subclass hierarchies.
-  - Examples: `spawner_origin` values (`:Wild`, `:Hatchery`), `data_source_type`, `reference_point_type`, `decision_type`, status zone values (`:RedZone`, `:AmberZone`, `:GreenZone`).
-  - Pattern: Use an object property whose range is `skos:Concept` (e.g., `dfo:statusZone` → `skos:Concept`).
+  - Use for controlled vocabulary/code-list values that don't need logical axioms or subclass hierarchies.
+  - Examples: `spawner_origin` values (`:Wild`, `:Hatchery`), `data_source_type`, `reference_point_type`, `decision_type`, status zone values (`:RedZone`, `:AmberZone`, `:GreenZone`), **enumeration methods** (`:SnorkelSurvey`, `:SonarCounting`), and **estimate methods** (`:AreaUnderCurve`, `:FixedStationTally`).
+  - Pattern: Use an object property whose range is `skos:Concept` (e.g., `dfo:statusZone` → `skos:Concept`, `dfo:usesEnumerationMethod` → `skos:Concept`).
 
 - OWL Class
   - Use for fundamental domain entities or when hierarchy/specialization is needed.
-  - Examples: `dfo:ConservationUnit`, `dfo:Stock`, `dfo:StatusAssessment`, and Methods (see note below).
-  - Note on Methods: Earlier drafts considered SKOS for methods; current practice models methods as OWL classes (e.g., `dfo:EscapementEnumerationMethod`, `dfo:EstimationMethod` with subclasses like `dfo:SnorkelSurveyMethod`, `dfo:AreaUnderCurveMethod`) to support subclassing and richer relations (e.g., equipment, parameters).
+  - Examples: `dfo:ConservationUnit`, `dfo:Stock`, `dfo:StatusAssessment`, `dfo:EscapementMethod` (methodological families for classification purposes).
+  - Note: Enumeration and estimate methods (specific methods like Snorkel Survey, Area Under Curve) are modeled as SKOS concepts per ADR-001. The `dfo:EscapementMethod` OWL class hierarchy represents methodological families for broader classification, distinct from the SKOS enumeration/estimate method vocabularies.
 
 - OWL Individual
   - Use for concrete, real-world instances (lives in data graphs, not the ontology schema file).
-  - Examples: A specific CU instance (e.g., `:NanaimoRiverChinookCU_2024`), a policy document (e.g., `:WildSalmonPolicy_2005`), or a specific method protocol instance (e.g., `:SnorkelSurvey_V1` a `dfo:SnorkelSurveyMethod`).
-  - Naming recommendation: PascalCase with disambiguators as needed (`:SnorkelSurvey_V1`, `:SkeenaSockeye`), or a short path-like fragment (`#Stock/SkeenaSockeye`). Avoid spaces; prefer stable, meaningful identifiers.
+  - Examples: A specific CU instance (e.g., `:NanaimoRiverChinookCU_2024`), a policy document (e.g., `:WildSalmonPolicy_2005`), or a specific survey event instance (e.g., `:SkeenaSnorkel2022_001` a `:EscapementSurveyEvent`).
+  - Note: Enumeration and estimate methods are SKOS concepts, not individuals. Use the SKOS concepts directly (e.g., `:SnorkelSurvey`, `:AreaUnderCurve`) in data instances rather than creating method instances.
+  - Naming recommendation: PascalCase with disambiguators as needed (`:SkeenaSnorkel2022_001`, `:SkeenaSockeye`), or a short path-like fragment (`#Stock/SkeenaSockeye`). Avoid spaces; prefer stable, meaningful identifiers.
 
 Do not duplicate the same concept as both an OWL class and a SKOS concept (or an individual) unless there is a deliberate bridge/mapping with documented rationale. Choose one approach based on the above rules to avoid ambiguity.
 
@@ -527,7 +528,7 @@ Do not duplicate the same concept as both an OWL class and a SKOS concept (or an
 
 **Four-Layer Architecture:**
 
-1. **Methods as OWL Classes** - Enumeration and estimation methods are OWL classes with room for subclassing (e.g., Snorkel, Sonar, Mark-Recapture; AUC, EFS).
+1. **Methods as SKOS Concepts** - Enumeration and estimation methods are SKOS concepts in controlled vocabularies (e.g., `:SnorkelSurvey`, `:SonarCounting`, `:AreaUnderCurve`, `:FixedStationTally`).
 2. **Events as OWL Classes** - Survey/estimate events that extend Darwin Core Event
 3. **Metadata on Events** - Rich data about how methods were applied in specific surveys
 4. **Downgrade Criteria as SKOS** - Standardized criteria for type assignment (manual now; automation later)
@@ -535,29 +536,18 @@ Do not duplicate the same concept as both an OWL class and a SKOS concept (or an
 **Complete Example:**
 
 ```turtle
-# Layer 1: Method Classes (OWL)
-:EscapementEnumerationMethod a owl:Class ;
-  rdfs:label "Escapement Enumeration Method"@en .
+# Layer 1: SKOS Methods (Controlled Vocabularies)
+:SnorkelSurvey a skos:Concept ;
+    skos:prefLabel "Visual Snorkel Count"@en ;
+    skos:definition "Two or more trained snorkelers conduct standardized passes within defined segments"@en ;
+    skos:inScheme :EnumerationMethodScheme ;
+    skos:broader :EnumerationMethod .
 
-:SnorkelSurveyMethod a owl:Class ;
-  rdfs:label "Snorkel Survey Method"@en ;
-  rdfs:subClassOf :EscapementEnumerationMethod .
-
-:EstimationMethod a owl:Class ;
-  rdfs:label "Estimation Method"@en .
-
-:AreaUnderCurveMethod a owl:Class ;
-  rdfs:label "Area Under the Curve (AUC) Method"@en ;
-  rdfs:subClassOf :EstimationMethod .
-
-# Optional: instances representing specific protocols/versions
-:SnorkelSurvey_V1 a :SnorkelSurveyMethod ;
-  dcterms:identifier "DFO-SNORKEL-V1" ;
-  dcterms:source <https://w3id.org/dfo/salmon/protocols/snorkel/v1> .
-
-:AreaUnderCurve_V2 a :AreaUnderCurveMethod ;
-  dcterms:identifier "AUC-2.0" ;
-  dcterms:source <https://w3id.org/dfo/salmon/protocols/auc/v2> .
+:AreaUnderCurve a skos:Concept ;
+    skos:prefLabel "Area Under the Curve (AUC)"@en ;
+    skos:definition "Integrates serial counts over time using a survey-life parameter"@en ;
+    skos:inScheme :EstimateMethodScheme ;
+    skos:broader :EstimateMethod .
 
 # Layer 2: SKOS Downgrade Criteria
 :VISITS a skos:Concept ;
@@ -580,8 +570,8 @@ Do not duplicate the same concept as both an OWL class and a SKOS concept (or an
 # Layer 4: Event Instance with Metadata
 :SkeenaSnorkel2022_001 a :EscapementSurveyEvent ;
     rdfs:label "Skeena Snorkel Survey 2022-001"@en ;
-    dfo:usesEnumerationMethod :SnorkelSurvey_V1 ;
-    dfo:usesEstimateMethod :AreaUnderCurve_V2 ;
+    dfo:usesEnumerationMethod :SnorkelSurvey ;
+    dfo:usesEstimateMethod :AreaUnderCurve ;
     dfo:measuredVisits 6 ;
     dfo:measuredReachCoverage 0.85 ;
     dfo:measuredVisibility :Good ;

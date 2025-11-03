@@ -332,49 +332,84 @@ WSP metric positions trigger decision requirements through `fsar:Condition` patt
 
 ---
 
-## 2e) Architecture Pattern & SPSR (Django) Integration
+## 2e) Architecture Pattern & SPSR (Django) Integration (UPDATED 2025-01-27)
 
-**Context:** SPSR is a **layered monolith** today (Presentation → Application → Domain → Infrastructure). The Advice Trace should respect that layering, add a thin ontology/graph layer, and keep a clean **contract** between SPSR data and the trace UI.
+**Context:** SPSR is a **layered monolith** today (Presentation → Application → Domain → Infrastructure). The architecture has evolved to use a **Graph Knowledge Service microservice** pattern instead of a simple sidecar.
 
-### Recommended Design Pattern
+### Graph Knowledge Service Architecture
 
-**"Layered Monolith + Contract + Graph Sidecar"**
+**Components**:
+1. **Fuseki Graph Database** (LXD container, managed in `dfo-salmon-graph-service` repo)
+   - Shared graph store for RCD papers, SPSR data, FSAR traces
+   - Graphs: `vocab`, `fsar:*`, `rcd:papers`, `spsr:data`, `org:structure`
+   - SPARQL endpoint: `http://dfo-salmon-graph-service:3030/sparql`
 
-- **Presentation (Django)**: Pages/templates (HTMX/Alpine) render the **CU-first Advice Trace** flow and open the **Evidence Drawer**.
-- **Application Services (Django)**: `AdviceTraceService` orchestrates pulls from SPSR, GRD, and the graph, assembles **DTOs** for the CU → SMU → Advice flow, and exposes a **DRF endpoint** returning **JSON‑LD**.
-- **Domain (SPSR)**: Your existing models; add a small **anti‑corruption layer (ACL)** that maps SPSR terms/fields → ontology terms (SKOS/JSON‑LD context) without polluting domain models.
-- **Infrastructure**:
-  - **Graph sidecar** = **Jena Fuseki** (Docker) + SPARQL. It’s not embedded into SPSR; it sits alongside and is queried by the application service.
-  - **Validators** (R + SHACL) run in CI or as a Django management command, writing results (pass/fail, messages) back to the AdviceTraceService cache.
+2. **Graph API Service** (LXD container, in `dfo-salmon-graph-service` repo)
+   - REST wrapper over SPARQL
+   - Endpoints: `/api/papers`, `/api/accountabilities`, `/api/evidence-chain`, `/api/intake/vocab`, `/api/intake/validate`
+   - Caching, error handling, rate limiting
+   - Enables apps to avoid direct SPARQL complexity
+
+3. **MCP Server** (LXD container, in `dfo-salmon-graph-service` repo)
+   - Custom Model Context Protocol server
+   - Exposes graph via SPARQL tools for AI agents
+   - Graph-based RAG capabilities
+   - Tools: `query_papers`, `query_evidence_chain`, `query_accountabilities`, etc.
+
+4. **SPSR Django Application** (existing)
+   - Presentation: HTMX/Alpine.js UI
+   - Application: `AdviceTraceService` orchestrates SPSR ORM + Graph API
+   - Domain: SPSR models with ACL mapping to ontology
+   - Infrastructure: HTTP client connecting to Graph API Service (not direct SPARQL)
+
+### Updated Integration Pattern
+
+**"Layered Monolith + Graph API Service + Contract"**
 
 ```
-Browser ──(HTMX)──▶ Django Templates
+Browser ──(HTMX)──▶ Django Templates (SPSR)
    ▲                     │
    │                 AdviceTraceService (App layer)
-   │                 │        │
-   │       SPSR ORM (Domain)  │ SPARQL Adapter ◀── Fuseki (Graph)
-   │                 │        │
-   │                 └── DRF JSON‑LD Endpoint (/api/advice-trace/{smu}/{year})
+   │                 │              │
+   │       SPSR ORM (Domain)  Graph API Client
+   │                 │              │
+   │                 └── DRF JSON‑LD └──▶ Graph API Service (dfo-salmon-graph-service)
+   │                     Endpoint              │
+   │                                        Fuseki (Graph DB)
 ```
 
-### Why this fits a layered monolith
+### Contract and Integration Points
 
-- **Separation of concerns:** SPSR logic stays in the monolith; ontology mapping lives in the ACL; graph queries in a small adapter.
-- **Low coupling:** The UI consumes a **JSON‑LD contract**, not raw models. You can refactor SPSR internals later without breaking the UI.
-- **Incremental adoption:** Start with Barkley only; add more SMUs by adding exports + shapes, not rewriting UI.
+**Contract**: SPSR consumes JSON-LD via Graph API Service (not direct SPARQL)
+
+**Endpoints**:
+- SPSR → Graph API: `GET /api/advice-trace/{smu}/{year}` → JSON-LD
+- SPSR → Graph API: `GET /api/papers?stock=<stock>&method=<method>`
+- SPSR → Graph API: `POST /api/intake/validate` → SHACL + R validation results
+- SPSR → Graph API: `GET /api/intake/vocab?scheme=<scheme>` → SKOS options
+
+**Deployment**: All graph services in `dfo-salmon-graph-service` LXD container; SPSR connects via network (REST API).
+
+### Why This Architecture
+
+- **Separation of concerns:** Graph infrastructure separate from application logic
+- **Scalability:** Independent scaling of graph services
+- **Multiple consumers:** RCD, SPSR, and future projects can all use Graph API Service
+- **Low coupling:** SPSR consumes JSON-LD contract via REST, not direct SPARQL
+- **Incremental adoption:** Start with Barkley; add more SMUs incrementally
 
 **Build the front end directly in SPSR** (Django templates + HTMX/Alpine). Keep the **JSON‑LD contract** so the UI remains decoupled and you can still export/share. Use Quarto only for **documentation** or publishing the Advice Trace Pack as a static companion, not as the primary UI.
 
-### Integration Strategy (phased)
+### Integration Strategy (revised)
 
-1. **POC (Weeks 1–8)** — _Django‑native_
+1. **MVP (Weeks 1–4)** — _Django + Graph API Service_
    - Add `/api/advice-trace/{smu}/{year}` (DRF) returning JSON‑LD for CU → SMU → Advice flow.
-   - Add `/advice-trace/?smu=…&year=…` Django view rendering the CU-first hierarchical flow (HTMX partials for Drawer).
-   - Stand up **Fuseki** in Docker; connect via a tiny **SPARQL adapter** (e.g., `SPARQLWrapper`).
-   - Compute **Badges** server‑side (combine SHACL results + SPARQL CQ results) → render as HTMX fragments.
-2. **Hardening**
-   - Cache SPARQL results (Django cache) per SMU/Year; invalidate on data refresh.
-   - Move JSON‑LD generation to a scheduled management command; publish to S3/bucket for archival.
+   - Add `/advice-trace/?smu=…&year=…` Django view rendering the basic trace flow (HTMX partials).
+   - Connect to **Graph API Service** via HTTP client (not direct Fuseki).
+   - Compute **Badges** server‑side (from Graph API responses) → render as HTMX fragments.
+2. **Hardening (Post-MVP)**
+   - Cache Graph API responses (Django cache) per SMU/Year; invalidate on data refresh.
+   - Move JSON‑LD generation to a scheduled management command; publish for archival.
 3. **Optional external publishing**
    - Generate a Quarto **static site** that reads the same JSON‑LD + figures for external stakeholders; link it from SPSR.
 
@@ -496,6 +531,114 @@ Ship a versioned JSON-LD bundle with:
 ## 4) Competency Questions — Advice Trace (Hierarchical Flow)
 
 _(Each CQ backs a UI badge, drawer, or diff; fields listed must exist in data/template/SHACL. Questions marked with ⚠️ require ontology investigation.)_
+
+## 4a) Research Classifier Integration Competency Questions
+
+### Paper-to-FSAR Linking Questions
+
+**CQ-PAPER-1: What papers support a specific FSAR advice document?**
+
+```sparql
+SELECT ?paper ?title ?authors ?year ?extraction_confidence
+WHERE {
+  ?fsar a fsar:ScientificOutput ;
+        dcterms:title ?fsarTitle ;
+        dcterms:identifier ?fsarDOI .
+  ?paper a iao:0000310 ;
+         dcterms:title ?title ;
+         dcterms:creator ?authors ;
+         dcterms:date ?year ;
+         dfoc:supportsAdvice ?fsar .
+  OPTIONAL { ?paper dfoc:extraction_confidence ?extraction_confidence }
+}
+```
+
+**CQ-PAPER-2: What papers support decisions related to a specific accountability?**
+
+```sparql
+SELECT ?paper ?title ?accountability ?accountabilityLabel ?sector
+WHERE {
+  ?paper a iao:0000310 ;
+         dcterms:title ?title ;
+         dfoc:supportsAccountability ?accountability ;
+         dfoc:aboutSector ?sector .
+  ?accountability rdfs:label ?accountabilityLabel .
+  FILTER(?accountabilityLabel = "TAC" || ?accountabilityLabel = "HCR")
+}
+```
+
+### Sector and Accountability Questions
+
+**CQ-SECTOR-1: What accountabilities are required for a specific sector?**
+
+```sparql
+SELECT ?sector ?accountability ?accountabilityType ?decisionContext
+WHERE {
+  ?orgUnit a dfoc:Sector ;
+           rdfs:label ?sector .
+  ?orgUnit fsar:hasAccountability ?accountability .
+  ?accountability a ?accountabilityType .
+  OPTIONAL {
+    ?accountability fsar:requiresDecision ?decisionContext .
+  }
+}
+FILTER(?accountabilityType IN (fsar:DecisionAccountability, fsar:BenchmarkAccountability, fsar:MandateAccountability))
+```
+
+**CQ-SECTOR-2: What papers support accountabilities in Fisheries Management sector?**
+
+```sparql
+SELECT ?paper ?title ?accountability ?accountabilityLabel
+WHERE {
+  ?paper a iao:0000310 ;
+         dcterms:title ?title ;
+         dfoc:aboutSector ?sector ;
+         dfoc:supportsAccountability ?accountability .
+  ?sector rdfs:label "Fisheries Management"@en .
+  ?accountability rdfs:label ?accountabilityLabel .
+}
+```
+
+### Graph RAG Questions
+
+**CQ-RAG-1: Find semantically related papers to a given paper**
+
+```sparql
+SELECT ?relatedPaper ?title ?relationship
+WHERE {
+  ?paper a iao:0000310 ;
+         dcterms:title "Original Paper Title" .
+  ?paper dfoc:aboutStock ?stock .
+  ?relatedPaper a iao:0000310 ;
+                dcterms:title ?title ;
+                dfoc:aboutStock ?stock .
+  ?relatedPaper dfoc:usesMethod ?method .
+  ?paper dfoc:usesMethod ?method .
+  BIND("Same stock and method" AS ?relationship)
+}
+FILTER(?relatedPaper != ?paper)
+```
+
+**CQ-RAG-2: Discover papers through multi-hop relationships (stock → CU → method → decision)**
+
+```sparql
+SELECT ?paper ?title ?stock ?cu ?method ?decision
+WHERE {
+  ?stock a dfoc:Stock ;
+         rdfs:label "Barkley Sockeye"@en ;
+         dfoc:hasMemberCU ?cu .
+  ?cu dfoc:hasStatusAssessment ?assessment .
+  ?assessment prov:wasGeneratedBy ?method .
+  ?paper a iao:0000310 ;
+         dcterms:title ?title ;
+         dfoc:aboutStock ?stock ;
+         dfoc:aboutCU ?cu ;
+         dfoc:usesMethod ?method ;
+         dfoc:supportsDecision ?decision .
+}
+```
+
+---
 
 ### CU-Level Questions
 
