@@ -435,6 +435,7 @@ dqv:inDimension a owl:ObjectProperty ;
 
 # Material entities 
 dwc:Organism a owl:Class ;
+  rdfs:label "Organism"@en ;
   skos:prefLabel "Organism"@en ;
   rdfs:subClassOf bfo:0000040 ;
   iao:0000115 "A particular organism or defined group of organisms considered to be taxonomically homogeneous."@en ;
@@ -469,6 +470,7 @@ dwc:Media a owl:Class ;
 
 # Processes 
 dwc:Event a owl:Class ; 
+  rdfs:label "Event"@en ;
   skos:prefLabel "Event"@en ;
   rdfs:subClassOf bfo:0000015 ;
   iao:0000115 "An action that occurs at some location during some time."@en ;
@@ -493,6 +495,7 @@ dwc:Identification a owl:Class ;
 
 # Information entities 
 dwc:Protocol a owl:Class ; 
+  rdfs:label "Protocol"@en ;
   skos:prefLabel "Protocol"@en ;
   rdfs:subClassOf iao:0000030 ;
   iao:0000115 "A method used during an action."@en ;
@@ -1753,6 +1756,7 @@ dfoc:EscapementMethod a owl:Class ;
 
 # NOTE: Hyponyms of EscapementMethod. Optionally mark as disjoint (see below).
 dfoc:AreaUnderTheCurve a owl:Class ;
+  rdfs:label "Area Under the Curve"@en ;
   skos:prefLabel "Area Under the Curve"@en ;
   iao:0000115 "Estimation by integrating counts over time to approximate total escapement."@en ;
   rdfs:subClassOf dfoc:EscapementMethod ;
@@ -1844,6 +1848,7 @@ dfoc:UnknownMethod a owl:Class ;
 
 # Generic membership (transitive)
 dfoc:hasMember a owl:ObjectProperty , owl:TransitiveProperty ;
+  rdfs:label "has member"@en ;
   skos:prefLabel "has member"@en ;
   iao:0000115 "Generic hierarchical containment/membership across management hierarchies (transitive)."@en ;
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
@@ -1857,6 +1862,7 @@ dfoc:isMemberOf a owl:ObjectProperty ;
 
 # Stock Management Unit ▶ Conservation Unit
 dfoc:hasMemberCU a owl:ObjectProperty ;
+  rdfs:label "has member CU"@en ;
   skos:prefLabel "has member CU"@en ;
   iao:0000115 "A Stock Management Unit contains a Conservation Unit."@en ;
   rdfs:domain dfoc:StockManagementUnit ;
@@ -1876,6 +1882,7 @@ dfoc:isMemberOfSMU a owl:ObjectProperty ;
 
 # Conservation Unit ▶ Stock (Population)
 dfoc:hasMemberStock a owl:ObjectProperty ;
+  rdfs:label "has member stock"@en ;
   skos:prefLabel "has member stock"@en ;
   iao:0000115 "A Conservation Unit contains one or more Stocks (populations)."@en ;
   rdfs:domain dfoc:ConservationUnit ;
@@ -2013,6 +2020,7 @@ dfoc:usesMethod a owl:ObjectProperty ;
 
 # New properties for hybrid approach
 dfoc:usesEnumerationMethod a owl:ObjectProperty ;
+  rdfs:label "uses enumeration method"@en ;
   skos:prefLabel "uses enumeration method"@en ;
   iao:0000115 "Links a survey event to the enumeration method used."@en ;
   rdfs:domain dfoc:EscapementSurveyEvent ;
@@ -2335,6 +2343,7 @@ dfoc:collectionMethod a owl:DatatypeProperty ;
 
 # External alignment (literal IRI pattern)
 dfoc:taxonIRI a owl:DatatypeProperty ;
+  rdfs:label "taxon IRI"@en ;
   skos:prefLabel "taxon IRI"@en ;
   iao:0000115 "IRI identifying the taxon (e.g., GBIF Backbone Taxonomy). Stored as a literal IRI for pragmatic alignment without imports."@en ;
   rdfs:domain dfoc:Stock ;
@@ -2344,6 +2353,7 @@ dfoc:taxonIRI a owl:DatatypeProperty ;
 
 # New datatype properties for survey metadata
 dfoc:measuredVisits a owl:DatatypeProperty ;
+  rdfs:label "measured visits"@en ;
   skos:prefLabel "measured visits"@en ;
   iao:0000115 "Number of site visits conducted during the survey."@en ;
   rdfs:domain dfoc:EscapementSurveyEvent ;
