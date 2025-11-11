@@ -264,13 +264,15 @@ This will be an interactive hierarchical tree style graph with progressive discl
 
 **WSP Rapid-Status Support:**
 
-The ontology now supports WSP rapid-status assessments via `fsar:WSPMetric`, `fsar:MetricBenchmark`, and `fsar:AlgorithmThreshold` classes. The `dfo:StockAssessment` class links to WSP metrics via `fsar:assessesMetric`, and produces rapid statuses via `fsar:producesRapidStatus` with confidence categories via `fsar:hasConfidence`. Decision requirement patterns from v3 (e.g., `fsar:RebuildingPlanRequirement`) work with WSP trigger conditions linking metric positions to policy obligations.
+The ontology now supports WSP rapid-status assessments via `dfoc:WSPMetric`, `dfoc:MetricBenchmark`, and `dfoc:AlgorithmThreshold` classes. The `dfoc:StockAssessment` class links to WSP metrics via `dfoc:assessesMetric`, and produces rapid statuses via `dfoc:producesRapidStatus` with confidence categories via `dfoc:hasConfidence`. Decision requirement patterns (e.g., `dfoc:RebuildingPlanRequirement`) work with the trigger condition classes to link metric positions to policy obligations.
 
 ---
 
 ### 2f. WSP Rapid-Status Support
 
 The FSAR Tracer now supports WSP rapid-status assessments through integration with the Learning Tree 3 decision-tree algorithm. This support enables tracking of the four standard WSP metrics, their benchmarks and algorithm thresholds, rapid status assignments, and confidence categories.
+
+> **Sample data:** See `docs/examples/fsar-rapid-status-demo.ttl` for lightweight individuals that demonstrate the rapid-status vocabulary and underpin the competency-question examples below.
 
 **Four Standard WSP Metrics:**
 
@@ -304,7 +306,7 @@ These confidence ratings are derived from the algorithm branch (node) that deter
 
 **Decision Requirements:**
 
-WSP metric positions trigger decision requirements through `fsar:Condition` patterns that link to `fsar:DecisionRequirement` classes. For example, when rapid status is Red (below LRP), this triggers rebuilding plan requirements mandated by the Fisheries Act Fish Stocks Provisions.
+WSP metric positions trigger decision requirements through `dfoc:Condition` patterns that link to `dfoc:DecisionRequirement` classes. For example, when rapid status is Red (below LRP), this triggers rebuilding plan requirements mandated by the Fisheries Act Fish Stocks Provisions.
 
 ---
 
@@ -644,50 +646,53 @@ WHERE {
 
 **CQ-CU-1: What is the status of each Conservation Unit in an SMU?**
 ```sparql
+PREFIX dfoc: <https://w3id.org/dfoc/salmon#>
 SELECT ?cu ?cuLabel ?statusZone ?statusValue ?statusCI
 WHERE {
-  ?smu a dfo:StockManagementUnit ;
+  ?smu a dfoc:StockManagementUnit ;
        rdfs:label "Barkley Sockeye"@en ;
-       dfo:hasMemberCU ?cu .
+       dfoc:hasMemberCU ?cu .
   ?cu rdfs:label ?cuLabel ;
-      dfo:hasStatusAssessment ?assessment .
-  ?assessment dfo:statusZone ?statusZone ;
-              dfo:statusValue ?statusValue .
-  OPTIONAL { ?assessment dfo:statusCI ?statusCI }
+      dfoc:hasStatusAssessment ?assessment .
+  ?assessment dfoc:hasStatusZone ?statusZone ;
+              dfoc:statusValue ?statusValue .
+  OPTIONAL { ?assessment dfoc:statusCI ?statusCI }
 }
 ```
 
 **CQ-CU-2: What data sources feed each CU's status assessment?**
 ```sparql
+PREFIX dfoc: <https://w3id.org/dfoc/salmon#>
 SELECT ?cu ?cuLabel ?dataSource ?dataType ?spawnerOrigin ?proxyJustification
 WHERE {
-  ?cu a dfo:ConservationUnit ;
+  ?cu a dfoc:ConservationUnit ;
       rdfs:label ?cuLabel ;
-      dfo:hasStatusAssessment ?assessment .
+      dfoc:hasStatusAssessment ?assessment .
   ?assessment prov:used ?dataSource .
-  ?dataSource dfo:data_source_type ?dataType ;
-              dfo:spawner_origin ?spawnerOrigin .
-  OPTIONAL { ?dataSource dfo:proxy_justification ?proxyJustification }
+  ?dataSource dfoc:dataSourceType ?dataType ;
+              dfoc:spawnerOrigin ?spawnerOrigin .
+  OPTIONAL { ?dataSource dfoc:justification ?proxyJustification }
 }
 ```
 
 **CQ-CU-3: What methods and benchmarks are used for each CU?**
 ```sparql
+PREFIX dfoc: <https://w3id.org/dfoc/salmon#>
 SELECT ?cu ?cuLabel ?method ?methodName ?lowerBenchmark ?upperBenchmark
 WHERE {
-  ?cu a dfo:ConservationUnit ;
+  ?cu a dfoc:ConservationUnit ;
       rdfs:label ?cuLabel ;
-      dfo:hasStatusAssessment ?assessment .
+      dfoc:hasStatusAssessment ?assessment .
   ?assessment prov:wasGeneratedBy ?method .
   ?method rdfs:label ?methodName .
   
   OPTIONAL {
-    ?cu dfo:hasLowerBenchmark ?lb .
-    ?lb dfo:benchmarkValue ?lowerBenchmark .
+    ?cu dfoc:hasLowerBenchmark ?lb .
+    ?lb dfoc:numericValue ?lowerBenchmark .
   }
   OPTIONAL {
-    ?cu dfo:hasUpperBenchmark ?ub .
-    ?ub dfo:benchmarkValue ?upperBenchmark .
+    ?cu dfoc:hasUpperBenchmark ?ub .
+    ?ub dfoc:numericValue ?upperBenchmark .
   }
 }
 ```
@@ -696,28 +701,30 @@ WHERE {
 
 **CQ-SMU-1: What is the SMU status and how does it derive from CU statuses?**
 ```sparql
+PREFIX dfoc: <https://w3id.org/dfoc/salmon#>
 SELECT ?smu ?smuStatus ?cu ?cuStatus
 WHERE {
-  ?smu a dfo:StockManagementUnit ;
+  ?smu a dfoc:StockManagementUnit ;
        rdfs:label "Barkley Sockeye"@en ;
-       dfo:hasStatusAssessment ?smuAssessment ;
-       dfo:hasMemberCU ?cu .
-  ?smuAssessment dfo:statusZone ?smuStatus .
-  ?cu dfo:hasStatusAssessment ?cuAssessment .
-  ?cuAssessment dfo:statusZone ?cuStatus .
+       dfoc:hasStatusAssessment ?smuAssessment ;
+       dfoc:hasMemberCU ?cu .
+  ?smuAssessment dfoc:hasStatusZone ?smuStatus .
+  ?cu dfoc:hasStatusAssessment ?cuAssessment .
+  ?cuAssessment dfoc:hasStatusZone ?cuStatus .
 }
 ORDER BY ?cuStatus
 ```
 
 **CQ-SMU-2: What aggregation methods and reference points are used at the SMU level?**
 ```sparql
+PREFIX dfoc: <https://w3id.org/dfoc/salmon#>
 SELECT ?smu ?lrp ?lrpType ?lrpValue ?aggregationMethod
 WHERE {
-  ?smu a dfo:StockManagementUnit ;
+  ?smu a dfoc:StockManagementUnit ;
        rdfs:label "Barkley Sockeye"@en ;
-       dfo:hasLimitReferencePoint ?lrp .
-  ?lrp a dfo:CUStatusBasedLRP ;
-       dfo:referencePointValue ?lrpValue ;
+       dfoc:hasLimitReferencePoint ?lrp .
+  ?lrp a dfoc:CUStatusBasedLRP ;
+       dfoc:referencePointValue ?lrpValue ;
        prov:wasGeneratedBy ?aggregationMethod .
   ?aggregationMethod rdfs:label ?aggregationMethodLabel .
 }
@@ -727,16 +734,17 @@ WHERE {
 
 **CQ-ADV-1: What scientific outputs (FSARs) exist for this SMU?**
 ```sparql
+PREFIX dfoc: <https://w3id.org/dfoc/salmon#>
 SELECT ?smu ?advice ?fsarTitle ?fsarYear ?fsarDOI ?researchDoc ?researchTitle
 WHERE {
-  ?smu a dfo:StockManagementUnit ;
+  ?smu a dfoc:StockManagementUnit ;
        rdfs:label "Barkley Sockeye"@en ;
-       dfo:hasScientificOutput ?advice .
+       dfoc:hasScientificOutput ?advice .
   ?advice dcterms:title ?fsarTitle ;
           dcterms:issued ?fsarYear .
   OPTIONAL { ?advice dcterms:identifier ?fsarDOI }
   OPTIONAL {
-    ?advice dfo:hasPrecursorDocument ?researchDoc .
+    ?advice dfoc:hasPrecursorDocument ?researchDoc .
     ?researchDoc dcterms:title ?researchTitle .
   }
 }
@@ -744,15 +752,16 @@ WHERE {
 
 **CQ-ADV-2: What advice text and review information is available?**
 ```sparql
+PREFIX dfoc: <https://w3id.org/dfoc/salmon#>
 SELECT ?advice ?adviceText ?reviewer ?reviewDate ?version
 WHERE {
-  ?smu a dfo:StockManagementUnit ;
+  ?smu a dfoc:StockManagementUnit ;
        rdfs:label "Barkley Sockeye"@en ;
-       dfo:hasScientificOutput ?advice .
-  ?advice dfo:adviceText ?adviceText ;
-          dfo:reviewer ?reviewer ;
-          dfo:reviewDate ?reviewDate ;
-          dfo:version ?version .
+       dfoc:hasScientificOutput ?advice .
+  ?advice dfoc:adviceText ?adviceText ;
+          dfoc:reviewedBy ?reviewer ;
+          dfoc:reviewDate ?reviewDate ;
+          dfoc:version ?version .
 }
 ```
 
@@ -760,29 +769,31 @@ WHERE {
 
 **CQ-DEC-1: What management decisions are supported by this advice?**
 ```sparql
+PREFIX dfoc: <https://w3id.org/dfoc/salmon#>
 SELECT ?advice ?decision ?decisionType ?decisionDate ?decisionMaker
 WHERE {
-  ?smu a dfo:StockManagementUnit ;
+  ?smu a dfoc:StockManagementUnit ;
        rdfs:label "Barkley Sockeye"@en ;
-       dfo:hasScientificOutput ?advice .
-  ?advice dfo:supportsDecision ?decision .
-  ?decision dfo:decisionType ?decisionType ;
-            dfo:decisionDate ?decisionDate ;
-            dfo:decisionMaker ?decisionMaker .
+       dfoc:hasScientificOutput ?advice .
+  ?advice dfoc:supportsDecision ?decision .
+  ?decision dfoc:decisionType ?decisionType ;
+            dfoc:decisionDate ?decisionDate ;
+            dfoc:decisionMaker ?decisionMaker .
 }
 ```
 
 **CQ-DEC-2: What legal framework mandates this decision?**
 ```sparql
+PREFIX dfoc: <https://w3id.org/dfoc/salmon#>
 SELECT ?decision ?framework ?frameworkName ?relevantSections
 WHERE {
-  ?smu a dfo:StockManagementUnit ;
+  ?smu a dfoc:StockManagementUnit ;
        rdfs:label "Barkley Sockeye"@en ;
-       dfo:hasScientificOutput ?advice .
-  ?advice dfo:supportsDecision ?decision .
-  ?decision dfo:requiredBy ?framework .
+       dfoc:hasScientificOutput ?advice .
+  ?advice dfoc:supportsDecision ?decision .
+  ?decision dfoc:mandatedBy ?framework .
   ?framework rdfs:label ?frameworkName ;
-             dfo:relevantSections ?relevantSections .
+             dfoc:relevantSections ?relevantSections .
 }
 ```
 
@@ -790,31 +801,33 @@ WHERE {
 
 **CQ-POL-1: What is the WSP status zone and how was it derived from benchmarks?**
 ```sparql
+PREFIX dfoc: <https://w3id.org/dfoc/salmon#>
 SELECT ?smu ?wspZone ?lrp ?usr ?statusDecision ?hcrUsed
 WHERE {
-  ?smu a dfo:StockManagementUnit ;
+  ?smu a dfoc:StockManagementUnit ;
        rdfs:label "Barkley Sockeye"@en ;
-       dfo:hasStatusAssessment ?assessment ;
-       dfo:hasLimitReferencePoint ?lrp ;
-       dfo:hasUpperStockReference ?usr .
-  ?assessment dfo:statusZone ?wspZone ;
-              dfo:statusDecision ?statusDecision ;
-              dfo:harvestControlRule ?hcrUsed .
+       dfoc:hasStatusAssessment ?assessment ;
+       dfoc:hasLimitReferencePoint ?lrp ;
+       dfoc:hasUpperStockReference ?usr .
+  ?assessment dfoc:hasStatusZone ?wspZone ;
+              dfoc:statusDecision ?statusDecision ;
+              dfoc:harvestControlRule ?hcrUsed .
 }
 ```
 
 **CQ-POL-2: What Fisheries Act Fish Stocks provisions apply to this SMU?**
 ```sparql
+PREFIX dfoc: <https://w3id.org/dfoc/salmon#>
 SELECT ?smu ?belowLRP ?rebuildingPlan ?planVersion ?planDate
 WHERE {
-  ?smu a dfo:StockManagementUnit ;
+  ?smu a dfoc:StockManagementUnit ;
        rdfs:label "Barkley Sockeye"@en ;
-       dfo:hasPolicyReadiness ?policy .
-  ?policy dfo:belowLRP ?belowLRP .
+       dfoc:hasPolicyReadiness ?policy .
+  ?policy dfoc:belowLRP ?belowLRP .
   OPTIONAL {
-    ?policy dfo:rebuildingPlan ?rebuildingPlan .
-    ?rebuildingPlan dfo:version ?planVersion ;
-                    dfo:issued ?planDate .
+    ?policy dfoc:rebuildingPlanURL ?rebuildingPlan .
+    BIND(?rebuildingPlan AS ?rebuildingPlan)
+    # Note: version and date would need to be extracted from the rebuilding plan document
   }
 }
 ```
@@ -823,17 +836,15 @@ WHERE {
 
 **CQ-CHG-1: What changed since the last FSAR cycle?**
 ```sparql
-SELECT ?smu ?currentCycle ?previousCycle ?dataChanges ?methodChanges ?benchmarkChanges ?statusChanges
+PREFIX dfoc: <https://w3id.org/dfoc/salmon#>
+SELECT ?smu ?changeCategory ?changeDetail
 WHERE {
-  ?smu a dfo:StockManagementUnit ;
+  ?smu a dfoc:StockManagementUnit ;
        rdfs:label "Barkley Sockeye"@en ;
-       dfo:hasChangeLog ?changeLog .
-  ?changeLog dfo:currentCycle ?currentCycle ;
-             dfo:previousCycle ?previousCycle ;
-             dfo:dataChanges ?dataChanges ;
-             dfo:methodChanges ?methodChanges ;
-             dfo:benchmarkChanges ?benchmarkChanges ;
-             dfo:statusChanges ?statusChanges .
+       dfoc:hasStatusAssessment ?assessment .
+  ?assessment dfoc:hasChangeLogEntry ?changeLog .
+  ?changeLog dfoc:changeCategory ?changeCategory ;
+             dfoc:changeDetail ?changeDetail .
 }
 ```
 
@@ -841,30 +852,33 @@ WHERE {
 
 **CQ-CU-ACCT-1: Which CUs are included, excluded, or proxied in this SMU assessment?**
 ```sparql
+PREFIX dfoc: <https://w3id.org/dfoc/salmon#>
 SELECT ?smu ?cu ?inclusionStatus ?justification ?reviewer ?reviewDate
 WHERE {
-  ?smu a dfo:StockManagementUnit ;
+  ?smu a dfoc:StockManagementUnit ;
        rdfs:label "Barkley Sockeye"@en ;
-       dfo:hasCUAccounting ?accounting .
-  ?accounting dfo:cuInclusion ?cu ;
-              dfo:inclusionStatus ?inclusionStatus ;
-              dfo:justification ?justification ;
-              dfo:reviewer ?reviewer ;
-              dfo:reviewDate ?reviewDate .
+       dfoc:hasCUAccounting ?accounting .
+  ?accounting dfoc:cuInclusion ?cu ;
+              dfoc:inclusionStatus ?inclusionStatus ;
+              dfoc:justification ?justification ;
+              dfoc:reviewedBy ?reviewer ;
+              dfoc:reviewDate ?reviewDate .
 }
 ```
 
 **CQ-CU-ACCT-2: What GSI usage and uncertainty information is available?**
 ```sparql
+PREFIX dfoc: <https://w3id.org/dfoc/salmon#>
 SELECT ?smu ?gsiUsed ?sampleSize ?assignmentUncertainty ?gsiMethod
 WHERE {
-  ?smu a dfo:StockManagementUnit ;
+  ?smu a dfoc:StockManagementUnit ;
        rdfs:label "Barkley Sockeye"@en ;
-       dfo:hasGSIUsage ?gsiUsage .
-  ?gsiUsage dfo:gsiUsed ?gsiUsed ;
-            dfo:sampleSize ?sampleSize ;
-            dfo:assignmentUncertainty ?assignmentUncertainty ;
-            dfo:gsiMethod ?gsiMethod .
+       dfoc:hasStatusAssessment ?assessment .
+  ?assessment dfoc:hasGSIUsage ?gsiUsage .
+  ?gsiUsage dfoc:gsiUsed ?gsiUsed ;
+            dfoc:gsiSampleSize ?sampleSize ;
+            dfoc:gsiAssignmentUncertainty ?assignmentUncertainty ;
+            dfoc:gsiMethod ?gsiMethod .
 }
 ```
 
@@ -872,31 +886,31 @@ WHERE {
 
 **CQ-BENCH-1: What benchmark types and methods are used for each reference point?**
 ```sparql
+PREFIX dfoc: <https://w3id.org/dfoc/salmon#>
 SELECT ?rp ?rpType ?benchMethod ?sensitivity ?derivationMethod ?codeCommit
 WHERE {
-  ?smu a dfo:StockManagementUnit ;
+  ?smu a dfoc:StockManagementUnit ;
        rdfs:label "Barkley Sockeye"@en ;
-       dfo:hasLimitReferencePoint ?rp .
-  ?rp dfo:reference_point_type ?rpType ;
-      dfo:benchmark_method ?benchMethod ;
+       dfoc:hasLimitReferencePoint ?rp .
+  ?rp dfoc:referencePointType ?rpType ;
+      dfoc:benchmarkMethod ?benchMethod ;
       prov:wasGeneratedBy ?derivationMethod .
-  ?derivationMethod dfo:code_commit ?codeCommit .
-  OPTIONAL { ?rp dfo:benchmark_sensitivity ?sensitivity }
+  ?derivationMethod dfoc:codeCommit ?codeCommit .
+  OPTIONAL { ?rp dfoc:benchmarkSensitivity ?sensitivity }
 }
 ```
 
 **CQ-BENCH-2: What are the sensitivity flags and derivation evidence for each benchmark?**
 ```sparql
-SELECT ?rp ?sensitivity ?inputDataset ?timeWindow ?uncertaintyMethod ?version
+PREFIX dfoc: <https://w3id.org/dfoc/salmon#>
+SELECT ?rp ?sensitivity ?inputDataset ?version
 WHERE {
-  ?smu a dfo:StockManagementUnit ;
+  ?smu a dfoc:StockManagementUnit ;
        rdfs:label "Barkley Sockeye"@en ;
-       dfo:hasLimitReferencePoint ?rp .
-  ?rp dfo:benchmark_sensitivity ?sensitivity ;
+       dfoc:hasLimitReferencePoint ?rp .
+  ?rp dfoc:benchmarkSensitivity ?sensitivity ;
       prov:used ?inputDataset ;
-      dfo:time_window ?timeWindow ;
-      dfo:uncertainty_method ?uncertaintyMethod ;
-      dfo:version ?version .
+      dfoc:version ?version .
 }
 ```
 
@@ -904,32 +918,34 @@ WHERE {
 
 **CQ-CU-PROXY-1: Which CUs are proxied and what is the justification?**
 ```sparql
+PREFIX dfoc: <https://w3id.org/dfoc/salmon#>
 SELECT ?cu ?inclusionStatus ?justification ?reviewer ?reviewDate ?riskLevel
 WHERE {
-  ?smu a dfo:StockManagementUnit ;
+  ?smu a dfoc:StockManagementUnit ;
        rdfs:label "Barkley Sockeye"@en ;
-       dfo:hasCUAccounting ?accounting .
-  ?accounting dfo:cuInclusion ?cu ;
-              dfo:inclusionStatus ?inclusionStatus ;
-              dfo:justification ?justification ;
-              dfo:reviewer ?reviewer ;
-              dfo:reviewDate ?reviewDate .
+       dfoc:hasCUAccounting ?accounting .
+  ?accounting dfoc:cuInclusion ?cu ;
+              dfoc:inclusionStatus ?inclusionStatus ;
+              dfoc:justification ?justification ;
+              dfoc:reviewedBy ?reviewer ;
+              dfoc:reviewDate ?reviewDate .
   BIND(IF(?inclusionStatus != "included", "High", "Low") AS ?riskLevel)
 }
 ```
 
 **CQ-GSI-RISK-1: What is the GSI usage and assignment uncertainty for mixed-stock fisheries?**
 ```sparql
+PREFIX dfoc: <https://w3id.org/dfoc/salmon#>
 SELECT ?smu ?gsiUsed ?sampleSize ?assignmentUncertainty ?baselineReference ?riskChip
 WHERE {
-  ?smu a dfo:StockManagementUnit ;
+  ?smu a dfoc:StockManagementUnit ;
        rdfs:label "Barkley Sockeye"@en ;
-       dfo:hasGSIUsage ?gsiUsage ;
-       dfo:fisheryType "mixed-stock" .
-  ?gsiUsage dfo:gsiUsed ?gsiUsed ;
-            dfo:sampleSize ?sampleSize ;
-            dfo:assignmentUncertainty ?assignmentUncertainty ;
-            dfo:baseline_reference ?baselineReference .
+       dfoc:hasStatusAssessment ?assessment .
+  ?assessment dfoc:hasGSIUsage ?gsiUsage .
+  ?gsiUsage dfoc:gsiUsed ?gsiUsed ;
+            dfoc:gsiSampleSize ?sampleSize ;
+            dfoc:gsiAssignmentUncertainty ?assignmentUncertainty .
+  # Note: baselineReference would need to be added as a property if needed
   BIND(IF(?gsiUsed = false, "No GSI apportionment", "GSI Available") AS ?riskChip)
 }
 ```
@@ -938,33 +954,30 @@ WHERE {
 
 **CQ-UNCERTAINTY-1: What uncertainty measures are available for status assessments?**
 ```sparql
-SELECT ?assessment ?statusConfidence ?downgradeReason ?ciLower ?ciUpper ?probabilityGreen ?probabilityAmber ?probabilityRed
+PREFIX dfoc: <https://w3id.org/dfoc/salmon#>
+SELECT ?assessment ?statusConfidence ?downgradeReason ?ciLower ?ciUpper
 WHERE {
-  ?smu a dfo:StockManagementUnit ;
+  ?smu a dfoc:StockManagementUnit ;
        rdfs:label "Barkley Sockeye"@en ;
-       dfo:hasStatusAssessment ?assessment .
-  ?assessment dfo:status_confidence ?statusConfidence .
-  OPTIONAL { ?assessment dfo:downgradeReason ?downgradeReason }
-  OPTIONAL { ?assessment dfo:ciLower ?ciLower ; dfo:ciUpper ?ciUpper }
-  OPTIONAL { 
-    ?assessment dfo:probabilityGreen ?probabilityGreen ;
-                dfo:probabilityAmber ?probabilityAmber ;
-                dfo:probabilityRed ?probabilityRed
-  }
+       dfoc:hasStatusAssessment ?assessment .
+  ?assessment dfoc:hasConfidence ?statusConfidence .
+  OPTIONAL { ?assessment dfoc:downgradeReason ?downgradeReason }
+  OPTIONAL { ?assessment dfoc:ciLower ?ciLower ; dfoc:ciUpper ?ciUpper }
 }
 ```
 
 **CQ-UNCERTAINTY-2: Which estimates are missing confidence intervals or have downgrade reasons?**
 ```sparql
+PREFIX dfoc: <https://w3id.org/dfoc/salmon#>
 SELECT ?estimate ?estimateType ?missingCI ?downgradeReason ?qualityFlag
 WHERE {
-  ?smu a dfo:StockManagementUnit ;
+  ?smu a dfoc:StockManagementUnit ;
        rdfs:label "Barkley Sockeye"@en ;
-       dfo:hasStatusAssessment ?assessment .
+       dfoc:hasStatusAssessment ?assessment .
   ?assessment prov:used ?estimate .
-  ?estimate dfo:estimate_type ?estimateType .
-  BIND(NOT EXISTS { ?estimate dfo:confidenceInterval ?ci } AS ?missingCI)
-  OPTIONAL { ?estimate dfo:downgradeReason ?downgradeReason }
+  ?estimate dfoc:assignedEstimateType ?estimateType .
+  BIND(NOT EXISTS { ?estimate dfoc:ciLower ?ciLower ; dfoc:ciUpper ?ciUpper } AS ?missingCI)
+  OPTIONAL { ?estimate dfoc:downgradeReason ?downgradeReason }
   BIND(IF(?missingCI = true || BOUND(?downgradeReason), "Quality Concern", "Good") AS ?qualityFlag)
 }
 ```
@@ -973,15 +986,17 @@ WHERE {
 
 **CQ-POLICY-1: What policy triggers and legal requirements apply to this SMU?**
 ```sparql
+PREFIX dfoc: <https://w3id.org/dfoc/salmon#>
 SELECT ?smu ?belowLRP ?rebuildingPlanURL ?hcrIdentifier ?hcrParameters ?policyTrigger ?complianceStatus
 WHERE {
-  ?smu a dfo:StockManagementUnit ;
+  ?smu a dfoc:StockManagementUnit ;
        rdfs:label "Barkley Sockeye"@en ;
-       dfo:hasPolicyReadiness ?policy .
-  ?policy dfo:belowLRP ?belowLRP ;
-          dfo:hcrIdentifier ?hcrIdentifier ;
-          dfo:hcrParameters ?hcrParameters .
-  OPTIONAL { ?policy dfo:rebuildingPlanURL ?rebuildingPlanURL }
+       dfoc:hasStatusAssessment ?assessment .
+  ?assessment dfoc:hasPolicyReadiness ?policy .
+  ?policy dfoc:belowLRP ?belowLRP ;
+          dfoc:hcrIdentifier ?hcrIdentifier ;
+          dfoc:hcrParameters ?hcrParameters .
+  OPTIONAL { ?policy dfoc:rebuildingPlanURL ?rebuildingPlanURL }
   BIND(IF(?belowLRP = true && BOUND(?rebuildingPlanURL), "Compliant", "Policy Trigger") AS ?policyTrigger)
   BIND(IF(?belowLRP = true && !BOUND(?rebuildingPlanURL), "Missing-Critical", "Ready") AS ?complianceStatus)
 }
@@ -991,23 +1006,24 @@ WHERE {
 
 **CQ-TRACE-1: What is the complete evidence chain from CU data to management decision?**
 ```sparql
+PREFIX dfoc: <https://w3id.org/dfoc/salmon#>
 SELECT ?cu ?cuData ?cuMethod ?cuStatus ?smuStatus ?advice ?decision ?framework
 WHERE {
-  ?smu a dfo:StockManagementUnit ;
+  ?smu a dfoc:StockManagementUnit ;
        rdfs:label "Barkley Sockeye"@en ;
-       dfo:hasMemberCU ?cu ;
-       dfo:hasStatusAssessment ?smuAssessment ;
-       dfo:hasScientificOutput ?advice .
+       dfoc:hasMemberCU ?cu ;
+       dfoc:hasStatusAssessment ?smuAssessment ;
+       dfoc:hasScientificOutput ?advice .
 
-  ?cu dfo:hasStatusAssessment ?cuAssessment .
+  ?cu dfoc:hasStatusAssessment ?cuAssessment .
   ?cuAssessment prov:used ?cuData ;
                 prov:wasGeneratedBy ?cuMethod ;
-                dfo:statusZone ?cuStatus .
+                dfoc:hasStatusZone ?cuStatus .
 
-  ?smuAssessment dfo:statusZone ?smuStatus .
+  ?smuAssessment dfoc:hasStatusZone ?smuStatus .
 
-  ?advice dfo:supportsDecision ?decision .
-  ?decision dfo:requiredBy ?framework .
+  ?advice dfoc:supportsDecision ?decision .
+  ?decision dfoc:mandatedBy ?framework .
 }
 ```
 
@@ -1020,17 +1036,17 @@ WHERE {
 ```sparql
 SELECT ?metric ?metricLabel ?benchmarkType ?benchmarkValue ?benchmarkUnits ?thresholdValue ?thresholdUnits ?thresholdNote
 WHERE {
-  ?assessment a dfo:StockAssessment ;
-              fsar:assessesMetric ?metric .
+  ?assessment a dfoc:StockAssessment ;
+              dfoc:assessesMetric ?metric .
   ?metric rdfs:label ?metricLabel ;
-          fsar:hasBenchmark ?benchmark ;
-          fsar:hasAlgorithmThreshold ?threshold .
+          dfoc:hasBenchmark ?benchmark ;
+          dfoc:hasAlgorithmThreshold ?threshold .
   ?benchmark rdfs:label ?benchmarkType ;
-             fsar:numericValue ?benchmarkValue ;
-             fsar:units ?benchmarkUnits .
-  ?threshold fsar:numericValue ?thresholdValue ;
-             fsar:units ?thresholdUnits .
-  OPTIONAL { ?threshold fsar:note ?thresholdNote }
+             dfoc:numericValue ?benchmarkValue ;
+             dfoc:units ?benchmarkUnits .
+  ?threshold dfoc:numericValue ?thresholdValue ;
+             dfoc:units ?thresholdUnits .
+  OPTIONAL { ?threshold dfoc:note ?thresholdNote }
 }
 ORDER BY ?metricLabel ?benchmarkType
 ```
@@ -1040,9 +1056,9 @@ ORDER BY ?metricLabel ?benchmarkType
 ```sparql
 SELECT ?assessment ?rapidStatus ?confidence ?confidenceLabel
 WHERE {
-  ?assessment a dfo:StockAssessment ;
-              fsar:producesRapidStatus ?rapidStatus ;
-              fsar:hasConfidence ?confidence .
+  ?assessment a dfoc:StockAssessment ;
+              dfoc:producesRapidStatus ?rapidStatus ;
+              dfoc:hasConfidence ?confidence .
   ?confidence skos:prefLabel ?confidenceLabel .
   ?rapidStatus skos:prefLabel ?statusLabel .
 }
@@ -1053,13 +1069,13 @@ WHERE {
 ```sparql
 SELECT ?assessment ?rapidStatus ?condition ?conditionLabel ?requirement ?requirementLabel ?framework ?frameworkLabel
 WHERE {
-  ?assessment a dfo:StockAssessment ;
-              fsar:producesRapidStatus ?rapidStatus .
+  ?assessment a dfoc:StockAssessment ;
+              dfoc:producesRapidStatus ?rapidStatus .
   ?rapidStatus skos:prefLabel ?statusLabel .
-  ?requirement a fsar:DecisionRequirement ;
+  ?requirement a dfoc:DecisionRequirement ;
                rdfs:label ?requirementLabel ;
-               fsar:triggeredBy ?condition ;
-               fsar:mandatedBy ?framework .
+               dfoc:triggeredBy ?condition ;
+               dfoc:mandatedBy ?framework .
   ?condition rdfs:label ?conditionLabel .
   ?framework rdfs:label ?frameworkLabel .
   # Note: This query structure assumes conditions can be inferred from rapid status
@@ -1072,15 +1088,15 @@ WHERE {
 ```sparql
 SELECT ?metric ?metricLabel ?benchmarkValue ?benchmarkUnits ?thresholdValue ?thresholdUnits ?rationaleNote
 WHERE {
-  ?metric a fsar:WSPMetric ;
+  ?metric a dfoc:WSPMetric ;
           rdfs:label ?metricLabel ;
-          fsar:hasBenchmark ?benchmark ;
-          fsar:hasAlgorithmThreshold ?threshold .
-  ?benchmark fsar:numericValue ?benchmarkValue ;
-             fsar:units ?benchmarkUnits .
-  ?threshold fsar:numericValue ?thresholdValue ;
-             fsar:units ?thresholdUnits .
-  OPTIONAL { ?threshold fsar:note ?rationaleNote }
+          dfoc:hasBenchmark ?benchmark ;
+          dfoc:hasAlgorithmThreshold ?threshold .
+  ?benchmark dfoc:numericValue ?benchmarkValue ;
+             dfoc:units ?benchmarkUnits .
+  ?threshold dfoc:numericValue ?thresholdValue ;
+             dfoc:units ?thresholdUnits .
+  OPTIONAL { ?threshold dfoc:note ?rationaleNote }
 }
 ORDER BY ?metricLabel
 ```

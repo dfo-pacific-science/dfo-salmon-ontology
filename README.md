@@ -6,8 +6,6 @@
 
 The DFO Salmon Ontology is a **data stewardship and operational process ontology** designed to provide a semantic framework for managing, integrating, and stewarding Pacific salmon data across Fisheries and Oceans Canada (DFO).
 
-**📋 For detailed purpose, user needs, and requirements, see [Product Requirements Document](docs/PRODUCT_REQUIREMENTS.md)**
-
 **Goal:** Make salmon data interoperable, discoverable, and analyzable with minimal friction for scientists, data stewards, and managers.
 
 ## Repository Structure
@@ -37,24 +35,19 @@ This repository follows the [AGENTS.md](AGENTS.md) directory layout for ontology
 
 ## Table of Contents
 
-- [Product Requirements](docs/PRODUCT_REQUIREMENTS.md)
-- [Competency Questions](docs/COMPETENCY_QUESTIONS.md)
 - [Quickstart](#quickstart)
 - [Current Scope](#ontology-scope-current)
-- [Development Workflow](#contribution-workflow)
-- [Conventions Guide](docs/CONVENTIONS.md)
+- [Development Workflow](#development-workflow)
+- [Documentation](#documentation)
 - [Roadmap](#roadmap)
 - [Acknowledgments](#acknowledgments)
 
-## Documentation Guide
-
-**Start Here:**
-- [Product Requirements Document](docs/PRODUCT_REQUIREMENTS.md) - Product vision, user needs, requirements, and success metrics
+## Documentation
 
 **For Contributors:**
 - [Competency Questions](docs/COMPETENCY_QUESTIONS.md) - Specific questions the ontology must answer
 - [Conventions Guide](docs/CONVENTIONS.md) - Detailed modeling conventions and patterns
-- [Contributing Guide](docs/CONTRIBUTING.md) - Contribution workflow and guidelines
+- [Contributing Guide](CONTRIBUTING.md) - Contribution workflow and guidelines
 - [Agent Guidelines](AGENTS.md) - Agent-specific development guidelines
 
 **Technical References:**
@@ -80,8 +73,8 @@ This repository follows the [AGENTS.md](AGENTS.md) directory layout for ontology
 ## Quickstart
 
 ### For Contributors
-1. **Read the [Product Requirements Document](docs/PRODUCT_REQUIREMENTS.md)** to understand scope and goals
-2. **Read the [Conventions Guide](docs/CONVENTIONS.md)** for detailed modeling guidelines
+1. **Read the [Conventions Guide](docs/CONVENTIONS.md)** for detailed modeling guidelines
+2. **Read the [Competency Questions](docs/COMPETENCY_QUESTIONS.md)** to understand scope and goals
 3. **Use Protégé Desktop** to edit `dfo-salmon.ttl` with OntoGraf for visualization
 4. **Use ROBOT** for quality control: `robot reason --input dfo-salmon.ttl --reasoner ELK`
 5. **Discuss changes** in GitHub Issues before creating PRs
@@ -174,8 +167,6 @@ This repository follows the [AGENTS.md](AGENTS.md) directory layout for ontology
 - Advanced querying and analytics
 - Publish docs via pyLODE/Widoco
 - Register W3ID redirects
-
-> **📋 See [Product Requirements Document](docs/PRODUCT_REQUIREMENTS.md) for detailed requirements and success metrics**
 
 ---
 

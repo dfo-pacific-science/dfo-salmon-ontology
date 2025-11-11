@@ -1,10 +1,14 @@
-# DFO Salmon Ontology - FSAR Tracer MVP Todo List
+# DFO Salmon Ontology
 
 **Focus:** 8-week path to Barkley Sockeye FSAR evidence chain demo  
 **Goal:** Six-node trace (Data → Method → RefPoints → Status → Advice → Decision) with badges
 
-**Last Updated:** 2025-01-27  
+**Last Updated:** 2025-11-06 (FSAR Advice Trace mockups logged)  
 **Status:** Active development for FSAR Advice Trace (2-month critical path)
+
+**Current Goals:**
+- **Widoco site formally published:** End of November 2025
+- **Quarto website pages for exploring controlled vocabulary:** Working within next 2 weeks
 
 ---
 
@@ -14,16 +18,27 @@
 
 ### Extraction Pipeline
 
-- [ ] Create virtual environment and install `scripts/requirements.txt` dependencies
+- [x] **VERIFIED**: GitHub workflow exists (`.github/workflows/generate-term-tables.yml`)
+- [ ] Create virtual environment and install `scripts/requirements.txt` dependencies (local development)
 - [ ] Run `python scripts/extract-term-tables.py` to publish initial CSV + metadata
 - [ ] Decide whether to version generated CSVs or rely solely on workflow artifacts
+- **NOTE**: Workflow automatically generates term tables on push to main
 
 ### Cross-Repo Automation
 
 - [ ] Provision `REPO_DISPATCH_TOKEN` with `repo` scope for GitHub dispatch events
 - [ ] Coordinate with documentation repo to consume workflow artifacts or submodule updates
 - [ ] Add Widoco build step and update `widoco_base_url` once docs are hosted
+- **GOAL**: Widoco site formally published by end of November 2025
+- **GOAL**: Quarto website pages for exploring controlled vocabulary working within next 2 weeks
 
+
+## 2025-11-06 — FSAR Advice Trace Mockups
+
+- [x] Build dark-themed progressive-disclosure mockup (`docs/ontology_applications/mockups/fsar-tracer-mockup.html`)
+- [ ] Socialize the interaction flow with FSAR authors + policy reviewers and capture feedback deltas
+- [ ] Replace the static sample data with a JSON-LD Advice Trace Pack feed once available
+- [ ] Wire drawer tabs to live SPSR/GRD/CSAS endpoints or cached packs for provenance jumps
 
 ## 2025-11-02 — Convention Compliance Cleanup
 
@@ -68,26 +83,27 @@
 
 **File:** `ontology/dfo-salmon.ttl`
 
-- [ ] Add ORG prefix declaration: `@prefix org: <http://www.w3.org/ns/org#>`
-- [ ] Add ORG MIREOT section with key terms: `org:Organization`, `org:OrganizationalUnit`, `org:hasUnit`, `org:hasSubOrganization`
-- [ ] Add DFO-specific organizational classes as subclasses of `org:OrganizationalUnit`:
-  - `dfo:Unit` (with `skos:altLabel "Program"@en`)
-  - `dfo:Section`, `dfo:Division`, `dfo:Branch`, `dfo:Region`, `dfo:Sector`
-- [ ] Add comprehensive rdfs:label and rdfs:comment for each DFO class
-- [ ] Add rdfs:isDefinedBy for all classes
+- [x] **VERIFIED**: ORG prefix declaration exists: `@prefix org: <http://www.w3.org/ns/org#>`
+- [x] **VERIFIED**: ORG MIREOT section exists with key terms (lines 621-643): `org:Organization`, `org:OrganizationalUnit`, `org:hasUnit`, `org:hasSubOrganization`
+- [x] **VERIFIED**: DFO-specific organizational classes exist as subclasses of `org:OrganizationalUnit`:
+  - `dfoc:Unit` (line 649, rdfs:subClassOf org:OrganizationalUnit)
+  - `dfoc:Section` (line 657), `dfoc:Division` (line 664), `dfoc:Branch` (line 671), `dfoc:Region` (line 678), `dfoc:Sector` (line 685) - all subclasses of org:OrganizationalUnit
+- [x] **VERIFIED**: Added comprehensive rdfs:label and rdfs:comment for each DFO class
+- [x] **VERIFIED**: Added rdfs:isDefinedBy for all classes
 
 ### Add DFO-Specific Organizational Properties
 
 **File:** `ontology/dfo-salmon.ttl`
 
-- [ ] Add DFO-specific subproperties of ORG properties:
-  - `dfo:hasUnit` (subproperty of `org:hasUnit`)
-  - `dfo:hasSection` (subproperty of `org:hasSubOrganization`)
-  - `dfo:hasDivision` (subproperty of `org:hasSubOrganization`)
-  - `dfo:hasBranch` (subproperty of `org:hasSubOrganization`)
-  - `dfo:hasRegion` (subproperty of `org:hasSubOrganization`)
-- [ ] Set appropriate domains and ranges for each DFO subproperty
-- [ ] Add organizational metadata properties: `dfo:organizationalUnitName`, `dfo:organizationalUnitCode`
+- [x] **VERIFIED**: DFO-specific organizational properties exist as subproperties of ORG:
+  - `dfoc:hasUnit` (line 692, rdfs:subPropertyOf org:hasUnit)
+  - `dfoc:hasSection` (line 701, rdfs:subPropertyOf org:hasSubOrganization)
+  - `dfoc:hasDivision` (line 710, rdfs:subPropertyOf org:hasSubOrganization)
+  - `dfoc:hasBranch` (line 719, rdfs:subPropertyOf org:hasSubOrganization)
+  - `dfoc:hasRegion` (line 728, rdfs:subPropertyOf org:hasSubOrganization)
+  - `dfoc:hasSector` (line 737, rdfs:subPropertyOf org:hasSubOrganization)
+- [x] **VERIFIED**: Set appropriate domains and ranges for each DFO property
+- [ ] Add organizational metadata properties: `dfoc:organizationalUnitName`, `dfoc:organizationalUnitCode`
 - [ ] Document ORG alignment in comments
 
 ### Add Project Class and Linkage Properties
@@ -244,34 +260,34 @@
 
 **File:** `ontology/dfo-salmon.ttl`
 
-- [ ] Add DQV prefix declaration at line 9: `@prefix dqv: <http://www.w3.org/ns/dqv#>`
-- [ ] Add DQV MIREOT section after BFO section (~line 250)
-- [ ] Import `dqv:Dimension` with rdfs:label and rdfs:comment
-- [ ] Import `dqv:QualityAnnotation` with rdfs:label and rdfs:comment
-- [ ] Import `dqv:inDimension` object property with rdfs:label and rdfs:comment
-- [ ] Add rdfs:isDefinedBy for each term pointing to DQV namespace
-- [ ] Test DQV terms are recognized in Protégé
+- [x] **VERIFIED**: DQV prefix declaration exists at line 9: `@prefix dqv: <http://www.w3.org/ns/dqv#>`
+- [x] **VERIFIED**: DQV MIREOT section exists after BFO section (lines 415-440)
+- [x] **VERIFIED**: Imported `dqv:Dimension` with rdfs:label and rdfs:comment
+- [x] **VERIFIED**: Imported `dqv:QualityAnnotation` with rdfs:label and rdfs:comment
+- [x] **VERIFIED**: Imported `dqv:inDimension` object property with rdfs:label and rdfs:comment
+- [x] **VERIFIED**: Added rdfs:isDefinedBy for each term pointing to DQV namespace
+- [x] DQV terms are recognized in Protégé
 
 ### Create Evidence Completeness Dimensions
 
 **File:** `ontology/dfo-salmon.ttl`
 
-- [ ] Add section comment: "Evidence Completeness Framework (DQV-based)"
-- [ ] Create `dfo:EvidenceCompletenessDimension` as instance of `dqv:Dimension`
-- [ ] Create `dfo:DataCurrencyDimension` as instance of `dqv:Dimension`
-- [ ] Add skos:prefLabel and skos:definition for both dimensions
-- [ ] Add rdfs:isDefinedBy for each dimension
+- [x] **VERIFIED**: Section comment exists: "Evidence Completeness Framework (DQV-based)"
+- [x] **VERIFIED**: Created `dfoc:EvidenceCompletenessDimension` as instance of `dqv:Dimension` (line 823)
+- [x] **VERIFIED**: Created `dfoc:DataCurrencyDimension` as instance of `dqv:Dimension` (line 828)
+- [x] **VERIFIED**: Added skos:prefLabel and skos:definition for both dimensions
+- [x] **VERIFIED**: Added rdfs:isDefinedBy for each dimension
 
 ### Create Quality Annotations (Evidence Badges)
 
 **File:** `ontology/dfo-salmon.ttl`
 
-- [ ] Create `dfo:CompleteEvidence` as `dqv:QualityAnnotation`
-- [ ] Create `dfo:GapsEvidence` as `dqv:QualityAnnotation`
-- [ ] Create `dfo:MissingCriticalEvidence` as `dqv:QualityAnnotation`
-- [ ] Link each to `dfo:EvidenceCompletenessDimension` via `dqv:inDimension`
-- [ ] Add skos:prefLabel for each badge (Complete, Gaps, Missing-Critical)
-- [ ] Add rdfs:isDefinedBy for each annotation
+- [x] **VERIFIED**: Created `dfoc:CompleteEvidence` as `dqv:QualityAnnotation` (line 833)
+- [x] **VERIFIED**: Created `dfoc:GapsEvidence` as `dqv:QualityAnnotation` (line 839)
+- [x] **VERIFIED**: Created `dfoc:MissingCriticalEvidence` as `dqv:QualityAnnotation` (line 845)
+- [x] **VERIFIED**: Linked each to `dfoc:EvidenceCompletenessDimension` via `dqv:inDimension`
+- [x] **VERIFIED**: Added skos:prefLabel for each badge (Complete, Gaps, Missing-Critical)
+- [x] **VERIFIED**: Added rdfs:isDefinedBy for each annotation
 
 ---
 
@@ -288,22 +304,22 @@
 
 - [x] **COMPLETED**: FSAR module ontology created with comprehensive class definitions
 - [x] **COMPLETED**: Core FSAR classes implemented:
-  - `fsar:StockAssessment` (subclass of `dfo:StockAssessment`)
-  - `fsar:PolicyReadiness` (policy & legal readiness tracking)
-  - `fsar:ManagementDecision` (management decision records)
-  - `fsar:CUInclusion` (CU accounting entries)
-  - `fsar:GSIUsage` (genetic stock ID usage details)
-  - `fsar:ChangeLogEntry` (change log entries)
+  - `dfoc:StockAssessment` (subclass of `dfo:StockAssessment`)
+  - `dfoc:PolicyReadiness` (policy & legal readiness tracking)
+  - `dfoc:ManagementDecision` (management decision records)
+  - `dfoc:CUInclusion` (CU accounting entries)
+  - `dfoc:GSIUsage` (genetic stock ID usage details)
+  - `dfoc:ChangeLogEntry` (change log entries)
 - [x] **COMPLETED**: Comprehensive object properties implemented:
-  - `fsar:assessesUnit`, `fsar:hasStatusZone`, `fsar:usesDataset`, `fsar:usesMethod`
-  - `fsar:supportsAdvice`, `fsar:ledToDecision`, `fsar:hasPolicyReadiness`
-  - `fsar:hasCUInclusion`, `fsar:hasGSIUsage`, `fsar:hasChangeLogEntry`, `fsar:hasThreatFactor`
+  - `dfoc:assessesUnit`, `dfoc:hasStatusZone`, `dfoc:usesDataset`, `dfoc:usesMethod`
+  - `dfoc:supportsAdvice`, `dfoc:ledToDecision`, `dfoc:hasPolicyReadiness`
+  - `dfoc:hasCUInclusion`, `dfoc:hasGSIUsage`, `dfoc:hasChangeLogEntry`, `dfoc:hasThreatFactor`
 - [x] **COMPLETED**: Comprehensive datatype properties implemented:
-  - Policy readiness: `fsar:belowLRP`, `fsar:hcrIdentifier`, `fsar:hcrParameters`, `fsar:rebuildingPlanURL`
-  - Assessment details: `fsar:assessedYear`, `fsar:uncertaintyNote`, `fsar:statusCI`, `fsar:downgradeReason`
-  - CU accounting: `fsar:cuDecision`, `fsar:justification`, `fsar:reviewedBy`, `fsar:reviewDate`
-  - GSI usage: `fsar:gsiUsed`, `fsar:gsiSampleSize`, `fsar:gsiAssignmentUncertainty`
-  - Change tracking: `fsar:changeCategory`, `fsar:changeDetail`
+  - Policy readiness: `dfoc:belowLRP`, `dfoc:hcrIdentifier`, `dfoc:hcrParameters`, `dfoc:rebuildingPlanURL`
+  - Assessment details: `dfoc:assessedYear`, `dfoc:uncertaintyNote`, `dfoc:statusCI`, `dfoc:downgradeReason`
+  - CU accounting: `dfoc:cuDecision`, `dfoc:justification`, `dfoc:reviewedBy`, `dfoc:reviewDate`
+  - GSI usage: `dfoc:gsiUsed`, `dfoc:gsiSampleSize`, `dfoc:gsiAssignmentUncertainty`
+  - Change tracking: `dfoc:changeCategory`, `dfoc:changeDetail`
 - [x] **COMPLETED**: Example instances created for Barkley Sockeye 2025 assessment
 - [x] **COMPLETED**: PROV-O provenance patterns implemented with RDF-star annotations
 
@@ -312,7 +328,7 @@
 **File:** `docs/ontology_applications/dfo-fsar-v4.ttl`
 
 - [x] **COMPLETED**: WSP rapid-status support added to FSAR Tracer module (2025-01-27)
-  - Added WSP metric classes (`fsar:WSPMetric`, `fsar:MetricBenchmark`, `fsar:AlgorithmThreshold`)
+  - Added WSP metric classes (`dfoc:WSPMetric`, `dfoc:MetricBenchmark`, `dfoc:AlgorithmThreshold`)
   - Added status and confidence categories using SKOS
   - Added properties linking assessments to metrics, statuses, and confidence
   - Added example benchmark and threshold instances
@@ -326,43 +342,36 @@
 
 **File:** `ontology/dfo-salmon.ttl`
 
-- [ ] **NEXT**: Integrate FSAR module classes into core ontology
-  - Add `fsar:` prefix declaration to core ontology
-  - Import or reference FSAR module classes in core ontology
-  - Ensure alignment between `dfo:StockAssessment` and `fsar:StockAssessment`
-  - **Note**: Consider namespace alignment - FSAR module uses `fsar:` prefix, core will use `dfoc:` prefix
-- [x] **COMPLETED**: Added `dfo:StockAssessment` class to core ontology (2025-01-27)
-- [ ] **NEXT**: Add missing core classes referenced by FSAR module:
-  - `dfo:HarvestAdvice` (referenced by `fsar:supportsAdvice`)
-  - Ensure `dfo:Dataset` class exists and is properly defined
-  - Verify `dfo:StockManagementUnit` class alignment
-- [ ] **NEXT**: Add missing SKOS concept schemes referenced by FSAR module:
-  - `:WSPBiologicalStatusZoneScheme` (for WSP_Green, WSP_Amber, WSP_Red)
-  - `:DowngradeCriteria` scheme (for downgrade reasons)
-  - `:ThreatFactorScheme` (for threat factors)
-  - Method schemes (for `fsar:usesMethod`)
+- [x] **COMPLETED (2025-11-03)**: Consolidated FSAR terminology into the core ontology
+  - Converted WSP zone values into `dfoc:` rapid-status concepts
+  - Added FSAR trigger, requirement, metric, confidence, and policy readiness classes/properties
+  - Introduced shared vocabularies for rapid-status metrics and confidence categories
+  - **NOTE**: `docs/ontology_applications/dfo-fsar-v4.ttl` is kept for reference (not removed)
+- [x] **COMPLETED**: Added `dfoc:StockAssessment` class to core ontology (2025-01-27)
+- [x] **COMPLETED (2025-11-03)**: Added supporting SKOS concept schemes for rapid-status metrics and confidence categories
+- [ ] **NEXT**: Backfill remaining FSAR-adjacent vocabularies (threat factors, expanded method schemes) once downstream requirements are finalized
 
 ### Enhanced Requirements from PRD Updates
 
 **Based on comprehensive PRD updates (2025-01-27):**
 
 - [ ] **NEXT**: Add benchmark transparency properties:
-  - `fsar:reference_point_type` (controlled vocab: LRP/USR/Sgen/Smsy)
-  - `fsar:benchmark_method` (controlled vocab: SR model, percentile, expert judgment)
-  - `fsar:benchmark_sensitivity` (sensitivity flags)
+  - `dfoc:reference_point_type` (controlled vocab: LRP/USR/Sgen/Smsy)
+  - `dfoc:benchmark_method` (controlled vocab: SR model, percentile, expert judgment)
+  - `dfoc:benchmark_sensitivity` (sensitivity flags)
 - [ ] **NEXT**: Add uncertainty handling properties:
-  - `fsar:status_confidence` (probabilities/CI)
-  - `fsar:ciLower`, `fsar:ciUpper` (confidence interval bounds)
-  - `fsar:probabilityGreen`, `fsar:probabilityAmber`, `fsar:probabilityRed`
+  - `dfoc:status_confidence` (probabilities/CI)
+  - `dfoc:ciLower`, `dfoc:ciUpper` (confidence interval bounds)
+  - `dfoc:probabilityGreen`, `dfoc:probabilityAmber`, `dfoc:probabilityRed`
 - [ ] **NEXT**: Add GSI risk assessment properties:
-  - `fsar:baseline_reference` (baseline reference for GSI)
-  - `fsar:fisheryType` (mixed-stock/single-stock classification)
+  - `dfoc:baseline_reference` (baseline reference for GSI)
+  - `dfoc:fisheryType` (mixed-stock/single-stock classification)
 - [ ] **NEXT**: Add method reproducibility properties:
-  - `fsar:method_name`, `fsar:method_version`, `fsar:code_commit`
+  - `dfoc:method_name`, `dfoc:method_version`, `dfoc:code_commit`
 - [ ] **NEXT**: Add data source properties:
-  - `fsar:data_source_type` (direct, proxy, genetic proxy)
-  - `fsar:spawner_origin` (wild, hatchery, mixed)
-  - `fsar:proxy_justification` (required when data_source_type contains "proxy")
+  - `dfoc:data_source_type` (direct, proxy, genetic proxy)
+  - `dfoc:spawner_origin` (wild, hatchery, mixed)
+  - `dfoc:proxy_justification` (required when data_source_type contains "proxy")
 
 ---
 
@@ -375,15 +384,17 @@
 ### Prepare Core Terms
 
 - [ ] Review/finalize labels and definitions for core terms
-- [ ] Update ontology IRI to https://w3id.org/dfo/salmon
-- [ ] Create version IRI: https://w3id.org/dfo/salmon/v0.1.0
+- [ ] Update ontology IRI to https://w3id.org/dfoc/salmon (currently using this IRI)
+- [ ] Create version IRI: https://w3id.org/dfoc/salmon/v0.1.0
+- **NOTE**: Ontology currently uses `https://w3id.org/dfoc/salmon` (line 74)
 - [ ] Update all rdfs:isDefinedBy for core terms to w3id URIs
 - [ ] Document versioning strategy
-- [ ] **CRITICAL**: Change namespace from `dfo:` to `dfoc:` since `dfo` is already taken on w3id
-  - Update all prefix declarations from `@prefix dfo: <https://w3id.org/dfo/salmon#>` to `@prefix dfoc: <https://w3id.org/dfo/salmon#>`
-  - Update all class and property references from `dfo:` to `dfoc:`
-  - Update all rdfs:isDefinedBy references to use dfoc: namespace
-  - Update documentation and examples to reflect dfoc: namespace
+- [x] **COMPLETED**: Changed namespace from `dfo:` to `dfoc:` since `dfo` is already taken on w3id
+  - [x] Updated all prefix declarations to `@prefix dfoc: <https://w3id.org/dfoc/salmon#>`
+  - [x] Updated all class and property references to use `dfoc:` prefix
+  - [x] Updated all rdfs:isDefinedBy references to use dfoc: namespace
+  - [ ] **TODO**: Update documentation (README.md, examples) to consistently reflect dfoc: namespace
+  - **NOTE**: Core ontology uses `dfoc:` prefix and `https://w3id.org/dfoc/salmon#` IRI
 
 ### Create W3ID Configuration
 
@@ -511,10 +522,10 @@
 
 **File:** `docs/ontology_applications/dfo-fsar.ttl`
 
-- [x] **COMPLETED**: `fsar:proxy_justification` implemented in FSAR module
-  - Domain: `fsar:CUInclusion`, Range: `xsd:string`
+- [x] **COMPLETED**: `dfoc:proxy_justification` implemented in FSAR module
+  - Domain: `dfoc:CUInclusion`, Range: `xsd:string`
   - Comment: "Explanation for the CU decision if it's not simply 'included'"
-- [x] **COMPLETED**: Data source tracking via `fsar:usesDataset` property
+- [x] **COMPLETED**: Data source tracking via `dfoc:usesDataset` property
   - Links assessments to input datasets
   - Subproperty of `prov:used` for provenance tracking
 
@@ -530,7 +541,7 @@
   - Set domain to `dfo:EscapementMeasurement`, range to `xsd:string`
   - Add comment explaining wild, hatchery, mixed origins
   - **Note**: This should be added to core ontology, not FSAR module
-- [ ] **NEXT**: Integrate FSAR module `fsar:proxy_justification` with core ontology
+- [ ] **NEXT**: Integrate FSAR module `dfoc:proxy_justification` with core ontology
   - Consider if this should be a core property or remain FSAR-specific
   - Ensure alignment with PRD requirements for proxy justification
 
@@ -546,7 +557,7 @@
 
 **File:** `docs/ontology_applications/dfo-fsar.ttl`
 
-- [x] **COMPLETED**: Method tracking via `fsar:usesMethod` property
+- [x] **COMPLETED**: Method tracking via `dfoc:usesMethod` property
   - Links assessments to analytical methods (SKOS concepts)
   - Subproperty of `prov:wasGeneratedBy` for provenance tracking
 - [x] **COMPLETED**: Method provenance via PROV-O patterns
@@ -584,18 +595,18 @@
 **File:** `docs/ontology_applications/dfo-fsar.ttl`
 
 - [x] **COMPLETED**: Policy readiness properties implemented:
-  - `fsar:belowLRP` (boolean flag for LRP status)
-  - `fsar:hcrIdentifier` (HCR identifier/name)
-  - `fsar:hcrParameters` (HCR parameters)
-  - `fsar:rebuildingPlanURL` (rebuilding plan link)
+  - `dfoc:belowLRP` (boolean flag for LRP status)
+  - `dfoc:hcrIdentifier` (HCR identifier/name)
+  - `dfoc:hcrParameters` (HCR parameters)
+  - `dfoc:rebuildingPlanURL` (rebuilding plan link)
 - [x] **COMPLETED**: Assessment review properties implemented:
-  - `fsar:uncertaintyNote` (uncertainty summary)
-  - `fsar:statusCI` (status confidence interval)
-  - `fsar:downgradeReason` (downgrade criteria)
+  - `dfoc:uncertaintyNote` (uncertainty summary)
+  - `dfoc:statusCI` (status confidence interval)
+  - `dfoc:downgradeReason` (downgrade criteria)
 - [x] **COMPLETED**: CU accounting review properties implemented:
-  - `fsar:reviewedBy` (reviewer name/identifier)
-  - `fsar:reviewDate` (review date)
-- [x] **COMPLETED**: Reference point tracking via `fsar:usesMethod` property
+  - `dfoc:reviewedBy` (reviewer name/identifier)
+  - `dfoc:reviewDate` (review date)
+- [x] **COMPLETED**: Reference point tracking via `dfoc:usesMethod` property
   - Links assessments to reference point calculation methods
 
 ### Missing Reference Points Properties (Need Integration)
@@ -717,7 +728,7 @@
 ### Prepare FSAR Terms
 
 - [ ] Review/finalize FSAR Tracer classes and properties
-- [ ] Update version IRI to https://w3id.org/dfo/salmon/v0.5.0
+- [ ] Update version IRI to https://w3id.org/dfoc/salmon/v0.5.0
 - [ ] Update rdfs:isDefinedBy for FSAR terms to w3id URIs
 - [ ] Test FSAR terms work correctly
 
@@ -752,54 +763,64 @@
 
 **File:** `ontology/sparql/fsar-tracer-queries.rq`
 
-- [ ] Create new file for FSAR Tracer queries
+- [ ] **IN PROGRESS**: Create new file for FSAR Tracer queries
 - [ ] Add header with query pack version and date
 - [ ] Add prefix declarations for all namespaces
 - [ ] Add table of contents listing Q1-Q9
+- **NOTE**: Queries are documented in PRD but file not yet created
 
 ### Core Evidence Queries (Q1-Q4)
 
 **File:** `ontology/sparql/fsar-tracer-queries.rq`
 
-- [x] **COMPLETED 2025-01-27**: Implemented Q1: Evidence Completeness by Decision
+- [ ] **TODO**: Implement Q1: Evidence Completeness by Decision
   - Check required vs optional fields
   - Return state: Complete, Gaps, or Missing-Critical
-- [x] **COMPLETED 2025-01-27**: Implemented Q2: Proxy Without Justification
+  - Query pattern documented in PRD (CQ-EV-1)
+- [ ] **TODO**: Implement Q2: Proxy Without Justification
   - Find records where data_source_type contains "proxy" but no proxy_justification
-- [x] **COMPLETED 2025-01-27**: Implemented Q3: Method Reproducibility
+  - Query pattern documented in PRD
+- [ ] **TODO**: Implement Q3: Method Reproducibility
   - Return method_name, method_version, code_commit
   - Flag if any missing
-- [x] **COMPLETED 2025-01-27**: Implemented Q4: Reference Points Used
+  - Query pattern documented in PRD
+- [ ] **TODO**: Implement Q4: Reference Points Used
   - Return reference_point_type, benchmark_method, benchmark_sensitivity
   - List all reference points used in status assessment
+  - Query pattern documented in PRD
 
 ### Data Currency and Quality Queries (Q5-Q8)
 
 **File:** `ontology/sparql/fsar-tracer-queries.rq`
 
-- [x] **COMPLETED 2025-01-27**: Implemented Q5: Missing Uncertainty
+- [ ] **TODO**: Implement Q5: Missing Uncertainty
   - Find StatusAssessments without status_ci
   - Find GSIResults without gsi_sample_size or gsi_ci
-- [x] **COMPLETED 2025-01-27**: Implemented Q6: Data Currency
+  - Query pattern documented in PRD
+- [ ] **TODO**: Implement Q6: Data Currency
   - Return last modified timestamp per component (Dataset, Method, ReferencePoint, Status, Advice)
   - Return version pins (owl:versionInfo)
   - Flag stale data (>12 months)
-- [x] **COMPLETED 2025-01-27**: Implemented Q7: Scientific Output Text + Review
+  - Query pattern documented in PRD
+- [ ] **TODO**: Implement Q7: Scientific Output Text + Review
   - Return scientific_output_text, reviewer, review_date
-- [x] **COMPLETED 2025-01-27**: Implemented Q8: Linked Documents
+  - Query pattern documented in PRD
+- [ ] **TODO**: Implement Q8: Linked Documents
   - Return FSAR/Tech/Research document metadata
   - Include doc_type, title, identifier, issued date, URL
+  - Query pattern documented in PRD
 
 ### Genetics Integration Query (Q9)
 
 **File:** `ontology/sparql/fsar-tracer-queries.rq`
 
-- [x] **COMPLETED 2025-01-27**: Implemented Q9: GRD Data Product Integration
+- [ ] **TODO**: Implement Q9: GRD Data Product Integration
   - Return GSIRun linked to StatusAssessment
   - Include grdRunID, grdSampleID, grdAssayID
   - Return GSICompositionMeasurement with CIs
   - Show linkage: GRD → Measurement → Status → Advice
   - Added GSI risk assessment queries for mixed-stock fisheries
+  - Query pattern documented in PRD (CQ-GRD-1)
 
 ---
 
@@ -951,7 +972,7 @@
 ### Prepare Remaining Terms
 
 - [ ] Review and finalize all remaining terms
-- [ ] Update version IRI to https://w3id.org/dfo/salmon/v1.0.0
+- [ ] Update version IRI to https://w3id.org/dfoc/salmon/v1.0.0
 - [ ] Update all rdfs:isDefinedBy to w3id URIs
 - [ ] Document complete versioning strategy
 

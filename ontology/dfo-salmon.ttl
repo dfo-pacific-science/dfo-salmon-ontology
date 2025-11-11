@@ -160,6 +160,17 @@ skos:ConceptScheme a owl:Class ;
   skos:definition "Controlled vocabulary for key biological benchmarks, performance indicators, and reference points used in salmon stock assessment and management (e.g., SMSY, Sgen, spawner abundance)."@en ;
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
+:WSPMetricScheme a skos:ConceptScheme ;
+  skos:prefLabel "Wild Salmon Policy metric scheme"@en ;
+  skos:hasTopConcept dfoc:WSPMetric ;
+  skos:definition "Controlled vocabulary for the Wild Salmon Policy rapid-status metrics and related analytical concepts."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+:RapidStatusConfidenceScheme a skos:ConceptScheme ;
+  skos:prefLabel "Rapid status confidence scheme"@en ;
+  skos:definition "Controlled vocabulary for categorical confidence ratings attached to rapid status assessments."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
 #################################################################
 # SKOS Enumeration Methods (from escapement_estimate_type_guidance.txt)
 #################################################################
@@ -1605,30 +1616,27 @@ dfoc:WSPBiologicalStatusZone a owl:Class ;
   iao:0000119 "Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en ;
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
-dfoc:GreenZone a owl:Class , skos:Concept ;
+dfoc:GreenZone a dfoc:WSPRapidStatus , skos:Concept ;
   rdfs:label "Green zone"@en ;
   skos:prefLabel "Green zone"@en ;
   iao:0000115 "Social and economic considerations will tend to be the primary drivers for the management of Conservation Units in the Green zone, though ecosystem or other non-consumptive use values could also be considered."@en ;
   skos:inScheme dfoc:WSPBiologicalStatusZoneScheme ;
-  rdfs:subClassOf dfoc:WSPBiologicalStatusZone ;
   iao:0000119 "Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en ;
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
-dfoc:AmberZone a owl:Class , skos:Concept ;
+dfoc:AmberZone a dfoc:WSPRapidStatus , skos:Concept ;
   rdfs:label "Amber zone"@en ;
   skos:prefLabel "Amber zone"@en ;
   iao:0000115 "Amber status implies caution in the management of the Conservation Unit. While a CU in the Amber zone should be at a low risk of loss, there will be a degree of lost production. Decisions about the conservation of CUs in the Amber zone will involve broader consideration of biological, social, and economic issues. "@en ;
   skos:inScheme dfoc:WSPBiologicalStatusZoneScheme ;
-  rdfs:subClassOf dfoc:WSPBiologicalStatusZone ;
   iao:0000119 "Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en ;
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
-dfoc:RedZone a owl:Class , skos:Concept ;
+dfoc:RedZone a dfoc:WSPRapidStatus , skos:Concept ;
   rdfs:label "Red zone"@en ;
   skos:prefLabel "Red zone"@en ;
   iao:0000115 "A Conservation Unit in the Red zone is undesirable because of the risk of extirpation, and the loss of ecological benefits and salmon production. Changes in status will trigger management actions that will vary depending on species, geographic regions, and cause of the decline."@en ;
   skos:inScheme dfoc:WSPBiologicalStatusZoneScheme ;
-  rdfs:subClassOf dfoc:WSPBiologicalStatusZone ;
   iao:0000119 "Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en ;
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
@@ -1648,6 +1656,721 @@ dfoc:WSPRapidStatus a owl:Class , skos:Concept;
   skos:inScheme dfoc:WSPBiologicalStatusZoneScheme ;
   rdfs:subClassOf dfoc:WSPBiologicalStatusZone ;
   iao:0000119 "Pestal, G., MacDonald, B. L., Grant, S. C. H., and Holt, C. A. (2023). State of the Salmon: rapid status assessment approach for Pacific salmon under Canada’s Wild Salmon Policy. Can. Tech. Rep. Fish. Aquat. Sci. 3570: xiv + 200 p."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+#################################################################
+# FSAR triggers, requirements, and policy structures
+#################################################################
+
+dfoc:TriggerCondition a owl:Class ;
+  rdfs:label "Trigger condition"@en ;
+  iao:0000115 "A general condition observed from assessment metadata (for example, a CU entering the Red zone) that activates one or more policy or reporting requirements."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:Requirement a owl:Class ;
+  rdfs:label "Requirement"@en ;
+  iao:0000115 "A high-level obligation or check that applies when associated triggers hold (for example, summarizing rebuilding actions when a CU is below its limit reference point)."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:PolicyFramework a owl:Class ;
+  rdfs:label "Policy framework"@en ;
+  iao:0000115 "A legal or policy framework that mandates or informs fisheries management obligations (for example, the Wild Salmon Policy or the Precautionary Approach)."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:BelowLRPTrigger a owl:Class ;
+  rdfs:label "Below LRP trigger"@en ;
+  iao:0000115 "Trigger condition that holds when a CU is at or below its limit reference point (typically associated with a Red rapid status)."@en ;
+  rdfs:subClassOf dfoc:TriggerCondition ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:BetweenLRPUSRTrigger a owl:Class ;
+  rdfs:label "Between LRP and USR trigger"@en ;
+  iao:0000115 "Trigger condition that holds when a CU lies between its limit and upper stock reference points (typically associated with an Amber rapid status)."@en ;
+  rdfs:subClassOf dfoc:TriggerCondition ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:UncertaintyMissingConfidenceTrigger a owl:Class ;
+  rdfs:label "Missing confidence trigger"@en ;
+  iao:0000115 "Trigger condition that flags missing or incomplete confidence information for a rapid status assessment."@en ;
+  rdfs:subClassOf dfoc:TriggerCondition ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:MixedStockNoGSITrigger a owl:Class ;
+  rdfs:label "Mixed-stock without GSI trigger"@en ;
+  iao:0000115 "Trigger condition indicating that a mixed-stock fishery does not use genetic stock identification to apportion catch."@en ;
+  rdfs:subClassOf dfoc:TriggerCondition ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:CUProxiedTrigger a owl:Class ;
+  rdfs:label "CU proxied trigger"@en ;
+  iao:0000115 "Trigger condition indicating that one or more conservation units were excluded or proxied in the assessment."@en ;
+  rdfs:subClassOf dfoc:TriggerCondition ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:RebuildingPlanRequirement a owl:Class ;
+  rdfs:label "Rebuilding plan requirement"@en ;
+  iao:0000115 "Requirement to summarize rebuilding obligations and reference the relevant plan when a CU is at or below its limit reference point."@en ;
+  rdfs:subClassOf dfoc:Requirement ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:CautiousHarvestReviewRequirement a owl:Class ;
+  rdfs:label "Cautious zone harvest requirement"@en ;
+  iao:0000115 "Requirement to document precautionary harvest measures when a CU resides between the limit and upper stock reference points."@en ;
+  rdfs:subClassOf dfoc:Requirement ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:UncertaintyDisclosureRequirement a owl:Class ;
+  rdfs:label "Uncertainty disclosure requirement"@en ;
+  iao:0000115 "Requirement to record and communicate uncertainty considerations or data gaps associated with an assessment."@en ;
+  rdfs:subClassOf dfoc:Requirement ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:MixedStockJustificationRequirement a owl:Class ;
+  rdfs:label "Mixed-stock justification requirement"@en ;
+  iao:0000115 "Requirement to justify the absence of genetic stock identification or explain apportionment methods for mixed-stock fisheries."@en ;
+  rdfs:subClassOf dfoc:Requirement ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:CUAccountingNoteRequirement a owl:Class ;
+  rdfs:label "CU accounting note requirement"@en ;
+  iao:0000115 "Requirement to document how conservation units were included, excluded, or proxied during an assessment."@en ;
+  rdfs:subClassOf dfoc:Requirement ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:Condition a owl:Class ;
+  rdfs:label "Decision condition"@en ;
+  iao:0000115 "A condition entity used to relate rapid-status results or metric thresholds to downstream decision requirements."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:DecisionRequirement a owl:Class ;
+  rdfs:label "Decision requirement"@en ;
+  iao:0000115 "A reusable pattern describing management or policy obligations that are triggered by specific assessment conditions."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:PolicyReadiness a owl:Class ;
+  rdfs:label "Policy and legal readiness"@en ;
+  iao:0000115 "Summarizes whether an assessment satisfies mandatory policy gates such as WSP rapid status disclosure, harvest control rule identification, and Fish Stocks provisions compliance."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:ManagementDecision a owl:Class ;
+  rdfs:label "Management decision"@en ;
+  iao:0000115 "A fisheries management action informed by scientific advice, such as establishing a total allowable catch or implementing time-area closures."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:CUInclusion a owl:Class ;
+  rdfs:label "CU accounting entry"@en ;
+  iao:0000115 "Records how a specific conservation unit is treated within an assessment cycle—included, excluded, or proxied—with supporting rationale and review metadata."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:GSIUsage a owl:Class ;
+  rdfs:label "Genetic stock identification usage"@en ;
+  iao:0000115 "Captures whether and how genetic stock identification data were used to support a mixed-stock assessment, including sample size and uncertainty details."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:ChangeLogEntry a owl:Class ;
+  rdfs:label "Advice change log entry"@en ;
+  iao:0000115 "Documents a change from the previous assessment cycle, such as data updates, methodological adjustments, or altered advice."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:WSPMetric a owl:Class ;
+  rdfs:label "WSP metric"@en ;
+  iao:0000115 "One of the standard Wild Salmon Policy rapid-status metrics (absolute abundance, relative abundance, long-term trend, or percent change)."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:MetricBenchmark a owl:Class ;
+  rdfs:label "Metric benchmark"@en ;
+  iao:0000115 "Benchmark value for a WSP metric that helps delineate status zones (for example, the limit reference point for absolute abundance)."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:AlgorithmThreshold a owl:Class ;
+  rdfs:label "Algorithm threshold"@en ;
+  iao:0000115 "Threshold value used by the rapid-status algorithm (such as Learning Tree 3) that may differ from expert-defined benchmarks to incorporate precautionary buffers."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:ConfidenceCategory a owl:Class ;
+  rdfs:label "Confidence category"@en ;
+  iao:0000115 "Categorical confidence rating (High, Medium, Low) reported alongside a rapid status assessment."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+#################################################################
+# FSAR controlled vocabularies
+#################################################################
+
+dfoc:absoluteAbundanceMetric a dfoc:WSPMetric , skos:Concept ;
+  rdfs:label "Absolute abundance metric"@en ;
+  skos:prefLabel "Absolute abundance"@en ;
+  iao:0000115 "Wild Salmon Policy metric comparing generational average spawner abundance to COSEWIC criterion D1 thresholds."@en ;
+  skos:inScheme :WSPMetricScheme ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:relativeAbundanceMetric a dfoc:WSPMetric , skos:Concept ;
+  rdfs:label "Relative abundance metric"@en ;
+  skos:prefLabel "Relative abundance"@en ;
+  iao:0000115 "Wild Salmon Policy metric comparing generational average spawner abundance to CU-specific benchmarks (for example Sgen or 80% SMSY)."@en ;
+  skos:inScheme :WSPMetricScheme ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:longTermTrendMetric a dfoc:WSPMetric , skos:Concept ;
+  rdfs:label "Long-term trend metric"@en ;
+  skos:prefLabel "Long-term trend"@en ;
+  iao:0000115 "Wild Salmon Policy metric comparing current generational average to long-term average spawner abundance."@en ;
+  skos:inScheme :WSPMetricScheme ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:percentChangeMetric a dfoc:WSPMetric , skos:Concept ;
+  rdfs:label "Percent change metric"@en ;
+  skos:prefLabel "Percent change"@en ;
+  iao:0000115 "Wild Salmon Policy metric quantifying linear change in spawner abundance over the most recent three generations."@en ;
+  skos:inScheme :WSPMetricScheme ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:RapidStatusConfidenceHigh a dfoc:ConfidenceCategory , skos:Concept ;
+  rdfs:label "High rapid-status confidence"@en ;
+  skos:prefLabel "High confidence"@en ;
+  iao:0000115 "Rapid status confidence category indicating that high-quality abundance metrics support the result."@en ;
+  skos:inScheme :RapidStatusConfidenceScheme ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:RapidStatusConfidenceMedium a dfoc:ConfidenceCategory , skos:Concept ;
+  rdfs:label "Medium rapid-status confidence"@en ;
+  skos:prefLabel "Medium confidence"@en ;
+  iao:0000115 "Rapid status confidence category indicating mixed evidence or reliance on trend metrics supplemented by some abundance information."@en ;
+  skos:inScheme :RapidStatusConfidenceScheme ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:RapidStatusConfidenceLow a dfoc:ConfidenceCategory , skos:Concept ;
+  rdfs:label "Low rapid-status confidence"@en ;
+  skos:prefLabel "Low confidence"@en ;
+  iao:0000115 "Rapid status confidence category indicating limited supporting data (for example, derived from trend metrics alone)."@en ;
+  skos:inScheme :RapidStatusConfidenceScheme ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+#################################################################
+# FSAR object properties
+#################################################################
+
+dfoc:hasStatusAssessment a owl:ObjectProperty ;
+  rdfs:label "has status assessment"@en ;
+  skos:prefLabel "has status assessment"@en ;
+  iao:0000115 "Links a conservation unit or stock management unit to its status assessment."@en ;
+  rdfs:domain [ owl:unionOf ( dfoc:ConservationUnit dfoc:StockManagementUnit ) ] ;
+  rdfs:range dfoc:StockAssessment ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:hasScientificOutput a owl:ObjectProperty ;
+  rdfs:label "has scientific output"@en ;
+  skos:prefLabel "has scientific output"@en ;
+  iao:0000115 "Links a stock management unit to its scientific output documents such as FSARs or harvest advice."@en ;
+  rdfs:domain dfoc:StockManagementUnit ;
+  rdfs:range dfoc:HarvestAdvice ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:hasLimitReferencePoint a owl:ObjectProperty ;
+  rdfs:label "has limit reference point"@en ;
+  skos:prefLabel "has limit reference point"@en ;
+  iao:0000115 "Links a stock management unit or stock assessment to its limit reference point."@en ;
+  rdfs:domain [ owl:unionOf ( dfoc:StockManagementUnit dfoc:StockAssessment ) ] ;
+  rdfs:range dfoc:LimitReferencePoint ;
+  rdfs:subPropertyOf dfoc:hasReferencePoint ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:hasUpperStockReference a owl:ObjectProperty ;
+  rdfs:label "has upper stock reference"@en ;
+  skos:prefLabel "has upper stock reference"@en ;
+  iao:0000115 "Links a stock management unit or stock assessment to its upper stock reference point."@en ;
+  rdfs:domain [ owl:unionOf ( dfoc:StockManagementUnit dfoc:StockAssessment ) ] ;
+  rdfs:range dfoc:UpperStockReferencePoint ;
+  rdfs:subPropertyOf dfoc:hasReferencePoint ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:hasLowerBenchmark a owl:ObjectProperty ;
+  rdfs:label "has lower benchmark"@en ;
+  skos:prefLabel "has lower benchmark"@en ;
+  iao:0000115 "Links a conservation unit to its lower biological benchmark."@en ;
+  rdfs:domain dfoc:ConservationUnit ;
+  rdfs:range dfoc:CULowerBenchmark ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:hasUpperBenchmark a owl:ObjectProperty ;
+  rdfs:label "has upper benchmark"@en ;
+  skos:prefLabel "has upper benchmark"@en ;
+  iao:0000115 "Links a conservation unit to its upper biological benchmark."@en ;
+  rdfs:domain dfoc:ConservationUnit ;
+  rdfs:range dfoc:CUHigherBenchmark ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:hasPrecursorDocument a owl:ObjectProperty ;
+  rdfs:label "has precursor document"@en ;
+  skos:prefLabel "has precursor document"@en ;
+  iao:0000115 "Links a harvest advice document to precursor research documents that informed it."@en ;
+  rdfs:domain dfoc:HarvestAdvice ;
+  rdfs:range iao:0000310 ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:supportsDecision a owl:ObjectProperty ;
+  rdfs:label "supports decision"@en ;
+  skos:prefLabel "supports decision"@en ;
+  iao:0000115 "Links a harvest advice to a management decision that it supports or informs."@en ;
+  rdfs:domain dfoc:HarvestAdvice ;
+  rdfs:range dfoc:ManagementDecision ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:hasCUAccounting a owl:ObjectProperty ;
+  rdfs:label "has CU accounting"@en ;
+  skos:prefLabel "has CU accounting"@en ;
+  iao:0000115 "Links a stock management unit or stock assessment to its CU accounting records."@en ;
+  rdfs:domain [ owl:unionOf ( dfoc:StockManagementUnit dfoc:StockAssessment ) ] ;
+  rdfs:range dfoc:CUInclusion ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:triggersRequirement a owl:ObjectProperty ;
+  rdfs:label "triggers requirement"@en ;
+  iao:0000115 "Links a trigger condition to the requirement that must be satisfied when the condition holds."@en ;
+  rdfs:domain dfoc:TriggerCondition ;
+  rdfs:range dfoc:Requirement ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:requiredBy a owl:ObjectProperty ;
+  rdfs:label "required by"@en ;
+  iao:0000115 "Indicates the policy or legal framework that mandates a requirement."@en ;
+  rdfs:domain dfoc:Requirement ;
+  rdfs:range dfoc:PolicyFramework ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:assessesMetric a owl:ObjectProperty ;
+  rdfs:label "assesses metric"@en ;
+  iao:0000115 "Links a stock assessment to a Wild Salmon Policy metric that it evaluates."@en ;
+  rdfs:domain dfoc:StockAssessment ;
+  rdfs:range dfoc:WSPMetric ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:hasBenchmark a owl:ObjectProperty ;
+  rdfs:label "has benchmark"@en ;
+  iao:0000115 "Associates a WSP metric with one of its benchmark values."@en ;
+  rdfs:domain dfoc:WSPMetric ;
+  rdfs:range dfoc:MetricBenchmark ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:hasAlgorithmThreshold a owl:ObjectProperty ;
+  rdfs:label "has algorithm threshold"@en ;
+  iao:0000115 "Associates a WSP metric with a threshold value used by the rapid-status algorithm."@en ;
+  rdfs:domain dfoc:WSPMetric ;
+  rdfs:range dfoc:AlgorithmThreshold ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:producesRapidStatus a owl:ObjectProperty ;
+  rdfs:label "produces rapid status"@en ;
+  iao:0000115 "Links a stock assessment to the rapid status it produced for a conservation unit or stock management unit."@en ;
+  rdfs:domain dfoc:StockAssessment ;
+  rdfs:range dfoc:WSPRapidStatus ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:hasConfidence a owl:ObjectProperty ;
+  rdfs:label "has confidence category"@en ;
+  iao:0000115 "Associates a stock assessment with the confidence category assigned to its rapid status result."@en ;
+  rdfs:domain dfoc:StockAssessment ;
+  rdfs:range dfoc:ConfidenceCategory ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:triggeredBy a owl:ObjectProperty ;
+  rdfs:label "triggered by"@en ;
+  iao:0000115 "Indicates the decision condition that activates a decision requirement."@en ;
+  rdfs:domain dfoc:DecisionRequirement ;
+  rdfs:range dfoc:Condition ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:mandatedBy a owl:ObjectProperty ;
+  rdfs:label "mandated by"@en ;
+  iao:0000115 "Links a decision requirement to the bibliographic resource or framework that mandates it."@en ;
+  rdfs:domain dfoc:DecisionRequirement ;
+  rdfs:range dcterms:BibliographicResource ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:assessesUnit a owl:ObjectProperty ;
+  rdfs:label "assesses unit"@en ;
+  iao:0000115 "Relates a stock assessment to the stock management unit it evaluates."@en ;
+  rdfs:domain dfoc:StockAssessment ;
+  rdfs:range dfoc:StockManagementUnit ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:hasStatusZone a owl:ObjectProperty ;
+  rdfs:label "has status zone"@en ;
+  iao:0000115 "Records the Wild Salmon Policy biological status zone reported by an assessment."@en ;
+  rdfs:domain dfoc:StockAssessment ;
+  rdfs:range dfoc:WSPBiologicalStatusZone ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:usesDataset a owl:ObjectProperty ;
+  rdfs:label "uses dataset"@en ;
+  iao:0000115 "Identifies a dataset that served as an input to a stock assessment."@en ;
+  rdfs:domain dfoc:StockAssessment ;
+  rdfs:range dfoc:Dataset ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:usesMethod a owl:ObjectProperty ;
+  rdfs:label "uses method"@en ;
+  iao:0000115 "Links a stock assessment to an analytical or field method concept employed in the analysis."@en ;
+  rdfs:domain dfoc:StockAssessment ;
+  rdfs:range skos:Concept ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:supportsAdvice a owl:ObjectProperty ;
+  rdfs:label "supports advice"@en ;
+  iao:0000115 "Links a stock assessment to the harvest advice it supports."@en ;
+  rdfs:domain dfoc:StockAssessment ;
+  rdfs:range dfoc:HarvestAdvice ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:ledToDecision a owl:ObjectProperty ;
+  rdfs:label "led to decision"@en ;
+  iao:0000115 "Links a piece of harvest advice to the management decision that implemented it."@en ;
+  rdfs:domain dfoc:HarvestAdvice ;
+  rdfs:range dfoc:ManagementDecision ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:hasPolicyReadiness a owl:ObjectProperty ;
+  rdfs:label "has policy readiness summary"@en ;
+  iao:0000115 "Attaches a policy readiness summary node to a stock assessment."@en ;
+  rdfs:domain dfoc:StockAssessment ;
+  rdfs:range dfoc:PolicyReadiness ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:hasCUInclusion a owl:ObjectProperty ;
+  rdfs:label "has CU inclusion record"@en ;
+  iao:0000115 "Links a stock assessment to a conservation-unit inclusion/proxy record."@en ;
+  rdfs:domain dfoc:StockAssessment ;
+  rdfs:range dfoc:CUInclusion ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:hasGSIUsage a owl:ObjectProperty ;
+  rdfs:label "has GSI usage record"@en ;
+  iao:0000115 "Links a stock assessment to details about genetic stock identification usage."@en ;
+  rdfs:domain dfoc:StockAssessment ;
+  rdfs:range dfoc:GSIUsage ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:hasChangeLogEntry a owl:ObjectProperty ;
+  rdfs:label "has change log entry"@en ;
+  iao:0000115 "Associates a stock assessment with a documented change from the previous cycle."@en ;
+  rdfs:domain dfoc:StockAssessment ;
+  rdfs:range dfoc:ChangeLogEntry ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:hasThreatFactor a owl:ObjectProperty ;
+  rdfs:label "has threat factor"@en ;
+  iao:0000115 "Links a stock assessment to a threat or limiting factor concept noted during the assessment."@en ;
+  rdfs:domain dfoc:StockAssessment ;
+  rdfs:range skos:Concept ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:downgradeReason a owl:ObjectProperty ;
+  rdfs:label "downgrade reason"@en ;
+  iao:0000115 "Indicates the reason (from a controlled vocabulary) that an estimate was downgraded in quality prior to use in the assessment."@en ;
+  rdfs:domain dfoc:StockAssessment ;
+  rdfs:range skos:Concept ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+#################################################################
+# FSAR datatype properties
+#################################################################
+
+dfoc:assessedYear a owl:DatatypeProperty ;
+  rdfs:label "assessed year"@en ;
+  iao:0000115 "Year (or cycle year) covered by the stock assessment."@en ;
+  rdfs:domain dfoc:StockAssessment ;
+  rdfs:range xsd:gYear ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:numericValue a owl:DatatypeProperty ;
+  rdfs:label "numeric value"@en ;
+  iao:0000115 "Numeric value associated with a benchmark or algorithm threshold."@en ;
+  rdfs:domain [ owl:unionOf ( dfoc:MetricBenchmark dfoc:AlgorithmThreshold ) ] ;
+  rdfs:range xsd:decimal ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:units a owl:DatatypeProperty ;
+  rdfs:label "units"@en ;
+  iao:0000115 "Units of measurement for a benchmark or algorithm threshold value."@en ;
+  rdfs:domain [ owl:unionOf ( dfoc:MetricBenchmark dfoc:AlgorithmThreshold ) ] ;
+  rdfs:range xsd:string ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:note a owl:DatatypeProperty ;
+  rdfs:label "note"@en ;
+  iao:0000115 "General-purpose annotation for explanatory notes."@en ;
+  rdfs:domain owl:Thing ;
+  rdfs:range xsd:string ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:rationaleNote a owl:DatatypeProperty ;
+  rdfs:label "rationale note"@en ;
+  iao:0000115 "Narrative justification for threshold differences or assessment decisions."@en ;
+  rdfs:domain [ owl:unionOf ( dfoc:StockAssessment dfoc:WSPMetric ) ] ;
+  rdfs:range xsd:string ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:hatcheryTreatmentNote a owl:DatatypeProperty ;
+  rdfs:label "hatchery treatment note"@en ;
+  iao:0000115 "Annotation describing how hatchery influence was handled in an assessment."@en ;
+  rdfs:domain dfoc:StockAssessment ;
+  rdfs:range xsd:string ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:belowLRP a owl:DatatypeProperty ;
+  rdfs:label "below LRP flag"@en ;
+  iao:0000115 "Boolean indicator showing whether the assessed stock is at or below its limit reference point."@en ;
+  rdfs:domain dfoc:PolicyReadiness ;
+  rdfs:range xsd:boolean ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:hcrIdentifier a owl:DatatypeProperty ;
+  rdfs:label "harvest control rule identifier"@en ;
+  iao:0000115 "Identifier or name for the harvest control rule in effect for the assessed stock."@en ;
+  rdfs:domain dfoc:PolicyReadiness ;
+  rdfs:range xsd:string ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:hcrParameters a owl:DatatypeProperty ;
+  rdfs:label "harvest control rule parameters"@en ;
+  iao:0000115 "Encoded parameters describing the applied harvest control rule."@en ;
+  rdfs:domain dfoc:PolicyReadiness ;
+  rdfs:range xsd:string ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:rebuildingPlanURL a owl:DatatypeProperty ;
+  rdfs:label "rebuilding plan URL"@en ;
+  iao:0000115 "Link to the published rebuilding plan required under the Fisheries Act Fish Stocks provisions."@en ;
+  rdfs:domain dfoc:PolicyReadiness ;
+  rdfs:range xsd:anyURI ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:uncertaintyNote a owl:DatatypeProperty ;
+  rdfs:label "uncertainty note"@en ;
+  iao:0000115 "Narrative summary of uncertainty considerations for the assessment."@en ;
+  rdfs:domain dfoc:StockAssessment ;
+  rdfs:range xsd:string ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:statusCI a owl:DatatypeProperty ;
+  rdfs:label "status confidence interval"@en ;
+  iao:0000115 "Confidence interval or probability summary for the reported rapid status."@en ;
+  rdfs:domain dfoc:StockAssessment ;
+  rdfs:range xsd:string ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:cuDecision a owl:DatatypeProperty ;
+  rdfs:label "CU decision"@en ;
+  iao:0000115 "Categorical value capturing how a conservation unit was treated (included, excluded, proxied)."@en ;
+  rdfs:domain dfoc:CUInclusion ;
+  rdfs:range xsd:string ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:justification a owl:DatatypeProperty ;
+  rdfs:label "justification"@en ;
+  iao:0000115 "Textual justification explaining a conservation-unit inclusion decision."@en ;
+  rdfs:domain dfoc:CUInclusion ;
+  rdfs:range xsd:string ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:reviewedBy a owl:DatatypeProperty ;
+  rdfs:label "reviewed by"@en ;
+  iao:0000115 "Reviewer name or identifier confirming a conservation-unit inclusion decision."@en ;
+  rdfs:domain dfoc:CUInclusion ;
+  rdfs:range xsd:string ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:reviewDate a owl:DatatypeProperty ;
+  rdfs:label "review date"@en ;
+  iao:0000115 "Date on which a conservation-unit inclusion decision was reviewed or approved."@en ;
+  rdfs:domain dfoc:CUInclusion ;
+  rdfs:range xsd:date ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:gsiUsed a owl:DatatypeProperty ;
+  rdfs:label "GSI used"@en ;
+  iao:0000115 "Boolean flag indicating whether genetic stock identification data were used."@en ;
+  rdfs:domain dfoc:GSIUsage ;
+  rdfs:range xsd:boolean ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:gsiSampleSize a owl:DatatypeProperty ;
+  rdfs:label "GSI sample size"@en ;
+  iao:0000115 "Total number of samples analysed for genetic stock identification."@en ;
+  rdfs:domain dfoc:GSIUsage ;
+  rdfs:range xsd:integer ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:gsiAssignmentUncertainty a owl:DatatypeProperty ;
+  rdfs:label "GSI assignment uncertainty"@en ;
+  iao:0000115 "Narrative summary or statistic describing uncertainty in genetic stock identification assignments."@en ;
+  rdfs:domain dfoc:GSIUsage ;
+  rdfs:range xsd:string ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:changeCategory a owl:DatatypeProperty ;
+  rdfs:label "change category"@en ;
+  iao:0000115 "Keyword describing the type of change recorded in a change log entry (for example, data, methods, benchmarks, status)."@en ;
+  rdfs:domain dfoc:ChangeLogEntry ;
+  rdfs:range xsd:string ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:changeDetail a owl:DatatypeProperty ;
+  rdfs:label "change detail"@en ;
+  iao:0000115 "Detailed description of the change documented in a change log entry."@en ;
+  rdfs:domain dfoc:ChangeLogEntry ;
+  rdfs:range xsd:string ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:statusValue a owl:DatatypeProperty ;
+  rdfs:label "status value"@en ;
+  skos:prefLabel "status value"@en ;
+  iao:0000115 "The numeric or categorical value representing the status assessment result."@en ;
+  rdfs:domain dfoc:StockAssessment ;
+  rdfs:range xsd:string ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:statusDecision a owl:DatatypeProperty ;
+  rdfs:label "status decision"@en ;
+  skos:prefLabel "status decision"@en ;
+  iao:0000115 "The categorical decision or rationale explaining how the status zone was determined."@en ;
+  rdfs:domain dfoc:StockAssessment ;
+  rdfs:range xsd:string ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:dataSourceType a owl:DatatypeProperty ;
+  rdfs:label "data source type"@en ;
+  skos:prefLabel "data source type"@en ;
+  iao:0000115 "The type of data source used in an assessment (e.g., escapement survey, genetic stock identification, proxy data)."@en ;
+  rdfs:domain dfoc:Dataset ;
+  rdfs:range xsd:string ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:spawnerOrigin a owl:DatatypeProperty ;
+  rdfs:label "spawner origin"@en ;
+  skos:prefLabel "spawner origin"@en ;
+  iao:0000115 "The origin classification of spawners in the dataset (e.g., natural-origin, hatchery-origin, mixed-origin)."@en ;
+  rdfs:domain dfoc:Dataset ;
+  rdfs:range xsd:string ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:referencePointType a owl:DatatypeProperty ;
+  rdfs:label "reference point type"@en ;
+  skos:prefLabel "reference point type"@en ;
+  iao:0000115 "The type of reference point (e.g., LRP, USR, TRP, SMSY, Sgen)."@en ;
+  rdfs:domain dfoc:ReferencePoint ;
+  rdfs:range xsd:string ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:referencePointValue a owl:DatatypeProperty ;
+  rdfs:label "reference point value"@en ;
+  skos:prefLabel "reference point value"@en ;
+  iao:0000115 "The numeric value of a reference point."@en ;
+  rdfs:domain dfoc:ReferencePoint ;
+  rdfs:range xsd:decimal ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:benchmarkMethod a owl:DatatypeProperty ;
+  rdfs:label "benchmark method"@en ;
+  skos:prefLabel "benchmark method"@en ;
+  iao:0000115 "The method used to derive a benchmark value (e.g., stock-recruitment analysis, habitat-based approach)."@en ;
+  rdfs:domain [ owl:unionOf ( dfoc:ReferencePoint dfoc:MetricBenchmark ) ] ;
+  rdfs:range xsd:string ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:benchmarkSensitivity a owl:DatatypeProperty ;
+  rdfs:label "benchmark sensitivity"@en ;
+  skos:prefLabel "benchmark sensitivity"@en ;
+  iao:0000115 "Sensitivity flags or notes indicating how sensitive the benchmark is to parameter uncertainty or methodological choices."@en ;
+  rdfs:domain [ owl:unionOf ( dfoc:ReferencePoint dfoc:MetricBenchmark ) ] ;
+  rdfs:range xsd:string ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:adviceText a owl:DatatypeProperty ;
+  rdfs:label "advice text"@en ;
+  skos:prefLabel "advice text"@en ;
+  iao:0000115 "The textual content of scientific harvest advice or recommendations."@en ;
+  rdfs:domain dfoc:HarvestAdvice ;
+  rdfs:range xsd:string ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:decisionType a owl:DatatypeProperty ;
+  rdfs:label "decision type"@en ;
+  skos:prefLabel "decision type"@en ;
+  iao:0000115 "The type of management decision (e.g., TAC setting, time-area closure, harvest control rule application)."@en ;
+  rdfs:domain dfoc:ManagementDecision ;
+  rdfs:range xsd:string ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:decisionDate a owl:DatatypeProperty ;
+  rdfs:label "decision date"@en ;
+  skos:prefLabel "decision date"@en ;
+  iao:0000115 "The date on which a management decision was made or came into effect."@en ;
+  rdfs:domain dfoc:ManagementDecision ;
+  rdfs:range xsd:date ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:decisionMaker a owl:DatatypeProperty ;
+  rdfs:label "decision maker"@en ;
+  skos:prefLabel "decision maker"@en ;
+  iao:0000115 "The individual, organization, or decision-making body that made the management decision."@en ;
+  rdfs:domain dfoc:ManagementDecision ;
+  rdfs:range xsd:string ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:relevantSections a owl:DatatypeProperty ;
+  rdfs:label "relevant sections"@en ;
+  skos:prefLabel "relevant sections"@en ;
+  iao:0000115 "The specific sections or provisions of a legal framework or policy document that are relevant to a decision or requirement."@en ;
+  rdfs:domain dfoc:PolicyFramework ;
+  rdfs:range xsd:string ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:harvestControlRule a owl:DatatypeProperty ;
+  rdfs:label "harvest control rule"@en ;
+  skos:prefLabel "harvest control rule"@en ;
+  iao:0000115 "The harvest control rule identifier or name used in the assessment."@en ;
+  rdfs:domain dfoc:StockAssessment ;
+  rdfs:range xsd:string ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:codeCommit a owl:DatatypeProperty ;
+  rdfs:label "code commit"@en ;
+  skos:prefLabel "code commit"@en ;
+  iao:0000115 "The version control commit hash, tag, or identifier for code used in an analysis or method execution."@en ;
+  rdfs:domain [ owl:unionOf ( dfoc:ModelExecution dwc:Protocol ) ] ;
+  rdfs:range xsd:string ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:version a owl:DatatypeProperty ;
+  rdfs:label "version"@en ;
+  skos:prefLabel "version"@en ;
+  iao:0000115 "The version identifier for a document, dataset, method, or other versioned resource."@en ;
+  rdfs:domain [ owl:unionOf ( dfoc:HarvestAdvice dfoc:RebuildingPlan iao:0000310 ) ] ;
+  rdfs:range xsd:string ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:gsiMethod a owl:DatatypeProperty ;
+  rdfs:label "GSI method"@en ;
+  skos:prefLabel "GSI method"@en ;
+  iao:0000115 "The genetic stock identification method or software used (e.g., ONCOR, RUBIAS, BAYES)."@en ;
+  rdfs:domain dfoc:GSIUsage ;
+  rdfs:range xsd:string ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:cuInclusion a owl:ObjectProperty ;
+  rdfs:label "CU inclusion"@en ;
+  skos:prefLabel "CU inclusion"@en ;
+  iao:0000115 "Links a CU inclusion record to the conservation unit it describes."@en ;
+  rdfs:domain dfoc:CUInclusion ;
+  rdfs:range dfoc:ConservationUnit ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:inclusionStatus a owl:DatatypeProperty ;
+  rdfs:label "inclusion status"@en ;
+  skos:prefLabel "inclusion status"@en ;
+  iao:0000115 "The status of how a conservation unit was treated in an assessment (included, excluded, or proxied)."@en ;
+  rdfs:domain dfoc:CUInclusion ;
+  rdfs:range xsd:string ;
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
 #################################################################
@@ -1844,6 +2567,7 @@ dfoc:UnknownMethod a owl:Class ;
 
 # Generic membership (transitive)
 dfoc:hasMember a owl:ObjectProperty , owl:TransitiveProperty ;
+  rdfs:label "has member"@en ;
   skos:prefLabel "has member"@en ;
   iao:0000115 "Generic hierarchical containment/membership across management hierarchies (transitive)."@en ;
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
@@ -1857,6 +2581,7 @@ dfoc:isMemberOf a owl:ObjectProperty ;
 
 # Stock Management Unit ▶ Conservation Unit
 dfoc:hasMemberCU a owl:ObjectProperty ;
+  rdfs:label "has member CU"@en ;
   skos:prefLabel "has member CU"@en ;
   iao:0000115 "A Stock Management Unit contains a Conservation Unit."@en ;
   rdfs:domain dfoc:StockManagementUnit ;
@@ -1876,6 +2601,7 @@ dfoc:isMemberOfSMU a owl:ObjectProperty ;
 
 # Conservation Unit ▶ Stock (Population)
 dfoc:hasMemberStock a owl:ObjectProperty ;
+  rdfs:label "has member stock"@en ;
   skos:prefLabel "has member stock"@en ;
   iao:0000115 "A Conservation Unit contains one or more Stocks (populations)."@en ;
   rdfs:domain dfoc:ConservationUnit ;

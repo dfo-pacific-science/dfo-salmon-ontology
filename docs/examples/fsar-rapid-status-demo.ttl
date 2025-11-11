@@ -1,0 +1,199 @@
+@prefix dfoc: <https://w3id.org/dfoc/salmon#> .
+@prefix demo: <https://w3id.org/dfoc/salmon/demo/fsar#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+#################################################################
+# Demo stock assessment and supporting nodes
+#################################################################
+
+demo:BarkleySockeyeSMU a dfoc:StockManagementUnit ;
+  rdfs:label "Barkley Sockeye management unit"@en .
+
+# Assessment instance
+demo:BarkleySockeye2025Assessment a dfoc:StockAssessment ;
+  rdfs:label "Barkley Sockeye rapid-status assessment (2025)"@en ;
+  dfoc:assessedYear "2025"^^xsd:gYear ;
+  dfoc:assessesUnit demo:BarkleySockeyeSMU ;
+  dfoc:assessesMetric dfoc:absoluteAbundanceMetric , dfoc:relativeAbundanceMetric , dfoc:longTermTrendMetric , dfoc:percentChangeMetric ;
+  dfoc:hasStatusZone dfoc:RedZone ;
+  dfoc:producesRapidStatus dfoc:RedZone ;
+  dfoc:hasConfidence dfoc:RapidStatusConfidenceMedium ;
+  dfoc:usesDataset demo:SpawnerAbundanceDataset2024 ;
+  dfoc:usesMethod demo:LearningTree3Method ;
+  dfoc:downgradeReason demo:DowngradeLowVisibility ;
+  dfoc:hasPolicyReadiness demo:BarkleyPolicyReadiness ;
+  dfoc:hasCUInclusion demo:CUInclusion_Hucuktlis ;
+  dfoc:hasGSIUsage demo:GSIUsage_Barkley ;
+  dfoc:hasChangeLogEntry demo:ChangeLog_Benchmarks .
+
+#################################################################
+# Supporting concepts and records
+#################################################################
+
+demo:SpawnerAbundanceDataset2024 a dfoc:Dataset ;
+  rdfs:label "Spawner abundance time series (up to 2024)"@en .
+
+# Method concept (aligned with Estimate Method scheme)
+demo:LearningTree3Method a skos:Concept ;
+  skos:prefLabel "Learning Tree 3 rapid-status algorithm"@en ;
+  skos:inScheme dfoc:EstimateMethodScheme .
+
+# Policy readiness summary
+demo:BarkleyPolicyReadiness a dfoc:PolicyReadiness ;
+  dfoc:belowLRP "true"^^xsd:boolean ;
+  dfoc:hcrIdentifier "LT3-2024" ;
+  dfoc:hcrParameters "buffer=0.5; minEscapement=3000" ;
+  dfoc:rebuildingPlanURL <https://example.org/rebuilding-plans/barkley-sockeye-2024> .
+
+# CU accounting entry
+demo:CUInclusion_Hucuktlis a dfoc:CUInclusion ;
+  dfoc:cuDecision "proxied" ;
+  dfoc:justification "No dedicated survey in 2024; proxied using Great Central and Sproat trends."@en ;
+  dfoc:reviewedBy "Jane Doe" ;
+  dfoc:reviewDate "2025-05-28"^^xsd:date .
+
+# GSI usage record
+demo:GSIUsage_Barkley a dfoc:GSIUsage ;
+  dfoc:gsiUsed "true"^^xsd:boolean ;
+  dfoc:gsiSampleSize 842 ;
+  dfoc:gsiAssignmentUncertainty "Misassignment ≈ 7% (95% CI: 4–10%)"@en .
+
+# Change log entry
+demo:ChangeLog_Benchmarks a dfoc:ChangeLogEntry ;
+  dfoc:changeCategory "benchmarks" ;
+  dfoc:changeDetail "Upper benchmark increased from 12,000 to 14,000 spawners using 2015–2023 productivity data."@en .
+
+#################################################################
+# Metric benchmarks and algorithm thresholds
+#################################################################
+
+demo:absoluteAbundanceLowerBenchmark a dfoc:MetricBenchmark ;
+  rdfs:label "Absolute abundance lower benchmark"@en ;
+  dfoc:numericValue 1000.0 ;
+  dfoc:units "spawners" ;
+  dfoc:note "COSEWIC criterion D1 lower threshold."@en .
+
+demo:absoluteAbundanceUpperBenchmark a dfoc:MetricBenchmark ;
+  rdfs:label "Absolute abundance upper benchmark"@en ;
+  dfoc:numericValue 10000.0 ;
+  dfoc:units "spawners" .
+
+demo:longTermTrendLowerBenchmark a dfoc:MetricBenchmark ;
+  rdfs:label "Long-term trend lower benchmark"@en ;
+  dfoc:numericValue 50.0 ;
+  dfoc:units "percent" .
+
+demo:longTermTrendUpperBenchmark a dfoc:MetricBenchmark ;
+  rdfs:label "Long-term trend upper benchmark"@en ;
+  dfoc:numericValue 75.0 ;
+  dfoc:units "percent" .
+
+demo:percentChangeLowerBenchmark a dfoc:MetricBenchmark ;
+  rdfs:label "Percent change lower benchmark"@en ;
+  dfoc:numericValue -25.0 ;
+  dfoc:units "percent" .
+
+demo:percentChangeUpperBenchmark a dfoc:MetricBenchmark ;
+  rdfs:label "Percent change upper benchmark"@en ;
+  dfoc:numericValue -15.0 ;
+  dfoc:units "percent" .
+
+demo:absoluteAbundanceLT3Lower a dfoc:AlgorithmThreshold ;
+  rdfs:label "Absolute abundance LT3 lower threshold"@en ;
+  dfoc:numericValue 1500.0 ;
+  dfoc:units "spawners" ;
+  dfoc:note "Benchmark plus 500 buffer for LT3 precautionary rule."@en .
+
+demo:longTermTrendLT3Lower a dfoc:AlgorithmThreshold ;
+  rdfs:label "Long-term trend LT3 lower threshold"@en ;
+  dfoc:numericValue 79.0 ;
+  dfoc:units "percent" ;
+  dfoc:note "Derived from CART analysis, applied conditionally with percent change metric."@en .
+
+demo:longTermTrendLT3Upper a dfoc:AlgorithmThreshold ;
+  rdfs:label "Long-term trend LT3 upper threshold"@en ;
+  dfoc:numericValue 233.0 ;
+  dfoc:units "percent" .
+
+demo:percentChangeLT3Lower a dfoc:AlgorithmThreshold ;
+  rdfs:label "Percent change LT3 lower threshold"@en ;
+  dfoc:numericValue -70.0 ;
+  dfoc:units "percent" ;
+  dfoc:note "Applied when long-term trend ≥ 79% and absolute abundance ≥ 10,000 spawners."@en .
+
+# Link metric concepts to benchmarks and thresholds
+dfoc:absoluteAbundanceMetric dfoc:hasBenchmark demo:absoluteAbundanceLowerBenchmark , demo:absoluteAbundanceUpperBenchmark ;
+  dfoc:hasAlgorithmThreshold demo:absoluteAbundanceLT3Lower .
+
+dfoc:longTermTrendMetric dfoc:hasBenchmark demo:longTermTrendLowerBenchmark , demo:longTermTrendUpperBenchmark ;
+  dfoc:hasAlgorithmThreshold demo:longTermTrendLT3Lower , demo:longTermTrendLT3Upper .
+
+dfoc:percentChangeMetric dfoc:hasBenchmark demo:percentChangeLowerBenchmark , demo:percentChangeUpperBenchmark ;
+  dfoc:hasAlgorithmThreshold demo:percentChangeLT3Lower .
+
+#################################################################
+# Decision requirements and triggers
+#################################################################
+
+# Policy frameworks as bibliographic resources
+demo:FisheriesActFSP a dfoc:PolicyFramework , dcterms:BibliographicResource ;
+  rdfs:label "Fisheries Act – Fish Stocks Provisions"@en .
+
+demo:CanadaPrecautionaryApproach a dfoc:PolicyFramework , dcterms:BibliographicResource ;
+  rdfs:label "A Fishery Decision-making Framework Incorporating the Precautionary Approach"@en .
+
+# Trigger and requirement instances
+demo:BelowLRPTriggerCondition a dfoc:BelowLRPTrigger ;
+  rdfs:label "Below LRP trigger (demo)"@en .
+
+demo:MixedStockNoGSITriggerCondition a dfoc:MixedStockNoGSITrigger ;
+  rdfs:label "Mixed-stock without GSI trigger (demo)"@en .
+
+demo:RebuildingPlanRequirementInstance a dfoc:RebuildingPlanRequirement ;
+  rdfs:label "Rebuilding plan requirement (demo)"@en .
+
+demo:MixedStockJustificationRequirementInstance a dfoc:MixedStockJustificationRequirement ;
+  rdfs:label "Mixed-stock justification requirement (demo)"@en .
+
+# Link triggers to requirements
+demo:BelowLRPTriggerCondition dfoc:triggersRequirement demo:RebuildingPlanRequirementInstance .
+
+demo:MixedStockNoGSITriggerCondition dfoc:triggersRequirement demo:MixedStockJustificationRequirementInstance .
+
+# Decision requirements
+demo:BelowLRPDecisionCondition a dfoc:Condition ;
+  rdfs:label "Condition: CU below LRP"@en .
+
+demo:RebuildingPlanDecisionRequirement a dfoc:DecisionRequirement ;
+  rdfs:label "Decision requirement: Rebuilding plan summary"@en ;
+  dfoc:triggeredBy demo:BelowLRPDecisionCondition ;
+  dfoc:mandatedBy demo:FisheriesActFSP .
+
+demo:MixedStockDecisionCondition a dfoc:Condition ;
+  rdfs:label "Condition: Mixed-stock without GSI"@en .
+
+demo:MixedStockDecisionRequirement a dfoc:DecisionRequirement ;
+  rdfs:label "Decision requirement: Mixed-stock justification"@en ;
+  dfoc:triggeredBy demo:MixedStockDecisionCondition ;
+  dfoc:mandatedBy demo:CanadaPrecautionaryApproach .
+
+#################################################################
+# Additional helper concepts
+#################################################################
+
+demo:DowngradeLowVisibility a skos:Concept ;
+  skos:prefLabel "Downgrade: Low survey visibility"@en ;
+  skos:inScheme :DowngradeCriteriaScheme .
+
+# Provenance example for rapid-status output
+demo:RapidStatusComputation2025 a prov:Activity ;
+  dcterms:description "Rapid status computed via Learning Tree 3 (commit 9f3c1e)."@en ;
+  dcterms:date "2025-10-15"^^xsd:date .
+
+<< demo:BarkleySockeye2025Assessment dfoc:producesRapidStatus dfoc:RedZone >>
+  prov:wasGeneratedBy demo:RapidStatusComputation2025 .
+

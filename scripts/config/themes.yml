@@ -1,0 +1,93 @@
+widoco_base_url: "https://w3id.org/dfoc/salmon/widoco/index.html#"
+
+themes:
+  - id: stock_assessment
+    label: "Stock Assessment Methods"
+    query_file: "stock-assessment-terms.rq"
+    output_csv: "stock-assessment-terms.csv"
+    schemes:
+      - "https://w3id.org/dfoc/salmon#EnumerationMethodScheme"
+      - "https://w3id.org/dfoc/salmon#EstimateMethodScheme"
+      - "https://w3id.org/dfoc/salmon#DowngradeCriteriaScheme"
+      - "https://w3id.org/dfoc/salmon#EstimateTypeScheme"
+    classes:
+      - "https://w3id.org/dfoc/salmon#EscapementMethod"
+      - "https://w3id.org/dfoc/salmon#EscapementSurveyEvent"
+      - "https://w3id.org/dfoc/salmon#Stock"
+      - "https://w3id.org/dfoc/salmon#ConservationUnit"
+      - "https://w3id.org/dfoc/salmon#Catch"
+      - "https://w3id.org/dfoc/salmon#Escapement"
+      - "https://w3id.org/dfoc/salmon#EscapementMeasurement"
+      - "https://w3id.org/dfoc/salmon#FishingMortality"
+      - "https://w3id.org/dfoc/salmon#FishingEffort"
+      - "https://w3id.org/dfoc/salmon#SpawnerAbundance"
+      - "https://w3id.org/dfoc/salmon#SurveyEvent"
+
+  - id: genetics
+    label: "Genetics and GSI"
+    query_file: "genetics-terms.rq"
+    output_csv: "genetics-terms.csv"
+    schemes: []
+    classes:
+      - "https://w3id.org/dfoc/salmon#GeneticSample"
+      - "https://w3id.org/dfoc/salmon#GSIRun"
+      - "https://w3id.org/dfoc/salmon#GSICompositionMeasurement"
+      - "https://w3id.org/dfoc/salmon#Assay"
+      - "https://w3id.org/dfoc/salmon#MarkerPanel"
+      - "https://w3id.org/dfoc/salmon#ReportingUnit"
+
+  - id: legislation
+    label: "Legislation and Policy"
+    query_file: "legislation-terms.rq"
+    output_csv: "legislation-terms.csv"
+    schemes:
+      - "https://w3id.org/dfoc/salmon#COSEWICStatusScheme"
+      - "https://w3id.org/dfoc/salmon#WSPBiologicalStatusZoneScheme"
+      - "https://w3id.org/dfoc/salmon#StockStatusZoneScheme"
+      - "https://w3id.org/dfoc/salmon#WSPMetricScheme"
+      - "https://w3id.org/dfoc/salmon#RapidStatusConfidenceScheme"
+    classes:
+      - "https://w3id.org/dfoc/salmon#COSEWIC"
+      - "https://w3id.org/dfoc/salmon#WildSalmonPolicy"
+      - "https://w3id.org/dfoc/salmon#PrecautionaryApproach"
+      - "https://w3id.org/dfoc/salmon#DesignatableUnit"
+      - "https://w3id.org/dfoc/salmon#HarvestAdvice"
+      - "https://w3id.org/dfoc/salmon#RebuildingPlan"
+      - "https://w3id.org/dfoc/salmon#RebuildingPlanRequirement"
+
+  - id: benchmarks
+    label: "Biological Benchmarks and Indicators"
+    query_file: "benchmarks-terms.rq"
+    output_csv: "benchmarks-terms.csv"
+    schemes:
+      - "https://w3id.org/dfoc/salmon#BiologicalBenchmarkAndIndicatorScheme"
+    classes:
+      - "https://w3id.org/dfoc/salmon#ReferencePoint"
+      - "https://w3id.org/dfoc/salmon#SMSY"
+      - "https://w3id.org/dfoc/salmon#Sgen"
+      - "https://w3id.org/dfoc/salmon#LimitReferencePoint"
+      - "https://w3id.org/dfoc/salmon#TargetReferencePoint"
+      - "https://w3id.org/dfoc/salmon#Indicator"
+
+  - id: temporal
+    label: "Temporal References"
+    query_file: "temporal-terms.rq"
+    output_csv: "temporal-terms.csv"
+    schemes:
+      - "https://w3id.org/dfoc/salmon#TemporalReferenceTypeScheme"
+    classes:
+      - "https://w3id.org/dfoc/salmon#BroodYear"
+      - "https://w3id.org/dfoc/salmon#OceanEntryYear"
+      - "https://w3id.org/dfoc/salmon#AgeAtMaturity"
+
+  - id: hatchery_enhancement
+    label: "Hatchery and Enhancement"
+    query_file: "hatchery-enhancement-terms.rq"
+    output_csv: "hatchery-enhancement-terms.csv"
+    schemes:
+      - "https://w3id.org/dfoc/salmon#SalmonOriginScheme"
+    classes:
+      - "https://w3id.org/dfoc/salmon#Hatchery"
+      - "https://w3id.org/dfoc/salmon#HatcheryEnhancement"
+      - "https://w3id.org/dfoc/salmon#HatcheryProduction"
+      - "https://w3id.org/dfoc/salmon#Enhancement"
