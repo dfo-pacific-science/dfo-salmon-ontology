@@ -8,27 +8,6 @@ The DFO Salmon Ontology is a **data stewardship and operational process ontology
 
 **Goal:** Make salmon data interoperable, discoverable, and analyzable with minimal friction for scientists, data stewards, and managers.
 
-## Repository Structure
-
-This repository follows the [AGENTS.md](AGENTS.md) directory layout for ontology development:
-
-```
-/ontology/
-  dfo-salmon.ttl            # main schema (OWL + SKOS + SHACL shapes as needed)
-  shapes/                   # optional modular SHACL shapes
-  imports/                  # pinned external imports (ENVO, QUDT, etc.) if vendored
-  templates/                # ROBOT templates (CSV/TSV) for term generation
-  sparql/                   # SPARQL queries/tests for competency questions
-  examples/                 # minimal instance examples used only for tests/docs
-/release/
-  changelog.md
-  artifacts/                # built artifacts (.owl, .ttl, .json) per release
-/tools/
-  robot.jar (optional)      # or rely on system-wide ROBOT
-/scripts/                   # automation scripts and utilities
-/docs/                      # documentation and guides
-```
-
 **Rule of thumb:** `/ontology/dfo-salmon.ttl` contains **schema only** (no instance facts, measurements, or survey rows). Instance data examples belong in `/ontology/examples/` and are *not* shipped inside the core ontology file.
 
 ---
