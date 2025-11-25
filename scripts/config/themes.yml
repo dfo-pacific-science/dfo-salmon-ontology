@@ -12,16 +12,15 @@ themes:
       - "https://w3id.org/dfoc/salmon#EstimateTypeScheme"
     classes:
       - "https://w3id.org/dfoc/salmon#EscapementMethod"
-      - "https://w3id.org/dfoc/salmon#EscapementSurveyEvent"
+      - "https://w3id.org/dfoc/salmon#SurveyEvent"
       - "https://w3id.org/dfoc/salmon#Stock"
-      - "https://w3id.org/dfoc/salmon#ConservationUnit"
+      - "https://w3id.org/dfoc/salmon#ReportingOrManagementStratum"
       - "https://w3id.org/dfoc/salmon#Catch"
       - "https://w3id.org/dfoc/salmon#Escapement"
       - "https://w3id.org/dfoc/salmon#EscapementMeasurement"
-      - "https://w3id.org/dfoc/salmon#FishingMortality"
+      - "https://w3id.org/dfoc/salmon#ObservedRateOrAbundance"
       - "https://w3id.org/dfoc/salmon#FishingEffort"
       - "https://w3id.org/dfoc/salmon#SpawnerAbundance"
-      - "https://w3id.org/dfoc/salmon#SurveyEvent"
       - "https://w3id.org/dfoc/salmon#BroodYear"
 
   - id: genetics
@@ -35,7 +34,7 @@ themes:
       - "https://w3id.org/dfoc/salmon#GSICompositionMeasurement"
       - "https://w3id.org/dfoc/salmon#Assay"
       - "https://w3id.org/dfoc/salmon#MarkerPanel"
-      - "https://w3id.org/dfoc/salmon#ReportingUnit"
+      - "https://w3id.org/dfoc/salmon#ReportingOrManagementStratum"
 
   - id: legislation
     label: "Legislation and Policy"
@@ -51,10 +50,10 @@ themes:
       - "https://w3id.org/dfoc/salmon#COSEWIC"
       - "https://w3id.org/dfoc/salmon#WildSalmonPolicy"
       - "https://w3id.org/dfoc/salmon#PrecautionaryApproach"
-      - "https://w3id.org/dfoc/salmon#DesignatableUnit"
+      - "https://w3id.org/dfoc/salmon#ReportingOrManagementStratum"
       - "https://w3id.org/dfoc/salmon#HarvestAdvice"
       - "https://w3id.org/dfoc/salmon#RebuildingPlan"
-      - "https://w3id.org/dfoc/salmon#RebuildingPlanRequirement"
+      - "https://w3id.org/dfoc/salmon#Requirement"
 
   - id: benchmarks
     label: "Biological Benchmarks and Indicators"
@@ -64,12 +63,9 @@ themes:
       - "https://w3id.org/dfoc/salmon#BiologicalBenchmarkAndIndicatorScheme"
     classes:
       - "https://w3id.org/dfoc/salmon#ReferencePoint"
-      - "https://w3id.org/dfoc/salmon#SMSY"
-      - "https://w3id.org/dfoc/salmon#Sgen"
-      - "https://w3id.org/dfoc/salmon#LimitReferencePoint"
-      - "https://w3id.org/dfoc/salmon#TargetReferencePoint"
-      - "https://w3id.org/dfoc/salmon#Indicator"
-      - "https://w3id.org/dfoc/salmon#AgeAtMaturity"
+      - "https://w3id.org/dfoc/salmon#TargetOrLimitRateOrAbundance"
+      - "https://w3id.org/dfoc/salmon#IndexBased"
+      - "https://w3id.org/dfoc/salmon#ObservedRateOrAbundance"
 
   - id: hatchery_enhancement
     label: "Hatchery and Enhancement"
@@ -79,7 +75,6 @@ themes:
       - "https://w3id.org/dfoc/salmon#SalmonOriginScheme"
     classes:
       - "https://w3id.org/dfoc/salmon#Hatchery"
-      - "https://w3id.org/dfoc/salmon#HatcheryEnhancement"
       - "https://w3id.org/dfoc/salmon#HatcheryProduction"
       - "https://w3id.org/dfoc/salmon#Enhancement"
       - "https://w3id.org/dfoc/salmon#OceanEntryYear"

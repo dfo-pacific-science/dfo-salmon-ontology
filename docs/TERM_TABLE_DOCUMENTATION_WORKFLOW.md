@@ -218,12 +218,11 @@ python scripts/extract-term-tables.py
 - Check `release/artifacts/term-tables/habitat-terms.csv` exists
 - Review `scripts/sparql/habitat-terms.rq` to see generated query
 
-**Step 4: Update website (if needed)**
-- Update `reference_info/data_standards/index.qmd` to include the new theme in:
-  - The `themes` list for search functionality (R code block, around line 47)
-  - The `themes` list for tabbed interface (R code block, around line 253)
+**Step 4: Website automatically reflects changes**
+- The website now reads themes directly from `themes.yml` - no manual updates needed
 - The tabbed interface will automatically display the new theme's table using `reactable`
 - No separate theme page file is needed - all themes are on the main page
+- Pre-commit hooks will automatically update the submodule and regenerate term tables when you commit
 
 ### Modifying Existing Themes
 
@@ -235,18 +234,19 @@ python scripts/extract-term-tables.py
 
 **To change a theme label:**
 1. Update `label:` in `themes.yml`
-2. If you want to update the page title, edit the corresponding `.qmd` file
-3. Re-run extraction (optional, but good for consistency)
+2. The website will automatically use the new label (no code changes needed)
+3. Pre-commit hooks will regenerate term tables automatically
 
 
 
 ## Best Practices
 
 1. **Always update themes.yml** when ontology changes affect term groupings
-2. **Run extraction after ontology changes** to keep CSV files current
+2. **Pre-commit hooks handle updates automatically** - they update the submodule and regenerate term tables
 3. **Commit CSV files** with ontology changes so website stays in sync
-4. **Use meaningful theme labels** that match page titles
-5. **Keep theme IDs consistent** - changing them requires updating website files
-6. **Test locally** before committing - run extraction and verify CSV output
+4. **Use meaningful theme labels** - they appear automatically on the website
+5. **Keep theme IDs consistent** - changing them requires updating CSV filenames
+6. **Test locally** before committing - pre-commit hooks will validate CSV files automatically
+7. **Install R package 'yaml'** - required for reading themes.yml: `install.packages('yaml')`
 
 

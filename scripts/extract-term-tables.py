@@ -298,11 +298,11 @@ def build_schemes_query(theme: Theme) -> Optional[str]:
 
 def build_classes_query(theme: Theme) -> Optional[str]:
     """
-    Construct a SPARQL query for explicit OWL classes within the theme.
+    Construct a SPARQL query for OWL classes within the theme, including all subclasses.
     
-    Builds a query that selects specific OWL classes by their IRIs.
-    Unlike scheme-based queries, this directly targets specific classes
-    rather than filtering by scheme membership.
+    Builds a query that selects specified OWL classes by their IRIs AND all their
+    subclasses (transitively). Uses rdfs:subClassOf* for transitive closure to
+    automatically include subclasses, sub-subclasses, etc.
     
     Args:
         theme: Theme configuration with classes list
@@ -314,21 +314,25 @@ def build_classes_query(theme: Theme) -> Optional[str]:
         return None
 
     # Build VALUES clause: <iri1> <iri2> <iri3> ...
-    # This directly specifies which classes to extract
-    class_values = " ".join(f"<{iri}>" for iri in theme.classes)
+    # These are the base classes - we'll find all subclasses transitively
+    base_class_values = " ".join(f"<{iri}>" for iri in theme.classes)
     # Indent the common optional blocks to match WHERE clause indentation
     optional_block = textwrap.indent(COMMON_OPTIONALS, "  ")
 
     # Construct the full SPARQL query:
     # - SELECT DISTINCT ensures no duplicate rows
-    # - WHERE clause filters to specific class IRIs and verifies they are OWL classes
+    # - WHERE clause uses rdfs:subClassOf* (transitive closure) to find all subclasses
+    # - The * includes zero or more steps, so it includes the base class itself
     # - COMMON_OPTIONALS extracts labels, definitions, sources, and relationships
     # - ORDER_BY_CLAUSE ensures deterministic output ordering
     return (
         f"{COMMON_PREFIXES}\n"
         "SELECT DISTINCT ?term ?termLabel ?definition ?definitionSourceText ?definitionSourceLink ?related ?relatedLabel ?relation\n"
         "WHERE {\n"
-        f"  VALUES ?term {{ {class_values} }}\n"  # Filter to specified class IRIs
+        f"  VALUES ?baseClass {{ {base_class_values} }}\n"  # Base classes to start from
+        "  # Include base classes and all their subclasses (transitive closure)\n"
+        "  # The * means zero or more steps, so it includes the base class itself\n"
+        "  ?term rdfs:subClassOf* ?baseClass .\n"  # * means zero or more steps (transitive)
         "  ?term a owl:Class .\n"  # Verify term is an OWL class
         f"{optional_block}\n"  # Extract metadata (labels, definitions, etc.)
         "}\n"
@@ -691,9 +695,10 @@ def main() -> None:
             raw_rows.extend(list(graph.query(scheme_query)))
 
         # Build and execute class-based query if theme has classes configured
+        # This now automatically includes all subclasses (transitive closure)
         class_query = build_classes_query(theme)
         if class_query:
-            query_sections.append(("# Class terms", class_query))
+            query_sections.append(("# Class terms (including subclasses)", class_query))
             # Execute query against the parsed graph and collect results
             raw_rows.extend(list(graph.query(class_query)))
 
