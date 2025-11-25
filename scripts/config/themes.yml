@@ -22,6 +22,7 @@ themes:
       - "https://w3id.org/dfoc/salmon#FishingEffort"
       - "https://w3id.org/dfoc/salmon#SpawnerAbundance"
       - "https://w3id.org/dfoc/salmon#SurveyEvent"
+      - "https://w3id.org/dfoc/salmon#BroodYear"
 
   - id: genetics
     label: "Genetics and GSI"
@@ -68,16 +69,6 @@ themes:
       - "https://w3id.org/dfoc/salmon#LimitReferencePoint"
       - "https://w3id.org/dfoc/salmon#TargetReferencePoint"
       - "https://w3id.org/dfoc/salmon#Indicator"
-
-  - id: temporal
-    label: "Temporal References"
-    query_file: "temporal-terms.rq"
-    output_csv: "temporal-terms.csv"
-    schemes:
-      - "https://w3id.org/dfoc/salmon#TemporalReferenceTypeScheme"
-    classes:
-      - "https://w3id.org/dfoc/salmon#BroodYear"
-      - "https://w3id.org/dfoc/salmon#OceanEntryYear"
       - "https://w3id.org/dfoc/salmon#AgeAtMaturity"
 
   - id: hatchery_enhancement
@@ -91,3 +82,4 @@ themes:
       - "https://w3id.org/dfoc/salmon#HatcheryEnhancement"
       - "https://w3id.org/dfoc/salmon#HatcheryProduction"
       - "https://w3id.org/dfoc/salmon#Enhancement"
+      - "https://w3id.org/dfoc/salmon#OceanEntryYear"

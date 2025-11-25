@@ -86,7 +86,7 @@ PREFIX dcterms: <http://purl.org/dc/terms/>
 
 SELECT DISTINCT ?term ?termLabel ?definition ?definitionSourceText ?definitionSourceLink ?related ?relatedLabel ?relation
 WHERE {
-  VALUES ?term { <https://w3id.org/dfoc/salmon#ReferencePoint> <https://w3id.org/dfoc/salmon#SMSY> <https://w3id.org/dfoc/salmon#Sgen> <https://w3id.org/dfoc/salmon#LimitReferencePoint> <https://w3id.org/dfoc/salmon#TargetReferencePoint> <https://w3id.org/dfoc/salmon#Indicator> }
+  VALUES ?term { <https://w3id.org/dfoc/salmon#ReferencePoint> <https://w3id.org/dfoc/salmon#SMSY> <https://w3id.org/dfoc/salmon#Sgen> <https://w3id.org/dfoc/salmon#LimitReferencePoint> <https://w3id.org/dfoc/salmon#TargetReferencePoint> <https://w3id.org/dfoc/salmon#Indicator> <https://w3id.org/dfoc/salmon#AgeAtMaturity> }
   ?term a owl:Class .
   OPTIONAL {
     ?term skos:prefLabel ?prefLabelRaw .

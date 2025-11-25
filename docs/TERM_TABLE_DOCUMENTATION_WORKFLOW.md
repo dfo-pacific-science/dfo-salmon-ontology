@@ -4,7 +4,7 @@ This document explains the end-to-end process for documenting Controlled Vocabul
 
 ## Overview
 
-The workflow transforms ontology terms into human-friendly documentation pages on the website:
+The workflow transforms ontology terms into human-friendly documentation pages on the FADS Open Science Doc Hub website:
 
 1. **Define themes** in `scripts/config/themes.yml` to group related ontology terms
 2. **Generate SPARQL queries** automatically from theme definitions
@@ -101,12 +101,92 @@ The data-stewardship-unit website automatically displays term tables.
    - Theme column showing which theme each term belongs to
 
 **To update the website:**
-1. Ensure the ontology submodule in `data-stewardship-unit/data/ontology/` is up to date
-2. Run the extraction script in the ontology repo: `python scripts/extract-term-tables.py`
-3. Copy/commit the updated CSV files to the website repo
-4. Pre-commit hooks will automatically validate CSV structure and metadata before commit
-5. Build the website locally using Quarto (R packages must be installed locally)
-6. The website will display the new data using R code blocks that render `reactable` tables
+
+**First-time setup (adding the submodule):**
+
+If this is your first time setting up the website with the ontology submodule:
+
+1. Navigate to the data-stewardship-unit repository directory:
+   ```bash
+   cd /path/to/data-stewardship-unit
+   ```
+   (Replace `/path/to/data-stewardship-unit` with the actual path to your `data-stewardship-unit` repository)
+
+2. Add the ontology repository as a Git submodule:
+   ```bash
+   git submodule add https://github.com/dfo-pacific-science/dfo-salmon-ontology.git data/ontology
+   ```
+   This creates the `data/ontology/` directory and links it to the ontology repository.
+
+3. Initialize and update the submodule:
+   ```bash
+   git submodule update --init --recursive
+   ```
+
+4. Commit the submodule addition:
+   ```bash
+   git add .gitmodules data/ontology
+   git commit -m "Add dfo-salmon-ontology as submodule"
+   ```
+
+**Regular updates (after submodule is set up):**
+
+1. Navigate to the data-stewardship-unit repository directory:
+   ```bash
+   cd /path/to/data-stewardship-unit
+   ```
+
+2. Update the ontology submodule to get the latest changes:
+   ```bash
+   git submodule update --remote data/ontology
+   ```
+   Or, if you want to update to a specific commit/branch:
+   ```bash
+   cd data/ontology
+   git checkout main  # or specific branch/commit
+   git pull
+   cd ../..
+   ```
+
+3. Navigate to the ontology repository directory:
+   ```bash
+   cd /path/to/dfo-salmon-ontology
+   ```
+   (Replace `/path/to/dfo-salmon-ontology` with the actual path to your `dfo-salmon-ontology` repository)
+
+4. Run the extraction script to generate CSV files:
+   ```bash
+   python scripts/extract-term-tables.py
+   ```
+   This creates CSV files in `release/artifacts/term-tables/` within the ontology repository.
+
+5. Navigate back to the data-stewardship-unit repository:
+   ```bash
+   cd /path/to/data-stewardship-unit
+   ```
+
+6. Update the submodule to include the newly generated CSV files:
+   ```bash
+   git submodule update --remote data/ontology
+   git add data/ontology
+   ```
+
+7. Commit the updated submodule reference:
+   ```bash
+   git commit -m "Update ontology submodule with latest term tables"
+   ```
+   Pre-commit hooks will automatically validate CSV structure and metadata before the commit completes.
+
+8. Build the website locally using Quarto (R packages must be installed locally):
+   ```bash
+   quarto render
+   ```
+   Or to preview:
+   ```bash
+   quarto preview
+   ```
+
+9. The website will display the new data using R code blocks that render `reactable` tables
 
 **Note:** The website is built locally, not on GitHub Actions. Ensure you have R and the required R packages (`reactable`, `readr`, `jsonlite`, `htmltools`, `htmlwidgets`) installed locally before building. CSV validation happens automatically via pre-commit hooks (see `.pre-commit-config.yaml`).
 
@@ -158,110 +238,7 @@ python scripts/extract-term-tables.py
 2. If you want to update the page title, edit the corresponding `.qmd` file
 3. Re-run extraction (optional, but good for consistency)
 
-## File Structure
 
-```
-dfo-salmon-ontology/
-├── scripts/
-│   ├── config/
-│   │   └── themes.yml              # Theme definitions (YOU EDIT THIS)
-│   ├── extract-term-tables.py      # Extraction script (RUN THIS)
-│   └── sparql/
-│       └── *-terms.rq              # Generated SPARQL queries
-├── ontology/
-│   └── dfo-salmon.ttl              # Main ontology file
-└── release/
-    └── artifacts/
-        └── term-tables/
-            ├── *-terms.csv         # Generated term tables
-            └── *-terms.csv.meta.json  # Metadata
-
-data-stewardship-unit/
-├── data/
-│   └── ontology/                   # Submodule pointing to dfo-salmon-ontology
-│       └── release/
-│           └── artifacts/
-│               └── term-tables/   # CSV files used by website
-├── reference_info/
-│   ├── data_standards/
-│   │   └── index.qmd              # Main "Controlled Vocabulary & Thesauri" page (uses R)
-│   └── ontology/
-│       ├── index.qmd               # Controlled Vocabularies overview (redirect)
-│       ├── formal-documentation.qmd  # Link to Widoco documentation
-│       └── _partials/
-│           └── helpers.R          # R helpers for rendering tables with reactable
-└── _quarto.yml                     # Website configuration
-```
-
-## Key Concepts
-
-### SKOS Schemes vs OWL Classes
-
-- **SKOS Schemes**: Controlled vocabularies (e.g., enumeration methods, status codes)
-  - Defined in `schemes:` list
-  - Queried via `skos:inScheme` relationships
-- **OWL Classes**: Formal ontology classes (e.g., `EscapementMethod`, `Stock`)
-  - Defined in `classes:` list
-  - Queried directly by IRI
-
-### SPARQL Query Generation
-
-The script automatically generates two types of queries per theme:
-1. **Scheme query**: Finds all SKOS concepts in specified schemes
-2. **Class query**: Finds specified OWL classes and their properties
-
-Both queries extract:
-- Term labels (`rdfs:label`)
-- Definitions (`IAO_0000115`)
-- Related terms and relationships
-- Controlled vocabulary membership
-- Canonical URIs
-
-### Website Page Generation
-
-The website uses Quarto to:
-1. Execute R code blocks in `.qmd` files
-2. Load CSV files using `readr` package via `helpers.R`
-3. Render interactive tables using the `reactable` package with:
-   - Built-in column resizing
-   - Sorting and search
-   - Pagination
-   - Clickable Term ID links
-   - Theme column
-
-**R code is hidden** - the pages only show the rendered tables, not the code (using `#| echo: false`).
-
-**Required R packages (install locally):**
-- `reactable` - Interactive table rendering
-- `readr` - CSV file reading
-- `jsonlite` - JSON metadata reading
-- `htmltools` - HTML utilities
-- `htmlwidgets` - Widget framework for reactable
-
-**Building the website:**
-The website must be built locally using `quarto render` or `quarto preview`. R and the required packages must be installed on your local machine. CSV validation happens automatically via pre-commit hooks before commits (see `.pre-commit-config.yaml` in the website repo). The GitHub Actions workflow only renders and publishes the Quarto website.
-
-## Troubleshooting
-
-### CSV files not found
-- Ensure extraction script ran successfully
-- Check that CSV files are in `release/artifacts/term-tables/`
-- Verify submodule path in website repo
-
-### Empty term tables
-- Check that schemes/classes in `themes.yml` match ontology IRIs exactly
-- Verify terms exist in `ontology/dfo-salmon.ttl`
-- Check SPARQL query files for syntax errors
-
-### Website not updating
-- Ensure CSV files are committed to website repo
-- Check that `data/ontology/` submodule is up to date
-- Verify file paths in `.qmd` files match actual CSV locations
-
-### Theme tab not appearing
-- Check that the theme is included in both `themes` lists in `reference_info/data_standards/index.qmd`
-- Verify the CSV file exists in `data/ontology/release/artifacts/term-tables/`
-- Ensure the theme `id` matches the CSV filename (e.g., `hatchery_enhancement` → `hatchery-enhancement-terms.csv`)
 
 ## Best Practices
 
@@ -272,13 +249,4 @@ The website must be built locally using `quarto render` or `quarto preview`. R a
 5. **Keep theme IDs consistent** - changing them requires updating website files
 6. **Test locally** before committing - run extraction and verify CSV output
 
-## Related Documentation
-
-- [Conventions Guide](CONVENTIONS.md) - How to model terms in the ontology
-- [Contributing Guide](CONTRIBUTING.md) - General contribution workflow
-- [Validation Guide](VALIDATION_README.md) - How to validate ontology changes
-
-## Questions?
-
-Contact the Data Stewardship Unit or file an issue in the repository.
 

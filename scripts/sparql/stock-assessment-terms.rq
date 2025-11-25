@@ -86,7 +86,7 @@ PREFIX dcterms: <http://purl.org/dc/terms/>
 
 SELECT DISTINCT ?term ?termLabel ?definition ?definitionSourceText ?definitionSourceLink ?related ?relatedLabel ?relation
 WHERE {
-  VALUES ?term { <https://w3id.org/dfoc/salmon#EscapementMethod> <https://w3id.org/dfoc/salmon#EscapementSurveyEvent> <https://w3id.org/dfoc/salmon#Stock> <https://w3id.org/dfoc/salmon#ConservationUnit> <https://w3id.org/dfoc/salmon#Catch> <https://w3id.org/dfoc/salmon#Escapement> <https://w3id.org/dfoc/salmon#EscapementMeasurement> <https://w3id.org/dfoc/salmon#FishingMortality> <https://w3id.org/dfoc/salmon#FishingEffort> <https://w3id.org/dfoc/salmon#SpawnerAbundance> <https://w3id.org/dfoc/salmon#SurveyEvent> }
+  VALUES ?term { <https://w3id.org/dfoc/salmon#EscapementMethod> <https://w3id.org/dfoc/salmon#EscapementSurveyEvent> <https://w3id.org/dfoc/salmon#Stock> <https://w3id.org/dfoc/salmon#ConservationUnit> <https://w3id.org/dfoc/salmon#Catch> <https://w3id.org/dfoc/salmon#Escapement> <https://w3id.org/dfoc/salmon#EscapementMeasurement> <https://w3id.org/dfoc/salmon#FishingMortality> <https://w3id.org/dfoc/salmon#FishingEffort> <https://w3id.org/dfoc/salmon#SpawnerAbundance> <https://w3id.org/dfoc/salmon#SurveyEvent> <https://w3id.org/dfoc/salmon#BroodYear> }
   ?term a owl:Class .
   OPTIONAL {
     ?term skos:prefLabel ?prefLabelRaw .
