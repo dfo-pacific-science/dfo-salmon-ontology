@@ -8,51 +8,54 @@
 
 ### Persona A — Executives / Directors / Branch & Division Managers
 
-- **Goal:** Rapid assurance that the **evidence underpinning advice** is defensible, current, and **policy-ready**. Need to answer "Are we policy-ready and defensible today?" and "What changed since the last FSAR?"
-- **Stories:** Select **SMU + Year** → see **Policy & Legal Readiness** panel with hard gates; **Evidence Completeness** gauge; **Delta since last FSAR** summary; **download Advice Trace Pack** for briefing/audit.
+- **Goal:** Rapid assurance that the **evidence underpinning advice** is defensible, current, and **policy-ready**. Need to answer "Are we policy-ready and defensible today?" and "Which stocks require rebuilding plans under FSP?"
+- **Stories:** Select **SMU + Year** → see **Policy & Legal Readiness** panel with hard gates; **Evidence Completeness** gauge; **Summary table of stocks below LRP**; **download Advice Trace Pack** for briefing/audit.
 - **KPI Widgets:** Coverage (% SMUs with current FSAR), WSP status zone distribution, below-LRP triggers, evidence completeness (Complete / Gaps / Missing-Critical), timeliness (last update date)
 - **Acceptance:** **Policy & Legal Readiness** panel (hard gate on "Ready"):
   - WSP status zone for the SMU (with explicit mapping to LRP/USR and how assessed this cycle)
   - Precautionary Approach compliance: harvest control rule named + parameterized, with source & version
-  - Fisheries Act Fish Stocks provisions: below-LRP indicator (Yes/No), if Yes → Rebuilding Plan link + plan version/date
+  - Fisheries Act Fish Stocks provisions: below-LRP indicator (Yes/No), if Yes → "Rebuilding Plan Required" badge under FSP
   - **Evidence Completeness** reports _Ready_ when all required evidence + policy gates pass; _Partial_ when optional items missing; _Blocked_ when required items missing
-  - **Delta since last FSAR** (mandatory in Advice Trace Pack and on screen): Changed benchmarks, methods/code versions, data additions/removals, status zone, advice/rationale
-  - **Export** downloads the pack with structured deltas vs. previous FSAR
-  - **AC:** Exec sees a red "Policy trigger" chip whenever an SMU is below LRP and a Rebuilding Plan link is present
+  - **Summary data visualization/table:** Aggregated view of all stocks below LRP across SMUs with key indicators (SMU name, status zone, assessment year, rebuilding plan status)
+  - **Export** downloads the pack for briefing/audit
+  - **AC:** Exec sees a red "Policy trigger" chip whenever an SMU is below LRP indicating "Rebuilding Plan Required" under FSP
 
 ### Persona B — FSAR Lead Author
 
 - **Goal:** Ensure narrative coherence, benchmark justification, proxy rationale, and reviewer response integration for submission-ready FSARs.
 - **Responsibilities:** Narrative coherence, benchmark justification, proxy rationale, reviewer response integration
-- **Stories:** Generate submission-ready trace packs with benchmarks, uncertainty notes, proxy decisions, and methods provenance; integrate reviewer feedback; ensure policy compliance.
-- **Acceptance:** **AC:** Lead Author can generate a "submission-ready" trace pack with benchmarks, uncertainty notes, proxy decisions, and methods provenance in ≤2 clicks.
+- **Stories:** 
+  - Generate submission-ready trace packs with benchmarks, uncertainty notes, proxy decisions, and methods provenance; integrate reviewer feedback; ensure policy compliance.
+  - Start a new submission via a **Metadata Intake wizard**: select SMU/CU/Population/PFMA/Indicator scope + Year, fill required metadata using **controlled‑vocab dropdowns** sourced from SKOS, attach filled in Excel/CSV template data.
+- **Acceptance:** 
+  - Lead Author can generate a "submission-ready" trace pack with benchmarks, uncertainty notes, proxy decisions, data sources and methods provenance.
+  - Benchmark derivation method, input dataset(s), time window, uncertainty method, and version/date
+  - Back-calculable query (stored SQL and/or R script call) to regenerate the estimate  - **Downgrade Criteria**: Display downgrade criteria (from SKOS scheme) and make violations/assumptions visible
+
 
 ### Persona C — Reviewer / Stock Assessment Biologist
 
 - **Goal:** Verify methods, benchmarks, reproducibility; confirm uncertainty handling and scientific rigor.
-- **Stories:** Open **Method** → view parameters for both analytical and field methods (including field method downgrade criteria and Estimate Type Classification for specific SENs) + **exact code commit/tag/or dataset DOI**; inspect **Benchmarks** as first-class entities with derivation evidence; toggle **Uncertainty overlay** to confirm GSI/CI presence and propagation; review **CU inclusion/exclusion** transparency.
-- **One-click panels for:** benchmark derivation (type, value, method, sensitivity flags), uncertainty treatment (CIs/probabilities), GSI usage (used?, n, misassignment/CI), and downgrade criteria used
-- **Acceptance:** **Method** shows name/protocol/version/parameters + link to exact commit/tag/DOI used by figures/status. **Benchmarks** as explicit entities (dfo:LowerBenchmark, dfo:UpperBenchmark, dfo:TargetReference) with:
-  - Derivation method, input dataset(s), time window, uncertainty method, and version/date
-  - Back-calculable query (stored SPARQL and/or R script call) to regenerate the estimate
+- **Stories:** Open **Method** → view parameters for both analytical and field methods (including field method downgrade criteria and Estimate Type Classification for specific SENs) + **exact code commit/tag/SQL Query or dataset DOI**; inspect **Benchmarks** as first-class entities with derivation evidence; toggle **Uncertainty overlay** to confirm GSI/CI presence and propagation; review **CU inclusion/exclusion** transparency.
+- **One-click panels for:** benchmark derivation (type, value, method, sensitivity flags), uncertainty treatment (CIs/probabilities), GSI usage (used?, n, CI), and downgrade criteria used
+- **Acceptance:**
+  - **Method** shows name/protocol/version/parameters + link to exact commit/tag/DOI/dataset used by figures/status. **Benchmarks** as explicit entities (dfo:LowerBenchmark, dfo:UpperBenchmark, dfo:TargetReference) with:
   - **Reference Points** include type/value/derivation + benchmark method; sensitivity flagged
   - **Uncertainty overlay** badges missing **GSI**, **sample sizes**, or **status CIs**; click reveals missing fields
   - **CU Accounting**: CU list for the SMU explicitly lists included, excluded, and proxied CUs with machine-readable justification; GSI usage (Yes/No), sample sizes, and assignment uncertainty
-  - **Downgrade Criteria**: Display downgrade criteria (from SKOS scheme) and make violations/assumptions visible
   - **AC:** Reviewer can verify benchmark method & code version; GSI sample size & uncertainty are visible where relevant
 
 ### Persona D — Data Steward / FSAR Analyst Co-author
 
 - **Goal:** Ensure data standards are met (terms, provenance, data quality, uncertainty); fail fast; identify missing metadata or poor data stewardship practices to help support FSAR authors meet best practices. Ship FSARs quickly. Upload draft data to check for compliance, completeness etc.
 - **Stories:**
-  - Start a new submission via a **Metadata Intake wizard**: select SMU + Year, fill required metadata using **controlled‑vocab dropdowns** sourced from SKOS, attach Excel/CSV.
   - Click **Validate** to run SHACL + R validator; see inline errors (row/column, severity, code, fix‑hint); correct and re‑validate until state = **Ready**.
   - Save/resume drafts; download a tailored **Excel template** for the selected scope (Population, CU, SMU, Indicator Stock, PFMA) pre‑filled with valid enumerations.
   - Open **Evidence Drawer** for provenance minimum and submission audit (who/when, validator versions).
 - **Acceptance:**
   - **Validator gating:** "Ready" is blocked unless all required metadata are present: method registry term + version, benchmark derivation record, data coverage window, unit + scale, provenance (PROV-O), and person‑time stamps (who/when).
   - **Error contract:** Validation returns structured errors with severity (critical/optional), row/column/file, error code, message, and fix‑hint; non‑zero on critical errors; zero only when Ready.
-  - **Controlled‑vocab** enforcement for `spawner_origin`, `data_source_type`, `reference_point_type`, `downgrade_criterion` via SKOS schemes in `graph:vocab`; off‑list values rejected with friendly messages.
+  - **Controlled‑vocab** enforcement for `spawner_origin`, `data_source_type`, `reference_point_type`, `downgrade_criterion` via SKOS schemes in dfo vocab; off‑list values rejected with friendly messages.
   - **Provenance minimum** is visible at the top of the submission and in the Evidence Drawer: `data_source`, `method`, `code_version/hash`, `reviewer`, `date`.
   - **Schema alignment**: SPSR fields align with validator and FSAR reporting (explicit LRP/USR/TR records, status decision + rationale, CI fields).
   - **Submission lifecycle:** Draft → Validated → Ready → Ingested, with audit events (who/when/tool versions). Human review and approval required before ingestion.
@@ -61,7 +64,7 @@
 
 ### Benchmark Transparency (Core)
 
-**Story:** As a Reviewer, I need to verify that all reference points have transparent derivation methods and sensitivity flags.
+**Story:** As a Reviewer, I need to verify that all reference points have been calculated using defensible methods that I can audit and there are adeuqate measures of uncertainty and clear caveats/data quality flags.
 
 **Acceptance Criteria:**
 - Add controlled vocab for `reference_point_type` (e.g., LRP/USR/Sgen/Smsy) and `benchmark_method`
@@ -77,18 +80,17 @@
 
 ### Mixed-Stock Risk (GSI)
 
-**Story:** As a Reviewer, I need to assess GSI usage and assignment uncertainty for mixed-stock fisheries.
+**Story:** As a Reviewer, I need to assess GSI usage and assignment uncertainty for proxy assignment
 
 **Acceptance Criteria:**
 - Add fields: `gsiUsed` (bool), `gsiSampleSize` (int), `gsiAssignmentUncertainty` (text/CI or % misID), `baseline_reference`
-- **AC:** If stock is mixed-fishery AND `gsiUsed` = false → show risk chip ("No GSI apportionment") and require rationale
+- **AC:** If gsi proxy `decision` = `proxied` AND `gsiUsed` = false → show risk chip ("No GSI apportionment") and require rationale
 
 ### Uncertainty Handling
 
 **Story:** As a Reviewer, I need to verify that key estimates include confidence intervals or documented rationale for absence.
 
 **Acceptance Criteria:**
-- Add `status_confidence` (probabilities/CI) and `downgradeReason` (controlled list) for quality-downgraded inputs
 - **AC:** Key estimates must include CI or flagged rationale for absence; status shows P(Green/Amber/Red) or a CI note
 
 ### Policy Gates & Legal Readiness
@@ -96,8 +98,8 @@
 **Story:** As an Executive, I need to ensure compliance with Fisheries Act Fish Stocks provisions and rebuilding requirements.
 
 **Acceptance Criteria:**
-- Add explicit checks: `belowLRP` (bool), `RebuildingPlanURL`, `hcrIdentifier`/`hcrParameters`
-- **AC:** `belowLRP` = true requires a valid Rebuilding Plan link or shows Missing-Critical
+- Add explicit checks: `belowLRP` (bool)
+- **AC:** `belowLRP` = true requires a  "Rebuilding Plan Required" Badge
 
 ## 2) UI/UX Inspiration
 
@@ -152,17 +154,16 @@
     - **Management Decision sub-node**: Shows decision type, date, decision maker (branch or division), rationale, supporting advice
     - **Legal Framework sub-node**: Shows framework name, relevant sections, requirements, compliance status
 
-- **Evidence Drawer (right slide‑over):** Tabs **Data • Methods • Benchmarks • Uncertainty • Policy/Legal • Changes**. Always shows **provenance minimum** (source, method, code commit, reviewer/date) at the top.
+- **Evidence Drawer (right slide‑over):** Tabs **Data • Methods • Benchmarks • Uncertainty • Policy/Legal**. Always shows **provenance minimum** (source, method, code commit, reviewer/date) at the top.
   - **Data tab:** Input datasets, data sources, coverage windows, units/scales, QC status
   - **Methods tab:** Method registry terms, versions, parameters, code commits/DOIs, reproducibility links
   - **Benchmarks tab:** LRP/USR/TR entities with derivation evidence, uncertainty methods, regeneration queries
   - **Uncertainty tab:** Status intervals, GSI sample sizes, assignment uncertainty, downgrade criteria
-  - **Policy/Legal tab:** WSP zone mapping, HCR parameters, Fisheries Act triggers, rebuilding plan links
-  - **Changes tab:** Delta vs. last FSAR (data, methods, benchmarks, status, advice, rationale)
+  - **Policy/Legal tab:** WSP zone mapping, HCR parameters, Fisheries Act triggers, "Rebuilding Plan Required" badge display
   - **Documents tab:** Lists linked artifacts with icon, title, doc number, year, size; actions: **Open**, **Download**, **Copy citation**.
 - **Top ribbon:** Readiness pill (Ready / Partial / Blocked) + "Why not Ready?" popover with specific missing items
-- **Always show:** Last FSAR vs This Cycle mini-diff
-- **Export button:** Packages the **Advice Trace Pack** (versioned JSON-LD bundle with structured deltas vs. previous FSAR, figures, summary pdf of advice trace node metadata). Includes a **/docs/** subfolder with cached PDFs if allowed and an optional /data/ folder if toggled.
+- **Summary panel:** Table/data visualization of all stocks below LRP across SMUs (SMU name, status zone, assessment year, rebuilding plan status badge)
+- **Export button:** Packages the **Advice Trace Pack** (versioned JSON-LD bundle with figures, summary pdf of advice trace node metadata). Includes a **/docs/** subfolder with cached PDFs if allowed and an optional /data/ folder if toggled.
 
 This will be an interactive hierarchical tree style graph with progressive disclosure. The initial view shows all CUs for the selected SMU flowing to the SMU and then to Advice, with Management Decision and Legal Framework appearing as sub-nodes when Advice is expanded. Clicking any node reveals additional nodes and specific details in the Evidence Drawer. We need rich relationships (e.g., multiple datasets feeding multiple methods) and should use a **node‑link view** with a toggle for specific profiles for Biologist/Scientist, Data Steward/Custodian, and Executive/Director which shows different levels of details depending on their persona. Use Cytoscape.js or D3 or other custom javascript as needed.
 
@@ -316,17 +317,17 @@ WSP metric positions trigger decision requirements through `dfoc:Condition` patt
 
 **A2. Uncertainty:** Status decision must include interval or categorical uncertainty; where estimates are downgraded, the downgrade criterion (from SKOS scheme) is recorded and shown. Key estimates must include CI or flagged rationale for absence; status shows P(Green/Amber/Red) or a CI note.
 
-**A3. Policy & Legal Readiness:** "Ready" requires: WSP zone computed and justified; named Harvest Control Rule with parameters and version; Fisheries Act Fish Stocks check (below-LRP flag) and, if true, link to Rebuilding Plan. `belowLRP` = true requires a valid Rebuilding Plan link or shows Missing-Critical.
+**A3. Policy & Legal Readiness:** "Ready" requires: WSP zone computed and justified; named Harvest Control Rule with parameters and version; Fisheries Act Fish Stocks check (below-LRP flag) and, if true, "Rebuilding Plan Required" badge displayed under FSP. `belowLRP` = true requires a "Rebuilding Plan Required" badge (no link validation required).
 
-**A4. Change Log:** Advice Trace Pack must include structured deltas vs. previous FSAR: data, methods, benchmarks, status, advice, rationale. Lead Author can export a Change Summary page between cycles.
+**A4. Summary Data Visualization:** System must provide a summary table/data visualization of all stocks below LRP across SMUs, showing key indicators: SMU name, status zone, assessment year, and rebuilding plan status badge.
 
 **A5. CU Accounting:** CU list for the SMU must explicitly list included, excluded, and proxied CUs with machine-readable justification; GSI usage (Yes/No), sample sizes, and assignment uncertainty. Any CU ≠ "included" requires justification + reviewer sign-off or it fails validation (flagged Missing-Critical).
 
 **A6. Intake & Validation:** Controlled‑vocab fields are enforced via SKOS; SHACL + R validator must pass all critical checks before a submission becomes "Ready". Validation returns structured errors (severity, row/col, code, fix‑hint). Submission lifecycle is Draft → Validated → Ready → Ingested, with audit events and human approval before ingestion. Authors resolve all Critical errors locally; validator returns 0 Critical before upload is permitted.
 
-**A7. GSI Risk Assessment:** If stock is mixed-fishery AND `gsiUsed` = false → show risk chip ("No GSI apportionment") and require rationale. GSI usage fields must include `gsiUsed` (bool), `gsiSampleSize` (int), `gsiAssignmentUncertainty` (text/CI or % misID), `baseline_reference`.
+**A7. GSI Risk Assessment:** If gsi proxy `decision` = `proxied` AND `gsiUsed` = false → show risk chip ("No GSI apportionment") and require rationale. GSI usage fields must include `gsiUsed` (bool), `gsiSampleSize` (int), `gsiAssignmentUncertainty` (text/CI or % misID), `baseline_reference`.
 
-**A8. Executive KPIs:** Exec sees coverage and completeness at a glance; Reviewer filters by risk type to accelerate audits. Exec sees a red "Policy trigger" chip whenever an SMU is below LRP and a Rebuilding Plan link is present.
+**A8. Executive KPIs:** Exec sees coverage and completeness at a glance; Reviewer filters by risk type to accelerate audits. Exec sees a red "Policy trigger" chip whenever an SMU is below LRP indicating "Rebuilding Plan Required" under FSP.
 
 **A9. Lead Author Workflow:** Lead Author can generate a "submission-ready" trace pack with benchmarks, uncertainty notes, proxy decisions, and methods provenance in ≤2 clicks.
 
@@ -476,7 +477,8 @@ Browser ──(HTMX)──▶ Django Templates (SPSR)
 - **CU Accounting:** Inclusion/exclusion/proxy decisions with justification and reviewer sign-off
 - **GSI Risk Assessment:** Mixed-stock fishery risk chips and GSI usage tracking
 - **Uncertainty Handling:** Status confidence intervals and downgrade reason tracking
-- **Policy Gates:** Below-LRP triggers and rebuilding plan compliance checks
+- **Policy Gates:** Below-LRP triggers with "Rebuilding Plan Required" badge under FSP
+- **Summary Data Visualization:** Table/data viz of all stocks below LRP across SMUs
 - **Risk Chips & Completeness Meter:** Visual indicators for coverage and completeness
 - **Accessibility:** Color-blind-safe palette, keyboard navigation, printable trace packs
 
@@ -490,7 +492,8 @@ Browser ──(HTMX)──▶ Django Templates (SPSR)
 - **Enhanced Error Reporting:** Row/column targeted errors with fix-hints, error severity (Critical/High/Info)
 - **Template System:** Read-only vocab sheets powering data validation dropdowns
 - **Risk Assessment Engine:** Mixed-stock fishery + GSI usage risk chip generation
-- **Policy Compliance Engine:** Below-LRP trigger detection and rebuilding plan validation
+- **Policy Compliance Engine:** Below-LRP trigger detection with "Rebuilding Plan Required" badge display
+- **Summary Data Visualization Engine:** Aggregation and display of stocks below LRP across SMUs
 - **Accessibility Features:** Color-blind-safe status palette, keyboard navigation, structured headings
 - **Export Enhancement:** Printable Advice Trace Pack with figures and evidence appendix
 
@@ -499,11 +502,12 @@ Browser ──(HTMX)──▶ Django Templates (SPSR)
 **Enhanced Functionality:**
 
 - **Multi-SMU Support:** Expand beyond Barkley Sockeye with cross-SMU comparisons
+- **Change Intelligence:** Delta vs. last FSAR tracking (changed benchmarks, methods/code versions, data additions/removals, status zone, advice/rationale); structured deltas in Advice Trace Pack; Change Summary page export between cycles
 - **Advanced Analytics:** Cross-cycle comparisons, trend analysis, status aggregation validation
 - **Rich Visualizations:** Interactive CU-first hierarchical graphs, network views, status zone dashboards
 - **Automated Classification:** SHACL-based estimate type assignment and status derivation
 - **Integration APIs:** SPSR/GRD real-time data feeds with hierarchical data structure
-- **Advanced Export:** Custom report generation, hierarchical data visualization packages
+- **Advanced Export:** Custom report generation, hierarchical data visualization packages with change deltas
 
 **Advanced Technical Features:**
 
@@ -521,12 +525,12 @@ Ship a versioned JSON-LD bundle with:
 - **dfo:StatusAssessment** (decision, uncertainty, inputs)
 - **dfo:LowerBenchmark** / **dfo:UpperBenchmark** / **dfo:TargetReference** (as first-class entities with derivation evidence)
 - **prov:wasGeneratedBy** links to code DOIs/commits and method registry terms
-- **dfo:PolicyReadiness** node (WSP zone, HCR id+params, Fish Stocks trigger + rebuilding link)
-- **dfo:ChangeLog** list of diffs vs last FSAR
+- **dfo:PolicyReadiness** node (WSP zone, HCR id+params, Fish Stocks trigger with "Rebuilding Plan Required" badge)
 - **dfo:CUAccounting** (included/excluded/proxied CUs with justification)
 - **dfo:GSIUsage** (sample sizes, assignment uncertainty)
+- **dfo:BelowLRPSummary** (aggregated table/data viz of stocks below LRP)
 
-**Required Fields Checklist (v0.2)** `data_source_type`, `spawner_origin`, `proxy_justification`, `method_name`, `method_version`, `code_commit`, `reference_point_type`, `benchmark_method`, `benchmark_sensitivity`, `status_value`, `status_ci`, `gsi_sample_size/ci`, `gsiUsed`, `gsiAssignmentUncertainty`, `baseline_reference`, `status_confidence`, `downgradeReason`, `belowLRP`, `rebuildingPlanURL`, `hcrIdentifier`, `hcrParameters`, `scientific_output_text`, `reviewer`, `date`, `decision_id`, `policy_readiness_flags`, `change_log`.
+**Required Fields Checklist (v0.2)** `data_source_type`, `spawner_origin`, `proxy_justification`, `method_name`, `method_version`, `code_commit`, `reference_point_type`, `benchmark_method`, `benchmark_sensitivity`, `status_value`, `status_ci`, `gsi_sample_size/ci`, `gsiUsed`, `gsiAssignmentUncertainty`, `baseline_reference`, `status_confidence`, `downgradeReason`, `belowLRP`, `hcrIdentifier`, `hcrParameters`, `scientific_output_text`, `reviewer`, `date`, `decision_id`, `policy_readiness_flags`.
 
 ---
 
@@ -818,23 +822,19 @@ WHERE {
 **CQ-POL-2: What Fisheries Act Fish Stocks provisions apply to this SMU?**
 ```sparql
 PREFIX dfoc: <https://w3id.org/dfoc/salmon#>
-SELECT ?smu ?belowLRP ?rebuildingPlan ?planVersion ?planDate
+SELECT ?smu ?belowLRP ?rebuildingPlanRequired
 WHERE {
   ?smu a dfoc:StockManagementUnit ;
        rdfs:label "Barkley Sockeye"@en ;
        dfoc:hasPolicyReadiness ?policy .
   ?policy dfoc:belowLRP ?belowLRP .
-  OPTIONAL {
-    ?policy dfoc:rebuildingPlanURL ?rebuildingPlan .
-    BIND(?rebuildingPlan AS ?rebuildingPlan)
-    # Note: version and date would need to be extracted from the rebuilding plan document
-  }
+  BIND(IF(?belowLRP = true, "Rebuilding Plan Required under FSP", "No rebuilding plan required") AS ?rebuildingPlanRequired)
 }
 ```
 
-### Change Intelligence Questions
+### Change Intelligence Questions (Future Feature)
 
-**CQ-CHG-1: What changed since the last FSAR cycle?**
+**CQ-CHG-1: What changed since the last FSAR cycle?** _(Note: This is a post-MVP feature)_
 ```sparql
 PREFIX dfoc: <https://w3id.org/dfoc/salmon#>
 SELECT ?smu ?changeCategory ?changeDetail
@@ -984,10 +984,27 @@ WHERE {
 
 ### Policy and Legal Compliance Questions
 
+**CQ-POLICY-0: What is the summary of all stocks below LRP across SMUs?**
+```sparql
+PREFIX dfoc: <https://w3id.org/dfoc/salmon#>
+SELECT ?smu ?smuLabel ?statusZone ?assessmentYear ?rebuildingPlanBadge
+WHERE {
+  ?smu a dfoc:StockManagementUnit ;
+       rdfs:label ?smuLabel ;
+       dfoc:hasStatusAssessment ?assessment .
+  ?assessment dfoc:hasStatusZone ?statusZone ;
+              dfoc:assessmentYear ?assessmentYear ;
+              dfoc:hasPolicyReadiness ?policy .
+  ?policy dfoc:belowLRP true .
+  BIND("Rebuilding Plan Required under FSP" AS ?rebuildingPlanBadge)
+}
+ORDER BY ?smuLabel
+```
+
 **CQ-POLICY-1: What policy triggers and legal requirements apply to this SMU?**
 ```sparql
 PREFIX dfoc: <https://w3id.org/dfoc/salmon#>
-SELECT ?smu ?belowLRP ?rebuildingPlanURL ?hcrIdentifier ?hcrParameters ?policyTrigger ?complianceStatus
+SELECT ?smu ?belowLRP ?hcrIdentifier ?hcrParameters ?policyTrigger ?rebuildingPlanBadge
 WHERE {
   ?smu a dfoc:StockManagementUnit ;
        rdfs:label "Barkley Sockeye"@en ;
@@ -996,9 +1013,8 @@ WHERE {
   ?policy dfoc:belowLRP ?belowLRP ;
           dfoc:hcrIdentifier ?hcrIdentifier ;
           dfoc:hcrParameters ?hcrParameters .
-  OPTIONAL { ?policy dfoc:rebuildingPlanURL ?rebuildingPlanURL }
-  BIND(IF(?belowLRP = true && BOUND(?rebuildingPlanURL), "Compliant", "Policy Trigger") AS ?policyTrigger)
-  BIND(IF(?belowLRP = true && !BOUND(?rebuildingPlanURL), "Missing-Critical", "Ready") AS ?complianceStatus)
+  BIND(IF(?belowLRP = true, "Policy Trigger", "No trigger") AS ?policyTrigger)
+  BIND(IF(?belowLRP = true, "Rebuilding Plan Required under FSP", "No rebuilding plan required") AS ?rebuildingPlanBadge)
 }
 ```
 
@@ -1027,7 +1043,7 @@ WHERE {
 }
 ```
 
-**Required Fields Checklist (v0.2)** `data_source_type`, `spawner_origin`, `proxy_justification`, `method_name`, `method_version`, `code_commit`, `reference_point_type`, `benchmark_method`, `benchmark_sensitivity`, `status_value`, `status_ci`, `gsi_sample_size/ci`, `gsiUsed`, `gsiAssignmentUncertainty`, `baseline_reference`, `status_confidence`, `downgradeReason`, `belowLRP`, `rebuildingPlanURL`, `hcrIdentifier`, `hcrParameters`, `scientific_output_text`, `reviewer`, `date`, `decision_id`, `policy_readiness_flags`, `change_log`.
+**Required Fields Checklist (v0.2)** `data_source_type`, `spawner_origin`, `proxy_justification`, `method_name`, `method_version`, `code_commit`, `reference_point_type`, `benchmark_method`, `benchmark_sensitivity`, `status_value`, `status_ci`, `gsi_sample_size/ci`, `gsiUsed`, `gsiAssignmentUncertainty`, `baseline_reference`, `status_confidence`, `downgradeReason`, `belowLRP`, `hcrIdentifier`, `hcrParameters`, `scientific_output_text`, `reviewer`, `date`, `decision_id`, `policy_readiness_flags`.
 
 ### WSP Rapid-Status Questions
 
@@ -1271,7 +1287,7 @@ Your current SPSR tables already include LRP/USR/TR fields and rich age/harvest 
 
 - **Add Benchmarks table** (or JSON field) with: `type` {LRP, USR, TR}, `value`, `units`, `method_ref`, `inputs_ref`, `time_window`, `uncertainty`, `version`, `derived_on`, `derived_by`, `reference_point_type` (controlled vocab), `benchmark_method` (controlled vocab), `benchmark_sensitivity` (flags)
 - **Add StatusAssessment fieldset** per SMU-year: `status_zone`, `decision_basis` (link to benchmark ids), `uncertainty_summary`, `downgrade_reason?`, `reviewer`, `date`, `status_confidence` (probabilities/CI), `ciLower`, `ciUpper`, `probabilityGreen`, `probabilityAmber`, `probabilityRed`
-- **Add PolicyReadiness flags**: `below_lrp` (bool), `hcr_id`, `hcr_params`, `rebuilding_plan_url`, `hcrIdentifier`, `hcrParameters`
+- **Add PolicyReadiness flags**: `below_lrp` (bool), `hcr_id`, `hcr_params`, `hcrIdentifier`, `hcrParameters`
 - **Add Submission entities** (for intake):
   - `Submission`: `id`, `smu`, `year`, `user_id`, `state` {Draft|Validated|Ready|Ingested}, `provenance_minimum` fields (`method`, `version`, `code_commit`, `reviewer`, `date`), `created_at`, `updated_at`
   - `ValidationRun`: `submission_id`, `tool` {SHACL|R}, `version`, `timestamp`, `passed` (bool), `error_json`
@@ -1284,7 +1300,7 @@ Your current SPSR tables already include LRP/USR/TR fields and rich age/harvest 
 
 **Validator & Data Model Alignment:**
 
-- **Add/ensure fields:** `benchmark_method`, `reference_point_type`, `proxy_justification`, `code_commit`, `reviewer`, `date`, `gsi_sample_size`, `gsi_ci`, `gsiUsed`, `gsiAssignmentUncertainty`, `baseline_reference`, `status_confidence`, `downgradeReason`, `belowLRP`, `rebuildingPlanURL`, `hcrIdentifier`, `hcrParameters`
+- **Add/ensure fields:** `benchmark_method`, `reference_point_type`, `proxy_justification`, `code_commit`, `reviewer`, `date`, `gsi_sample_size`, `gsi_ci`, `gsiUsed`, `gsiAssignmentUncertainty`, `baseline_reference`, `status_confidence`, `downgradeReason`, `belowLRP`, `hcrIdentifier`, `hcrParameters`
 - **SHACL shapes:** required vs optional by decision context; friendly messages; error severity (Critical/High/Info)
 - **R validator:** fail‑fast CLI (non‑zero on error), row/col pinpoint, fix‑hints mapping
 - **GRD join:** prefer `Run_ID + Sample_ID` (optional `Assay_ID`) for Barkley
@@ -1292,7 +1308,7 @@ Your current SPSR tables already include LRP/USR/TR fields and rich age/harvest 
 - **Permissions & gating:** Only whitelisted users (Django auth/email list) can submit; human review required before ingestion.
 - **Template tabs:** Read-only vocab sheets (RP types, methods, status zones) powering data validation dropdowns
 - **Risk assessment:** Mixed-stock fishery + `gsiUsed` = false → show risk chip and require rationale
-- **Policy compliance:** `belowLRP` = true requires valid Rebuilding Plan link or shows Missing-Critical
+- **Policy compliance:** `belowLRP` = true requires "Rebuilding Plan Required" badge display under FSP
 
 These are small additive tables/columns that unlock everything above without refactoring your time-series or age structures.
 
@@ -1321,18 +1337,18 @@ These are small additive tables/columns that unlock everything above without ref
 
 **Weeks 3–4:**
 
-- Implement SPARQL Q1–Q9 (enhanced MVP queries including Policy/Legal, Change Intelligence, CU Accounting)
+- Implement SPARQL Q1–Q9 (enhanced MVP queries including Policy/Legal, CU Accounting, Summary Below-LRP query)
 - SHACL v0.1 for basic validation + policy readiness gates
 - Excel template + R validator v0.1 with enhanced metadata requirements
-- Generate first Advice Trace Pack with structured deltas vs. previous FSAR
+- Generate first Advice Trace Pack
 - **Implement CU Accounting** (included/excluded/proxied CUs with justification)
 - Integrate **SHACL + R** adapters; return normalized error JSON; add submission state machine (Draft/Validated/Ready)
 - Define/decide **R validator run mode** (sync vs async) and document as decision
 
 **Weeks 5–6:**
 
-- Add **Policy & Legal Readiness** panel with hard gates
-- Add **Change Intelligence** (delta vs. last FSAR)
+- Add **Policy & Legal Readiness** panel with hard gates and "Rebuilding Plan Required" badge
+- Add **Summary data visualization/table** of all stocks below LRP across SMUs
 - Wire enhanced UI (picker, CU-first hierarchical flow, drawer with new tabs, export)
 - **Implement GSI Usage tracking** (sample sizes, assignment uncertainty)
 - **Add Downgrade Criteria** display and validation
@@ -1341,10 +1357,10 @@ These are small additive tables/columns that unlock everything above without ref
 
 **Weeks 7–8:**
 
-- Acceptance sweep (enhanced badges, policy overlays, export validations with deltas)
+- Acceptance sweep (enhanced badges, policy overlays, summary table, export validations)
 - **Implement Benchmark entities** as first-class objects with derivation evidence
 - **Investigate SIL/SEN integration** with Minh Doan's PR
-- Docs + exec one‑pager; demo handoff with policy readiness demonstration
-- **Plan post-MVP features** and DPROD integration
+- Docs + exec one‑pager; demo handoff with policy readiness demonstration and summary table
+- **Plan post-MVP features** (including Change Intelligence/deltas) and DPROD integration
 - Acceptance sweep for **intake** (permissions, audit events, Ready gating)
 - Document submission lifecycle and error contract; add API contract tests

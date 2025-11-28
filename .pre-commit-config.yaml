@@ -1,0 +1,11 @@
+repos:
+  - repo: local
+    hooks:
+      - id: validate-ontology
+        name: Validate ontology with ROBOT
+        entry: scripts/pre-commit-validate-ontology.sh
+        language: system
+        files: ^ontology/.*\.ttl$
+        pass_filenames: false
+        always_run: false
+
