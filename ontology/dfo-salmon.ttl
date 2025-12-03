@@ -88,20 +88,6 @@ xsd:anyURI   a rdfs:Datatype .
 # SKOS Schemes for Controlled Vocabularies
 #################################################################
 
-skos:Concept a owl:Class ;
-  rdfs:label "Concept"@en ;
-  skos:prefLabel "Concept"@en ;
-  skos:definition "A SKOS Concept is an idea or notion; a unit of thought. Concepts are the fundamental building blocks of SKOS vocabularies."@en ;
-  iao:0000115 "A SKOS Concept is an idea or notion; a unit of thought used to build controlled vocabularies."@en ;
-  rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core#> .
-  
-skos:ConceptScheme a owl:Class ;
-  rdfs:label "Concept Scheme"@en ;
-  skos:prefLabel "Concept Scheme"@en ;
-  skos:definition "A SKOS Concept Scheme is an organized collection of concepts, typically used to represent controlled vocabularies or thesauri within a specific domain."@en ;
-  iao:0000115 "A SKOS Concept Scheme is an organized collection of concepts used to structure a controlled vocabulary within a given domain."@en ;
-  rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core#> .
-
 :EnumerationMethodScheme a skos:ConceptScheme ;
   skos:prefLabel "Enumeration Method Scheme"@en ;
   skos:hasTopConcept :EnumerationMethod ;
@@ -336,25 +322,21 @@ skos:ConceptScheme a owl:Class ;
 
 bfo:0000015 a owl:Class ;
   rdfs:label "process"@en ;
-  skos:prefLabel "process"@en ;
   iao:0000115 "An occurrent that has temporal parts and for some time t, p s-depends_on some material entity at t."@en ;
   rdfs:isDefinedBy <http://purl.obolibrary.org/obo/bfo.owl> .
 
 bfo:0000020 a owl:Class ;
   rdfs:label "specifically dependent continuant"@en ;
-  skos:prefLabel "specifically dependent continuant"@en ;
   iao:0000115 "b is a specifically dependent continuant = Def. b is a continuant & there is some independent continuant c which is not a spatial region and which is such that b s-depends_on c at every time t during the course of b’s existence. (axiom label in BFO2 Reference: [050-003])"@en ;
   rdfs:isDefinedBy <http://purl.obolibrary.org/obo/bfo.owl> .
 
 bfo:0000040 a owl:Class ;
   rdfs:label "material entity"@en ;
-  skos:prefLabel "material entity"@en ;
   iao:0000115 "An independent continuant that is spatially extended whose identity is independent of that of other entities and can be maintained through time."@en ;
   rdfs:isDefinedBy <http://purl.obolibrary.org/obo/bfo.owl> .
 
 bfo:0000031 a owl:Class ;
   rdfs:label "generically dependent continuant"@en ;
-  skos:prefLabel "generically dependent continuant"@en ;
   iao:0000115 "A continuant that is dependent on one or more independent continuants and whose instances can be multiply instantiated."@en ;
   rdfs:isDefinedBy <http://purl.obolibrary.org/obo/bfo.owl> .
 
@@ -365,38 +347,40 @@ bfo:0000031 a owl:Class ;
 
 iao:0000030 a owl:Class ;
   rdfs:label "information content entity"@en ;
-  skos:prefLabel "information content entity"@en ;
   rdfs:subClassOf bfo:0000031 ;
   iao:0000115 "A generically dependent continuant that is about some thing."@en ;
   rdfs:isDefinedBy <http://purl.obolibrary.org/obo/iao.owl> .
 
 iao:0000033 a owl:Class ;
   rdfs:label "directive information entity"@en ;
-  skos:prefLabel "directive information entity"@en ;
   rdfs:subClassOf iao:0000030 ;
   iao:0000115 "An information content entity whose concretizations indicate to their bearer how to realize them in a process."@en ;
   rdfs:isDefinedBy <http://purl.obolibrary.org/obo/iao.owl> .
 
+iao:0000104 a owl:Class ;
+  rdfs:label "plan specification"@en ;
+  rdfs:subClassOf iao:0000030 ;
+  iao:0000115 "A directive information entity with action specifications and objective specifications as parts, and that may be concretized as a realizable entity that, if realized, is realized in a process in which the bearer tries to achieve the objectives by taking the actions specified."@en ;
+  rdfs:isDefinedBy <http://purl.obolibrary.org/obo/iao.owl> . 
+
 iao:0000109 a owl:Class ;
   rdfs:label "measurement datum"@en ;
-  skos:prefLabel "measurement datum"@en ;
   rdfs:subClassOf iao:0000030 ;
   iao:0000115 "A measurement datum is an information content entity that is a recording of the output of a measurement such as produced by a device."@en ;
   rdfs:isDefinedBy <http://purl.obolibrary.org/obo/iao.owl> .
 
 iao:0000310 a owl:Class ;
   rdfs:label "document"@en ;
-  skos:prefLabel "document"@en ;
   rdfs:subClassOf iao:0000030 ;
   iao:0000115 "A collection of information content entities intended to be understood together as a whole."@en ;
   rdfs:isDefinedBy <http://purl.obolibrary.org/obo/iao.owl> .
 
 iao:0000115 a owl:AnnotationProperty ;
-  skos:prefLabel "definition"@en ;
+  rdfs:label "definition"@en ;
   rdfs:isDefinedBy <http://purl.obolibrary.org/obo/iao.owl> .
 
 iao:0000119 a owl:AnnotationProperty ;
-  skos:prefLabel "definition source"@en ;
+  rdfs:label "definition source"@en ;
   rdfs:isDefinedBy <http://purl.obolibrary.org/obo/iao.owl> .
 
 #################################################################
@@ -405,7 +389,6 @@ iao:0000119 a owl:AnnotationProperty ;
 
 oa:Annotation a owl:Class ;
   rdfs:label "Annotation"@en ;
-  skos:prefLabel "Annotation"@en ;
   rdfs:subClassOf iao:0000030 ;
   iao:0000115 "The class for Web Annotations."@en ;
   iao:0000119 <http://www.w3.org/ns/oa#Annotation> ;
@@ -417,7 +400,6 @@ oa:Annotation a owl:Class ;
 
 dqv:Dimension a owl:Class ;
   rdfs:label "Dimension"@en ;
-  skos:prefLabel "Dimension"@en ;
   rdfs:subClassOf skos:Concept ; # this is taken directly from DQV
   iao:0000115 "Represents criteria relevant for assessing quality. Each quality dimension must have one or more metric to measure it. A dimension is linked with a category using the dqv:inCategory property."@en ;
   iao:0000119 <https://www.w3.org/TR/vocab-dqv/#dqv:Dimension> ;
@@ -425,7 +407,6 @@ dqv:Dimension a owl:Class ;
 
 dqv:QualityAnnotation a owl:Class ;
   rdfs:label "Quality Annotation"@en ;
-  skos:prefLabel "Quality Annotation"@en ;
   rdfs:subClassOf oa:Annotation;
   iao:0000115 "Represents quality annotations, including ratings, quality certificates or feedback that can be associated to datasets or distributions. Quality annotations must have one oa:motivatedBy statement with an instance of oa:Motivation (and skos:Concept) that reflects a quality assessment purpose. We define this instance as dqv:qualityAssessment."@en ;
   iao:0000119 <https://www.w3.org/TR/vocab-dqv/#dqv:QualityAnnotation> ;
@@ -433,10 +414,9 @@ dqv:QualityAnnotation a owl:Class ;
 
 dqv:inDimension a owl:ObjectProperty ;
   rdfs:label "in dimension"@en ;
-  skos:prefLabel "in dimension"@en ;
   iao:0000115 "Represents the dimensions a quality metric, certificate and annotation allow a measurement of."@en ;
   iao:0000119 <https://www.w3.org/TR/vocab-dqv/#dqv:inDimension> ;
-  iao:0000115 "Dimensions are meant to systematically organize metrics, quality certificates and quality annotations. The Data Quality Vocabulary defines no specific cardinality constraints for dqv:inDimension, since distinct quality frameworks might have different perspectives over a metric. A metric may therefore be associated to more than one dimension. However, those who define new quality metrics should try to avoid this as much as possible and assign only one dimension to the metrics they define. More than one dimension can be indicated for each quality annotation or certificate."@en ;
+  rdfs:comment "Dimensions are meant to systematically organize metrics, quality certificates and quality annotations. The Data Quality Vocabulary defines no specific cardinality constraints for dqv:inDimension, since distinct quality frameworks might have different perspectives over a metric. A metric may therefore be associated to more than one dimension. However, those who define new quality metrics should try to avoid this as much as possible and assign only one dimension to the metrics they define. More than one dimension can be indicated for each quality annotation or certificate."@en ;
   rdfs:isDefinedBy <http://www.w3.org/ns/dqv#> .
 
 #################################################################
@@ -446,7 +426,7 @@ dqv:inDimension a owl:ObjectProperty ;
 
 # Material entities 
 dwc:Organism a owl:Class ;
-  skos:prefLabel "Organism"@en ;
+  rdfs:label "Organism"@en ;
   rdfs:subClassOf bfo:0000040 ;
   iao:0000115 "A particular organism or defined group of organisms considered to be taxonomically homogeneous."@en ;
   iao:0000119 <https://dwc.tdwg.org/list/#dwc_Organism> ;
@@ -454,7 +434,6 @@ dwc:Organism a owl:Class ;
 
 dwc:MaterialEntity a owl:Class ;
   rdfs:label "Material Entity"@en ;
-  skos:prefLabel "Material Entity"@en ;
   rdfs:subClassOf bfo:0000040 ;
   iao:0000115 "An entity that can be identified, exists for some period of time, and consists in whole or in part of physical matter while it exists."@en ;
   iao:0000119 <https://dwc.tdwg.org/list/#dwc_MaterialEntity> ;
@@ -462,7 +441,6 @@ dwc:MaterialEntity a owl:Class ;
 
 dwc:Agent a owl:Class ; 
   rdfs:label "Agent"@en ;
-  skos:prefLabel "Agent"@en ;
   rdfs:subClassOf bfo:0000040 ;
   iao:0000115 "A resource that acts or has the power to act."@en ;
   iao:0000119 <https://gbif.github.io/dwc-dp/qrg/#Agent> ;
@@ -471,7 +449,6 @@ dwc:Agent a owl:Class ;
 
 dwc:Media a owl:Class ;
   rdfs:label "Media"@en ;
-  skos:prefLabel "Media"@en ;
   rdfs:subClassOf bfo:0000040 ;
   iao:0000115 "A dcmi:MediaType or other media type with other entities as subject matter."@en ;
   iao:0000119 <https://gbif.github.io/dwc-dp/qrg/#Media> ;
@@ -480,7 +457,7 @@ dwc:Media a owl:Class ;
 
 # Processes 
 dwc:Event a owl:Class ; 
-  skos:prefLabel "Event"@en ;
+  rdfs:label "Event"@en ;
   rdfs:subClassOf bfo:0000015 ;
   iao:0000115 "An action that occurs at some location during some time."@en ;
   iao:0000119 <https://dwc.tdwg.org/list/#dwc_Event> ;
@@ -488,7 +465,6 @@ dwc:Event a owl:Class ;
 
 dwc:Occurrence a owl:Class ; 
   rdfs:label "Occurrence"@en ;
-  skos:prefLabel "Occurrence"@en ;
   rdfs:subClassOf bfo:0000015 ;
   iao:0000115 "An existence of a dwc:Organism at a particular place at a particular time."@en ;
   iao:0000119 <https://dwc.tdwg.org/list/#dwc_Occurrence> ;
@@ -496,7 +472,6 @@ dwc:Occurrence a owl:Class ;
 
 dwc:Identification a owl:Class ; 
   rdfs:label "Identification"@en ;
-  skos:prefLabel "Identification"@en ;
   rdfs:subClassOf bfo:0000015 ;
   iao:0000115 "A taxonomic determination (e.g., the assignment to a dwc:Taxon)."@en ;
   iao:0000119 <https://dwc.tdwg.org/list/#dwc_Identification> ;
@@ -504,7 +479,7 @@ dwc:Identification a owl:Class ;
 
 # Information entities 
 dwc:Protocol a owl:Class ; 
-  skos:prefLabel "Protocol"@en ;
+  rdfs:label "Protocol"@en ;
   rdfs:subClassOf iao:0000030 ;
   iao:0000115 "A method used during an action."@en ;
   iao:0000119 <https://gbif.github.io/dwc-dp/qrg/#Protocol> ;
@@ -517,35 +492,30 @@ dwc:Protocol a owl:Class ;
 
 odo:ECSO_00002050 a owl:Class ;
   rdfs:label "year of measurement"@en ;
-  skos:prefLabel "year of measurement"@en ;
   iao:0000115 "year of measurement"@en ;
   rdfs:subClassOf iao:0000109 ;
   rdfs:isDefinedBy <http://purl.dataone.org/odo/> .
 
 odo:SALMON_00000137 a owl:Class ;
   rdfs:label "Fishery type"@en ;
-  skos:prefLabel "Fishery type"@en ;
   iao:0000115 "The Food and Agriculture Organization of the United Nations (FAO) defines a fishery as '...an activity leading to harvesting of fish. It may involve capture of wild fish or raising of fish through aquaculture.'"@en ;
   rdfs:subClassOf bfo:0000040 ;
   rdfs:isDefinedBy <http://purl.dataone.org/odo/> .
 
 odo:SALMON_00000167 a owl:Class ;
   rdfs:label "Fish measurement type"@en ;
-  skos:prefLabel "Fish measurement type"@en ;
   iao:0000115 "A measurement type taken of some physical, biological, or ecological aspect of a fish or fishes."@en ;
   rdfs:subClassOf iao:0000030 ;
   rdfs:isDefinedBy <http://purl.dataone.org/odo/> .
 
 odo:SALMON_00000479 a owl:Class ;
   rdfs:label "Salmon escapement count"@en ;
-  skos:prefLabel "Salmon escapement count"@en ;
   iao:0000115 "The number of salmon which do not get caught by commercial or recreational fisheries and return to their freshwater spawning habitat."@en ;
   rdfs:subClassOf iao:0000109 ;
   rdfs:isDefinedBy <http://purl.dataone.org/odo/> .
 
 odo:SALMON_00000639 a owl:Class ;
   rdfs:label "Fish stock type"@en ;
-  skos:prefLabel "Fish stock type"@en ;
   iao:0000115 "Group of individuals of a species which can be regarded as an entity for management or assessment purposes; a separate breeding population of a species; term used to identify a management unit of fishery species. A distinct genetic population, a population defined by movement pattern, part of a population potentially harvestable, or a quantity of fish from a given area. May be a total or a spawning stock."@en ;
   rdfs:subClassOf bfo:0000040 ;
   rdfs:isDefinedBy <http://purl.dataone.org/odo/> .
@@ -556,42 +526,36 @@ odo:SALMON_00000639 a owl:Class ;
 
 envo:01000617 a owl:Class ;
   rdfs:label "lentic water body"@en ;
-  skos:prefLabel "lentic water body"@en ;
   iao:0000115 "A lentic water body is a water body in which the accumulated water, in its totality, has very little to no directed flow."@en ;
   rdfs:subClassOf bfo:0000040 ;
   rdfs:isDefinedBy <http://purl.obolibrary.org/obo/envo.owl> .
 
 envo:00000020 a owl:Class ;
   rdfs:label "lake"@en ;
-  skos:prefLabel "lake"@en ;
   iao:0000115 "A body of water or other liquid of considerable size contained in a depression on a landmass."@en ;
   rdfs:subClassOf envo:01000617 ;
   rdfs:isDefinedBy <http://purl.obolibrary.org/obo/envo.owl> .
 
 envo:00000033 a owl:Class ;
   rdfs:label "pond"@en ;
-  skos:prefLabel "pond"@en ;
   iao:0000115 "A body of water, usually of smaller size than a lake."@en ;
   rdfs:subClassOf envo:01000617 ;
   rdfs:isDefinedBy <http://purl.obolibrary.org/obo/envo.owl> .
 
 envo:01000618 a owl:Class ;
   rdfs:label "lotic water body"@en ;
-  skos:prefLabel "lotic water body"@en ;
   iao:0000115 "A lotic water body is a water body in which the accumulated water, in its totality, is flowing."@en ;
   rdfs:subClassOf bfo:0000040 ;
   rdfs:isDefinedBy <http://purl.obolibrary.org/obo/envo.owl> .
 
 envo:00000022 a owl:Class ;
   rdfs:label "river"@en ;
-  skos:prefLabel "river"@en ;
   iao:0000115 "A stream which, through permanent or seasonal flow processes, moves from elevated land towards lower elevations through a definite channel and empties either into a sea, lake, or another river or ends on land as bed seepage and evapotranspiration exceed water supply."@en ;
   rdfs:subClassOf envo:01000618 ;
   rdfs:isDefinedBy <http://purl.obolibrary.org/obo/envo.owl> .
 
 envo:00000023 a owl:Class ;
   rdfs:label "stream"@en ;
-  skos:prefLabel "stream"@en ;
   skos:altLabel "creek"@en ;
   rdfs:comment "A creek is typically smaller than a stream."@en ;
   iao:0000115 "A watercourse which is linear and flows across the solid portion of a planetary surface."@en ;
@@ -600,7 +564,7 @@ envo:00000023 a owl:Class ;
 
 envo:00000234 a owl:Class ;
   rdfs:label "bayou"@en ;
-  skos:prefLabel "bayou"@en ;
+  skos:prefLabel "slough"@en ;
   skos:altLabel "slough"@en ;
   iao:0000115 "A small, slow-moving stream or creek; usually located in low-lying areas."@en ;
   rdfs:subClassOf envo:00000023 ;
@@ -614,20 +578,17 @@ envo:00000234 a owl:Class ;
 
 org:Organization a owl:Class ;
   rdfs:label "Organization"@en ;
-  skos:prefLabel "Organization"@en ;
   iao:0000115 "Represents a collection of people organized together into a community or other social, commercial or political structure. The group has some common purpose or reason for existence which goes beyond the set of people belonging to it and can act as an Agent. Organizations are often decomposable into hierarchical structures."@en ;
   rdfs:isDefinedBy <http://www.w3.org/ns/org> .
 
 org:OrganizationalUnit a owl:Class ;
   rdfs:label "Organizational Unit"@en ;
-  skos:prefLabel "Organizational Unit"@en ;
   rdfs:subClassOf org:Organization ;
   iao:0000115 "An Organization such as a department or support unit which is part of some larger Organization and only has full recognition within the context of that Organization. In particular the unit would not be regarded as a legal entity in its own right."@en ;
   rdfs:isDefinedBy <http://www.w3.org/ns/org> .
 
 org:hasUnit a owl:ObjectProperty ;
   rdfs:label "has unit"@en ;
-  skos:prefLabel "has unit"@en ;
   iao:0000115 "Indicates a unit which is part of this Organization, e.g., a Department within a larger Organization."@en ;
   rdfs:domain org:Organization ;
   rdfs:range org:OrganizationalUnit ;
@@ -636,7 +597,6 @@ org:hasUnit a owl:ObjectProperty ;
 
 org:hasSubOrganization a owl:ObjectProperty ;
   rdfs:label "has sub-organization"@en ;
-  skos:prefLabel "has sub-organization"@en ;
   iao:0000115 "Represents hierarchical containment of Organizations or OrganizationalUnits; indicates an organization which is a sub-part or child of this organization."@en ;
   rdfs:domain org:Organization ;
   rdfs:range org:Organization ;
@@ -648,7 +608,6 @@ org:hasSubOrganization a owl:ObjectProperty ;
 
 dfoc:Unit a owl:Class ;
   rdfs:label "Unit"@en ;
-  skos:prefLabel "Unit"@en ;
   skos:altLabel "Program"@en ;
   rdfs:subClassOf org:OrganizationalUnit ;
   iao:0000115 "A basic operational grouping within a Section, responsible for a defined set of tasks or functions and reporting to the Section leadership."@en ;
@@ -656,42 +615,36 @@ dfoc:Unit a owl:Class ;
 
 dfoc:Section a owl:Class ;
   rdfs:label "Section"@en ;
-  skos:prefLabel "Section"@en ;
   rdfs:subClassOf org:OrganizationalUnit ;
   iao:0000115 "A mid-level organisational unit within a Branch, tasked with coordinating and delivering a coherent set of related functions or programmes under the Branch’s mandate."@en ;
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
 dfoc:Division a owl:Class ;
   rdfs:label "Division"@en ;
-  skos:prefLabel "Division"@en ;
   rdfs:subClassOf org:OrganizationalUnit ;
   iao:0000115 "A higher-level grouping above Section, organising several Sections under a common strategic or administrative theme; responsible for overall oversight of its component Sections."@en ;
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
 dfoc:Branch a owl:Class ;
   rdfs:label "Branch"@en ;
-  skos:prefLabel "Branch"@en ;
   rdfs:subClassOf org:OrganizationalUnit ;
   iao:0000115 "A major organisational division within DFO, typically responsible for a broad functional area (such as Science, Regulation, Aquatic Ecosystems) and composed of one or more Sections."@en ;
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
 dfoc:Region a owl:Class ;
   rdfs:label "Region"@en ;
-  skos:prefLabel "Region"@en ;
   rdfs:subClassOf org:OrganizationalUnit ;
   iao:0000115 "A geographic organisational unit covering a specified area (province(s)/territories/coastal zone) within Canada; responsible for delivering DFO programmes and services regionally, and reporting to national headquarters and the Deputy Minister structure."@en ;
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> . 
 
 dfoc:Sector a owl:Class ;
   rdfs:label "Sector"@en ;
-  skos:prefLabel "Sector"@en ;
   rdfs:subClassOf org:OrganizationalUnit ;
   iao:0000115 "A top-tier organisational domain within DFO’s national structure (such as Innovation and Business Transformation, Fisheries and Harbour Management) led by an Assistant Deputy Minister; responsible for strategic leadership, policy, and national programme direction."@en ;
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> . 
 
 dfoc:hasUnit a owl:ObjectProperty ;
   rdfs:label "has unit"@en ;
-  skos:prefLabel "has unit"@en ;
   iao:0000115 "Links an organization to one of its operational units."@en ;
   rdfs:subPropertyOf org:hasUnit ;
   rdfs:domain org:Organization ;
@@ -700,7 +653,6 @@ dfoc:hasUnit a owl:ObjectProperty ;
 
 dfoc:hasSection a owl:ObjectProperty ;
   rdfs:label "has section"@en ;
-  skos:prefLabel "has section"@en ;
   iao:0000115 "Links an organization to a subordinate section within its structure."@en ;
   rdfs:subPropertyOf org:hasSubOrganization ;
   rdfs:domain org:Organization ;
@@ -709,7 +661,6 @@ dfoc:hasSection a owl:ObjectProperty ;
 
 dfoc:hasDivision a owl:ObjectProperty ;
   rdfs:label "has division"@en ;
-  skos:prefLabel "has division"@en ;
   iao:0000115 "Links an organization to a subordinate division that groups multiple sections."@en ;
   rdfs:subPropertyOf org:hasSubOrganization ;
   rdfs:domain org:Organization ;
@@ -718,7 +669,6 @@ dfoc:hasDivision a owl:ObjectProperty ;
 
 dfoc:hasBranch a owl:ObjectProperty ;
   rdfs:label "has branch"@en ;  
-  skos:prefLabel "has branch"@en ;  
   iao:0000115 "Links an organization to a subordinate branch responsible for a major functional area."@en ;
   rdfs:subPropertyOf org:hasSubOrganization ;
   rdfs:domain org:Organization ;
@@ -727,7 +677,6 @@ dfoc:hasBranch a owl:ObjectProperty ;
 
 dfoc:hasRegion a owl:ObjectProperty ;
   rdfs:label "has region"@en ;  
-  skos:prefLabel "has region"@en ;  
   iao:0000115 "Links an organization to a subordinate geographic region."@en ;
   rdfs:subPropertyOf org:hasSubOrganization ;
   rdfs:domain org:Organization ;
@@ -736,7 +685,6 @@ dfoc:hasRegion a owl:ObjectProperty ;
 
 dfoc:hasSector a owl:ObjectProperty ;
   rdfs:label "has sector"@en ;
-  skos:prefLabel "has sector"@en ;
   iao:0000115 "Links an organization to one of its top-level sectors."@en ;
   rdfs:subPropertyOf org:hasSubOrganization ;
   rdfs:domain org:Organization ;
@@ -745,7 +693,6 @@ dfoc:hasSector a owl:ObjectProperty ;
 
 dfoc:organizationalUnitName a owl:DatatypeProperty ;
   rdfs:label "organizational unit name"@en ;
-  skos:prefLabel "organizational unit name"@en ;
   iao:0000115 "The human-readable name of an organizational unit within Fisheries and Oceans Canada (DFO)."@en ;
   rdfs:domain org:OrganizationalUnit ;
   rdfs:range xsd:string ;
@@ -753,7 +700,6 @@ dfoc:organizationalUnitName a owl:DatatypeProperty ;
 
 dfoc:organizationalUnitCode a owl:DatatypeProperty ;
   rdfs:label "organizational unit code"@en ;
-  skos:prefLabel "organizational unit code"@en ;
   iao:0000115 "The short code or identifier assigned to an organizational unit within Fisheries and Oceans Canada (DFO)."@en ;
   rdfs:domain org:OrganizationalUnit ;
   rdfs:range xsd:string ;
@@ -761,14 +707,12 @@ dfoc:organizationalUnitCode a owl:DatatypeProperty ;
 
 dfoc:Project a owl:Class ;
   rdfs:label "Project"@en ;
-  skos:prefLabel "Project"@en ;
   rdfs:subClassOf bfo:0000015 ;
   iao:0000115 "A planned undertaking with defined objectives, scope, and resources, typically involving a series of coordinated activities to achieve specific goals within a set timeframe."@en ;
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
 dfoc:managedBy a owl:ObjectProperty ;
   rdfs:label "managed by"@en ;
-  skos:prefLabel "managed by"@en ;
   iao:0000115 "Indicates the organizational unit responsible for managing a project within Fisheries and Oceans Canada (DFO)."@en ;
   rdfs:domain dfoc:Project ;
   rdfs:range dfoc:Unit ;
@@ -777,7 +721,6 @@ dfoc:managedBy a owl:ObjectProperty ;
 
 dfoc:collaboratesWith a owl:ObjectProperty ;
   rdfs:label "collaborates with"@en ;
-  skos:prefLabel "collaborates with"@en ;
   iao:0000115 "Indicates a Unit that collaborates on a project within Fisheries and Oceans Canada (DFO)."@en ;
   rdfs:domain dfoc:Project ;
   rdfs:range dfoc:Unit ;
@@ -785,7 +728,6 @@ dfoc:collaboratesWith a owl:ObjectProperty ;
 
 dfoc:manages a owl:ObjectProperty ;
   rdfs:label "manages"@en ;
-  skos:prefLabel "manages"@en ;
   iao:0000115 "Indicates the project managed by a Unit within Fisheries and Oceans Canada (DFO)."@en ;
   rdfs:domain dfoc:Unit ;
   rdfs:range dfoc:Project ;
@@ -794,7 +736,6 @@ dfoc:manages a owl:ObjectProperty ;
 
 dfoc:projectTitle a owl:DatatypeProperty ;
   rdfs:label "project title"@en ;
-  skos:prefLabel "project title"@en ;
   iao:0000115 "The title of a project within Fisheries and Oceans Canada (DFO)."@en ;
   rdfs:domain dfoc:Project ;
   rdfs:range xsd:string ;
@@ -802,7 +743,6 @@ dfoc:projectTitle a owl:DatatypeProperty ;
 
 dfoc:projectFirstYear a owl:DatatypeProperty ;
   rdfs:label "project first year"@en ;
-  skos:prefLabel "project first year"@en ;
   iao:0000115 "The first year of a project within Fisheries and Oceans Canada (DFO)."@en ;
   rdfs:domain dfoc:Project ;
   rdfs:range xsd:gYear ;
@@ -810,7 +750,6 @@ dfoc:projectFirstYear a owl:DatatypeProperty ;
 
 dfoc:projectLastYear a owl:DatatypeProperty ;
   rdfs:label "project last year"@en ;
-  skos:prefLabel "project last year"@en ;
   iao:0000115 "The last year of a project within Fisheries and Oceans Canada (DFO)."@en ;
   rdfs:domain dfoc:Project ;
   rdfs:range xsd:gYear ;
@@ -819,6 +758,7 @@ dfoc:projectLastYear a owl:DatatypeProperty ;
 #################################################################
 # Evidence Completeness Framework (DQV-based)
 #################################################################
+# Note that dqv:Dimension is a subclass of skos:Concept in DQV
 
 dfoc:EvidenceCompletenessDimension a dqv:Dimension ;
   skos:prefLabel "Evidence Completeness Dimension"@en ;
@@ -855,21 +795,18 @@ dfoc:MissingCriticalEvidence a dqv:QualityAnnotation ;
 
 dfoc:ObservedRateOrAbundance a owl:Class ;
   rdfs:label "Observed rate or abundance"@en ;
-  skos:prefLabel "Observed rate or abundance"@en ;
   iao:0000115 "A measurement datum representing an empirically observed rate, count, or abundance derived from monitoring or survey data."@en ;
   rdfs:subClassOf iao:0000109 ; 
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
 dfoc:TargetOrLimitRateOrAbundance a owl:Class ;
   rdfs:label "Target or limit rate or abundance"@en ;
-  skos:prefLabel "Target or limit rate or abundance"@en ;
   iao:0000115 "A value specification representing a policy- or model-defined target or limit, such as TAC, UMSY, or reference points."@en ;
   rdfs:subClassOf iao:0000109 ; 
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
 dfoc:ReportingOrManagementStratum a owl:Class ;
   rdfs:label "Reporting or management stratum"@en ;
-  skos:prefLabel "Reporting or management stratum"@en ;
   iao:0000115 "An information-defined grouping of fish populations used for reporting, conservation assessment, or management purposes. Examples include Conservation Units (CUs), Stock Management Units (MUs), and Designatable Units (DUs)."@en ;
   rdfs:subClassOf iao:0000030 ; 
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
@@ -881,10 +818,8 @@ dfoc:ReportingOrManagementStratum a owl:Class ;
 # intentional and documented to support both reasoning and vocabulary use.
 #################################################################
 
-dfoc:AgeAtMaturity a owl:Class , skos:Concept ;
+dfoc:AgeAtMaturity a owl:Class ;
   rdfs:label "Age-at-maturity"@en ;
-  skos:prefLabel "Age-at-maturity"@en ;
-  skos:inScheme dfoc:TemporalReferenceTypeScheme ;
   skos:definition "The age when salmon become sexually mature adults. Influenced by genetics and environment."@en ;
   iao:0000115 "The age when salmon become sexually mature adults. Influenced by genetics and environment."@en ;
   iao:0000119 "Van Beveren, E. (2024). Revision of Catch- and Maturity- at Age Used to Assess the Northern Contingent of Atlantic Mackerel (Scomber scombrus). DFO Can. Sci. Advis. Sec. Res. Doc. 2024/012. iv + 28 p."@en ;
@@ -893,10 +828,8 @@ dfoc:AgeAtMaturity a owl:Class , skos:Concept ;
   skos:exactMatch odo:SALMON_00000407 ;
   rdfs:comment "Numeric age of fish"@en .
 
-dfoc:BroodYear a owl:Class , skos:Concept ;
+dfoc:BroodYear a owl:Class ;
   rdfs:label "Brood year"@en ;
-  skos:prefLabel "Brood year"@en ;
-  skos:inScheme dfoc:TemporalReferenceTypeScheme ;
   rdfs:subClassOf odo:ECSO_00002050 ;
   iao:0000115 "The year that a cohort of salmon spawns."@en ;
   iao:0000119 "Pacific Salmon Foundation. (2025). Methods for Assessing Status and Trends in Pacific Salmon Conservation Units and their Freshwater Habitats. The Pacific Salmon Foundation, Vancouver BC, Canada. Version 13. Available at https://salmonwatersheds.ca/document/lib_475/ [Accessed 09-10-2025]."@en ;  
@@ -906,7 +839,6 @@ dfoc:BroodYear a owl:Class , skos:Concept ;
 
 dfoc:Catch a owl:Class ;
   rdfs:label "Catch"@en ;
-  skos:prefLabel "Catch"@en ;
   iao:0000115 "The number of adult fishes that are caught in commercial, recreational, and First Nations fisheries."@en ;
   iao:0000119 "Pacific Salmon Foundation. (2025). Methods for Assessing Status and Trends in Pacific Salmon Conservation Units and their Freshwater Habitats. The Pacific Salmon Foundation, Vancouver BC, Canada. Version 13. Available at https://salmonwatersheds.ca/document/lib_475/ [Accessed 09-10-2025]."@en ;  
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> ;
@@ -914,7 +846,6 @@ dfoc:Catch a owl:Class ;
 
 dfoc:COSEWIC a owl:Class ;
   rdfs:label "COSEWIC"@en ;
-  skos:prefLabel "COSEWIC"@en ;
   iao:0000115 "The Committee on the Status of Endangered Wildlife in Canada (COSEWIC) is an independent advisory panel to the Minister of Environment and Climate Change Canada that meets twice a year to assess the status of wildlife species at risk of extinction. Members are wildlife biology experts from academia, government, non-governmental organizations and the private sector responsible for designating wildlife species in danger of disappearing from Canada."@en ;
   rdfs:subClassOf dwc:Agent ; 
   iao:0000119 "COSEWIC. (2003). COSEWIC - Committee on the Status of Endangered Wildlife in Canada. Available at cosewic.ca/index.php/en/ [Accessed 09-10-2025]."@en ;
@@ -922,7 +853,6 @@ dfoc:COSEWIC a owl:Class ;
 
 dfoc:DesignatableUnit a owl:Class ;
   rdfs:label "Designatable Unit"@en ;
-  skos:prefLabel "Designatable Unit"@en ;
   rdfs:subClassOf dfoc:ReportingOrManagementStratum ;
   iao:0000115 "A unit of Canadian biodiversity that is discrete and evolutionarily significant, where discrete means that there is currently very little transmission of heritable (cultural or genetic) information from other such units, and evolutionarily significant means that the unit harbors heritable adaptive traits or an evolutionary history not found elsewhere in Canada."@en ;
   iao:0000119 "COSEWIC. (2023). COSEWIC guidelines for recognizing designatable units. Available at https://cosewic.ca/index.php/en/reports/preparing-status-reports/guidelines-recognizing-designatable-units.html [Accessed 09-10-2025]."@en ;
@@ -944,86 +874,78 @@ dfoc:COSEWICStatusCategory a owl:Class ;
   iao:0000119 "COSEWIC. (2021). COSEWIC - Status categories. Available at https://cosewic.ca/index.php/en/assessment-process/cosewic-assessment-process-categories-and-guidelines/status-categories.html. [Accessed 09-10-2025]."@en ;
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
-dfoc:Extinct a owl:Class , skos:Concept ;
+dfoc:Extinct a dfoc:COSEWICStatusCategory , skos:Concept ;
   rdfs:label "Extinct"@en ;
   skos:prefLabel "Extinct"@en ;
   skos:altLabel "X"@en ;
   skos:definition "A Wildlife Species that no longer exists."@en ;
   iao:0000115 "A COSEWIC status category applied to wildlife species that no longer exist."@en ;
   skos:inScheme dfoc:COSEWICStatusScheme ;
-  rdfs:subClassOf dfoc:COSEWICStatusCategory ;
   iao:0000119 "COSEWIC. (2021). COSEWIC - Status categories. Available at https://cosewic.ca/index.php/en/assessment-process/cosewic-assessment-process-categories-and-guidelines/status-categories.html. [Accessed 09-10-2025]."@en ;
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
-dfoc:Extirpated a owl:Class , skos:Concept ;
+dfoc:Extirpated a dfoc:COSEWICStatusCategory , skos:Concept ;
   rdfs:label "Extirpated"@en ;
   skos:prefLabel "Extirpated"@en ;
   skos:altLabel "XT"@en ;
   skos:definition "A Wildlife Species that no longer exists in the wild in Canada, but exists elsewhere."@en ;
   iao:0000115 "A COSEWIC status category for wildlife species no longer existing in the wild in Canada but present elsewhere."@en ;
   skos:inScheme dfoc:COSEWICStatusScheme ;
-  rdfs:subClassOf dfoc:COSEWICStatusCategory ;
   iao:0000119 "COSEWIC. (2021). COSEWIC - Status categories. Available at https://cosewic.ca/index.php/en/assessment-process/cosewic-assessment-process-categories-and-guidelines/status-categories.html. [Accessed 09-10-2025]."@en ;
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
-dfoc:Endangered a owl:Class , skos:Concept ;
+dfoc:Endangered a dfoc:COSEWICStatusCategory , skos:Concept ;
   rdfs:label "Endangered"@en ;
   skos:prefLabel "Endangered"@en ;
   skos:altLabel "E"@en ;
   skos:definition "A Wildlife Species facing imminent extirpation or extinction."@en ;
   iao:0000115 "A COSEWIC status category for wildlife species facing imminent extirpation or extinction."@en ;
   skos:inScheme dfoc:COSEWICStatusScheme ;
-  rdfs:subClassOf dfoc:COSEWICStatusCategory ;
   iao:0000119 "COSEWIC. (2021). COSEWIC - Status categories. Available at https://cosewic.ca/index.php/en/assessment-process/cosewic-assessment-process-categories-and-guidelines/status-categories.html. [Accessed 09-10-2025]."@en ;
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
-dfoc:Threatened a owl:Class , skos:Concept ;
+dfoc:Threatened a dfoc:COSEWICStatusCategory , skos:Concept ;
   rdfs:label "Threatened"@en ;
   skos:prefLabel "Threatened"@en ;
   skos:altLabel "T"@en ;
   skos:definition "A Wildlife Species that is likely to become an endangered if nothing is done to reverse the factors leading to its extirpation or extinction."@en ;
   iao:0000115 "A COSEWIC status category for wildlife species likely to become endangered without intervention."@en ;
   skos:inScheme dfoc:COSEWICStatusScheme ;
-  rdfs:subClassOf dfoc:COSEWICStatusCategory ;
   iao:0000119 "COSEWIC. (2021). COSEWIC - Status categories. Available at https://cosewic.ca/index.php/en/assessment-process/cosewic-assessment-process-categories-and-guidelines/status-categories.html. [Accessed 09-10-2025]."@en ;
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
-dfoc:SpecialConcern a owl:Class , skos:Concept ;
+dfoc:SpecialConcern a dfoc:COSEWICStatusCategory , skos:Concept ;
   rdfs:label "Special Concern"@en ;
   skos:prefLabel "Special Concern"@en ;
   skos:altLabel "SC"@en ;
   skos:definition "A Wildlife Species that may become threatened or endangered because of a combination of biological characteristics and identified threats."@en ;
   iao:0000115 "A COSEWIC status category for wildlife species that may become threatened or endangered due to biology and identified threats."@en ;
   skos:inScheme dfoc:COSEWICStatusScheme ;
-  rdfs:subClassOf dfoc:COSEWICStatusCategory ;
   iao:0000119 "COSEWIC. (2021). COSEWIC - Status categories. Available at https://cosewic.ca/index.php/en/assessment-process/cosewic-assessment-process-categories-and-guidelines/status-categories.html. [Accessed 09-10-2025]."@en ;
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
-dfoc:DataDeficient a owl:Class , skos:Concept ;
+dfoc:DataDeficient a dfoc:COSEWICStatusCategory , skos:Concept ;
   rdfs:label "Data Deficient"@en ;
   skos:prefLabel "Data Deficient"@en ;
   skos:altLabel "DD"@en ;
   skos:definition "A category that applies when the available information is insufficient (a) to resolve a Wildlife Species' eligibility for assessment or (b) to permit an assessment of the Wildlife Species' risk of extinction."@en ;
   iao:0000115 "A COSEWIC status category used when information is insufficient to determine risk of extinction."@en ;
   skos:inScheme dfoc:COSEWICStatusScheme ;
-  rdfs:subClassOf dfoc:COSEWICStatusCategory ;
   iao:0000119 "COSEWIC. (2021). COSEWIC - Status categories. Available at https://cosewic.ca/index.php/en/assessment-process/cosewic-assessment-process-categories-and-guidelines/status-categories.html. [Accessed 09-10-2025]."@en ;
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
-dfoc:NotAtRisk a owl:Class , skos:Concept ;
+dfoc:NotAtRisk a dfoc:COSEWICStatusCategory , skos:Concept ;
   rdfs:label "Not At Risk"@en ;
   skos:prefLabel "Not At Risk"@en ;
   skos:altLabel "NAR"@en ;
   skos:definition "A Wildlife Species that has been evaluated and found to be not at risk of extinction given the current circumstances."@en ;
   iao:0000115 "A COSEWIC status category for wildlife species evaluated and found not to be at risk of extinction."@en ;
   skos:inScheme dfoc:COSEWICStatusScheme ;
-  rdfs:subClassOf dfoc:COSEWICStatusCategory ;
   iao:0000119 "COSEWIC. (2021). COSEWIC - Status categories. Available at https://cosewic.ca/index.php/en/assessment-process/cosewic-assessment-process-categories-and-guidelines/status-categories.html. [Accessed 09-10-2025]."@en ;
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
 dfoc:ConservationUnit a owl:Class ;
   rdfs:label "Conservation Unit"@en ;
-  skos:prefLabel "Conservation Unit"@en ;
   iao:0000115 "A group of fish sufficiently isolated from other groups that, if extirpated, is very unlikely to recolonize naturally within an acceptable timeframe."@en ;
   rdfs:subClassOf dfoc:ReportingOrManagementStratum ;
   dcterms:isPartOf <urn:ISBN:0662405382> ;
@@ -1032,7 +954,6 @@ dfoc:ConservationUnit a owl:Class ;
 
 dfoc:CUStatusBasedLRP a owl:Class ;
   rdfs:label "Conservation Unit status-based limit reference point"@en ;
-  skos:prefLabel "Conservation Unit status-based limit reference point"@en ;
   iao:0000115 "Stock Management Unit (SMU)-level limit reference points (LRPs) based on the status of component Wild Salmon Policy (WSP) Conservation Units (CUs) recommended to meet requirements of the Fisheries Act."@en ;
   rdfs:subClassOf dfoc:ReferencePoint ;
   iao:0000119 "DFO. (2022). Methodologies and Guidelines for Defining Limit Reference Points for Pacific Salmon. DFO Can. Sci. Advis. Sec. Sci. Advis. Rep. 2022/030. (Erratum: December 2022)"@en ;
@@ -1065,7 +986,6 @@ dfoc:CUHigherBenchmark a owl:Class ;
 
 dfoc:Dataset a owl:Class ;
   rdfs:label "Dataset"@en ;
-  skos:prefLabel "Dataset"@en ;
   rdfs:subClassOf iao:0000030 ;
   iao:0000115 "A data product registered in catalogues (e.g., GeoNetwork); aligns with schema:Dataset."@en ;
   skos:exactMatch schema:Dataset ;
@@ -1073,7 +993,6 @@ dfoc:Dataset a owl:Class ;
 
 dfoc:Enhancement a owl:Class ;
   rdfs:label "Enhancement"@en ;
-  skos:prefLabel "Enhancement"@en ;
   rdfs:subClassOf bfo:0000015 ;
   iao:0000115 "The application of biological and technical knowledge and capabilities to increase the productivity of fish stocks. It may be achieved by altering habitat attributes (e.g., habitat restoration) or by using fish culture techniques (e.g., hatcheries, spawning channels). In the context of the Wild Salmon Policy, only salmon originating from hatcheries and managed spawning channels will be considered enhanced."@en ;
   dcterms:isPartOf <urn:ISBN:0662405382> ;
@@ -1082,7 +1001,6 @@ dfoc:Enhancement a owl:Class ;
 
 dfoc:Escapement a owl:Class ;
   rdfs:label "Escapement"@en ;
-  skos:prefLabel "Escapement"@en ;
   rdfs:subClassOf bfo:0000015 ;
   iao:0000115 "The process by which mature salmon pass through (or escape) fisheries and return to fresh water to spawn."@en ;
   dcterms:isPartOf <urn:ISBN:0662405382> ;
@@ -1092,7 +1010,6 @@ dfoc:Escapement a owl:Class ;
 
 dfoc:EscapementMeasurement a owl:Class ;
   rdfs:label "Escapement measurement"@en ;
-  skos:prefLabel "Escapement measurement"@en ;
   iao:0000115 "A measurement or estimate of escapement tied to a stock and a survey event."@en ;
   rdfs:subClassOf iao:0000109 ;
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> ;
@@ -1101,7 +1018,6 @@ dfoc:EscapementMeasurement a owl:Class ;
   
 dfoc:EquilibriumTradeoffAnalysis a owl:Class ;
   rdfs:label "Equilibrium trade-off analysis"@en ;
-  skos:prefLabel "Equilibrium trade-off analysis"@en ;
   rdfs:subClassOf dfoc:Model ;
   iao:0000115 "Calculate summary performance measures across stocks (e.g., proportion of stocks meeting an objective vs. aggregate harvest, harvest rate, or escapement), under equilibrium conditions (i.e., on average over the long-term)."@en ;
   iao:0000119 "DFO. (2023). Biological Benchmarks And Building Blocks For Aggregate-Level Management Targets For Skeena And Nass Sockeye Salmon (Oncorhynchus nerka). DFO Can. Sci. Advis. Sec. Sci. Advis. Rep. 2023/008."@en ;  
@@ -1109,7 +1025,6 @@ dfoc:EquilibriumTradeoffAnalysis a owl:Class ;
 
 dfoc:ExploitationRate a owl:Class ;
   rdfs:label "Exploitation rate"@en ;
-  skos:prefLabel "Exploitation rate"@en ;
   iao:0000115 "Expressed as a percentage, the proportion of the total return of adult salmon in a given year that die (harvested or removed) as a result of fishing activity. ER = total fishing mortality / (total fishing mortality + escapement)"@en ;
   rdfs:subClassOf dfoc:TargetOrLimitRateOrAbundance ;
   iao:0000119 "Fisheries and Oceans Canada. (2019). Government of Canada. Pacific Salmon - Glossary. https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html. [Accessed 09-10-2025] "@en ;
@@ -1117,7 +1032,6 @@ dfoc:ExploitationRate a owl:Class ;
 
 dfoc:Fecundity a owl:Class ;
   rdfs:label "Fecundity"@en ;
-  skos:prefLabel "Fecundity"@en ;
   rdfs:subClassOf bfo:0000020 ;
   iao:0000115 "The number of eggs an animal produces during each reproductive cycle; the potential reproductive capacity of an organism or population (similar to fertility)."@en ;
   iao:0000119 "Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en ;
@@ -1135,7 +1049,6 @@ dfoc:FisheryReferencePoint a owl:Class , skos:Concept ;
 
 dfoc:FishingEffort a owl:Class ;
   rdfs:label "Fishing effort"@en ;
-  skos:prefLabel "Fishing effort"@en ;
   rdfs:subClassOf iao:0000109 ;
   iao:0000115 "A measure of fishing activity using metrics such as: the number of nets or lines used, the number of fishing vessels deployed, and the number of hours spent fishing."@en ;
   iao:0000119 "Fisheries and Oceans Canada. (2024). Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html. [Accessed 09-10-2025]."@en ;
@@ -1143,7 +1056,6 @@ dfoc:FishingEffort a owl:Class ;
 
 dfoc:FishingMortality a owl:Class ;
   rdfs:label "Fishing mortality"@en ;
-  skos:prefLabel "Fishing mortality"@en ;
   iao:0000115 "Measure of deaths in a stock due to all fishing activities, including: targeted fishing, bycatch and discards, other incidental mortality in other fisheries."@en ;
   rdfs:subClassOf dfoc:ObservedRateOrAbundance ;
   iao:0000119 "Fisheries and Oceans Canada. (2024). Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html. [Accessed 09-10-2025]."@en ;
@@ -1151,7 +1063,6 @@ dfoc:FishingMortality a owl:Class ;
 
 dfoc:GeneticDiversity a owl:Class ;
   rdfs:label "Genetic diversity"@en ;
-  skos:prefLabel "Genetic diversity"@en ;
   rdfs:subClassOf bfo:0000020 ;
   iao:0000115 "The variation at the level of individual genes, and provides a mechanism for populations to adapt to their ever-changing environment. It refers to the differences in genetic make-up between distinct species and to genetic variations within a single species."@en ;
   dcterms:isPartOf <urn:ISBN:0662405382> ;
@@ -1160,7 +1071,6 @@ dfoc:GeneticDiversity a owl:Class ;
 
 dfoc:HarvestAdvice a owl:Class ;
   rdfs:label "Harvest advice"@en ;
-  skos:prefLabel "Harvest advice"@en ;
   rdfs:subClassOf iao:0000033 ;
   iao:0000115 "The scientific recommendation provided to fisheries managers on allowable levels of fish removals, derived from stock assessments, harvest control rules, and reference points. It reflects both the biological status of the stock and practical considerations such as ecosystem impacts, management measures, and market conditions. Harvest advice does not prescribe that the full allowable harvest must be taken, but rather defines the levels of harvest that are consistent with sustaining stock productivity and avoiding limit reference points."@en ;
   dcterms:identifier <info:doi/10.1016/j.fishres.2018.04.007> ;
@@ -1169,14 +1079,12 @@ dfoc:HarvestAdvice a owl:Class ;
 
 dfoc:Hatchery a owl:Class ;
   rdfs:label "Hatchery"@en ;
-  skos:prefLabel "Hatchery"@en ;
-  rdfs:subClassOf bfo:0000040 ;
+  rdfs:subClassOf dwc:MaterialEntity ;
   iao:0000115 "A hatchery is a facility where eggs are hatched under artificial conditions."@en ;
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
 dfoc:HatcheryEnhancement a owl:Class ;
   rdfs:label "Hatchery enhancement"@en ;
-  skos:prefLabel "Hatchery enhancement"@en ;
   rdfs:subClassOf dfoc:Enhancement ;
   iao:0000115 "The application of biological and technical knowledge and capabilities to increase the productivity of fish stocks originating from hatchery production."@en ;
   dcterms:isPartOf <urn:ISBN:0662405382> ;
@@ -1185,7 +1093,6 @@ dfoc:HatcheryEnhancement a owl:Class ;
 
 dfoc:HatcheryOrigin a owl:Class , skos:Concept ;
   rdfs:label "Hatchery-origin"@en ;
-  skos:prefLabel "Hatchery-origin"@en ;
   rdfs:subClassOf bfo:0000020 ;
   skos:inScheme dfoc:SalmonOriginScheme ;
   iao:0000115 "Refers to broodstock fish that were born or reared in a hatchery and later selected for breeding purposes within the hatchery system."@en ;
@@ -1194,7 +1101,6 @@ dfoc:HatcheryOrigin a owl:Class , skos:Concept ;
 
 dfoc:HatcheryProduction a owl:Class ;
   rdfs:label "Hatchery production"@en ;
-  skos:prefLabel "Hatchery production"@en ;
   rdfs:subClassOf bfo:0000015 ;
   iao:0000115 "Production of broodstock fish within the hatchery system. The production planning process considers scientific information, Indigenous knowledge, hatchery capacity, and risk assessments to determine the type and number of fish to produce in hatcheries, as well as where and when to release the fish."@en ;
   iao:0000119 "Fisheries and Oceans Canada. (2023). Production planning. Available at https://www.pac.dfo-mpo.gc.ca/sep-pmvs/hatcheries-ecloseries/production-eng.html [Accessed 09-10-2025]."@en ;
@@ -1202,7 +1108,6 @@ dfoc:HatcheryProduction a owl:Class ;
 
 dfoc:IndexBased a owl:Class ;
   rdfs:label "Index-based"@en ;
-  skos:prefLabel "Index-based"@en ;
   rdfs:subClassOf iao:0000030 ;
   iao:0000115 "Index-based management procedures (MPs), in general, adjust the catch based on changes in a population index over time."@en ;
   iao:0000119 "Huynh, Q.C., Siegle, M.R., and Haggarty, D.R. 2025. Application of the Management Procedure Framework for Outside Quillback Rockfsh (Sebastes maliger ) in British Columbia in 2021. DFO Can. Sci. Advis. Sec. Res. Doc. 2024/028. iv + 201 p."@en ;
@@ -1210,14 +1115,12 @@ dfoc:IndexBased a owl:Class ;
 
 dfoc:Indicator a owl:Class ;
   rdfs:label "Indicator"@en ;
-  skos:prefLabel "Indicator"@en ;
   rdfs:subClassOf dfoc:IndexBased ;
   iao:0000115 "A derived assessment index used in Fisheries Science Reports or stock status reporting."@en ;
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
 dfoc:IndicatorPopulation a owl:Class ;
   rdfs:label "Indicator population"@en ;
-  skos:prefLabel "Indicator population"@en ;
   rdfs:subClassOf dwc:Organism ;
   iao:0000115 "Indicator populations are directly assessed and deemed representative of other populations in the area that are not directly assessed. The concept of using indicator populations is based on an expectation of biological homogeneity over the geographic region represented by the indicator population. Often, indicator populations are hatchery-supplemented and only a portion of the hatchery-origin component of the population is tagged, and is assumed to be representative of the entire population, both of hatchery origin and natural origin. The indicator population is expected to be representative, in terms of life history, marine distribution, productivity, and exploitation pattern, of other populations within the indicator region."@en ;
   dcterms:indicator <info:doi/10.1002/ece3.6383> ;
@@ -1226,7 +1129,6 @@ dfoc:IndicatorPopulation a owl:Class ;
 
 dfoc:IndicatorStream a owl:Class ;
   rdfs:label "Indicator stream"@en ;
-  skos:prefLabel "Indicator stream"@en ;
   rdfs:subClassOf envo:01000618 ; # lotic water body
   iao:0000115 "All spawning streams that are listed to be monitored by DFO are classified as an indicator or non-indicator stream. Indicator streams are those that have been identified in some Regions as providing more reliable indices of spawner abundance. Indicator streams tend to give relatively accurate annual spawner abundance estimates, given that they use higher quality methodologies and are more intensively/regularly surveyed. Indicator streams are also assumed to be representative of spawner returns to other streams in close geographic proximity. Non-indicator streams are typically less consistently surveyed, using more variable methodologies, and/or may simply be difficult to survey (e.g., poor water quality, remote location, etc.)."@en ;
   iao:0000119 "Pacific Salmon Foundation. (2025). Methods for Assessing Status and Trends in Pacific Salmon Conservation Units and their Freshwater Habitats. The Pacific Salmon Foundation, Vancouver BC, Canada. Version 13. Available at https://salmonwatersheds.ca/document/lib_475/ [Accessed 09-10-2025]."@en ;  
@@ -1235,13 +1137,11 @@ dfoc:IndicatorStream a owl:Class ;
 dfoc:GraphicalVisualization a owl:Class ;
   rdfs:subClassOf iao:0000030 ;
   rdfs:label "Graphical visualization"@en ;
-  skos:prefLabel "Graphical visualization"@en ;
   iao:0000115 "An information content entity that visually represents data or model outputs, including plots, maps, and diagrams."@en ;
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
 dfoc:KobePlot a owl:Class ;
   rdfs:label "Kobe plot"@en ;
-  skos:prefLabel "Kobe plot"@en ;
   rdfs:subClassOf dfoc:GraphicalVisualization ;
   iao:0000115 "A visual way to show the status of a stock. The plot is divided into four panels which correspond to a particular condition of the stock (overfishing, underfishing, over-fished, and underfished). By developing a ratio of how much fishing is occurring (F) versus the estimated number of fish (B) for any particular fishery, a point can be plotted in one of those four panels, thus telling the status."@en ;
   iao:0000119 "Western Pacific Regional Fishery Management Council. (2020). Science & Management 101: What is a Kobe Plot? Available at https://www.wpcouncil.org/wp-content/uploads/2020/06/What-is-a-Kobe-plot.pdf."@en ;
@@ -1249,7 +1149,6 @@ dfoc:KobePlot a owl:Class ;
 
 dfoc:Model a owl:Class ;
   rdfs:label "Model"@en ;
-  skos:prefLabel "Model"@en ;
   rdfs:subClassOf iao:0000030 ;
   iao:0000115 "A tool used to simplify a natural system so it can be more easily understood."@en ;
   iao:0000119 "Fisheries and Oceans Canada. (2024). Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html. [Accessed 10-28-2025]."@en ;
@@ -1257,14 +1156,12 @@ dfoc:Model a owl:Class ;
 
 dfoc:ModelExecution a owl:Class ;
   rdfs:label "Model execution"@en ;
-  skos:prefLabel "Model execution"@en ;
   iao:0000115 "The implementation of a model using a specific set of input data to generate output data."@en ;
   rdfs:subClassOf dwc:Event ;
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
 dfoc:LifeCycleModel a owl:Class ;
   rdfs:label "Life cycle model"@en ;
-  skos:prefLabel "Life cycle model"@en ;
   rdfs:subClassOf dfoc:Model ;
   iao:0000115 "The life cycle of a typical fish species can be used as a template for considering the assessment of project-induced impacts on fisheries productivity. Fisheries productivity results from individual fish completing their life cycle, and having vital rates (reproduction, growth, survival, etc.) that are sufficient to generate a sustainable yield at the population level. "@en ;
   iao:0000119 "Bradford, M. J., Randall, R. G., Smokorowski, K. S., Keatley, B. E., & Clarke, K. D. (2014). A framework for assessing fisheries productivity for the Fisheries Protection Program. DFO Can. Sci. Advis. Sec. Res. Doc. 2013/067. v + 25 p."@en ;
@@ -1272,7 +1169,6 @@ dfoc:LifeCycleModel a owl:Class ;
 
 dfoc:LimitReferencePoint a owl:Class ;
   rdfs:label "Limit reference point"@en ;
-  skos:prefLabel "Limit reference point"@en ;
   skos:altLabel "LRP"@en ;
   iao:0000115 "A fish stock experiencing serious harm may be depleted to the point where it has impaired productivity or reproductive capacity. As a result, the stock would be less resilient to fishing and could not easily rebuild. Serious harm may be irreversible, or only slowly reversible over the long-term, and can be due to fishing, other human-induced impacts, or natural causes. Under the Precautionary Approach policy and the Fish Stocks Provisions (FSPs), breaching the LRP is a trigger for a rebuilding plan."@en ;
   rdfs:subClassOf dfoc:ReferencePoint ;
@@ -1281,7 +1177,6 @@ dfoc:LimitReferencePoint a owl:Class ;
 
 dfoc:MarineSurvival a owl:Class ;
   rdfs:label "Marine survival"@en ;
-  skos:prefLabel "Marine survival"@en ;
   iao:0000115 "Marine survival is defined as the portion of the coded-wire tagged smolt release that has survived to be either caught in marine fisheries or returned to freshwater as adult."@en ;
   rdfs:subClassOf dfoc:Indicator ;
   iao:0000119 "Fisheries and Oceans Canada. (2025). 2024 Marine Survival Forecast of Southern British Columbia Coho. 17 p."@en ;  
@@ -1289,7 +1184,6 @@ dfoc:MarineSurvival a owl:Class ;
 
 dfoc:MixedStockFishery a owl:Class ;
   rdfs:label "Mixed-stock fishery"@en ;
-  skos:prefLabel "Mixed-stock fishery"@en ;
   rdfs:subClassOf odo:SALMON_00000137 ;
   iao:0000115 "Individual fish in different stocks might mix or migrate between different areas. Also referred to as 'multispecies fishery'."@en ;
   iao:0000119 "Fisheries and Oceans Canada. (2024). Introduction to Stock Assessment. Available at https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/module-1/03-eng.html [Accessed 09-10-2025]."@en ;
@@ -1297,7 +1191,6 @@ dfoc:MixedStockFishery a owl:Class ;
 
 dfoc:MaximumSustainableYield a owl:Class ;
   rdfs:label "Maximum sustainable yield"@en ;
-  skos:prefLabel "Maximum sustainable yield"@en ;
   skos:altLabel "MSY"@en ;
   iao:0000115 "The largest catch (yield) that can be taken on average from a population under existing environmental conditions. Catch will vary annually due to variation in a populations survival rate."@en ;
   rdfs:subClassOf dfoc:TargetOrLimitRateOrAbundance ;
@@ -1313,10 +1206,8 @@ dfoc:NaturalOrigin a owl:Class , skos:Concept ;
   iao:0000119 "DFO. (2018). Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Can. Sci. Advis. Sec. Sci. Advis. Rep. 2018/001. (Erratum: October 2023)"@en ;
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
-dfoc:OceanEntryYear a owl:Class , skos:Concept ;
+dfoc:OceanEntryYear a owl:Class ;
   rdfs:label "Ocean entry year"@en ;
-  skos:prefLabel "Ocean entry year"@en ;
-  skos:inScheme dfoc:TemporalReferenceTypeScheme ;
   iao:0000115 "Ocean entry year (OEY) refers to the year in which salmon are released from the hatchery."@en ;
   rdfs:subClassOf odo:ECSO_00002050 ; #year of measurement; brood year is also a subclass
   iao:0000119 "Pacific Salmon Foundation. (2022). A Review of Hatchery Release Strategies. Available at https://www.marinescience.ca/wp-content/uploads/2022/03/2022PDF-ReleaseStrategiesReview-Newsletter-Web.pdf."@en ;
@@ -1324,7 +1215,6 @@ dfoc:OceanEntryYear a owl:Class , skos:Concept ;
 
 dfoc:OperationalControlPoint a owl:Class ;
   rdfs:label "Operational control point"@en ;
-  skos:prefLabel "Operational control point"@en ;
   rdfs:subClassOf iao:0000030 ;
   skos:altLabel "OCP"@en ;
   iao:0000115 "A value of an indicator or other input variable that acts as a trigger for a change in management actions, as for example in a Harvest Control Rule."@en ;
@@ -1334,7 +1224,6 @@ dfoc:OperationalControlPoint a owl:Class ;
 
 dfoc:PercentHatcheryOriginSpawners a owl:Class ;
   rdfs:label "Percent of hatchery origin spawners"@en ;
-  skos:prefLabel "Percent of hatchery origin spawners"@en ;
   rdfs:subClassOf dfoc:ObservedRateOrAbundance ;
   iao:0000115 "Percent of salmon spawning in the natural environment that were reared in a hatchery and are first generation hatchery fish. Contrast with Natural origin spawners (not reared in a hatchery, but could be second generation hatchery) or wild salmon with no hatchery lineage."@en ;
   iao:0000119 "Pacific Marine Conservation Caucus, Salmon Subcommittee. (2022). Mark Selective Fisheries and Mass Marking under the Pacific Salmon Strategy Initiative: Comments and Feedback on Proposed Expansion. Pacific Marine Conservation Caucus Salmon Subcommittee. Available at https://www.mccpacific.org/wp-content/uploads/2022/10/MCC-Salmon-Subcommittee-Comments-on-DFOs-MM-and-MSF-Discussion-Paper-220930.pdf."@en ;
@@ -1342,7 +1231,6 @@ dfoc:PercentHatcheryOriginSpawners a owl:Class ;
 
 dfoc:PreTerminalFishery a owl:Class ;
   rdfs:label "Pre-terminal fishery"@en ;
-  skos:prefLabel "Pre-terminal fishery"@en ;
   iao:0000115 "Pre-terminal fisheries occur outside the river and areas immediately adjacent to the river systems."@en ;
   rdfs:subClassOf odo:SALMON_00000137 ; #fishery type
   iao:0000119 "National Oceanic and Atmospheric Administration. (2023). Endangered Species Act Section 7(a)(2) Biological Opinion and Magnuson-Stevens Fishery Conservation and Management Act Essential Fish Habitat Response for the Continued Operation and Maintenance of the Willamette Valley System. Available at https://www.fisheries.noaa.gov/s3//2025-05/wcro-2023-00324-willamette-valley-system-20241226.pdf."@en ;
@@ -1350,7 +1238,6 @@ dfoc:PreTerminalFishery a owl:Class ;
 
 dfoc:PrecautionaryApproach a owl:Class ;
   rdfs:label "Precautionary Approach"@en ;
-  skos:prefLabel "Precautionary Approach"@en ;
   rdfs:subClassOf iao:0000033 ;
   skos:altLabel "PA"@en ;
   iao:0000115 "When used in an advisory context in support of decision-making by the Government of Canada, this term conveys the sense that the advice is provided in situations of high scientific uncertainty. It is intended to promote actions that would result in a low probability of harm that is serious or difficult to reverse."@en ;
@@ -1360,7 +1247,6 @@ dfoc:PrecautionaryApproach a owl:Class ;
 
 dfoc:RebuildingPlan a owl:Class ;
   rdfs:label "Rebuilding plan"@en ;
-  skos:prefLabel "Rebuilding plan"@en ;
   rdfs:subClassOf iao:0000033 ; 
   iao:0000115 "Rebuilding plans are standalone documents specifically intended to address statutory requirements under the 2019 amendments to the Fisheries Act for the prescribed major fish stock subject to the Fish Stocks provisions (FSP). The obligation to develop and implement a rebuilding plan is triggered when a stock declines to, or below, its LRP. A rebuilding plan for a prescribed major fish stock must be developed within 24 months of the day on which the Minister first has knowledge the stock has declined to or below its LRP. If a stock is at or below its LRP when it is prescribed under the FSP, the 24-month timeline to develop a rebuilding plan for the stock starts the day the stock is prescribed in regulation. The approved plan must be published on DFO’s website. The plan should be published within 120 days from the date of the plan’s approval by the Minister."@en ;
   iao:0000119 "Fisheries and Oceans Canada. (2022). Guidelines for writing rebuilding plans per the Fish Stocks Provisions and A Fishery Decision-making Framework Incorporating the Precautionary Approach. Available at https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/precautionary-precaution-eng.htm. [Accessed 09-10-2025]."@en ;
@@ -1368,7 +1254,6 @@ dfoc:RebuildingPlan a owl:Class ;
 
 dfoc:RebuildingTarget a owl:Class ;
   rdfs:label "Rebuilding target"@en ;
-  skos:prefLabel "Rebuilding target"@en ;
   rdfs:subClassOf iao:0000033 ;
   iao:0000115 "The rebuilding target for the stock must, at a minimum, be set at a level above the LRP such that there is a very low to low likelihood of the stock being below the LRP (<5-25% probability; as defined in Annex 2B of the 2009 Precautionary Approach Policy). A stock’s rebuilding plan will remain in effect until the stock reaches its rebuilding target."@en ;
   iao:0000119 "Fisheries and Oceans Canada. (2022). Guidelines for writing rebuilding plans per the Fish Stocks Provisions and A Fishery Decision-making Framework Incorporating the Precautionary Approach. Available at https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/precautionary-precaution-eng.htm. [Accessed 09-10-2025]."@en ;
@@ -1376,7 +1261,6 @@ dfoc:RebuildingTarget a owl:Class ;
 
 dfoc:Recruitment a owl:Class ;
   rdfs:label "Recruitment"@en ;
-  skos:prefLabel "Recruitment"@en ;
   rdfs:subClassOf bfo:0000020 ;
   iao:0000115 "The individual juveniles that survive and are added to a population. Recruitment in the context of salmon management usually refers to the abundance of adults before fishing. Recruitment is typically calculated as the sum of escapement, all fisheries catches, and estimated pre-spawn and post-release mortality."@en ;
   iao:0000119 "Pacific Salmon Foundation. (2025). Methods for Assessing Status and Trends in Pacific Salmon Conservation Units and their Freshwater Habitats. The Pacific Salmon Foundation, Vancouver BC, Canada. Version 13. Available at https://salmonwatersheds.ca/document/lib_475/ [Accessed 09-10-2025]."@en ;  
@@ -1384,7 +1268,6 @@ dfoc:Recruitment a owl:Class ;
 
 dfoc:ReferencePoint a owl:Class ;
   rdfs:label "Reference point"@en ;
-  skos:prefLabel "Reference point"@en ;
   iao:0000115 "Reference points are used as targets to achieve or as limits to avoid."@en ;
   iao:0000119 "Fisheries and Oceans Canada. (2024). Introduction to stock assessment. Available at https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/module-1/11-eng.html [Accessed 09-10-2025]."@en ;
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> ;
@@ -1392,7 +1275,6 @@ dfoc:ReferencePoint a owl:Class ;
 
 dfoc:RemovalRate a owl:Class ;
   rdfs:label "Removal rate"@en ;
-  skos:prefLabel "Removal rate"@en ;
   rdfs:subClassOf iao:0000109 ;
   iao:0000115 "The ratio of all human induced removals and total exploitable stock size."@en ;
   dcterms:identifier <info:doi/10.1016/j.fishres.2018.04.007> ;
@@ -1402,7 +1284,6 @@ dfoc:RemovalRate a owl:Class ;
 
 dfoc:RemovalReference a owl:Class ;
   rdfs:label "Removal reference"@en ;
-  skos:prefLabel "Removal reference"@en ;
   rdfs:subClassOf dfoc:TargetOrLimitRateOrAbundance ;
   skos:altLabel "RR"@en ;
   iao:0000115 "Removal reference is the maximum removal rate of a fish stock. It is less than or equal to the stock's maximum sustainable yield. It can be expressed in terms of fishing mortality, harvest rate, and fishing effort."@en ;
@@ -1411,7 +1292,6 @@ dfoc:RemovalReference a owl:Class ;
 
 dfoc:RunReconstructionModel a owl:Class ;
   rdfs:label "Run reconstruction model"@en ;
-  skos:prefLabel "Run reconstruction model"@en ;
   rdfs:subClassOf dfoc:Model ;
   iao:0000115 "Run reconstruction models use escapement data, catch data, and knowledge of migratory paths and timing to calculate stock contribution and harvest rates."@en ;
   dcterms:identifier <info:doi/10.1139/f88-258> ;
@@ -1420,7 +1300,6 @@ dfoc:RunReconstructionModel a owl:Class ;
 
 dfoc:SizeAtAge a owl:Class ;
   rdfs:label "Size-at-age"@en ;
-  skos:prefLabel "Size-at-age"@en ;
   iao:0000115 "The size of an individual at a given age."@en ;
   dcterms:identifier <info:doi/10.1111/gcb.70296> ;  
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> ;
@@ -1428,7 +1307,6 @@ dfoc:SizeAtAge a owl:Class ;
 
 dfoc:Sgen a owl:Class ;
   rdfs:label "Spawning biomass in one generation"@en ;
-  skos:prefLabel "Spawning biomass in one generation"@en ;
   rdfs:subClassOf dfoc:TargetOrLimitRateOrAbundance ;
   iao:0000115 "Spawner abundance that will result in recovery to SMSY in one generation in the absence of fishing under equilibrium conditions."@en ;
   iao:0000119 "Holt, C. A. (2009). Evaluation of benchmarks for conservation units in Canada’s Wild Salmon Policy: Technical Documentation. DFO Can. Sci. Advis. Sec. Res. Doc. 2009/059. x + 50 p."@en ;
@@ -1437,7 +1315,6 @@ dfoc:Sgen a owl:Class ;
 
 dfoc:SMSY a owl:Class ;
   rdfs:label "Spawning biomass at Maximum Sustainable Yield"@en ;
-  skos:prefLabel "Spawning biomass at Maximum Sustainable Yield"@en ;
   rdfs:subClassOf dfoc:TargetOrLimitRateOrAbundance ;
   iao:0000115 "The predicted number of spawners producing maximum sustained yield. It is a key biological reference point used in fisheries management and benchmark under the Wild Salmon Policy to maintain fish populations at sustainable levels."@en ;
   dcterms:isPartOf <urn:ISSN:1499-3848> ;
@@ -1447,7 +1324,6 @@ dfoc:SMSY a owl:Class ;
 
 dfoc:SpawnerAbundance a owl:Class ;
   rdfs:label "Spawner abundance"@en ;
-  skos:prefLabel "Spawner abundance"@en ;
   rdfs:subClassOf iao:0000109 ;
   iao:0000115 "Spawner abundance (also called “escapement”) provides information on the number of salmon that “escape” fisheries and make it back to spawn."@en ;
   iao:0000119 "Pacific Salmon Foundation. (2025). State of Salmon 2025 Report. Pacific Salmon Foundation, Vancouver, BC, Canada."@en; 
@@ -1458,7 +1334,6 @@ dfoc:SpawnerAbundance a owl:Class ;
 
 dfoc:Stock a owl:Class ;
   rdfs:label "Stock"@en ;
-  skos:prefLabel "Stock"@en ;
   iao:0000115 "A biologically meaningful but operationally-focused salmon demographic unit used in assessment and reporting."@en ;
   rdfs:subClassOf dwc:Organism ;
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> ;
@@ -1467,7 +1342,6 @@ dfoc:Stock a owl:Class ;
 
 dfoc:StockAssessment a owl:Class ;
   rdfs:label "Stock assessment"@en ;
-  skos:prefLabel "Stock assessment"@en ;
   rdfs:subClassOf bfo:0000015 ;
   iao:0000115 "The scientific process of analyzing data to estimate the abundance and productivity of fish stocks in the past, present, and future. It is the backbone of successful science-based fisheries management."@en ;
   iao:0000119 "Fisheries and Oceans Canada. (2024). Introduction to Stock Assessment. Available at https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/module-1/09-eng.html [Accessed 10-28-2025]."@en ;
@@ -1475,7 +1349,6 @@ dfoc:StockAssessment a owl:Class ;
 
 dfoc:StockManagementUnit a owl:Class ;
   rdfs:label "Stock Management Unit"@en ;
-  skos:prefLabel "Stock Management Unit"@en ;
   iao:0000115 "A collection of stocks that are managed together with a joint stock status."@en ;
   rdfs:subClassOf dfoc:ReportingOrManagementStratum ;
   skos:altLabel "SMU"@en ;
@@ -1484,7 +1357,6 @@ dfoc:StockManagementUnit a owl:Class ;
 
 dfoc:StockRecruitmentRelationship a owl:Class ;
   rdfs:label "Stock-recruitment relationship"@en ;
-  skos:prefLabel "Stock-recruitment relationship"@en ;
   rdfs:subClassOf dfoc:Model ;
   iao:0000115 "The relationships between the abundance or biomass of spawning adults in a stock and the expected number of recruits they can produce each year."@en ;
   iao:0000119 "Fisheries and Oceans Canada. (2024). Introduction to stock assessment. Available at https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/module-1/10-eng.html [Accessed 09-10-2025]."@en ;
@@ -1492,14 +1364,13 @@ dfoc:StockRecruitmentRelationship a owl:Class ;
 
 dfoc:StockStatusZone a owl:Class ;
   rdfs:label "Stock status zone"@en ;
-  skos:prefLabel "Stock status zone"@en ;
   iao:0000115 "Categorical assessment of the biological status of a fish stock under the Precautionary Approach framework (Healthy, Cautious, Critical, Status uncertain) according to upper stock and limit reference points."@en ;
   rdfs:subClassOf iao:0000030 ; # Information content entity
   rdfs:seeAlso dfoc:StockStatusZoneScheme ;
   iao:0000119 "Fisheries and Oceans Canada. (2009). A fishery decision-making framework incorporating the precautionary approach. Available at https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/precaution-eng.htm. [Accessed 09-10-2025]."@en ;
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
-dfoc:CriticalZone a owl:Class , skos:Concept ;
+dfoc:CriticalZone a dfoc:StockStatusZone , skos:Concept ;
   rdfs:label "Critical zone"@en ;
   skos:prefLabel "Critical zone"@en ;
   iao:0000115 "In the critical zone, stock growth is promoted and removals are kept to the lowest possible level. The stock is considered to be in “the critical zone” if the mature biomass, or its index, is less than or equal to 40% of BMSY. In other words:  Biomass ≤ 40% BMSY."@en ;
@@ -1508,7 +1379,7 @@ dfoc:CriticalZone a owl:Class , skos:Concept ;
   rdfs:subClassOf dfoc:StockStatusZone ;
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
-dfoc:CautiousZone a owl:Class , skos:Concept ;
+dfoc:CautiousZone a dfoc:StockStatusZone , skos:Concept ;
   rdfs:label "Cautious zone"@en ;
   skos:prefLabel "Cautious zone"@en ;
   iao:0000115 "In the cautious zone, decisions and strategies promote stock rebuilding to the healthy zone. The stock is considered to be in the “cautious zone” if the biomass, or its index, is higher than 40% of BMSY but lower than 80% of BMSY. In other words:  40% BMSY < Biomass < 80% BMSY."@en ;
@@ -1517,7 +1388,7 @@ dfoc:CautiousZone a owl:Class , skos:Concept ;
   rdfs:subClassOf dfoc:StockStatusZone ;
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
-dfoc:HealthyZone a owl:Class , skos:Concept ;
+dfoc:HealthyZone a dfoc:StockStatusZone , skos:Concept ;
   rdfs:label "Healthy zone"@en ;
   skos:prefLabel "Healthy zone"@en ;
   iao:0000115 "In the healthy zone, the fish stock status is good, and fisheries management decisions and harvest strategies are designed to maintain fish stocks within this zone. The stock is considered to be “healthy” if the biomass, or its index, is higher than 80% of BMSY. In other words:  Biomass ≥ 80% BMSY."@en ;
@@ -1526,18 +1397,16 @@ dfoc:HealthyZone a owl:Class , skos:Concept ;
   rdfs:subClassOf dfoc:StockStatusZone ;
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
-dfoc:UncertainStatus a owl:Class , skos:Concept ;
+dfoc:UncertainStatus a dfoc:StockStatusZone , skos:Concept ;
   rdfs:label "Uncertain status"@en ;
   skos:prefLabel "Uncertain status"@en ;
   iao:0000115 "For stocks that have an uncertain status, the uncertainty is factored into harvest level decisions. Greater uncertainty leads to more precautionary harvest levels."@en ;
   iao:0000119 "Fisheries and Oceans Canada. (2009). A fishery decision-making framework incorporating the precautionary approach. Available at https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/precaution-eng.htm. [Accessed 09-10-2025]."@en ;
   skos:inScheme dfoc:StockStatusZoneScheme ;
-  rdfs:subClassOf dfoc:StockStatusZone ;
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
 dfoc:SurveyEvent a owl:Class ;
   rdfs:label "Survey event"@en ;
-  skos:prefLabel "Survey event"@en ;
   iao:0000115 "A field event that collects information about key fish stocks to track their status, and track progress to implement fishery policies and measures for these stocks."@en ;
   rdfs:subClassOf dwc:Event ; 
   iao:0000119 "Fisheries and Oceans Canada. (2021). About the Sustainability Survey for Fisheries. Available at https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html. [Accessed 09-10-2025]."@en ;  
@@ -1545,7 +1414,6 @@ dfoc:SurveyEvent a owl:Class ;
 
 dfoc:TargetReferencePoint a owl:Class ;
   rdfs:label "Target reference point"@en ;
-  skos:prefLabel "Target reference point"@en ;
   iao:0000115 "The overall stock level target. It is determined by setting productivity, broader ecological, and socio-economic objectives for the fishery. It is typically set at or above the USR."@en ;
   rdfs:subClassOf dfoc:ReferencePoint ;  
   iao:0000119 "Fisheries and Oceans Canada. (2024). Introduction to stock assessment. Available at https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/module-1/11-eng.html [Accessed 09-10-2025]."@en ;
@@ -1554,7 +1422,6 @@ dfoc:TargetReferencePoint a owl:Class ;
 
 dfoc:TerminalFishery a owl:Class ;
   rdfs:label "Terminal fishery"@en ;
-  skos:prefLabel "Terminal fishery"@en ;
   iao:0000115 "Fisheries that occur near or in fresh water (e.g., at a river’s mouth) where the targeted species or stock has returned to spawn."@en ;
   iao:0000119 "Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en ;
   rdfs:subClassOf odo:SALMON_00000137 ; #fishery type
@@ -1562,7 +1429,6 @@ dfoc:TerminalFishery a owl:Class ;
 
 dfoc:TotalAllowableCatch a owl:Class ;
   rdfs:label "Total allowable catch"@en ;
-  skos:prefLabel "Total allowable catch"@en ;
   rdfs:subClassOf dfoc:TargetOrLimitRateOrAbundance ;
   iao:0000115 "A policy-defined catch limit set for a particular fishery within a specified management period. Also referred to as quota."@en ;
   iao:0000119 "Fisheries and Oceans Canada. (2024). Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html. [Accessed 09-10-2025]."@en ;
@@ -1571,7 +1437,6 @@ dfoc:TotalAllowableCatch a owl:Class ;
 
 dfoc:UMSY a owl:Class ;
   rdfs:label "Exploitation rate at Maximum Sustainable Yield"@en ;
-  skos:prefLabel "Exploitation rate at Maximum Sustainable Yield"@en ;
   rdfs:subClassOf dfoc:TargetOrLimitRateOrAbundance ;
   iao:0000115 "The exploitation rate associated with the maximum sustainable yield (MSY). Usually expressed as an annual proportion. Exploitation rate is synonymous with harvest rate (U)."@en ;
   dcterms:isPartOf <urn:ISBN:9780660401126> ;
@@ -1581,7 +1446,6 @@ dfoc:UMSY a owl:Class ;
 
 dfoc:UpperStockReferencePoint a owl:Class ;
   rdfs:label "Upper stock reference"@en ;
-  skos:prefLabel "Upper stock reference"@en ;
   iao:0000115 "A threshold below which fishing must be reduced to avoid reaching the LRP. The USR must be set at an appropriate distance above the LRP to provide sufficient opportunity for managers to recognize a declining stock status and sufficient time for management actions to take effect. "@en ;
   rdfs:subClassOf dfoc:ReferencePoint ;  
   iao:0000119 "Fisheries and Oceans Canada. (2024). Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html. [Accessed 09-10-2025]."@en ;
@@ -1590,7 +1454,6 @@ dfoc:UpperStockReferencePoint a owl:Class ;
 
 dfoc:Wild a owl:Class ;
   rdfs:label "Wild"@en ;
-  skos:prefLabel "Wild"@en ;
   rdfs:subClassOf dwc:Organism ;
   iao:0000115 "Individuals having spent their entire life cycle in the wild and originate from parents that were also produced by natural spawning and continuously lived in the wild."@en ;
   dcterms:isPartOf <urn:ISBN:0662405382> ;
@@ -1599,7 +1462,6 @@ dfoc:Wild a owl:Class ;
 
 dfoc:WildSalmonPolicy a owl:Class ;
   rdfs:label "Wild Salmon Policy"@en ;
-  skos:prefLabel "Wild Salmon Policy"@en ;
   iao:0000115 "Canada's Policy for Conservation of Wild Pacific Salmon is a framework designed to restore and maintain healthy and diverse salmon populations and their habitats for the benefit of Canadians in perpetuity. It prioritizes conservation of wild salmon through identifying and managing conservation units (CUs) that reflect the genetic and geographic diversity of salmon populations, while incorporating habitat protection, ecosystem management, and sustainable fisheries practices."@en ;
   rdfs:subClassOf iao:0000033 ; # Directive information entity
   dcterms:isPartOf <urn:ISBN:0662405382> ;
@@ -1609,7 +1471,6 @@ dfoc:WildSalmonPolicy a owl:Class ;
 
 dfoc:WSPBiologicalStatusZone a owl:Class ;
   rdfs:label "Wild Salmon Policy biological status zone"@en ;
-  skos:prefLabel "Wild Salmon Policy biological status zone"@en ;
   iao:0000115 "The biological status of a Conservation Unit (CU) will normally be based on the abundance and distribution of spawners in the unit, or proxies thereof. For each CU, higher and lower benchmarks will be defined that will delimit three status zones: Green, Amber, and Red. As spawner abundance decreases, a CU moves towards the lower status zone, and the extent of management intervention for conservation purposes will increase."@en ;
   rdfs:subClassOf iao:0000030 ; # Information content entity
   rdfs:seeAlso dfoc:WSPBiologicalStatusZoneScheme ;
@@ -1665,16 +1526,19 @@ dfoc:WSPRapidStatus a owl:Class , skos:Concept;
 dfoc:TriggerCondition a owl:Class ;
   rdfs:label "Trigger condition"@en ;
   iao:0000115 "A general condition observed from assessment metadata (for example, a CU entering the Red zone) that activates one or more policy or reporting requirements."@en ;
+  rdfs:subClassOf iao:0000030 ; # Information content entity
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
 dfoc:Requirement a owl:Class ;
   rdfs:label "Requirement"@en ;
   iao:0000115 "A high-level obligation or check that applies when associated triggers hold (for example, summarizing rebuilding actions when a CU is below its limit reference point)."@en ;
+  rdfs:subClassOf iao:0000104 ; # plan specification
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
 dfoc:PolicyFramework a owl:Class ;
   rdfs:label "Policy framework"@en ;
   iao:0000115 "A legal or policy framework that mandates or informs fisheries management obligations (for example, the Wild Salmon Policy or the Precautionary Approach)."@en ;
+  rdfs:subClassOf iao:0000104 ; # plan specification
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
 dfoc:BelowLRPTrigger a owl:Class ;
@@ -1740,84 +1604,95 @@ dfoc:CUAccountingNoteRequirement a owl:Class ;
 dfoc:Condition a owl:Class ;
   rdfs:label "Decision condition"@en ;
   iao:0000115 "A condition entity used to relate rapid-status results or metric thresholds to downstream decision requirements."@en ;
+  rdfs:subClassOf iao:0000030 ; # Information content entity
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
 dfoc:DecisionRequirement a owl:Class ;
   rdfs:label "Decision requirement"@en ;
   iao:0000115 "A reusable pattern describing management or policy obligations that are triggered by specific assessment conditions."@en ;
+  rdfs:subClassOf iao:0000104 ; # plan specification
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
 dfoc:PolicyReadiness a owl:Class ;
   rdfs:label "Policy and legal readiness"@en ;
   iao:0000115 "Summarizes whether an assessment satisfies mandatory policy gates such as WSP rapid status disclosure, harvest control rule identification, and Fish Stocks provisions compliance."@en ;
+  rdfs:subClassOf iao:0000030 ; # Information content entity
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
 dfoc:ManagementDecision a owl:Class ;
   rdfs:label "Management decision"@en ;
   iao:0000115 "A fisheries management action informed by scientific advice, such as establishing a total allowable catch or implementing time-area closures."@en ;
+  rdfs:subClassOf iao:0000030 ; # Information content entity 
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
 dfoc:CUInclusion a owl:Class ;
   rdfs:label "CU accounting entry"@en ;
   iao:0000115 "Records how a specific conservation unit is treated within an assessment cycle—included, excluded, or proxied—with supporting rationale and review metadata."@en ;
+  rdfs:subClassOf iao:0000030 ; # Information content entity 
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
 dfoc:GSIUsage a owl:Class ;
   rdfs:label "Genetic stock identification usage"@en ;
   iao:0000115 "Captures whether and how genetic stock identification data were used to support a mixed-stock assessment, including sample size and uncertainty details."@en ;
+  rdfs:subClassOf iao:0000030 ; # Information content entity 
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
 dfoc:ChangeLogEntry a owl:Class ;
   rdfs:label "Advice change log entry"@en ;
   iao:0000115 "Documents a change from the previous assessment cycle, such as data updates, methodological adjustments, or altered advice."@en ;
+  rdfs:subClassOf iao:0000030 ; # Information content entity 
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
 dfoc:WSPMetric a owl:Class ;
   rdfs:label "WSP metric"@en ;
   iao:0000115 "One of the standard Wild Salmon Policy rapid-status metrics (absolute abundance, relative abundance, long-term trend, or percent change)."@en ;
+  rdfs:subClassOf iao:0000030 ; # Information content entity 
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
 dfoc:MetricBenchmark a owl:Class ;
   rdfs:label "Metric benchmark"@en ;
   iao:0000115 "Benchmark value for a WSP metric that helps delineate status zones (for example, the limit reference point for absolute abundance)."@en ;
+  rdfs:subClassOf iao:0000030 ; # Information content entity 
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
 dfoc:AlgorithmThreshold a owl:Class ;
   rdfs:label "Algorithm threshold"@en ;
   iao:0000115 "Threshold value used by the rapid-status algorithm (such as Learning Tree 3) that may differ from expert-defined benchmarks to incorporate precautionary buffers."@en ;
+  rdfs:subClassOf iao:0000030 ; # Information content entity 
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
 dfoc:ConfidenceCategory a owl:Class ;
   rdfs:label "Confidence category"@en ;
   iao:0000115 "Categorical confidence rating (High, Medium, Low) reported alongside a rapid status assessment."@en ;
+  rdfs:subClassOf iao:0000030 ; # Information content entity 
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
 #################################################################
 # FSAR controlled vocabularies
 #################################################################
 
-dfoc:absoluteAbundanceMetric a dfoc:WSPMetric , skos:Concept ;
+dfoc:AbsoluteAbundanceMetric a dfoc:WSPMetric , skos:Concept ;
   rdfs:label "Absolute abundance metric"@en ;
   skos:prefLabel "Absolute abundance"@en ;
   iao:0000115 "Wild Salmon Policy metric comparing generational average spawner abundance to COSEWIC criterion D1 thresholds."@en ;
   skos:inScheme :WSPMetricScheme ;
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
-dfoc:relativeAbundanceMetric a dfoc:WSPMetric , skos:Concept ;
+dfoc:RelativeAbundanceMetric a dfoc:WSPMetric , skos:Concept ;
   rdfs:label "Relative abundance metric"@en ;
   skos:prefLabel "Relative abundance"@en ;
   iao:0000115 "Wild Salmon Policy metric comparing generational average spawner abundance to CU-specific benchmarks (for example Sgen or 80% SMSY)."@en ;
   skos:inScheme :WSPMetricScheme ;
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
-dfoc:longTermTrendMetric a dfoc:WSPMetric , skos:Concept ;
+dfoc:LongTermTrendMetric a dfoc:WSPMetric , skos:Concept ;
   rdfs:label "Long-term trend metric"@en ;
   skos:prefLabel "Long-term trend"@en ;
   iao:0000115 "Wild Salmon Policy metric comparing current generational average to long-term average spawner abundance."@en ;
   skos:inScheme :WSPMetricScheme ;
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
-dfoc:percentChangeMetric a dfoc:WSPMetric , skos:Concept ;
+dfoc:PercentChangeMetric a dfoc:WSPMetric , skos:Concept ;
   rdfs:label "Percent change metric"@en ;
   skos:prefLabel "Percent change"@en ;
   iao:0000115 "Wild Salmon Policy metric quantifying linear change in spawner abundance over the most recent three generations."@en ;
@@ -2476,6 +2351,7 @@ dfoc:EscapementMethod a owl:Class ;
 
 # NOTE: Hyponyms of EscapementMethod. Optionally mark as disjoint (see below).
 dfoc:AreaUnderTheCurve a owl:Class ;
+  rdfs:label "Area Under the Curve"@en ;
   skos:prefLabel "Area Under the Curve"@en ;
   iao:0000115 "Estimation by integrating counts over time to approximate total escapement."@en ;
   rdfs:subClassOf dfoc:EscapementMethod ;
@@ -2739,6 +2615,7 @@ dfoc:usesMethod a owl:ObjectProperty ;
 
 # New properties for hybrid approach
 dfoc:usesEnumerationMethod a owl:ObjectProperty ;
+  rdfs:label "uses enumeration method"@en ;
   skos:prefLabel "uses enumeration method"@en ;
   iao:0000115 "Links a survey event to the enumeration method used."@en ;
   rdfs:domain dfoc:EscapementSurveyEvent ;
@@ -3061,6 +2938,7 @@ dfoc:collectionMethod a owl:DatatypeProperty ;
 
 # External alignment (literal IRI pattern)
 dfoc:taxonIRI a owl:DatatypeProperty ;
+  rdfs:label "taxon IRI"@en ;
   skos:prefLabel "taxon IRI"@en ;
   iao:0000115 "IRI identifying the taxon (e.g., GBIF Backbone Taxonomy). Stored as a literal IRI for pragmatic alignment without imports."@en ;
   rdfs:domain dfoc:Stock ;
@@ -3070,6 +2948,7 @@ dfoc:taxonIRI a owl:DatatypeProperty ;
 
 # New datatype properties for survey metadata
 dfoc:measuredVisits a owl:DatatypeProperty ;
+  rdfs:label "measured visits"@en ;
   skos:prefLabel "measured visits"@en ;
   iao:0000115 "Number of site visits conducted during the survey."@en ;
   rdfs:domain dfoc:EscapementSurveyEvent ;
