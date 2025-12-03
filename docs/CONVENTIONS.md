@@ -346,6 +346,21 @@ ex:DFOEscMethodCode a rdfs:Datatype .
     iao:0000119 "DFO (2023). Escapement Survey Manual, Pacific Region."@en .
 ```
 
+##### 2.3.4.1 SKOS vs OWL decision rule (flat vs inheriting)
+
+- Use **SKOS concept schemes** when the hierarchy is flat or tree-only (no property inheritance, no logical class expressions), when the terms act as picklist codes, and when you **do not need** to instantiate them as classes in data (i.e., they remain terminology values).
+- Use **OWL classes** when you need property inheritance, logical constraints, class expressions, or when downstream data will type individuals with the term (e.g., `rdf:type dfoc:StockAssessment`).
+- Do **not** mix the two: a SKOS concept is an individual of `skos:Concept`; it is not a class. If you believe a term must be both, pause and record an ADR before introducing punning.
+- Default posture: SKOS for code lists; OWL for behavioral/logical models. If in doubt, ask “Will this term ever need class-level semantics or property inheritance?” If yes → OWL; if no and hierarchy is purely lexical → SKOS.
+
+##### 2.3.4.2 Theme / module annotation for navigation
+
+- We will tag every OWL class, property, and SKOS concept with a **theme/module annotation** to aid navigation and review.
+- Annotation property: `dfoc:theme` (annotation property) with values drawn from a SKOS concept scheme `:ThemeScheme` (to be added).
+- Multiple themes are allowed per term; choose the smallest set that reflects the owning bounded context.
+- Keep the annotation purely descriptive (no reasoning expected). Do not use it in logical axioms or SHACL constraints.
+- Review checklist: ensure new terms carry at least one `dfoc:theme` value once the scheme exists.
+
 #### 2.3.5 Provenance and Citation Conventions
 
 #### 2.3.5.1 Use of `iao:0000119`, `dcterms:identifier`, `dcterms:source`, `dcterms:bibliographicCitation`, and `rdfs:seeAlso`

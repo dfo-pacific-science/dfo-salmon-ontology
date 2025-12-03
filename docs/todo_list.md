@@ -1,7 +1,7 @@
 # DFO Salmon Ontology
 
 **Focus:** 8-week path to Barkley Sockeye FSAR evidence chain demo  
-**Goal:** Six-node trace (Data → Method → RefPoints → Status → Advice → Decision) with badges
+**Goal:** Five-node trace (Data → Method → RefPoints → Status → Advice) with badges — Policynodes deferred to post-MVP
 
 **Last Updated:** 2025-11-06 (FSAR Advice Trace mockups logged)  
 **Status:** Active development for FSAR Advice Trace (2-month critical path)
@@ -9,6 +9,7 @@
 **Current Goals:**
 - **Widoco site formally published:** End of November 2025
 - **Quarto website pages for exploring controlled vocabulary:** Working within next 2 weeks
+- **New:** Complete ontology deep review (class hierarchy sanity + genetics vocab refresh) before further term publication
 
 ---
 
@@ -32,6 +33,14 @@
 - **GOAL**: Widoco site formally published by end of November 2025
 - **GOAL**: Quarto website pages for exploring controlled vocabulary working within next 2 weeks
 
+## Theme / Module Annotations (Conventions alignment)
+
+- [ ] Define an annotation property for themes/modules (e.g., `dfoc:theme`) in `ontology/dfo-salmon.ttl` with range constrained to a SKOS Theme scheme
+- [ ] Create a SKOS concept scheme for themes/modules and document intended values
+- [ ] Apply the theme annotation to every OWL class, property, and SKOS concept (1–3 themes per term; at least one required)
+- [ ] Add a ROBOT/SPARQL or SHACL check that fails when any term lacks `dfoc:theme`
+- [ ] Add documentation examples and reviewer checklist to `docs/CONVENTIONS.md`
+
 
 ## 2025-11-06 — FSAR Advice Trace Mockups
 
@@ -39,37 +48,7 @@
 - [ ] Socialize the interaction flow with FSAR authors + policy reviewers and capture feedback deltas
 - [ ] Replace the static sample data with a JSON-LD Advice Trace Pack feed once available
 - [ ] Wire drawer tabs to live SPSR/GRD/CSAS endpoints or cached packs for provenance jumps
-
-## 2025-11-02 — Convention Compliance Cleanup
-
-- [x] Add missing `rdfs:label` annotations to OWL classes, object properties, and datatype properties.
-- [x] Reinstate required `IAO:0000115` definitions for COSEWIC statuses, `:DowngradeCriteria`, and imported SKOS upper classes.
-- [x] Replace `skos:altLabel` IRIs with `skos:exactMatch` or `rdfs:seeAlso` alignments and document intentional punning patterns.
-
-## DONE Requirements and Design Review
-
-**Owner:** Brett  
-**Priority:** Critical  
-**Scope:** Foundation and alignment
-
-### Review and Refine FSAR Tracer PRD
-
-- [x] Review `docs/ontology_applications/FSAR_Tracer_PRD_CQs.md` for completeness
-- [x] Clarify terminology: "Scientific Output" vs "Advice", "Decision" vs "DecisionContext"
-- [x] Finalize evidence chain requirements
-- [x] Document required fields checklist (v1.0)
-- [x] Ensure alignment with SPSR data model
-- [x] Comprehensive PRD update with personas, user stories, acceptance criteria, competency questions, schema recommendations, and MVP enhancements
-
-### Review Competency Questions
-
-**File:** `docs/COMPETENCY_QUESTIONS.md`
-
-- [x] Review existing stock assessment competency questions
-- [x] Add FSAR Tracer-specific competency questions (Q1-Q9)
-- [x] Verify each question maps to ontology classes/properties
-- [x] Ensure questions cover all evidence chain nodes
-- [x] Add genetics/GSI competency questions for GRD linkage
+- [ ] Incorporate a Management Decision snapshot node in the Advice Trace flow (type/date/link) per updated PRD
 
 ---
 
@@ -299,6 +278,8 @@
 
 ### FSAR Module Implementation Status
 
+**Note:** Policy readiness / decision nodes are deferred to post-MVP; core focus now is scientific evidence chain (Data → Method → RefPoints → Status → Advice) and class/ genetics alignment.
+
 **File:** `docs/ontology_applications/dfo-fsar.ttl`  
 **Latest Version:** `docs/ontology_applications/dfo-fsar-v4.ttl` (includes WSP rapid-status support)
 
@@ -353,7 +334,7 @@
 
 ### Enhanced Requirements from PRD Updates
 
-**Based on comprehensive PRD updates (2025-01-27):**
+**Based on comprehensive PRD updates**
 
 - [ ] **NEXT**: Add benchmark transparency properties:
   - `dfoc:reference_point_type` (controlled vocab: LRP/USR/Sgen/Smsy)
@@ -380,6 +361,13 @@
 **Owner:** Mel  
 **Priority:** High
 **Scope:** Publish stable core terms to w3id.org
+
+### Core term subset (end-of-week target)
+
+- [ ] Identify the minimal, stable subset of fundamental salmon stock assessment terms for initial w3id publication (definitions unlikely to change; stable class/subclass structure; definition sources present)
+- [ ] Review and confirm definition quality and sources for the candidate list
+- [ ] Produce and agree the initial publication list (see `docs/notes/2025-12-03-w3id-core-terms.md`)
+- [ ] Update rdfs:isDefinedBy/versioning for the agreed subset and prep redirections
 
 ### Prepare Core Terms
 
@@ -636,20 +624,6 @@
 ---
 
 ## SHACL Header and Documentation
-
-**Owner:** Mel  
-**Priority:** High  
-**Scope:** SHACL validation setup
-
-### Update SHACL File Header
-
-**File:** `ontology/shapes/dfo-salmon-shapes.ttl`
-
-- [x] Add clarifying comment at top: "Validation shapes for data quality, NOT classification"
-- [x] Add note: "Estimate types are manually assigned based on Hyatt 1997 criteria"
-- [x] Add note: "No instance data in main ontology file; instances go in examples/"
-
----
 
 ## SHACL Decision Context Shape
 
@@ -997,15 +971,6 @@
 **Owner:** Brett  
 **Priority:** Medium  
 **Scope:** CI/CD pipeline improvements
-
-### Fix ROBOT Validation
-
-**File:** `.github/workflows/ci.yml`
-
-- [ ] Investigate ROBOT validate command requirements
-- [ ] Determine if newer ROBOT version needed (>1.9.5)
-- [ ] Create OBO validation profile if needed
-- [ ] Re-enable validation in CI/CD pipeline
 
 ### Add Quality Checks
 
