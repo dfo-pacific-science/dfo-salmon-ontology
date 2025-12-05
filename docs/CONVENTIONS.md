@@ -355,11 +355,19 @@ ex:DFOEscMethodCode a rdfs:Datatype .
 
 ##### 2.3.4.2 Theme / module annotation for navigation
 
-- We will tag every OWL class, property, and SKOS concept with a **theme/module annotation** to aid navigation and review.
-- Annotation property: `dfoc:theme` (annotation property) with values drawn from a SKOS concept scheme `:ThemeScheme` (to be added).
-- Multiple themes are allowed per term; choose the smallest set that reflects the owning bounded context.
+- Tag every OWL class, property, and SKOS concept with a **theme/module annotation** to aid navigation and review.
+- Annotation property: `dfoc:theme` (annotation property) with values drawn from the SKOS concept scheme `:ThemeScheme` (defined in `ontology/dfo-salmon.ttl`; definitions in `docs/context/themes-modules.md`).
+- Cardinality: 1–3 per term; choose the smallest set that reflects the owning bounded context.
 - Keep the annotation purely descriptive (no reasoning expected). Do not use it in logical axioms or SHACL constraints.
-- Review checklist: ensure new terms carry at least one `dfoc:theme` value once the scheme exists.
+- Validation: `robot query --input ontology/dfo-salmon.ttl --query scripts/sparql/theme-coverage.rq reports/theme-coverage.tsv` should return no rows; values must be members of `:ThemeScheme`.
+- Review checklist: ensure each new term is themed and stays under the 3-theme cap.
+
+##### 2.3.4.3 Publication status annotation (publish slice)
+
+- Use `dfoc:publicationStatus` (annotation property) with values `dfoc:Draft` or `dfoc:PublishReady` to control what goes into the publish slice.
+- Only terms marked `dfoc:PublishReady` are extracted into the publish TTL; the slice strips the publicationStatus annotation.
+- Before setting `PublishReady`, ensure required metadata exist: `rdfs:label`, `IAO:0000115`, `rdfs:isDefinedBy`, a definition source (`iao:0000119` or `dcterms:source`), and at least one `dfoc:theme`.
+- Validation: run `make publish-validate` to flag PublishReady terms missing required metadata; run `make publish-slice` to generate `release/published/dfoc-core.ttl` (PublishReady terms only, publicationStatus removed).
 
 #### 2.3.5 Provenance and Citation Conventions
 

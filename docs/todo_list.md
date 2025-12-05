@@ -1,15 +1,16 @@
 # DFO Salmon Ontology
 
 **Focus:** 8-week path to Barkley Sockeye FSAR evidence chain demo  
-**Goal:** Five-node trace (Data → Method → RefPoints → Status → Advice) with badges — Policynodes deferred to post-MVP
 
-**Last Updated:** 2025-11-06 (FSAR Advice Trace mockups logged)  
+**Last Updated:** 2025-12-03 (Publish-ready + theme annotation plans added)  
+
 **Status:** Active development for FSAR Advice Trace (2-month critical path)
 
 **Current Goals:**
 - **Widoco site formally published:** End of November 2025
 - **Quarto website pages for exploring controlled vocabulary:** Working within next 2 weeks
 - **New:** Complete ontology deep review (class hierarchy sanity + genetics vocab refresh) before further term publication
+- **New (2025-12-03):** Stand up publish-ready slice pipeline (`dfoc:publicationStatus` → `release/published/dfoc-core.ttl`) and theme annotations per execplan.md / execplan-theme-annotations.md; downstreams (DSU tabs, term tables) must read from the publish slice instead of legacy artifacts
 
 ---
 
@@ -35,11 +36,21 @@
 
 ## Theme / Module Annotations (Conventions alignment)
 
-- [ ] Define an annotation property for themes/modules (e.g., `dfoc:theme`) in `ontology/dfo-salmon.ttl` with range constrained to a SKOS Theme scheme
-- [ ] Create a SKOS concept scheme for themes/modules and document intended values
-- [ ] Apply the theme annotation to every OWL class, property, and SKOS concept (1–3 themes per term; at least one required)
-- [ ] Add a ROBOT/SPARQL or SHACL check that fails when any term lacks `dfoc:theme`
-- [ ] Add documentation examples and reviewer checklist to `docs/CONVENTIONS.md`
+- [] Define an annotation property for themes/modules (e.g., `dfoc:theme`) in `ontology/dfo-salmon.ttl` with range constrained to a SKOS Theme scheme (values from `docs/context/themes-modules.md`, see `execplan-theme-annotations.md`)
+- [] Create a SKOS concept scheme for themes/modules and document intended values
+- [] Apply the theme annotation to every OWL class, property, and SKOS concept (1–3 themes per term; at least one required)
+- [x] Add a ROBOT/SPARQL or SHACL check (e.g., `scripts/sparql/theme-coverage.rq` + Make target) that fails when any term lacks `dfoc:theme` or exceeds 3 values
+- [x] Add documentation examples and reviewer checklist to `docs/CONVENTIONS.md`
+- [ ] Ensure publish slice retains `dfoc:theme` annotations and downstreams (DSU tabs/term tables) read from `release/published/dfoc-core.ttl` instead of legacy `release/artifacts/term-tables`/themes.yml fallbacks
+- [ ] Wire `scripts/sparql/theme-coverage.rq` into CI/pre-commit once Java/ROBOT is available locally
+
+## Publish-ready slice (ExecPlan 2025-12-03)
+
+- [ ] Add `dfoc:publicationStatus` annotation property + `dfoc:Draft`/`dfoc:PublishReady` individuals to `ontology/dfo-salmon.ttl` (see `execplan.md`)
+- [ ] Tag initial core terms with `dfoc:publicationStatus dfoc:PublishReady` per `docs/notes/2025-12-03-w3id-core-terms.md`
+- [ ] Add validation queries (`scripts/sparql/publish-ready-terms.rq`, `scripts/sparql/publish-ready-metadata.rq`) and Make target to fail when PublishReady terms miss required metadata (label/definition/isDefinedBy/definition source/theme)
+- [ ] Add extraction target to emit publish slice `release/published/dfoc-core.ttl` (PublishReady only; strip publicationStatus) and document workflow in `docs/CONVENTIONS.md`
+- [ ] Personal review: select which terms to tag as `dfoc:PublishReady` (do not auto-tag)
 
 
 ## 2025-11-06 — FSAR Advice Trace Mockups
