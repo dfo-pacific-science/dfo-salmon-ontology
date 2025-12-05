@@ -21,8 +21,7 @@ Themes define how ontology terms are grouped for documentation. Each theme speci
 - `label`: Human-readable title
 - `query_file`: Name of generated SPARQL query file
 - `output_csv`: Name of generated CSV file
-- `schemes`: List of SKOS scheme IRIs to include
-- `classes`: List of OWL class IRIs to include
+- `theme_iri`: Theme IRI to include. 
 
 **Example:**
 ```yaml
@@ -31,12 +30,7 @@ themes:
     label: "Stock Assessment Methods"
     query_file: "stock-assessment-terms.rq"
     output_csv: "stock-assessment-terms.csv"
-    schemes:
-      - "https://w3id.org/dfoc/salmon#EnumerationMethodScheme"
-      - "https://w3id.org/dfoc/salmon#EstimateMethodScheme"
-    classes:
-      - "https://w3id.org/dfoc/salmon#EscapementMethod"
-      - "https://w3id.org/dfoc/salmon#Stock"
+    theme_iri: "https://w3id.org/gcdfos/salmon#StockAssessmentTheme"
 ```
 
 **To add a new theme:**
@@ -50,8 +44,7 @@ The `scripts/extract-term-tables.py` script automatically generates SPARQL queri
 
 **How it works:**
 - For each theme, it builds SPARQL queries that:
-  - Query SKOS concepts within specified `schemes`
-  - Query OWL classes from the `classes` list
+  - Query all SKOS concepts and OWL classes within specified `theme_iri`
   - Extract labels, definitions, related terms, and metadata
 - Queries are written to `scripts/sparql/{theme-id}-terms.rq`
 
@@ -201,11 +194,7 @@ themes:
     label: "Habitat and Environment"
     query_file: "habitat-terms.rq"
     output_csv: "habitat-terms.csv"
-    schemes:
-      - "https://w3id.org/dfoc/salmon#HabitatTypeScheme"
-    classes:
-      - "https://w3id.org/dfoc/salmon#Habitat"
-      - "https://w3id.org/dfoc/salmon#StreamReach"
+    theme_iri: "https://w3id.org/dfoc/salmon#HabitatTypeScheme"
 ```
 
 **Step 2: Run extraction**
