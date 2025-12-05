@@ -2,9 +2,10 @@
 Generate themed ontology term tables and matching SPARQL query files.
 
 This script reads theme definitions from scripts/config/themes.yml,
-builds SPARQL queries for each theme, writes the queries to scripts/sparql/,
-executes them against ontology/dfo-salmon.ttl using RDFLib, and exports
-deterministically ordered CSV + metadata files under release/artifacts/term-tables/.
+builds SPARQL queries for each theme based on gcdfos:theme annotations,
+writes the queries to scripts/sparql/, executes them against ontology/dfo-salmon.ttl
+using RDFLib, and exports deterministically ordered CSV + metadata files under
+release/artifacts/term-tables/.
 """
 
 from __future__ import annotations
@@ -34,21 +35,25 @@ QUERY_DIR = ROOT / "scripts" / "sparql"
 OUTPUT_DIR = ROOT / "release" / "artifacts" / "term-tables"
 # IRI for IAO definition property (IAO_0000115 = "definition")
 IAO_DEFINITION_IRI = rdflib.URIRef("http://purl.obolibrary.org/obo/IAO_0000115")
+# IRI for the gcdfos:theme annotation property
+GCDFOS_NS = "https://w3id.org/gcdfos/salmon#"
 
 # SPARQL namespace prefixes used across all generated queries
 # These define shortcuts for common RDF vocabularies:
+# - gcdfos: DFO Salmon Ontology namespace
 # - skos: Simple Knowledge Organization System (concepts, schemes, labels)
 # - rdfs: RDF Schema (classes, labels, comments, subClassOf)
 # - owl: Web Ontology Language (classes, properties)
 # - dcterms: Dublin Core Terms (source citations)
-COMMON_PREFIXES = """PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+COMMON_PREFIXES = """PREFIX gcdfos: <https://w3id.org/gcdfos/salmon#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 """
 
 # Reusable SPARQL OPTIONAL blocks for extracting term metadata
-# This pattern is used in both scheme-based and class-based queries to ensure
+# This pattern is used in theme-based queries to ensure
 # consistent extraction of labels, definitions, sources, and relationships
 COMMON_OPTIONALS = textwrap.dedent(
     """\
@@ -64,13 +69,6 @@ OPTIONAL {
 }
 # COALESCE returns first non-null value: prefLabel > rdfs:label > IRI fragment
 BIND(COALESCE(?prefLabelRaw, ?rdfsLabelRaw, STRAFTER(STR(?term), "#")) AS ?termLabel) .
-
-# Extract scheme label (for scheme-based queries)
-OPTIONAL {
-  ?scheme skos:prefLabel ?schemePref .
-  FILTER(LANG(?schemePref) = "" || LANGMATCHES(LANG(?schemePref), "en"))
-}
-BIND(COALESCE(?schemePref, STRAFTER(STR(?scheme), "#")) AS ?schemeLabel) .
 
 # Extract definition: check multiple properties in priority order
 # 1. skos:definition (SKOS standard)
@@ -102,7 +100,7 @@ OPTIONAL {
   ?term dcterms:source ?definitionSourceLink .
 }
 
-# Extract related terms via three relationship types (UNION creates one result per relationship)
+# Extract related terms via four relationship types (UNION creates one result per relationship)
 # This allows a term to have multiple related terms, each with its relationship type
 OPTIONAL {
   # Broader term (parent concept in SKOS hierarchy)
@@ -121,6 +119,12 @@ OPTIONAL {
   {
     ?term rdfs:subClassOf ?related .
     BIND("rdfs:subClassOf" AS ?relation) .
+  }
+  UNION
+  # In scheme relationship (SKOS concept to scheme)
+  {
+    ?term skos:inScheme ?related .
+    BIND("skos:inScheme" AS ?relation) .
   }
   # Extract label for the related term (same pattern as term label extraction)
   OPTIONAL {
@@ -152,10 +156,11 @@ ORDER_BY_CLAUSE = (
 
 class Theme:
     """
-    Definition for a themed extraction.
+    Definition for a themed extraction based on gcdfos:theme annotations.
     
-    A theme groups related ontology terms for extraction into a single CSV table.
-    Terms can be selected by SKOS scheme membership or by explicit OWL class IRIs.
+    A theme groups related ontology terms that have been annotated with
+    the same gcdfos:theme value. This captures both SKOS concepts and OWL
+    classes automatically.
     """
 
     def __init__(
@@ -163,10 +168,9 @@ class Theme:
         *,
         id: str,
         label: str,
+        theme_iri: str,
         query_file: str,
         output_csv: str,
-        schemes: Optional[List[str]] = None,
-        classes: Optional[List[str]] = None,
     ) -> None:
         """
         Initialize a theme configuration.
@@ -174,24 +178,15 @@ class Theme:
         Args:
             id: Unique identifier for the theme (used in metadata)
             label: Human-readable theme name
+            theme_iri: IRI of the theme (value of gcdfos:theme property)
             query_file: Filename for the generated SPARQL query (relative to QUERY_DIR)
             output_csv: Filename for the generated CSV (relative to OUTPUT_DIR)
-            schemes: Optional list of SKOS scheme IRIs to extract concepts from
-            classes: Optional list of OWL class IRIs to extract directly
-            
-        Raises:
-            ValueError: If neither schemes nor classes are provided
         """
         self.id = id
         self.label = label
+        self.theme_iri = theme_iri
         self.query_file = query_file
         self.output_csv = output_csv
-        # Normalize empty lists: use empty list if None provided
-        self.schemes = schemes or []
-        self.classes = classes or []
-        # Validation: at least one selection method must be specified
-        if not (self.schemes or self.classes):
-            raise ValueError(f"Theme {self.id} must define schemes or classes.")
 
     @property
     def query_path(self) -> Path:
@@ -236,16 +231,14 @@ def read_config() -> tuple[str, List[Theme]]:
         raise ValueError("Theme configuration must set widoco_base_url.")
 
     # Build Theme objects from YAML entries
-    # Each theme entry must have: id, label, query_file, output_csv
-    # Optional: schemes (list of SKOS scheme IRIs) or classes (list of OWL class IRIs)
+    # Each theme entry must have: id, label, theme_iri, query_file, output_csv
     themes = [
         Theme(
             id=entry["id"],
             label=entry["label"],
+            theme_iri=entry["theme_iri"],
             query_file=entry["query_file"],
             output_csv=entry["output_csv"],
-            schemes=entry.get("schemes", []),  # Default to empty list if not specified
-            classes=entry.get("classes", []),  # Default to empty list if not specified
         )
         for entry in raw.get("themes", [])  # Default to empty list if themes key missing
     ]
@@ -256,87 +249,73 @@ def read_config() -> tuple[str, List[Theme]]:
     return widoco_base_url, themes
 
 
-def build_schemes_query(theme: Theme) -> Optional[str]:
+def build_theme_query(theme: Theme) -> str:
     """
-    Construct a SPARQL query for SKOS concepts within configured schemes.
+    Construct a SPARQL query for entities with a specific gcdfos:theme annotation.
     
-    Builds a query that selects all SKOS concepts that are members of the
-    specified SKOS schemes. Uses VALUES clause for efficient filtering.
+    Builds a query that selects all entities (both SKOS concepts and OWL classes)
+    that have been annotated with the specified theme IRI using the gcdfos:theme property.
     
     Args:
-        theme: Theme configuration with schemes list
+        theme: Theme configuration with theme_iri
         
     Returns:
-        Complete SPARQL query string, or None if theme has no schemes configured
+        Complete SPARQL query string
     """
-    if not theme.schemes:
-        return None
-
-    # Build VALUES clause: <iri1> <iri2> <iri3> ...
-    # This allows SPARQL to efficiently filter by multiple scheme IRIs
-    scheme_values = " ".join(f"<{iri}>" for iri in theme.schemes)
     # Indent the common optional blocks to match WHERE clause indentation
     optional_block = textwrap.indent(COMMON_OPTIONALS, "  ")
 
     # Construct the full SPARQL query:
     # - SELECT DISTINCT ensures no duplicate rows
-    # - WHERE clause filters by scheme membership and concept type
+    # - WHERE clause filters by gcdfos:theme annotation
+    # - No type restrictions - captures both SKOS concepts and OWL classes
     # - COMMON_OPTIONALS extracts labels, definitions, sources, and relationships
     # - ORDER_BY_CLAUSE ensures deterministic output ordering
     return (
         f"{COMMON_PREFIXES}\n"
         "SELECT DISTINCT ?term ?termLabel ?definition ?definitionSourceText ?definitionSourceLink ?related ?relatedLabel ?relation\n"
         "WHERE {\n"
-        f"  VALUES ?scheme {{ {scheme_values} }}\n"  # Filter to specified schemes
-        "  ?term skos:inScheme ?scheme .\n"  # Term must be in one of the schemes
-        "  ?term a skos:Concept .\n"  # Term must be a SKOS Concept
-        f"{optional_block}\n"  # Extract metadata (labels, definitions, etc.)
+        f"  # Filter to entities with the specific theme annotation\n"
+        f"  ?term gcdfos:theme <{theme.theme_iri}> .\n"
+        f"  \n"
+        f"  # Note: We don't restrict by type - this captures both SKOS concepts and OWL classes\n"
+        f"  # that have been annotated with this theme\n"
+        f"  \n"
+        f"{optional_block}\n"
         "}\n"
-        f"{ORDER_BY_CLAUSE}"  # Sort results deterministically
+        f"{ORDER_BY_CLAUSE}"
     )
 
 
-def build_classes_query(theme: Theme) -> Optional[str]:
+def get_all_themes_query() -> str:
     """
-    Construct a SPARQL query for OWL classes within the theme, including all subclasses.
+    Construct a SPARQL query to discover all themes in the ontology.
     
-    Builds a query that selects specified OWL classes by their IRIs AND all their
-    subclasses (transitively). Uses rdfs:subClassOf* for transitive closure to
-    automatically include subclasses, sub-subclasses, etc.
+    This query finds all unique theme IRIs that are used as values of the
+    gcdfos:theme property, along with their labels if available.
     
-    Args:
-        theme: Theme configuration with classes list
-        
     Returns:
-        Complete SPARQL query string, or None if theme has no classes configured
+        SPARQL query string to find all themes
     """
-    if not theme.classes:
-        return None
-
-    # Build VALUES clause: <iri1> <iri2> <iri3> ...
-    # These are the base classes - we'll find all subclasses transitively
-    base_class_values = " ".join(f"<{iri}>" for iri in theme.classes)
-    # Indent the common optional blocks to match WHERE clause indentation
-    optional_block = textwrap.indent(COMMON_OPTIONALS, "  ")
-
-    # Construct the full SPARQL query:
-    # - SELECT DISTINCT ensures no duplicate rows
-    # - WHERE clause uses rdfs:subClassOf* (transitive closure) to find all subclasses
-    # - The * includes zero or more steps, so it includes the base class itself
-    # - COMMON_OPTIONALS extracts labels, definitions, sources, and relationships
-    # - ORDER_BY_CLAUSE ensures deterministic output ordering
     return (
         f"{COMMON_PREFIXES}\n"
-        "SELECT DISTINCT ?term ?termLabel ?definition ?definitionSourceText ?definitionSourceLink ?related ?relatedLabel ?relation\n"
+        "SELECT DISTINCT ?theme ?themeLabel\n"
         "WHERE {\n"
-        f"  VALUES ?baseClass {{ {base_class_values} }}\n"  # Base classes to start from
-        "  # Include base classes and all their subclasses (transitive closure)\n"
-        "  # The * means zero or more steps, so it includes the base class itself\n"
-        "  ?term rdfs:subClassOf* ?baseClass .\n"  # * means zero or more steps (transitive)
-        "  ?term a owl:Class .\n"  # Verify term is an OWL class
-        f"{optional_block}\n"  # Extract metadata (labels, definitions, etc.)
+        "  # Find all entities that have a theme annotation\n"
+        "  ?entity gcdfos:theme ?theme .\n"
+        "  \n"
+        "  # Get theme labels if available\n"
+        "  OPTIONAL {\n"
+        "    ?theme skos:prefLabel ?themePrefLabel .\n"
+        "    FILTER(LANG(?themePrefLabel) = \"\" || LANGMATCHES(LANG(?themePrefLabel), \"en\"))\n"
+        "  }\n"
+        "  OPTIONAL {\n"
+        "    ?theme rdfs:label ?themeRdfsLabel .\n"
+        "    FILTER(LANG(?themeRdfsLabel) = \"\" || LANGMATCHES(LANG(?themeRdfsLabel), \"en\"))\n"
+        "  }\n"
+        "  BIND(COALESCE(?themePrefLabel, ?themeRdfsLabel, STRAFTER(STR(?theme), \"#\")) AS ?themeLabel) .\n"
         "}\n"
-        f"{ORDER_BY_CLAUSE}"  # Sort results deterministically
+        "ORDER BY ?themeLabel"
     )
 
 
@@ -445,6 +424,7 @@ def normalize_relation(relation: str) -> str:
         "skos:broader": "broader",
         "skos:narrower": "narrower",
         "rdfs:subClassOf": "subClassOf",
+        "skos:inScheme": "inScheme",
     }
     # Return mapped value if found, otherwise return original
     return mapping.get(relation, relation)
@@ -620,6 +600,7 @@ def write_meta(path: Path, theme: Theme, rows: List[Dict[str, str]]) -> None:
     payload = {
         "theme": theme.id,  # Theme identifier
         "label": theme.label,  # Human-readable theme name
+        "theme_iri": theme.theme_iri,  # IRI of the theme used for filtering
         "row_count": len(rows),  # Number of terms extracted
         # Extract metadata from first row (all rows have same values for these fields)
         "source_version": rows[0]["source_version"] if rows else "",  # Git commit SHA
@@ -652,6 +633,32 @@ def write_query_file(path: Path, query: str) -> None:
         handle.write("\n")  # Ensure file ends with newline
 
 
+def discover_themes(graph: rdflib.Graph) -> List[tuple[str, str]]:
+    """
+    Discover all themes used in the ontology.
+    
+    Executes a SPARQL query to find all unique values of the gcdfos:theme property
+    along with their labels.
+    
+    Args:
+        graph: Parsed RDF graph of the ontology
+        
+    Returns:
+        List of tuples (theme_iri, theme_label)
+    """
+    query = get_all_themes_query()
+    results = graph.query(query)
+    
+    themes = []
+    for row in results:
+        theme_iri = to_string(row.get("theme"))
+        theme_label = to_string(row.get("themeLabel")) or make_anchor(theme_iri)
+        if theme_iri:
+            themes.append((theme_iri, theme_label))
+    
+    return themes
+
+
 def main() -> None:
     """
     Main execution function.
@@ -660,8 +667,9 @@ def main() -> None:
     1. Ensures output directories exist
     2. Loads theme configuration
     3. Parses the ontology file
-    4. For each theme:
-       a. Builds and executes SPARQL queries (scheme-based and/or class-based)
+    4. Optionally discovers themes in the ontology
+    5. For each configured theme:
+       a. Builds and executes SPARQL query based on gcdfos:theme annotation
        b. Aggregates and processes results
        c. Writes CSV output and metadata files
        d. Writes generated SPARQL queries for inspection
@@ -677,46 +685,44 @@ def main() -> None:
     if graph.parse(str(ONTOLOGY_PATH)) is None:
         raise RuntimeError(f"Failed to parse ontology at {ONTOLOGY_PATH}")
 
+    # Optional: Discover all themes in the ontology (useful for debugging/validation)
+    print("\nDiscovering themes in the ontology...")
+    discovered_themes = discover_themes(graph)
+    if discovered_themes:
+        print(f"Found {len(discovered_themes)} themes in the ontology:")
+        for theme_iri, theme_label in discovered_themes:
+            print(f"  - {theme_label}: {theme_iri}")
+    else:
+        print("No themes found in the ontology (no entities with gcdfos:theme property)")
+    print()
+
     # Get source version information for provenance tracking
     source_version = get_repo_commit(ROOT)  # Git commit SHA
     source_timestamp = datetime.now(timezone.utc).isoformat()  # Current UTC time
 
     # Process each theme defined in the configuration
     for theme in themes:
-        # Track query sections and raw SPARQL results for this theme
-        query_sections: List[tuple[str, str]] = []  # (comment_label, query_string)
-        raw_rows: List[Dict[str, Optional[rdflib.term.Node]]] = []  # Raw SPARQL results
-
-        # Build and execute scheme-based query if theme has schemes configured
-        scheme_query = build_schemes_query(theme)
-        if scheme_query:
-            query_sections.append(("# Scheme terms", scheme_query))
-            # Execute query against the parsed graph and collect results
-            raw_rows.extend(list(graph.query(scheme_query)))
-
-        # Build and execute class-based query if theme has classes configured
-        # This now automatically includes all subclasses (transitive closure)
-        class_query = build_classes_query(theme)
-        if class_query:
-            query_sections.append(("# Class terms (including subclasses)", class_query))
-            # Execute query against the parsed graph and collect results
-            raw_rows.extend(list(graph.query(class_query)))
-
-        # Skip theme if no queries were generated (no schemes or classes)
-        if not query_sections:
-            print(f"Skipping theme '{theme.id}' (no schemes or classes defined).")
-            continue
-
-        # Combine multiple query sections into a single query file
-        # Format: comment label, blank line, query, blank line, next section...
-        combined_query = "\n\n".join(
-            f"{label}\n{query.strip()}" for label, query in query_sections
-        )
+        print(f"Processing theme: {theme.label}")
+        
+        # Build SPARQL query for this theme
+        query = build_theme_query(theme)
+        
         # Calculate SHA-256 hash of the query for reproducibility tracking
-        checksum = hashlib.sha256(combined_query.encode("utf-8")).hexdigest()
-        # Write the combined query to file for inspection/debugging
-        write_query_file(theme.query_path, combined_query)
-
+        checksum = hashlib.sha256(query.encode("utf-8")).hexdigest()
+        
+        # Write the query to file for inspection/debugging
+        write_query_file(theme.query_path, query)
+        
+        # Execute query against the parsed graph
+        raw_rows = list(graph.query(query))
+        
+        if not raw_rows:
+            print(f"  No entities found with theme {theme.theme_iri}")
+            # Still write empty CSV and metadata for consistency
+            write_csv(theme.output_csv_path, [])
+            write_meta(theme.output_meta_path, theme, [])
+            continue
+        
         # Process raw SPARQL results: aggregate by term, format for CSV
         processed_rows = process_results(
             raw_rows,
@@ -732,8 +738,10 @@ def main() -> None:
 
         # Print progress message with relative path for readability
         print(
-            f"Wrote {len(processed_rows)} rows to {theme.output_csv_path.relative_to(ROOT)}"
+            f"  Wrote {len(processed_rows)} rows to {theme.output_csv_path.relative_to(ROOT)}"
         )
+    
+    print("\nExtraction complete!")
 
 
 if __name__ == "__main__":
