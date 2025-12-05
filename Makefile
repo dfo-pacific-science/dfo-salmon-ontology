@@ -19,6 +19,8 @@ help:
 	@echo "Setup:"
 	@echo "  install-robot   Download ROBOT JAR file"
 	@echo "  clean          Remove generated files"
+	@echo "  publish-validate  Validate publish-ready metadata"
+	@echo "  publish-slice     Generate publish slice (PublishReady terms only)"
 	@echo ""
 	@echo "Documentation:"
 	@echo "  docs           Open documentation in browser"
@@ -84,6 +86,47 @@ clean:
 	@rm -rf release/artifacts/*.html
 	@rm -rf release/artifacts/*.log
 	@echo "✅ Cleanup completed."
+
+# Publish-ready validation (checks metadata for PublishReady terms)
+publish-validate: check-robot
+	@mkdir -p release/published
+	@java -jar tools/robot.jar query \
+		--input ontology/dfo-salmon.ttl \
+		--query scripts/sparql/publish-ready-metadata.rq \
+		release/published/publish-ready-metadata.tsv
+	@if [ -s release/published/publish-ready-metadata.tsv ] && [ $$(wc -l < release/published/publish-ready-metadata.tsv) -gt 1 ]; then \
+		echo "❌ PublishReady metadata issues found:"; \
+		cat release/published/publish-ready-metadata.tsv; \
+		exit 1; \
+	else \
+		echo "✅ No PublishReady metadata issues detected"; \
+	fi
+
+# Publish slice generation (extract PublishReady terms, strip publicationStatus)
+publish-slice: check-robot
+	@mkdir -p release/published
+	@java -jar tools/robot.jar query \
+		--input ontology/dfo-salmon.ttl \
+		--query scripts/sparql/publish-ready-terms.rq \
+		release/published/publish-ready-terms.tsv
+	@tail -n +2 release/published/publish-ready-terms.tsv | cut -f1 > release/published/publish-ready-terms.txt || true
+	@if [ ! -s release/published/publish-ready-terms.txt ]; then \
+		echo "⚠️  No PublishReady terms found; writing empty publish slice."; \
+		echo "# Empty publish slice (no terms marked PublishReady)" > release/published/dfoc-core.ttl; \
+	else \
+		java -jar tools/robot.jar extract \
+			--method STAR \
+			--input ontology/dfo-salmon.ttl \
+			--term-file release/published/publish-ready-terms.txt \
+			--output release/published/dfoc-core.raw.ttl; \
+		java -jar tools/robot.jar remove \
+			--input release/published/dfoc-core.raw.ttl \
+			--select annotations \
+			--term dfoc:publicationStatus \
+			--output release/published/dfoc-core.ttl; \
+		rm -f release/published/dfoc-core.raw.ttl; \
+		echo "✅ Publish slice generated at release/published/dfoc-core.ttl"; \
+	fi
 
 # Documentation
 docs:
