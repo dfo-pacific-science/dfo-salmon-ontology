@@ -1,104 +1,42 @@
-# Contributing to DFO Salmon Ontology
+# Contributing to GC DFO Salmon Ontology
 
-Thank you for your interest in contributing to the DFO Salmon Ontology! This document provides guidelines for contributing to the project.
-
-## Getting Started
-
-1. **Read the documentation**:
-   - [README.md](../README.md) - Project overview
-   - [PRODUCT_REQUIREMENTS.md](PRODUCT_REQUIREMENTS.md) - Product vision and requirements
-   - [COMPETENCY_QUESTIONS.md](COMPETENCY_QUESTIONS.md) - Project scope and goals
-   - [CONVENTIONS.md](CONVENTIONS.md) - Modeling conventions and guidelines
-   - [AGENTS.md](../AGENTS.md) - Detailed development guidelines
-
-2. **Set up your development environment**:
-   - Install Java 11+ for ROBOT
-   - Install Python 3.11+ for validation scripts
-   - See [ROBOT_SETUP.md](ROBOT_SETUP.md) for detailed setup instructions
+Thank you for your interest in contributing to the GC DFO Salmon Ontology! This document provides guidelines for contributing to the project.
 
 ## Contribution Workflow
 
-### 1. Open an Issue
-Before making changes, open a GitHub issue to discuss:
-- The competency question your change addresses
-- Proposed terms, definitions, and relationships
-- External alignments or dependencies
+### 1. Check whether the term already exists
 
-Use the [ontology change template](../.github/ISSUE_TEMPLATE/ontology-change.md) for structured discussions.
+Before submitting suggestions for new ontology terms, check whether the term already exists, either as a primary term or a synonym. To do this, search the  within the [FADS Open Science Documentation Hub](https://dfo-pacific-science.github.io/data-stewardship-unit/reference_info/data_standards/controlled-vocabulary-thesauri.html) or the [W3 page]. If you feel a synonym is missing, or the textual definition of a term needs clarification, please submit a ticket for that.
 
-### 2. Make Changes
-- Create a feature branch from `main`
-- Follow the [modeling conventions](CONVENTIONS.md)
-- Add labels, definitions, and source attributions
-- Ensure no instance data is added to the main ontology file
+### 2. Gather as much necessary information as possible
 
-### 3. Quality Control
-Before submitting a PR, run these checks:
-```bash
-# ROBOT validation
-java -jar tools/robot.jar validate --input ontology/dfo-salmon.ttl
+**For new term requests:** Please always provide suggestions for a **name (required)**, **definition (required)**, **definition source (required)**, position in hierarchy, and synonyms, if applicable. The ontology editors can more easily process term requests when all of this information is provided. 
 
-# ROBOT reasoning
-java -jar tools/robot.jar reason --input ontology/dfo-salmon.ttl --reasoner ELK
+**For updates to relationships:** Provide details of the current relationships, why you think they are wrong or insufficient, and exactly what should be added or removed.
 
-# SHACL validation
-python scripts/test_shacl_validation.py
+**Please add a label to your ticket:** A label will pre-populate with the chosen template, but you can add additional labels from the labels menu at the bottom of the editing boxes when adding a new issue in GitHub.
 
-# SPARQL tests (when implemented)
-python scripts/test_sparql_queries.py
-```
+#### Other helpful reminders:
 
-### 4. Submit Pull Request
-- Use the [PR template](../.github/PULL_REQUEST_TEMPLATE.md)
-- Ensure all checklist items are completed
-- Request review from domain experts and ontology modelers
+1. Write a detailed request: Please be specific in your request and include as many details as necessary, providing background information, and if possible, suggesting a solution.  editors will be better equipped to address your suggestions if you offer details regarding 'what is wrong', 'why', and 'how to fix it'.
 
-## Development Guidelines
+2. Provide examples and references: Please always include references for new term requests and, for other term-related requests, include also screenshots, or URLs illustrating the current ontology structure. This will be very helpful to the ontology editors.
 
-### Ontology Modeling
-- **One clear parent**: Avoid premature deep hierarchies
-- **Competency-driven**: Every term should help answer a competency question
-- **External alignment**: Use existing vocabularies (DwC, ENVO, QUDT) when possible
-- **Documentation**: Include clear definitions and source attributions
+3. Tickets with insufficient detail will be marked with a 'More info needed' label to alert the submitter. The ontology editors can process requests more rapidly when all the required information is provided.
 
-### File Organization
-- **Schema only**: Keep instance data in `ontology/examples/` for testing only
-- **Modular shapes**: Use `ontology/shapes/` for SHACL validation rules
-- **Templates**: Use `ontology/templates/` for ROBOT term generation
-- **Tests**: Add SPARQL tests in `ontology/sparql/` for new competency questions
+### 3. Communicate with the GCDFOS ontology editors
 
-### Naming Conventions
-- **Classes**: PascalCase (e.g., `EscapementSurveyEvent`)
-- **Properties**: lowerCamelCase (e.g., `sampledDuring`)
-- **Instances**: PascalCase with descriptive names (e.g., `SkeenaSockeye`)
+1. The preferred way is to create a ticket using the [GFDFOS tracking system](https://github.com/dfo-pacific-science/dfo-salmon-ontology/issues). This allows you to monitor the progress on work on the issue, and participate in the discussion among the GC DFO Salmon ontology team members. Detailed instructions about how to create a free account and use the GitHub repository can be found [here](./docs/SUBMIT_REQUESTS_README.md).
 
-## Review Process
+2. Alternatively, contact the DFO Pacific Fishery & Assessment Data Section [Data Stewardship Unit](FADSDataStewardship-GestiondesdonneesSFDA@dfo-mpo.gc.ca) for your requests. Note that these requests may have a longer response time. 
 
-All contributions require review from:
-1. **Domain expert**: Validates scientific accuracy and completeness
-2. **Ontology modeler**: Ensures proper modeling patterns and conventions
-
-Review criteria:
-- [ ] Scientific accuracy and completeness
-- [ ] Proper modeling patterns and conventions
-- [ ] Clear definitions and documentation
-- [ ] External alignments are valid
-- [ ] No breaking changes without proper deprecation
-- [ ] Tests pass and coverage is maintained
-
-## Release Process
-
-Releases are managed through GitHub:
-1. Version bump in ontology metadata
-2. Automated CI/CD validation
-3. Artifact generation (TTL, OWL, JSON)
-4. GitHub release with changelog
+3. You can also explore our [draft terms](./draft/dfo-salmon-draft.ttl) to see what is currently under review. 
 
 ## Getting Help
 
 - **Issues**: Use GitHub issues for questions and discussions
 - **Documentation**: Check existing docs in the `docs/` directory
-- **Community**: Engage with the DFO data stewardship community
+- **Community**: Engage with the DFO data stewardship community! Our Unit can be found at the [FADS Open Science Documentation Hub](https://dfo-pacific-science.github.io/data-stewardship-unit/).
 
 ## Code of Conduct
 
