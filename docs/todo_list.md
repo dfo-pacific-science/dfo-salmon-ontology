@@ -11,6 +11,7 @@
 - **Quarto website pages for exploring controlled vocabulary:** Working within next 2 weeks
 - **New:** Complete ontology deep review (class hierarchy sanity + genetics vocab refresh) before further term publication
 - **New (2025-12-03):** Stand up publish-ready slice pipeline (`dfoc:publicationStatus` → `release/published/dfoc-core.ttl`) and theme annotations per execplan.md / execplan-theme-annotations.md; downstreams (DSU tabs, term tables) must read from the publish slice instead of legacy artifacts
+- **Upcoming:** Run `execplan-add-spsr-terms.md` after column-to-ontology mapping is approved (do not run yet) /Users/brettjohnson/code/dfo-salmon-ontology/docs/notes/spsr-column-to-ontology-mapping.md
 
 ---
 

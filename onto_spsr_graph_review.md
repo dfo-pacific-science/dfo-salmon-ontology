@@ -500,6 +500,16 @@ For each table:
 
 For each column in a table:
 
+**Compound SPSR column rule (decompose first):**
+- SPSR columns often fuse multiple semantic dimensions (quantity type, stratum/location, temporal semantics, age semantics, origin/composition).
+- Decompose each such column into a base measurement class (e.g., RunAbundance, Catch, MortalityRate, SpawnerAbundance) plus facet properties:
+  - Stratum/location: PFMA, fishery type, run/mortality component type (SKOS)
+  - Time basis: calendar vs brood vs season (SKOS)
+  - Age basis + numeric age: total vs ocean vs freshwater age (SKOS + integer)
+  - Origin/composition: hatchery vs natural vs mixed (SKOS)
+- Do **not** mint a new class or property per compound column name. Represent facets with object properties to SKOS schemes and datatype properties for numeric values.
+- Example: `TOTAL_OCEAN_RUN_AGE_3` → one `RunAbundance` datum + `runComponentType :OceanComponent` + `ageType :TotalAge` + numeric age 3 (+ PFMA/area/year context in data), not a new class or property.
+
 1. **Foreign key to another entity table?**
    → Define an **object property** (e.g. `timeSeriesForCU`, `reportsIndicator`, `usesMethod`).
 
