@@ -91,7 +91,7 @@ clean:
 publish-validate: check-robot
 	@mkdir -p release/published
 	@java -jar tools/robot.jar query \
-		--input ontology/dfo-salmon.ttl \
+		--input draft/dfo-salmon-draft.ttl \
 		--query scripts/sparql/publish-ready-metadata.rq \
 		release/published/publish-ready-metadata.tsv
 	@if [ -s release/published/publish-ready-metadata.tsv ] && [ $$(wc -l < release/published/publish-ready-metadata.tsv) -gt 1 ]; then \
@@ -106,7 +106,7 @@ publish-validate: check-robot
 publish-slice: check-robot
 	@mkdir -p release/published
 	@java -jar tools/robot.jar query \
-		--input ontology/dfo-salmon.ttl \
+		--input draft/dfo-salmon-draft.ttl \
 		--query scripts/sparql/publish-ready-terms.rq \
 		release/published/publish-ready-terms.tsv
 	@tail -n +2 release/published/publish-ready-terms.tsv | cut -f1 > release/published/publish-ready-terms.txt || true
@@ -116,7 +116,7 @@ publish-slice: check-robot
 	else \
 		java -jar tools/robot.jar extract \
 			--method STAR \
-			--input ontology/dfo-salmon.ttl \
+			--input draft/dfo-salmon-draft.ttl \
 			--term-file release/published/publish-ready-terms.txt \
 			--output release/published/dfoc-core.raw.ttl; \
 		java -jar tools/robot.jar remove \

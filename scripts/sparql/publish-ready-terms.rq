@@ -1,0 +1,6 @@
+PREFIX dfoc: <https://w3id.org/dfoc/salmon#>
+
+SELECT ?term
+WHERE {
+  ?term dfoc:publicationStatus dfoc:PublishReady .
+}

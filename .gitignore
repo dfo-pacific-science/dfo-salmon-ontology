@@ -88,4 +88,32 @@ docs/bretts-notes.md
 agent-config/*
 ontology/dfo-salmon.txt
 .cursor/
-notes/
+docs/notes/
+agent-config/
+project-specific-instructions.md
+docs/context/*
+docs/context/pdfs/*
+docs/context/pdfs/Holt et al. 2009 Indicators of Status and Benchmarks for Conservation Units in Canada_s WSP .md
+.cursor/plans/
+.cursor/plans/ontology-import-4d462037.plan.md
+docs/adr/adr.md
+docs/context/NCEAS_SALMON.ttl
+docs/context/themes-modules.md
+docs/context/pdfs/A fishery decision-making framework incorporating the precautionary approach.md
+docs/context/pdfs/DFO 2024 RAPID STATUS APPROXIMATIONS.md
+docs/context/pdfs/Fisheries Act.md
+docs/context/pdfs/Grant and Pestal 2012 Integrated Biological Status.md
+docs/context/pdfs/Guide_to_WSP_Rapid_Status_Dashboards_v4.md
+docs/context/pdfs/Holt et al 2009 Evaluation of Benchmarks.md
+docs/context/pdfs/Holt et al. 2009 Indicators of Status and Benchmarks for Conservation Units in Canada_s WSP .md
+docs/context/pdfs/Holt et al. 2023 Guidelines for Defining Limit Reference Points for Pacific Salmon Stock  Management Units.md
+docs/context/pdfs/Michelsens and Martens 2009 Terms and Definitions PSC-Technical-Report-No.-49(ac2ef27277eab81da1d8dea067dd80c1).md
+docs/context/pdfs/Pestal et al 2023 State of the Salmon Rapid Status Assessment Approach.md
+docs/context/pdfs/Wild Salmon Policy.md
+docs/examples/fsar-rapid-status-demo.ttl
+docs/notes/0001-bfo-mireot-implementation.md
+docs/notes/2025-11-02-convention-compliance.md
+docs/notes/nceas-salmon-integration-analysis.md
+docs/notes/superclass-analysis-detailed.md
+docs/ontology_applications/dfo-fsar-v4.ttl
+docs/ontology_applications/mockups/fsar-tracer-mockup.html

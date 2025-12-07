@@ -97,6 +97,21 @@ dfoc:theme a owl:AnnotationProperty ;
   rdfs:comment "Associates OWL classes and SKOS concepts with high-level thematic concept schemes (e.g., Stock Assessment, GSI, Policy)." ;
   rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
 
+dfoc:publicationStatus a owl:AnnotationProperty ;
+  rdfs:label "publication status"@en ;
+  rdfs:comment "Indicates whether an ontology term is in draft status or ready for publication. Terms marked as PublishReady must have complete metadata (label, definition, definition source, isDefinedBy, and at least one theme)."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:Draft a owl:NamedIndividual ;
+  rdfs:label "Draft"@en ;
+  iao:0000115 "Publication status indicating that a term is still under development and not yet ready for publication."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
+dfoc:PublishReady a owl:NamedIndividual ;
+  rdfs:label "Publish Ready"@en ;
+  iao:0000115 "Publication status indicating that a term has been reviewed and is ready for publication. Terms with this status must have complete metadata including label, definition, definition source, isDefinedBy, and at least one theme annotation."@en ;
+  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+
 dfoc:ThemeScheme a skos:ConceptScheme ;
   skos:prefLabel "Theme Scheme"@en ;
   skos:definition "High-level thematic concept scheme for organizing DFO Salmon Ontology classes and concepts."@en ;

@@ -10,9 +10,9 @@ Add a consistent theme annotation (`dfoc:theme`) to every OWL class, property, a
 
 - [x] (2025-12-03) Define `dfoc:theme` annotation property and SKOS Theme scheme in ontology/dfo-salmon.ttl.
 - [x] (2025-12-03) Tag all classes/properties/SKOS concepts and concept schemes with 1–3 themes (at least one required).
-- [x] (2025-12-03) Add validation (SPARQL/ROBOT/SHACL) to fail when any term lacks a theme or exceeds 3 themes.
-- [x] (2025-12-03) Update docs/CONVENTIONS.md with theme usage, required cardinality, and reviewer checklist.
-- [x] (2025-12-03) Validate end-to-end and record outcomes (rdflib check; ROBOT pending Java).
+- [] (2025-12-03) Add validation (SPARQL/ROBOT/SHACL) to fail when any term lacks a theme or exceeds 3 themes.
+- [] (2025-12-03) Update docs/CONVENTIONS.md with theme usage, required cardinality, and reviewer checklist.
+- [] (2025-12-03) Validate end-to-end and record outcomes (rdflib check; ROBOT pending Java).
 
 ## Surprises & Discoveries
 
