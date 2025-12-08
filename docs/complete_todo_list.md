@@ -1,5 +1,13 @@
 # Completed Tasks — DFO Salmon Ontology
 
+## 2025-12-08 — Validation Harmonization (ExecPlan)
+
+- [x] Execute `docs/plans/2025-12-08-ontology-validation-harmonization.md` to align validation commands, triggers, and outputs.
+- [x] Pin ROBOT version consistently across Make/pre-commit/CI and add caching/shared download.
+- [x] Update CI (push + PR) to run ELK reasoning + ROBOT report with profile; upload artifacts.
+- [x] Add SPARQL publish-ready checks for merges to `main` (publishing moment).
+- [x] Clean up duplicate/obsolete validation scripts and organize outputs/paths; update validation docs.
+
 ## 2025-11-02 — Convention Compliance Cleanup
 
 - [x] Add missing `rdfs:label` annotations to OWL classes, object properties, and datatype properties.
@@ -85,4 +93,3 @@
 - [x] Fixed release.yml (replaced deprecated actions, standardized ROBOT version)
 - [x] Implemented pre-commit hook for ontology validation
 - [x] Standardized ROBOT version to v1.9.8 across all workflows
-

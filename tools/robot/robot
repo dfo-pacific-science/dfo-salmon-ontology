@@ -1,7 +1,0 @@
-#!/bin/zsh
-JAVA_BIN="/usr/local/opt/openjdk@17/bin/java"
-if [ ! -x "$JAVA_BIN" ]; then
-  echo "ROBOT wrapper: expected Java at $JAVA_BIN; please install openjdk@17 or adjust wrapper." >&2
-  exit 1
-fi
-exec "$JAVA_BIN" ${ROBOT_JAVA_ARGS:--Xmx4G} -jar "$(dirname "$0")/robot.jar" "$@"
