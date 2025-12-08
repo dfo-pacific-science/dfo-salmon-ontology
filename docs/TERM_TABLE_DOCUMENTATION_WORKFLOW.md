@@ -104,8 +104,8 @@ python scripts/extract-term-tables.py
 2. Loads `ontology/dfo-salmon.ttl` (regenerated from the publish slice so it contains only PublishReady terms and retains prefixes, annotation property declarations, datatype declarations, ontology header, and required MIREOT imports).
 3. Generates SPARQL queries for each theme.
 4. Executes queries against the ontology.
-5. Writes CSV files to `release/artifacts/term-tables/{theme-id}-terms.csv`.
-6. Writes metadata JSON to `release/artifacts/term-tables/{theme-id}-terms.csv.meta.json`.
+5. Writes CSV files to `release/artifacts/term-tables/{theme-id}-terms.csv` (these are versioned in git).
+6. Writes metadata JSON to `release/artifacts/term-tables/{theme-id}-terms.csv.meta.json` (also versioned).
 7. Writes SPARQL queries to `scripts/sparql/{theme-id}-terms.rq`.
 
 **Output files:**
@@ -204,15 +204,21 @@ If this is your first time setting up the website with the ontology submodule:
    ```
    This creates CSV files in `release/artifacts/term-tables/` within the ontology repository.
 
-7. Navigate back to the data-stewardship-unit repository:
+7. Commit updated term tables in the ontology repo (they are versioned under `release/artifacts/term-tables/`):
+   ```bash
+   git status   # verify only term tables + related changes
+   git add release/artifacts/term-tables scripts/sparql docs/TERM_TABLE_DOCUMENTATION_WORKFLOW.md docs/todo_list.md Makefile scripts/sync_term_tables_to_dsu.sh
+   git commit -m "Update term tables"
+   ```
+
+8. Navigate back to the data-stewardship-unit repository:
    ```bash
    cd /path/to/data-stewardship-unit
    ```
 
 6. Update the submodule to include the newly generated CSV files:
    ```bash
-   git submodule update --remote data/ontology
-   git add data/ontology
+   git add data/ontology   # stages the submodule pointer to the new ontology commit
    ```
 
 7. Commit the updated submodule reference:

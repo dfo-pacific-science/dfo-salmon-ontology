@@ -1,0 +1,11 @@
+{
+  "theme": "salmon_enhancement_hatcheries",
+  "label": "Salmon Enhancement and Hatcheries",
+  "theme_iri": "https://w3id.org/gcdfos/salmon#SalmonEnhancementHatcheriesTheme",
+  "row_count": 3,
+  "source_version": "696f78a84b4feb1ce5aa2db4e7a81826004adade",
+  "source_timestamp": "2025-12-08T05:01:23.559433+00:00",
+  "query_checksum": "d6fb9e0ca9acc99993643db577ae1238623e8d49fdfa82fd4d4a4f8ffb888c1f",
+  "generated_at": "2025-12-08T05:01:23.835795+00:00",
+  "source_file": "/Users/brettjohnson/code/dfo-salmon-ontology/ontology/dfo-salmon.ttl"
+}

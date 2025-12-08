@@ -48,7 +48,7 @@
 - [ ] GitHub workflow to generate term tables (not present; needs creation)
 - [ ] Create virtual environment and install `scripts/requirements.txt` dependencies (local development)
 - [ ] Run `python scripts/extract-term-tables.py` to publish initial CSV + metadata (blocked until Java/ROBOT available for publish slice)
-- [ ] Decide whether to version generated CSVs or rely solely on workflow artifacts
+- [x] Decide whether to version generated CSVs or rely solely on workflow artifacts (decision: versioned under `release/artifacts/term-tables/`)
 - [x] Expand `scripts/config/themes.yml` to all 9 themes aligned to draft ontology
 - [x] Add Makefile target to chain publish slice + extraction (`make publish-and-extract`)
 - [x] Add Makefile target to clean publish temp artifacts (`make publish-clean`)

@@ -1,0 +1,11 @@
+{
+  "theme": "monitoring_field_work",
+  "label": "Monitoring and Field Work",
+  "theme_iri": "https://w3id.org/gcdfos/salmon#MonitoringFieldWorkTheme",
+  "row_count": 3,
+  "source_version": "696f78a84b4feb1ce5aa2db4e7a81826004adade",
+  "source_timestamp": "2025-12-08T05:01:23.559433+00:00",
+  "query_checksum": "0648df6d42301048cd9f3112b2c92ae219bcf7c03b3889ec6781aca9a0bbef7f",
+  "generated_at": "2025-12-08T05:01:23.658694+00:00",
+  "source_file": "/Users/brettjohnson/code/dfo-salmon-ontology/ontology/dfo-salmon.ttl"
+}
