@@ -7,6 +7,8 @@ set -e
 # Configuration
 ONTOLOGY_FILE="ontology/dfo-salmon.ttl"
 ROBOT_VERSION="1.9.8"
+ROBOT_JAR="tools/robot.jar"
+ROBOT_URL="https://github.com/ontodev/robot/releases/download/v${ROBOT_VERSION}/robot.jar"
 
 # Colors for output
 RED='\033[0;31m'
@@ -24,24 +26,20 @@ if ! command -v java &> /dev/null; then
 fi
 
 # Check if ROBOT JAR exists (try multiple locations)
-ROBOT_JAR=""
-if [ -f "tools/robot.jar" ]; then
-    ROBOT_JAR="tools/robot.jar"
-elif [ -f "tools/robot/robot.jar" ]; then
-    ROBOT_JAR="tools/robot/robot.jar"
+if [ -f "$ROBOT_JAR" ]; then
+    :
 else
     echo -e "${YELLOW}ROBOT JAR not found. Downloading ROBOT v${ROBOT_VERSION}...${NC}"
-    mkdir -p tools
+    mkdir -p "$(dirname "$ROBOT_JAR")"
     # Use curl (available on macOS) or wget (available on Linux)
     if command -v curl &> /dev/null; then
-        curl -L -s -o tools/robot.jar https://github.com/ontodev/robot/releases/download/v${ROBOT_VERSION}/robot.jar
+        curl -L -s -o "$ROBOT_JAR" "$ROBOT_URL"
     elif command -v wget &> /dev/null; then
-        wget -q https://github.com/ontodev/robot/releases/download/v${ROBOT_VERSION}/robot.jar -O tools/robot.jar
+        wget -q "$ROBOT_URL" -O "$ROBOT_JAR"
     else
         echo -e "${RED}Error: Neither curl nor wget is available. Please install one to download ROBOT.${NC}"
         exit 1
     fi
-    ROBOT_JAR="tools/robot.jar"
     echo -e "${GREEN}ROBOT downloaded successfully${NC}"
 fi
 
@@ -79,4 +77,3 @@ else
     fi
     exit 1
 fi
-

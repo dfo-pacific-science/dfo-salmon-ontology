@@ -1,0 +1,11 @@
+{
+  "theme": "stock_assessment",
+  "label": "Stock Assessment",
+  "theme_iri": "https://w3id.org/gcdfos/salmon#StockAssessmentTheme",
+  "row_count": 35,
+  "source_version": "696f78a84b4feb1ce5aa2db4e7a81826004adade",
+  "source_timestamp": "2025-12-08T05:01:23.559433+00:00",
+  "query_checksum": "16c48dc32ab817984bb9d8f52f15eb827f43e5753b06ac6b71a117c62e980fe0",
+  "generated_at": "2025-12-08T05:01:23.614880+00:00",
+  "source_file": "/Users/brettjohnson/code/dfo-salmon-ontology/ontology/dfo-salmon.ttl"
+}

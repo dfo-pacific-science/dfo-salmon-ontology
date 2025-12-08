@@ -1,0 +1,57 @@
+PREFIX gcdfos: <https://w3id.org/gcdfos/salmon#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+# Reports ontology terms that are missing gcdfos:theme, exceed the 3-theme cap,
+# or reference a theme outside :ThemeScheme.
+SELECT ?term ?issue ?themeCount
+WHERE {
+  {
+    SELECT ?term (0 AS ?themeCount) ("missing theme" AS ?issue)
+    WHERE {
+      ?term a ?type .
+      FILTER(?type IN (owl:Class, owl:ObjectProperty, owl:DatatypeProperty, owl:AnnotationProperty, skos:Concept, skos:ConceptScheme)) .
+      FILTER(!isBlank(?term)) .
+      FILTER(STRSTARTS(STR(?term), "https://w3id.org/gcdfos/salmon#")) .
+      FILTER NOT EXISTS { ?term gcdfos:theme ?theme }
+    }
+  }
+  UNION
+  {
+    SELECT ?term ?themeCount ("more than 3 themes" AS ?issue)
+    WHERE {
+      {
+        SELECT ?term (COUNT(DISTINCT ?theme) AS ?themeCount)
+        WHERE {
+          ?term a ?type .
+          FILTER(?type IN (owl:Class, owl:ObjectProperty, owl:DatatypeProperty, owl:AnnotationProperty, skos:Concept, skos:ConceptScheme)) .
+          FILTER(!isBlank(?term)) .
+          FILTER(STRSTARTS(STR(?term), "https://w3id.org/gcdfos/salmon#")) .
+          ?term gcdfos:theme ?theme .
+        }
+        GROUP BY ?term
+      }
+      FILTER(?themeCount > 3)
+    }
+  }
+  UNION
+  {
+    SELECT ?term ?themeCount ("theme not in ThemeScheme" AS ?issue)
+    WHERE {
+      {
+        SELECT ?term (COUNT(DISTINCT ?theme) AS ?themeCount)
+        WHERE {
+          ?term a ?type .
+          FILTER(?type IN (owl:Class, owl:ObjectProperty, owl:DatatypeProperty, owl:AnnotationProperty, skos:Concept, skos:ConceptScheme)) .
+          FILTER(!isBlank(?term)) .
+          FILTER(STRSTARTS(STR(?term), "https://w3id.org/gcdfos/salmon#")) .
+          ?term gcdfos:theme ?theme .
+          FILTER NOT EXISTS { ?theme skos:inScheme gcdfos:ThemeScheme }
+        }
+        GROUP BY ?term
+      }
+      FILTER(?themeCount > 0)
+    }
+  }
+}
+ORDER BY ?issue ?term

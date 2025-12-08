@@ -1,0 +1,18 @@
+PREFIX gcdfos: <https://w3id.org/gcdfos/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+# Instances of key measurement/rate classes that are missing hasYearBasis
+SELECT ?measurement ?class
+WHERE {
+  VALUES ?class {
+    gcdfos:ExploitationRate
+    gcdfos:TotalExploitationRate
+    gcdfos:Catch
+    gcdfos:Recruitment
+    gcdfos:SpawnerAbundance
+    gcdfos:EscapementMeasurement
+  }
+  ?measurement a ?class .
+  FILTER NOT EXISTS { ?measurement gcdfos:hasYearBasis ?basis }
+}
+ORDER BY ?class ?measurement

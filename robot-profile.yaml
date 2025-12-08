@@ -1,25 +1,2 @@
-# ROBOT Custom Profile for DFO Salmon Ontology
-# This profile adjusts violation levels for known acceptable issues
-
-# Adjust violation levels for specific checks
-checks:
-  # SKOS concepts with skos:prefLabel don't need rdfs:label (W3C SKOS compliant)
-  missing_label:
-    level: INFO # Downgrade from ERROR to INFO
-
-  # Hybrid OWL+SKOS concepts use skos:definition instead of rdfs:comment
-  missing_definition:
-    level: INFO # Downgrade from WARN to INFO
-
-
-  # External imports (Darwin Core, BFO) don't need local definitions
-  # This is handled by the missing_definition check above
-# Exclude specific checks if needed
-# exclude:
-#   - some_other_check
-
-# Add custom checks if needed
-# custom:
-#   - name: "custom_check_name"
-#     query: "SELECT ... WHERE { ... }"
-#     level: ERROR
+INFO	missing_label
+INFO	missing_definition

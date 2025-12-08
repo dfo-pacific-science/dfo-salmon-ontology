@@ -71,6 +71,8 @@ The DFO Salmon Ontology is a **data stewardship and operational process ontology
 - **Single source of truth**: One ontology file (`dfo-salmon.ttl`) on GitHub
 - **OBO-style workflow**: Use ROBOT for quality control and release management
 - **Pre-commit validation**: Install pre-commit hooks (`pre-commit install`) to validate ontology before commit
+- **CI validation**: Pushes/PRs run ROBOT ELK reasoning + ROBOT report (with custom profile) and publish-ready SPARQL checks run on merges to `main`
+- **Windows**: Use WSL2 + `nix`/`direnv` or Git Bash; `make install-robot` fetches the pinned ROBOT jar used by CI/pre-commit
 - **GitHub-based collaboration**: All changes via Pull Requests with Issues for discussion
 - **Quality first**: Use competency questions and design patterns to guide development
 - **Before creating terms**: Search existing terms and check competency questions

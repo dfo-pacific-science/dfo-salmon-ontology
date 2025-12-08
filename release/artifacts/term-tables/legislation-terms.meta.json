@@ -1,0 +1,11 @@
+{
+  "theme": "legislation",
+  "label": "Legislation and Policy",
+  "theme_iri": "https://w3id.org/gcdfos/salmon#PolicyGovernanceTheme",
+  "row_count": 39,
+  "source_version": "5865432c5b56e85c1c18aa8f818882954710c03b",
+  "source_timestamp": "2025-11-25T20:10:14.898446+00:00",
+  "query_checksum": "56806b04733e49b9a54fe726db297d4ca8a5bb191c226250e70da8e5bd3b0ba6",
+  "generated_at": "2025-11-25T20:10:43.138572+00:00",
+  "source_file": "/Users/brettjohnson/code/dfo-salmon-ontology/ontology/dfo-salmon.ttl"
+}

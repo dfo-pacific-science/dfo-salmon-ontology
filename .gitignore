@@ -56,6 +56,13 @@ yarn-error.log*
 *.log
 *.cache
 
+# Nix / devenv
+.devenv/
+.devenv.flake.nix
+devenv.local.nix
+.direnv/
+result*
+
 # ROBOT temporary files
 *.reasoned.ttl
 *.reasoned.owl
@@ -64,6 +71,8 @@ yarn-error.log*
 # Release artifacts (keep structure but ignore contents)
 release/artifacts/*
 !release/artifacts/.gitkeep
+!release/artifacts/term-tables/
+!release/artifacts/term-tables/**
 
 # Test outputs
 test-results/
@@ -88,4 +97,11 @@ docs/bretts-notes.md
 agent-config/*
 ontology/dfo-salmon.txt
 .cursor/
-notes/
+agent-config/
+project-specific-instructions.md
+.cursor/plans/
+docs/context/
+docs/examples/
+docs/notes/
+docs/ontology_applications/
+docs/plans/

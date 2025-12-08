@@ -208,7 +208,7 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
 :GeneticSample a owl:Class ;
     rdfs:label "Genetic Sample"@en ;
     iao:0000115 "Tissue or material used in genetic stock identification analyses."@en ;
-    rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> ;
+    rdfs:isDefinedBy <https://w3id.org/gcdfos/salmon> ;
     iao:0000119 "DFO Molecular Genetics Lab glossary 2024"@en ;
     iao:0000112 "Fin clip sample from Fraser River sockeye collected in 2023."@en ;
     dcterms:source <https://doi.org/10.1234/dfo-genetics-2024> ;
@@ -349,14 +349,14 @@ ex:DFOEscMethodCode a rdfs:Datatype .
 ##### 2.3.4.1 SKOS vs OWL decision rule (flat vs inheriting)
 
 - Use **SKOS concept schemes** when the hierarchy is flat or tree-only (no property inheritance, no logical class expressions), when the terms act as picklist codes, and when you **do not need** to instantiate them as classes in data (i.e., they remain terminology values).
-- Use **OWL classes** when you need property inheritance, logical constraints, class expressions, or when downstream data will type individuals with the term (e.g., `rdf:type dfoc:StockAssessment`).
+- Use **OWL classes** when you need property inheritance, logical constraints, class expressions, or when downstream data will type individuals with the term (e.g., `rdf:type gcdfos:StockAssessment`).
 - Do **not** mix the two: a SKOS concept is an individual of `skos:Concept`; it is not a class. If you believe a term must be both, pause and record an ADR before introducing punning.
 - Default posture: SKOS for code lists; OWL for behavioral/logical models. If in doubt, ask “Will this term ever need class-level semantics or property inheritance?” If yes → OWL; if no and hierarchy is purely lexical → SKOS.
 
 ##### 2.3.4.2 Theme / module annotation for navigation
 
 - Tag every OWL class, property, and SKOS concept with a **theme/module annotation** to aid navigation and review.
-- Annotation property: `dfoc:theme` (annotation property) with values drawn from the SKOS concept scheme `:ThemeScheme` (defined in `ontology/dfo-salmon.ttl`; definitions in `docs/context/themes-modules.md`).
+- Annotation property: `gcdfos:theme` (annotation property) with values drawn from the SKOS concept scheme `:ThemeScheme` (defined in `ontology/dfo-salmon.ttl`; definitions in `docs/context/themes-modules.md`).
 - Cardinality: 1–3 per term; choose the smallest set that reflects the owning bounded context.
 - Keep the annotation purely descriptive (no reasoning expected). Do not use it in logical axioms or SHACL constraints.
 - Validation: `robot query --input ontology/dfo-salmon.ttl --query scripts/sparql/theme-coverage.rq reports/theme-coverage.tsv` should return no rows; values must be members of `:ThemeScheme`.
@@ -364,32 +364,28 @@ ex:DFOEscMethodCode a rdfs:Datatype .
 
 ##### 2.3.4.3 Publication status annotation (publish slice)
 
-- Use `dfoc:publicationStatus` (annotation property) with values `dfoc:Draft` or `dfoc:PublishReady` to control what goes into the publish slice.
-- Only terms marked `dfoc:PublishReady` are extracted into the publish TTL; the slice strips the publicationStatus annotation.
-- Before setting `PublishReady`, ensure required metadata exist: `rdfs:label`, `IAO:0000115`, `rdfs:isDefinedBy`, a definition source (`iao:0000119` or `dcterms:source`), and at least one `dfoc:theme`.
-- Validation: run `make publish-validate` to flag PublishReady terms missing required metadata; run `make publish-slice` to generate `release/published/dfoc-core.ttl` (PublishReady terms only, publicationStatus removed).
+- Use `gcdfos:publicationStatus` (annotation property) with values `gcdfos:Draft` or `gcdfos:PublishReady` to control what goes into the publish slice.
+- Only terms marked `gcdfos:PublishReady` are extracted into the publish TTL; the slice strips the publicationStatus annotation.
+- Before setting `PublishReady`, ensure required metadata exist: `rdfs:label`, `IAO:0000115`, `rdfs:isDefinedBy`, a definition source (`iao:0000119` or `dcterms:source`), and at least one `gcdfos:theme`.
+- Validation: run `make publish-validate` to flag PublishReady terms missing required metadata; run `make publish-slice` to generate `release/published/gcdfos-core.ttl` (PublishReady terms only, publicationStatus removed).
 
 #### 2.3.5 Provenance and Citation Conventions
 
-#### 2.3.5.1 Use of `iao:0000119`, `dcterms:identifier`, `dcterms:source`, `dcterms:bibliographicCitation`, and `rdfs:seeAlso`
+#### 2.3.5.1 Minimal provenance set (`IAO_0000115`, `IAO_0000119`, `dcterms:source`)
 
-To ensure consistent provenance documentation and FAIR compliance, follow these conventions when citing the source of a definition, dataset, or external standard:
+To keep provenance consistent and avoid redundancy:
 
-| Property                            | Purpose                                                               | Expected Value Type | Example Use                                                              |
-| ----------------------------------- | --------------------------------------------------------------------- | ------------------- | ------------------------------------------------------------------------ |
-| **`iao:0000119`** | Human-readable citation text specifically for the **definition source** (where the definition text came from). | Literal (string, language-tagged)    | `"DFO (2023). Escapement Survey Manual, Pacific Region."@en`             |
-| **`dcterms:bibliographicCitation`** | General bibliographic citation text (not specifically definition source). | Literal (string, language-tagged)    | `"Smith et al. (2020). Salmon Population Dynamics."@en`             |
-| **`dcterms:identifier`** | Internal textual identifier (human-readable local ID). **NOT an IRI, NOT a scheme code.** | Literal (string, plain)                 | `"DFO-SALMON:000123"`                                |
-| **`dcterms:source`** | Resolvable link to authoritative document or resource (DOI, Handle, w3id, ARK). | IRI                 | `<https://doi.org/10.1234/dfostock.2023>`                                |
-| **`rdfs:seeAlso`** | Optional helpful extra links (landing pages, download URLs, related resources). | IRI                 | `<https://open.canada.ca/data/en/dataset/escapement-survey-manual-2023>` |
+| Property           | Purpose                                       | Expected Value Type | Example Use |
+| ------------------ | --------------------------------------------- | ------------------- | ----------- |
+| **`IAO_0000115`**  | Textual definition (always required).         | Literal (string, lang-tag) | `"The overall proportion of the total return removed by fishing."@en` |
+| **`IAO_0000119`**  | Human-curated definition source (citation text). Only set when vetted. | Literal (string, lang-tag) | `"DFO (2023). Escapement Survey Manual, Pacific Region."@en` |
+| **`dcterms:source`** | Resolvable URI (DOI, URL, Handle, w3id, ARK, PURL) to the source resource for the definition. Optional but preferred when available. | IRI | `<https://doi.org/10.1234/dfostock.2023>` |
 
-**Guideline:**  
-- **`iao:0000119`**: Use strictly for definition textual provenance (citation text for where the definition came from)
-- **`dcterms:bibliographicCitation`**: Use for general bibliographic strings that aren't specifically "definition source"
-- **`dcterms:source`**: Use for resolvable links (IRI) to authoritative documents or resources
-- **`dcterms:identifier`**: Use only for literal internal IDs (e.g., "DFO-SALMON:000123"), not IRIs, not codes
-- **`rdfs:seeAlso`**: Use optionally for helpful extra links, not as the primary provenance hook
-- **Codes**: Put scheme codes in `skos:notation` (typed literal), not in labels or identifiers
+Guideline:
+- Always include `IAO_0000115`.
+- Add `IAO_0000119` only when a human-vetted citation is available (do **not** auto-generate).
+- Add `dcterms:source` when you have a resolvable URI (DOI/URL) to the source. If absent, leave it blank.
+- Use `skos:notation` for scheme codes; avoid codes/IDs in labels or provenance fields.
 
 ---
 
