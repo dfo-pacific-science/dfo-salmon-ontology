@@ -53,7 +53,7 @@ python scripts/extract-term-tables.py
 
 **What it does:**
 1. Reads `scripts/config/themes.yml` (ids/labels/output filenames).
-2. Loads `ontology/dfo-salmon.ttl` (publish slice, read-only) **and** merges `gcdfos:theme` annotations from `draft/dfo-salmon-draft.ttl` for published terms. The published TTL is never written by this workflow.
+2. Loads `ontology/dfo-salmon.ttl` (publish slice, read-only) **and** merges `gcdfo:theme` annotations from `draft/dfo-salmon-draft.ttl` for published terms. The published TTL is never written by this workflow.
 3. Generates SPARQL queries for each theme.
 4. Executes queries against the ontology.
 5. Writes CSV files to `release/artifacts/term-tables/{theme-id}-terms.csv` (these are versioned in git).

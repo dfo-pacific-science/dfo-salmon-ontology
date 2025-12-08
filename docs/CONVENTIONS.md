@@ -1,6 +1,6 @@
 # DFO Salmon Ontology — Conventions Guide
 
-This document orients new contributors to the modeling conventions used in the **DFO Salmon Ontology**. It explains how to create and refine ontology terms, how to model data in a way that aligns with our goals, and how to prepare new concepts for integration.
+This document orients new contributors to the modeling conventions used in the **GC DFO Salmon Ontology**. It explains how to create and refine ontology terms, how to model data in a way that aligns with our goals, and how to prepare new concepts for integration.
 
 The conventions here are **practical starting points**, not immutable rules. As our community gains experience, we expect to refine and evolve them.
 
@@ -208,7 +208,7 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
 :GeneticSample a owl:Class ;
     rdfs:label "Genetic Sample"@en ;
     iao:0000115 "Tissue or material used in genetic stock identification analyses."@en ;
-    rdfs:isDefinedBy <https://w3id.org/gcdfos/salmon> ;
+    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
     iao:0000119 "DFO Molecular Genetics Lab glossary 2024"@en ;
     iao:0000112 "Fin clip sample from Fraser River sockeye collected in 2023."@en ;
     dcterms:source <https://doi.org/10.1234/dfo-genetics-2024> ;
@@ -349,14 +349,14 @@ ex:DFOEscMethodCode a rdfs:Datatype .
 ##### 2.3.4.1 SKOS vs OWL decision rule (flat vs inheriting)
 
 - Use **SKOS concept schemes** when the hierarchy is flat or tree-only (no property inheritance, no logical class expressions), when the terms act as picklist codes, and when you **do not need** to instantiate them as classes in data (i.e., they remain terminology values).
-- Use **OWL classes** when you need property inheritance, logical constraints, class expressions, or when downstream data will type individuals with the term (e.g., `rdf:type gcdfos:StockAssessment`).
+- Use **OWL classes** when you need property inheritance, logical constraints, class expressions, or when downstream data will type individuals with the term (e.g., `rdf:type gcdfo:StockAssessment`).
 - Do **not** mix the two: a SKOS concept is an individual of `skos:Concept`; it is not a class. If you believe a term must be both, pause and record an ADR before introducing punning.
 - Default posture: SKOS for code lists; OWL for behavioral/logical models. If in doubt, ask “Will this term ever need class-level semantics or property inheritance?” If yes → OWL; if no and hierarchy is purely lexical → SKOS.
 
 ##### 2.3.4.2 Theme / module annotation for navigation
 
 - Tag every OWL class, property, and SKOS concept with a **theme/module annotation** to aid navigation and review.
-- Annotation property: `gcdfos:theme` (annotation property) with values drawn from the SKOS concept scheme `:ThemeScheme` (defined in `ontology/dfo-salmon.ttl`; definitions in `docs/context/themes-modules.md`).
+- Annotation property: `gcdfo:theme` (annotation property) with values drawn from the SKOS concept scheme `:ThemeScheme` (defined in `ontology/dfo-salmon.ttl`; definitions in `docs/context/themes-modules.md`).
 - Cardinality: 1–3 per term; choose the smallest set that reflects the owning bounded context.
 - Keep the annotation purely descriptive (no reasoning expected). Do not use it in logical axioms or SHACL constraints.
 - Validation: `robot query --input ontology/dfo-salmon.ttl --query scripts/sparql/theme-coverage.rq reports/theme-coverage.tsv` should return no rows; values must be members of `:ThemeScheme`.
@@ -364,10 +364,10 @@ ex:DFOEscMethodCode a rdfs:Datatype .
 
 ##### 2.3.4.3 Publication status annotation (publish slice)
 
-- Use `gcdfos:publicationStatus` (annotation property) with values `gcdfos:Draft` or `gcdfos:PublishReady` to control what goes into the publish slice.
-- Only terms marked `gcdfos:PublishReady` are extracted into the publish TTL; the slice strips the publicationStatus annotation.
-- Before setting `PublishReady`, ensure required metadata exist: `rdfs:label`, `IAO:0000115`, `rdfs:isDefinedBy`, a definition source (`iao:0000119` or `dcterms:source`), and at least one `gcdfos:theme`.
-- Validation: run `make publish-validate` to flag PublishReady terms missing required metadata; run `make publish-slice` to generate `release/published/gcdfos-core.ttl` (PublishReady terms only, publicationStatus removed).
+- Use `gcdfo:publicationStatus` (annotation property) with values `gcdfo:Draft` or `gcdfo:PublishReady` to control what goes into the publish slice.
+- Only terms marked `gcdfo:PublishReady` are extracted into the publish TTL; the slice strips the publicationStatus annotation.
+- Before setting `PublishReady`, ensure required metadata exist: `rdfs:label`, `IAO:0000115`, `rdfs:isDefinedBy`, a definition source (`iao:0000119` or `dcterms:source`), and at least one `gcdfo:theme`.
+- Validation: run `make publish-validate` to flag PublishReady terms missing required metadata; run `make publish-slice` to generate `release/published/gcdfo-core.ttl` (PublishReady terms only, publicationStatus removed).
 
 #### 2.3.5 Provenance and Citation Conventions
 

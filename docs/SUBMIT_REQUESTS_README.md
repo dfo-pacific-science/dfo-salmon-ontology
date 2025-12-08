@@ -3,7 +3,7 @@
 
 GC DFO Salmon uses [GitHub](https://github.com/) as a mechanism for tracking ontology and annotation issues.
 
-The [GCDFOS ontology tracker](https://github.com/dfo-pacific-science/dfo-salmon-ontology/issues) captures suggestions for changes to the ontology, inclusing suggestions for new terms, changes to definitions or term position in the hierarchy, to addition of new subsets. The tracker is also used to report incorrect annotations or to make suggestions for new annotations.
+The [GCDFO Salmon ontology tracker](https://github.com/dfo-pacific-science/dfo-salmon-ontology/issues) captures suggestions for changes to the ontology, inclusing suggestions for new terms, changes to definitions or term position in the hierarchy, to addition of new subsets. The tracker is also used to report incorrect annotations or to make suggestions for new annotations.
 
 ## Creating a GitHub account
 
@@ -13,9 +13,9 @@ By signing up for a GitHub account, you can track your submissions online and vi
     
 Note that the volume of messages on these repositories is significant; we recommend that you set your notifications to ‘Not watching’ using the button with the ‘eye’ icon, found at the upper right corner of the page, so that you only get notified of tickets you have created or in which you have been mentioned. If you choose to ‘Watch’ a repository, an email will be sent every time comments are added to the issue, or when its status changes.
 
-## Submitting a new ticket to GCDFOS via GitHub
+## Submitting a new ticket to GCDFO via GitHub
 
-- Visit the [GCDFOS ontology tracker](https://github.com/dfo-pacific-science/dfo-salmon-ontology/issues).
+- Visit the [GCDFO Salmon ontology tracker](https://github.com/dfo-pacific-science/dfo-salmon-ontology/issues).
 - Click on the green ‘New Issue’ button.
 - Enter the subject of your request in the ‘Title’ field, which will be your queue to find the issue from the list of requests.
 - Enter details of your request in the ‘Leave a Comment’ box.
@@ -23,4 +23,4 @@ Note that the volume of messages on these repositories is significant; we recomm
 
 ## Keeping track of your requests
 
-To find your request again in the GCDFOS tracker, use the ‘Filters’ box and drop-down menu to restrict the types of request you may display.
+To find your request again in the GCDFO tracker, use the ‘Filters’ box and drop-down menu to restrict the types of request you may display.

@@ -1,6 +1,6 @@
 # DFO Salmon Ontology
 
-**Namespace:** `https://w3id.org/dfo/salmon#` (prefix: `dfo:`)  
+**Namespace:** `https://w3id.org/gcdfo/salmon#` (prefix: `gcdfo:`)  
 **License:** CC-BY 4.0  
 **Status:** Draft Work in Progress
 
