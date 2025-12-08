@@ -1,6 +1,10 @@
 # DFO Salmon Ontology Makefile
 # Provides convenient commands for ontology development and quality checking
 
+ROBOT_VERSION := 1.9.8
+ROBOT_JAR := tools/robot.jar
+ROBOT_URL := https://github.com/ontodev/robot/releases/download/v$(ROBOT_VERSION)/robot.jar
+
 .PHONY: help quality-check reason convert clean install-robot
 
 # Default target
@@ -34,7 +38,7 @@ quality-check:
 reason:
 	@echo "🧠 Running OWL reasoner (ELK)..."
 	@mkdir -p release/artifacts
-	@java -jar tools/robot.jar reason \
+	@java -jar $(ROBOT_JAR) reason \
 		--input ontology/dfo-salmon.ttl \
 		--reasoner ELK \
 		--output release/artifacts/elk-inferred.ttl
@@ -42,12 +46,12 @@ reason:
 
 reason-all: reason
 	@echo "🧠 Running HermiT reasoner..."
-	@java -jar tools/robot.jar reason \
+	@java -jar $(ROBOT_JAR) reason \
 		--input ontology/dfo-salmon.ttl \
 		--reasoner HermiT \
 		--output release/artifacts/hermit-inferred.ttl
 	@echo "🧠 Running JFact reasoner..."
-	@java -jar tools/robot.jar reason \
+	@java -jar $(ROBOT_JAR) reason \
 		--input ontology/dfo-salmon.ttl \
 		--reasoner JFact \
 		--output release/artifacts/jfact-inferred.ttl
@@ -57,7 +61,7 @@ reason-all: reason
 convert-owl:
 	@echo "🔄 Converting to OWL format..."
 	@mkdir -p release/artifacts
-	@java -jar tools/robot.jar convert \
+	@java -jar $(ROBOT_JAR) convert \
 		--input ontology/dfo-salmon.ttl \
 		--output release/artifacts/dfo-salmon.owl
 	@echo "✅ OWL conversion completed."
@@ -65,7 +69,7 @@ convert-owl:
 convert-json:
 	@echo "🔄 Converting to JSON-LD format..."
 	@mkdir -p release/artifacts
-	@java -jar tools/robot.jar convert \
+	@java -jar $(ROBOT_JAR) convert \
 		--input ontology/dfo-salmon.ttl \
 		--output release/artifacts/dfo-salmon.jsonld
 	@echo "✅ JSON-LD conversion completed."
@@ -74,8 +78,15 @@ convert-json:
 install-robot:
 	@echo "📥 Downloading ROBOT..."
 	@mkdir -p tools
-	@wget -O tools/robot.jar https://github.com/ontodev/robot/releases/download/v1.9.8/robot.jar
-	@echo "✅ ROBOT installed at tools/robot.jar"
+	@if command -v curl >/dev/null 2>&1; then \
+		curl -L $(ROBOT_URL) -o $(ROBOT_JAR); \
+	elif command -v wget >/dev/null 2>&1; then \
+		wget -O $(ROBOT_JAR) $(ROBOT_URL); \
+	else \
+		echo "Neither curl nor wget is available; please install one to fetch ROBOT."; \
+		exit 1; \
+	fi
+	@echo "✅ ROBOT installed at $(ROBOT_JAR)"
 
 # Cleanup
 clean:
@@ -90,7 +101,7 @@ clean:
 # Publish-ready validation (checks metadata for PublishReady terms)
 publish-validate: check-robot
 	@mkdir -p release/published
-	@java -jar tools/robot.jar query \
+	@java -jar $(ROBOT_JAR) query \
 		--input draft/dfo-salmon-draft.ttl \
 		--query scripts/sparql/publish-ready-metadata.rq \
 		release/published/publish-ready-metadata.tsv
@@ -105,7 +116,7 @@ publish-validate: check-robot
 # Publish slice generation (extract PublishReady terms, strip publicationStatus)
 publish-slice: check-robot
 	@mkdir -p release/published
-	@java -jar tools/robot.jar query \
+	@java -jar $(ROBOT_JAR) query \
 		--input draft/dfo-salmon-draft.ttl \
 		--query scripts/sparql/publish-ready-terms.rq \
 		release/published/publish-ready-terms.tsv
@@ -114,12 +125,12 @@ publish-slice: check-robot
 		echo "⚠️  No PublishReady terms found; writing empty publish slice."; \
 		echo "# Empty publish slice (no terms marked PublishReady)" > release/published/dfoc-core.ttl; \
 	else \
-		java -jar tools/robot.jar extract \
+		java -jar $(ROBOT_JAR) extract \
 			--method STAR \
 			--input draft/dfo-salmon-draft.ttl \
 			--term-file release/published/publish-ready-terms.txt \
 			--output release/published/dfoc-core.raw.ttl; \
-		java -jar tools/robot.jar remove \
+		java -jar $(ROBOT_JAR) remove \
 			--input release/published/dfoc-core.raw.ttl \
 			--select annotations \
 			--term dfoc:publicationStatus \
@@ -135,8 +146,8 @@ docs:
 
 # Check if ROBOT is installed
 check-robot:
-	@if [ ! -f "tools/robot.jar" ]; then \
-		echo "❌ ROBOT not found. Run 'make install-robot' first."; \
+	@if [ ! -f "$(ROBOT_JAR)" ]; then \
+		echo "❌ ROBOT not found at $(ROBOT_JAR). Run 'make install-robot' first."; \
 		exit 1; \
 	fi
 

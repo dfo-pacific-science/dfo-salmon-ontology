@@ -1,27 +1,17 @@
 # DFO Salmon Ontology Validation
 
-This directory contains the DFO Salmon Ontology with SHACL validation for automated estimate type assignment.
+This directory contains the DFO Salmon Ontology with SHACL shapes for automated estimate type assignment. The SHACL runner is currently deferred; shapes remain for reference and future automation.
 
 ## Files
 
 - `dfo-salmon.ttl` - Main ontology file (schema only, no instance data)
-- `dfo-salmon-shapes.ttl` - SHACL validation shapes and automated classification rules
+- `dfo-salmon-shapes.ttl` - SHACL validation shapes and automated classification rules (runner deferred)
 - `sample-survey-data.ttl` - Sample survey data for testing (instance data)
-- `test_shacl_validation.py` - Python script to test validation and classification
-- `requirements.txt` - Python dependencies
 
-## Setup
+## SHACL status
 
-1. Install Python dependencies:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-2. Run the validation test:
-   ```bash
-   python test_shacl_validation.py
-   ```
+- Automated SHACL execution is currently **deferred** (no maintained runner script).
+- Shapes are retained for reference; reintroduce automation by adding a small fixture dataset and a script/workflow when ready.
 
 ## Architecture
 
@@ -65,3 +55,30 @@ The test script will show:
 - **Shapes file**: Contains validation rules and classification logic
 
 This separation ensures the ontology remains stable and reusable across different datasets.
+
+## Automation (current state)
+
+- **Pre-commit (local):** `scripts/pre-commit-validate-ontology.sh` downloads the pinned ROBOT v1.9.8 to `tools/robot.jar` if missing and runs ELK reasoning for fast consistency checks.
+- **CI (push + PR on main/develop):** Runs `make reason` (ELK) and `./scripts/robot-quality-check.sh` (ROBOT report with `robot-profile.yaml`), uploading HTML/log artifacts. ROBOT jar is cached by version.
+- **Publishing (merge to main):** CI additionally runs `make publish-validate` to enforce publish-ready SPARQL checks; build fails on violations and uploads the metadata TSV artifact.
+- **ROBOT version:** Pinned to 1.9.8 across Makefile, scripts, and CI to avoid drift.
+- **Windows:** Use WSL2 + `nix`/`direnv` or Git Bash; `make install-robot` downloads the shared ROBOT jar.
+- **Report profile format:** `robot-profile.yaml` is a tab-separated profile (`LEVEL<TAB>check-id`); keep it comment-free so ROBOT parses it correctly.
+
+## Additional SPARQL checks (provenance + year basis)
+
+Run these as part of local or CI validation to surface missing metadata:
+
+```
+# Missing definition sources (IAO_0000119) on gcdfos terms
+robot query \
+  --input draft/dfo-salmon-draft.ttl \
+  --query scripts/sparql/missing-definition-source.rq reports/missing-definition-source.tsv
+
+# Measurements/rates missing hasYearBasis (on instance data, if present)
+robot query \
+  --input draft/dfo-salmon-draft.ttl \
+  --query scripts/sparql/missing-year-basis.rq reports/missing-year-basis.tsv
+```
+
+The year-basis check will only report rows when instance data are present; it is expected to be empty when run against the schema TTL alone.
