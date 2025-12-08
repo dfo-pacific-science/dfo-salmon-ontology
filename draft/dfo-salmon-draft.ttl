@@ -28,7 +28,6 @@ dcterms:created     a owl:AnnotationProperty .
 dcterms:creator     a owl:AnnotationProperty .
 dcterms:description a owl:AnnotationProperty .
 dcterms:identifier  a owl:AnnotationProperty .
-dcterms:indicator   a owl:AnnotationProperty .
 dcterms:isPartOf    a owl:AnnotationProperty .
 dcterms:isVersionOf a owl:AnnotationProperty .
 dcterms:license     a owl:AnnotationProperty .
@@ -946,7 +945,7 @@ gcdfos:Catch a owl:Class ;
   iao:0000119 "Pacific Salmon Explorer Glossary; Harvest Catch Estimation Methods (DFO)."@en ; # definition source
   dcterms:source <https://www.salmonexplorer.ca/methods/glossary.html> , <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41263625.pdf> ;
   rdfs:isDefinedBy <https://w3id.org/gcdfos/salmon> ;
-  rdfs:subClassOf iao:0000109. # measurement datum
+  rdfs:subClassOf iao:0000109 # measurement datum
 
 gcdfos:COSEWIC a owl:Class ;
   rdfs:label "COSEWIC"@en ;
@@ -1217,7 +1216,7 @@ gcdfos:IndicatorPopulation a owl:Class ;
   rdfs:label "Indicator population"@en ;
   rdfs:subClassOf dwc:Organism ;
   iao:0000115 "Indicator populations are directly assessed and deemed representative of other populations in the area that are not directly assessed. The concept of using indicator populations is based on an expectation of biological homogeneity over the geographic region represented by the indicator population. Often, indicator populations are hatchery-supplemented and only a portion of the hatchery-origin component of the population is tagged, and is assumed to be representative of the entire population, both of hatchery origin and natural origin. The indicator population is expected to be representative, in terms of life history, marine distribution, productivity, and exploitation pattern, of other populations within the indicator region."@en ; # definition
-  dcterms:indicator <info:doi/10.1002/ece3.6383> ;
+  dcterms:identifier <info:doi/10.1002/ece3.6383> ;
   iao:0000119 "Beacham, T. D., Wallace, C., Jonsen, K., McIntosh, B., Candy, J. R., Willis, D., Lynch, C., & Withler, R. E. (2020). Insights on the concept of indicator populations derived from parentage-based tagging in a large-scale coho salmon application in British Columbia, Canada. Ecology and Evolution, 10, p 6461-6476."@en ; # definition source
   rdfs:isDefinedBy <https://w3id.org/gcdfos/salmon> .
 
@@ -1326,7 +1325,7 @@ gcdfos:PreTerminalFishery a owl:Class ;
   rdfs:label "Pre-terminal fishery"@en ;
   iao:0000115 "Pre-terminal fisheries occur outside the river and areas immediately adjacent to the river systems."@en ; # definition
   rdfs:subClassOf odo:SALMON_00000137 ; #fishery type
-  iao:0000119 "National Oceanic and Atmospheric Administration. (2023). Endangered Species Act Section 7(a)(2) Biological Opinion and Magnuson-Stevens Fishery Conservation and Management Act Essential Fish Habitat Response for the Continued Operation and Maintenance of the Willamette Valley System. Available at https://www.fisheries.noaa.gov/s3//2025-05/wcro-2023-00324-willamette-valley-system-20241226.pdf."@en ; # definition source
+  iao:0000119 "National Oceanic and Atmospheric Administration. (2023). Endangered Species Act Section 7(a)(2) Biological Opinion and Magnuson-Stevens Fishery Conservation and Management Act Essential Fish Habitat Response for the Continued Operation and Maintenance of the Willamette Valley System. Available at https://www.fisheries.noaa.gov/s3/2025-05/wcro-2023-00324-willamette-valley-system-20241226.pdf."@en ; # definition source
   rdfs:isDefinedBy <https://w3id.org/gcdfos/salmon> .
 
 gcdfos:PrecautionaryApproach a gcdfos:PolicyFramework , iao:0000033 ; # directive | directive information entity
