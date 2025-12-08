@@ -1,10 +1,10 @@
-# DFO Salmon Ontology
+# GC DFO Salmon Ontology
 
-**Namespace:** `https://w3id.org/dfo/salmon#` (prefix: `dfo:`)  
+**Namespace:** `https://w3id.org/gcdfos/salmon#` (prefix: `gcdfos:`)  
 **License:** CC-BY 4.0  
 **Status:** Draft Work in Progress
 
-The DFO Salmon Ontology is a **data stewardship and operational process ontology** designed to provide a semantic framework for managing, integrating, and stewarding Pacific salmon data across Fisheries and Oceans Canada (DFO).
+The GC DFO Salmon Ontology is a **data stewardship and operational process ontology** designed to provide a semantic framework for managing, integrating, and stewarding Pacific salmon data across Fisheries and Oceans Canada (DFO).
 
 **Goal:** Make salmon data interoperable, discoverable, and analyzable with minimal friction for scientists, data stewards, and managers.
 
@@ -27,7 +27,6 @@ The DFO Salmon Ontology is a **data stewardship and operational process ontology
 - [Competency Questions](docs/COMPETENCY_QUESTIONS.md) - Specific questions the ontology must answer
 - [Conventions Guide](docs/CONVENTIONS.md) - Detailed modeling conventions and patterns
 - [Contributing Guide](CONTRIBUTING.md) - Contribution workflow and guidelines
-- [Agent Guidelines](AGENTS.md) - Agent-specific development guidelines
 
 **Technical References:**
 - [Architecture Decision Records](docs/ADR.md) - Key architectural decisions
@@ -83,8 +82,6 @@ The DFO Salmon Ontology is a **data stewardship and operational process ontology
 
 **For Darwin Core Conceptual Model (DwC-CM) implementation guidance, see [Conventions Guide - DwC-CM Section](docs/CONVENTIONS.md#44-darwin-core-conceptual-model-dwc-cm-alignment).**
 
-**For agent-specific development guidelines, see [AGENTS.md](AGENTS.md).**
-
 ---
 
 ## Ontology Scope (Current)
@@ -112,7 +109,7 @@ The DFO Salmon Ontology is a **data stewardship and operational process ontology
 
 ## IRI & Versioning Policy
 
-- **Base IRI**: `https://w3id.org/dfo/salmon#`
+- **Base IRI**: `https://w3id.org/gcdfos/salmon#`
 - **Instances**: mint under same base (e.g., `…#Stock/SkeenaSockeye`)
 - **Versioning**: Tag GitHub releases, maintain version info in ontology header
 - **For detailed conventions**: See [DFO Salmon Ontology Conventions Guide](docs/CONVENTIONS.md)

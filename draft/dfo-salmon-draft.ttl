@@ -249,6 +249,7 @@ gcdfos:DataModelProvenanceTheme gcdfos:theme gcdfos:DataModelProvenanceTheme .
 :RapidStatusConfidenceScheme a skos:ConceptScheme ;
   skos:prefLabel "Rapid status confidence scheme"@en ;
   skos:definition "Controlled vocabulary for categorical confidence ratings attached to rapid status assessments."@en ;
+  skos:hasTopConcept gcdfos:ConfidenceCategory ;
   rdfs:isDefinedBy <https://w3id.org/gcdfos/salmon> .
 
 #################################################################
@@ -921,8 +922,8 @@ gcdfos:BroodYear a owl:Class ;
   rdfs:label "Brood year"@en ;
   rdfs:subClassOf gcdfos:YearBasis ;
   iao:0000115 "The year that a cohort of salmon spawns."@en ; # definition
-  iao:0000119 "Government of Canada Pacific Salmon Glossary; verbatim in NCEAS Salmon Ontology."@en ; # definition source
-  dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html> , <http://purl.dataone.org/odo/SALMON_00000520> ;
+  iao:0000119 "Adapted from the Government of Canada Pacific Salmon Glossary"@en ; # definition source
+  dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html> ;
   skos:exactMatch odo:SALMON_00000520 ; # "Brood Year" from NCEAS Salmon Ontology (ODO)
   rdfs:comment "The parental year for a group of returning salmon, i.e. the calendar year when the majority of parents of these fish spawned."@en ;
   rdfs:isDefinedBy <https://w3id.org/gcdfos/salmon> .
@@ -1590,10 +1591,9 @@ gcdfos:WSPIntegratedStatus a skos:Concept;
   iao:0000119 "DFO. (2016). Integrated Biological Status of Southern British Columbia Chinook Salmon (Oncorhynchus tshawytscha) Under the Wild Salmon Policy. DFO Can. Sci. Advis. Sec. Sci. Advis. Rep. 2016/042"@en ; # definition source
   rdfs:isDefinedBy <https://w3id.org/gcdfos/salmon> .
 
-gcdfos:WSPRapidStatus a skos:Concept;
-  skos:prefLabel "WSP rapid status"@en ;
-  skos:definition "The WSP rapid status assessment approach builds on previously completed WSP integrated status assessments. The detailed WSP integrated assessments are labour intensive, taking 10-40 experts up to three days to complete for each group of CUs. For this reason, assessments have only been completed for ~11% of the 377 current Pacific Salmon CUs, many of which are outdated. The WSP rapid approach can fill gaps by expanding coverage of CU statuses across time, species, and geographic areas. The WSP rapid status approach ensures statuses are scientifically objective, consistent, and comparable across BC/Yukon CUs. This approach is also relatively easy to implement, applicable to data rich and data poor CUs, and can be updated annually."@en ;
-  skos:inScheme gcdfos:WSPBiologicalStatusZoneScheme ;
+gcdfos:WSPRapidStatus a owl:Class;
+  rdfs:label "WSP rapid status"@en ;
+  iao:0000115 "The WSP rapid status assessment approach builds on previously completed WSP integrated status assessments. The detailed WSP integrated assessments are labour intensive, taking 10-40 experts up to three days to complete for each group of CUs. For this reason, assessments have only been completed for ~11% of the 377 current Pacific Salmon CUs, many of which are outdated. The WSP rapid approach can fill gaps by expanding coverage of CU statuses across time, species, and geographic areas. The WSP rapid status approach ensures statuses are scientifically objective, consistent, and comparable across BC/Yukon CUs. This approach is also relatively easy to implement, applicable to data rich and data poor CUs, and can be updated annually."@en ;
   iao:0000119 "Pestal, G., MacDonald, B. L., Grant, S. C. H., and Holt, C. A. (2023). State of the Salmon: rapid status assessment approach for Pacific salmon under Canada’s Wild Salmon Policy. Can. Tech. Rep. Fish. Aquat. Sci. 3570: xiv + 200 p."@en ; # definition source
   rdfs:isDefinedBy <https://w3id.org/gcdfos/salmon> .
 
@@ -1745,10 +1745,10 @@ gcdfos:AlgorithmThreshold a owl:Class ;
   rdfs:subClassOf iao:0000030 ; # Information content entity
   rdfs:isDefinedBy <https://w3id.org/gcdfos/salmon> .
 
-gcdfos:ConfidenceCategory a owl:Class ;
-  rdfs:label "Confidence category"@en ;
-  iao:0000115 "Categorical confidence rating (High, Medium, Low) reported alongside a rapid status assessment."@en ; # definition
-  rdfs:subClassOf iao:0000030 ; # Information content entity
+gcdfos:ConfidenceCategory a skos:Concept ;
+  skos:prefLabel "Confidence category"@en ;
+  skos:definition "Categorical confidence rating (High, Medium, Low) reported alongside a rapid status assessment."@en ; # definition
+  skos:inScheme :RapidStatusConfidenceScheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfos/salmon> .
 
 #################################################################
@@ -3436,6 +3436,7 @@ gcdfos:Stock gcdfos:publicationStatus gcdfos:PublishReady .
 gcdfos:ConservationUnit gcdfos:publicationStatus gcdfos:PublishReady .
 gcdfos:StockManagementUnit gcdfos:publicationStatus gcdfos:PublishReady .
 gcdfos:StockAssessment gcdfos:publicationStatus gcdfos:PublishReady .
+gcdfos:Escapement gcdfos:publicationStatus gcdfos:PublishReady .
 gcdfos:EscapementSurveyEvent gcdfos:publicationStatus gcdfos:PublishReady .
 gcdfos:EscapementMeasurement gcdfos:publicationStatus gcdfos:PublishReady .
 gcdfos:ReferencePoint gcdfos:publicationStatus gcdfos:PublishReady .
@@ -3453,6 +3454,7 @@ gcdfos:ConfidenceCategory gcdfos:publicationStatus gcdfos:PublishReady .
 gcdfos:YearBasis gcdfos:publicationStatus gcdfos:PublishReady .
 gcdfos:BroodYear gcdfos:publicationStatus gcdfos:PublishReady .
 gcdfos:CatchYear gcdfos:publicationStatus gcdfos:PublishReady .
+gcdfos:ExploitationRate gcdfos:publicationStatus gcdfos:PublishReady .
 gcdfos:TotalExploitationRate gcdfos:publicationStatus gcdfos:PublishReady .
 gcdfos:IndicatorRiver gcdfos:publicationStatus gcdfos:PublishReady .
 
