@@ -6,7 +6,7 @@ This document explains the end-to-end process for documenting Controlled Vocabul
 
 The workflow transforms ontology terms into human-friendly documentation pages on the FADS Open Science Doc Hub website:
 
-1. **Define themes** in `scripts/config/themes.yml` to group related ontology terms (now 9 themes, aligned to the draft ontology scheme).
+1. **Define themes** in `scripts/config/themes.yml`, but theme annotations are sourced from `draft/dfo-salmon-draft.ttl` (not from the published `ontology/dfo-salmon.ttl`).
 2. **Generate SPARQL queries** automatically from theme definitions.
 3. **Extract term tables** as CSV files from the publish slice (PublishReady-only, regenerated into `ontology/dfo-salmon.ttl`).
 4. **Publish to website** where Quarto generates documentation pages.
@@ -52,8 +52,8 @@ python scripts/extract-term-tables.py
 ```
 
 **What it does:**
-1. Reads `scripts/config/themes.yml`.
-2. Loads `ontology/dfo-salmon.ttl` (regenerated from the publish slice so it contains only PublishReady terms and retains prefixes, annotation property declarations, datatype declarations, ontology header, and required MIREOT imports).
+1. Reads `scripts/config/themes.yml` (ids/labels/output filenames).
+2. Loads `ontology/dfo-salmon.ttl` (publish slice, read-only) **and** merges `gcdfos:theme` annotations from `draft/dfo-salmon-draft.ttl` for published terms. The published TTL is never written by this workflow.
 3. Generates SPARQL queries for each theme.
 4. Executes queries against the ontology.
 5. Writes CSV files to `release/artifacts/term-tables/{theme-id}-terms.csv` (these are versioned in git).
@@ -111,6 +111,8 @@ The data-stewardship-unit website automatically displays term tables.
    git commit -m "Update ontology term tables"
    ```
 
+   *Note:* The DSU repo no longer regenerates term tables in pre-commit. Generation happens in this ontology repo; DSU pre-commit only validates CSV/meta structure.
+
 5. Build the website locally using Quarto (Quarto is provided via Nix devenv; ensure R packages are available):
    ```bash
    quarto render
@@ -149,10 +151,10 @@ python scripts/extract-term-tables.py
 - Review `scripts/sparql/habitat-terms.rq` to see generated query
 
 **Step 4: Website automatically reflects changes**
-- The website now reads themes directly from `themes.yml` - no manual updates needed
-- The tabbed interface will automatically display the new theme's table using `reactable`
-- No separate theme page file is needed - all themes are on the main page
-- Pre-commit hooks will automatically update the submodule and regenerate term tables when you commit
+- The website reads the generated CSVs in `data/ontology/release/artifacts/term-tables/` (Quarto does **not** read `themes.yml` directly).
+- The tabbed/accordion interface will automatically display the new theme’s table using `reactable`.
+- No separate theme page file is needed—all themes are on the main page.
+- Regeneration is manual: run `python scripts/extract-term-tables.py` (or `make publish-and-extract`), then sync to DSU with `make dsu-sync-term-tables ...`.
 
 ### Modifying Existing Themes
 

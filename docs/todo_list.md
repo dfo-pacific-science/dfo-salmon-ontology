@@ -11,9 +11,15 @@
 - **Quarto website pages for exploring controlled vocabulary:** Working within next 2 weeks
 - **New:** Complete ontology deep review (class hierarchy sanity + genetics vocab refresh) before further term publication
 - **New (2025-12-03):** Stand up publish-ready slice pipeline (`gcdfos:publicationStatus` → `release/published/gcdfos-core.ttl`) and theme annotations per execplan.md / execplan-theme-annotations.md; downstreams (DSU tabs, term tables) must read from the publish slice instead of legacy artifacts
+- **New (2025-12-08):** Run repo-wide QA/cleanup ExecPlan (`docs/plans/2025-12-08-repo-review.md`); record progress/decisions there and mirror actionable items here.
 - **Upcoming:** Run `execplan-add-spsr-terms.md` after column-to-ontology mapping is approved (do not run yet) /Users/brettjohnson/code/dfo-salmon-ontology/docs/notes/spsr-column-to-ontology-mapping.md
 
 **Namespace note:** Prefix is now `gcdfos:` (formerly `dfoc:`). Align future tasks and publish slices to `gcdfos` IRIs.
+
+## 2025-12-08 — Repo-wide QA findings
+
+- [ ] Fix ThemeScheme alignment: replace out-of-scheme theme values and assign valid themes for terms flagged in `release/tmp/theme-coverage.tsv` (e.g., Stock, ConservationUnit, EscapementMeasurement, WSP classes).
+- [ ] Add theme annotations for `gcdfos:publicationStatus` and `gcdfos:theme` to clear coverage check.
 
 ## 2025-12-08 — Exploitation / Mortality / Abundance quick wins
 

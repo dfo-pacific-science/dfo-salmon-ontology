@@ -15,6 +15,7 @@ import hashlib
 import json
 import subprocess
 import textwrap
+import os
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, Iterable, List, Optional
@@ -27,6 +28,8 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent
 # Path to the main ontology file in Turtle format
 ONTOLOGY_PATH = ROOT / "ontology" / "dfo-salmon.ttl"
+# Path to the draft ontology file that carries admin-only annotations (e.g., themes)
+DRAFT_ONTOLOGY_PATH = ROOT / "draft" / "dfo-salmon-draft.ttl"
 # Path to YAML configuration file defining themes and their extraction criteria
 CONFIG_PATH = ROOT / "scripts" / "config" / "themes.yml"
 # Directory where generated SPARQL queries will be written
@@ -37,6 +40,9 @@ OUTPUT_DIR = ROOT / "release" / "artifacts" / "term-tables"
 IAO_DEFINITION_IRI = rdflib.URIRef("http://purl.obolibrary.org/obo/IAO_0000115")
 # IRI for the gcdfos:theme annotation property
 GCDFOS_NS = "https://w3id.org/gcdfos/salmon#"
+RDFS_LABEL = rdflib.URIRef("http://www.w3.org/2000/01/rdf-schema#label")
+SKOS_PREF_LABEL = rdflib.URIRef("http://www.w3.org/2004/02/skos/core#prefLabel")
+GCDFOS_THEME = rdflib.URIRef(GCDFOS_NS + "theme")
 
 # SPARQL namespace prefixes used across all generated queries
 # These define shortcuts for common RDF vocabularies:
@@ -157,7 +163,7 @@ ORDER_BY_CLAUSE = (
 class Theme:
     """
     Definition for a themed extraction based on gcdfos:theme annotations.
-    
+
     A theme groups related ontology terms that have been annotated with
     the same gcdfos:theme value. This captures both SKOS concepts and OWL
     classes automatically.
@@ -174,7 +180,7 @@ class Theme:
     ) -> None:
         """
         Initialize a theme configuration.
-        
+
         Args:
             id: Unique identifier for the theme (used in metadata)
             label: Human-readable theme name
@@ -207,13 +213,13 @@ class Theme:
 def read_config() -> tuple[str, List[Theme]]:
     """
     Load YAML configuration and return widoco base url plus themes.
-    
+
     Reads the themes.yml configuration file and constructs Theme objects
     for each theme definition. Validates that required fields are present.
-    
+
     Returns:
         Tuple of (widoco_base_url, themes_list)
-        
+
     Raises:
         FileNotFoundError: If the configuration file doesn't exist
         ValueError: If widoco_base_url is missing or no themes are defined
@@ -240,7 +246,9 @@ def read_config() -> tuple[str, List[Theme]]:
             query_file=entry["query_file"],
             output_csv=entry["output_csv"],
         )
-        for entry in raw.get("themes", [])  # Default to empty list if themes key missing
+        for entry in raw.get(
+            "themes", []
+        )  # Default to empty list if themes key missing
     ]
 
     if not themes:
@@ -252,13 +260,13 @@ def read_config() -> tuple[str, List[Theme]]:
 def build_theme_query(theme: Theme) -> str:
     """
     Construct a SPARQL query for entities with a specific gcdfos:theme annotation.
-    
+
     Builds a query that selects all entities (both SKOS concepts and OWL classes)
     that have been annotated with the specified theme IRI using the gcdfos:theme property.
-    
+
     Args:
         theme: Theme configuration with theme_iri
-        
+
     Returns:
         Complete SPARQL query string
     """
@@ -290,10 +298,10 @@ def build_theme_query(theme: Theme) -> str:
 def get_all_themes_query() -> str:
     """
     Construct a SPARQL query to discover all themes in the ontology.
-    
+
     This query finds all unique theme IRIs that are used as values of the
     gcdfos:theme property, along with their labels if available.
-    
+
     Returns:
         SPARQL query string to find all themes
     """
@@ -307,13 +315,13 @@ def get_all_themes_query() -> str:
         "  # Get theme labels if available\n"
         "  OPTIONAL {\n"
         "    ?theme skos:prefLabel ?themePrefLabel .\n"
-        "    FILTER(LANG(?themePrefLabel) = \"\" || LANGMATCHES(LANG(?themePrefLabel), \"en\"))\n"
+        '    FILTER(LANG(?themePrefLabel) = "" || LANGMATCHES(LANG(?themePrefLabel), "en"))\n'
         "  }\n"
         "  OPTIONAL {\n"
         "    ?theme rdfs:label ?themeRdfsLabel .\n"
-        "    FILTER(LANG(?themeRdfsLabel) = \"\" || LANGMATCHES(LANG(?themeRdfsLabel), \"en\"))\n"
+        '    FILTER(LANG(?themeRdfsLabel) = "" || LANGMATCHES(LANG(?themeRdfsLabel), "en"))\n'
         "  }\n"
-        "  BIND(COALESCE(?themePrefLabel, ?themeRdfsLabel, STRAFTER(STR(?theme), \"#\")) AS ?themeLabel) .\n"
+        '  BIND(COALESCE(?themePrefLabel, ?themeRdfsLabel, STRAFTER(STR(?theme), "#")) AS ?themeLabel) .\n'
         "}\n"
         "ORDER BY ?themeLabel"
     )
@@ -322,29 +330,26 @@ def get_all_themes_query() -> str:
 def get_repo_commit(root: Path) -> str:
     """
     Return current git commit SHA for the repository.
-    
+
     Executes 'git rev-parse HEAD' to get the full commit hash of the current HEAD.
     This is used to track which version of the ontology was used to generate
     the term tables, enabling reproducibility and traceability.
-    
+
     Args:
         root: Repository root directory path
-        
+
     Returns:
         Full git commit SHA (40-character hex string)
-        
+
     Raises:
         RuntimeError: If git command fails or git is not available
     """
     try:
         # Execute git rev-parse HEAD to get current commit SHA
         # text=True ensures output is returned as string, not bytes
-        sha = (
-            subprocess.check_output(
-                ["git", "rev-parse", "HEAD"], cwd=root, text=True
-            )
-            .strip()  # Remove trailing newline
-        )
+        sha = subprocess.check_output(
+            ["git", "rev-parse", "HEAD"], cwd=root, text=True
+        ).strip()  # Remove trailing newline
     except (subprocess.CalledProcessError, FileNotFoundError) as exc:
         # Handle cases where git is not installed or not a git repository
         raise RuntimeError("Unable to resolve git commit SHA") from exc
@@ -354,7 +359,7 @@ def get_repo_commit(root: Path) -> str:
 def ensure_directories() -> None:
     """
     Ensure output and query directories exist.
-    
+
     Creates the directories if they don't exist, including any necessary
     parent directories. Does not raise an error if directories already exist.
     """
@@ -367,13 +372,13 @@ def ensure_directories() -> None:
 def to_string(value: Optional[rdflib.term.Node]) -> str:
     """
     Convert RDFLib node to plain string.
-    
+
     Safely converts RDFLib node objects (URIRef, Literal, BNode, etc.)
     to plain Python strings. Returns empty string for None values.
-    
+
     Args:
         value: RDFLib node or None
-        
+
     Returns:
         String representation of the node, or empty string if None
     """
@@ -386,15 +391,15 @@ def to_string(value: Optional[rdflib.term.Node]) -> str:
 def make_anchor(iri: str) -> str:
     """
     Extract fragment or terminal path component for Widoco link construction.
-    
+
     Extracts the anchor/fragment identifier from an IRI for use in constructing
     links to Widoco-generated ontology documentation. Handles two IRI patterns:
     - Hash-based IRIs (e.g., "http://example.org/ontology#Term" -> "Term")
     - Slash-based IRIs (e.g., "http://example.org/ontology/Term" -> "Term")
-    
+
     Args:
         iri: Full IRI string
-        
+
     Returns:
         Fragment identifier or last path component
     """
@@ -408,14 +413,14 @@ def make_anchor(iri: str) -> str:
 def normalize_relation(relation: str) -> str:
     """
     Simplify relation identifiers for display.
-    
+
     Converts SPARQL relation identifiers (with namespace prefixes) to
     simplified display names for CSV output. Removes namespace prefixes
     to make the output more readable.
-    
+
     Args:
         relation: SPARQL relation identifier (e.g., "skos:broader")
-        
+
     Returns:
         Simplified relation name (e.g., "broader"), or original if not mapped
     """
@@ -439,19 +444,19 @@ def process_results(
 ) -> List[Dict[str, str]]:
     """
     Aggregate SPARQL results into deterministic CSV rows.
-    
+
     Processes raw SPARQL query results and aggregates them by term IRI.
     Since SPARQL queries can return multiple rows per term (one per related term),
     this function consolidates them into a single row per term with all related
     terms combined into a semicolon-separated list.
-    
+
     Args:
         rows: Iterable of SPARQL result rows (each row is a dict mapping variable names to RDFLib nodes)
         widoco_base_url: Base URL for Widoco documentation links
         query_checksum: SHA-256 hash of the SPARQL query (for reproducibility tracking)
         source_version: Git commit SHA of the ontology version used
         source_timestamp: ISO timestamp when extraction was performed
-        
+
     Returns:
         List of dictionaries, one per unique term, ready for CSV export
     """
@@ -477,7 +482,8 @@ def process_results(
                 "definition_source_link": "",  # dcterms:source property
                 "related": set(),  # Set of tuples: (label, relation, iri) for related terms
                 "canonical_uri": term_iri,  # Full IRI of the term
-                "widoco_link": widoco_base_url + make_anchor(term_iri),  # Link to documentation
+                "widoco_link": widoco_base_url
+                + make_anchor(term_iri),  # Link to documentation
                 "source_version": source_version,  # Git commit SHA
                 "source_timestamp": source_timestamp,  # When extraction ran
                 "query_checksum": query_checksum,  # Hash of query for reproducibility
@@ -504,7 +510,9 @@ def process_results(
         related_iri = to_string(row.get("related"))
         if related_iri:
             # Get label for related term, fall back to IRI fragment if no label
-            related_label = to_string(row.get("relatedLabel")) or make_anchor(related_iri)
+            related_label = to_string(row.get("relatedLabel")) or make_anchor(
+                related_iri
+            )
             # Normalize relation identifier (e.g., "skos:broader" -> "broader")
             relation = normalize_relation(to_string(row.get("relation")))
             # Store as tuple: (label, relation_type, iri)
@@ -516,7 +524,10 @@ def process_results(
         # Sort related terms by label (case-insensitive) then by IRI for deterministic ordering
         relations = sorted(
             entry["related"],
-            key=lambda triple: (triple[0].lower(), triple[2]),  # Sort by label, then IRI
+            key=lambda triple: (
+                triple[0].lower(),
+                triple[2],
+            ),  # Sort by label, then IRI
         )
         # Format related terms as: "Label (relation) [IRI]"
         related_terms = [
@@ -525,16 +536,22 @@ def process_results(
 
         # Prefer text citation, fall back to link if no text
         # This provides a single "definition_source" field for convenience
-        definition_source = entry["definition_source_text"] or entry["definition_source_link"] or ""
-        
+        definition_source = (
+            entry["definition_source_text"] or entry["definition_source_link"] or ""
+        )
+
         # Build final CSV row with all fields as strings
         rows_out.append(
             {
                 "term_name": entry["term_name"],
                 "definition": entry["definition"],
                 "definition_source": definition_source,  # Convenience field (text or link)
-                "definition_source_text": entry["definition_source_text"],  # Original text citation
-                "definition_source_link": entry["definition_source_link"],  # Original link
+                "definition_source_text": entry[
+                    "definition_source_text"
+                ],  # Original text citation
+                "definition_source_link": entry[
+                    "definition_source_link"
+                ],  # Original link
                 "related_terms": "; ".join(related_terms),  # Semicolon-separated list
                 "canonical_uri": entry["canonical_uri"],
                 "widoco_link": entry["widoco_link"],
@@ -552,11 +569,11 @@ def process_results(
 def write_csv(path: Path, rows: List[Dict[str, str]]) -> None:
     """
     Write rows to CSV file.
-    
+
     Writes the processed term data to a CSV file with UTF-8 encoding.
     Uses csv.DictWriter to ensure consistent column ordering and proper
     CSV escaping of special characters.
-    
+
     Args:
         path: Output file path for the CSV
         rows: List of dictionaries, each representing one term row
@@ -587,11 +604,11 @@ def write_csv(path: Path, rows: List[Dict[str, str]]) -> None:
 def write_meta(path: Path, theme: Theme, rows: List[Dict[str, str]]) -> None:
     """
     Persist metadata summary alongside CSV output.
-    
+
     Writes a JSON metadata file containing information about the extraction:
     theme details, row count, source version/timestamp, query checksum, etc.
     This enables tracking of provenance and reproducibility.
-    
+
     Args:
         path: Output file path for the metadata JSON
         theme: Theme configuration used for this extraction
@@ -604,9 +621,13 @@ def write_meta(path: Path, theme: Theme, rows: List[Dict[str, str]]) -> None:
         "row_count": len(rows),  # Number of terms extracted
         # Extract metadata from first row (all rows have same values for these fields)
         "source_version": rows[0]["source_version"] if rows else "",  # Git commit SHA
-        "source_timestamp": rows[0]["source_timestamp"] if rows else "",  # Extraction timestamp
+        "source_timestamp": (
+            rows[0]["source_timestamp"] if rows else ""
+        ),  # Extraction timestamp
         "query_checksum": rows[0]["query_checksum"] if rows else "",  # Query hash
-        "generated_at": datetime.now(timezone.utc).isoformat(),  # When metadata was written
+        "generated_at": datetime.now(
+            timezone.utc
+        ).isoformat(),  # When metadata was written
         "source_file": str(ONTOLOGY_PATH),  # Path to source ontology file
     }
     with path.open("w", encoding="utf-8") as handle:
@@ -616,17 +637,19 @@ def write_meta(path: Path, theme: Theme, rows: List[Dict[str, str]]) -> None:
 def write_query_file(path: Path, query: str) -> None:
     """
     Write the SPARQL query to the configured file.
-    
+
     Persists the generated SPARQL query to a file for inspection and debugging.
     The file includes a header warning that it's auto-generated and should not
     be edited manually (since it will be overwritten on next run).
-    
+
     Args:
         path: Output file path for the SPARQL query
         query: Complete SPARQL query string to write
     """
     # Header warning that file is auto-generated
-    header = "# Auto-generated by scripts/extract-term-tables.py; do not edit manually.\n\n"
+    header = (
+        "# Auto-generated by scripts/extract-term-tables.py; do not edit manually.\n\n"
+    )
     with path.open("w", encoding="utf-8") as handle:
         handle.write(header)
         handle.write(query)
@@ -636,33 +659,83 @@ def write_query_file(path: Path, query: str) -> None:
 def discover_themes(graph: rdflib.Graph) -> List[tuple[str, str]]:
     """
     Discover all themes used in the ontology.
-    
+
     Executes a SPARQL query to find all unique values of the gcdfos:theme property
     along with their labels.
-    
+
     Args:
         graph: Parsed RDF graph of the ontology
-        
+
     Returns:
         List of tuples (theme_iri, theme_label)
     """
     query = get_all_themes_query()
     results = graph.query(query)
-    
+
     themes = []
     for row in results:
         theme_iri = to_string(row.get("theme"))
         theme_label = to_string(row.get("themeLabel")) or make_anchor(theme_iri)
         if theme_iri:
             themes.append((theme_iri, theme_label))
-    
+
     return themes
+
+
+def merge_draft_themes_into_graph(
+    graph: rdflib.Graph, draft_path: Path, use_draft: bool = True
+) -> bool:
+    """
+    Merge theme annotations from draft TTL into the main graph (read-only for published TTL).
+
+    - Reads the draft ontology (if present and use_draft is True).
+    - Builds the set of published term IRIs from the main graph.
+    - Copies gcdfos:theme triples (and theme labels) from the draft only for published terms.
+    - Returns True if draft themes were merged; False otherwise.
+    """
+    if not use_draft:
+        print("Skipping draft themes merge because USE_DRAFT_THEMES is false.")
+        return False
+    if not draft_path.exists():
+        print(f"Draft file not found at {draft_path}; skipping draft themes merge.")
+        return False
+
+    draft_graph = rdflib.Graph()
+    if draft_graph.parse(str(draft_path)) is None:
+        print(f"Failed to parse draft ontology at {draft_path}; skipping merge.")
+        return False
+
+    # Gather published term IRIs (URIs only)
+    published_terms = {s for s in graph.subjects() if isinstance(s, rdflib.URIRef)}
+
+    merged = False
+    theme_nodes = set()
+
+    # Copy theme assignments for published terms
+    for subj, _, theme in draft_graph.triples((None, GCDFOS_THEME, None)):
+        if subj in published_terms:
+            graph.add((subj, GCDFOS_THEME, theme))
+            theme_nodes.add(theme)
+            merged = True
+
+    # Copy labels for theme IRIs so discovery/labels work even if main TTL lacks them
+    for theme in theme_nodes:
+        for _, _, label in draft_graph.triples((theme, SKOS_PREF_LABEL, None)):
+            graph.add((theme, SKOS_PREF_LABEL, label))
+        for _, _, label in draft_graph.triples((theme, RDFS_LABEL, None)):
+            graph.add((theme, RDFS_LABEL, label))
+
+    if merged:
+        print(f"Merged draft theme annotations for {len(theme_nodes)} themes.")
+    else:
+        print("No draft themes were merged (no matching published terms).")
+    return merged
 
 
 def main() -> None:
     """
     Main execution function.
-    
+
     Orchestrates the entire extraction process:
     1. Ensures output directories exist
     2. Loads theme configuration
@@ -685,6 +758,14 @@ def main() -> None:
     if graph.parse(str(ONTOLOGY_PATH)) is None:
         raise RuntimeError(f"Failed to parse ontology at {ONTOLOGY_PATH}")
 
+    # Optionally merge theme annotations from the draft file (read-only augmentation)
+    use_draft_themes = os.getenv("USE_DRAFT_THEMES", "true").lower() in (
+        "1",
+        "true",
+        "yes",
+    )
+    merge_draft_themes_into_graph(graph, DRAFT_ONTOLOGY_PATH, use_draft_themes)
+
     # Optional: Discover all themes in the ontology (useful for debugging/validation)
     print("\nDiscovering themes in the ontology...")
     discovered_themes = discover_themes(graph)
@@ -693,7 +774,9 @@ def main() -> None:
         for theme_iri, theme_label in discovered_themes:
             print(f"  - {theme_label}: {theme_iri}")
     else:
-        print("No themes found in the ontology (no entities with gcdfos:theme property)")
+        print(
+            "No themes found in the ontology (no entities with gcdfos:theme property)"
+        )
     print()
 
     # Get source version information for provenance tracking
@@ -703,26 +786,26 @@ def main() -> None:
     # Process each theme defined in the configuration
     for theme in themes:
         print(f"Processing theme: {theme.label}")
-        
+
         # Build SPARQL query for this theme
         query = build_theme_query(theme)
-        
+
         # Calculate SHA-256 hash of the query for reproducibility tracking
         checksum = hashlib.sha256(query.encode("utf-8")).hexdigest()
-        
+
         # Write the query to file for inspection/debugging
         write_query_file(theme.query_path, query)
-        
+
         # Execute query against the parsed graph
         raw_rows = list(graph.query(query))
-        
+
         if not raw_rows:
             print(f"  No entities found with theme {theme.theme_iri}")
             # Still write empty CSV and metadata for consistency
             write_csv(theme.output_csv_path, [])
             write_meta(theme.output_meta_path, theme, [])
             continue
-        
+
         # Process raw SPARQL results: aggregate by term, format for CSV
         processed_rows = process_results(
             raw_rows,
@@ -740,7 +823,7 @@ def main() -> None:
         print(
             f"  Wrote {len(processed_rows)} rows to {theme.output_csv_path.relative_to(ROOT)}"
         )
-    
+
     print("\nExtraction complete!")
 
 

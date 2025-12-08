@@ -1,0 +1,22 @@
+?term	?issue	?themeCount
+<https://w3id.org/gcdfos/salmon#publicationStatus>	"missing theme"	0
+<https://w3id.org/gcdfos/salmon#theme>	"missing theme"	0
+<https://w3id.org/gcdfos/salmon#AlgorithmThreshold>	"theme not in ThemeScheme"	2
+<https://w3id.org/gcdfos/salmon#BroodYear>	"theme not in ThemeScheme"	1
+<https://w3id.org/gcdfos/salmon#CatchYear>	"theme not in ThemeScheme"	1
+<https://w3id.org/gcdfos/salmon#ConfidenceCategory>	"theme not in ThemeScheme"	2
+<https://w3id.org/gcdfos/salmon#ConservationUnit>	"theme not in ThemeScheme"	1
+<https://w3id.org/gcdfos/salmon#EscapementMeasurement>	"theme not in ThemeScheme"	2
+<https://w3id.org/gcdfos/salmon#EscapementSurveyEvent>	"theme not in ThemeScheme"	2
+<https://w3id.org/gcdfos/salmon#IndicatorRiver>	"theme not in ThemeScheme"	3
+<https://w3id.org/gcdfos/salmon#LimitReferencePoint>	"theme not in ThemeScheme"	3
+<https://w3id.org/gcdfos/salmon#MetricBenchmark>	"theme not in ThemeScheme"	1
+<https://w3id.org/gcdfos/salmon#ReferencePoint>	"theme not in ThemeScheme"	1
+<https://w3id.org/gcdfos/salmon#Stock>	"theme not in ThemeScheme"	1
+<https://w3id.org/gcdfos/salmon#StockAssessment>	"theme not in ThemeScheme"	1
+<https://w3id.org/gcdfos/salmon#StockManagementUnit>	"theme not in ThemeScheme"	2
+<https://w3id.org/gcdfos/salmon#TotalExploitationRate>	"theme not in ThemeScheme"	3
+<https://w3id.org/gcdfos/salmon#UpperStockReferencePoint>	"theme not in ThemeScheme"	3
+<https://w3id.org/gcdfos/salmon#WSPBiologicalStatusZone>	"theme not in ThemeScheme"	2
+<https://w3id.org/gcdfos/salmon#WSPMetric>	"theme not in ThemeScheme"	2
+<https://w3id.org/gcdfos/salmon#YearBasis>	"theme not in ThemeScheme"	1
