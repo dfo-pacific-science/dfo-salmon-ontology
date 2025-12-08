@@ -1,4 +1,4 @@
-PREFIX dfoc: <https://w3id.org/dfoc/salmon#>
+PREFIX gcdfos: <https://w3id.org/gcdfos/salmon#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX iao: <http://purl.obolibrary.org/obo/IAO_>
@@ -7,7 +7,7 @@ PREFIX dcterms: <http://purl.org/dc/terms/>
 # Lists PublishReady terms missing required annotations. If no PublishReady terms, result is empty.
 SELECT ?term ?issue
 WHERE {
-  ?term dfoc:publicationStatus dfoc:PublishReady .
+  ?term gcdfos:publicationStatus gcdfos:PublishReady .
   {
     FILTER NOT EXISTS { ?term rdfs:label ?lbl }
     BIND("missing rdfs:label" AS ?issue)
@@ -24,8 +24,8 @@ WHERE {
   }
   UNION
   {
-    FILTER NOT EXISTS { ?term dfoc:theme ?theme }
-    BIND("missing dfoc:theme" AS ?issue)
+    FILTER NOT EXISTS { ?term gcdfos:theme ?theme }
+    BIND("missing gcdfos:theme" AS ?issue)
   }
   UNION
   {

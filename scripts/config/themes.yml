@@ -2,25 +2,55 @@ widoco_base_url: "https://w3id.org/gcdfos/salmon/widoco/index.html#"
 
 themes:
   - id: stock_assessment
-    label: "Stock Assessment Methods"
+    label: "Stock Assessment"
     query_file: "stock-assessment-terms.rq"
     output_csv: "stock-assessment-terms.csv"
     theme_iri: "https://w3id.org/gcdfos/salmon#StockAssessmentTheme"
- 
-  - id: legislation
-    label: "Legislation and Policy"
-    query_file: "legislation-terms.rq"
-    output_csv: "legislation-terms.csv"
-    theme_iri: "https://w3id.org/gcdfos/salmon#PolicyGovernanceTheme"
 
-  - id: sar_recovery
-    label: "Species At Risk and Recovery"
-    query_file: "sar-recovery-terms.rq"
-    output_csv: "sar-recovery-terms.csv"
+  - id: monitoring_field_work
+    label: "Monitoring and Field Work"
+    query_file: "monitoring-field-work-terms.rq"
+    output_csv: "monitoring-field-work-terms.csv"
+    theme_iri: "https://w3id.org/gcdfos/salmon#MonitoringFieldWorkTheme"
+
+  - id: genetics_stock_composition
+    label: "Genetics and Stock Composition"
+    query_file: "genetics-stock-composition-terms.rq"
+    output_csv: "genetics-stock-composition-terms.csv"
+    theme_iri: "https://w3id.org/gcdfos/salmon#GeneticsStockCompositionTheme"
+
+  - id: fisheries_management
+    label: "Fisheries Management"
+    query_file: "fisheries-management-terms.rq"
+    output_csv: "fisheries-management-terms.csv"
+    theme_iri: "https://w3id.org/gcdfos/salmon#FisheriesManagementTheme"
+
+  - id: species_at_risk_recovery
+    label: "Species at Risk and Recovery"
+    query_file: "species-at-risk-recovery-terms.rq"
+    output_csv: "species-at-risk-recovery-terms.csv"
     theme_iri: "https://w3id.org/gcdfos/salmon#SpeciesAtRiskRecoveryTheme"
 
+  - id: salmon_enhancement_hatcheries
+    label: "Salmon Enhancement and Hatcheries"
+    query_file: "salmon-enhancement-hatcheries-terms.rq"
+    output_csv: "salmon-enhancement-hatcheries-terms.csv"
+    theme_iri: "https://w3id.org/gcdfos/salmon#SalmonEnhancementHatcheriesTheme"
+
+  - id: habitat_ecosystem_climate
+    label: "Habitat, Ecosystem, and Climate Pressures"
+    query_file: "habitat-ecosystem-climate-terms.rq"
+    output_csv: "habitat-ecosystem-climate-terms.csv"
+    theme_iri: "https://w3id.org/gcdfos/salmon#HabitatEcosystemClimateTheme"
+
+  - id: policy_governance
+    label: "Policy, Governance, and Organizational Structure"
+    query_file: "policy-governance-terms.rq"
+    output_csv: "policy-governance-terms.csv"
+    theme_iri: "https://w3id.org/gcdfos/salmon#PolicyGovernanceTheme"
+
   - id: data_model_provenance
-    label: "Data and Model Provenance"
+    label: "Data, Models, and Provenance"
     query_file: "data-model-provenance-terms.rq"
     output_csv: "data-model-provenance-terms.csv"
     theme_iri: "https://w3id.org/gcdfos/salmon#DataModelProvenanceTheme"

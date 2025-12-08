@@ -1,6 +1,6 @@
-PREFIX dfoc: <https://w3id.org/dfoc/salmon#>
+PREFIX gcdfos: <https://w3id.org/gcdfos/salmon#>
 
 SELECT ?term
 WHERE {
-  ?term dfoc:publicationStatus dfoc:PublishReady .
+  ?term gcdfos:publicationStatus gcdfos:PublishReady .
 }
