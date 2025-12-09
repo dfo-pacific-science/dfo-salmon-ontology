@@ -1,8 +1,8 @@
 # GC DFO Salmon Ontology
 
-**Namespace:** `https://w3id.org/gcdfos/salmon#` (prefix: `gcdfos:`)  
+**Namespace:** `https://w3id.org/gcdfo/salmon#` (prefix: `gcgcdfo:`)  
 **License:** CC-BY 4.0  
-**Status:** Draft Work in Progress
+**Status:** Version 1.0.0 - in review on w3id.org
 
 The GC DFO Salmon Ontology is a **data stewardship and operational process ontology** designed to provide a semantic framework for managing, integrating, and stewarding Pacific salmon data across Fisheries and Oceans Canada (DFO).
 
@@ -78,7 +78,7 @@ The GC DFO Salmon Ontology is a **data stewardship and operational process ontol
 - **Document everything**: Always include `rdfs:comment` and `dcterms:source`
 - **Test with data**: Validate terms with sample data and SPARQL queries
 
-**For detailed modeling conventions, see [DFO Salmon Ontology Conventions Guide](docs/CONVENTIONS.md).**
+**For detailed modeling conventions, see [GC DFO Salmon Ontology Conventions Guide](docs/CONVENTIONS.md).**
 
 **For Darwin Core Conceptual Model (DwC-CM) implementation guidance, see [Conventions Guide - DwC-CM Section](docs/CONVENTIONS.md#44-darwin-core-conceptual-model-dwc-cm-alignment).**
 
@@ -88,20 +88,20 @@ The GC DFO Salmon Ontology is a **data stewardship and operational process ontol
 
 **Core Classes**
 
-- `dfo:Stock`, `dfo:ConservationUnit`, `dfo:ManagementUnit`
-- `dfo:SurveyEvent` (⊑ `dwc:Event`)
-- `dfo:EscapementMeasurement` (⊑ `dwc:MeasurementOrFact`)
-- `dfo:Indicator`, `dfo:Dataset` (⊑ `schema:Dataset`)
+- `gcdfo:Stock`, `gcdfo:ConservationUnit`, `gcdfo:ManagementUnit`
+- `gcdfo:SurveyEvent` (⊑ `dwc:Event`)
+- `gcdfo:EscapementMeasurement` (⊑ `dwc:MeasurementOrFact`)
+- `gcdfo:Indicator`, `gcdfo:Dataset` (⊑ `schema:Dataset`)
 
 **Stock Assessment Specializations**
 
-- `dfo:EscapementSurveyEvent`
-- `dfo:SonarCountMeasurement`, `dfo:WeirCountMeasurement`, `dfo:AerialCountMeasurement`
-- `dfo:EscapementMethod` + subclasses (`AreaUnderTheCurve`, `AutomatedCountingMethods`, `CalibratedTimeSeries`, `ExpansionMethods`, `ExpertOpinion`, `FixedStationCountAnalysis`, `MarkRecaptureAnalysis`, `MathematicalOperations`, `PeakCountAnalysis`, `UnknownMethod`)
+- `gcdfo:EscapementSurveyEvent`
+- `gcdfo:SonarCountMeasurement`, `gcdfo:WeirCountMeasurement`, `gcdfo:AerialCountMeasurement`
+- `gcdfo:EscapementMethod` + subclasses (`AreaUnderTheCurve`, `AutomatedCountingMethods`, `CalibratedTimeSeries`, `ExpansionMethods`, `ExpertOpinion`, `FixedStationCountAnalysis`, `MarkRecaptureAnalysis`, `MathematicalOperations`, `PeakCountAnalysis`, `UnknownMethod`)
 
 **Genetics (GSI)**
 
-- Classes: `dfo:GeneticSample`, `dfo:GSIRun`, `dfo:GSICompositionMeasurement`, `dfo:ReportingUnit`, `dfo:Assay`, `dfo:MarkerPanel`, `dfo:Protocol`
+- Classes: `gcdfo:GeneticSample`, `gcdfo:GSIRun`, `gcdfo:GSICompositionMeasurement`, `gcdfo:ReportingUnit`, `gcdfo:Assay`, `gcdfo:MarkerPanel`, `gcdfo:Protocol`
 - Object properties: `sampledDuring`, `ofStock`, `usedAssay`, `usedMarkerPanel`, `usedProtocol`, `analyzesSamples`, `producedMeasurement`, `derivedFromSample`, `aboutReportingUnit`, `hasReportingUnit`, `ruExactMatch`, `ruCloseMatch`
 - Datatypes: `estimateValue`, `estimateUnitIRI`, `standardError`, `ciLower`, `ciUpper`, `confidenceLevel`, `methodName`, `baselineName`, `runDate`, `runNote`, `sampleID`, `tissueType`, `collectionMethod`
 
@@ -109,7 +109,7 @@ The GC DFO Salmon Ontology is a **data stewardship and operational process ontol
 
 ## IRI & Versioning Policy
 
-- **Base IRI**: `https://w3id.org/gcdfos/salmon#`
+- **Base IRI**: `https://w3id.org/gcdfo/salmon#`
 - **Instances**: mint under same base (e.g., `…#Stock/SkeenaSockeye`)
 - **Versioning**: Tag GitHub releases, maintain version info in ontology header
 - **For detailed conventions**: See [DFO Salmon Ontology Conventions Guide](docs/CONVENTIONS.md)
