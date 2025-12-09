@@ -685,10 +685,10 @@
     "@id" : "https://github.com/dfo-pacific-science/salmon-ontology"
   } ],
   "http://www.w3.org/2002/07/owl#versionIRI" : [ {
-    "@id" : "https://w3id.org/gcdfo/salmon/1.0.0"
+    "@id" : "https://w3id.org/gcdfo/salmon/0.1.0"
   } ],
   "http://www.w3.org/2002/07/owl#versionInfo" : [ {
-    "@value" : "1.0.0 (hybrid OWL+SKOS approach)"
+    "@value" : "0.1.0 (hybrid OWL+SKOS approach)"
   } ]
 }, {
   "@id" : "https://w3id.org/gcdfo/salmon#AerialSurveyCount",

@@ -10,4 +10,4 @@ This space is administered by:
 For questions and contributions, please submit a ticket or email us at:
 
 GitHub issues: [dfo-salmon-ontology](https://github.com/dfo-pacific-science/dfo-salmon-ontology)
-Email: [FADS Data Stewardship Unit](FADSDataStewardship-GestiondesdonneesSFDA@dfo-mpo.gc.ca)
+Email: <a href="mailto:FADSDataStewardship-GestiondesdonneesSFDA@dfo-mpo.gc.ca">FADS Data Stewardship Unit</a>

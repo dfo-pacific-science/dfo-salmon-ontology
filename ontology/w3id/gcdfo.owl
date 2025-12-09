@@ -10,7 +10,7 @@
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:terms="http://purl.org/dc/terms/">
     <owl:Ontology rdf:about="https://w3id.org/gcdfo/salmon">
-        <owl:versionIRI rdf:resource="https://w3id.org/gcdfo/salmon/1.0.0"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/gcdfo/salmon/0.1.0"/>
         <obo:IAO_0000115 xml:lang="en">Hybrid OWL+SKOS ontology for DFO salmon data. Uses SKOS for controlled vocabularies (methods, criteria) and OWL for formal relationships and events.</obo:IAO_0000115>
         <terms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-09-06</terms:created>
         <terms:creator xml:lang="en">Fishery &amp; Assessment Data Section (FADS) Data Stewardship Unit</terms:creator>
@@ -20,7 +20,7 @@
         <terms:publisher xml:lang="en">Fisheries and Oceans Canada (DFO) Pacific Region Science Branch</terms:publisher>
         <terms:title xml:lang="en">GC DFO Salmon Ontology</terms:title>
         <rdfs:seeAlso rdf:resource="https://github.com/dfo-pacific-science/salmon-ontology"/>
-        <owl:versionInfo>1.0.0 (hybrid OWL+SKOS approach)</owl:versionInfo>
+        <owl:versionInfo>0.1.0 (hybrid OWL+SKOS approach)</owl:versionInfo>
     </owl:Ontology>
     
 
