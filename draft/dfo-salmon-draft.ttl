@@ -82,9 +82,9 @@ xsd:anyURI   a rdfs:Datatype .
   dcterms:created "2025-09-06"^^xsd:date ;
   dcterms:modified "2025-12-08"^^xsd:date ;
   dcterms:description "OWL + SKOS ontology for DFO salmon data: stocks/CUs/MUs, survey events, escapement measurements, and GSI constructs; aligns to DwC via rdfs:subClassOf; hybrid approach with SKOS for methods and OWL for events."@en ;
-  rdfs:seeAlso <https://github.com/dfo-pacific-science/salmon-ontology> ;
-  owl:versionInfo "0.3.0 (hybrid OWL+SKOS approach)" ;
-  owl:versionIRI <https://w3id.org/gcdfo/salmon/0.3.0> ;
+  rdfs:seeAlso <https://github.com/dfo-pacific-science/dfo-salmon-ontology> ;
+  owl:versionInfo "0.1.0 (hybrid OWL+SKOS approach)" ;
+  owl:versionIRI <https://w3id.org/gcdfo/salmon/0.1.0> ;
   iao:0000115 "Hybrid OWL+SKOS ontology for DFO salmon data. Uses SKOS for controlled vocabularies (methods, criteria) and OWL for formal relationships and events."@en . # definition
 
 #################################################################
