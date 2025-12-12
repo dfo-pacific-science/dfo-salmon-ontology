@@ -1,8 +1,8 @@
 # GC DFO Salmon Ontology
 
-**Namespace:** `https://w3id.org/gcdfo/salmon#` (prefix: `gcgcdfo:`)  
+**Namespace:** `https://w3id.org/gcdfo/salmon#` (prefix: `gcdfo:`)  
 **License:** CC-BY 4.0  
-**Status:** Version 1.0.0 - in review on w3id.org
+**Status:** Version 0.1.0 Published on W3
 
 The GC DFO Salmon Ontology is a **data stewardship and operational process ontology** designed to provide a semantic framework for managing, integrating, and stewarding Pacific salmon data across Fisheries and Oceans Canada (DFO).
 
