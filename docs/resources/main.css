@@ -316,10 +316,20 @@ ul ol {
 dt {
   font-weight:700
 }
+
+.description {
+    border-top: 1px dashed gray;
+    border-bottom: 1px dashed gray;
+    background-color: #f3f8de7b ;
+    padding-top:5px;
+    padding-bottom:5px;
+}
+
 dd {
   margin-bottom:.5rem;
   margin-left:0
 }
+
 blockquote {
   margin:0 0 1rem
 }
