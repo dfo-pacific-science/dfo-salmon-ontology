@@ -1,10 +1,10 @@
-# DFO Salmon Ontology
+# GC DFO Salmon Ontology
 
 **Namespace:** `https://w3id.org/gcdfo/salmon#` (prefix: `gcdfo:`)  
 **License:** CC-BY 4.0  
-**Status:** Draft Work in Progress
+**Status:** Version 0.1.0 Published on W3
 
-The DFO Salmon Ontology is a **data stewardship and operational process ontology** designed to provide a semantic framework for managing, integrating, and stewarding Pacific salmon data across Fisheries and Oceans Canada (DFO).
+The GC DFO Salmon Ontology is a **data stewardship and operational process ontology** designed to provide a semantic framework for managing, integrating, and stewarding Pacific salmon data across Fisheries and Oceans Canada (DFO).
 
 **Goal:** Make salmon data interoperable, discoverable, and analyzable with minimal friction for scientists, data stewards, and managers.
 
@@ -27,6 +27,7 @@ The DFO Salmon Ontology is a **data stewardship and operational process ontology
 - [Competency Questions](docs/COMPETENCY_QUESTIONS.md) - Specific questions the ontology must answer
 - [Conventions Guide](docs/CONVENTIONS.md) - Detailed modeling conventions and patterns
 - [Contributing Guide](CONTRIBUTING.md) - Contribution workflow and guidelines
+
 **Technical References:**
 - [Architecture Decision Records](docs/ADR.md) - Key architectural decisions
 - [ROBOT Setup Guide](docs/ROBOT_SETUP.md) - Tool setup and usage
@@ -78,7 +79,7 @@ The DFO Salmon Ontology is a **data stewardship and operational process ontology
 - **Document everything**: Always include `rdfs:comment` and `dcterms:source`
 - **Test with data**: Validate terms with sample data and SPARQL queries
 
-**For detailed modeling conventions, see [DFO Salmon Ontology Conventions Guide](docs/CONVENTIONS.md).**
+**For detailed modeling conventions, see [GC DFO Salmon Ontology Conventions Guide](docs/CONVENTIONS.md).**
 
 **For Darwin Core Conceptual Model (DwC-CM) implementation guidance, see [Conventions Guide - DwC-CM Section](docs/CONVENTIONS.md#44-darwin-core-conceptual-model-dwc-cm-alignment).**
 

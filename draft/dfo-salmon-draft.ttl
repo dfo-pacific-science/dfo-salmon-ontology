@@ -248,6 +248,7 @@ gcdfo:DataModelProvenanceTheme gcdfo:theme gcdfo:DataModelProvenanceTheme .
 :RapidStatusConfidenceScheme a skos:ConceptScheme ;
   skos:prefLabel "Rapid status confidence scheme"@en ;
   skos:definition "Controlled vocabulary for categorical confidence ratings attached to rapid status assessments."@en ;
+  skos:hasTopConcept gcdfo:ConfidenceCategory ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 #################################################################
@@ -920,8 +921,8 @@ gcdfo:BroodYear a owl:Class ;
   rdfs:label "Brood year"@en ;
   rdfs:subClassOf gcdfo:YearBasis ;
   iao:0000115 "The year that a cohort of salmon spawns."@en ; # definition
-  iao:0000119 "Government of Canada Pacific Salmon Glossary; verbatim in NCEAS Salmon Ontology."@en ; # definition source
-  dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html> , <http://purl.dataone.org/odo/SALMON_00000520> ;
+  iao:0000119 "Adapted from the Government of Canada Pacific Salmon Glossary"@en ; # definition source
+  dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html> ;
   skos:exactMatch odo:SALMON_00000520 ; # "Brood Year" from NCEAS Salmon Ontology (ODO)
   rdfs:comment "The parental year for a group of returning salmon, i.e. the calendar year when the majority of parents of these fish spawned."@en ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
@@ -1748,10 +1749,10 @@ gcdfo:AlgorithmThreshold a owl:Class ;
   rdfs:subClassOf iao:0000030 ; # Information content entity
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
-gcdfo:ConfidenceCategory a owl:Class ;
-  rdfs:label "Confidence category"@en ;
-  iao:0000115 "Categorical confidence rating (High, Medium, Low) reported alongside a rapid status assessment."@en ; # definition
-  rdfs:subClassOf iao:0000030 ; # Information content entity
+gcdfo:ConfidenceCategory a skos:Concept ;
+  skos:prefLabel "Confidence category"@en ;
+  skos:definition "Categorical confidence rating (High, Medium, Low) reported alongside a rapid status assessment."@en ; # definition
+  skos:inScheme :RapidStatusConfidenceScheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 #################################################################
@@ -3439,6 +3440,7 @@ gcdfo:Stock gcdfo:publicationStatus gcdfo:PublishReady .
 gcdfo:ConservationUnit gcdfo:publicationStatus gcdfo:PublishReady .
 gcdfo:StockManagementUnit gcdfo:publicationStatus gcdfo:PublishReady .
 gcdfo:StockAssessment gcdfo:publicationStatus gcdfo:PublishReady .
+gcdfo:Escapement gcdfo:publicationStatus gcdfo:PublishReady .
 gcdfo:EscapementSurveyEvent gcdfo:publicationStatus gcdfo:PublishReady .
 gcdfo:EscapementMeasurement gcdfo:publicationStatus gcdfo:PublishReady .
 gcdfo:ReferencePoint gcdfo:publicationStatus gcdfo:PublishReady .
@@ -3456,6 +3458,7 @@ gcdfo:ConfidenceCategory gcdfo:publicationStatus gcdfo:PublishReady .
 gcdfo:YearBasis gcdfo:publicationStatus gcdfo:PublishReady .
 gcdfo:BroodYear gcdfo:publicationStatus gcdfo:PublishReady .
 gcdfo:CatchYear gcdfo:publicationStatus gcdfo:PublishReady .
+gcdfo:ExploitationRate gcdfo:publicationStatus gcdfo:PublishReady .
 gcdfo:TotalExploitationRate gcdfo:publicationStatus gcdfo:PublishReady .
 gcdfo:IndicatorRiver gcdfo:publicationStatus gcdfo:PublishReady .
 
