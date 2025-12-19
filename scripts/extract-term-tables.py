@@ -736,6 +736,7 @@ def filter_stderr_lines(skip_substrings: list[str]):
                 if keep:
                     sys.stderr.write("\n".join(keep) + "\n")
 
+
 def main() -> None:
     """
     Main execution function (stderr-filtered to drop noisy platform warnings).
@@ -778,9 +779,7 @@ def _run_main() -> None:
         for theme_iri, theme_label in discovered_themes:
             print(f"  - {theme_label}: {theme_iri}")
     else:
-        print(
-            "No themes found in the ontology (no entities with gcdfo:theme property)"
-        )
+        print("No themes found in the ontology (no entities with gcdfo:theme property)")
     print()
 
     # Get source version information for provenance tracking

@@ -1,4 +1,4 @@
-widoco_base_url: "https://w3id.org/gcdfo/salmon/widoco/index.html#"
+widoco_base_url: "https://dfo-pacific-science.github.io/dfo-salmon-ontology/#"
 
 themes:
   - id: stock_assessment

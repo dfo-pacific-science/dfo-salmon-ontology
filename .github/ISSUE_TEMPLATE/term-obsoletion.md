@@ -1,6 +1,6 @@
 ---
 name: Term obsoletion
-about: Request a GCDFOS term to be deprecated
+about: Request a GCDFO term to be deprecated
 title: 'Obsolete term: [Term IRI and label]'
 labels: obsoletion
 assignees: ''

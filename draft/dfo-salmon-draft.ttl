@@ -82,9 +82,9 @@ xsd:anyURI   a rdfs:Datatype .
   dcterms:created "2025-09-06"^^xsd:date ;
   dcterms:modified "2025-12-08"^^xsd:date ;
   dcterms:description "OWL + SKOS ontology for DFO salmon data: stocks/CUs/MUs, survey events, escapement measurements, and GSI constructs; aligns to DwC via rdfs:subClassOf; hybrid approach with SKOS for methods and OWL for events."@en ;
-  rdfs:seeAlso <https://github.com/dfo-pacific-science/salmon-ontology> ;
-  owl:versionInfo "0.3.0 (hybrid OWL+SKOS approach)" ;
-  owl:versionIRI <https://w3id.org/gcdfo/salmon/0.3.0> ;
+  rdfs:seeAlso <https://github.com/dfo-pacific-science/dfo-salmon-ontology> ;
+  owl:versionInfo "0.1.0 (hybrid OWL+SKOS approach)" ;
+  owl:versionIRI <https://w3id.org/gcdfo/salmon/0.1.0> ;
   iao:0000115 "Hybrid OWL+SKOS ontology for DFO salmon data. Uses SKOS for controlled vocabularies (methods, criteria) and OWL for formal relationships and events."@en . # definition
 
 #################################################################
@@ -866,7 +866,7 @@ gcdfo:CompleteEvidence a dqv:QualityAnnotation ;
   skos:definition "Indicates that the evidence supporting a salmon stock assessment or management decision is complete and comprehensive."@en ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
-gcdfo:GapsInEvidence a dqv:QualityAnnotation ;
+gcdfo:GapsEvidence a dqv:QualityAnnotation ;
   skos:prefLabel "Gaps in Evidence"@en ;
   dqv:inDimension gcdfo:EvidenceCompletenessDimension ;
   skos:definition "Indicates that there are gaps or missing information in the evidence supporting a salmon stock assessment or management decision."@en ;
@@ -952,6 +952,7 @@ gcdfo:COSEWIC a owl:Class ;
   iao:0000115 "The Committee on the Status of Endangered Wildlife in Canada (COSEWIC) is an independent advisory panel to the Minister of Environment and Climate Change Canada that meets twice a year to assess the status of wildlife species at risk of extinction. Members are wildlife biology experts from academia, government, non-governmental organizations and the private sector responsible for designating wildlife species in danger of disappearing from Canada."@en ; # definition
   rdfs:subClassOf dwc:Agent ;
   iao:0000119 "COSEWIC. (2003). COSEWIC - Committee on the Status of Endangered Wildlife in Canada. Available at cosewic.ca/index.php/en/ [Accessed 09-10-2025]."@en ; # definition source
+  dcterms:source <https://cosewic.ca/index.php/en/> ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:DesignatableUnit a owl:Class ;
@@ -959,6 +960,7 @@ gcdfo:DesignatableUnit a owl:Class ;
   rdfs:subClassOf gcdfo:ReportingOrManagementStratum ;
   iao:0000115 "A unit of Canadian biodiversity that is discrete and evolutionarily significant, where discrete means that there is currently very little transmission of heritable (cultural or genetic) information from other such units, and evolutionarily significant means that the unit harbors heritable adaptive traits or an evolutionary history not found elsewhere in Canada."@en ; # definition
   iao:0000119 "COSEWIC. (2023). COSEWIC guidelines for recognizing designatable units. Available at https://cosewic.ca/index.php/en/reports/preparing-status-reports/guidelines-recognizing-designatable-units.html [Accessed 09-10-2025]."@en ; # definition source
+  dcterms:source <https://cosewic.ca/index.php/en/reports/preparing-status-reports/guidelines-recognizing-designatable-units.html> ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 #################################################################
@@ -970,6 +972,7 @@ gcdfo:COSEWICStatusCategory a skos:Concept ;
   skos:definition "The Committee on the Status of Endangered Wildlife in Canada (COSEWIC) assesses the national status of wild species, subspecies, varieties, or other designatable units that are considered to be at risk in Canada. Designations are made on native wildlife species including the following taxonomic groups: mammals, birds, reptiles, amphibians, fishes, arthropods, molluscs, vascular plants, mosses, and lichens."@en ;
   skos:inScheme gcdfo:COSEWICStatusScheme ;
   iao:0000119 "COSEWIC. (2021). COSEWIC - Status categories. Available at https://cosewic.ca/index.php/en/assessment-process/cosewic-assessment-process-categories-and-guidelines/status-categories.html. [Accessed 09-10-2025]."@en ; # definition source
+  dcterms:source <https://cosewic.ca/index.php/en/assessment-process/cosewic-assessment-process-categories-and-guidelines/status-categories.html> ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:Extinct a gcdfo:COSEWICStatusCategory , skos:Concept ;
@@ -1078,13 +1081,14 @@ gcdfo:Dataset a owl:Class ;
   rdfs:subClassOf iao:0000030 ; # information content entity
   iao:0000115 "A data product registered in catalogues (e.g., GeoNetwork); aligns with schema:Dataset."@en ; # definition
   skos:exactMatch schema:Dataset ;
+  dcterms:source <https://schema.org/Dataset> ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:Enhancement a owl:Class ;
   rdfs:label "Enhancement"@en ;
   rdfs:subClassOf bfo:0000015 ; # process
   iao:0000115 "The application of biological and technical knowledge and capabilities to increase the productivity of fish stocks. It may be achieved by altering habitat attributes (e.g., habitat restoration) or by using fish culture techniques (e.g., hatcheries, spawning channels). In the context of the Wild Salmon Policy, only salmon originating from hatcheries and managed spawning channels will be considered enhanced."@en ; # definition
-  dcterms:isPartOf <urn:ISBN:0662405382> ;
+  dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf> ;
   iao:0000119 "Fisheries and Oceans Canada. (2005). Canada's Policy for Conservation of Wild Pacific Salmon. Retrieved from https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf."@en ; # definition source
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
@@ -1092,7 +1096,7 @@ gcdfo:Escapement a owl:Class ;
   rdfs:label "Escapement"@en ;
   rdfs:subClassOf bfo:0000015 ; # process
   iao:0000115 "The process by which mature salmon pass through (or escape) fisheries and return to fresh water to spawn."@en ; # definition
-  dcterms:isPartOf <urn:ISBN:0662405382> ;
+  dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf> ;
   iao:0000119 "Fisheries and Oceans Canada. (2005). Canada's Policy for Conservation of Wild Pacific Salmon. Retrieved from https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf."@en ; # definition source
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 

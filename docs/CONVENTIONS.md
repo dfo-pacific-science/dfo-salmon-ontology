@@ -1,6 +1,6 @@
 # DFO Salmon Ontology — Conventions Guide
 
-This document orients new contributors to the modeling conventions used in the **DFO Salmon Ontology**. It explains how to create and refine ontology terms, how to model data in a way that aligns with our goals, and how to prepare new concepts for integration.
+This document orients new contributors to the modeling conventions used in the **GC DFO Salmon Ontology**. It explains how to create and refine ontology terms, how to model data in a way that aligns with our goals, and how to prepare new concepts for integration.
 
 The conventions here are **practical starting points**, not immutable rules. As our community gains experience, we expect to refine and evolve them.
 
