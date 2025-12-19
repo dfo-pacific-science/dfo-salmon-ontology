@@ -2,29 +2,32 @@
 
 **Focus:** 8-week path to Barkley Sockeye FSAR evidence chain demo  
 
-**Last Updated:** 2025-12-03 (Publish-ready + theme annotation plans added)  
-
 **Status:** Active development for FSAR Advice Trace (2-month critical path)
 
 **Current Goals:**
 - **Widoco site formally published:** End of November 2025
 - **Quarto website pages for exploring controlled vocabulary:** Working within next 2 weeks
 - **New:** Complete ontology deep review (class hierarchy sanity + genetics vocab refresh) before further term publication
-- **New (2025-12-03):** Stand up publish-ready slice pipeline (`gcdfos:publicationStatus` → `release/published/gcdfos-core.ttl`) and theme annotations per execplan.md / execplan-theme-annotations.md; downstreams (DSU tabs, term tables) must read from the publish slice instead of legacy artifacts
-- **New (2025-12-08):** Run repo-wide QA/cleanup ExecPlan (`docs/plans/2025-12-08-repo-review.md`); record progress/decisions there and mirror actionable items here.
+
 - **Upcoming:** Run `execplan-add-spsr-terms.md` after column-to-ontology mapping is approved (do not run yet) /Users/brettjohnson/code/dfo-salmon-ontology/docs/notes/spsr-column-to-ontology-mapping.md
 
-**Namespace note:** Prefix is now `gcdfos:` (formerly `dfoc:`). Align future tasks and publish slices to `gcdfos` IRIs.
+
+
+## 2025-12-17 — I-ADOPT compound variables (planning / doc-only now)
+- [ ] Audit compound variable/metric terms currently modeled as OWL classes; list candidates to refactor as SKOS concepts with I-ADOPT annotations (variable, property, entity/object-of-interest, constraints, variable set).
+- [ ] Draft the annotation properties to carry I-ADOPT decomposition on SKOS concepts (iadoptProperty, iadoptEntity, iadoptConstraint, iadoptVariableSet) and propose ranges/usage in notes; do **not** change `ontology/dfo-salmon.ttl` yet.
+- [ ] Propose I-ADOPT decompositions for a starter set of WSP/indicator metrics and capture in notes for future TTL updates.
+- [ ] Align delimiter guidance for multiple constraints with SDP (`constraint_iri` uses `;`-separated IRIs in one cell) and reflect in ontology docs when updated.
 
 ## 2025-12-08 — Repo-wide QA findings
 
-- [ ] Fix ThemeScheme alignment: replace out-of-scheme theme values and assign valid themes for terms flagged in `release/tmp/theme-coverage.tsv` (e.g., Stock, ConservationUnit, EscapementMeasurement, WSP classes).
-- [ ] Add theme annotations for `gcdfos:publicationStatus` and `gcdfos:theme` to clear coverage check.
+- [ ] Fix ThemeScheme alignment: replace out-of-scheme theme values and assign valid themes for terms flagged in theme coverage reports (e.g., Stock, ConservationUnit, EscapementMeasurement, WSP classes). Run `make theme-coverage` to generate the report.
+- [x] Add missing theme annotations in `ontology/dfo-salmon.ttl` to clear coverage check (publicationStatus is currently not in use).
 
 ## 2025-12-08 — Exploitation / Mortality / Abundance quick wins
 
-- [x] Add `gcdfos:TotalExploitationRate` subclass under `gcdfos:ExploitationRate` (draft ontology).
-- [x] Relabel `gcdfos:IndicatorStream` to primary label “Indicator river” with altLabel “Indicator stream”.
+- [x] Add `gcdfo:TotalExploitationRate` subclass under `gcdfo:ExploitationRate` (draft ontology).
+- [x] Relabel `gcdfo:IndicatorStream` to primary label “Indicator river” with altLabel “Indicator stream”.
 - [ ] Decide on `harvest rate` altLabel vs. distinct term treatment for exploitation rate.
 - [ ] Design brood-year vs. catch-year total abundance pattern and brood-year recruitment specialization.
 - [ ] Extend mapping to cover age-specific fishing mortality and catch-year total abundance (currently missing).
@@ -38,8 +41,8 @@
 
 ## DwC-CM / SOSA alignment and assertion wrapper (review before implementation)
 
-- [ ] Decide whether to introduce `dwc:Assertion` / `gcdfos:SalmonAssessmentAssertion` wrappers around IAO measurement data; define properties like `gcdfos:assertsValue`, `gcdfos:aboutOccurrence`, `gcdfos:basedOnEvent` if adopted.
-- [ ] Choose feature-of-interest layering: Observation → Occurrence → Organism vs Observation → stratum (CU/SMU/PFMA), and whether to add population classes (e.g., `gcdfos:PopulationInSpaceTime`, `gcdfos:CURealizedPopulation`) with `gcdfos:realizesStratum`.
+- [ ] Decide whether to introduce `dwc:Assertion` / `gcdfo:SalmonAssessmentAssertion` wrappers around IAO measurement data; define properties like `gcdfo:assertsValue`, `gcdfo:aboutOccurrence`, `gcdfo:basedOnEvent` if adopted.
+- [ ] Choose feature-of-interest layering: Observation → Occurrence → Organism vs Observation → stratum (CU/SMU/PFMA), and whether to add population classes (e.g., `gcdfo:PopulationInSpaceTime`, `gcdfo:CURealizedPopulation`) with `gcdfo:realizesStratum`.
 - [ ] Set a convention for SKOS vs OWL punning (e.g., `HatcheryOrigin`, `NaturalOrigin`, `DowngradeCriteria`) to avoid inconsistent hybrids.
 - [ ] Align SOSA with existing DwC mapping (e.g., `sosa:Observation ⊑ dwc:Event`, FOI choices including Occurrence vs stratum).
 - [x] Decide and document the decomposition metamodel stack (DwC-CM primary, SOSA overlay, OBOE alignment via annotations) and apply it consistently in mappings.
@@ -70,22 +73,17 @@
 
 ## Theme / Module Annotations (Conventions alignment)
 
-- [] Define an annotation property for themes/modules (e.g., `gcdfos:theme`) in `ontology/dfo-salmon.ttl` with range constrained to a SKOS Theme scheme (values from `docs/context/themes-modules.md`, see `execplan-theme-annotations.md`)
+- [] Define an annotation property for themes/modules (e.g., `gcdfo:theme`) in `ontology/dfo-salmon.ttl` with range constrained to a SKOS Theme scheme (values from `docs/context/themes-modules.md`, see `execplan-theme-annotations.md`)
 - [] Create a SKOS concept scheme for themes/modules and document intended values
 - [] Apply the theme annotation to every OWL class, property, and SKOS concept (1–3 themes per term; at least one required)
 - [x] Add a ROBOT/SPARQL or SHACL check (e.g., `scripts/sparql/theme-coverage.rq` + Make target) that fails when any term lacks `dfoc:theme` or exceeds 3 values
 - [x] Add documentation examples and reviewer checklist to `docs/CONVENTIONS.md`
-- [ ] Ensure publish slice retains `gcdfos:theme` annotations and downstreams (DSU tabs/term tables) read from `release/published/dfoc-core.ttl` (or regenerated `ontology/dfo-salmon.ttl`) instead of legacy fallbacks
+
 - [ ] Wire `scripts/sparql/theme-coverage.rq` into CI/pre-commit once Java/ROBOT is available locally
 
-## Publish-ready slice (ExecPlan 2025-12-03)
 
-- [ ] Add `gcdfos:publicationStatus` annotation property + `gcdfos:Draft`/`gcdfos:PublishReady` individuals to `ontology/dfo-salmon.ttl` (see `execplan.md`)
-- [ ] Tag initial core terms with `gcdfos:publicationStatus gcdfos:PublishReady` per `docs/notes/2025-12-03-w3id-core-terms.md`
-- [x] Add validation queries (`scripts/sparql/publish-ready-terms.rq`, `scripts/sparql/publish-ready-metadata.rq`) and Make target to fail when PublishReady terms miss required metadata (label/definition/isDefinedBy/definition source/theme) — updated to `gcdfos:`
-- [ ] Add extraction target to emit publish slice `release/published/dfoc-core.ttl` (PublishReady only; strip publicationStatus) and document workflow in `docs/CONVENTIONS.md`
-- [ ] Personal review: select which terms to tag as `dfoc:PublishReady` (do not auto-tag)
-- [ ] Transition to editing `ontology/dfo-salmon.ttl` on `ontology-dev` and retire `draft/dfo-salmon-draft.ttl` once PublishReady tagging is in place; keep main branch as the published master copy
+
+
 
 
 ## 2025-11-06 — FSAR Advice Trace Mockups
@@ -1108,8 +1106,8 @@
 
 - **CONTRIBUTE TO NCEAS**: Multi-organizational relevance, scientific consensus, domain generality, methodological standards, environmental concepts, biological measurements, equipment and gear
 - **KEEP IN DFO**: Organizational specificity, Canadian context, DFO protocols, management hierarchies, policy frameworks, assessment methods, reference points
-- [ ] Consider design options for a `dwc:Assertion` / `gcdfos:SalmonAssessmentAssertion` wrapper around existing `iao:0000109` metrics (e.g., assertsValue/aboutOccurrence/basedOnEvent) and decide how generic vs FSAR-specific the pattern should be before tightening domains/ranges.
+- [ ] Consider design options for a `dwc:Assertion` / `gcdfo:SalmonAssessmentAssertion` wrapper around existing `iao:0000109` metrics (e.g., assertsValue/aboutOccurrence/basedOnEvent) and decide how generic vs FSAR-specific the pattern should be before tightening domains/ranges.
 - [ ] Revisit SOSA alignment once DwC-CM modeling stabilizes (e.g., decide whether `sosa:Observation ⊑ dwc:Event`, which entities serve as `sosa:FeatureOfInterest` such as `dwc:Occurrence`, CU-in-year population proxies, or organisms, and how many layers we keep in Observation → Occurrence → Organism).
-- [ ] Review with biologists/policy whether reporting/management strata (CU/DU/SMU/PFMA) should stay as information-defined strata or be paired with explicit population classes (e.g., `gcdfos:PopulationInSpaceTime`, `gcdfos:CURealizedPopulation`) linked via a `realizesStratum` property; update definitions accordingly after consultation.
+- [ ] Review with biologists/policy whether reporting/management strata (CU/DU/SMU/PFMA) should stay as information-defined strata or be paired with explicit population classes (e.g., `gcdfo:PopulationInSpaceTime`, `gcdfo:CURealizedPopulation`) linked via a `realizesStratum` property; update definitions accordingly after consultation.
 - [ ] Decide which vocabularies should remain SKOS-only vs SKOS+OWL punning (e.g., origins, status zones, benchmarks), and record a simple convention in `docs/CONVENTIONS.md` after current SKOS cleanup so different user groups have clear guidance.
 - [ ] Re-examine hybrid patterns like `:DowngradeCriteria` (SKOS concept subclassing `dwc:Protocol`) and similar cases; consider alternatives such as a separate OWL protocol class linked via `skos:exactMatch` once the punning convention is set.

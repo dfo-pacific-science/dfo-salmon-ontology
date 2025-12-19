@@ -6,9 +6,9 @@ This document explains the end-to-end process for documenting Controlled Vocabul
 
 The workflow transforms ontology terms into human-friendly documentation pages on the FADS Open Science Doc Hub website:
 
-1. **Define themes** in `scripts/config/themes.yml`, but theme annotations are sourced from `draft/dfo-salmon-draft.ttl` (not from the published `ontology/dfo-salmon.ttl`).
+1. **Define themes** in `scripts/config/themes.yml`; the theme annotations live in the canonical `ontology/dfo-salmon.ttl`.
 2. **Generate SPARQL queries** automatically from theme definitions.
-3. **Extract term tables** as CSV files from the publish slice (PublishReady-only, regenerated into `ontology/dfo-salmon.ttl`).
+3. **Extract term tables** as CSV files from the canonical ontology (uses `gcdfo:theme` annotations directly).
 4. **Publish to website** where Quarto generates documentation pages.
 
 ## Workflow Components
@@ -44,7 +44,7 @@ The `scripts/extract-term-tables.py` script automatically generates SPARQL queri
 
 ### 3. Term Table Extraction
 
-Run the extraction script to generate CSV files **after producing the publish slice**:
+Run the extraction script to generate CSV files:
 
 ```bash
 cd /path/to/dfo-salmon-ontology
@@ -53,7 +53,7 @@ python scripts/extract-term-tables.py
 
 **What it does:**
 1. Reads `scripts/config/themes.yml` (ids/labels/output filenames).
-2. Loads `ontology/dfo-salmon.ttl` (publish slice, read-only) **and** merges `gcdfos:theme` annotations from `draft/dfo-salmon-draft.ttl` for published terms. The published TTL is never written by this workflow.
+2. Loads `ontology/dfo-salmon.ttl` (canonical ontology with theme annotations) and reads `gcdfo:theme` directly from that file.
 3. Generates SPARQL queries for each theme.
 4. Executes queries against the ontology.
 5. Writes CSV files to `release/artifacts/term-tables/{theme-id}-terms.csv` (these are versioned in git).
@@ -87,9 +87,9 @@ The data-stewardship-unit website automatically displays term tables.
 
 **To update the website (no submodule; term tables are checked in and copied over):**
 
-1. From the ontology repo, refresh the publish slice and regenerate term tables:
+1. From the ontology repo, regenerate term tables directly from the canonical ontology:
    ```bash
-   make publish-and-extract   # runs publish-validate, publish-slice, validations, and extraction
+   python scripts/extract-term-tables.py
    ```
 
 2. Commit updated term tables in the ontology repo (they are versioned under `release/artifacts/term-tables/`):
@@ -113,7 +113,7 @@ The data-stewardship-unit website automatically displays term tables.
 
    *Note:* The DSU repo no longer regenerates term tables in pre-commit. Generation happens in this ontology repo; DSU pre-commit only validates CSV/meta structure.
 
-5. Build the website locally using Quarto (Quarto is provided via Nix devenv; ensure R packages are available):
+5. Build the website locally using Quarto (if using `devenv`/`nix` (optional), Quarto is provided via the environment; otherwise install Quarto separately. Ensure R packages are available):
    ```bash
    quarto render
    ```
@@ -137,7 +137,7 @@ themes:
     label: "Habitat and Environment"
     query_file: "habitat-terms.rq"
     output_csv: "habitat-terms.csv"
-    theme_iri: "https://w3id.org/dfoc/salmon#HabitatTypeScheme"
+    theme_iri: "https://w3id.org/gcdfo/salmon#HabitatTypeScheme"
 ```
 
 **Step 2: Run extraction**
@@ -154,7 +154,7 @@ python scripts/extract-term-tables.py
 - The website reads the generated CSVs in `data/ontology/release/artifacts/term-tables/` (Quarto does **not** read `themes.yml` directly).
 - The tabbed/accordion interface will automatically display the new theme’s table using `reactable`.
 - No separate theme page file is needed—all themes are on the main page.
-- Regeneration is manual: run `python scripts/extract-term-tables.py` (or `make publish-and-extract`), then sync to DSU with `make dsu-sync-term-tables ...`.
+- Regeneration is manual: run `python scripts/extract-term-tables.py`, then sync to DSU with `make dsu-sync-term-tables ...`.
 
 ### Modifying Existing Themes
 

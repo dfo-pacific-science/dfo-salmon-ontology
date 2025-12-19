@@ -1,10 +1,10 @@
 """
 Generate themed ontology term tables and matching SPARQL query files.
 
-This script reads theme definitions from scripts/config/themes.yml,
-builds SPARQL queries for each theme based on gcdfos:theme annotations,
-writes the queries to scripts/sparql/, executes them against ontology/dfo-salmon.ttl
-using RDFLib, and exports deterministically ordered CSV + metadata files under
+This script reads theme definitions from scripts/config/themes.yml, builds SPARQL
+queries for each theme based on gcdfo:theme annotations, writes the queries to
+scripts/sparql/, executes them against ontology/dfo-salmon.ttl using RDFLib, and
+exports deterministically ordered CSV + metadata files under
 release/artifacts/term-tables/.
 """
 
@@ -16,6 +16,10 @@ import json
 import subprocess
 import textwrap
 import os
+import contextlib
+import io
+import sys
+import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, Iterable, List, Optional
@@ -26,10 +30,8 @@ import yaml
 
 # Path resolution: get the repository root (two levels up from this script)
 ROOT = Path(__file__).resolve().parent.parent
-# Path to the main ontology file in Turtle format
+# Path to the main ontology file in Turtle format (canonical source)
 ONTOLOGY_PATH = ROOT / "ontology" / "dfo-salmon.ttl"
-# Path to the draft ontology file that carries admin-only annotations (e.g., themes)
-DRAFT_ONTOLOGY_PATH = ROOT / "draft" / "dfo-salmon-draft.ttl"
 # Path to YAML configuration file defining themes and their extraction criteria
 CONFIG_PATH = ROOT / "scripts" / "config" / "themes.yml"
 # Directory where generated SPARQL queries will be written
@@ -38,20 +40,15 @@ QUERY_DIR = ROOT / "scripts" / "sparql"
 OUTPUT_DIR = ROOT / "release" / "artifacts" / "term-tables"
 # IRI for IAO definition property (IAO_0000115 = "definition")
 IAO_DEFINITION_IRI = rdflib.URIRef("http://purl.obolibrary.org/obo/IAO_0000115")
-# IRI for the gcdfos:theme annotation property
-GCDFOS_NS = "https://w3id.org/gcdfos/salmon#"
-RDFS_LABEL = rdflib.URIRef("http://www.w3.org/2000/01/rdf-schema#label")
-SKOS_PREF_LABEL = rdflib.URIRef("http://www.w3.org/2004/02/skos/core#prefLabel")
-GCDFOS_THEME = rdflib.URIRef(GCDFOS_NS + "theme")
 
 # SPARQL namespace prefixes used across all generated queries
 # These define shortcuts for common RDF vocabularies:
-# - gcdfos: DFO Salmon Ontology namespace
+# - gcdfo: DFO Salmon Ontology namespace
 # - skos: Simple Knowledge Organization System (concepts, schemes, labels)
 # - rdfs: RDF Schema (classes, labels, comments, subClassOf)
 # - owl: Web Ontology Language (classes, properties)
 # - dcterms: Dublin Core Terms (source citations)
-COMMON_PREFIXES = """PREFIX gcdfos: <https://w3id.org/gcdfos/salmon#>
+COMMON_PREFIXES = """PREFIX gcdfo: <https://w3id.org/gcdfo/salmon#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
@@ -162,10 +159,10 @@ ORDER_BY_CLAUSE = (
 
 class Theme:
     """
-    Definition for a themed extraction based on gcdfos:theme annotations.
+    Definition for a themed extraction based on gcdfo:theme annotations.
 
     A theme groups related ontology terms that have been annotated with
-    the same gcdfos:theme value. This captures both SKOS concepts and OWL
+    the same gcdfo:theme value. This captures both SKOS concepts and OWL
     classes automatically.
     """
 
@@ -184,7 +181,7 @@ class Theme:
         Args:
             id: Unique identifier for the theme (used in metadata)
             label: Human-readable theme name
-            theme_iri: IRI of the theme (value of gcdfos:theme property)
+            theme_iri: IRI of the theme (value of gcdfo:theme property)
             query_file: Filename for the generated SPARQL query (relative to QUERY_DIR)
             output_csv: Filename for the generated CSV (relative to OUTPUT_DIR)
         """
@@ -259,10 +256,10 @@ def read_config() -> tuple[str, List[Theme]]:
 
 def build_theme_query(theme: Theme) -> str:
     """
-    Construct a SPARQL query for entities with a specific gcdfos:theme annotation.
+    Construct a SPARQL query for entities with a specific gcdfo:theme annotation.
 
     Builds a query that selects all entities (both SKOS concepts and OWL classes)
-    that have been annotated with the specified theme IRI using the gcdfos:theme property.
+    that have been annotated with the specified theme IRI using the gcdfo:theme property.
 
     Args:
         theme: Theme configuration with theme_iri
@@ -275,7 +272,7 @@ def build_theme_query(theme: Theme) -> str:
 
     # Construct the full SPARQL query:
     # - SELECT DISTINCT ensures no duplicate rows
-    # - WHERE clause filters by gcdfos:theme annotation
+    # - WHERE clause filters by gcdfo:theme annotation
     # - No type restrictions - captures both SKOS concepts and OWL classes
     # - COMMON_OPTIONALS extracts labels, definitions, sources, and relationships
     # - ORDER_BY_CLAUSE ensures deterministic output ordering
@@ -284,7 +281,7 @@ def build_theme_query(theme: Theme) -> str:
         "SELECT DISTINCT ?term ?termLabel ?definition ?definitionSourceText ?definitionSourceLink ?related ?relatedLabel ?relation\n"
         "WHERE {\n"
         f"  # Filter to entities with the specific theme annotation\n"
-        f"  ?term gcdfos:theme <{theme.theme_iri}> .\n"
+        f"  ?term gcdfo:theme <{theme.theme_iri}> .\n"
         f"  \n"
         f"  # Note: We don't restrict by type - this captures both SKOS concepts and OWL classes\n"
         f"  # that have been annotated with this theme\n"
@@ -300,7 +297,7 @@ def get_all_themes_query() -> str:
     Construct a SPARQL query to discover all themes in the ontology.
 
     This query finds all unique theme IRIs that are used as values of the
-    gcdfos:theme property, along with their labels if available.
+    gcdfo:theme property, along with their labels if available.
 
     Returns:
         SPARQL query string to find all themes
@@ -310,7 +307,7 @@ def get_all_themes_query() -> str:
         "SELECT DISTINCT ?theme ?themeLabel\n"
         "WHERE {\n"
         "  # Find all entities that have a theme annotation\n"
-        "  ?entity gcdfos:theme ?theme .\n"
+        "  ?entity gcdfo:theme ?theme .\n"
         "  \n"
         "  # Get theme labels if available\n"
         "  OPTIONAL {\n"
@@ -660,7 +657,7 @@ def discover_themes(graph: rdflib.Graph) -> List[tuple[str, str]]:
     """
     Discover all themes used in the ontology.
 
-    Executes a SPARQL query to find all unique values of the gcdfos:theme property
+    Executes a SPARQL query to find all unique values of the gcdfo:theme property
     along with their labels.
 
     Args:
@@ -682,59 +679,74 @@ def discover_themes(graph: rdflib.Graph) -> List[tuple[str, str]]:
     return themes
 
 
-def merge_draft_themes_into_graph(
-    graph: rdflib.Graph, draft_path: Path, use_draft: bool = True
-) -> bool:
+def parse_graph_safely(graph: rdflib.Graph, path: Path) -> None:
     """
-    Merge theme annotations from draft TTL into the main graph (read-only for published TTL).
+    Parse a TTL file while suppressing known benign warnings from the underlying parser.
 
-    - Reads the draft ontology (if present and use_draft is True).
-    - Builds the set of published term IRIs from the main graph.
-    - Copies gcdfos:theme triples (and theme labels) from the draft only for published terms.
-    - Returns True if draft themes were merged; False otherwise.
+    Some macOS environments emit "unhandled Platform key FamilyDisplayName" on stderr when
+    parsing TTL. We suppress that specific line but surface any other stderr output.
     """
-    if not use_draft:
-        print("Skipping draft themes merge because USE_DRAFT_THEMES is false.")
-        return False
-    if not draft_path.exists():
-        print(f"Draft file not found at {draft_path}; skipping draft themes merge.")
-        return False
+    with tempfile.TemporaryFile(mode="w+b") as tmp:
+        tmp_fd = tmp.fileno()
+        saved_fd = os.dup(2)
+        try:
+            os.dup2(tmp_fd, 2)  # redirect C-level stderr to tmp
+            result = graph.parse(str(path))
+        finally:
+            os.dup2(saved_fd, 2)
+            os.close(saved_fd)
 
-    draft_graph = rdflib.Graph()
-    if draft_graph.parse(str(draft_path)) is None:
-        print(f"Failed to parse draft ontology at {draft_path}; skipping merge.")
-        return False
+        tmp.seek(0)
+        stderr_out = tmp.read().decode(errors="ignore")
 
-    # Gather published term IRIs (URIs only)
-    published_terms = {s for s in graph.subjects() if isinstance(s, rdflib.URIRef)}
+    if stderr_out:
+        filtered = [
+            line
+            for line in stderr_out.splitlines()
+            if "unhandled Platform key FamilyDisplayName" not in line.strip()
+        ]
+        if filtered:
+            sys.stderr.write("\n".join(filtered) + "\n")
+    return result
 
-    merged = False
-    theme_nodes = set()
 
-    # Copy theme assignments for published terms
-    for subj, _, theme in draft_graph.triples((None, GCDFOS_THEME, None)):
-        if subj in published_terms:
-            graph.add((subj, GCDFOS_THEME, theme))
-            theme_nodes.add(theme)
-            merged = True
-
-    # Copy labels for theme IRIs so discovery/labels work even if main TTL lacks them
-    for theme in theme_nodes:
-        for _, _, label in draft_graph.triples((theme, SKOS_PREF_LABEL, None)):
-            graph.add((theme, SKOS_PREF_LABEL, label))
-        for _, _, label in draft_graph.triples((theme, RDFS_LABEL, None)):
-            graph.add((theme, RDFS_LABEL, label))
-
-    if merged:
-        print(f"Merged draft theme annotations for {len(theme_nodes)} themes.")
-    else:
-        print("No draft themes were merged (no matching published terms).")
-    return merged
-
+@contextlib.contextmanager
+def filter_stderr_lines(skip_substrings: list[str]):
+    """
+    Capture stderr during a block and re-emit lines that do not contain skip strings.
+    Useful for suppressing noisy platform warnings while preserving other output.
+    """
+    with tempfile.TemporaryFile(mode="w+b") as tmp:
+        tmp_fd = tmp.fileno()
+        saved_fd = os.dup(2)
+        try:
+            os.dup2(tmp_fd, 2)
+            yield
+        finally:
+            os.dup2(saved_fd, 2)
+            os.close(saved_fd)
+            tmp.seek(0)
+            stderr_out = tmp.read().decode(errors="ignore")
+            if stderr_out:
+                keep = []
+                for line in stderr_out.splitlines():
+                    if any(substr in line for substr in skip_substrings):
+                        continue
+                    keep.append(line)
+                if keep:
+                    sys.stderr.write("\n".join(keep) + "\n")
 
 def main() -> None:
     """
-    Main execution function.
+    Main execution function (stderr-filtered to drop noisy platform warnings).
+    """
+    with filter_stderr_lines(["unhandled Platform key FamilyDisplayName"]):
+        _run_main()
+
+
+def _run_main() -> None:
+    """
+    Main execution logic.
 
     Orchestrates the entire extraction process:
     1. Ensures output directories exist
@@ -742,7 +754,7 @@ def main() -> None:
     3. Parses the ontology file
     4. Optionally discovers themes in the ontology
     5. For each configured theme:
-       a. Builds and executes SPARQL query based on gcdfos:theme annotation
+       a. Builds and executes SPARQL query based on gcdfo:theme annotation
        b. Aggregates and processes results
        c. Writes CSV output and metadata files
        d. Writes generated SPARQL queries for inspection
@@ -755,16 +767,8 @@ def main() -> None:
     # Parse the ontology file into an RDFLib graph
     graph = rdflib.Graph()
     # parse() returns None on failure, raises exception on some errors
-    if graph.parse(str(ONTOLOGY_PATH)) is None:
+    if parse_graph_safely(graph, ONTOLOGY_PATH) is None:
         raise RuntimeError(f"Failed to parse ontology at {ONTOLOGY_PATH}")
-
-    # Optionally merge theme annotations from the draft file (read-only augmentation)
-    use_draft_themes = os.getenv("USE_DRAFT_THEMES", "true").lower() in (
-        "1",
-        "true",
-        "yes",
-    )
-    merge_draft_themes_into_graph(graph, DRAFT_ONTOLOGY_PATH, use_draft_themes)
 
     # Optional: Discover all themes in the ontology (useful for debugging/validation)
     print("\nDiscovering themes in the ontology...")
@@ -775,7 +779,7 @@ def main() -> None:
             print(f"  - {theme_label}: {theme_iri}")
     else:
         print(
-            "No themes found in the ontology (no entities with gcdfos:theme property)"
+            "No themes found in the ontology (no entities with gcdfo:theme property)"
         )
     print()
 

@@ -17,7 +17,7 @@
 
 ### Technical
 - Set up ROBOT toolchain for ontology validation and processing
-- Organized directory structure according to AGENTS.md specifications
+- Organized directory structure for ontology development
 - Added quality control scripts and documentation
 
 ## [0.1.0] - Initial Release

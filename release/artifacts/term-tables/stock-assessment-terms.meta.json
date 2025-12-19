@@ -1,11 +1,11 @@
 {
   "theme": "stock_assessment",
   "label": "Stock Assessment",
-  "theme_iri": "https://w3id.org/gcdfos/salmon#StockAssessmentTheme",
-  "row_count": 35,
-  "source_version": "696f78a84b4feb1ce5aa2db4e7a81826004adade",
-  "source_timestamp": "2025-12-08T05:01:23.559433+00:00",
-  "query_checksum": "16c48dc32ab817984bb9d8f52f15eb827f43e5753b06ac6b71a117c62e980fe0",
-  "generated_at": "2025-12-08T05:01:23.614880+00:00",
+  "theme_iri": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+  "row_count": 49,
+  "source_version": "16c2e13d2f5bcf6bb473fd168e2bca74daf206e0",
+  "source_timestamp": "2025-12-16T22:14:38.625018+00:00",
+  "query_checksum": "ce035e857bdc28834fdf9736f63f5f606341675ce16f75a9c1cbb69b3076d0be",
+  "generated_at": "2025-12-16T22:14:38.689654+00:00",
   "source_file": "/Users/brettjohnson/code/dfo-salmon-ontology/ontology/dfo-salmon.ttl"
 }

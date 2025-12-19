@@ -7,7 +7,7 @@ assignees: ''
 
 ---
 
-* DFOC term IRI and label for which you are requesting a new superclass:
+* GCDFOS term IRI and label for which you are requesting a new superclass:
 
 * New superclass suggested:
 

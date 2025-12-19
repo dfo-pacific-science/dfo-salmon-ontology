@@ -6,7 +6,7 @@ Thank you for your interest in contributing to the GC DFO Salmon Ontology! This 
 
 ### 1. Check whether the term already exists
 
-Before submitting suggestions for new ontology terms, check whether the term already exists, either as a primary term or a synonym. To do this, search the  within the [FADS Open Science Documentation Hub](https://dfo-pacific-science.github.io/data-stewardship-unit/reference_info/data_standards/controlled-vocabulary-thesauri.html) or the [W3 page]. If you feel a synonym is missing, or the textual definition of a term needs clarification, please submit a ticket for that.
+Before submitting suggestions for new ontology terms, check whether the term already exists, either as a primary term or a synonym. To do this, search the ontology within the [FADS Open Science Documentation Hub](https://dfo-pacific-science.github.io/data-stewardship-unit/reference_info/data_standards/controlled-vocabulary-thesauri.html) or browse the [ontology file](https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/main/ontology/dfo-salmon.ttl) directly. If you feel a synonym is missing, or the textual definition of a term needs clarification, please submit a ticket for that.
 
 ### 2. Gather as much necessary information as possible
 
@@ -18,7 +18,7 @@ Before submitting suggestions for new ontology terms, check whether the term alr
 
 #### Other helpful reminders:
 
-1. Write a detailed request: Please be specific in your request and include as many details as necessary, providing background information, and if possible, suggesting a solution.  editors will be better equipped to address your suggestions if you offer details regarding 'what is wrong', 'why', and 'how to fix it'.
+1. Write a detailed request: Please be specific in your request and include as many details as necessary, providing background information, and if possible, suggesting a solution. The editors will be better equipped to address your suggestions if you offer details regarding 'what is wrong', 'why', and 'how to fix it'.
 
 2. Provide examples and references: Please always include references for new term requests and, for other term-related requests, include also screenshots, or URLs illustrating the current ontology structure. This will be very helpful to the ontology editors.
 
@@ -26,7 +26,7 @@ Before submitting suggestions for new ontology terms, check whether the term alr
 
 ### 3. Communicate with the GCDFOS ontology editors
 
-1. The preferred way is to create a ticket using the [GFDFOS tracking system](https://github.com/dfo-pacific-science/dfo-salmon-ontology/issues). This allows you to monitor the progress on work on the issue, and participate in the discussion among the GC DFO Salmon ontology team members. Detailed instructions about how to create a free account and use the GitHub repository can be found [here](./docs/SUBMIT_REQUESTS_README.md).
+1. The preferred way is to create a ticket using the [GCDFOS tracking system](https://github.com/dfo-pacific-science/dfo-salmon-ontology/issues). This allows you to monitor the progress on work on the issue, and participate in the discussion among the GC DFO Salmon ontology team members.
 
 2. Alternatively, contact the DFO Pacific Fishery & Assessment Data Section [Data Stewardship Unit](FADSDataStewardship-GestiondesdonneesSFDA@dfo-mpo.gc.ca) for your requests. Note that these requests may have a longer response time. 
 

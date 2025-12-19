@@ -26,7 +26,7 @@ The conventions here are **practical starting points**, not immutable rules. As 
 
 - **Label**: `rdfs:label "Human Name"@en`
 - **Definition**: `iao:0000115 "1–2 sentence definition."@en`
-- **Source**: `rdfs:isDefinedBy <https://w3id.org/dfoc/salmon>`
+- **Source**: `rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon>`
 
 ### Naming Conventions
 
@@ -102,8 +102,7 @@ The conventions here are **practical starting points**, not immutable rules. As 
 
 This introductory material has moved to a dedicated onboarding guide for clarity and easier learning.
 
-- Read: docs/onboarding.md for Fundamentals (what is modeling, ontology vs knowledge graph, why this ontology, basic approach).
-- This Conventions guide focuses on “how we do things” (operational guidance, patterns, QA, tools, workflows).
+- This Conventions guide focuses on "how we do things" (operational guidance, patterns, QA, tools, workflows).
 
 ---
 
@@ -152,7 +151,7 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
     rdfs:label "Escapement Survey Event"@en ;
     iao:0000115 "A specific survey event with measured parameters"@en ;
     rdfs:subClassOf dwc:Event ;
-    rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 :SnorkelSurvey a skos:Concept ;
     skos:prefLabel "Visual Snorkel Count"@en ;
@@ -189,7 +188,7 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
 - **Type declaration:** `a owl:Class` - This tells the system this is a class
 - **Label:** `rdfs:label "Human Name"@en` - A human-readable name in English (required, one per language)
 - **Definition:** `iao:0000115 "1–2 sentence definition."@en` - A clear explanation of what this class represents (required, one only)
-- **Source attribution:** `rdfs:isDefinedBy <https://w3id.org/dfoc/salmon>` - Links back to our ontology (required)
+- **Source attribution:** `rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon>` - Links back to our ontology (required)
 
 **Optional elements:**
 
@@ -208,7 +207,7 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
 :GeneticSample a owl:Class ;
     rdfs:label "Genetic Sample"@en ;
     iao:0000115 "Tissue or material used in genetic stock identification analyses."@en ;
-    rdfs:isDefinedBy <https://w3id.org/gcdfos/salmon> ;
+    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
     iao:0000119 "DFO Molecular Genetics Lab glossary 2024"@en ;
     iao:0000112 "Fin clip sample from Fraser River sockeye collected in 2023."@en ;
     dcterms:source <https://doi.org/10.1234/dfo-genetics-2024> ;
@@ -224,7 +223,7 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
 - **Type declaration:** `a owl:ObjectProperty`
 - **Label:** `rdfs:label "Human Name"@en` - A human-readable name (required, one per language)
 - **Definition:** `iao:0000115 "1–2 sentence definition."@en` - A clear explanation of what this property represents (required, one only)
-- **Source attribution:** `rdfs:isDefinedBy <https://w3id.org/dfoc/salmon>` - Links back to our ontology (required)
+- **Source attribution:** `rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon>` - Links back to our ontology (required)
 
 **Optional but recommended:**
 
@@ -246,7 +245,7 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
 :aboutStock a owl:ObjectProperty ;
     rdfs:label "about stock"@en ;
     iao:0000115 "Links a measurement or observation to the specific stock it describes."@en ;
-    rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> ;
+    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
     iao:0000119 "DFO stock assessment protocols 2024"@en ;
     iao:0000112 "A sockeye escapement measurement about Fraser River sockeye stock."@en ;
     rdfs:domain :Measurement ;  # Use conservatively - prefer class restrictions where possible
@@ -265,7 +264,7 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
 - **Type declaration:** `a owl:DatatypeProperty`
 - **Label:** `rdfs:label "Human Name"@en` - A human-readable name (required, one per language)
 - **Definition:** `iao:0000115 "1–2 sentence definition."@en` - A clear explanation of what this property represents (required, one only)
-- **Source attribution:** `rdfs:isDefinedBy <https://w3id.org/dfoc/salmon>` - Links back to our ontology (required)
+- **Source attribution:** `rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon>` - Links back to our ontology (required)
 
 **Optional but recommended:**
 
@@ -287,7 +286,7 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
 :measurementValue a owl:DatatypeProperty ;
     rdfs:label "measurement value"@en ;
     iao:0000115 "The numeric value of a measurement."@en ;
-    rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> ;
+    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
     iao:0000112 "A count of 1,250 sockeye salmon."@en ;
     rdfs:domain :Measurement ;  # Use conservatively - prefer class restrictions where possible
     rdfs:range xsd:decimal .
@@ -309,7 +308,7 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
 - **Label:** `skos:prefLabel "Human Name"@en` - A human-readable name (required, ≤1 per language)
 - **Scheme membership:** `skos:inScheme :SchemeName` - The concept scheme this concept belongs to (required)
 - **Definition:** `skos:definition "1–2 sentence definition."@en` - A clear explanation (recommended, 1×)
-- **Source attribution:** `rdfs:isDefinedBy <https://w3id.org/dfoc/salmon>` - Links back to our ontology (required)
+- **Source attribution:** `rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon>` - Links back to our ontology (required)
 
 **Optional elements:**
 
@@ -341,7 +340,7 @@ ex:DFOEscMethodCode a rdfs:Datatype .
     skos:definition "Counting fish using active acoustic methods (e.g., DIDSON/ARIS) under a defined protocol."@en ;
     skos:broader :CountingMethod ;
     skos:notation "ESC-001"^^ex:DFOEscMethodCode ;  # code lives here, not in the label
-    rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> ;
+    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
     dcterms:source <https://doi.org/10.1234/dfo-esc-methods-2023> ;
     iao:0000119 "DFO (2023). Escapement Survey Manual, Pacific Region."@en .
 ```
@@ -349,25 +348,121 @@ ex:DFOEscMethodCode a rdfs:Datatype .
 ##### 2.3.4.1 SKOS vs OWL decision rule (flat vs inheriting)
 
 - Use **SKOS concept schemes** when the hierarchy is flat or tree-only (no property inheritance, no logical class expressions), when the terms act as picklist codes, and when you **do not need** to instantiate them as classes in data (i.e., they remain terminology values).
-- Use **OWL classes** when you need property inheritance, logical constraints, class expressions, or when downstream data will type individuals with the term (e.g., `rdf:type gcdfos:StockAssessment`).
+- Use **OWL classes** when you need property inheritance, logical constraints, class expressions, or when downstream data will type individuals with the term (e.g., `rdf:type gcdfo:StockAssessment`).
 - Do **not** mix the two: a SKOS concept is an individual of `skos:Concept`; it is not a class. If you believe a term must be both, pause and record an ADR before introducing punning.
 - Default posture: SKOS for code lists; OWL for behavioral/logical models. If in doubt, ask “Will this term ever need class-level semantics or property inheritance?” If yes → OWL; if no and hierarchy is purely lexical → SKOS.
+- **Compound variables/metrics (I-ADOPT)**: model them as SKOS concepts in the appropriate scheme (e.g., WSP metrics), not as OWL classes, and hang the I-ADOPT decomposition off the SKOS concept via annotation/object properties (variable, property, entity/object-of-interest, constraints, variable set). Only introduce OWL classes for a metric if you have a competency question that needs reasoning over that class.
+
+###### 2.3.4.1.1 I-ADOPT + SSN/OMS/OBOE/PROV alignment pattern (variables only)
+
+We adopt a **minimal, annotation-centric pattern** for I-ADOPT that plays nicely with SSN 2023, OMS, OBOE, and PROV, without changing core OWL class hierarchies:
+
+- **Variables as SKOS concepts**:
+  - Each compound metric/variable (e.g., WSP Metric 1–4, benchmarked exploitation rate, CU-level abundance index) is a `skos:Concept` in a dedicated SKOS scheme.
+  - That SKOS concept is also treated as an **I-ADOPT Variable** and an **observable property**:
+    - We may type it (in a separate alignment module) as `iop:Variable` and `sosa:Property` / OMS ObservableProperty / `oboe:Characteristic`, but the *authoritative variable identity* lives in SKOS.
+- **I-ADOPT decomposition as annotations**:
+  - We define a small set of **annotation properties** in the DFO Salmon namespace, instead of importing all I-ADOPT object properties into `dfo-salmon.ttl`:
+    - `gcdfo:iadoptProperty` – points from a variable concept to the property (e.g., abundance, rate).
+    - `gcdfo:iadoptEntity` – points to the entity/object-of-interest class (e.g., Stock, CU, SpawningPopulation).
+    - `gcdfo:iadoptConstraint` – points to constraint concepts (life stage, origin, benchmark, spatial subset; multiple allowed).
+    - `gcdfo:iadoptMethod` – points to the method/procedure concept or class.
+  - These are declared as `owl:AnnotationProperty` so they do **not** involve SKOS concepts in OWL class axioms (keeps us within our “no SKOS as OWL class in axioms” rule) but remain fully queryable via SPARQL.
+- **Component IRIs**:
+  - The values of the annotation properties (properties, entities, constraints, methods) are **existing OWL classes or SKOS concepts**:
+    - Properties: quantity kinds or observables (potentially I-ADOPT `iop:Property` or QUDT/ENVO/other).
+    - Entities: DFO classes (CU, Stock, SurveyEvent, BiologicalSample) or relevant external classes.
+    - Constraints: SKOS concepts in existing schemes (origin, life-stage, benchmark category, spatial strata, etc.).
+    - Methods: SKOS concepts in method schemes or OWL classes representing procedures.
+- **MIREOT / imports**:
+  - For Phase 0, we **do not import** the full I-ADOPT ontology into `dfo-salmon.ttl`. We only reference I-ADOPT IRIs (e.g., for typing or documentation) where needed.
+  - If future needs require stronger alignment (e.g., SHACL validation or interoperability checks), we can:
+    - MIREOT just the few I-ADOPT classes we need (`iop:Variable`, `iop:Property`, `iop:Entity`, `iop:Constraint`, `iop:Method`) into a small alignment module (e.g., `dfo-salmon-iadopt.ttl`), and
+    - keep that module separate from the core ontology while using our local annotation properties for the decomposition links.
+
+This gives us a **single canonical pattern**:
+
+- Variable identity and human-facing semantics: SKOS (`skos:Concept` in variable schemes).
+- Machine-facing decomposition and cross-ontology alignment: I-ADOPT roles + SSN/OMS/OBOE, via annotations.
+
+###### 2.3.4.1.2 Alignment diagram and mapping table
+
+Conceptual alignment across I-ADOPT, SSN/OMS/SOSA, OBOE, and PROV (variables only):
+
+```mermaid
+graph TD
+  IVar["i-adopt:Variable"] -->|also typed as| SProp["sosa:Property<br/>oms:ObservableProperty<br/>oboe:Characteristic"]
+  IProp["i-adopt:Property"] -->|decomposes| IVar
+  IEnt["i-adopt:Entity (ObjectOfInterest)"] -->|class of| SFOIClass["class of sosa:FeatureOfInterest / sosa:Sample"]
+  IConstr["i-adopt:Constraint / Method"] -->|further constrains| IVar
+
+  SObs["sosa:Observation<br/>oms:Observation<br/>oboe:Measurement"] -->|rdf:type| ProvAct["prov:Activity"]
+  SObs -->|observedProperty| SProp
+  SObs -->|hasFeatureOfInterest| SFOI["sosa:FeatureOfInterest / sosa:Sample<br/>oboe:Entity<br/>prov:Entity"]
+
+  SProc["sosa:Procedure<br/>sosa:ObservingProcedure"] -->|rdf:type| ProvPlan["prov:Plan"]
+  SObs -->|usedProcedure| SProc
+```
+
+Minimal mapping table for implementers:
+
+| Role / concept                     | I-ADOPT                          | SOSA / SSN / OMS                           | OBOE                        | PROV             |
+|-----------------------------------|-----------------------------------|--------------------------------------------|-----------------------------|------------------|
+| Atomic measurement (cell value)   | *(implicit)*                      | `sosa:Observation` / OMS Observation       | `oboe:Measurement`          | `prov:Activity`  |
+| Variable / characteristic         | `iop:Variable`                    | `sosa:Property` / OMS ObservableProperty   | `oboe:Characteristic`       | `prov:Entity`    |
+| Object of interest (entity type)  | `iop:Entity`                      | class of `sosa:FeatureOfInterest` / Sample | `oboe:Entity` (subclass)    | `prov:Entity`    |
+| Constraints / method              | `iop:Constraint`, `iop:Method`    | annotations on `sosa:Property` / `sosa:Procedure` | *(typically annotations)* | `prov:Entity`    |
+| Row-level bundle (one unit row)   | *(n/a)*                           | `sosa:ObservationCollection` (about one FOI/time) | `oboe:Observation`  | `prov:Activity`* |
+| Procedure / method                | *(optional I-ADOPT)*              | `sosa:Procedure` / `sosa:ObservingProcedure` | *(n/a)*                  | `prov:Plan`      |
+
+> `prov:Activity*`: PROV does not distinguish collections of executions; an ObservationCollection can be treated as a higher-level Activity if needed.
+
+###### 2.3.4.1.3 Example — Absolute spawner abundance (WSP Metric 1)
+
+Below is an illustrative example of how to annotate a WSP metric SKOS concept using the I-ADOPT-style annotation pattern. IRIs are placeholders; use real DFO/externals where they exist.
+
+```turtle
+@prefix gcdfo: <https://w3id.org/gcdfo/salmon#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix qudt:  <http://qudt.org/schema/qudt/> .
+@prefix qk:    <http://qudt.org/vocab/quantitykind/> .
+
+gcdfo:WSPMetricScheme a skos:ConceptScheme ;
+  skos:prefLabel "Wild Salmon Policy Metric Scheme"@en ;
+  skos:definition "Controlled vocabulary for WSP status metrics (Metric 1–4 and related indicators)."@en ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:AbsoluteSpawnerAbundanceMetric1
+  a skos:Concept ;
+  skos:inScheme gcdfo:WSPMetricScheme ;
+  skos:prefLabel "Absolute spawner abundance (WSP Metric 1)"@en ;
+  skos:definition "WSP Metric 1: compares current generational average spawner abundance to fixed biological benchmarks for a CU or stock."@en ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+
+  # I-ADOPT-style decomposition (annotation properties, no OWL axioms)
+  gcdfo:iadoptProperty   qk:AmountOfSubstance ;              # or a more specific abundance/number-of-organisms quantity kind
+  gcdfo:iadoptEntity     gcdfo:SpawningPopulation ;          # CU- or stock-level spawning population class
+  gcdfo:iadoptConstraint gcdfo:WildOriginSpawners ,
+                         gcdfo:GenerationTimeWindow ;        # life-stage/origin/temporal window constraints (SKOS concepts or classes)
+  gcdfo:iadoptMethod     gcdfo:WSPMetric1ComputationMethod . # method/procedure concept or class
+```
+
+Notes:
+- `gcdfo:WSPMetricScheme` hosts the metric SKOS concepts.
+- `gcdfo:AbsoluteSpawnerAbundanceMetric1` is **only** a SKOS concept in the core ontology; the I-ADOPT roles are attached via annotation properties.
+- `qk:AmountOfSubstance`, `gcdfo:SpawningPopulation`, `gcdfo:WildOriginSpawners`, `gcdfo:GenerationTimeWindow`, and `gcdfo:WSPMetric1ComputationMethod` are all **regular OWL classes or SKOS concepts** defined elsewhere.
+- If/when you need stronger alignment (e.g., type it as `iop:Variable` / `sosa:Property` / `oboe:Characteristic`), do so in a separate alignment module (`dfo-salmon-iadopt.ttl`), not here.
 
 ##### 2.3.4.2 Theme / module annotation for navigation
 
 - Tag every OWL class, property, and SKOS concept with a **theme/module annotation** to aid navigation and review.
-- Annotation property: `gcdfos:theme` (annotation property) with values drawn from the SKOS concept scheme `:ThemeScheme` (defined in `ontology/dfo-salmon.ttl`; definitions in `docs/context/themes-modules.md`).
+- Annotation property: `gcdfo:theme` (annotation property) with values drawn from the SKOS concept scheme `:ThemeScheme` (defined in `ontology/dfo-salmon.ttl`; definitions in `docs/context/themes-modules.md`).
 - Cardinality: 1–3 per term; choose the smallest set that reflects the owning bounded context.
 - Keep the annotation purely descriptive (no reasoning expected). Do not use it in logical axioms or SHACL constraints.
 - Validation: `robot query --input ontology/dfo-salmon.ttl --query scripts/sparql/theme-coverage.rq reports/theme-coverage.tsv` should return no rows; values must be members of `:ThemeScheme`.
 - Review checklist: ensure each new term is themed and stays under the 3-theme cap.
 
-##### 2.3.4.3 Publication status annotation (publish slice)
 
-- Use `gcdfos:publicationStatus` (annotation property) with values `gcdfos:Draft` or `gcdfos:PublishReady` to control what goes into the publish slice.
-- Only terms marked `gcdfos:PublishReady` are extracted into the publish TTL; the slice strips the publicationStatus annotation.
-- Before setting `PublishReady`, ensure required metadata exist: `rdfs:label`, `IAO:0000115`, `rdfs:isDefinedBy`, a definition source (`iao:0000119` or `dcterms:source`), and at least one `gcdfos:theme`.
-- Validation: run `make publish-validate` to flag PublishReady terms missing required metadata; run `make publish-slice` to generate `release/published/gcdfos-core.ttl` (PublishReady terms only, publicationStatus removed).
 
 #### 2.3.5 Provenance and Citation Conventions
 
@@ -396,7 +491,7 @@ Guideline:
     rdfs:label "Escapement Survey Event"@en ;
     iao:0000115 "A survey event conducted to measure salmon escapement."@en ;
     rdfs:subClassOf dwc:Event ;
-    rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> ;
+    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
 
     # Resolvable link to authoritative document (IRI)
     dcterms:source <https://doi.org/10.1234/dfostock.2023> ;
@@ -424,7 +519,7 @@ Guideline:
 :BaselineGeneticDataset a owl:Class ;
     rdfs:label "Baseline Genetic Dataset"@en ;
     iao:0000115 "A curated collection of reference genotypes used in genetic stock identification analyses."@en ;
-    rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> ;
+    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
 
     # Resolvable link to authoritative document (IRI)
     dcterms:source <https://doi.org/10.1234/dfo-baseline-genotype-2024> ;
@@ -464,7 +559,7 @@ These templates represent the correct patterns for OWL and SKOS terms. All examp
   IAO:0000115 "Definition text."@en ;       # required, 1×
   IAO:0000119 "DFO (2024) …"@en ;           # optional (definition citation string)
   IAO:0000112 "Example usage …"@en ;        # optional example
-  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> ;  # required
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;  # required
   dcterms:source <https://doi.org/10.xxxx/yyy> .    # optional (IRI link)
 ```
 
@@ -479,7 +574,7 @@ ex:DFOEscMethodCode a rdfs:Datatype .
   skos:prefLabel "Sonar counting"@en ;         # required, ≤1 per lang
   skos:definition "Counting fish via active acoustics …"@en ;  # recommended
   skos:notation "ESC-001"^^ex:DFOEscMethodCode ;  # optional, typed code
-  rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> ;  # required
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;  # required
   dcterms:source <https://doi.org/10.xxxx/zzz> ;   # optional (IRI)
   IAO:0000119 "DFO (2023) Escapement Manual …"@en .  # optional (text)
 ```
@@ -616,7 +711,7 @@ dfo:StatusAssessment rdfs:subPropertyOf bfo:0000015 .  # process
   prov:wasAttributedTo :StockAssessmentTeam .
 ```
 
-**DFOC Salmon Prefix-Only:**
+**GCDFOS Salmon Prefix-Only:**
 
 - **PROV-O** (~6 properties): wasGeneratedBy, wasDerivedFrom, used, wasAttributedTo, etc.
 - **RO** (alignment via rdfs:seeAlso): has_member, member_of
@@ -712,7 +807,7 @@ PROV-O Properties (prefix-only):
     rdfs:label "Escapement Survey Event"@en ;
     iao:0000115 "A specific survey event with measured parameters"@en ;
     rdfs:subClassOf dwc:Event ;
-    rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 # Layer 4: Event Instance with Metadata
 :SkeenaSnorkel2022_001 a :EscapementSurveyEvent ;
@@ -729,7 +824,7 @@ PROV-O Properties (prefix-only):
     dfo:downgradeCriteriaMet :VISIBILITY, :REACH_COVERAGE ;
     dwc:eventDate "2022-08-15"^^xsd:date ;
     dwc:samplingProtocol :DFOSnorkelProtocol ;
-    rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 ```
 
 **Key Principles:**
@@ -903,7 +998,7 @@ Every measurement must have:
 
 **Why integrate with Darwin Core?** Darwin Core provides a widely-adopted standard for biodiversity data that enables interoperability with GBIF, OBIS, and other international biodiversity platforms. By aligning with Darwin Core, your salmon data becomes discoverable and usable by the broader scientific community.
 
-> **📋 Complete Darwin Core Integration**: See the [DFO Salmon Ontology: Product Requirements Document](PRODUCT_REQUIREMENTS.md) for the complete technical approach, including hybrid modeling strategy, core patterns, and Darwin Core integration details.
+> **📋 Complete Darwin Core Integration**: See the [README](../README.md) and [Architecture Decision Records](ADR.md) for the complete technical approach, including hybrid modeling strategy, core patterns, and Darwin Core integration details.
 
 **Key Darwin Core Classes to Use:**
 
@@ -924,17 +1019,17 @@ Every measurement must have:
 dfo:ManagementUnit rdfs:subClassOf dwc:Event ;
     rdfs:label "Management Unit"@en ;
     iao:0000115 "A geographic or administrative unit for salmon management"@en ;
-    rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 dfo:ConservationUnit rdfs:subClassOf dwc:Event ;
     rdfs:label "Conservation Unit"@en ;
     iao:0000115 "A biologically meaningful unit for conservation planning"@en ;
-    rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 dfo:Stock rdfs:subClassOf dwc:Organism ;
     rdfs:label "Stock"@en ;
     iao:0000115 "A population of salmon with distinct characteristics"@en ;
-    rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 ```
 
 ---
@@ -1029,8 +1124,6 @@ dfo:Stock rdfs:subClassOf dwc:Organism ;
 - **Testing framework**: Enable systematic validation of the ontology's utility
 - **Community alignment**: Ensure all stakeholders understand the ontology's purpose
 
-> **📋 Complete Competency Questions**: See the [DFO Salmon Ontology: Competency Questions](COMPETENCY_QUESTIONS.md) for the complete, authoritative list of competency questions organized by domain (Stock Assessment, Genetics/GSI, Management & Policy, and Cross-Domain Integration).
-
 #### 6.1.1 Using Competency Questions
 
 **During Design:**
@@ -1049,7 +1142,7 @@ dfo:Stock rdfs:subClassOf dwc:Organism ;
 
 ```sparql
 # Find all escapement methods used for Sockeye stocks in 2022
-PREFIX dfo: <https://w3id.org/dfoc/salmon#>
+PREFIX dfo: <https://w3id.org/gcdfo/salmon#>
 PREFIX dwc: <http://rs.tdwg.org/dwc/terms/>
 
 SELECT ?method ?stock ?event WHERE {
@@ -1155,7 +1248,7 @@ SELECT ?method ?stock ?event WHERE {
 
 **Problem: JFact datatype warning for EstimateType**
 
-- **Warning**: `ERROR uk.ac.manchester.cs.jfact.datatypes.DatatypeFactory - A known datatype for https://w3id.org/dfoc/salmon#EstimateType cannot be found; literal will be replaced with rdfs:Literal`
+- **Warning**: `ERROR uk.ac.manchester.cs.jfact.datatypes.DatatypeFactory - A known datatype for https://w3id.org/gcdfo/salmon#EstimateType cannot be found; literal will be replaced with rdfs:Literal`
 - **Root Cause**: `EstimateType` is correctly modeled as `skos:Concept` (not a datatype). JFact's datatype checking system is confused by SKOS concept usage as object property ranges.
 - **Impact**: None - all reasoners (ELK, HermiT, JFact) produce identical results (2183 lines). Ontology is logically consistent.
 - **Action**: This warning can be safely ignored.
@@ -1201,7 +1294,7 @@ SELECT ?method ?stock ?event WHERE {
 :Sockeye rdfs:subClassOf :Salmon ;
     rdfs:label "Sockeye"@en ;
     iao:0000115 "A species of salmon (Oncorhynchus nerka)"@en ;
-    rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 ```
 
 #### 6.3.2 Equivalence
@@ -1260,7 +1353,7 @@ SELECT ?method ?stock ?event WHERE {
 :hasMember a owl:ObjectProperty, owl:TransitiveProperty ;
     rdfs:label "has member"@en ;
     iao:0000115 "A transitive relationship indicating membership in a group"@en ;
-    rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 # Define type-specific subproperties
 :hasMemberCU rdfs:subPropertyOf :hasMember ;
@@ -1398,7 +1491,7 @@ For richer unit semantics, consider adding object properties alongside datatype 
 :measurementUnitIRI a owl:DatatypeProperty ;
     rdfs:label "measurement unit IRI"@en ;
     iao:0000115 "IRI of the unit used in a measurement"@en ;
-    rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> ;
+    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
     rdfs:domain :Measurement ;
     rdfs:range xsd:anyURI .
 
@@ -1406,7 +1499,7 @@ For richer unit semantics, consider adding object properties alongside datatype 
 :hasUnit a owl:ObjectProperty ;
     rdfs:label "has unit"@en ;
     iao:0000115 "Links a measurement to a unit (e.g., QUDT Unit)"@en ;
-    rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> ;
+    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
     rdfs:domain :Measurement ;
     rdfs:range qudt:Unit .
 
@@ -1428,20 +1521,20 @@ For richer unit semantics, consider adding object properties alongside datatype 
 
 #### 6.7.1 IRI Structure
 
-**Base IRI:** `https://w3id.org/dfoc/salmon#`
+**Base IRI:** `https://w3id.org/gcdfo/salmon#`
 
-**Class IRIs:** `https://w3id.org/dfoc/salmon#ClassName`
-**Property IRIs:** `https://w3id.org/dfoc/salmon#propertyName`
-**Instance IRIs:** `https://w3id.org/dfoc/salmon#InstanceName`
+**Class IRIs:** `https://w3id.org/gcdfo/salmon#ClassName`
+**Property IRIs:** `https://w3id.org/gcdfo/salmon#propertyName`
+**Instance IRIs:** `https://w3id.org/gcdfo/salmon#InstanceName`
 
 **Example:**
 ```turtle
-@prefix dfo: <https://w3id.org/dfoc/salmon#> .
+@prefix dfo: <https://w3id.org/gcdfo/salmon#> .
 
 dfo:EscapementMeasurement a owl:Class ;
     rdfs:label "Escapement Measurement"@en ;
     iao:0000115 "A measurement of salmon escapement"@en ;
-    rdfs:isDefinedBy <https://w3id.org/dfoc/salmon> .
+    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 ```
 
 #### 6.7.2 Versioning
@@ -1454,9 +1547,9 @@ dfo:EscapementMeasurement a owl:Class ;
 
 **Example:**
 ```turtle
-<https://w3id.org/dfoc/salmon> a owl:Ontology ;
+<https://w3id.org/gcdfo/salmon> a owl:Ontology ;
     owl:versionInfo "1.0.0" ;
-    owl:versionIRI <https://w3id.org/dfoc/salmon/1.0.0> ;
+    owl:versionIRI <https://w3id.org/gcdfo/salmon/1.0.0> ;
     rdfs:label "DFO Salmon Ontology"@en .
 ```
 
@@ -1483,8 +1576,6 @@ dfo:EscapementMeasurement a owl:Class ;
 ### 6.9 Using Darwin Core Conceptual Model
 
 **Why follow Darwin Core?** Darwin Core provides a widely-adopted standard for biodiversity data that enables interoperability with GBIF, OBIS, and other international platforms.
-
-> **📋 Complete Darwin Core Integration**: See the [DFO Salmon Ontology: Product Requirements Document](PRODUCT_REQUIREMENTS.md) for the complete technical approach and Darwin Core integration strategy.
 
 ### 6.10 Common Modeling Scenarios
 
@@ -1674,7 +1765,7 @@ robot validate --input dfo-salmon.ttl
 robot convert --input dfo-salmon.ttl --output dfo-salmon.owl
 
 # Add metadata
-robot annotate --input dfo-salmon.ttl --ontology-iri "https://w3id.org/dfoc/salmon" --version-iri "https://w3id.org/dfoc/salmon/1.0.0" --output dfo-salmon-annotated.ttl
+robot annotate --input dfo-salmon.ttl --ontology-iri "https://w3id.org/gcdfo/salmon" --version-iri "https://w3id.org/gcdfo/salmon/1.0.0" --output dfo-salmon-annotated.ttl
 ```
 
 ### 7.2 Community Process
