@@ -351,7 +351,7 @@ ex:DFOEscMethodCode a rdfs:Datatype .
 - Use **OWL classes** when you need property inheritance, logical constraints, class expressions, or when downstream data will type individuals with the term (e.g., `rdf:type gcdfo:StockAssessment`).
 - Do **not** mix the two: a SKOS concept is an individual of `skos:Concept`; it is not a class. If you believe a term must be both, pause and record an ADR before introducing punning.
 - Default posture: SKOS for code lists; OWL for behavioral/logical models. If in doubt, ask “Will this term ever need class-level semantics or property inheritance?” If yes → OWL; if no and hierarchy is purely lexical → SKOS.
-- **Compound variables/metrics (I-ADOPT)**: model them as SKOS concepts in the appropriate scheme (e.g., WSP metrics), not as OWL classes, and hang the I-ADOPT decomposition off the SKOS concept via annotation/object properties (variable, property, entity/object-of-interest, constraints, variable set). Only introduce OWL classes for a metric if you have a competency question that needs reasoning over that class.
+- **Compound variables/metrics (I-ADOPT)**: model them as SKOS concepts in the appropriate scheme (e.g., WSP metrics), not as OWL classes, and hang the I-ADOPT decomposition off the SKOS concept via annotation/object properties (property, entity/object-of-interest, constraints, method). Only introduce OWL classes for a metric if you have a competency question that needs reasoning over that class.
 
 ###### 2.3.4.1.1 I-ADOPT + SSN/OMS/OBOE/PROV alignment pattern (variables only)
 

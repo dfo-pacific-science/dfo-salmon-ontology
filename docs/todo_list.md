@@ -1,21 +1,10 @@
 # DFO Salmon Ontology
 
-**Focus:** 8-week path to Barkley Sockeye FSAR evidence chain demo  
-
-**Status:** Active development for FSAR Advice Trace (2-month critical path)
-
-**Current Goals:**
-- **Widoco site formally published:** End of November 2025
-- **Quarto website pages for exploring controlled vocabulary:** Working within next 2 weeks
-- **New:** Complete ontology deep review (class hierarchy sanity + genetics vocab refresh) before further term publication
-
 - **Upcoming:** Run `execplan-add-spsr-terms.md` after column-to-ontology mapping is approved (do not run yet) /Users/brettjohnson/code/dfo-salmon-ontology/docs/notes/spsr-column-to-ontology-mapping.md
 
-
-
-## 2025-12-17 — I-ADOPT compound variables (planning / doc-only now)
-- [ ] Audit compound variable/metric terms currently modeled as OWL classes; list candidates to refactor as SKOS concepts with I-ADOPT annotations (variable, property, entity/object-of-interest, constraints, variable set).
-- [ ] Draft the annotation properties to carry I-ADOPT decomposition on SKOS concepts (iadoptProperty, iadoptEntity, iadoptConstraint, iadoptVariableSet) and propose ranges/usage in notes; do **not** change `ontology/dfo-salmon.ttl` yet.
+## I-ADOPT compound variables (planning / doc-only now)
+- [ ] Audit compound variable/metric terms currently modeled as OWL classes (OWL is a W3C ontology language for defining classes and relationships); list candidates to refactor as SKOS concepts (SKOS is a W3C standard for controlled vocabularies) with I-ADOPT annotations (I-ADOPT is a standard for describing variables by parts like property and entity: property, entity/object-of-interest, constraints, method).
+- [ ] Draft the annotation properties (metadata fields attached to terms) to carry I-ADOPT decomposition on SKOS concepts (iadoptProperty, iadoptEntity, iadoptConstraint, iadoptMethod) and propose allowed value types and usage notes; do **not** change `ontology/dfo-salmon.ttl` yet.
 - [ ] Propose I-ADOPT decompositions for a starter set of WSP/indicator metrics and capture in notes for future TTL updates.
 - [ ] Align delimiter guidance for multiple constraints with SDP (`constraint_iri` uses `;`-separated IRIs in one cell) and reflect in ontology docs when updated.
 
