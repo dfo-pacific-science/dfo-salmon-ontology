@@ -22,11 +22,24 @@ The conventions here are **practical starting points**, not immutable rules. As 
 
 **For experienced contributors who need a quick reference:**
 
-### Essential Elements (Every Term Needs)
+### Essential Elements (Canonical Checklist)
+
+This checklist is canonical for “what must be on a term”; other summary sections link here to avoid drift.
+
+**OWL terms (classes + properties):**
 
 - **Label**: `rdfs:label "Human Name"@en`
 - **Definition**: `iao:0000115 "1–2 sentence definition."@en`
-- **Source**: `rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon>`
+- **Defined by**: `rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon>`
+- **Definition provenance (optional)**: `iao:0000119 "Citation text here."@en` and/or `dcterms:source <https://doi.org/...>`
+
+**SKOS concepts (controlled vocabulary terms):**
+
+- **Preferred label**: `skos:prefLabel "Human Name"@en`
+- **Scheme membership**: `skos:inScheme :SchemeName`
+- **Definition (recommended)**: `skos:definition "1–2 sentence definition."@en`
+- **Defined by**: `rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon>`
+- **Code (optional)**: `skos:notation "CODE"^^ex:YourCodeSystemDatatype`
 
 ### Naming Conventions
 
@@ -196,7 +209,7 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
 - **Definition source (link):** `dcterms:source <https://doi.org/...>` - Resolvable link to authoritative document or resource (optional, 0..*)
 - **Examples:** `iao:0000112 "Concrete example of usage."@en` - Concrete examples of how this class is used (optional, 0..*)
 - **Notes:** `rdfs:comment "Editorial note."@en` - Optional editorial notes (NOT a definition)
-- **Alternative label:** `skos:prefLabel "Alternative Label"@en` - Optional secondary label for SKOS consumers (non-normative)
+- **Alternative label:** `skos:altLabel "Alternative Label"@en` - Optional secondary label for SKOS consumers (non-normative)
 - **SKOS mirror label:** When a class also carries `skos:prefLabel`, duplicate the same literal in `rdfs:label` so OWL tooling and SKOS consumers stay in sync.
 
 **Why these are required:** Labels help humans understand what you mean, definitions prevent confusion about scope, and source attribution ensures proper credit and traceability. Using `rdfs:label` and `IAO:0000115` aligns with OBO Foundry standards and ROBOT tooling expectations. The `skos:prefLabel` can optionally be added on OWL terms for SKOS consumers, but `rdfs:label` is primary and required.
@@ -253,7 +266,7 @@ The `dfo-salmon.ttl` file must contain **schema elements only** - no instance da
     dcterms:source <https://doi.org/10.1234/dfo-protocols-2024> .
 ```
 
-**Alignment with Relations Ontology (RO):** When aligning to RO, import and reuse RO properties, or use `owl:equivalentProperty` / `rdfs:subPropertyOf` where appropriate. Use `skos:exactMatch`/`skos:closeMatch` only for concept-level mappings, not for OWL properties. Do not use `rdfs:seeAlso` for property alignment.
+**Alignment with Relations Ontology (RO):** When aligning to RO, import and reuse RO properties, or use `owl:equivalentProperty` / `rdfs:subPropertyOf` where appropriate. Use `skos:exactMatch`/`skos:closeMatch` only for concept-level mappings, not for OWL properties. Do not use `rdfs:seeAlso` for property alignment; in OWL 2 it is an annotation property for “additional information” links, not a logical alignment axiom.
 
 #### 2.3.3 Datatype Properties
 
@@ -456,10 +469,11 @@ Notes:
 ##### 2.3.4.2 Theme / module annotation for navigation
 
 - Tag every OWL class, property, and SKOS concept with a **theme/module annotation** to aid navigation and review.
-- Annotation property: `gcdfo:theme` (annotation property) with values drawn from the SKOS concept scheme `:ThemeScheme` (defined in `ontology/dfo-salmon.ttl`; definitions in `docs/context/themes-modules.md`).
+- Annotation property: `gcdfo:theme` (annotation property) with values drawn from the SKOS concept scheme `gcdfo:ThemeScheme` (defined in `ontology/dfo-salmon.ttl`).
 - Cardinality: 1–3 per term; choose the smallest set that reflects the owning bounded context.
+- Exempt: `gcdfo:ThemeScheme` and its member theme concepts are excluded from the missing-theme check.
 - Keep the annotation purely descriptive (no reasoning expected). Do not use it in logical axioms or SHACL constraints.
-- Validation: `robot query --input ontology/dfo-salmon.ttl --query scripts/sparql/theme-coverage.rq reports/theme-coverage.tsv` should return no rows; values must be members of `:ThemeScheme`.
+- Validation: `make theme-coverage` should report clean output (and keep `release/tmp/theme-coverage.tsv` empty); values must be members of `gcdfo:ThemeScheme`.
 - Review checklist: ensure each new term is themed and stays under the 3-theme cap.
 
 
@@ -581,11 +595,7 @@ ex:DFOEscMethodCode a rdfs:Datatype .
 
 **Key differences:**
 
-- **OWL terms**: Use `rdfs:label` (required) and `IAO:0000115` (required) for definition
-- **SKOS concepts**: Use `skos:prefLabel` (required) and `skos:definition` (recommended)
-- **Codes**: Always use `skos:notation` with typed literal, never in labels or identifiers
-- **Source links**: Use `dcterms:source` (IRI) for resolvable links, `IAO:0000119` (literal) for definition textual provenance
-- **Identifiers**: Use `dcterms:identifier` only for literal internal IDs, not IRIs or codes
+See the canonical checklist in [Quick Start Cheatsheet → Essential Elements](#essential-elements-canonical-checklist).
 
 ---
 
@@ -662,7 +672,8 @@ bfo:0000015 a owl:Class ;
   rdfs:isDefinedBy <http://purl.obolibrary.org/obo/bfo.owl> .
 
 # Now use it in your ontology
-dfo:StatusAssessment rdfs:subPropertyOf bfo:0000015 .  # process
+dfo:StatusAssessment a owl:Class ;
+  rdfs:subClassOf bfo:0000015 .  # process
 ```
 
 **DFO Salmon MIREOT Terms:**
@@ -671,10 +682,12 @@ dfo:StatusAssessment rdfs:subPropertyOf bfo:0000015 .  # process
 - **IAO** (6 terms): measurement datum, information content entity, directive information entity, document, definition, definition source
 - **OA** (1 term): Annotation
 - **DQV** (5 terms): Dimension, QualityAnnotation, inDimension, Metric, Category
-- **DWC** (8 terms): Organism, Material Entity, Agent, Media, Event, Occurrence, Identification, Protocol
+- **DWC** (5 terms): Organism, MaterialEntity, Event, Occurrence, Identification (classes only)
 - **ODO** (5 terms): ECSO - year of measurement; SALMON - Fishery type, Fish measurement type, Salmon escapement count, Fish stock type
 - **ENVO** (7 terms): lentic water body, lake, pond, lotic water body, river, stream, bayou
 - **ORG** (4 terms): Organization, Organizational Unit, has unit, has sub-organization
+
+**DwC strategy note:** We MIREOT only a small set of DwC *classes* so our OWL classes can subclass them (e.g., `dwc:Event`, `dwc:Organism`, `dwc:MaterialEntity`). We keep DwC *properties* prefix-only and validate their use with SHACL rather than global OWL domain/range axioms.
 
 
 **Why BFO for FSAR Tracer:**
@@ -714,9 +727,9 @@ dfo:StatusAssessment rdfs:subPropertyOf bfo:0000015 .  # process
 **GCDFOS Salmon Prefix-Only:**
 
 - **PROV-O** (~6 properties): wasGeneratedBy, wasDerivedFrom, used, wasAttributedTo, etc.
-- **RO** (alignment via rdfs:seeAlso): has_member, member_of
+- **RO** (reuse + alignment): RO:0002351 (has member), RO:0002350 (member of); use `rdfs:subPropertyOf`/`owl:equivalentProperty` when you need a local refinement
 - **SKOS** (extensive): Concept, ConceptScheme, prefLabel, definition, etc.
-- **DwC** (extensive): Event, Organism, Assertion, MaterialSample, etc.
+- **DwC properties** (extensive): eventDate, samplingProtocol, parentEventID, measurementType, measurementValue, measurementUnit, etc.
 
 #### 2.3.6.4 Decision Matrix
 
@@ -726,12 +739,12 @@ dfo:StatusAssessment rdfs:subPropertyOf bfo:0000015 .  # process
 | **IAO**    | MIREOT      | 4 classes, 2 properties    | Information artifacts (extends BFO)    |
 | **OA**     | MIREOT      | 1 class                    | Defines Annotation for DQV             |
 | **DQV**    | MIREOT      | 4 classes, 1 property      | Evidence completeness tracking         |
-| **DWC**    | MIREOT      | 8 classes                  | Biodiversity standard                  |
+| **DWC**    | Mixed       | 5 classes (MIREOT) + prefix-only properties | Biodiversity standard                  |
 | **ODO**    | MIREOT      | 5 classes                  | DataOne measurement, salmon ontology   |
 | **ENVO**   | MIREOT      | 7 classes                  | SIL/SEN environmental parameters       |
 | **ORG**    | MIREOT      | 2 classes, 2 properties    | DFO Organizational Structure           |
 | **PROV-O** | Prefix only | ~6 properties              | Provenance relations                   |
-| **RO**     | Prefix only | Alignment via rdfs:seeAlso | Semantic documentation                 |
+| **RO**     | Prefix only | Reuse RO IRIs; align via `rdfs:subPropertyOf` / `owl:equivalentProperty` | Interoperable relations                |
 | **SKOS**   | Prefix only | Extensive                  | Core W3C vocabulary                    |
 | **SHACL**  | Prefix only | Validation language        | Not a domain ontology                  |
 
@@ -982,8 +995,8 @@ Every measurement must have:
 **Example:**
 
 ```turtle
-:SalmonSurvey2023 a eco:Survey ;
-    dwc:eventDate "2023-05-01/2023-09-30"^^xsd:gYear ;
+:SalmonSurvey2023 a dfo:SurveyEvent ;
+    dwc:eventDate "2023-05-01/2023-09-30"^^xsd:string ;
     dwc:samplingProtocol :DFOEscapementProtocol .
 
 :DailyCount2023_06_15 a dfo:EscapementSurveyEvent ;
@@ -1005,31 +1018,41 @@ Every measurement must have:
 - `dwc:Event` - Actions, processes, or circumstances occurring at a place and time
 - `dwc:Occurrence` - A state of an organism in an event
 - `dwc:Organism` - A particular organism or defined group of organisms
-- `dwc:MaterialSample` - Physical samples that can be identified and managed
+- `dwc:MaterialEntity` - Physical samples/material entities that can be identified and managed
 - `dwc:Identification` - Taxonomic determinations of organisms
 - [DwC-CM] `dwc:Assertion` (under review) - A generalized assertion (e.g., measurement/occurrence) with provenance
 - `dwc:Agent` - People, groups, organizations, machines, or software that can act
 - `dwc:Media` - Digital media (images, videos, sounds, text)
 - `dwc:Protocol` - Methods used during actions
 
+**Note:** Use `dwc:MaterialEntity` for physical samples/materials in this project; we do not use `dwc:MaterialSample` (not part of DwC-CM).
+
 **DFO Extensions:**
 
 ```turtle
-# DFO-specific classes that extend Darwin Core
-dfo:ManagementUnit rdfs:subClassOf dwc:Event ;
-    rdfs:label "Management Unit"@en ;
-    iao:0000115 "A geographic or administrative unit for salmon management"@en ;
+# DFO-specific classes that extend Darwin Core (observation-centric interoperability)
+dfo:SurveyEvent rdfs:subClassOf dwc:Event ;
+    rdfs:label "Survey event"@en ;
+    iao:0000115 "An event in which observations are made under a protocol at a place and time."@en ;
     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
-dfo:ConservationUnit rdfs:subClassOf dwc:Event ;
-    rdfs:label "Conservation Unit"@en ;
-    iao:0000115 "A biologically meaningful unit for conservation planning"@en ;
+dfo:EscapementSurveyEvent rdfs:subClassOf dfo:SurveyEvent ;
+    rdfs:label "Escapement Survey Event"@en ;
+    iao:0000115 "A survey event specifically for estimating escapement."@en ;
     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 dfo:Stock rdfs:subClassOf dwc:Organism ;
     rdfs:label "Stock"@en ;
-    iao:0000115 "A population of salmon with distinct characteristics"@en ;
+    iao:0000115 "A population of salmon with distinct characteristics."@en ;
     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+dfo:GeneticSample rdfs:subClassOf dwc:MaterialEntity ;
+    rdfs:label "Genetic Sample"@en ;
+    iao:0000115 "A material entity used in genetic stock identification analyses."@en ;
+    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+# Note: policy/reporting strata (e.g., CUs/SMUs) are information-defined groupings;
+# model them under an information-content-entity superclass rather than forcing them under dwc:Event.
 ```
 
 ---
@@ -1452,19 +1475,19 @@ SELECT ?method ?stock ?event WHERE {
 
 ```turtle
 # Option 1: Import RO and reuse directly
-# (Import RO ontology, then use ro:has_part directly)
+# (Import RO ontology, then use RO:0002351 directly)
 
 # Option 2: Create subproperty of RO relation
-:hasMember rdfs:subPropertyOf ro:has_part ;
+:hasMember rdfs:subPropertyOf <http://purl.obolibrary.org/obo/RO_0002351> ; # RO:0002351 has member
     rdfs:label "has member"@en ;
     iao:0000115 "A transitive relationship indicating membership in a group."@en .
 
 # Option 3: Map via equivalence
-:hasMember owl:equivalentProperty ro:has_part ;
+:hasMember owl:equivalentProperty <http://purl.obolibrary.org/obo/RO_0002351> ; # RO:0002351 has member
     rdfs:label "has member"@en .
 
 # Do NOT do this for alignment:
-# :hasMember rdfs:seeAlso ro:has_part .  # Wrong - seeAlso is not for alignment
+# :hasMember rdfs:seeAlso <http://purl.obolibrary.org/obo/RO_0002351> .  # Wrong - seeAlso is not for alignment
 ```
 
 **Implementation:**
@@ -1480,8 +1503,8 @@ SELECT ?method ?stock ?event WHERE {
 
 Practical guidance for new relationships:
 
-- Before minting a custom property like `partOfRiver`, prefer the generic RO property `ro:part_of` and model “river” via the class hierarchy (e.g., `dfo:RiverSegment`).
-- When a domain-specific refinement is needed, define a custom subproperty aligned to RO (e.g., `dfo:hasMemberCU rdfs:subPropertyOf ro:has_part`). This keeps reasoning consistent and improves interoperability.
+- Before minting a custom property like `partOfRiver`, prefer the generic OBO relation `<http://purl.obolibrary.org/obo/BFO_0000050>` (part of) and model “river” via the class hierarchy (e.g., `dfo:RiverSegment`).
+- When a domain-specific refinement is needed, define a custom subproperty aligned to RO (e.g., `dfo:hasMemberCU rdfs:subPropertyOf <http://purl.obolibrary.org/obo/RO_0002351>`). This keeps reasoning consistent and improves interoperability.
 
 **Unit Property Enhancement (Non-breaking):**
 For richer unit semantics, consider adding object properties alongside datatype properties:
@@ -1788,13 +1811,9 @@ robot annotate --input dfo-salmon.ttl --ontology-iri "https://w3id.org/gcdfo/sal
 
 **Essential Elements:**
 
-- **OWL terms**: Always use `rdfs:label` (required) and `IAO:0000115` (required) for definitions
-- **SKOS concepts**: Use `skos:prefLabel` (required), `skos:inScheme` (required), and `skos:definition` (recommended)
-- Use **OWL classes and properties** for formal structure and logical relationships
-- Use **SKOS** when you need a picklist or controlled vocabulary
-- Follow **Darwin Core** as your meta-framework for interoperability
-- **Codes**: Use `skos:notation` with typed literal, never in labels or identifiers
-- **Source links**: Use `dcterms:source` (IRI) for resolvable links, `IAO:0000119` (literal) for definition textual provenance
+- See [Quick Start Cheatsheet → Essential Elements](#essential-elements-canonical-checklist) for the canonical “what every term needs” checklist.
+- Use **OWL classes and properties** for formal structure and logical relationships; use **SKOS** when you need a picklist or controlled vocabulary.
+- Follow **Darwin Core** as your interoperability scaffold for observations (events/organisms/material entities), not as a forced upper ontology for everything.
 
 **Getting Started:**
 

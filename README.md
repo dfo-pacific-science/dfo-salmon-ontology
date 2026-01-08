@@ -68,7 +68,7 @@ The GC DFO Salmon Ontology is a **data stewardship and operational process ontol
 ## Development Workflow
 
 - **Single source of truth**: Edit and review `ontology/dfo-salmon.ttl` on a development branch; the draft file is only an idea bank and is not read by tests or term-table extraction.
-- **Theme navigation**: Tag every term with 1–3 `gcdfo:theme` values from `:ThemeScheme` directly in the canonical file; downstream term tables rely on these.
+- **Theme navigation**: Tag every term with 1–3 `gcdfo:theme` values from `gcdfo:ThemeScheme` directly in the canonical file; `gcdfo:ThemeScheme` and its member theme concepts are excluded from the missing-theme check; downstream term tables rely on the annotations.
 - **OBO-style workflow**: Use ROBOT for quality control and release management
 - **Pre-commit validation**: Install pre-commit hooks (`pre-commit install`) to validate ontology before commit
 - **CI validation**: Pushes/PRs run ROBOT ELK reasoning + ROBOT report (with custom profile)

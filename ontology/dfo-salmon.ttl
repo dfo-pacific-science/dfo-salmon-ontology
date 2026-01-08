@@ -50,7 +50,7 @@ skos:closeMatch    a owl:AnnotationProperty .
 
 gcdfo:theme a owl:AnnotationProperty ;
   rdfs:label "theme"@en ;
-  rdfs:comment "Associates OWL classes and SKOS concepts with high-level thematic concept schemes (e.g., Stock Assessment, GSI, Policy)." ;
+  rdfs:comment "Associates OWL classes and SKOS concepts with high-level thematic concept schemes (e.g., Stock Assessment, GSI, Policy)."@en ;
   gcdfo:theme gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
@@ -82,9 +82,10 @@ gcdfo:GeneticsStockCompositionTheme a skos:Concept ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:WildSalmonPolicyTheme a skos:Concept ;
-  skos:prefLabel "Wild Salmon Policy Theme" ;
+  skos:prefLabel "Wild Salmon Policy"@en ;
   skos:inScheme gcdfo:ThemeScheme ;
   skos:definition "Conservation Unit based stock assessment methods, metrics, and metadata"@en ;
+  gcdfo:theme gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:FisheriesManagementTheme a skos:Concept ;
@@ -128,18 +129,6 @@ gcdfo:DataModelProvenanceTheme a skos:Concept ;
   skos:definition "Data models, analytical workflows, provenance, quality dimensions, and metadata supporting salmon science."@en ;
   gcdfo:theme gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
-
-# Self-theming for navigation
-gcdfo:ThemeScheme gcdfo:theme gcdfo:DataModelProvenanceTheme .
-gcdfo:StockAssessmentTheme gcdfo:theme gcdfo:DataModelProvenanceTheme .
-gcdfo:MonitoringFieldWorkTheme gcdfo:theme gcdfo:DataModelProvenanceTheme .
-gcdfo:GeneticsStockCompositionTheme gcdfo:theme gcdfo:DataModelProvenanceTheme .
-gcdfo:FisheriesManagementTheme gcdfo:theme gcdfo:DataModelProvenanceTheme .
-gcdfo:SpeciesAtRiskRecoveryTheme gcdfo:theme gcdfo:DataModelProvenanceTheme .
-gcdfo:SalmonEnhancementHatcheriesTheme gcdfo:theme gcdfo:DataModelProvenanceTheme .
-gcdfo:HabitatEcosystemClimateTheme gcdfo:theme gcdfo:DataModelProvenanceTheme .
-gcdfo:PolicyGovernanceTheme gcdfo:theme gcdfo:DataModelProvenanceTheme .
-gcdfo:DataModelProvenanceTheme gcdfo:theme gcdfo:DataModelProvenanceTheme .
 
 #################################################################
 # Datatype declarations (XML Schema built-ins in use)
@@ -578,7 +567,7 @@ envo:00000234 a owl:Class ;
   skos:definition "Total, seasonal counts through fence or fishway; virtually no bypass. Simple, often single step analysis. Reliable resolution of between year differences >10% (in absolute units)."@en ;
   skos:inScheme :EstimateTypeScheme ;
   skos:broader :EstimateType ;
-  gcdfo:theme gcdfo:StockAssessmentTheme, DataModelProvenanceTheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 :Type2 a skos:Concept ;
@@ -586,7 +575,7 @@ envo:00000234 a owl:Class ;
   skos:definition "High effort (5 or more trips), standard methods (e.g. mark-recapture, serial counts for area under curve, etc.). Simple to complex multi-step, but always rigorous. Reliable resolution of between year differences >25% (in absolute units)."@en ;
   skos:inScheme :EstimateTypeScheme ;
   skos:broader :EstimateType ;
-  gcdfo:theme gcdfo:StockAssessmentTheme, DataModelProvenanceTheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 :Type3 a skos:Concept ;
@@ -594,7 +583,7 @@ envo:00000234 a owl:Class ;
   skos:definition "High effort (5 or more trips), standard methods (e.g. equal effort surveys executed by walk, swim, overflight, etc.). Simple to complex multi-step, but always rigorous. Reliable resolution of between year differences >25% (in relative units)."@en ;
   skos:inScheme :EstimateTypeScheme ;
   skos:broader :EstimateType ;
-  gcdfo:theme gcdfo:StockAssessmentTheme, DataModelProvenanceTheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 :Type4 a skos:Concept ;
@@ -602,7 +591,7 @@ envo:00000234 a owl:Class ;
   skos:definition "Low to moderate effort (1-4 trips), known survey method. Simple analysis by known methods. Reliable resolution of between year differences >200% (in relative units)."@en ;
   skos:inScheme :EstimateTypeScheme ;
   skos:broader :EstimateType ;
-  gcdfo:theme gcdfo:StockAssessmentTheme, DataModelProvenanceTheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 :Type5 a skos:Concept ;
@@ -610,7 +599,7 @@ envo:00000234 a owl:Class ;
   skos:definition "Low effort (e.g. 1 trip), use of vaguely defined, inconsistent or poorly executed methods. Unknown to ill defined; inconsistent or poorly executed. Uncertain numeric comparisons, but high reliability for presence or absence."@en ;
   skos:inScheme :EstimateTypeScheme ;
   skos:broader :EstimateType ;
-  gcdfo:theme gcdfo:StockAssessmentTheme, DataModelProvenanceTheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 :Type6 a skos:Concept ;
@@ -618,14 +607,14 @@ envo:00000234 a owl:Class ;
   skos:definition "Any of above methods. Not required for analysis. Moderate to high reliability for presence/absence."@en ;
   skos:inScheme :EstimateTypeScheme ;
   skos:broader :EstimateType ;
-  gcdfo:theme gcdfo:StockAssessmentTheme, DataModelProvenanceTheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 :EstimateType a skos:Concept ;
   skos:prefLabel "Estimate Type"@en ;
   skos:definition "Classification of escapement estimate quality based on Hyatt 1997 framework"@en ;
   skos:inScheme :EstimateTypeScheme ;
-  gcdfo:theme gcdfo:StockAssessmentTheme, DataModelProvenanceTheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 #################################################################
@@ -636,14 +625,14 @@ gcdfo:ObservedRateOrAbundance a owl:Class ;
   rdfs:label "Observed rate or abundance"@en ;
   iao:0000115 "A measurement datum representing an empirically observed rate, count, or abundance derived from monitoring or survey data."@en ; # definition
   rdfs:subClassOf iao:0000109 ; # measurement datum
-  gcdfo:theme gcdfo:StockAssessmentTheme, DataModelProvenanceTheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:TargetOrLimitRateOrAbundance a owl:Class ;
   rdfs:label "Target or limit rate or abundance"@en ;
   iao:0000115 "A value specification representing a policy- or model-defined target or limit, such as TAC, UMSY, or reference points."@en ; # definition
   rdfs:subClassOf iao:0000109 ; # measurement datum
-  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:PolicyGovernanceTheme, DataModelProvenanceTheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:PolicyGovernanceTheme, gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:ReportingOrManagementStratum a owl:Class ;
@@ -724,13 +713,12 @@ gcdfo:StockManagementUnit a owl:Class ;
 gcdfo:Escapement a owl:Class ;
   rdfs:label "Escapement"@en ;
   rdfs:subClassOf bfo:0000015 ; # process
-  iao:0000115 "The number of mature salmon that pass through (or escape) fisheries and return to fresh water to
-spawn."@en ; # definition
+  iao:0000115 "The number of mature salmon that pass through (or escape) fisheries and return to fresh water to spawn."@en ; # definition
   iao:0000119 "Fisheries and Oceans Canada. (2005). Canada's Policy for Conservation of Wild Pacific Salmon. Retrieved from https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf"@en ; # definition source
   dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf> ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
-  skose:closeMatch odo:SALMON_00000479 .
+  skos:closeMatch odo:SALMON_00000479 .
 
 gcdfo:SurveyEvent a owl:Class ;
   rdfs:label "Survey event"@en ;

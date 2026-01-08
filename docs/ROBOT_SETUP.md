@@ -19,7 +19,7 @@ robot convert --input ontology/dfo-salmon.ttl --output release/artifacts/dfo-sal
 
 ### Theme coverage (gcdfo:theme) check
 
-Run the pinned SPARQL check that enforces every term has 1–3 themes from `:ThemeScheme`:
+Run the pinned SPARQL check that enforces every term has 1–3 themes from `gcdfo:ThemeScheme` (excluding `gcdfo:ThemeScheme` and its member theme concepts):
 
 ```bash
 # From the repo root

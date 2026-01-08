@@ -3,7 +3,9 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
 # Reports ontology terms that are missing gcdfo:theme, exceed the 3-theme cap,
-# or reference a theme outside :ThemeScheme.
+# or reference a theme outside gcdfo:ThemeScheme.
+# Note: We intentionally exclude the theme scheme itself and its member theme
+# concepts from the "missing theme" check to avoid requiring themes to be themed.
 SELECT ?term ?issue ?themeCount
 WHERE {
   {
@@ -13,6 +15,8 @@ WHERE {
       FILTER(?type IN (owl:Class, owl:ObjectProperty, owl:DatatypeProperty, owl:AnnotationProperty, skos:Concept, skos:ConceptScheme)) .
       FILTER(!isBlank(?term)) .
       FILTER(STRSTARTS(STR(?term), "https://w3id.org/gcdfo/salmon#")) .
+      FILTER(?term != gcdfo:ThemeScheme) .
+      FILTER NOT EXISTS { ?term skos:inScheme gcdfo:ThemeScheme } .
       FILTER NOT EXISTS { ?term gcdfo:theme ?theme }
     }
   }

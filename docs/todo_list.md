@@ -842,11 +842,11 @@
 **File:** `ontology/dfo-salmon.ttl`
 
 - [ ] Update membership relations section comment (lines 1010-1020)
-- [ ] Add note: "Aligned with RO:0002131 (has_member) and RO:0002350 (member_of)"
+- [ ] Add note: "Aligned with RO:0002351 (has member) and RO:0002350 (member of)"
 - [ ] Add note: "Implemented as independent properties to avoid RO import overhead"
-- [ ] Add `rdfs:seeAlso <http://purl.obolibrary.org/obo/RO_0002131>` to `dfo:hasMember`
-- [ ] Add `rdfs:seeAlso <http://purl.obolibrary.org/obo/RO_0002350>` to `dfo:isMemberOf`
-- [ ] Update comment explaining semantic alignment without import
+- [ ] Add `rdfs:subPropertyOf <http://purl.obolibrary.org/obo/RO_0002351>` to `dfo:hasMember` (semantic alignment without importing RO)
+- [ ] Add `rdfs:subPropertyOf <http://purl.obolibrary.org/obo/RO_0002350>` to `dfo:isMemberOf` (semantic alignment without importing RO)
+- [ ] Keep `rdfs:seeAlso` only for human-facing links (documentation), not semantic alignment
 
 ---
 
