@@ -6,7 +6,7 @@ Thank you for your interest in contributing to the DFO Salmon Ontology! This doc
 
 1. **Read the documentation**:
    - [README.md](../README.md) - Project overview
-   - [PRODUCT_REQUIREMENTS.md](PRODUCT_REQUIREMENTS.md) - Product vision and requirements
+   - [README.md](../README.md) - Product vision and requirements
    - [COMPETENCY_QUESTIONS.md](COMPETENCY_QUESTIONS.md) - Project scope and goals
    - [CONVENTIONS.md](CONVENTIONS.md) - Modeling conventions and guidelines
 

@@ -105,3 +105,8 @@ docs/examples/
 docs/notes/
 docs/ontology_applications/
 docs/plans/
+.cursorignore
+docs/adr/0001.md
+docs/entrypoints.md
+docs/tech-debt.md
+docs/todo-list.md

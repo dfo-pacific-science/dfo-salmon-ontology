@@ -8,7 +8,7 @@ PREFIX dcterms: <http://purl.org/dc/terms/>
 
 SELECT DISTINCT ?term ?termLabel ?definition ?definitionSourceText ?definitionSourceLink ?related ?relatedLabel ?relation
 WHERE {
-  VALUES ?baseClass { <https://w3id.org/dfoc/salmon#GeneticSample> <https://w3id.org/dfoc/salmon#GSIRun> <https://w3id.org/dfoc/salmon#GSICompositionMeasurement> <https://w3id.org/dfoc/salmon#Assay> <https://w3id.org/dfoc/salmon#MarkerPanel> <https://w3id.org/dfoc/salmon#ReportingOrManagementStratum> }
+  VALUES ?baseClass { <https://w3id.org/gcdfo/salmon#GeneticSample> <https://w3id.org/gcdfo/salmon#GSIRun> <https://w3id.org/gcdfo/salmon#GSICompositionMeasurement> <https://w3id.org/gcdfo/salmon#Assay> <https://w3id.org/gcdfo/salmon#MarkerPanel> <https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum> }
   # Include base classes and all their subclasses (transitive closure)
   # The * means zero or more steps, so it includes the base class itself
   ?term rdfs:subClassOf* ?baseClass .

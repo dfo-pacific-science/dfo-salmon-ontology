@@ -1,11 +1,11 @@
 {
   "theme": "genetics_stock_composition",
   "label": "Genetics and Stock Composition",
-  "theme_iri": "https://w3id.org/gcdfos/salmon#GeneticsStockCompositionTheme",
+  "theme_iri": "https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme",
   "row_count": 1,
-  "source_version": "696f78a84b4feb1ce5aa2db4e7a81826004adade",
-  "source_timestamp": "2025-12-08T05:01:23.559433+00:00",
-  "query_checksum": "adb4a46fe25add3ef992607d6a2c7315c37f83c8b02bea14b833cf77a511fe69",
-  "generated_at": "2025-12-08T05:01:23.701188+00:00",
+  "source_version": "16c2e13d2f5bcf6bb473fd168e2bca74daf206e0",
+  "source_timestamp": "2025-12-16T22:14:38.625018+00:00",
+  "query_checksum": "5f7c476a5c3e22e3cd3773ba1107e3d700e42814f02dd3429f405d6a1462e752",
+  "generated_at": "2025-12-16T22:14:38.782613+00:00",
   "source_file": "/Users/brettjohnson/code/dfo-salmon-ontology/ontology/dfo-salmon.ttl"
 }

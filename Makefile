@@ -6,7 +6,7 @@ ROBOT_JAR := tools/robot.jar
 ROBOT_URL := https://github.com/ontodev/robot/releases/download/v$(ROBOT_VERSION)/robot.jar
 DSU_ONTOLOGY_DIR ?= ../data-stewardship-unit/data/ontology
 
-.PHONY: help quality-check reason convert clean install-robot publish-clean dsu-sync-term-tables dsu-sync-and-stage
+.PHONY: help quality-check reason convert clean install-robot publish-clean dsu-sync-term-tables dsu-sync-and-stage theme-coverage test
 
 # Default target
 help:
@@ -16,6 +16,8 @@ help:
 	@echo "  quality-check    Run ROBOT quality check with proper configuration"
 	@echo "  reason          Run OWL reasoner (ELK) to check logical consistency"
 	@echo "  reason-all      Run all available reasoners (ELK, HermiT, JFact)"
+	@echo "  theme-coverage  Run gcdfo:theme coverage SPARQL check (writes release/tmp/theme-coverage.tsv)"
+	@echo "  test            Run fast validation bundle: theme-coverage + ELK reasoning"
 	@echo ""
 	@echo "Format Conversion:"
 	@echo "  convert-owl     Convert to OWL format"
@@ -24,10 +26,6 @@ help:
 	@echo "Setup:"
 	@echo "  install-robot   Download ROBOT JAR file"
 	@echo "  clean          Remove generated files"
-	@echo "  publish-validate  Validate publish-ready metadata"
-	@echo "  publish-slice     Generate publish slice (PublishReady terms only)"
-	@echo "  publish-clean     Remove publish temp artifacts (release/tmp/*)"
-	@echo "  publish-and-extract  Run publish slice, validations, and term-table extraction"
 	@echo "  dsu-sync-term-tables Sync term tables into DSU submodule (DSU_ONTOLOGY_DIR)"
 	@echo "  dsu-sync-and-stage  Sync term tables and stage DSU submodule (if clean)"
 	@echo ""
@@ -79,6 +77,22 @@ convert-json:
 		--output release/artifacts/dfo-salmon.jsonld
 	@echo "✅ JSON-LD conversion completed."
 
+theme-coverage: check-robot
+	@echo "🔎 Running theme coverage check..."
+	@mkdir -p release/tmp
+	@java -jar $(ROBOT_JAR) query \
+		--input ontology/dfo-salmon.ttl \
+		--query scripts/sparql/theme-coverage.rq \
+		release/tmp/theme-coverage.tsv
+	@if [ -s release/tmp/theme-coverage.tsv ]; then \
+		echo "⚠️ Theme coverage found issues. Inspect release/tmp/theme-coverage.tsv."; \
+	else \
+		echo "✅ Theme coverage clean (release/tmp/theme-coverage.tsv is empty)."; \
+	fi
+
+test: theme-coverage reason
+	@echo "✅ Test bundle completed (theme coverage + ELK reasoning)."
+
 # Setup
 install-robot:
 	@echo "📥 Downloading ROBOT..."
@@ -102,71 +116,6 @@ clean:
 	@rm -rf release/artifacts/*.html
 	@rm -rf release/artifacts/*.log
 	@echo "✅ Cleanup completed."
-
-# Publish-ready validation (checks metadata for PublishReady terms)
-publish-validate: check-robot
-	@mkdir -p release/tmp
-	@java -jar $(ROBOT_JAR) query \
-		--input draft/dfo-salmon-draft.ttl \
-		--query scripts/sparql/publish-ready-metadata.rq \
-		release/tmp/publish-ready-metadata.tsv
-	@if [ -s release/tmp/publish-ready-metadata.tsv ] && [ $$(wc -l < release/tmp/publish-ready-metadata.tsv) -gt 1 ]; then \
-		echo "❌ PublishReady metadata issues found:"; \
-		cat release/tmp/publish-ready-metadata.tsv; \
-		exit 1; \
-	else \
-		echo "✅ No PublishReady metadata issues detected"; \
-	fi
-
-# Publish slice generation (extract PublishReady terms, strip publicationStatus) -> ontology/dfo-salmon.ttl
-publish-slice: check-robot
-	@mkdir -p release/tmp
-	@java -jar $(ROBOT_JAR) query \
-		--input draft/dfo-salmon-draft.ttl \
-		--query scripts/sparql/publish-ready-terms.rq \
-		release/tmp/publish-ready-terms.tsv
-	@tail -n +2 release/tmp/publish-ready-terms.tsv | cut -f1 | sed 's/[<>]//g' > release/tmp/publish-ready-terms.txt || true
-	@TERMCOUNT=$$(grep -c '[^[:space:]]' release/tmp/publish-ready-terms.txt || true); \
-	if [ "$$TERMCOUNT" -eq 0 ]; then \
-		echo "⚠️  No PublishReady terms found; writing empty publish slice."; \
-		echo "# Empty publish slice (no terms marked PublishReady)" > release/tmp/dfoc-core.ttl; \
-	else \
-		if java -jar $(ROBOT_JAR) extract \
-			--method STAR \
-			--input draft/dfo-salmon-draft.ttl \
-			--term-file release/tmp/publish-ready-terms.txt \
-			--output release/tmp/dfoc-core.raw.ttl; then \
-			python -c "from rdflib import Graph, URIRef; from rdflib.namespace import RDF, RDFS, OWL; ONT='https://w3id.org/gcdfos/salmon'; PUB='https://w3id.org/gcdfos/salmon#publicationStatus'; EXTRA_PREFIXES={'gcdfos':'https://w3id.org/gcdfos/salmon#','bfo':'http://purl.obolibrary.org/obo/BFO_','dwc':'http://rs.tdwg.org/dwc/terms/','dwciri':'http://rs.tdwg.org/dwc/iri/','qudt':'http://qudt.org/schema/qudt/','qudtunit':'http://qudt.org/vocab/unit/','oa':'http://www.w3.org/ns/oa#','envo':'http://purl.obolibrary.org/obo/ENVO_'}; d=Graph(); d.parse('draft/dfo-salmon-draft.ttl', format='turtle'); s=Graph(); s.parse('release/tmp/dfoc-core.raw.ttl', format='turtle'); pub=URIRef(PUB); ont=URIRef(ONT); [s.remove(t) for t in list(s.triples((None,pub,None)))]; out=Graph(); [out.bind(p,n) for p,n in d.namespaces()]; [out.bind(p, URIRef(u)) for p,u in EXTRA_PREFIXES.items()]; out+=s; [out.remove(t) for t in list(out.triples((ont,None,None)))]; [out.add(t) for t in d.triples((ont,None,None)) if t[1]!=pub]; [out.add(t) for t in d.triples((None,RDF.type,OWL.AnnotationProperty))]; [out.add(t) for t in d.triples((None,RDF.type,RDFS.Datatype))]; [out.add(t) for t in d.triples((ont,OWL.imports,None))]; out.serialize('release/tmp/dfoc-core.ttl', format='turtle')" ; \
-			rm -f release/tmp/dfoc-core.raw.ttl; \
-			echo "✅ Publish slice generated at release/tmp/dfoc-core.ttl (publicationStatus stripped, header restored)"; \
-		else \
-			echo "⚠️  Publish slice extraction failed; writing empty publish slice."; \
-			echo "# Empty publish slice (extraction failed)" > release/tmp/dfoc-core.ttl; \
-		fi; \
-	fi
-	@if [ -s release/tmp/dfoc-core.ttl ] && ! grep -q "Empty publish slice" release/tmp/dfoc-core.ttl; then \
-		cp release/tmp/dfoc-core.ttl ontology/dfo-salmon.ttl.tmp && mv ontology/dfo-salmon.ttl.tmp ontology/dfo-salmon.ttl; \
-		echo "✅ Synced publish slice to ontology/dfo-salmon.ttl (master copy)"; \
-		$(MAKE) reason; \
-		./scripts/robot-quality-check.sh; \
-	else \
-		echo "ℹ️ Publish slice empty; leaving ontology/dfo-salmon.ttl unchanged."; \
-	fi
-
-# Publish, then extract term tables (skips extraction if slice is empty)
-publish-and-extract: publish-slice
-	@if [ -s release/tmp/dfoc-core.ttl ] && ! grep -q "Empty publish slice" release/tmp/dfoc-core.ttl; then \
-		echo "▶️  Running term-table extraction against ontology/dfo-salmon.ttl"; \
-		python scripts/extract-term-tables.py; \
-	else \
-		echo "ℹ️ Publish slice empty; skipping extraction."; \
-	fi
-
-# Remove publish temp artifacts
-publish-clean:
-	@echo "🧹 Cleaning publish temp artifacts..."
-	@rm -f release/tmp/publish-ready-terms.tsv release/tmp/publish-ready-terms.txt release/tmp/publish-ready-metadata.tsv release/tmp/dfoc-core.raw.ttl release/tmp/dfoc-core.ttl
-	@echo "✅ Temp artifacts removed from release/tmp/"
 
 # Sync term tables into DSU submodule (local)
 dsu-sync-term-tables:

@@ -1,11 +1,11 @@
 {
   "theme": "habitat_ecosystem_climate",
   "label": "Habitat, Ecosystem, and Climate Pressures",
-  "theme_iri": "https://w3id.org/gcdfos/salmon#HabitatEcosystemClimateTheme",
-  "row_count": 2,
-  "source_version": "696f78a84b4feb1ce5aa2db4e7a81826004adade",
-  "source_timestamp": "2025-12-08T05:01:23.559433+00:00",
-  "query_checksum": "cacbe77d57ad588638c5763f53fbce34aed98ea600a42cc0b7450b1c3b35bb0c",
-  "generated_at": "2025-12-08T05:01:23.879703+00:00",
+  "theme_iri": "https://w3id.org/gcdfo/salmon#HabitatEcosystemClimateTheme",
+  "row_count": 3,
+  "source_version": "16c2e13d2f5bcf6bb473fd168e2bca74daf206e0",
+  "source_timestamp": "2025-12-16T22:14:38.625018+00:00",
+  "query_checksum": "4aa857cc80b640015644a0fcc9b923a2d191387d29c35d96655a7f18dbff6a59",
+  "generated_at": "2025-12-16T22:14:38.963986+00:00",
   "source_file": "/Users/brettjohnson/code/dfo-salmon-ontology/ontology/dfo-salmon.ttl"
 }
