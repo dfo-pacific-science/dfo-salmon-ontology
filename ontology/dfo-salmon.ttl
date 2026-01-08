@@ -42,6 +42,104 @@ skos:inScheme      a owl:AnnotationProperty .
 skos:hasTopConcept a owl:AnnotationProperty .
 skos:broader       a owl:AnnotationProperty .
 skos:exactMatch    a owl:AnnotationProperty .
+skos:closeMatch    a owl:AnnotationProperty .
+
+#################################################################
+# Annotation Properties for Thematic Organization
+#################################################################
+
+gcdfo:theme a owl:AnnotationProperty ;
+  rdfs:label "theme"@en ;
+  rdfs:comment "Associates OWL classes and SKOS concepts with high-level thematic concept schemes (e.g., Stock Assessment, GSI, Policy)." ;
+  gcdfo:theme gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:ThemeScheme a skos:ConceptScheme ;
+  skos:prefLabel "Theme Scheme"@en ;
+  skos:definition "High-level thematic concept scheme for organizing DFO Salmon Ontology classes and concepts."@en ;
+  gcdfo:theme gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:StockAssessmentTheme a skos:Concept ;
+  skos:prefLabel "Stock Assessment"@en ;
+  skos:inScheme gcdfo:ThemeScheme ;
+  skos:definition "Stock assessment models, benchmarks, status determinations, and performance metrics for salmon units."@en ;
+  gcdfo:theme gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:MonitoringFieldWorkTheme a skos:Concept ;
+  skos:prefLabel "Monitoring and Field Work"@en ;
+  skos:inScheme gcdfo:ThemeScheme ;
+  skos:definition "Field observations, sampling protocols, survey events, gear, and measurement methods used to collect salmon data."@en ;
+  gcdfo:theme gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:GeneticsStockCompositionTheme a skos:Concept ;
+  skos:prefLabel "Genetics and Stock Composition"@en ;
+  skos:inScheme gcdfo:ThemeScheme ;
+  skos:definition "Genetic markers, assays, and analyses used to infer stock composition, parentage, and population structure."@en ;
+  gcdfo:theme gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:WildSalmonPolicyTheme a skos:Concept ;
+  skos:prefLabel "Wild Salmon Policy Theme" ;
+  skos:inScheme gcdfo:ThemeScheme ;
+  skos:definition "Conservation Unit based stock assessment methods, metrics, and metadata"@en ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:FisheriesManagementTheme a skos:Concept ;
+  skos:prefLabel "Fisheries Management"@en ;
+  skos:inScheme gcdfo:ThemeScheme ;
+  skos:definition "Fishery openings, harvest control rules, catch/effort measures, and exploitation monitoring for salmon fisheries."@en ;
+  gcdfo:theme gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:SpeciesAtRiskRecoveryTheme a skos:Concept ;
+  skos:prefLabel "Species at Risk and Recovery"@en ;
+  skos:inScheme gcdfo:ThemeScheme ;
+  skos:definition "COSEWIC/SARA recovery planning, critical habitat, threats, and status assessments for species of conservation concern."@en ;
+  gcdfo:theme gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:SalmonEnhancementHatcheriesTheme a skos:Concept ;
+  skos:prefLabel "Salmon Enhancement and Hatcheries"@en ;
+  skos:inScheme gcdfo:ThemeScheme ;
+  skos:definition "Hatchery production, broodstock management, releases, and enhancement program practices for salmon."@en ;
+  gcdfo:theme gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:HabitatEcosystemClimateTheme a skos:Concept ;
+  skos:prefLabel "Habitat, Ecosystem, and Climate Pressures"@en ;
+  skos:inScheme gcdfo:ThemeScheme ;
+  skos:definition "Habitat attributes, ecosystem conditions, and climate or environmental stressors affecting salmon."@en ;
+  gcdfo:theme gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:PolicyGovernanceTheme a skos:Concept ;
+  skos:prefLabel "Policy, Governance, and Organizational Structure"@en ;
+  skos:inScheme gcdfo:ThemeScheme ;
+  skos:definition "DFO policy frameworks, governance, regulations, and organizational structure relevant to salmon management."@en ;
+  gcdfo:theme gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:DataModelProvenanceTheme a skos:Concept ;
+  skos:prefLabel "Data, Models, and Provenance"@en ;
+  skos:inScheme gcdfo:ThemeScheme ;
+  skos:definition "Data models, analytical workflows, provenance, quality dimensions, and metadata supporting salmon science."@en ;
+  gcdfo:theme gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+# Self-theming for navigation
+gcdfo:ThemeScheme gcdfo:theme gcdfo:DataModelProvenanceTheme .
+gcdfo:StockAssessmentTheme gcdfo:theme gcdfo:DataModelProvenanceTheme .
+gcdfo:MonitoringFieldWorkTheme gcdfo:theme gcdfo:DataModelProvenanceTheme .
+gcdfo:GeneticsStockCompositionTheme gcdfo:theme gcdfo:DataModelProvenanceTheme .
+gcdfo:FisheriesManagementTheme gcdfo:theme gcdfo:DataModelProvenanceTheme .
+gcdfo:SpeciesAtRiskRecoveryTheme gcdfo:theme gcdfo:DataModelProvenanceTheme .
+gcdfo:SalmonEnhancementHatcheriesTheme gcdfo:theme gcdfo:DataModelProvenanceTheme .
+gcdfo:HabitatEcosystemClimateTheme gcdfo:theme gcdfo:DataModelProvenanceTheme .
+gcdfo:PolicyGovernanceTheme gcdfo:theme gcdfo:DataModelProvenanceTheme .
+gcdfo:DataModelProvenanceTheme gcdfo:theme gcdfo:DataModelProvenanceTheme .
 
 #################################################################
 # Datatype declarations (XML Schema built-ins in use)
@@ -63,7 +161,7 @@ xsd:anyURI   a rdfs:Datatype .
 # TODO(Release): Update dcterms:modified and owl:versionInfo/IRI on each release.
 #
 # DARWIN CORE CONCEPTUAL MODEL (DwC-CM) IMPLEMENTATION:
-# This ontology plans to implement the Darwin Core Conceptual Model (DwC-CM) 
+# This ontology plans to implement the Darwin Core Conceptual Model (DwC-CM)
 # patterns once they are published. We will propose to:
 # - Use dwc:Assertion for measurement classes (replacing dwc:MeasurementOrFact)
 # - Use dwc:Occurrence for individual organism observations (when applicable)
@@ -328,75 +426,87 @@ envo:00000234 a owl:Class ;
   skos:prefLabel "Enumeration Method Scheme"@en ;
   skos:hasTopConcept :EnumerationMethod ;
   skos:definition "Controlled vocabulary for salmon enumeration methods"@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 :EstimateMethodScheme a skos:ConceptScheme ;
   skos:prefLabel "Estimate Method Scheme"@en ;
   skos:hasTopConcept :EstimateMethod ;
   skos:definition "Controlled vocabulary for salmon estimate methods"@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 :DowngradeCriteriaScheme a skos:ConceptScheme ;
   skos:prefLabel "Downgrade Criteria Scheme"@en ;
   skos:hasTopConcept :DowngradeCriteria ;
   skos:definition "Controlled vocabulary for estimate type downgrade criteria"@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 :EstimateTypeScheme a skos:ConceptScheme ;
   skos:prefLabel "Estimate Type Scheme"@en ;
   skos:hasTopConcept :EstimateType ;
   skos:definition "Controlled vocabulary for Hyatt 1997 estimate types"@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 :SalmonOriginScheme a skos:ConceptScheme ;
   skos:prefLabel "Salmon Origin Scheme"@en ;
   skos:definition "Controlled vocabulary for describing the origin of individual salmon (e.g., natural-origin, hatchery-origin, mixed-origin)."@en ;
+  gcdfo:theme gcdfo:SalmonEnhancementHatcheriesTheme, gcdfo:StockAssessmentTheme, gcdfo:GeneticsStockCompositionTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 :StockStatusZoneScheme a skos:ConceptScheme ;
   skos:prefLabel "Stock Status Zone Scheme"@en ;
   skos:hasTopConcept :StockStatusZone ;
   skos:definition "Controlled vocabulary for stock status zones under the Precautionary Approach."@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:FisheriesManagementTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 :COSEWICStatusScheme a skos:ConceptScheme ;
   skos:prefLabel "COSEWIC Status Scheme"@en ;
   skos:hasTopConcept :COSEWICStatusCategory ;
   skos:definition "Controlled vocabulary for COSEWIC statuses"@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:SpeciesAtRiskRecoveryTheme, gcdfo:PolicyGovernanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 :WSPBiologicalStatusZoneScheme a skos:ConceptScheme ;
   skos:prefLabel "Wild Salmon Policy Status Zone"@en ;
   skos:hasTopConcept :WSPBiologicalStatusZone ;
   skos:definition "Controlled vocabulary for biological status zones under the Wild Salmon Policy."@en ;
+  gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:PolicyGovernanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 :BiologicalBenchmarkAndIndicatorScheme a skos:ConceptScheme ;
   skos:prefLabel "Biological Benchmark and Indicator Scheme"@en ;
   skos:hasTopConcept :TargetOrLimitRateOrAbundance ;
   skos:definition "Controlled vocabulary for key biological benchmarks, performance indicators, and reference points used in salmon stock assessment and management (e.g., SMSY, Sgen, spawner abundance)."@en ;
+  gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 :WSPMetricScheme a skos:ConceptScheme ;
   skos:prefLabel "Wild Salmon Policy metric scheme"@en ;
   skos:hasTopConcept gcdfo:WSPMetric ;
   skos:definition "Controlled vocabulary for the Wild Salmon Policy rapid-status metrics and related analytical concepts."@en ;
+  gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:PolicyGovernanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 :RapidStatusConfidenceScheme a skos:ConceptScheme ;
   skos:prefLabel "Rapid status confidence scheme"@en ;
   skos:definition "Controlled vocabulary for categorical confidence ratings attached to rapid status assessments."@en ;
   skos:hasTopConcept gcdfo:ConfidenceCategory ;
+  gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 #################################################################
-# SKOS Enumeration Methods 
+# SKOS Enumeration Methods
 #################################################################
 
 :EnumerationMethod a skos:Concept ;
   skos:prefLabel "Enumeration Method"@en ;
   skos:definition "A method used to enumerate or count salmon in the field"@en ;
   skos:inScheme :EnumerationMethodScheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 :CensusByManualCountAtFixedSite a skos:Concept ;
@@ -404,6 +514,7 @@ envo:00000234 a owl:Class ;
   skos:definition "Salmon are guided through a controlled opening in a fence/weir where trained observers visually tally each passage event on a continuous or daily schedule. Counting chambers/windows and SIL/SEN daily logs document coverage; bypass routes are monitored and closed where possible."@en ;
   skos:inScheme :EnumerationMethodScheme ;
   skos:broader :EnumerationMethod ;
+  gcdfo:theme gcdfo:MonitoringFieldWorkTheme, gcdfo:StockAssessmentTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 :VisualSnorkelCount a skos:Concept ;
@@ -411,6 +522,7 @@ envo:00000234 a owl:Class ;
   skos:definition "Two or more trained snorkelers conduct standardized passes within defined segments, tallying live/dead by species. Field forms capture visibility class, segment boundaries, and repeat‑visit schedule; counts are aggregated across observers/passes."@en ;
   skos:inScheme :EnumerationMethodScheme ;
   skos:broader :EnumerationMethod ;
+  gcdfo:theme gcdfo:MonitoringFieldWorkTheme, gcdfo:StockAssessmentTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 :AerialSurveyCount a skos:Concept ;
@@ -418,10 +530,11 @@ envo:00000234 a owl:Class ;
   skos:definition "Repeated overflights enumerate visible spawners over defined waterbodies using helicopter fixed wing or drone platforms. Flight lines altitude sensor settings and ground sampling distance are documented and imagery may be reviewed post flight."@en ;
   skos:inScheme :EnumerationMethodScheme ;
   skos:broader :EnumerationMethod ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 #################################################################
-# SKOS Estimate Methods 
+# SKOS Estimate Methods
 #################################################################
 
 :FixedStationTally a skos:Concept ;
@@ -429,6 +542,7 @@ envo:00000234 a owl:Class ;
   skos:definition "Seasonal total = roll‑up of daily/continuous counts from a fixed (non‑sonar) station; simple arithmetic with documented coverage."@en ;
   skos:inScheme :EstimateMethodScheme ;
   skos:broader :EstimateMethod ;
+  gcdfo:theme gcdfo:MonitoringFieldWorkTheme, gcdfo:StockAssessmentTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 :AreaUnderTheCurve a skos:Concept ;
@@ -437,6 +551,7 @@ envo:00000234 a owl:Class ;
   skos:definition "Integrates serial counts over time using a survey‑life parameter; may apply observer efficiency."@en ;
   skos:inScheme :EstimateMethodScheme , :EnumerationMethodScheme;
   skos:broader :EstimateMethod , :EnumerationMethod ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 :PeakCountAnalysis a skos:Concept ;
@@ -444,16 +559,18 @@ envo:00000234 a owl:Class ;
   skos:definition "Uses the peak survey (live ± dead variants) as the season estimate/index."@en ;
   skos:inScheme :EstimateMethodScheme ;
   skos:broader :EstimateMethod ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 :EstimateMethod a skos:Concept ;
   skos:prefLabel "Estimate Method"@en ;
   skos:definition "A method used to analyze and estimate salmon abundance from enumeration data"@en ;
   skos:inScheme :EstimateMethodScheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 #################################################################
-# SKOS Estimate Types 
+# SKOS Estimate Types
 #################################################################
 
 :Type1 a skos:Concept ;
@@ -461,6 +578,7 @@ envo:00000234 a owl:Class ;
   skos:definition "Total, seasonal counts through fence or fishway; virtually no bypass. Simple, often single step analysis. Reliable resolution of between year differences >10% (in absolute units)."@en ;
   skos:inScheme :EstimateTypeScheme ;
   skos:broader :EstimateType ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 :Type2 a skos:Concept ;
@@ -468,6 +586,7 @@ envo:00000234 a owl:Class ;
   skos:definition "High effort (5 or more trips), standard methods (e.g. mark-recapture, serial counts for area under curve, etc.). Simple to complex multi-step, but always rigorous. Reliable resolution of between year differences >25% (in absolute units)."@en ;
   skos:inScheme :EstimateTypeScheme ;
   skos:broader :EstimateType ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 :Type3 a skos:Concept ;
@@ -475,6 +594,7 @@ envo:00000234 a owl:Class ;
   skos:definition "High effort (5 or more trips), standard methods (e.g. equal effort surveys executed by walk, swim, overflight, etc.). Simple to complex multi-step, but always rigorous. Reliable resolution of between year differences >25% (in relative units)."@en ;
   skos:inScheme :EstimateTypeScheme ;
   skos:broader :EstimateType ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 :Type4 a skos:Concept ;
@@ -482,6 +602,7 @@ envo:00000234 a owl:Class ;
   skos:definition "Low to moderate effort (1-4 trips), known survey method. Simple analysis by known methods. Reliable resolution of between year differences >200% (in relative units)."@en ;
   skos:inScheme :EstimateTypeScheme ;
   skos:broader :EstimateType ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 :Type5 a skos:Concept ;
@@ -489,6 +610,7 @@ envo:00000234 a owl:Class ;
   skos:definition "Low effort (e.g. 1 trip), use of vaguely defined, inconsistent or poorly executed methods. Unknown to ill defined; inconsistent or poorly executed. Uncertain numeric comparisons, but high reliability for presence or absence."@en ;
   skos:inScheme :EstimateTypeScheme ;
   skos:broader :EstimateType ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 :Type6 a skos:Concept ;
@@ -496,12 +618,14 @@ envo:00000234 a owl:Class ;
   skos:definition "Any of above methods. Not required for analysis. Moderate to high reliability for presence/absence."@en ;
   skos:inScheme :EstimateTypeScheme ;
   skos:broader :EstimateType ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 :EstimateType a skos:Concept ;
   skos:prefLabel "Estimate Type"@en ;
   skos:definition "Classification of escapement estimate quality based on Hyatt 1997 framework"@en ;
   skos:inScheme :EstimateTypeScheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 #################################################################
@@ -512,18 +636,21 @@ gcdfo:ObservedRateOrAbundance a owl:Class ;
   rdfs:label "Observed rate or abundance"@en ;
   iao:0000115 "A measurement datum representing an empirically observed rate, count, or abundance derived from monitoring or survey data."@en ; # definition
   rdfs:subClassOf iao:0000109 ; # measurement datum
+  gcdfo:theme gcdfo:StockAssessmentTheme, DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:TargetOrLimitRateOrAbundance a owl:Class ;
   rdfs:label "Target or limit rate or abundance"@en ;
   iao:0000115 "A value specification representing a policy- or model-defined target or limit, such as TAC, UMSY, or reference points."@en ; # definition
   rdfs:subClassOf iao:0000109 ; # measurement datum
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:PolicyGovernanceTheme, DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:ReportingOrManagementStratum a owl:Class ;
   rdfs:label "Reporting or management stratum"@en ;
   iao:0000115 "An information-defined grouping of fish populations used for reporting, conservation assessment, or management purposes. Examples include Conservation Units (CUs), Stock Management Units (MUs), and Designatable Units (DUs)."@en ; # definition
   rdfs:subClassOf iao:0000030 ; # information content entity
+  gcdfo:theme gcdfo:PolicyGovernanceTheme, gcdfo:StockAssessmentTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 #################################################################
@@ -533,6 +660,7 @@ gcdfo:ReportingOrManagementStratum a owl:Class ;
 gcdfo:YearBasis a owl:Class ;
   rdfs:label "Year basis"@en ;
   iao:0000115 "A year-based temporal reference used to contextualize measurements or rates (e.g., brood year or catch year)."@en ; # definition
+  gcdfo:theme gcdfo:StockAssessmentTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:BroodYear a owl:Class ;
@@ -541,14 +669,16 @@ gcdfo:BroodYear a owl:Class ;
   iao:0000115 "The year that a cohort of salmon spawns."@en ; # definition
   iao:0000119 "Adapted from the Government of Canada Pacific Salmon Glossary"@en ; # definition source
   dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html> ;
-  skos:exactMatch odo:SALMON_00000520 ; # "Brood Year" from NCEAS Salmon Ontology (ODO)
+  skos:closeMatch odo:SALMON_00000520 ; # "Brood Year" from NCEAS Salmon Ontology (ODO)
   rdfs:comment "The parental year for a group of returning salmon, i.e. the calendar year when the majority of parents of these fish spawned."@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:CatchYear a owl:Class ;
   rdfs:label "Catch year"@en ;
   rdfs:subClassOf gcdfo:YearBasis ;
   iao:0000115 "The calendar year in which returning salmon are caught in fisheries (as opposed to the brood year in which the cohort was spawned)."@en ; # definition
+  gcdfo:theme gcdfo:StockAssessmentTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:Stock a owl:Class ;
@@ -558,14 +688,15 @@ gcdfo:Stock a owl:Class ;
   dcterms:source <https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html> ;
   rdfs:subClassOf dwc:Organism ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
-  skos:altLabel "Fish stock type"@en ;
-  rdfs:seeAlso odo:SALMON_00000639 .
+  skos:altLabel "Fish stock"@en ;
+  gcdfo:theme gcdfo:PolicyGovernanceTheme, gcdfo:StockAssessmentTheme .
 
 gcdfo:StockAssessment a owl:Class ;
   rdfs:label "Stock assessment"@en ;
   rdfs:subClassOf bfo:0000015 ; # process
-  iao:0000115 "The scientific process of analyzing data to estimate the abundance and productivity of fish stocks in the past, present, and future. It is the backbone of successful science-based fisheries management."@en ; # definition
-  iao:0000119 "Fisheries and Oceans Canada. (2024). Introduction to Stock Assessment. Available at https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/module-1/09-eng.html [Accessed 10-28-2025]."@en ; # definition source
+  iao:0000115 "The scientific process of analyzing data to estimate the abundance and productivity of fish stocks in the past, present, and future. It is the backbone of successful science-based fisheries management"@en ; # definition
+  iao:0000119 "Fisheries and Oceans Canada. (2024). Introduction to Stock Assessment. Available at https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/module-1/09-eng.html"@en ; # definition source
+  gcdfo:theme gcdfo:StockAssessmentTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:ConservationUnit a owl:Class ;
@@ -576,6 +707,7 @@ gcdfo:ConservationUnit a owl:Class ;
   rdfs:subClassOf gcdfo:ReportingOrManagementStratum ;
   dcterms:isPartOf <urn:ISBN:0662405382> ;
   iao:0000119 "Fisheries and Oceans Canada. (2005). Canada's Policy for Conservation of Wild Pacific Salmon. Retrieved from https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf."@en ; # definition source
+  gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:SalmonEnhancementHatcheriesTheme, gcdfo:PolicyGovernanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:StockManagementUnit a owl:Class ;
@@ -586,36 +718,42 @@ gcdfo:StockManagementUnit a owl:Class ;
   rdfs:subClassOf gcdfo:ReportingOrManagementStratum ;
   skos:altLabel "SMU"@en ;
   iao:0000119 "Fisheries and Oceans Canada. (2024). Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html. [Accessed 09-10-2025]."@en ; # definition source
+  gcdfo:theme gcdfo:FisheriesManagementTheme, gcdfo:StockAssessmentTheme, gcdfo:PolicyGovernanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:Escapement a owl:Class ;
   rdfs:label "Escapement"@en ;
   rdfs:subClassOf bfo:0000015 ; # process
-  iao:0000115 "The process by which mature salmon pass through (or escape) fisheries and return to fresh water to spawn."@en ; # definition
-  dcterms:isPartOf <urn:ISBN:0662405382> ;
-  iao:0000119 "Fisheries and Oceans Canada. (2005). Canada's Policy for Conservation of Wild Pacific Salmon. Retrieved from https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf."@en ; # definition source
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+  iao:0000115 "The number of mature salmon that pass through (or escape) fisheries and return to fresh water to
+spawn."@en ; # definition
+  iao:0000119 "Fisheries and Oceans Canada. (2005). Canada's Policy for Conservation of Wild Pacific Salmon. Retrieved from https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf"@en ; # definition source
+  dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf> ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+  skose:closeMatch odo:SALMON_00000479 .
 
 gcdfo:SurveyEvent a owl:Class ;
   rdfs:label "Survey event"@en ;
   iao:0000115 "A field event that collects information about key fish stocks to track their status, and track progress to implement fishery policies and measures for these stocks."@en ; # definition
   rdfs:subClassOf dwc:Event ;
   iao:0000119 "Fisheries and Oceans Canada. (2021). About the Sustainability Survey for Fisheries. Available at https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html. [Accessed 09-10-2025]."@en ; # definition source
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
-  
+
 gcdfo:EscapementSurveyEvent a owl:Class ;
   rdfs:label "Escapement Survey Event"@en ;
   skos:prefLabel "Escapement Survey Event"@en ;
   iao:0000115 "A survey event specifically for estimating escapement."@en ; # definition
   rdfs:subClassOf gcdfo:SurveyEvent ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
-gcdfo:EscapementMeasurement a owl:Class ;
+gcdfo:EscapementMeasurement a owl:Class ; #TODO: consider whether this is redundant with 'Escapement' term already defined
   rdfs:label "Escapement measurement"@en ;
   iao:0000115 "A measurement or estimate of escapement tied to a stock and a survey event."@en ; # definition
   rdfs:subClassOf iao:0000109 ; # measurement datum
-  skos:closeMatch odo:SALMON_00000479 ;
   rdfs:comment "Salmon escapement count"@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:ReferencePoint a owl:Class ;
@@ -624,6 +762,7 @@ gcdfo:ReferencePoint a owl:Class ;
   iao:0000119 "DFO Introduction to Stock Assessment Glossary."@en ; # definition source
   dcterms:source <https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html> ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:FisheriesManagementTheme, gcdfo:PolicyGovernanceTheme ;
   rdfs:subClassOf iao:0000030 . # Information content entity.
 
 gcdfo:LimitReferencePoint a owl:Class ;
@@ -632,6 +771,7 @@ gcdfo:LimitReferencePoint a owl:Class ;
   iao:0000115 "A fish stock experiencing serious harm may be depleted to the point where it has impaired productivity or reproductive capacity. As a result, the stock would be less resilient to fishing and could not easily rebuild. Serious harm may be irreversible, or only slowly reversible over the long-term, and can be due to fishing, other human-induced impacts, or natural causes. Under the Precautionary Approach policy and the Fish Stocks Provisions (FSPs), breaching the LRP is a trigger for a rebuilding plan."@en ; # definition
   rdfs:subClassOf gcdfo:ReferencePoint ;
   iao:0000119 "Fisheries and Oceans Canada. (2024). Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html. [Accessed 09-10-2025]."@en ; # definition source
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:FisheriesManagementTheme, gcdfo:PolicyGovernanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:UpperStockReferencePoint a owl:Class ;
@@ -640,6 +780,7 @@ gcdfo:UpperStockReferencePoint a owl:Class ;
   rdfs:subClassOf gcdfo:ReferencePoint ;
   iao:0000119 "DFO Introduction to Stock Assessment Glossary."@en ; # definition source
   skos:altLabel "USR"@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:FisheriesManagementTheme, gcdfo:PolicyGovernanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:WSPBiologicalStatusZone a skos:Concept ;
@@ -647,6 +788,7 @@ gcdfo:WSPBiologicalStatusZone a skos:Concept ;
   skos:definition "The biological status of a Conservation Unit (CU) will normally be based on the abundance and distribution of spawners in the unit, or proxies thereof. For each CU, higher and lower benchmarks will be defined that will delimit three status zones: Green, Amber, and Red. As spawner abundance decreases, a CU moves towards the lower status zone, and the extent of management intervention for conservation purposes will increase."@en ;
   rdfs:seeAlso gcdfo:WSPBiologicalStatusZoneScheme ;
   iao:0000119 "Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en ; # definition source
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:PolicyGovernanceTheme, gcdfo:WildSalmonPolicyTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:GreenZone a gcdfo:WSPBiologicalStatusZone , skos:Concept ;
@@ -654,6 +796,7 @@ gcdfo:GreenZone a gcdfo:WSPBiologicalStatusZone , skos:Concept ;
   skos:definition "Social and economic considerations will tend to be the primary drivers for the management of Conservation Units in the Green zone, though ecosystem or other non-consumptive use values could also be considered."@en ;
   skos:inScheme gcdfo:WSPBiologicalStatusZoneScheme ;
   iao:0000119 "Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en ; # definition source
+  gcdfo:theme gcdfo:PolicyGovernanceTheme, gcdfo:WildSalmonPolicyTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:AmberZone a gcdfo:WSPBiologicalStatusZone , skos:Concept ;
@@ -661,6 +804,7 @@ gcdfo:AmberZone a gcdfo:WSPBiologicalStatusZone , skos:Concept ;
   skos:definition "Amber status implies caution in the management of the Conservation Unit. While a CU in the Amber zone should be at a low risk of loss, there will be a degree of lost production. Decisions about the conservation of CUs in the Amber zone will involve broader consideration of biological, social, and economic issues. "@en ;
   skos:inScheme gcdfo:WSPBiologicalStatusZoneScheme ;
   iao:0000119 "Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en ; # definition source
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:RedZone a gcdfo:WSPBiologicalStatusZone , skos:Concept ;
@@ -668,12 +812,14 @@ gcdfo:RedZone a gcdfo:WSPBiologicalStatusZone , skos:Concept ;
   skos:definition "A Conservation Unit in the Red zone is undesirable because of the risk of extirpation, and the loss of ecological benefits and salmon production. Changes in status will trigger management actions that will vary depending on species, geographic regions, and cause of the decline."@en ;
   skos:inScheme gcdfo:WSPBiologicalStatusZoneScheme ;
   iao:0000119 "Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en ; # definition source
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:WSPRapidStatus a owl:Class;
   rdfs:label "WSP rapid status"@en ;
   iao:0000115 "The WSP rapid status assessment approach builds on previously completed WSP integrated status assessments. The detailed WSP integrated assessments are labour intensive, taking 10-40 experts up to three days to complete for each group of CUs. For this reason, assessments have only been completed for ~11% of the 377 current Pacific Salmon CUs, many of which are outdated. The WSP rapid approach can fill gaps by expanding coverage of CU statuses across time, species, and geographic areas. The WSP rapid status approach ensures statuses are scientifically objective, consistent, and comparable across BC/Yukon CUs. This approach is also relatively easy to implement, applicable to data rich and data poor CUs, and can be updated annually."@en ;
   iao:0000119 "Pestal, G., MacDonald, B. L., Grant, S. C. H., and Holt, C. A. (2023). State of the Salmon: rapid status assessment approach for Pacific salmon under Canada’s Wild Salmon Policy. Can. Tech. Rep. Fish. Aquat. Sci. 3570: xiv + 200 p."@en ; # definition source
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme, gcdfo:PolicyGovernanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:MetricBenchmark a owl:Class ;
@@ -682,27 +828,31 @@ gcdfo:MetricBenchmark a owl:Class ;
   iao:0000119 "Pestal, G. et al. (2023). State of the Salmon: Rapid Status Assessment Approach for Pacific Salmon under Canada’s Wild Salmon Policy."@en ; # definition source
   dcterms:source <https://publications.gc.ca/site/eng/9.928944/publication.html> ;
   rdfs:subClassOf iao:0000030 ; # Information content entity
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:AlgorithmThreshold a owl:Class ;
-  rdfs:label "Algorithm threshold"@en ;
-  iao:0000115 "Threshold value used by the rapid-status algorithm (such as Learning Tree 3) that may differ from expert-defined benchmarks to incorporate precautionary buffers."@en ; # definition
+  rdfs:label "WSP Algorithm threshold"@en ;
+  iao:0000115 "Threshold value used by the rapid-status algorithm that may differ from expert-defined benchmarks to incorporate precautionary buffers."@en ; # definition
   iao:0000119 "DFO (2024). Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under Canada’s Wild Salmon Policy. CSAS Science Response 2024/004."@en ; # definition source
   dcterms:source <https://www.dfo-mpo.gc.ca/csas-sccs/Publications/ScR-RS/2024/2024_004-eng.pdf> ;
   rdfs:subClassOf iao:0000030 ; # Information content entity
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
-gcdfo:ConfidenceCategory a skos:Concept ;
+gcdfo:ConfidenceCategory a skos:Concept ; #TODO Determine if this is necessary
   skos:prefLabel "Confidence category"@en ;
-  skos:definition "Categorical confidence rating (High, Medium, Low) reported alongside a rapid status assessment."@en ; # definition
+  skos:definition "Categorical confidence rating (High, Medium, Low) for stock assessment metrics."@en ; # definition
   skos:inScheme :RapidStatusConfidenceScheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
   gcdfo:RapidStatusConfidenceHigh a gcdfo:ConfidenceCategory , skos:Concept ;
-  rdfs:label "High rapid-status confidence"@en ;
+  rdfs:label "High WSP rapid-status confidence"@en ;
   skos:prefLabel "High confidence"@en ;
   iao:0000115 "Rapid status confidence category indicating that high-quality abundance metrics support the result."@en ; # definition
   skos:inScheme :RapidStatusConfidenceScheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:RapidStatusConfidenceMedium a gcdfo:ConfidenceCategory , skos:Concept ;
@@ -710,6 +860,7 @@ gcdfo:RapidStatusConfidenceMedium a gcdfo:ConfidenceCategory , skos:Concept ;
   skos:prefLabel "Medium confidence"@en ;
   iao:0000115 "Rapid status confidence category indicating mixed evidence or reliance on trend metrics supplemented by some abundance information."@en ; # definition
   skos:inScheme :RapidStatusConfidenceScheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:RapidStatusConfidenceLow a gcdfo:ConfidenceCategory , skos:Concept ;
@@ -717,24 +868,28 @@ gcdfo:RapidStatusConfidenceLow a gcdfo:ConfidenceCategory , skos:Concept ;
   skos:prefLabel "Low confidence"@en ;
   iao:0000115 "Rapid status confidence category indicating limited supporting data (for example, derived from trend metrics alone)."@en ; # definition
   skos:inScheme :RapidStatusConfidenceScheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:ExploitationRate a owl:Class ;
   rdfs:label "Exploitation rate"@en ;
-  iao:0000115 "Expressed as a percentage, the proportion of the total return of adult salmon in a given year that die (harvested or removed) as a result of fishing activity. ER = total fishing mortality / (total fishing mortality + escapement)"@en ; # definition
+  iao:0000115 "Expressed as a percentage, the proportion of the total return of adult salmon in a given year that die as a result of fishing activity."@en ; # definition
   rdfs:subClassOf gcdfo:TargetOrLimitRateOrAbundance ;
   iao:0000119 "Fisheries and Oceans Canada. (2019). Government of Canada. Pacific Salmon - Glossary. https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html. [Accessed 09-10-2025] "@en ; # definition source
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:FisheriesManagementTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:TotalExploitationRate a owl:Class ;
   rdfs:label "Total exploitation rate"@en ;
   rdfs:subClassOf gcdfo:ExploitationRate ;
   iao:0000115 "The overall proportion of the total return of adult salmon removed by all fisheries over a defined period, aggregating across gear or fishery components."@en ; # definition
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:FisheriesManagementTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:IndicatorRiver a owl:Class ;
   rdfs:label "Indicator river"@en ;
   skos:altLabel "Indicator stream"@en ;
-  rdfs:subClassOf envo:01000618 ; # lotic water body
-  iao:0000115 "All spawning streams that are listed to be monitored by DFO are classified as an indicator or non-indicator stream. Indicator streams are those that have been identified in some Regions as providing more reliable indices of spawner abundance. Indicator streams tend to give relatively accurate annual spawner abundance estimates, given that they use higher quality methodologies and are more intensively/regularly surveyed. Indicator streams are also assumed to be representative of spawner returns to other streams in close geographic proximity. Non-indicator streams are typically less consistently surveyed, using more variable methodologies, and/or may simply be difficult to survey (e.g., poor water quality, remote location, etc.)."@en ; # definition
+  iao:0000115 "Indicator streams are those that have been identified in some Regions as providing more reliable indices of spawner abundance. Indicator streams tend to give relatively accurate annual spawner abundance estimates, given that they use higher quality methodologies and are more intensively/regularly surveyed. Indicator streams are also assumed to be representative of spawner returns to other streams in close geographic proximity."@en ; # definition
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
+  dcterms:source <https://www.salmonexplorer.ca/methods/glossary.html> ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
