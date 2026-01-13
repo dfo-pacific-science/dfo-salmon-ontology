@@ -7,7 +7,7 @@ assignees: ''
 
 ---
 
-* GCDFOS term IRI and label for which you are requesting a new superclass:
+* GCDFO Salmon term IRI and label for which you are requesting a new superclass:
 
 * New superclass suggested:
 
