@@ -17,6 +17,20 @@ robot report --input ontology/dfo-salmon.ttl --profile robot-profile.yaml --fail
 robot convert --input ontology/dfo-salmon.ttl --output release/artifacts/dfo-salmon.owl
 ```
 
+### Theme coverage (gcdfo:theme) check
+
+Run the pinned SPARQL check that enforces every term has 1–3 themes from `gcdfo:ThemeScheme` (excluding `gcdfo:ThemeScheme` and its member theme concepts):
+
+```bash
+# From the repo root
+make theme-coverage
+# Or if using devenv/nix (optional):
+# devenv shell make theme-coverage
+```
+
+- Output: theme coverage report (empty = passing; rows list issues). Run `make theme-coverage` to generate.
+- Prereqs: `tools/robot.jar` (run `make install-robot` if missing) and Java. If using `devenv`/`nix` (optional), Java is provided inside the environment.
+
 ### CI/CD Configuration
 
 **Problem:** ROBOT fails CI/CD pipelines due to expected violations that aren't actual errors.

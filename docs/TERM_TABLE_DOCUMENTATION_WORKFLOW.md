@@ -6,9 +6,9 @@ This document explains the end-to-end process for documenting Controlled Vocabul
 
 The workflow transforms ontology terms into human-friendly documentation pages on the FADS Open Science Doc Hub website:
 
-1. **Define themes** in `scripts/config/themes.yml` to group related ontology terms (now 9 themes, aligned to the draft ontology scheme).
+1. **Define themes** in `scripts/config/themes.yml`; the theme annotations live in the canonical `ontology/dfo-salmon.ttl`.
 2. **Generate SPARQL queries** automatically from theme definitions.
-3. **Extract term tables** as CSV files from the publish slice (PublishReady-only, regenerated into `ontology/dfo-salmon.ttl`).
+3. **Extract term tables** as CSV files from the canonical ontology (uses `gcdfo:theme` annotations directly).
 4. **Publish to website** where Quarto generates documentation pages.
 
 ## Workflow Components
@@ -23,60 +23,12 @@ Themes define how ontology terms are grouped for documentation. Each theme speci
 - `output_csv`: Name of generated CSV file
 - `theme_iri`: Theme IRI to include.
 
-**Current themes (aligned to the draft ontology’s 9-theme scheme):**
-```yaml
-themes:
-  - id: stock_assessment
-    label: "Stock Assessment"
-    query_file: "stock-assessment-terms.rq"
-    output_csv: "stock-assessment-terms.csv"
-    theme_iri: "https://w3id.org/gcdfos/salmon#StockAssessmentTheme"
-  - id: monitoring_field_work
-    label: "Monitoring and Field Work"
-    query_file: "monitoring-field-work-terms.rq"
-    output_csv: "monitoring-field-work-terms.csv"
-    theme_iri: "https://w3id.org/gcdfos/salmon#MonitoringFieldWorkTheme"
-  - id: genetics_stock_composition
-    label: "Genetics and Stock Composition"
-    query_file: "genetics-stock-composition-terms.rq"
-    output_csv: "genetics-stock-composition-terms.csv"
-    theme_iri: "https://w3id.org/gcdfos/salmon#GeneticsStockCompositionTheme"
-  - id: fisheries_management
-    label: "Fisheries Management"
-    query_file: "fisheries-management-terms.rq"
-    output_csv: "fisheries-management-terms.csv"
-    theme_iri: "https://w3id.org/gcdfos/salmon#FisheriesManagementTheme"
-  - id: species_at_risk_recovery
-    label: "Species at Risk and Recovery"
-    query_file: "species-at-risk-recovery-terms.rq"
-    output_csv: "species-at-risk-recovery-terms.csv"
-    theme_iri: "https://w3id.org/gcdfos/salmon#SpeciesAtRiskRecoveryTheme"
-  - id: salmon_enhancement_hatcheries
-    label: "Salmon Enhancement and Hatcheries"
-    query_file: "salmon-enhancement-hatcheries-terms.rq"
-    output_csv: "salmon-enhancement-hatcheries-terms.csv"
-    theme_iri: "https://w3id.org/gcdfos/salmon#SalmonEnhancementHatcheriesTheme"
-  - id: habitat_ecosystem_climate
-    label: "Habitat, Ecosystem, and Climate Pressures"
-    query_file: "habitat-ecosystem-climate-terms.rq"
-    output_csv: "habitat-ecosystem-climate-terms.csv"
-    theme_iri: "https://w3id.org/gcdfos/salmon#HabitatEcosystemClimateTheme"
-  - id: policy_governance
-    label: "Policy, Governance, and Organizational Structure"
-    query_file: "policy-governance-terms.rq"
-    output_csv: "policy-governance-terms.csv"
-    theme_iri: "https://w3id.org/gcdfos/salmon#PolicyGovernanceTheme"
-  - id: data_model_provenance
-    label: "Data, Models, and Provenance"
-    query_file: "data-model-provenance-terms.rq"
-    output_csv: "data-model-provenance-terms.csv"
-    theme_iri: "https://w3id.org/gcdfos/salmon#DataModelProvenanceTheme"
-```
+
 
 **To add a new theme:**
-1. Add a new entry to `themes:` in `scripts/config/themes.yml`
-2. Specify the schemes and/or classes you want to include
-3. Run the extraction script (see below)
+1. Add a new entry to `themes:` in `scripts/config/themes.yml` (see that file for the current 9-theme list).
+2. Specify the schemes and/or classes you want to include.
+3. Run the extraction script (see below).
 
 ### 2. SPARQL Query Generation
 
@@ -92,7 +44,7 @@ The `scripts/extract-term-tables.py` script automatically generates SPARQL queri
 
 ### 3. Term Table Extraction
 
-Run the extraction script to generate CSV files **after producing the publish slice**:
+Run the extraction script to generate CSV files:
 
 ```bash
 cd /path/to/dfo-salmon-ontology
@@ -100,8 +52,8 @@ python scripts/extract-term-tables.py
 ```
 
 **What it does:**
-1. Reads `scripts/config/themes.yml`.
-2. Loads `ontology/dfo-salmon.ttl` (regenerated from the publish slice so it contains only PublishReady terms and retains prefixes, annotation property declarations, datatype declarations, ontology header, and required MIREOT imports).
+1. Reads `scripts/config/themes.yml` (ids/labels/output filenames).
+2. Loads `ontology/dfo-salmon.ttl` (canonical ontology with theme annotations) and reads `gcdfo:theme` directly from that file.
 3. Generates SPARQL queries for each theme.
 4. Executes queries against the ontology.
 5. Writes CSV files to `release/artifacts/term-tables/{theme-id}-terms.csv` (these are versioned in git).
@@ -133,101 +85,35 @@ The data-stewardship-unit website automatically displays term tables.
    - Clickable Term ID links
    - Theme column showing which theme each term belongs to
 
-**To update the website:**
+**To update the website (no submodule; term tables are checked in and copied over):**
 
-**First-time setup (adding the submodule):**
-
-If this is your first time setting up the website with the ontology submodule:
-
-1. Navigate to the data-stewardship-unit repository directory:
-   ```bash
-   cd /path/to/data-stewardship-unit
-   ```
-   (Replace `/path/to/data-stewardship-unit` with the actual path to your `data-stewardship-unit` repository)
-
-2. Add the ontology repository as a Git submodule:
-   ```bash
-   git submodule add https://github.com/dfo-pacific-science/dfo-salmon-ontology.git data/ontology
-   ```
-   This creates the `data/ontology/` directory and links it to the ontology repository.
-
-3. Initialize and update the submodule:
-   ```bash
-   git submodule update --init --recursive
-   ```
-
-4. Commit the submodule addition:
-   ```bash
-   git add .gitmodules data/ontology
-   git commit -m "Add dfo-salmon-ontology as submodule"
-   ```
-
-**Regular updates (after submodule is set up):**
-
-1. Navigate to the data-stewardship-unit repository directory:
-   ```bash
-   cd /path/to/data-stewardship-unit
-   ```
-
-2. Update the ontology submodule to get the latest changes:
-   ```bash
-   git submodule update --remote data/ontology
-   ```
-   Or, if you want to update to a specific commit/branch:
-   ```bash
-   cd data/ontology
-   git checkout main  # or specific branch/commit
-   git pull
-   cd ../..
-   ```
-
-3. Navigate to the ontology repository directory:
-   ```bash
-   cd /path/to/dfo-salmon-ontology
-   ```
-   (Replace `/path/to/dfo-salmon-ontology` with the actual path to your `dfo-salmon-ontology` repository)
-
-4. Refresh the publish slice and main ontology (PublishReady terms only):
-   ```bash
-   make publish-validate   # requires Java/ROBOT
-   make publish-slice
-   ```
-
-5. (Convenience) Publish and extract in one step:
-   ```bash
-   make publish-and-extract
-   ```
-
-6. Run the extraction script to generate CSV files (if not using the convenience target):
+1. From the ontology repo, regenerate term tables directly from the canonical ontology:
    ```bash
    python scripts/extract-term-tables.py
    ```
-   This creates CSV files in `release/artifacts/term-tables/` within the ontology repository.
 
-7. Commit updated term tables in the ontology repo (they are versioned under `release/artifacts/term-tables/`):
+2. Commit updated term tables in the ontology repo (they are versioned under `release/artifacts/term-tables/`):
    ```bash
    git status   # verify only term tables + related changes
-   git add release/artifacts/term-tables scripts/sparql docs/TERM_TABLE_DOCUMENTATION_WORKFLOW.md docs/todo_list.md Makefile scripts/sync_term_tables_to_dsu.sh
+   git add release/artifacts/term-tables scripts/sparql
    git commit -m "Update term tables"
    ```
 
-8. Navigate back to the data-stewardship-unit repository:
+3. Copy term tables into the DSU repo (from the ontology repo):
+   ```bash
+   make dsu-sync-term-tables DSU_ONTOLOGY_DIR=/path/to/data-stewardship-unit/data/ontology
+   ```
+
+4. In the DSU repo, commit the copied tables:
    ```bash
    cd /path/to/data-stewardship-unit
+   git add data/ontology/release/artifacts/term-tables
+   git commit -m "Update ontology term tables"
    ```
 
-6. Update the submodule to include the newly generated CSV files:
-   ```bash
-   git add data/ontology   # stages the submodule pointer to the new ontology commit
-   ```
+   *Note:* The DSU repo no longer regenerates term tables in pre-commit. Generation happens in this ontology repo; DSU pre-commit only validates CSV/meta structure.
 
-7. Commit the updated submodule reference:
-   ```bash
-   git commit -m "Update ontology submodule with latest term tables"
-   ```
-   Pre-commit hooks will automatically validate CSV structure and metadata before the commit completes.
-
-8. Build the website locally using Quarto (R packages must be installed locally):
+5. Build the website locally using Quarto (if using `devenv`/`nix` (optional), Quarto is provided via the environment; otherwise install Quarto separately. Ensure R packages are available):
    ```bash
    quarto render
    ```
@@ -251,7 +137,7 @@ themes:
     label: "Habitat and Environment"
     query_file: "habitat-terms.rq"
     output_csv: "habitat-terms.csv"
-    theme_iri: "https://w3id.org/dfoc/salmon#HabitatTypeScheme"
+    theme_iri: "https://w3id.org/gcdfo/salmon#HabitatTypeScheme"
 ```
 
 **Step 2: Run extraction**
@@ -265,10 +151,10 @@ python scripts/extract-term-tables.py
 - Review `scripts/sparql/habitat-terms.rq` to see generated query
 
 **Step 4: Website automatically reflects changes**
-- The website now reads themes directly from `themes.yml` - no manual updates needed
-- The tabbed interface will automatically display the new theme's table using `reactable`
-- No separate theme page file is needed - all themes are on the main page
-- Pre-commit hooks will automatically update the submodule and regenerate term tables when you commit
+- The website reads the generated CSVs in `data/ontology/release/artifacts/term-tables/` (Quarto does **not** read `themes.yml` directly).
+- The tabbed/accordion interface will automatically display the new theme’s table using `reactable`.
+- No separate theme page file is needed—all themes are on the main page.
+- Regeneration is manual: run `python scripts/extract-term-tables.py`, then sync to DSU with `make dsu-sync-term-tables ...`.
 
 ### Modifying Existing Themes
 

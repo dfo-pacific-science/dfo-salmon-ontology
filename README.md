@@ -31,7 +31,6 @@ The GC DFO Salmon Ontology is a **data stewardship and operational process ontol
 **Technical References:**
 - [Architecture Decision Records](docs/ADR.md) - Key architectural decisions
 - [ROBOT Setup Guide](docs/ROBOT_SETUP.md) - Tool setup and usage
-- [Validation Guide](docs/VALIDATION_README.md) - Validation approach and testing
 
 ---
 
@@ -57,6 +56,7 @@ The GC DFO Salmon Ontology is a **data stewardship and operational process ontol
 4. **Use ROBOT** for quality control: `robot reason --input dfo-salmon.ttl --reasoner ELK`
 5. **Discuss changes** in GitHub Issues before creating PRs
 6. **Follow OBO practices**: Use competency questions, design patterns, and quality checklists
+7. **Run validations**: Run `make theme-coverage` (smoke) or `make test` (theme coverage + ELK reasoning); use `make quality-check` for the full ROBOT report. Note: If using `devenv`/`nix` (optional), prefix commands with `devenv shell`.
 
 ### For Users
 1. **Browse terms** using Protégé or online ontology browsers
@@ -67,11 +67,12 @@ The GC DFO Salmon Ontology is a **data stewardship and operational process ontol
 
 ## Development Workflow
 
-- **Single source of truth**: One ontology file (`dfo-salmon.ttl`) on GitHub
+- **Single source of truth**: Edit and review `ontology/dfo-salmon.ttl` on a development branch; the draft file is only an idea bank and is not read by tests or term-table extraction.
+- **Theme navigation**: Tag every term with 1–3 `gcdfo:theme` values from `gcdfo:ThemeScheme` directly in the canonical file; `gcdfo:ThemeScheme` and its member theme concepts are excluded from the missing-theme check; downstream term tables rely on the annotations.
 - **OBO-style workflow**: Use ROBOT for quality control and release management
 - **Pre-commit validation**: Install pre-commit hooks (`pre-commit install`) to validate ontology before commit
-- **CI validation**: Pushes/PRs run ROBOT ELK reasoning + ROBOT report (with custom profile) and publish-ready SPARQL checks run on merges to `main`
-- **Windows**: Use WSL2 + `nix`/`direnv` or Git Bash; `make install-robot` fetches the pinned ROBOT jar used by CI/pre-commit
+- **CI validation**: Pushes/PRs run ROBOT ELK reasoning + ROBOT report (with custom profile)
+- **Windows**: Use WSL2 + `nix`/`direnv` (optional) or Git Bash; `make install-robot` fetches the pinned ROBOT jar used by CI/pre-commit
 - **GitHub-based collaboration**: All changes via Pull Requests with Issues for discussion
 - **Quality first**: Use competency questions and design patterns to guide development
 - **Before creating terms**: Search existing terms and check competency questions
@@ -82,28 +83,10 @@ The GC DFO Salmon Ontology is a **data stewardship and operational process ontol
 
 **For Darwin Core Conceptual Model (DwC-CM) implementation guidance, see [Conventions Guide - DwC-CM Section](docs/CONVENTIONS.md#44-darwin-core-conceptual-model-dwc-cm-alignment).**
 
+
+
 ---
 
-## Ontology Scope (Current)
-
-**Core Classes**
-
-- `gcdfo:Stock`, `gcdfo:ConservationUnit`, `gcdfo:ManagementUnit`
-- `gcdfo:SurveyEvent` (⊑ `dwc:Event`)
-- `gcdfo:EscapementMeasurement` (⊑ `dwc:MeasurementOrFact`)
-- `gcdfo:Indicator`, `gcdfo:Dataset` (⊑ `schema:Dataset`)
-
-**Stock Assessment Specializations**
-
-- `gcdfo:EscapementSurveyEvent`
-- `gcdfo:SonarCountMeasurement`, `gcdfo:WeirCountMeasurement`, `gcdfo:AerialCountMeasurement`
-- `gcdfo:EscapementMethod` + subclasses (`AreaUnderTheCurve`, `AutomatedCountingMethods`, `CalibratedTimeSeries`, `ExpansionMethods`, `ExpertOpinion`, `FixedStationCountAnalysis`, `MarkRecaptureAnalysis`, `MathematicalOperations`, `PeakCountAnalysis`, `UnknownMethod`)
-
-**Genetics (GSI)**
-
-- Classes: `gcdfo:GeneticSample`, `gcdfo:GSIRun`, `gcdfo:GSICompositionMeasurement`, `gcdfo:ReportingUnit`, `gcdfo:Assay`, `gcdfo:MarkerPanel`, `gcdfo:Protocol`
-- Object properties: `sampledDuring`, `ofStock`, `usedAssay`, `usedMarkerPanel`, `usedProtocol`, `analyzesSamples`, `producedMeasurement`, `derivedFromSample`, `aboutReportingUnit`, `hasReportingUnit`, `ruExactMatch`, `ruCloseMatch`
-- Datatypes: `estimateValue`, `estimateUnitIRI`, `standardError`, `ciLower`, `ciUpper`, `confidenceLevel`, `methodName`, `baselineName`, `runDate`, `runNote`, `sampleID`, `tissueType`, `collectionMethod`
 
 ---
 
@@ -115,45 +98,3 @@ The GC DFO Salmon Ontology is a **data stewardship and operational process ontol
 - **For detailed conventions**: See [DFO Salmon Ontology Conventions Guide](docs/CONVENTIONS.md)
 
 ---
-
-## Roadmap
-
-### Phase 1: Foundation (Current)
-- ✅ Core class and property definitions
-- ✅ Basic measurement patterns
-- ✅ Stock hierarchy implementation
-- ✅ Darwin Core alignment
-- ✅ Competency questions with SPARQL queries
-- ✅ Repository structure conforming to AGENTS.md
-
-### Phase 2: Expansion
-- Fill missing `rdfs:comment` definitions
-- Add genetic analysis workflows
-- Implement advanced measurement types
-- External vocabulary integration
-- Quality control patterns
-- **Darwin Core Conceptual Model (DwC-CM) implementation** ✅
-
-### Phase 3: Integration
-- NCEAS Salmon Ontology alignment
-- International standard compliance
-- Advanced querying capabilities
-- Data validation tools
-
-### Phase 4: Policy and Integration
-- Policy benchmarks and reference points
-- Integration with NCEAS Salmon Ontology
-- Advanced querying and analytics
-- Publish docs via pyLODE/Widoco
-- Register W3ID redirects
-
----
-
-## Acknowledgments
-
-This ontology builds on:
-
-- Darwin Core / GBIF (conceptual backbone)
-- NCEAS Salmon Ontology, ENVO, and OBO Foundry ontologies
-- Input from DFO biologists, data stewards, and the RDA Salmon Ontology WG
-- Guidance from the Salmon Data Stewardship community

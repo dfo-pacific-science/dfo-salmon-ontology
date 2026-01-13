@@ -53,7 +53,7 @@ Why this separation matters
 
 The DFO Salmon Ontology provides a domain-fit semantic layer for Pacific salmon, enabling integration across stock assessment, genetics, and management, and supporting evidence transparency.
 
-See: PRODUCT_REQUIREMENTS.md for full purpose, objectives, and target users.
+See: [README](../README.md) for full purpose, objectives, and target users.
 
 We build on:
 
@@ -94,4 +94,3 @@ Next Steps
 
 - Continue in docs/CONVENTIONS.md for “how we do things” (patterns, QA, tooling)
 - Consult ADRs for rationale behind major decisions
-

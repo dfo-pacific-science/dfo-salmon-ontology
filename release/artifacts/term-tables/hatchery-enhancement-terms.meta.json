@@ -1,7 +1,7 @@
 {
   "theme": "hatchery_enhancement",
   "label": "Hatchery and Enhancement",
-  "theme_iri": "https://w3id.org/gcdfos/salmon#SalmonEnhancementHatcheriesTheme",
+  "theme_iri": "https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme",
   "row_count": 7,
   "source_version": "5865432c5b56e85c1c18aa8f818882954710c03b",
   "source_timestamp": "2025-11-25T20:10:14.898446+00:00",
