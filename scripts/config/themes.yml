@@ -19,6 +19,12 @@ themes:
     output_csv: "genetics-stock-composition-terms.csv"
     theme_iri: "https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"
 
+  - id: wild_salmon_policy
+    label: "Wild Salmon Policy"
+    query_file: "wild-salmon-policy-terms.rq"
+    output_csv: "wild-salmon-policy-terms.csv"
+    theme_iri: "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+
   - id: fisheries_management
     label: "Fisheries Management"
     query_file: "fisheries-management-terms.rq"

@@ -364,7 +364,7 @@ ex:DFOEscMethodCode a rdfs:Datatype .
 - Use **OWL classes** when you need property inheritance, logical constraints, class expressions, or when downstream data will type individuals with the term (e.g., `rdf:type gcdfo:StockAssessment`).
 - Do **not** mix the two: a SKOS concept is an individual of `skos:Concept`; it is not a class. If you believe a term must be both, pause and record an ADR before introducing punning.
 - Default posture: SKOS for code lists; OWL for behavioral/logical models. If in doubt, ask “Will this term ever need class-level semantics or property inheritance?” If yes → OWL; if no and hierarchy is purely lexical → SKOS.
-- **Compound variables/metrics (I-ADOPT)**: model them as SKOS concepts in the appropriate scheme (e.g., WSP metrics), not as OWL classes, and hang the I-ADOPT decomposition off the SKOS concept via annotation/object properties (property, entity/object-of-interest, constraints, method). Only introduce OWL classes for a metric if you have a competency question that needs reasoning over that class.
+- **Compound variables/metrics (I-ADOPT)**: model them as SKOS concepts in the appropriate scheme (e.g., WSP metrics), not as OWL classes, and hang the I-ADOPT decomposition off the SKOS concept via annotation/object properties (property, entity/object-of-interest, constraints, procedure). Only introduce OWL classes for a metric if you have a competency question that needs reasoning over that class.
 
 ###### 2.3.4.1.1 I-ADOPT + SSN/OMS/OBOE/PROV alignment pattern (variables only)
 
@@ -379,18 +379,18 @@ We adopt a **minimal, annotation-centric pattern** for I-ADOPT that plays nicely
     - `gcdfo:iadoptProperty` – points from a variable concept to the property (e.g., abundance, rate).
     - `gcdfo:iadoptEntity` – points to the entity/object-of-interest class (e.g., Stock, CU, SpawningPopulation).
     - `gcdfo:iadoptConstraint` – points to constraint concepts (life stage, origin, benchmark, spatial subset; multiple allowed).
-    - `gcdfo:iadoptMethod` – points to the method/procedure concept or class.
-  - These are declared as `owl:AnnotationProperty` so they do **not** involve SKOS concepts in OWL class axioms (keeps us within our “no SKOS as OWL class in axioms” rule) but remain fully queryable via SPARQL.
+    - `gcdfo:usedProcedure` – **canonical (replaces `gcdfo:iadoptMethod`)** – an `owl:AnnotationProperty` subproperty of `sosa:usedProcedure` that points from a variable (SKOS) concept to the procedure/method concept or class (aligns to `sosa:Procedure`, `prov:Plan`, or `IAO:0000104` specification; NOT I-ADOPT). In instance data (observations/sampling), use `sosa:usedProcedure` directly.
+  - These are declared as `owl:AnnotationProperty` (with `gcdfo:usedProcedure` as an annotation subproperty of `sosa:usedProcedure`) so they do **not** involve SKOS concepts in OWL class axioms (keeps us within our "no SKOS as OWL class in axioms" rule) but remain fully queryable via SPARQL.
 - **Component IRIs**:
-  - The values of the annotation properties (properties, entities, constraints, methods) are **existing OWL classes or SKOS concepts**:
+  - The values of the annotation properties (properties, entities, constraints, procedures) are **existing OWL classes or SKOS concepts**:
     - Properties: quantity kinds or observables (potentially I-ADOPT `iop:Property` or QUDT/ENVO/other).
     - Entities: DFO classes (CU, Stock, SurveyEvent, BiologicalSample) or relevant external classes.
     - Constraints: SKOS concepts in existing schemes (origin, life-stage, benchmark category, spatial strata, etc.).
-    - Methods: SKOS concepts in method schemes or OWL classes representing procedures.
+    - Procedures: SKOS concepts in procedure/method schemes or OWL classes representing procedures.
 - **MIREOT / imports**:
   - For Phase 0, we **do not import** the full I-ADOPT ontology into `dfo-salmon.ttl`. We only reference I-ADOPT IRIs (e.g., for typing or documentation) where needed.
   - If future needs require stronger alignment (e.g., SHACL validation or interoperability checks), we can:
-    - MIREOT just the few I-ADOPT classes we need (`iop:Variable`, `iop:Property`, `iop:Entity`, `iop:Constraint`, `iop:Method`) into a small alignment module (e.g., `dfo-salmon-iadopt.ttl`), and
+    - MIREOT just the few I-ADOPT classes we need (`iop:Variable`, `iop:Property`, `iop:ObjectOfInterest`, `iop:Constraint`) into a small alignment module (e.g., `dfo-salmon-iadopt.ttl`), and
     - keep that module separate from the core ontology while using our local annotation properties for the decomposition links.
 
 This gives us a **single canonical pattern**:
@@ -407,7 +407,7 @@ graph TD
   IVar["i-adopt:Variable"] -->|also typed as| SProp["sosa:Property<br/>oms:ObservableProperty<br/>oboe:Characteristic"]
   IProp["i-adopt:Property"] -->|decomposes| IVar
   IEnt["i-adopt:Entity (ObjectOfInterest)"] -->|class of| SFOIClass["class of sosa:FeatureOfInterest / sosa:Sample"]
-  IConstr["i-adopt:Constraint / Method"] -->|further constrains| IVar
+  IConstr["i-adopt:Constraint"] -->|further constrains| IVar
 
   SObs["sosa:Observation<br/>oms:Observation<br/>oboe:Measurement"] -->|rdf:type| ProvAct["prov:Activity"]
   SObs -->|observedProperty| SProp
@@ -423,10 +423,10 @@ Minimal mapping table for implementers:
 |-----------------------------------|-----------------------------------|--------------------------------------------|-----------------------------|------------------|
 | Atomic measurement (cell value)   | *(implicit)*                      | `sosa:Observation` / OMS Observation       | `oboe:Measurement`          | `prov:Activity`  |
 | Variable / characteristic         | `iop:Variable`                    | `sosa:Property` / OMS ObservableProperty   | `oboe:Characteristic`       | `prov:Entity`    |
-| Object of interest (entity type)  | `iop:Entity`                      | class of `sosa:FeatureOfInterest` / Sample | `oboe:Entity` (subclass)    | `prov:Entity`    |
-| Constraints / method              | `iop:Constraint`, `iop:Method`    | annotations on `sosa:Property` / `sosa:Procedure` | *(typically annotations)* | `prov:Entity`    |
+| Object of interest (entity type)  | `iop:ObjectOfInterest`            | class of `sosa:FeatureOfInterest` / Sample | `oboe:Entity` (subclass)    | `prov:Entity`    |
+| Constraints                       | `iop:Constraint`                  | annotations on `sosa:Property`             | *(typically annotations)*   | `prov:Entity`    |
 | Row-level bundle (one unit row)   | *(n/a)*                           | `sosa:ObservationCollection` (about one FOI/time) | `oboe:Observation`  | `prov:Activity`* |
-| Procedure / method                | *(optional I-ADOPT)*              | `sosa:Procedure` / `sosa:ObservingProcedure` | *(n/a)*                  | `prov:Plan`      |
+| Procedure / method                | *(not in I-ADOPT)*                | `sosa:Procedure` / `sosa:ObservingProcedure` | *(n/a)*                  | `prov:Plan` / IAO specification |
 
 > `prov:Activity*`: PROV does not distinguish collections of executions; an ObservationCollection can be treated as a higher-level Activity if needed.
 
@@ -457,7 +457,7 @@ gcdfo:AbsoluteSpawnerAbundanceMetric1
   gcdfo:iadoptEntity     gcdfo:SpawningPopulation ;          # CU- or stock-level spawning population class
   gcdfo:iadoptConstraint gcdfo:WildOriginSpawners ,
                          gcdfo:GenerationTimeWindow ;        # life-stage/origin/temporal window constraints (SKOS concepts or classes)
-  gcdfo:iadoptMethod     gcdfo:WSPMetric1ComputationMethod . # method/procedure concept or class
+  gcdfo:usedProcedure    gcdfo:WSPMetric1ComputationMethod . # procedure/method concept or class (sosa:Procedure, prov:Plan, or IAO specification)
 ```
 
 Notes:
@@ -465,6 +465,11 @@ Notes:
 - `gcdfo:AbsoluteSpawnerAbundanceMetric1` is **only** a SKOS concept in the core ontology; the I-ADOPT roles are attached via annotation properties.
 - `qk:AmountOfSubstance`, `gcdfo:SpawningPopulation`, `gcdfo:WildOriginSpawners`, `gcdfo:GenerationTimeWindow`, and `gcdfo:WSPMetric1ComputationMethod` are all **regular OWL classes or SKOS concepts** defined elsewhere.
 - If/when you need stronger alignment (e.g., type it as `iop:Variable` / `sosa:Property` / `oboe:Characteristic`), do so in a separate alignment module (`dfo-salmon-iadopt.ttl`), not here.
+
+**Canonical authoring pattern (explicit rule):**
+
+- **Canonical authoring**: Use SKOS variable concepts + local annotation properties (`gcdfo:iadoptProperty`, `gcdfo:iadoptEntity`, `gcdfo:iadoptConstraint`, `gcdfo:usedProcedure`). Keep the core ontology lightweight and avoid importing I-ADOPT object properties.
+- **Interop projection (generated)**: Optionally emit `iop:hasProperty` / `iop:hasObjectOfInterest` / `iop:hasConstraint` triples in a separate alignment/export layer, and type the variable as `iop:Variable`. This projection is for downstream interoperability, not for canonical authoring.
 
 ##### 2.3.4.2 Theme / module annotation for navigation
 
@@ -774,6 +779,268 @@ PROV-O Properties (prefix-only):
 - `prov:wasGeneratedBy` → StatusAssessment generated by AnalysisMethod
 - `prov:wasDerivedFrom` → ScientificOutput derived from StatusAssessment
 - `prov:wasAttributedTo` → StatusAssessment attributed to Agent
+
+---
+
+### 2.3.12 Upper-Level Ontology Alignment Strategy
+
+This section describes how to align `gcdfo:` (DFO Salmon Ontology) with established upper-level and domain ontologies. The alignment follows a **top-down approach**: we identify the most general ontological commitments first (BFO/IAO), then progressively specialize through observation/provenance patterns (SOSA/PROV), variable decomposition (I-ADOPT), and finally biodiversity interoperability (Darwin Core).
+
+#### 2.3.12.1 Alignment Hierarchy
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  BFO (Basic Formal Ontology) - Top-Level Ontology          │
+│    └── IAO (Information Artifact Ontology)                  │
+│          └── PROV-O (Provenance Ontology)                   │
+│                └── SOSA/SSN (Observations & Sensors)        │
+│                      └── I-ADOPT (Variable Decomposition)   │
+│                            └── Darwin Core (Biodiversity)   │
+│                                  └── gcdfo: (Salmon Domain) │
+└─────────────────────────────────────────────────────────────┘
+```
+
+**Key principle:** Each layer provides progressively more specialized semantics. BFO answers "what kind of thing is this?" (continuant vs occurrent); PROV-O answers "who/what produced this?"; SOSA answers "how was this measured?"; I-ADOPT answers "what property was measured?"; Darwin Core answers "how do I publish to GBIF?"
+
+#### 2.3.12.2 BFO (Basic Formal Ontology)
+
+**Namespace:** `http://purl.obolibrary.org/obo/BFO_`
+**Purpose:** Provides the foundational ontological distinctions for all domain classes.
+
+BFO is an ISO/IEC standard (ISO/IEC 21838-2:2021) top-level ontology that distinguishes:
+- **Continuants** (entities that persist through time): Independent continuants (organisms, material entities) vs. dependent continuants (qualities, roles, functions)
+- **Occurrents** (entities that unfold in time): Processes, temporal regions
+
+**Alignment guidance for `gcdfo:`:**
+
+| gcdfo: Class Type | BFO Alignment | Example |
+|-------------------|---------------|---------|
+| Physical entities (salmon, samples) | `BFO:0000040` (material entity) | `gcdfo:SalmonSpecimen rdfs:subClassOf BFO:0000040` |
+| Qualities/properties | `BFO:0000019` (quality) | `gcdfo:ForkLength rdfs:subClassOf BFO:0000019` |
+| Roles | `BFO:0000023` (role) | `gcdfo:BreederRole rdfs:subClassOf BFO:0000023` |
+| Processes/activities | `BFO:0000015` (process) | `gcdfo:SpawningEvent rdfs:subClassOf BFO:0000015` |
+| Temporal regions | `BFO:0000008` (temporal region) | Return year spans |
+
+**When to use BFO alignment:**
+- Creating new OWL classes that need rigorous ontological grounding
+- Ensuring interoperability with OBO Foundry ontologies (ENVO, OBI, etc.)
+- When reasoning over fundamental entity types is required
+
+**References:**
+- [BFO Official Site](https://basic-formal-ontology.org/)
+- [OBO Foundry BFO](https://obofoundry.org/ontology/bfo.html)
+- [BFO ISO Standard](https://www.iso.org/standard/74572.html)
+
+#### 2.3.12.3 IAO (Information Artifact Ontology)
+
+**Namespace:** `http://purl.obolibrary.org/obo/IAO_`
+**Purpose:** Models information entities, data items, and their relationships to what they are about.
+
+IAO extends BFO to handle information artifacts—entities whose function is to bear information quality. Key classes include:
+
+| IAO Class | IRI | Use Case |
+|-----------|-----|----------|
+| `information content entity` | `IAO:0000030` | Parent class for all data/information |
+| `data item` | `IAO:0000027` | Truthful statements about something |
+| `measurement datum` | `IAO:0000109` | Results of measurements |
+| `specification` | `IAO:0000104` | Protocols, methods |
+| `document` | `IAO:0000310` | Reports, publications |
+
+**Key property:** `IAO:0000136` (`is about`) – relates an information entity to what it describes.
+
+**Alignment guidance for `gcdfo:`:**
+
+```turtle
+# A salmon assessment data item
+gcdfo:EscapementEstimate rdfs:subClassOf IAO:0000027 ;
+    IAO:0000136 gcdfo:SalmonPopulation .  # is about the population
+
+# A sampling protocol specification
+gcdfo:MarkRecaptureProtocol rdfs:subClassOf IAO:0000104 .
+```
+
+**When to use IAO alignment:**
+- Modeling datasets, data items, or measurement results as first-class entities
+- Distinguishing between the measured property (quality) and the recorded datum (information)
+- Linking data to what it is about (especially for provenance)
+
+**References:**
+- [IAO GitHub](https://github.com/information-artifact-ontology/IAO)
+- [OBO Foundry IAO](https://obofoundry.org/ontology/iao.html)
+
+#### 2.3.12.4 PROV-O (Provenance Ontology)
+
+**Namespace:** `http://www.w3.org/ns/prov#`
+**Purpose:** Models provenance—how entities came to be, who/what was responsible, and what activities produced them.
+
+PROV-O provides a W3C-standard vocabulary for provenance tracking:
+
+| PROV Class | Description | gcdfo: Mapping |
+|------------|-------------|----------------|
+| `prov:Entity` | Things with provenance | Data products, samples, assessments |
+| `prov:Activity` | Actions that transform/generate entities | Sampling events, observations, analyses |
+| `prov:Agent` | Actors responsible for activities | Organizations, sensors, software |
+
+**Key properties:**
+- `prov:wasGeneratedBy` – Entity → Activity
+- `prov:wasAttributedTo` – Entity → Agent
+- `prov:used` – Activity → Entity
+- `prov:wasAssociatedWith` – Activity → Agent
+- `prov:wasDerivedFrom` – Entity → Entity
+
+**PROV-SOSA Alignment (W3C standard):**
+
+The W3C provides an official alignment between SOSA and PROV-O:
+
+```turtle
+# From W3C sosa-prov-mapping (SOSA↔PROV alignment)
+sosa:Observation rdfs:subClassOf prov:Activity .
+sosa:Sensor rdfs:subClassOf prov:Agent , prov:Entity .
+sosa:Sample rdfs:subClassOf prov:Entity .
+sosa:Result rdfs:subClassOf prov:Entity .
+sosa:resultTime rdfs:subPropertyOf prov:endedAtTime .
+
+# Procedure alignment is via an association node + a property chain:
+# (sp:executionAssociation o sp:hadProcedure) ⊑ sosa:usedProcedure
+sp:hadProcedure rdfs:subPropertyOf prov:hadPlan .
+```
+
+**Guidance for `gcdfo:`:**
+
+```turtle
+# An escapement survey is both a SOSA Sampling and a PROV Activity
+gcdfo:EscapementSurvey rdfs:subClassOf sosa:Sampling , prov:Activity .
+
+# The DFO agency as an agent
+gcdfo:DFO rdf:type prov:Organization ;
+    prov:actedOnBehalfOf gcdfo:GovernmentOfCanada .
+
+# Derived data products
+gcdfo:EscapementEstimate2024 prov:wasDerivedFrom gcdfo:RawCountData2024 ;
+    prov:wasGeneratedBy gcdfo:MarkRecaptureAnalysis2024 ;
+    prov:wasAttributedTo gcdfo:DFOStockAssessment .
+```
+
+**When to use PROV-O:**
+- Tracking data lineage and derivation chains
+- Attributing data products to responsible agents
+- Documenting analytical workflows
+
+**References:**
+- [PROV-O W3C Recommendation](https://www.w3.org/TR/prov-o/)
+- [SOSA-PROV Mapping](https://github.com/w3c/sdw/blob/gh-pages/ssn/rdf/sosa-prov-mapping.ttl)
+- [PROV-to-BFO Mappings](https://github.com/BFO-Mappings/PROV-to-BFO)
+
+#### 2.3.12.5 SOSA/SSN (Sensor, Observation, Sample, Actuator)
+
+**Namespaces:**
+- SOSA (lightweight core): `http://www.w3.org/ns/sosa/`
+- SSN (full): `http://www.w3.org/ns/ssn/`
+
+**Purpose:** Models observations, sampling, sensors, and the properties being observed.
+
+SOSA/SSN is a joint W3C/OGC standard (W3C Recommendation 19 Oct 2017). A newer "2023 Edition" is in progress on the W3C Recommendation track as a First Public Working Draft (published 16 Sep 2025).
+
+**Key SOSA classes for salmon data:**
+
+| SOSA Class | Description | gcdfo: Example |
+|------------|-------------|----------------|
+| `sosa:Observation` | Act of observing a property | Count of fish at weir |
+| `sosa:Sampling` | Act of creating/transforming samples | Collecting scale samples |
+| `sosa:Sample` | Representative subset | Scale sample, tissue sample |
+| `sosa:Sensor` | Device/agent making observations | Weir counter, human observer |
+| `sosa:Procedure` | Method/protocol followed | Mark-recapture protocol |
+| `sosa:FeatureOfInterest` | Entity being observed | Salmon population, river reach |
+| `sosa:Property` | Quality being measured | Abundance, fork length |
+| `sosa:Result` | Outcome of observation | Count value with uncertainty |
+
+**Key SOSA properties:**
+
+| Property | Domain | Range | Use |
+|----------|--------|-------|-----|
+| `sosa:hasFeatureOfInterest` | Observation/Sampling | FeatureOfInterest | What was observed |
+| `sosa:observedProperty` | Observation | `sosa:Property` | What property was measured |
+| `sosa:hasResult` | Observation | Result | The measurement outcome |
+| `sosa:usedProcedure` | Observation | Procedure | Method used |
+| `sosa:madeBySensor` | Observation | Sensor | What made the observation |
+| `sosa:phenomenonTime` | Observation | time:TemporalEntity | When the property applied |
+| `sosa:resultTime` | Observation | xsd:dateTime | When observation completed |
+| `sosa:isSampleOf` | Sample | FeatureOfInterest | What the sample represents |
+
+**When to use SOSA/SSN:**
+- Modeling any measurement, observation, or count
+- Representing sampling activities and sample provenance
+- Linking observations to methods/protocols
+- Distinguishing phenomenon time (when property applied) from result time (when recorded)
+
+**References:**
+- [SOSA/SSN W3C Recommendation (19 Oct 2017)](https://www.w3.org/TR/vocab-ssn/)
+- [SSN/SOSA "2023 Edition" (First Public Working Draft, 16 Sep 2025)](https://www.w3.org/TR/vocab-ssn-2023/)
+- [SOSA Namespace](http://www.w3.org/ns/sosa/)
+
+#### 2.3.12.6 I-ADOPT Alignment
+
+**See sections 2.3.4.1.1–2.3.4.1.3 above** for full I-ADOPT alignment guidance, including:
+- Variables as SKOS concepts
+- I-ADOPT decomposition as annotations (Property, ObjectOfInterest, Constraint)
+- Canonical authoring pattern (local annotation properties)
+- Interop projection (generated alignment layer)
+
+**Key reminder:** I-ADOPT does NOT model methods/procedures. Use `sosa:Procedure`, `prov:Plan`, or `IAO:0000104` (specification) for method alignment.
+
+#### 2.3.12.7 Darwin Core Alignment
+
+**See section 6.6 External Alignments** for Darwin Core property alignment and section 6.9 for Darwin Core Conceptual Model usage.
+
+**Key Darwin Core classes for salmon:**
+
+| Class | Description | Salmon Use Case |
+|-------|-------------|-----------------|
+| `dwc:Event` | Action at a location/time | Survey event, sampling trip |
+| `dwc:Occurrence` | Evidence of organism presence | Fish observation, catch record |
+| `dwc:Organism` | Particular organism or group | Individual salmon, cohort |
+| `dwc:MaterialEntity` | Physical object | Scale sample, tissue sample |
+| `dwc:Taxon` | Taxonomic concept | *Oncorhynchus nerka* |
+| `dwc:Location` | Spatial region | Fraser River, spawning grounds |
+
+**Class alignment guidance:**
+
+```turtle
+# Event-type data
+gcdfo:SurveyEvent rdfs:subClassOf dwc:Event .
+gcdfo:SamplingTrip rdfs:subClassOf dwc:Event .
+
+# Occurrence data
+gcdfo:FishObservation rdfs:subClassOf dwc:Occurrence .
+
+# Material samples
+gcdfo:ScaleSample rdfs:subClassOf dwc:MaterialEntity .
+gcdfo:TissueSample rdfs:subClassOf dwc:MaterialEntity .
+```
+
+**When to use Darwin Core:**
+- Publishing biodiversity data to GBIF or other aggregators
+- Modeling event-based sampling data
+- Recording measurements about organisms, events, or materials
+- Interoperability with the biodiversity informatics community
+
+**References:**
+- [Darwin Core Standard](https://www.tdwg.org/standards/dwc/)
+- [Darwin Core RDF Guide](https://dwc.tdwg.org/rdf/)
+
+#### 2.3.12.8 Decision Guide: Which Ontology to Use When
+
+| Question | Primary Ontology | Secondary |
+|----------|------------------|-----------|
+| "What kind of thing is this?" | BFO | - |
+| "Is this information or physical?" | IAO | BFO |
+| "Who/what produced this data?" | PROV-O | - |
+| "How was this measured?" | SOSA/SSN | PROV-O |
+| "What property was measured?" | I-ADOPT | SOSA |
+| "How do I publish to GBIF?" | Darwin Core | SOSA |
+| "What constraints apply?" | I-ADOPT | gcdfo: SKOS |
+
+---
 
 ### 2.4 Hybrid Modeling Approach for Automated Classification
 
@@ -1405,9 +1672,9 @@ SELECT ?method ?stock ?event WHERE {
 
 **Required elements for every escapement measurement:**
 
-- `dwc:measurementType` - What was measured (e.g., "abundance")
+- `dwc:measurementType` / `dwciri:measurementType` - What was measured (text or, in RDF, a controlled-vocabulary IRI when available)
 - `dwc:measurementValue` - The measured value
-- `dwc:measurementUnit` - The unit of measurement (QUDT IRI)
+- `dwc:measurementUnit` / `dwciri:measurementUnit` - The unit of measurement (text IRI or, in RDF, a QUDT unit IRI)
 - `dfo:aboutStock` - Which stock it describes
 - `dfo:observedDuring` - Which event it was collected during
 - `dfo:usesMethod` - Which method was used
@@ -1416,9 +1683,9 @@ SELECT ?method ?stock ?event WHERE {
 
 ```turtle
 :EscapementCount2022 a :EscapementMeasurement ;
-    dwc:measurementType "abundance" ;
+    dwciri:measurementType <https://w3id.org/gcdfo/salmon#EscapementCount> ;  # controlled-vocabulary IRI for the measured variable
     dwc:measurementValue "1250"^^xsd:integer ;
-    dwc:measurementUnit "http://qudt.org/vocab/unit/Each" ;
+    dwciri:measurementUnit <http://qudt.org/vocab/unit/Each> ;
     dfo:aboutStock :SkeenaSockeye ;
     dfo:observedDuring :SkeenaSurvey2022 ;
     dfo:usesMethod :SonarCounting .
@@ -1449,6 +1716,8 @@ SELECT ?method ?stock ?event WHERE {
 
 **Why external alignments matter:** They ensure your ontology can work with other systems and datasets, making your data more discoverable and useful.
 
+**Terminology:** “Primary source” means we reuse an external IRI as the canonical identifier for a concept; “alignment” means our local IRI is canonical and we link to external IRIs with mapping predicates.
+
 **Key external vocabularies:**
 
 - **QUDT**: Units of measurement (http://qudt.org/vocab/unit/)
@@ -1456,10 +1725,13 @@ SELECT ?method ?stock ?event WHERE {
 - **GBIF Backbone**: Taxonomic names (http://www.gbif.org/species/)
 - **Darwin Core**: Biodiversity data standards (http://rs.tdwg.org/dwc/terms/)
 - **RO (Relations Ontology)**: Standard relations (http://purl.obolibrary.org/obo/RO_)
-- **AGROVOC**: Agricultural/fisheries thesaurus for common concepts (https://agrovoc.fao.org/)
+- **AGROVOC**: Agricultural/fisheries thesaurus for broad concepts and indexing (usually alignment; OK as primary source for generic, non-salmon-specific concepts) (https://agrovoc.fao.org/)
+- **Wikidata**: Broad, community-edited identifier hub (alignment-only; use for reconciliation/crosswalks, not canonical modeling) (https://www.wikidata.org/)
 - **Schema.org/DCAT**: Web and catalog vocabularies for datasets and distributions
 - **IAO**: Information artifact ontology for documents and datasets
 - **ORG**: Organizational structure and units (https://www.w3.org/TR/vocab-org/)
+
+**Darwin Core note:** In RDF, Darwin Core provides `dwciri:` properties (http://rs.tdwg.org/dwc/iri/) for cases where the object is an IRI (e.g., `dwciri:measurementType`, `dwciri:measurementUnit`, `dwciri:lifeStage`). Many Darwin Core terms are `rdf:Property`; align them like properties (e.g., `owl:equivalentProperty` / `rdfs:subPropertyOf`), not with `skos:*Match`.
 
 **OBO Foundry Relation Reuse Requirements:**
 

@@ -3,15 +3,17 @@
 - **Upcoming:** Run `execplan-add-spsr-terms.md` after column-to-ontology mapping is approved (do not run yet) /Users/brettjohnson/code/dfo-salmon-ontology/docs/notes/spsr-column-to-ontology-mapping.md
 
 ## I-ADOPT compound variables (planning / doc-only now)
-- [ ] Audit compound variable/metric terms currently modeled as OWL classes (OWL is a W3C ontology language for defining classes and relationships); list candidates to refactor as SKOS concepts (SKOS is a W3C standard for controlled vocabularies) with I-ADOPT annotations (I-ADOPT is a standard for describing variables by parts like property and entity: property, entity/object-of-interest, constraints, method).
-- [ ] Draft the annotation properties (metadata fields attached to terms) to carry I-ADOPT decomposition on SKOS concepts (iadoptProperty, iadoptEntity, iadoptConstraint, iadoptMethod) and propose allowed value types and usage notes; do **not** change `ontology/dfo-salmon.ttl` yet.
+- [ ] Audit compound variable/metric terms currently modeled as OWL classes (OWL is a W3C ontology language for defining classes and relationships); list candidates to refactor as SKOS concepts (SKOS is a W3C standard for controlled vocabularies) with I-ADOPT annotations (I-ADOPT is a standard for describing variables by parts like property and entity: property, entity/object-of-interest, constraints). If procedure/method is relevant, record it separately via `gcdfo:usedProcedure` (an annotation subproperty of SOSA `sosa:usedProcedure`, where SOSA is the W3C/OGC observations vocabulary).
+- [ ] Candidate OWL classes to refactor to SKOS + I-ADOPT annotations (if present as OWL classes): `gcdfo:AbsoluteSpawnerAbundanceMetric1` (WSP Metric 1–style), `gcdfo:BenchmarkExploitationRate` / `gcdfo:TotalExploitationRate`, `gcdfo:CUAbundanceIndex` / `gcdfo:EscapementIndex`, and any `RelativeAbundanceMetric` / `TrendMetric` combinations currently encoded as OWL classes.
+- [ ] Draft the annotation properties (metadata fields attached to terms) to carry I-ADOPT decomposition on SKOS concepts (`iadoptProperty`, `iadoptEntity`, `iadoptConstraint`) and the procedure/method link (`usedProcedure`), and propose allowed value types and usage notes; do **not** change `ontology/dfo-salmon.ttl` yet.
 - [ ] Propose I-ADOPT decompositions for a starter set of WSP/indicator metrics and capture in notes for future TTL updates.
 - [ ] Align delimiter guidance for multiple constraints with SDP (`constraint_iri` uses `;`-separated IRIs in one cell) and reflect in ontology docs when updated.
+- [ ] Document in `docs/CONVENTIONS.md` how SDP measurement fields (`term_iri`, `property_iri`, `entity_iri`, `unit_iri`, optional `constraint_iri`/`method_iri`) align with the SKOS concepts annotated using I-ADOPT properties, and how `metasalmon::find_terms()` / `suggest_semantics()` are expected to consume those annotations.
 
 ## 2025-12-08 — Repo-wide QA findings
 
 - [ ] Fix ThemeScheme alignment: replace out-of-scheme theme values and assign valid themes for terms flagged in theme coverage reports (e.g., Stock, ConservationUnit, EscapementMeasurement, WSP classes). Run `make theme-coverage` to generate the report.
-- [x] Add missing theme annotations in `ontology/dfo-salmon.ttl` to clear coverage check (publicationStatus is currently not in use).
+- [] Add missing theme annotations in `ontology/dfo-salmon.ttl` to clear coverage check (publicationStatus is currently not in use).
 
 ## 2025-12-08 — Exploitation / Mortality / Abundance quick wins
 

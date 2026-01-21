@@ -28,6 +28,23 @@ Product: Translation layer, SIL fields -> Working databases people use to genera
 
 ## Modelling Competency Questions
 
+## Compound Variables (I-ADOPT profile)
+
+- **CQ-Compound-1:** For each compound variable/metric SKOS concept that should behave as an I-ADOPT Variable, what are its `property`, `entity/object-of-interest`, `constraint`(s), and `procedure` IRIs?
+
+SPARQL sketch (assumes annotation properties such as `gcdfo:iadoptProperty`, `gcdfo:iadoptEntity`, `gcdfo:iadoptConstraint`, `gcdfo:usedProcedure`):
+
+```sparql
+SELECT ?variable ?property ?entity ?constraint ?procedure WHERE {
+  ?variable a skos:Concept .
+  ?variable gcdfo:iadoptProperty ?property .
+  ?variable gcdfo:iadoptEntity ?entity .
+  OPTIONAL { ?variable gcdfo:iadoptConstraint ?constraint . }
+  OPTIONAL { ?variable gcdfo:usedProcedure ?procedure . }
+}
+ORDER BY ?variable ?property ?entity ?constraint ?procedure
+```
+
 ## Genetic Results
 
 ## FSARs
@@ -134,4 +151,3 @@ Product: Translation layer, SIL fields -> Working databases people use to genera
 ## Prioritization Notes
 - **Now (v0.1)** answers: terminology consistency, proxy justification, GSI uncertainty presence/absence, benchmark/method registry, CU↔SMU mapping with rationale, provenance minimum, validator pass/fail.
 - **Next (v0.3)** adds: narrative bundles, LRP derivation trace, decision‑context completeness checks, uncertainty propagation from GRD.
-
