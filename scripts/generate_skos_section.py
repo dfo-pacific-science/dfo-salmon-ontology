@@ -4,7 +4,7 @@ Generate the SKOS concept-section HTML for the Widoco landing page.
 
 Reads `ontology/dfo-salmon.ttl`, extracts every SKOS concept scheme / concept,
 and rewrites the block between the SKOS section comment and the CROSSREF comment
-inside `ontology/w3id/index.html`.
+inside `docs/index.html`.
 """
 
 from __future__ import annotations
@@ -17,7 +17,7 @@ from typing import Dict, List, Tuple
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 ONTOLOGY_PATH = ROOT / "ontology" / "dfo-salmon.ttl"
-INDEX_PATH = ROOT / "ontology" / "w3id" / "index.html"
+INDEX_PATH = ROOT / "docs" / "index.html"
 
 LABEL_RE = re.compile(r"(?:skos:prefLabel|skos:label|rdfs:label)\s+\"([^\"]+)\"@en")
 IN_SCHEME_RE = re.compile(r"skos:inScheme\s+([^;]+);")
@@ -150,7 +150,7 @@ def main() -> None:
     schemes, concepts = parse_ttl()
     section = build_section(schemes, concepts)
     replace_section(section)
-    print("✅ Updated ontology/w3id/index.html SKOS section with every scheme/concept.")
+    print("✅ Updated docs/index.html SKOS section with every scheme/concept.")
 
 
 if __name__ == "__main__":
