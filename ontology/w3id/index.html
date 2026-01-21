@@ -26,12 +26,37 @@
 <script src="resources/jquery.js"></script> 
 <script src="resources/marked.min.js"></script> 
     <script> 
+function openDetailsForHash(hash) {
+  if (!hash) return;
+  var target = document.querySelector(hash);
+  if (!target) return;
+
+  var details = target.closest ? target.closest('details') : null;
+  while (details) {
+    details.open = true;
+    details = details.parentElement ? details.parentElement.closest('details') : null;
+  }
+}
+
+function scrollToHash(hash) {
+  if (!hash) return;
+  if($(hash).offset()!=null){
+    $('html, body').animate({scrollTop: $(hash).offset().top}, 0);
+  }
+}
+
+function handleHashNavigation() {
+  var hash = location.hash;
+  if (!hash) return;
+  openDetailsForHash(hash);
+  setTimeout(function () {
+    scrollToHash(hash);
+  }, 0);
+}
+
 function loadHash() {
   jQuery(".markdown").each(function(el){jQuery(this).after(marked.parse(jQuery(this).text())).remove()});
-	var hash = location.hash;
-	if($(hash).offset()!=null){
-	  $('html, body').animate({scrollTop: $(hash).offset().top}, 0);
-}
+	handleHashNavigation();
 	loadTOC();
 }
 function loadTOC(){
@@ -59,7 +84,11 @@ function loadTOC(){
 }
 $(function(){
     loadHash();
-}); $.fn.ignore = function(sel){
+});
+window.addEventListener('hashchange', function () {
+  handleHashNavigation();
+});
+$.fn.ignore = function(sel){
         return this.clone().find(sel||">*").remove().end();
  }; 
    </script> 
@@ -68,7 +97,7 @@ $(function(){
 <body>
   <div class= "container">
   <img class="me-3" src="https://upload.wikimedia.org/wikipedia/commons/8/8f/DFO_Logo.svg" alt="Fisheries and Oceans Canada logo" />
-    <div class="me-3" style="float:right">language <a href="index-en.html"><b>en</b></a> </div>
+    <div class="me-3" style="float:right">language <b>en</b></div>
  </div>
  <main>
     <div class="container content">
@@ -104,7 +133,7 @@ $(function(){
 <dt>Publisher:</dt>
 <dd>Fisheries and Oceans Canada (DFO) Pacific Region Science Branch</dd>
 
-<dt>Download serialization:</dt><dd><span><a href="ontology.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span><span><a href="ontology.owl" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span><span><a href="ontology.nt" target="_blank"><img src="https://img.shields.io/badge/Format-N_Triples-blue.svg" alt="N-Triples" /></a> </span><span><a href="ontology.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span></dd><dt>License:</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"><img src="https://img.shields.io/badge/License-https://creativecommons.org/licenses/by/4.0/-blue.svg" alt="https://creativecommons.org/licenses/by/4.0/" /></a>
+<dt>Download serialization:</dt><dd><span><a href="gcdfo.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span><span><a href="gcdfo.owl" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span><span><a href="gcdfo.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span></dd><dt>License:</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"><img src="https://img.shields.io/badge/License-https://creativecommons.org/licenses/by/4.0/-blue.svg" alt="https://creativecommons.org/licenses/by/4.0/" /></a>
 </dd><dt>Visualization:</dt><dd><a href="webvowl/index.html#" target="_blank"><img src="https://img.shields.io/badge/Visualize_with-WebVowl-blue.svg" alt="Visualize with WebVowl" /></a></dd>
 <!-- <dt>Evaluation:</dt><dd><a href="OOPSevaluation/oopsEval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd> -->
 <dt>Bibliographic citation:</dt>
@@ -119,91 +148,179 @@ $(function(){
 <div>
 <span>Ontology Specification Draft</span>
 </div>
-</div>     <div id="abstract"><h2>Abstract</h2>
-      The DFO Salmon Ontology provides a map of how salmon data terms relate, and the controlled vocabularies that underpin it supply precise definitions—showing where terms differ, how they align, and where they should converge. Together, they standardize key terms across programs and regions within DFO. Teams can map local terms once, keep source systems unchanged yet aligned regionally, and link inputs to methods, benchmarks, and policy thresholds for Fisheries Science Reports, the Fish Stock Provisions, and the Wild Salmon Policy. Developed by the Fishery & Assessment Data Section in the Pacific Region Science Branch, this work builds on the International Year of the Salmon Data Mobilization initiative and collaborations with the National Center for Ecological Analysis and Synthesis (U.S.) and the global Research Data Alliance. It is open source and implements community standards from the W3C, OBO Foundry, and Darwin Core. Our goal is straightforward: to provide persistent, web-accessible definitions that help scientists and software combine data efficiently, support reproducible analyses, and strengthen confidence in salmon management.
-      </div><p>
-      <hr>
+</div>
 
 
 <!--INTRODUCTION SECTION-->
-    <div id="introduction"><h2 id="intro" class="list">Introduction</h2>
+    <div id="introduction" class="front-matter">
+<h2 id="intro" class="list">Overview</h2>
 <span class="markdown">
 The GC DFO Salmon Ontology is a data stewardship and operational process ontology designed to provide a semantic framework for managing, integrating, and stewarding Pacific salmon data across Fisheries and Oceans Canada (DFO). Its goal is to make salmon data interoperable, discoverable, and analyzable with minimal friction for scientists, data stewards, and managers.</span>
-<h3 id="tech" class="list">Technical overview</h3>
-
-<p><b>Hybrid approach:</b> OWL for formal relationships, SKOS for controlled vocabularies</p>
-<p><b>Darwin Core aligned:</b> Uses DwC classes as top-level framework for interoperability; implements Darwin Core Conceptual Model (DwC-CM) patterns</p>
-<p><b>OBO Foundry principles:</b> Open, interoperable, logically well-formed, scientifically accurate</p>
-<p><b>Pragmatic imports:</b> MIREOT terms outlined below; prefix-only for PROV-O/RO/SKOS</p>
-<p><b>Upper ontology:</b> BFO grounding for process/entity hierarchy</p>
-<p><b>Units:</b> QUDT/OM IRIs stored as literals (starter convention)</p>
-<p><b>Community-aligned:</b> Builds on NCEAS Salmon Ontology, ENVO, and OBO Foundry vocabularies</p>
 <hr>
-<div id="namespacedeclarations">
-<h3 id="ns" class="list">Namespace declarations</h3>
-<div id="ns" align="center">
-<table>
-<caption> <a href="#ns"> Table 1</a>: Namespaces used in the document </caption>
-<tbody>
-<tr><td><b>[Ontology NS Prefix]</b></td><td>&lt;https://w3id.org/gcdfo/salmon&gt;</td></tr>
-<tr><td><b>bfo</b></td><td>&lt;http://purl.obolibrary.org/obo/BFO_&gt;</td></tr>
-<tr><td><b>dcterms</b></td><td>&lt;http://purl.org/dc/terms/&gt;</td></tr>
-<tr><td><b>dqv</b></td><td>&lt;http://www.w3.org/ns/dqv#&gt;</td></tr>
-<tr><td><b>dwc</b></td><td>&lt;http://rs.tdwg.org/dwc/terms/&gt;</td></tr>
-<tr><td><b>dwciri</b></td><td>&lt;http://rs.tdwg.org/dwc/iri/&gt;</td></tr>
-<tr><td><b>envo</b></td><td>&lt;http://purl.obolibrary.org/obo/ENVO_&gt;</td></tr>
-<tr><td><b>gcdfo</b></td><td>&lt;https://w3id.org/gcdfo/salmon#&gt;</td></tr>
-<tr><td><b>iao</b></td><td>&lt;http://purl.obolibrary.org/obo/IAO_&gt;</td></tr>
-<tr><td><b>oa</b></td><td>&lt;http://www.w3.org/ns/oa#&gt;</td></tr>
-<tr><td><b>obo</b></td><td>&lt;http://purl.obolibrary.org/obo/&gt;</td></tr>
-<tr><td><b>odo</b></td><td>&lt;http://purl.dataone.org/odo/&gt;</td></tr>
-<tr><td><b>org</b></td><td>&lt;http://www.w3.org/ns/org#&gt;</td></tr>
-<tr><td><b>owl</b></td><td>&lt;http://www.w3.org/2002/07/owl#&gt;</td></tr>
-<tr><td><b>prov</b></td><td>&lt;http://www.w3.org/ns/prov#&gt;</td></tr>
-<tr><td><b>qudt</b></td><td>&lt;http://qudt.org/schema/qudt/&gt;</td></tr>
-<tr><td><b>qudtunit</b></td><td>&lt;http://qudt.org/vocab/unit/&gt;</td></tr>
-<tr><td><b>rdf</b></td><td>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;</td></tr>
-<tr><td><b>rdfs</b></td><td>&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</td></tr>
-<tr><td><b>schema</b></td><td>&lt;https://schema.org/&gt;</td></tr>
-<tr><td><b>skos</b></td><td>&lt;http://www.w3.org/2004/02/skos/core#&gt;</td></tr>
-<tr><td><b>xml</b></td><td>&lt;http://www.w3.org/XML/1998/namespace&gt;</td></tr>
-<tr><td><b>xsd</b></td><td>&lt;http://www.w3.org/2001/XMLSchema#&gt;</td></tr>
-</tbody>
-</table>
 </div>
-</div>
-</div>
-  <hr>
 
-<!--OVERVIEW SECTION-->
-    <div id="overview"><h2 id="overv" class="list">GC DFO Salmon Ontology: Overview</h2>
-<h3>MIREOT Terms</h3>
-  <span class="markdown">The GC DFO Salmon Ontology uses Minimum Information to Reference an External Ontology Term (MIREOT) to import selected terms from external ontologies rather than importing entire ontologies. This approach helps to reduce complexity and improve performance while maintaining interoperability with established standards. GFDFOS contains the following classes and object properties. </span>
-    <p>BFO (4 terms): <a href="http://purl.obolibrary.org/obo/BFO_0000015">process</a>, <a href="http://purl.obolibrary.org/obo/BFO_0000040" title="http://purl.obolibrary.org/obo/BFO_0000040">material entity</a>, <a href="http://purl.obolibrary.org/obo/BFO_0000031" title="http://purl.obolibrary.org/obo/BFO_0000031">generically dependent continuant</a>, <a href="http://purl.obolibrary.org/obo/BFO_0000020">specifically dependent continuant</a></p>
-    <p>IAO (7 terms): <a href="http://purl.obolibrary.org/obo/IAO_0000109" title="http://purl.obolibrary.org/obo/IAO_0000109">measurement datum</a>, <a href="http://purl.obolibrary.org/obo/IAO_0000030">information content entity</a>, <a href="http://purl.obolibrary.org/obo/IAO_0000033" title="http://purl.obolibrary.org/obo/IAO_0000033">directive information entity</a>, <a href="http://purl.obolibrary.org/obo/IAO_0000310" title="http://purl.obolibrary.org/obo/IAO_0000310">document</a>, <a href ="http://purl.obolibrary.org/obo/IAO_0000115">definition</a>, <a href="http://purl.obolibrary.org/obo/IAO_0000119">definition source</a>, <a href="http://purl.obolibrary.org/obo/IAO_0000104">plan specification</a></p>
-    <p>OA (1 term): <a href="http://www.w3.org/ns/oa#Annotation">Annotation</a></p>
-    <p>DQV (3 terms): <a href="http://www.w3.org/ns/dqv#Dimension">Dimension</a>, <a href="http://www.w3.org/ns/dqv#QualityAnnotation">QualityAnnotation</a>, <a href="http://www.w3.org/ns/dqv#inDimension">inDimension</a></p>
-    <p>DWC (5 terms): <a href="http://rs.tdwg.org/dwc/terms/Organism">Organism</a>, <a href="http://rs.tdwg.org/dwc/terms/MaterialEntity" title="http://rs.tdwg.org/dwc/terms/MaterialEntity">Material Entity</a>, <a href="#http://rs.tdwg.org/dwc/terms/Event" title="http://rs.tdwg.org/dwc/terms/Event">Event</a>, <a href="http://rs.tdwg.org/dwc/terms/Occurrence" >Occurrence</a>, <a href="http://rs.tdwg.org/dwc/terms/Identification" title="http://rs.tdwg.org/dwc/terms/Identification">Identification</a></p>
-    <p>ODO (5 terms): [ECSO] <a href="http://purl.dataone.org/odo/ECSO_00002050">year of measurement</a>; [SALMON] <a href="#http://purl.dataone.org/odo/SALMON_00000137" title="http://purl.dataone.org/odo/SALMON_00000137">Fishery type</a>, <a href="#http://purl.dataone.org/odo/SALMON_00000167" title="http://purl.dataone.org/odo/SALMON_00000167">Fish measurement type</a>, <a href="http://purl.dataone.org/odo/SALMON_00000479">Salmon escapement count</a>, <a href="http://purl.dataone.org/odo/SALMON_00000639" title="http://purl.dataone.org/odo/SALMON_00000639">Fish stock type</a></p>
-    <p>ENVO (7 terms): <a href="http://purl.obolibrary.org/obo/ENVO_01000617" title="http://purl.obolibrary.org/obo/ENVO_01000617">lentic water body</a>, <a href="http://purl.obolibrary.org/obo/ENVO_00000020" title="http://purl.obolibrary.org/obo/ENVO_00000020">lake</a>, <a href="#http://purl.obolibrary.org/obo/ENVO_00000033">pond</a>, <a href="http://purl.obolibrary.org/obo/ENVO_01000618" title="http://purl.obolibrary.org/obo/ENVO_01000618">lotic water body</a>, <a href="http://purl.obolibrary.org/obo/ENVO_00000022">river</a>, <a href="http://purl.obolibrary.org/obo/ENVO_00000023">stream</a>, <a href="http://purl.obolibrary.org/obo/ENVO_00000234" title="http://purl.obolibrary.org/obo/ENVO_00000234">bayou</a></p>
-<br>
- <h3>Why This Matters</h3>
-
-    <p><b>Performance:</b> MIREOT = fast loading; full imports = slow </p>
-    <p><b>Clarity:</b> Local term definitions aid understanding in Prot&eacute;g&eacute; </p>
-    <p><b>Maintenance:</b> Fewer dependencies = easier updates </p>
-    <p><b>Interoperability:</b> Pragmatic balance between standards compliance and usability</p>
+<!--SKOS CONCEPT SCHEMES-->
+  <div id="concept-schemes">
+<h2 id="skos" class="list">Concept schemes & SKOS concepts</h2>
+<p class="markdown">Every SKOS concept scheme defined in the ontology is listed below with the current concepts assigned to it.</p>
+<ul class="hlist">
+  <li><a href="#scheme-biological-benchmark-and-indicator-scheme">Biological Benchmark and Indicator Scheme</a></li>
+  <li><a href="#scheme-cosewic-status-scheme">COSEWIC Status Scheme</a></li>
+  <li><a href="#scheme-downgrade-criteria-scheme">Downgrade Criteria Scheme</a></li>
+  <li><a href="#scheme-enumeration-method-scheme">Enumeration Method Scheme</a></li>
+  <li><a href="#scheme-estimate-method-scheme">Estimate Method Scheme</a></li>
+  <li><a href="#scheme-estimate-type-scheme">Estimate Type Scheme</a></li>
+  <li><a href="#scheme-rapid-status-confidence-scheme">Rapid status confidence scheme</a></li>
+  <li><a href="#scheme-salmon-origin-scheme">Salmon Origin Scheme</a></li>
+  <li><a href="#scheme-stock-status-zone-scheme">Stock Status Zone Scheme</a></li>
+  <li><a href="#scheme-theme-scheme">Theme Scheme</a></li>
+  <li><a href="#scheme-wild-salmon-policy-metric-scheme">Wild Salmon Policy metric scheme</a></li>
+  <li><a href="#scheme-wild-salmon-policy-status-zone">Wild Salmon Policy Status Zone</a></li>
+</ul>
+<div class="scheme" id="scheme-biological-benchmark-and-indicator-scheme">
+  <h3 class="list">Biological Benchmark and Indicator Scheme</h3>
+  <p class="markdown">Controlled vocabulary for key biological benchmarks, performance indicators, and reference points used in salmon stock assessment and management (e.g., SMSY, Sgen, spawner abundance).</p>
+  <ul>
+    <li><a href="https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance">:TargetOrLimitRateOrAbundance</a></li>
+  </ul>
 </div>
-<hr>
-<!--DESCRIPTION SECTION-->
-    <div id="description"><h2 id="desc" class="list">GC DFO Salmon Ontology: Description</h2>
-
-<span class="markdown">OWL + SKOS ontology for DFO salmon data: stocks/CUs/MUs, survey events, escapement measurements, and GSI constructs; aligns to DwC via rdfs:subClassOf; hybrid approach with SKOS for methods and OWL for events.</span></div>
-   
+<div class="scheme" id="scheme-cosewic-status-scheme">
+  <h3 class="list">COSEWIC Status Scheme</h3>
+  <p class="markdown">Controlled vocabulary for COSEWIC statuses</p>
+  <ul>
+    <li><a href="https://w3id.org/gcdfo/salmon#COSEWICStatusCategory">:COSEWICStatusCategory</a></li>
+  </ul>
+</div>
+<div class="scheme" id="scheme-downgrade-criteria-scheme">
+  <h3 class="list">Downgrade Criteria Scheme</h3>
+  <p class="markdown">Controlled vocabulary for estimate type downgrade criteria</p>
+  <ul>
+    <li><a href="https://w3id.org/gcdfo/salmon#BreachBypass">Bypass/Breach Risk</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#Classification">Classification</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#CrossSectionCoverage">Cross-section Coverage</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#Detectability">Detectability</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#DeviceConfiguration">Device Configuration</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#Documentation">Documentation</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#DowngradeCriteria">Downgrade Criteria</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#EffortStandardization">Effort Standardization</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#EnvironmentalConditions">Environmental Conditions</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#InfillMethod">Infill Method</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#MarkRecaptureAssumptions">Mark-Recapture Assumptions</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#MethodUnknown">Method Unknown/Inconsistent</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#NumberOfVisits">Number of Visits</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#PrecisionAccuracy">Precision/Accuracy</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#ReachCoverage">Reach Coverage</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#ReviewQA">Review/QA</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#RunCoverage">Run Coverage</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#Timing">Timing</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#TrapEfficiency">Trap Efficiency</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#Uptime">Uptime</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#Visibility">Visibility</a></li>
+  </ul>
+</div>
+<div class="scheme" id="scheme-enumeration-method-scheme">
+  <h3 class="list">Enumeration Method Scheme</h3>
+  <p class="markdown">Controlled vocabulary for salmon enumeration methods</p>
+  <ul>
+    <li><a href="https://w3id.org/gcdfo/salmon#AerialSurveyCount">Aerial Survey Count</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#ElectrofishingCount">Electrofishing Count</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#EnumerationMethod">Enumeration Method</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#FixedSiteCensusElectronic">Fixed Site Census (Electronic)</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#FixedSiteCensusManual">Fixed Site Census (Manual)</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#HydroacousticSonarCount">Hydroacoustic Sonar Count</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#MarkRecaptureFieldProgram">Mark-Recapture Field Program</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#ReddCount">Redd Count</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#TrapCount">Trap Count</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#VisualGroundCount">Visual Ground Count</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#VisualSnorkelCount">Visual Snorkel Count</a></li>
+  </ul>
+</div>
+<div class="scheme" id="scheme-estimate-method-scheme">
+  <h3 class="list">Estimate Method Scheme</h3>
+  <p class="markdown">Controlled vocabulary for salmon estimate methods</p>
+  <ul>
+    <li><a href="https://w3id.org/gcdfo/salmon#AreaUnderTheCurve">Area Under the Curve</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#CalibratedTimeSeries">Calibrated Time Series</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#EstimateMethod">Estimate Method</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#ExpansionMathematicalOperations">Expansion/Mathematical Operations</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#FixedStationTally">Fixed‑Station Tally</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#HydroacousticModelling">Hydroacoustic Modelling</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#MarkRecaptureAnalysis">Mark-Recapture Analysis</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#PeakCountAnalysis">Peak Count Analysis</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#ReddExpansionAnalysis">Redd Expansion Analysis</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#TrapModelAnalysis">Trap Model Analysis</a></li>
+  </ul>
+</div>
+<div class="scheme" id="scheme-estimate-type-scheme">
+  <h3 class="list">Estimate Type Scheme</h3>
+  <p class="markdown">Controlled vocabulary for Hyatt 1997 estimate types</p>
+  <ul>
+    <li><a href="https://w3id.org/gcdfo/salmon#EstimateType">Estimate Type</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#Type1">Type-1, True Abundance, high resolution</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#Type2">Type-2, True Abundance, medium resolution</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#Type3">Type-3, Relative Abundance, high resolution</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#Type4">Type-4, Relative Abundance, medium resolution</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#Type5">Type-5, Relative Abundance, low resolution</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#Type6">Type-6, Presence or Absence</a></li>
+  </ul>
+</div>
+<div class="scheme" id="scheme-rapid-status-confidence-scheme">
+  <h3 class="list">Rapid status confidence scheme</h3>
+  <p class="markdown">Controlled vocabulary for categorical confidence ratings attached to rapid status assessments.</p>
+  <ul>
+    <li><a href="https://w3id.org/gcdfo/salmon#ConfidenceCategory">Confidence category</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#RapidStatusConfidenceHigh">High WSP rapid-status confidence</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#RapidStatusConfidenceLow">Low rapid-status confidence</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#RapidStatusConfidenceMedium">Medium rapid-status confidence</a></li>
+  </ul>
+</div>
+<div class="scheme" id="scheme-salmon-origin-scheme">
+  <h3 class="list">Salmon Origin Scheme</h3>
+  <p class="markdown">Controlled vocabulary for describing the origin of individual salmon (e.g., natural-origin, hatchery-origin, mixed-origin).</p>
+  <p class="markdown"><em>Currently no SKOS concepts are declared under this scheme.</em></p>
+</div>
+<div class="scheme" id="scheme-stock-status-zone-scheme">
+  <h3 class="list">Stock Status Zone Scheme</h3>
+  <p class="markdown">Controlled vocabulary for stock status zones under the Precautionary Approach.</p>
+  <ul>
+    <li><a href="https://w3id.org/gcdfo/salmon#StockStatusZone">:StockStatusZone</a></li>
+  </ul>
+</div>
+<div class="scheme" id="scheme-theme-scheme">
+  <h3 class="list">Theme Scheme</h3>
+  <p class="markdown">High-level thematic concept scheme for organizing DFO Salmon Ontology classes and concepts.</p>
+  <ul>
+    <li><a href="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme">Data, Models, and Provenance</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme">Fisheries Management</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme">Genetics and Stock Composition</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#HabitatEcosystemClimateTheme">Habitat, Ecosystem, and Climate Pressures</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme">Monitoring and Field Work</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme">Policy, Governance, and Organizational Structure</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme">Salmon Enhancement and Hatcheries</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#SpeciesAtRiskRecoveryTheme">Species at Risk and Recovery</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#StockAssessmentTheme">Stock Assessment</a></li>
+    <li><a href="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme">Wild Salmon Policy</a></li>
+  </ul>
+</div>
+<div class="scheme" id="scheme-wild-salmon-policy-metric-scheme">
+  <h3 class="list">Wild Salmon Policy metric scheme</h3>
+  <p class="markdown">Controlled vocabulary for the Wild Salmon Policy rapid-status metrics and related analytical concepts.</p>
+  <ul>
+    <li><a href="https://w3id.org/gcdfo/salmon#WSPMetric">gcdfo:WSPMetric</a></li>
+  </ul>
+</div>
+<div class="scheme" id="scheme-wild-salmon-policy-status-zone">
+  <h3 class="list">Wild Salmon Policy Status Zone</h3>
+  <p class="markdown">Controlled vocabulary for biological status zones under the Wild Salmon Policy.</p>
+  <ul>
+    <li><a href="https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZone">:WSPBiologicalStatusZone</a></li>
+  </ul>
+</div>
+  </div>
 <hr>
 <!--CROSSREF SECTION-->
-   <div id="crossref"><h2 id="crossreference" class="list">Cross-reference for GC DFO Salmon Ontology classes</h2>
-This section provides details for each class defined by GC DFO Salmon Ontology.
+   <div id="crossref"><h2 id="crossreference" class="list">DFO Salmon Ontology</h2>
+This section provides details for each class defined by DFO Salmon Ontology.
 <p>
 <h3 id="classes-headline" class = "list">Classes</h3>
 <ul xmlns:widoco="https://w3id.org/widoco/vocab#"
@@ -323,7 +440,7 @@ This section provides details for each class defined by GC DFO Salmon Ontology.
     has super-classes
    </dt>
    <dd>
-    <a href="#http://purl.obolibrary.org/obo/IAO_0000030" title="http://purl.obolibrary.org/obo/IAO_0000030">information content entity</a> <sup class="type-c" title="class">c</sup>
+    <a href="http://purl.obolibrary.org/obo/IAO_0000030" title="http://purl.obolibrary.org/obo/IAO_0000030">information content entity</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -451,7 +568,7 @@ This section provides details for each class defined by GC DFO Salmon Ontology.
     has super-classes
    </dt>
    <dd>
-    <a href="#http://purl.obolibrary.org/obo/BFO_0000015" title="http://purl.obolibrary.org/obo/BFO_0000015">process</a> <sup class="type-c" title="class">c</sup>
+    <a href="http://purl.obolibrary.org/obo/BFO_0000015" title="http://purl.obolibrary.org/obo/BFO_0000015">process</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -477,7 +594,7 @@ This section provides details for each class defined by GC DFO Salmon Ontology.
     has super-classes
    </dt>
    <dd>
-    <a href="#http://purl.obolibrary.org/obo/IAO_0000109" title="http://purl.obolibrary.org/obo/IAO_0000109">measurement datum</a> <sup class="type-c" title="class">c</sup>
+    <a href="http://purl.obolibrary.org/obo/IAO_0000109" title="http://purl.obolibrary.org/obo/IAO_0000109">measurement datum</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -560,7 +677,7 @@ This section provides details for each class defined by GC DFO Salmon Ontology.
     has super-classes
    </dt>
    <dd>
-    <a href="#http://purl.obolibrary.org/obo/ENVO_01000618" title="http://purl.obolibrary.org/obo/ENVO_01000618">lotic water body</a> <sup class="type-c" title="class">c</sup>
+    <a href="http://purl.obolibrary.org/obo/ENVO_01000618" title="http://purl.obolibrary.org/obo/ENVO_01000618">lotic water body</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -625,7 +742,7 @@ This section provides details for each class defined by GC DFO Salmon Ontology.
     has super-classes
    </dt>
    <dd>
-    <a href="#http://purl.obolibrary.org/obo/IAO_0000030" title="http://purl.obolibrary.org/obo/IAO_0000030">information content entity</a> <sup class="type-c" title="class">c</sup>
+    <a href="http://purl.obolibrary.org/obo/IAO_0000030" title="http://purl.obolibrary.org/obo/IAO_0000030">information content entity</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -648,7 +765,7 @@ This section provides details for each class defined by GC DFO Salmon Ontology.
     has super-classes
    </dt>
    <dd>
-    <a href="#http://purl.obolibrary.org/obo/IAO_0000109" title="http://purl.obolibrary.org/obo/IAO_0000109">measurement datum</a> <sup class="type-c" title="class">c</sup>
+    <a href="http://purl.obolibrary.org/obo/IAO_0000109" title="http://purl.obolibrary.org/obo/IAO_0000109">measurement datum</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -682,7 +799,7 @@ This section provides details for each class defined by GC DFO Salmon Ontology.
     has super-classes
    </dt>
    <dd>
-    <a href="#http://purl.obolibrary.org/obo/IAO_0000030" title="http://purl.obolibrary.org/obo/IAO_0000030">information content entity</a> <sup class="type-c" title="class">c</sup>
+    <a href="http://purl.obolibrary.org/obo/IAO_0000030" title="http://purl.obolibrary.org/obo/IAO_0000030">information content entity</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     has sub-classes
@@ -711,7 +828,7 @@ This section provides details for each class defined by GC DFO Salmon Ontology.
     has super-classes
    </dt>
    <dd>
-    <a href="#http://purl.obolibrary.org/obo/IAO_0000030" title="http://purl.obolibrary.org/obo/IAO_0000030">information content entity</a> <sup class="type-c" title="class">c</sup>
+    <a href="http://purl.obolibrary.org/obo/IAO_0000030" title="http://purl.obolibrary.org/obo/IAO_0000030">information content entity</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     has sub-classes
@@ -751,7 +868,7 @@ This section provides details for each class defined by GC DFO Salmon Ontology.
     has super-classes
    </dt>
    <dd>
-    <a href="#http://rs.tdwg.org/dwc/terms/Organism" title="http://rs.tdwg.org/dwc/terms/Organism">Organism</a> <sup class="type-c" title="class">c</sup>
+    <a href="http://rs.tdwg.org/dwc/terms/Organism" title="http://rs.tdwg.org/dwc/terms/Organism">Organism</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -782,7 +899,7 @@ This section provides details for each class defined by GC DFO Salmon Ontology.
     has super-classes
    </dt>
    <dd>
-    <a href="#http://purl.obolibrary.org/obo/BFO_0000015" title="http://purl.obolibrary.org/obo/BFO_0000015">process</a> <sup class="type-c" title="class">c</sup>
+    <a href="http://purl.obolibrary.org/obo/BFO_0000015" title="http://purl.obolibrary.org/obo/BFO_0000015">process</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -850,7 +967,7 @@ This section provides details for each class defined by GC DFO Salmon Ontology.
     has super-classes
    </dt>
    <dd>
-    <a href="#http://rs.tdwg.org/dwc/terms/Event" title="http://rs.tdwg.org/dwc/terms/Event">Event</a> <sup class="type-c" title="class">c</sup>
+    <a href="http://rs.tdwg.org/dwc/terms/Event" title="http://rs.tdwg.org/dwc/terms/Event">Event</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     has sub-classes
@@ -879,7 +996,7 @@ This section provides details for each class defined by GC DFO Salmon Ontology.
     has super-classes
    </dt>
    <dd>
-    <a href="#http://purl.obolibrary.org/obo/IAO_0000109" title="http://purl.obolibrary.org/obo/IAO_0000109">measurement datum</a> <sup class="type-c" title="class">c</sup>
+    <a href="http://purl.obolibrary.org/obo/IAO_0000109" title="http://purl.obolibrary.org/obo/IAO_0000109">measurement datum</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     has sub-classes
@@ -1002,6 +1119,42 @@ This section provides details for each class defined by GC DFO Salmon Ontology.
 </div>
 </div>
     
+
+<!--NAMESPACE DECLARATIONS SECTION-->
+<div id="namespacedeclarations">
+<h2 id="ns" class="list">Namespace declarations</h2>
+<div id="ns-table" align="center">
+<table>
+<caption> <a href="#ns"> Table 1</a>: Namespaces used in the document </caption>
+<tbody>
+<tr><td><b>[Ontology NS Prefix]</b></td><td>&lt;https://w3id.org/gcdfo/salmon&gt;</td></tr>
+<tr><td><b>bfo</b></td><td>&lt;http://purl.obolibrary.org/obo/BFO_&gt;</td></tr>
+<tr><td><b>dcterms</b></td><td>&lt;http://purl.org/dc/terms/&gt;</td></tr>
+<tr><td><b>dqv</b></td><td>&lt;http://www.w3.org/ns/dqv#&gt;</td></tr>
+<tr><td><b>dwc</b></td><td>&lt;http://rs.tdwg.org/dwc/terms/&gt;</td></tr>
+<tr><td><b>dwciri</b></td><td>&lt;http://rs.tdwg.org/dwc/iri/&gt;</td></tr>
+<tr><td><b>envo</b></td><td>&lt;http://purl.obolibrary.org/obo/ENVO_&gt;</td></tr>
+<tr><td><b>gcdfo</b></td><td>&lt;https://w3id.org/gcdfo/salmon#&gt;</td></tr>
+<tr><td><b>iao</b></td><td>&lt;http://purl.obolibrary.org/obo/IAO_&gt;</td></tr>
+<tr><td><b>oa</b></td><td>&lt;http://www.w3.org/ns/oa#&gt;</td></tr>
+<tr><td><b>obo</b></td><td>&lt;http://purl.obolibrary.org/obo/&gt;</td></tr>
+<tr><td><b>odo</b></td><td>&lt;http://purl.dataone.org/odo/&gt;</td></tr>
+<tr><td><b>org</b></td><td>&lt;http://www.w3.org/ns/org#&gt;</td></tr>
+<tr><td><b>owl</b></td><td>&lt;http://www.w3.org/2002/07/owl#&gt;</td></tr>
+<tr><td><b>prov</b></td><td>&lt;http://www.w3.org/ns/prov#&gt;</td></tr>
+<tr><td><b>qudt</b></td><td>&lt;http://qudt.org/schema/qudt/&gt;</td></tr>
+<tr><td><b>qudtunit</b></td><td>&lt;http://qudt.org/vocab/unit/&gt;</td></tr>
+<tr><td><b>rdf</b></td><td>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;</td></tr>
+<tr><td><b>rdfs</b></td><td>&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</td></tr>
+<tr><td><b>schema</b></td><td>&lt;https://schema.org/&gt;</td></tr>
+<tr><td><b>skos</b></td><td>&lt;http://www.w3.org/2004/02/skos/core#&gt;</td></tr>
+<tr><td><b>xml</b></td><td>&lt;http://www.w3.org/XML/1998/namespace&gt;</td></tr>
+<tr><td><b>xsd</b></td><td>&lt;http://www.w3.org/2001/XMLSchema#&gt;</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<hr>
 
 <!--REFERENCES SECTION-->
   <div id="references">

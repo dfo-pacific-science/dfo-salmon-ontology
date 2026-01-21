@@ -167,11 +167,11 @@ xsd:anyURI   a rdfs:Datatype .
   dcterms:publisher "Fisheries and Oceans Canada (DFO) Pacific Region Science Branch"@en ;
   dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
   dcterms:created "2025-09-06"^^xsd:date ;
-  dcterms:modified "2025-12-08"^^xsd:date ;
+  dcterms:modified "2026-01-21"^^xsd:date ;
   dcterms:description "OWL + SKOS ontology for DFO salmon data: stocks/CUs/MUs, survey events, escapement measurements, and GSI constructs; aligns to DwC via rdfs:subClassOf; hybrid approach with SKOS for methods and OWL for events."@en ;
   rdfs:seeAlso <https://github.com/dfo-pacific-science/salmon-ontology> ;
-  owl:versionInfo "0.1.0 (hybrid OWL+SKOS approach)" ;
-  owl:versionIRI <https://w3id.org/gcdfo/salmon/0.1.0> ;
+  owl:versionInfo "0.0.2 (expanded enumeration/estimate methods and downgrade criteria)" ;
+  owl:versionIRI <https://w3id.org/gcdfo/salmon/0.0.2> ;
   iao:0000115 "Hybrid OWL+SKOS ontology for DFO salmon data. Uses SKOS for controlled vocabularies (methods, criteria) and OWL for formal relationships and events."@en . # definition
 
 #################################################################
@@ -498,27 +498,93 @@ envo:00000234 a owl:Class ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
-:CensusByManualCountAtFixedSite a skos:Concept ;
-  skos:prefLabel "Census by Manual Count at Fixed Site"@en ;
+:FixedSiteCensusManual a skos:Concept ;
+  skos:prefLabel "Fixed Site Census (Manual)"@en ;
   skos:definition "Salmon are guided through a controlled opening in a fence/weir where trained observers visually tally each passage event on a continuous or daily schedule. Counting chambers/windows and SIL/SEN daily logs document coverage; bypass routes are monitored and closed where possible."@en ;
   skos:inScheme :EnumerationMethodScheme ;
   skos:broader :EnumerationMethod ;
+  rdfs:comment "Legacy methods: Fence, Weir, Fixed Site Census (manual)"@en ;
+  gcdfo:theme gcdfo:MonitoringFieldWorkTheme, gcdfo:StockAssessmentTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:FixedSiteCensusElectronic a skos:Concept ;
+  skos:prefLabel "Fixed Site Census (Electronic)"@en ;
+  skos:definition "Automated counting at a constrained opening using electronic/optical counters, resistivity counters, or video/camera systems. QA review of automated events, cross-section coverage, and uptime/coverage are documented."@en ;
+  skos:inScheme :EnumerationMethodScheme ;
+  skos:broader :EnumerationMethod ;
+  rdfs:comment "Legacy methods: Electronic/Optical counter, Resistivity Counter, Video/Camera counter"@en ;
+  gcdfo:theme gcdfo:MonitoringFieldWorkTheme, gcdfo:StockAssessmentTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:VisualGroundCount a skos:Concept ;
+  skos:prefLabel "Visual Ground Count"@en ;
+  skos:definition "Visual surveys conducted by stream/bank walk with documented visit schedule, reach coverage, timing, and visibility conditions."@en ;
+  skos:inScheme :EnumerationMethodScheme ;
+  skos:broader :EnumerationMethod ;
+  rdfs:comment "Legacy methods: Stream Walk, Ground count, Bank Walk"@en ;
   gcdfo:theme gcdfo:MonitoringFieldWorkTheme, gcdfo:StockAssessmentTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 :VisualSnorkelCount a skos:Concept ;
   skos:prefLabel "Visual Snorkel Count"@en ;
-  skos:definition "Two or more trained snorkelers conduct standardized passes within defined segments, tallying live/dead by species. Field forms capture visibility class, segment boundaries, and repeat‑visit schedule; counts are aggregated across observers/passes."@en ;
+  skos:definition "Two or more trained snorkelers conduct standardized passes within defined segments, tallying live/dead by species. Field forms capture visibility class, segment boundaries, and repeat-visit schedule; counts are aggregated across observers/passes."@en ;
   skos:inScheme :EnumerationMethodScheme ;
   skos:broader :EnumerationMethod ;
+  rdfs:comment "Legacy methods: Snorkel, Snorkel Swim"@en ;
   gcdfo:theme gcdfo:MonitoringFieldWorkTheme, gcdfo:StockAssessmentTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 :AerialSurveyCount a skos:Concept ;
   skos:prefLabel "Aerial Survey Count"@en ;
-  skos:definition "Repeated overflights enumerate visible spawners over defined waterbodies using helicopter fixed wing or drone platforms. Flight lines altitude sensor settings and ground sampling distance are documented and imagery may be reviewed post flight."@en ;
+  skos:definition "Overflights (helicopter, fixed wing, or drone) with documented flight lines, coverage, visibility, and sensor settings. Imagery may be reviewed post-flight."@en ;
   skos:inScheme :EnumerationMethodScheme ;
   skos:broader :EnumerationMethod ;
+  rdfs:comment "Legacy methods: Helicopter, Fixed Wing Aircraft, Aerial, Drone, UAS, UAV"@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:HydroacousticSonarCount a skos:Concept ;
+  skos:prefLabel "Hydroacoustic Sonar Count"@en ;
+  skos:definition "Sonar detections (ARIS, DIDSON, or other hydroacoustic systems) with documented coverage, visibility/noise conditions, and uptime. Raw detections require processing through a modelling/classification pipeline."@en ;
+  skos:inScheme :EnumerationMethodScheme ;
+  skos:broader :EnumerationMethod ;
+  rdfs:comment "Legacy methods: Sonar-ARIS, Sonar-DIDSON, Hydroacoustic"@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:TrapCount a skos:Concept ;
+  skos:prefLabel "Trap Count"@en ;
+  skos:definition "Trap-based counts from non-spanning traps with documented emptying schedule, efficiency measurements, and coverage information."@en ;
+  skos:inScheme :EnumerationMethodScheme ;
+  skos:broader :EnumerationMethod ;
+  rdfs:comment "Legacy methods: Trap, Hatchery Passage Counting"@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:ReddCount a skos:Concept ;
+  skos:prefLabel "Redd Count"@en ;
+  skos:definition "Redd counts with documentation of detectability, timing, and reach coverage. Conversion to spawner estimates requires spawners-per-redd factors handled in analysis."@en ;
+  skos:inScheme :EnumerationMethodScheme ;
+  skos:broader :EnumerationMethod ;
+  rdfs:comment "Legacy methods: Redd Counts"@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:ElectrofishingCount a skos:Concept ;
+  skos:prefLabel "Electrofishing Count"@en ;
+  skos:definition "Effort-standardized electrofishing passes used to generate catch-per-unit-effort (CPUE) indices."@en ;
+  skos:inScheme :EnumerationMethodScheme ;
+  skos:broader :EnumerationMethod ;
+  rdfs:comment "Legacy methods: Electrofishing, Electroshocking"@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:MarkRecaptureFieldProgram a skos:Concept ;
+  skos:prefLabel "Mark-Recapture Field Program"@en ;
+  skos:definition "Field program involving marking and subsequent recapture/recovery of tagged fish with documented assumptions and recovery coverage."@en ;
+  skos:inScheme :EnumerationMethodScheme ;
+  skos:broader :EnumerationMethod ;
+  rdfs:comment "Legacy methods: Tag Recovery"@en ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
@@ -537,9 +603,9 @@ envo:00000234 a owl:Class ;
 :AreaUnderTheCurve a skos:Concept ;
   skos:prefLabel "Area Under the Curve"@en ;
   skos:altLabel "AUC"@en ;
-  skos:definition "Integrates serial counts over time using a survey‑life parameter; may apply observer efficiency."@en ;
-  skos:inScheme :EstimateMethodScheme , :EnumerationMethodScheme;
-  skos:broader :EstimateMethod , :EnumerationMethod ;
+  skos:definition "Integrates serial counts over time using a survey-life parameter; may apply observer efficiency."@en ;
+  skos:inScheme :EstimateMethodScheme ;
+  skos:broader :EstimateMethod ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
@@ -548,6 +614,61 @@ envo:00000234 a owl:Class ;
   skos:definition "Uses the peak survey (live ± dead variants) as the season estimate/index."@en ;
   skos:inScheme :EstimateMethodScheme ;
   skos:broader :EstimateMethod ;
+  rdfs:comment "Legacy methods: Peak Live, Peak Live + Dead, Peak + Cumulative Dead, Cumulative New"@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:HydroacousticModelling a skos:Concept ;
+  skos:prefLabel "Hydroacoustic Modelling"@en ;
+  skos:definition "Model pipeline converts sonar detections to passage totals; sets range/angle/blind zones; species/size attribution rules documented."@en ;
+  skos:inScheme :EstimateMethodScheme ;
+  skos:broader :EstimateMethod ;
+  rdfs:comment "Legacy methods: Hydroacoustics, Sonar (ARIS/DIDSON). Not Type-1 under Hyatt; interpolation and classification error are central downgrades."@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:ExpansionMathematicalOperations a skos:Concept ;
+  skos:prefLabel "Expansion/Mathematical Operations"@en ;
+  skos:definition "Applies expansion factors or arithmetic transforms to a base count/index."@en ;
+  skos:inScheme :EstimateMethodScheme ;
+  skos:broader :EstimateMethod ;
+  rdfs:comment "Legacy methods: Lake Expansion, Redd Expansion, Peak×Factor, (Peak+CumDead)×Factor, Addition/Subtraction, Multiplication/Division. Inherits base method's Type; weak provenance = downgrade one Type."@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:CalibratedTimeSeries a skos:Concept ;
+  skos:prefLabel "Calibrated Time Series"@en ;
+  skos:definition "Regression/state-space model calibrated to a Type-1/2 series converts a lower-precision index to abundance."@en ;
+  skos:inScheme :EstimateMethodScheme ;
+  skos:broader :EstimateMethod ;
+  rdfs:comment "Document calibration source years, transferability, diagnostics. Type-2 when calibration robust and applicable; else Type-3."@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:MarkRecaptureAnalysis a skos:Concept ;
+  skos:prefLabel "Mark-Recapture Analysis"@en ;
+  skos:definition "Capture-recapture estimators (Petersen, Jolly-Seber, open/Bayesian models) applied to field marks/recoveries."@en ;
+  skos:inScheme :EstimateMethodScheme ;
+  skos:broader :EstimateMethod ;
+  rdfs:comment "Legacy methods: Petersen, Jolly-Seber, Open model, Bayesian MR. Store uncertainty (e.g., CV) when available; note tag loss/recovery protocols."@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:TrapModelAnalysis a skos:Concept ;
+  skos:prefLabel "Trap Model Analysis"@en ;
+  skos:definition "Trap-based counts adjusted with efficiency/coverage models to estimate total passage."@en ;
+  skos:inScheme :EstimateMethodScheme ;
+  skos:broader :EstimateMethod ;
+  rdfs:comment "Requires documented trap efficiency measurements and cross-section coverage factors."@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:ReddExpansionAnalysis a skos:Concept ;
+  skos:prefLabel "Redd Expansion Analysis"@en ;
+  skos:definition "Converts redd counts to spawner estimates using spawners-per-redd expansion factors."@en ;
+  skos:inScheme :EstimateMethodScheme ;
+  skos:broader :EstimateMethod ;
+  rdfs:comment "Requires validated spawners-per-redd factor and documentation of detectability assumptions."@en ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
@@ -614,6 +735,197 @@ envo:00000234 a owl:Class ;
   skos:prefLabel "Estimate Type"@en ;
   skos:definition "Classification of escapement estimate quality based on Hyatt 1997 framework"@en ;
   skos:inScheme :EstimateTypeScheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+#################################################################
+# SKOS Downgrade Criteria
+#################################################################
+
+:DowngradeCriteria a skos:Concept ;
+  skos:prefLabel "Downgrade Criteria"@en ;
+  skos:definition "Criteria that may result in downgrading an escapement estimate type classification"@en ;
+  skos:inScheme :DowngradeCriteriaScheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:BreachBypass a skos:Concept ;
+  skos:prefLabel "Bypass/Breach Risk"@en ;
+  skos:definition "Bypass or breach risks not monitored and verified negligible"@en ;
+  skos:inScheme :DowngradeCriteriaScheme ;
+  skos:broader :DowngradeCriteria ;
+  rdfs:comment "Limits to Type 2 maximum"@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:RunCoverage a skos:Concept ;
+  skos:prefLabel "Run Coverage"@en ;
+  skos:definition "Run-window coverage < 95% of season days"@en ;
+  skos:inScheme :DowngradeCriteriaScheme ;
+  skos:broader :DowngradeCriteria ;
+  rdfs:comment "Limits to Type 2 maximum"@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:Uptime a skos:Concept ;
+  skos:prefLabel "Uptime"@en ;
+  skos:definition "Counting/device uptime < 95% (or <90% with interpolation)"@en ;
+  skos:inScheme :DowngradeCriteriaScheme ;
+  skos:broader :DowngradeCriteria ;
+  rdfs:comment "Limits to Type 2 maximum"@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:InfillMethod a skos:Concept ;
+  skos:prefLabel "Infill Method"@en ;
+  skos:definition "Interpolation used for missing data; defensibility must be documented"@en ;
+  skos:inScheme :DowngradeCriteriaScheme ;
+  skos:broader :DowngradeCriteria ;
+  rdfs:comment "Limits to Type 2 maximum"@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:Documentation a skos:Concept ;
+  skos:prefLabel "Documentation"@en ;
+  skos:definition "Missing SIL/SEN logs or QA/methods report"@en ;
+  skos:inScheme :DowngradeCriteriaScheme ;
+  skos:broader :DowngradeCriteria ;
+  rdfs:comment "Downgrades Type 1/2 by one level"@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:CrossSectionCoverage a skos:Concept ;
+  skos:prefLabel "Cross-section Coverage"@en ;
+  skos:definition "Incomplete cross-section coverage"@en ;
+  skos:inScheme :DowngradeCriteriaScheme ;
+  skos:broader :DowngradeCriteria ;
+  rdfs:comment "Limits to Type 2 maximum"@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:ReviewQA a skos:Concept ;
+  skos:prefLabel "Review/QA"@en ;
+  skos:definition "Insufficient QA review of automated events"@en ;
+  skos:inScheme :DowngradeCriteriaScheme ;
+  skos:broader :DowngradeCriteria ;
+  rdfs:comment "Limits to Type 2 maximum"@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:DeviceConfiguration a skos:Concept ;
+  skos:prefLabel "Device Configuration"@en ;
+  skos:definition "Device not within operational specifications"@en ;
+  skos:inScheme :DowngradeCriteriaScheme ;
+  skos:broader :DowngradeCriteria ;
+  rdfs:comment "Limits to Type 2 maximum"@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:EnvironmentalConditions a skos:Concept ;
+  skos:prefLabel "Environmental Conditions"@en ;
+  skos:definition "Environmental conditions outside specifications"@en ;
+  skos:inScheme :DowngradeCriteriaScheme ;
+  skos:broader :DowngradeCriteria ;
+  rdfs:comment "Limits to Type 2 maximum"@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:Visibility a skos:Concept ;
+  skos:prefLabel "Visibility"@en ;
+  skos:definition "Poor visibility conditions"@en ;
+  skos:inScheme :DowngradeCriteriaScheme ;
+  skos:broader :DowngradeCriteria ;
+  rdfs:comment "Limits to Type 3 maximum"@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:Classification a skos:Concept ;
+  skos:prefLabel "Classification"@en ;
+  skos:definition "Classification/attribution not documented"@en ;
+  skos:inScheme :DowngradeCriteriaScheme ;
+  skos:broader :DowngradeCriteria ;
+  rdfs:comment "Limits to Type 3 maximum"@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:ReachCoverage a skos:Concept ;
+  skos:prefLabel "Reach Coverage"@en ;
+  skos:definition "Insufficient reach coverage"@en ;
+  skos:inScheme :DowngradeCriteriaScheme ;
+  skos:broader :DowngradeCriteria ;
+  rdfs:comment "Limits to Type 3 maximum"@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:Timing a skos:Concept ;
+  skos:prefLabel "Timing"@en ;
+  skos:definition "Poor timing of surveys"@en ;
+  skos:inScheme :DowngradeCriteriaScheme ;
+  skos:broader :DowngradeCriteria ;
+  rdfs:comment "Limits to Type 3 maximum"@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:NumberOfVisits a skos:Concept ;
+  skos:prefLabel "Number of Visits"@en ;
+  skos:definition "Insufficient number of survey visits"@en ;
+  skos:inScheme :DowngradeCriteriaScheme ;
+  skos:broader :DowngradeCriteria ;
+  rdfs:comment "Limits to Type 4 maximum"@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:TrapEfficiency a skos:Concept ;
+  skos:prefLabel "Trap Efficiency"@en ;
+  skos:definition "Trap efficiency not measured/validated"@en ;
+  skos:inScheme :DowngradeCriteriaScheme ;
+  skos:broader :DowngradeCriteria ;
+  rdfs:comment "Limits to Type 3 maximum"@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:EffortStandardization a skos:Concept ;
+  skos:prefLabel "Effort Standardization"@en ;
+  skos:definition "Effort not standardized"@en ;
+  skos:inScheme :DowngradeCriteriaScheme ;
+  skos:broader :DowngradeCriteria ;
+  rdfs:comment "Limits to Type 4 maximum"@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:MarkRecaptureAssumptions a skos:Concept ;
+  skos:prefLabel "Mark-Recapture Assumptions"@en ;
+  skos:definition "MR assumptions not evaluated"@en ;
+  skos:inScheme :DowngradeCriteriaScheme ;
+  skos:broader :DowngradeCriteria ;
+  rdfs:comment "Limits to Type 3 maximum"@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:Detectability a skos:Concept ;
+  skos:prefLabel "Detectability"@en ;
+  skos:definition "Detectability factors not validated"@en ;
+  skos:inScheme :DowngradeCriteriaScheme ;
+  skos:broader :DowngradeCriteria ;
+  rdfs:comment "Limits to Type 3 maximum"@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:PrecisionAccuracy a skos:Concept ;
+  skos:prefLabel "Precision/Accuracy"@en ;
+  skos:definition "Precision/accuracy weaker than expected for type"@en ;
+  skos:inScheme :DowngradeCriteriaScheme ;
+  skos:broader :DowngradeCriteria ;
+  rdfs:comment "Downgrades by one level"@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:MethodUnknown a skos:Concept ;
+  skos:prefLabel "Method Unknown/Inconsistent"@en ;
+  skos:definition "Survey/analytical methods not adequately identified/consistent"@en ;
+  skos:inScheme :DowngradeCriteriaScheme ;
+  skos:broader :DowngradeCriteria ;
+  rdfs:comment "Limits to Type 5 maximum"@en ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
