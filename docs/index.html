@@ -178,145 +178,1381 @@ The GC DFO Salmon Ontology is a data stewardship and operational process ontolog
   <li><a href="#scheme-wild-salmon-policy-status-zone">Wild Salmon Policy Status Zone</a></li>
 </ul>
 <div class="scheme" id="scheme-biological-benchmark-and-indicator-scheme">
-  <h3 class="list">Biological Benchmark and Indicator Scheme</h3>
+  <h3 id="scheme-biological-benchmark-and-indicator-scheme" class="list">Biological Benchmark and Indicator Scheme</h3>
   <p class="markdown">Controlled vocabulary for key biological benchmarks, performance indicators, and reference points used in salmon stock assessment and management (e.g., SMSY, Sgen, spawner abundance).</p>
   <ul>
-    <li><a href="https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance">:TargetOrLimitRateOrAbundance</a></li>
+    <li><a href="#TargetOrLimitRateOrAbundance">:TargetOrLimitRateOrAbundance</a></li>
   </ul>
 </div>
 <div class="scheme" id="scheme-cosewic-status-scheme">
-  <h3 class="list">COSEWIC Status Scheme</h3>
+  <h3 id="scheme-cosewic-status-scheme" class="list">COSEWIC Status Scheme</h3>
   <p class="markdown">Controlled vocabulary for COSEWIC statuses</p>
   <ul>
-    <li><a href="https://w3id.org/gcdfo/salmon#COSEWICStatusCategory">:COSEWICStatusCategory</a></li>
+    <li><a href="#COSEWICStatusCategory">:COSEWICStatusCategory</a></li>
   </ul>
 </div>
 <div class="scheme" id="scheme-downgrade-criteria-scheme">
-  <h3 class="list">Downgrade Criteria Scheme</h3>
+  <h3 id="scheme-downgrade-criteria-scheme" class="list">Downgrade Criteria Scheme</h3>
   <p class="markdown">Controlled vocabulary for estimate type downgrade criteria</p>
   <ul>
-    <li><a href="https://w3id.org/gcdfo/salmon#BreachBypass">Bypass/Breach Risk</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#Classification">Classification</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#CrossSectionCoverage">Cross-section Coverage</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#Detectability">Detectability</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#DeviceConfiguration">Device Configuration</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#Documentation">Documentation</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#DowngradeCriteria">Downgrade Criteria</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#EffortStandardization">Effort Standardization</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#EnvironmentalConditions">Environmental Conditions</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#InfillMethod">Infill Method</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#MarkRecaptureAssumptions">Mark-Recapture Assumptions</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#MethodUnknown">Method Unknown/Inconsistent</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#NumberOfVisits">Number of Visits</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#PrecisionAccuracy">Precision/Accuracy</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#ReachCoverage">Reach Coverage</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#ReviewQA">Review/QA</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#RunCoverage">Run Coverage</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#Timing">Timing</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#TrapEfficiency">Trap Efficiency</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#Uptime">Uptime</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#Visibility">Visibility</a></li>
+    <li><a href="#BreachBypass">Bypass/Breach Risk</a></li>
+    <li><a href="#Classification">Classification</a></li>
+    <li><a href="#CrossSectionCoverage">Cross-section Coverage</a></li>
+    <li><a href="#Detectability">Detectability</a></li>
+    <li><a href="#DeviceConfiguration">Device Configuration</a></li>
+    <li><a href="#Documentation">Documentation</a></li>
+    <li><a href="#DowngradeCriteria">Downgrade Criteria</a></li>
+    <li><a href="#EffortStandardization">Effort Standardization</a></li>
+    <li><a href="#EnvironmentalConditions">Environmental Conditions</a></li>
+    <li><a href="#InfillMethod">Infill Method</a></li>
+    <li><a href="#MarkRecaptureAssumptions">Mark-Recapture Assumptions</a></li>
+    <li><a href="#MethodUnknown">Method Unknown/Inconsistent</a></li>
+    <li><a href="#NumberOfVisits">Number of Visits</a></li>
+    <li><a href="#PrecisionAccuracy">Precision/Accuracy</a></li>
+    <li><a href="#ReachCoverage">Reach Coverage</a></li>
+    <li><a href="#ReviewQA">Review/QA</a></li>
+    <li><a href="#RunCoverage">Run Coverage</a></li>
+    <li><a href="#Timing">Timing</a></li>
+    <li><a href="#TrapEfficiency">Trap Efficiency</a></li>
+    <li><a href="#Uptime">Uptime</a></li>
+    <li><a href="#Visibility">Visibility</a></li>
   </ul>
 </div>
 <div class="scheme" id="scheme-enumeration-method-scheme">
-  <h3 class="list">Enumeration Method Scheme</h3>
+  <h3 id="scheme-enumeration-method-scheme" class="list">Enumeration Method Scheme</h3>
   <p class="markdown">Controlled vocabulary for salmon enumeration methods</p>
   <ul>
-    <li><a href="https://w3id.org/gcdfo/salmon#AerialSurveyCount">Aerial Survey Count</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#ElectrofishingCount">Electrofishing Count</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#EnumerationMethod">Enumeration Method</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#FixedSiteCensusElectronic">Fixed Site Census (Electronic)</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#FixedSiteCensusManual">Fixed Site Census (Manual)</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#HydroacousticSonarCount">Hydroacoustic Sonar Count</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#MarkRecaptureFieldProgram">Mark-Recapture Field Program</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#ReddCount">Redd Count</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#TrapCount">Trap Count</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#VisualGroundCount">Visual Ground Count</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#VisualSnorkelCount">Visual Snorkel Count</a></li>
+    <li><a href="#AerialSurveyCount">Aerial Survey Count</a></li>
+    <li><a href="#ElectrofishingCount">Electrofishing Count</a></li>
+    <li><a href="#EnumerationMethod">Enumeration Method</a></li>
+    <li><a href="#FixedSiteCensusElectronic">Fixed Site Census (Electronic)</a></li>
+    <li><a href="#FixedSiteCensusManual">Fixed Site Census (Manual)</a></li>
+    <li><a href="#HydroacousticSonarCount">Hydroacoustic Sonar Count</a></li>
+    <li><a href="#MarkRecaptureFieldProgram">Mark-Recapture Field Program</a></li>
+    <li><a href="#ReddCount">Redd Count</a></li>
+    <li><a href="#TrapCount">Trap Count</a></li>
+    <li><a href="#VisualGroundCount">Visual Ground Count</a></li>
+    <li><a href="#VisualSnorkelCount">Visual Snorkel Count</a></li>
   </ul>
 </div>
 <div class="scheme" id="scheme-estimate-method-scheme">
-  <h3 class="list">Estimate Method Scheme</h3>
+  <h3 id="scheme-estimate-method-scheme" class="list">Estimate Method Scheme</h3>
   <p class="markdown">Controlled vocabulary for salmon estimate methods</p>
   <ul>
-    <li><a href="https://w3id.org/gcdfo/salmon#AreaUnderTheCurve">Area Under the Curve</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#CalibratedTimeSeries">Calibrated Time Series</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#EstimateMethod">Estimate Method</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#ExpansionMathematicalOperations">Expansion/Mathematical Operations</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#FixedStationTally">Fixed‑Station Tally</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#HydroacousticModelling">Hydroacoustic Modelling</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#MarkRecaptureAnalysis">Mark-Recapture Analysis</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#PeakCountAnalysis">Peak Count Analysis</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#ReddExpansionAnalysis">Redd Expansion Analysis</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#TrapModelAnalysis">Trap Model Analysis</a></li>
+    <li><a href="#AreaUnderTheCurve">Area Under the Curve</a></li>
+    <li><a href="#CalibratedTimeSeries">Calibrated Time Series</a></li>
+    <li><a href="#EstimateMethod">Estimate Method</a></li>
+    <li><a href="#ExpansionMathematicalOperations">Expansion/Mathematical Operations</a></li>
+    <li><a href="#FixedStationTally">Fixed‑Station Tally</a></li>
+    <li><a href="#HydroacousticModelling">Hydroacoustic Modelling</a></li>
+    <li><a href="#MarkRecaptureAnalysis">Mark-Recapture Analysis</a></li>
+    <li><a href="#PeakCountAnalysis">Peak Count Analysis</a></li>
+    <li><a href="#ReddExpansionAnalysis">Redd Expansion Analysis</a></li>
+    <li><a href="#TrapModelAnalysis">Trap Model Analysis</a></li>
   </ul>
 </div>
 <div class="scheme" id="scheme-estimate-type-scheme">
-  <h3 class="list">Estimate Type Scheme</h3>
+  <h3 id="scheme-estimate-type-scheme" class="list">Estimate Type Scheme</h3>
   <p class="markdown">Controlled vocabulary for Hyatt 1997 estimate types</p>
   <ul>
-    <li><a href="https://w3id.org/gcdfo/salmon#EstimateType">Estimate Type</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#Type1">Type-1, True Abundance, high resolution</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#Type2">Type-2, True Abundance, medium resolution</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#Type3">Type-3, Relative Abundance, high resolution</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#Type4">Type-4, Relative Abundance, medium resolution</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#Type5">Type-5, Relative Abundance, low resolution</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#Type6">Type-6, Presence or Absence</a></li>
+    <li><a href="#EstimateType">Estimate Type</a></li>
+    <li><a href="#Type1">Type-1, True Abundance, high resolution</a></li>
+    <li><a href="#Type2">Type-2, True Abundance, medium resolution</a></li>
+    <li><a href="#Type3">Type-3, Relative Abundance, high resolution</a></li>
+    <li><a href="#Type4">Type-4, Relative Abundance, medium resolution</a></li>
+    <li><a href="#Type5">Type-5, Relative Abundance, low resolution</a></li>
+    <li><a href="#Type6">Type-6, Presence or Absence</a></li>
   </ul>
 </div>
 <div class="scheme" id="scheme-rapid-status-confidence-scheme">
-  <h3 class="list">Rapid status confidence scheme</h3>
+  <h3 id="scheme-rapid-status-confidence-scheme" class="list">Rapid status confidence scheme</h3>
   <p class="markdown">Controlled vocabulary for categorical confidence ratings attached to rapid status assessments.</p>
   <ul>
-    <li><a href="https://w3id.org/gcdfo/salmon#ConfidenceCategory">Confidence category</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#RapidStatusConfidenceHigh">High WSP rapid-status confidence</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#RapidStatusConfidenceLow">Low rapid-status confidence</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#RapidStatusConfidenceMedium">Medium rapid-status confidence</a></li>
+    <li><a href="#ConfidenceCategory">Confidence category</a></li>
+    <li><a href="#RapidStatusConfidenceHigh">High WSP rapid-status confidence</a></li>
+    <li><a href="#RapidStatusConfidenceLow">Low rapid-status confidence</a></li>
+    <li><a href="#RapidStatusConfidenceMedium">Medium rapid-status confidence</a></li>
   </ul>
 </div>
 <div class="scheme" id="scheme-salmon-origin-scheme">
-  <h3 class="list">Salmon Origin Scheme</h3>
+  <h3 id="scheme-salmon-origin-scheme" class="list">Salmon Origin Scheme</h3>
   <p class="markdown">Controlled vocabulary for describing the origin of individual salmon (e.g., natural-origin, hatchery-origin, mixed-origin).</p>
   <p class="markdown"><em>Currently no SKOS concepts are declared under this scheme.</em></p>
 </div>
 <div class="scheme" id="scheme-stock-status-zone-scheme">
-  <h3 class="list">Stock Status Zone Scheme</h3>
+  <h3 id="scheme-stock-status-zone-scheme" class="list">Stock Status Zone Scheme</h3>
   <p class="markdown">Controlled vocabulary for stock status zones under the Precautionary Approach.</p>
   <ul>
-    <li><a href="https://w3id.org/gcdfo/salmon#StockStatusZone">:StockStatusZone</a></li>
+    <li><a href="#StockStatusZone">:StockStatusZone</a></li>
   </ul>
 </div>
 <div class="scheme" id="scheme-theme-scheme">
-  <h3 class="list">Theme Scheme</h3>
+  <h3 id="scheme-theme-scheme" class="list">Theme Scheme</h3>
   <p class="markdown">High-level thematic concept scheme for organizing DFO Salmon Ontology classes and concepts.</p>
   <ul>
-    <li><a href="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme">Data, Models, and Provenance</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme">Fisheries Management</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme">Genetics and Stock Composition</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#HabitatEcosystemClimateTheme">Habitat, Ecosystem, and Climate Pressures</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme">Monitoring and Field Work</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme">Policy, Governance, and Organizational Structure</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme">Salmon Enhancement and Hatcheries</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#SpeciesAtRiskRecoveryTheme">Species at Risk and Recovery</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#StockAssessmentTheme">Stock Assessment</a></li>
-    <li><a href="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme">Wild Salmon Policy</a></li>
+    <li><a href="#DataModelProvenanceTheme">Data, Models, and Provenance</a></li>
+    <li><a href="#FisheriesManagementTheme">Fisheries Management</a></li>
+    <li><a href="#GeneticsStockCompositionTheme">Genetics and Stock Composition</a></li>
+    <li><a href="#HabitatEcosystemClimateTheme">Habitat, Ecosystem, and Climate Pressures</a></li>
+    <li><a href="#MonitoringFieldWorkTheme">Monitoring and Field Work</a></li>
+    <li><a href="#PolicyGovernanceTheme">Policy, Governance, and Organizational Structure</a></li>
+    <li><a href="#SalmonEnhancementHatcheriesTheme">Salmon Enhancement and Hatcheries</a></li>
+    <li><a href="#SpeciesAtRiskRecoveryTheme">Species at Risk and Recovery</a></li>
+    <li><a href="#StockAssessmentTheme">Stock Assessment</a></li>
+    <li><a href="#WildSalmonPolicyTheme">Wild Salmon Policy</a></li>
   </ul>
 </div>
 <div class="scheme" id="scheme-wild-salmon-policy-metric-scheme">
-  <h3 class="list">Wild Salmon Policy metric scheme</h3>
+  <h3 id="scheme-wild-salmon-policy-metric-scheme" class="list">Wild Salmon Policy metric scheme</h3>
   <p class="markdown">Controlled vocabulary for the Wild Salmon Policy rapid-status metrics and related analytical concepts.</p>
   <ul>
-    <li><a href="https://w3id.org/gcdfo/salmon#WSPMetric">gcdfo:WSPMetric</a></li>
+    <li><a href="#WSPMetric">gcdfo:WSPMetric</a></li>
   </ul>
 </div>
 <div class="scheme" id="scheme-wild-salmon-policy-status-zone">
-  <h3 class="list">Wild Salmon Policy Status Zone</h3>
+  <h3 id="scheme-wild-salmon-policy-status-zone" class="list">Wild Salmon Policy Status Zone</h3>
   <p class="markdown">Controlled vocabulary for biological status zones under the Wild Salmon Policy.</p>
   <ul>
-    <li><a href="https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZone">:WSPBiologicalStatusZone</a></li>
+    <li><a href="#WSPBiologicalStatusZone">:WSPBiologicalStatusZone</a></li>
+    <li><a href="#AmberZone">Amber zone</a></li>
+    <li><a href="#GreenZone">Green zone</a></li>
+    <li><a href="#RedZone">Red zone</a></li>
+    <li><a href="#WSPBiologicalStatusZone">Wild Salmon Policy biological status zone</a></li>
   </ul>
 </div>
   </div>
+<hr>
+<div id="skos-concepts">
+<h2 id="skos-concepts-header" class="list">SKOS Concepts</h2>
+<p>This section provides details for each SKOS concept defined in the ontology.</p>
+<ul class="hlist">
+  <li><a href="#AerialSurveyCount" title="https://w3id.org/gcdfo/salmon#AerialSurveyCount">Aerial Survey Count</a></li>
+  <li><a href="#AmberZone" title="https://w3id.org/gcdfo/salmon#AmberZone">Amber zone</a></li>
+  <li><a href="#AreaUnderTheCurve" title="https://w3id.org/gcdfo/salmon#AreaUnderTheCurve">Area Under the Curve</a></li>
+  <li><a href="#BiologicalBenchmarkAndIndicatorScheme" title="https://w3id.org/gcdfo/salmon#BiologicalBenchmarkAndIndicatorScheme">Biological Benchmark and Indicator Scheme</a></li>
+  <li><a href="#BreachBypass" title="https://w3id.org/gcdfo/salmon#BreachBypass">Bypass/Breach Risk</a></li>
+  <li><a href="#CalibratedTimeSeries" title="https://w3id.org/gcdfo/salmon#CalibratedTimeSeries">Calibrated Time Series</a></li>
+  <li><a href="#Classification" title="https://w3id.org/gcdfo/salmon#Classification">Classification</a></li>
+  <li><a href="#ConfidenceCategory" title="https://w3id.org/gcdfo/salmon#ConfidenceCategory">Confidence category</a></li>
+  <li><a href="#COSEWICStatusScheme" title="https://w3id.org/gcdfo/salmon#COSEWICStatusScheme">COSEWIC Status Scheme</a></li>
+  <li><a href="#CrossSectionCoverage" title="https://w3id.org/gcdfo/salmon#CrossSectionCoverage">Cross-section Coverage</a></li>
+  <li><a href="#DataModelProvenanceTheme" title="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme">Data, Models, and Provenance</a></li>
+  <li><a href="#Detectability" title="https://w3id.org/gcdfo/salmon#Detectability">Detectability</a></li>
+  <li><a href="#DeviceConfiguration" title="https://w3id.org/gcdfo/salmon#DeviceConfiguration">Device Configuration</a></li>
+  <li><a href="#Dimension" title="dqv:Dimension">Dimension</a></li>
+  <li><a href="#Documentation" title="https://w3id.org/gcdfo/salmon#Documentation">Documentation</a></li>
+  <li><a href="#DowngradeCriteria" title="https://w3id.org/gcdfo/salmon#DowngradeCriteria">Downgrade Criteria</a></li>
+  <li><a href="#DowngradeCriteriaScheme" title="https://w3id.org/gcdfo/salmon#DowngradeCriteriaScheme">Downgrade Criteria Scheme</a></li>
+  <li><a href="#EffortStandardization" title="https://w3id.org/gcdfo/salmon#EffortStandardization">Effort Standardization</a></li>
+  <li><a href="#ElectrofishingCount" title="https://w3id.org/gcdfo/salmon#ElectrofishingCount">Electrofishing Count</a></li>
+  <li><a href="#EnumerationMethod" title="https://w3id.org/gcdfo/salmon#EnumerationMethod">Enumeration Method</a></li>
+  <li><a href="#EnumerationMethodScheme" title="https://w3id.org/gcdfo/salmon#EnumerationMethodScheme">Enumeration Method Scheme</a></li>
+  <li><a href="#EnvironmentalConditions" title="https://w3id.org/gcdfo/salmon#EnvironmentalConditions">Environmental Conditions</a></li>
+  <li><a href="#EstimateMethod" title="https://w3id.org/gcdfo/salmon#EstimateMethod">Estimate Method</a></li>
+  <li><a href="#EstimateMethodScheme" title="https://w3id.org/gcdfo/salmon#EstimateMethodScheme">Estimate Method Scheme</a></li>
+  <li><a href="#EstimateType" title="https://w3id.org/gcdfo/salmon#EstimateType">Estimate Type</a></li>
+  <li><a href="#EstimateTypeScheme" title="https://w3id.org/gcdfo/salmon#EstimateTypeScheme">Estimate Type Scheme</a></li>
+  <li><a href="#ExpansionMathematicalOperations" title="https://w3id.org/gcdfo/salmon#ExpansionMathematicalOperations">Expansion/Mathematical Operations</a></li>
+  <li><a href="#FisheriesManagementTheme" title="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme">Fisheries Management</a></li>
+  <li><a href="#FixedSiteCensusElectronic" title="https://w3id.org/gcdfo/salmon#FixedSiteCensusElectronic">Fixed Site Census (Electronic)</a></li>
+  <li><a href="#FixedSiteCensusManual" title="https://w3id.org/gcdfo/salmon#FixedSiteCensusManual">Fixed Site Census (Manual)</a></li>
+  <li><a href="#FixedStationTally" title="https://w3id.org/gcdfo/salmon#FixedStationTally">Fixed‑Station Tally</a></li>
+  <li><a href="#GeneticsStockCompositionTheme" title="https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme">Genetics and Stock Composition</a></li>
+  <li><a href="#GreenZone" title="https://w3id.org/gcdfo/salmon#GreenZone">Green zone</a></li>
+  <li><a href="#HabitatEcosystemClimateTheme" title="https://w3id.org/gcdfo/salmon#HabitatEcosystemClimateTheme">Habitat, Ecosystem, and Climate Pressures</a></li>
+  <li><a href="#RapidStatusConfidenceHigh" title="https://w3id.org/gcdfo/salmon#RapidStatusConfidenceHigh">High WSP rapid-status confidence</a></li>
+  <li><a href="#HydroacousticModelling" title="https://w3id.org/gcdfo/salmon#HydroacousticModelling">Hydroacoustic Modelling</a></li>
+  <li><a href="#HydroacousticSonarCount" title="https://w3id.org/gcdfo/salmon#HydroacousticSonarCount">Hydroacoustic Sonar Count</a></li>
+  <li><a href="#InfillMethod" title="https://w3id.org/gcdfo/salmon#InfillMethod">Infill Method</a></li>
+  <li><a href="#RapidStatusConfidenceLow" title="https://w3id.org/gcdfo/salmon#RapidStatusConfidenceLow">Low rapid-status confidence</a></li>
+  <li><a href="#MarkRecaptureAnalysis" title="https://w3id.org/gcdfo/salmon#MarkRecaptureAnalysis">Mark-Recapture Analysis</a></li>
+  <li><a href="#MarkRecaptureAssumptions" title="https://w3id.org/gcdfo/salmon#MarkRecaptureAssumptions">Mark-Recapture Assumptions</a></li>
+  <li><a href="#MarkRecaptureFieldProgram" title="https://w3id.org/gcdfo/salmon#MarkRecaptureFieldProgram">Mark-Recapture Field Program</a></li>
+  <li><a href="#RapidStatusConfidenceMedium" title="https://w3id.org/gcdfo/salmon#RapidStatusConfidenceMedium">Medium rapid-status confidence</a></li>
+  <li><a href="#MethodUnknown" title="https://w3id.org/gcdfo/salmon#MethodUnknown">Method Unknown/Inconsistent</a></li>
+  <li><a href="#MonitoringFieldWorkTheme" title="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme">Monitoring and Field Work</a></li>
+  <li><a href="#NumberOfVisits" title="https://w3id.org/gcdfo/salmon#NumberOfVisits">Number of Visits</a></li>
+  <li><a href="#PeakCountAnalysis" title="https://w3id.org/gcdfo/salmon#PeakCountAnalysis">Peak Count Analysis</a></li>
+  <li><a href="#PolicyGovernanceTheme" title="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme">Policy, Governance, and Organizational Structure</a></li>
+  <li><a href="#PrecisionAccuracy" title="https://w3id.org/gcdfo/salmon#PrecisionAccuracy">Precision/Accuracy</a></li>
+  <li><a href="#QualityAnnotation" title="dqv:QualityAnnotation">Quality Annotation</a></li>
+  <li><a href="#RapidStatusConfidenceScheme" title="https://w3id.org/gcdfo/salmon#RapidStatusConfidenceScheme">Rapid status confidence scheme</a></li>
+  <li><a href="#ReachCoverage" title="https://w3id.org/gcdfo/salmon#ReachCoverage">Reach Coverage</a></li>
+  <li><a href="#RedZone" title="https://w3id.org/gcdfo/salmon#RedZone">Red zone</a></li>
+  <li><a href="#ReddCount" title="https://w3id.org/gcdfo/salmon#ReddCount">Redd Count</a></li>
+  <li><a href="#ReddExpansionAnalysis" title="https://w3id.org/gcdfo/salmon#ReddExpansionAnalysis">Redd Expansion Analysis</a></li>
+  <li><a href="#ReviewQA" title="https://w3id.org/gcdfo/salmon#ReviewQA">Review/QA</a></li>
+  <li><a href="#RunCoverage" title="https://w3id.org/gcdfo/salmon#RunCoverage">Run Coverage</a></li>
+  <li><a href="#SalmonEnhancementHatcheriesTheme" title="https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme">Salmon Enhancement and Hatcheries</a></li>
+  <li><a href="#SalmonOriginScheme" title="https://w3id.org/gcdfo/salmon#SalmonOriginScheme">Salmon Origin Scheme</a></li>
+  <li><a href="#SpeciesAtRiskRecoveryTheme" title="https://w3id.org/gcdfo/salmon#SpeciesAtRiskRecoveryTheme">Species at Risk and Recovery</a></li>
+  <li><a href="#StockAssessmentTheme" title="https://w3id.org/gcdfo/salmon#StockAssessmentTheme">Stock Assessment</a></li>
+  <li><a href="#StockStatusZoneScheme" title="https://w3id.org/gcdfo/salmon#StockStatusZoneScheme">Stock Status Zone Scheme</a></li>
+  <li><a href="#ThemeScheme" title="https://w3id.org/gcdfo/salmon#ThemeScheme">Theme Scheme</a></li>
+  <li><a href="#Timing" title="https://w3id.org/gcdfo/salmon#Timing">Timing</a></li>
+  <li><a href="#TrapCount" title="https://w3id.org/gcdfo/salmon#TrapCount">Trap Count</a></li>
+  <li><a href="#TrapEfficiency" title="https://w3id.org/gcdfo/salmon#TrapEfficiency">Trap Efficiency</a></li>
+  <li><a href="#TrapModelAnalysis" title="https://w3id.org/gcdfo/salmon#TrapModelAnalysis">Trap Model Analysis</a></li>
+  <li><a href="#Type1" title="https://w3id.org/gcdfo/salmon#Type1">Type-1, True Abundance, high resolution</a></li>
+  <li><a href="#Type2" title="https://w3id.org/gcdfo/salmon#Type2">Type-2, True Abundance, medium resolution</a></li>
+  <li><a href="#Type3" title="https://w3id.org/gcdfo/salmon#Type3">Type-3, Relative Abundance, high resolution</a></li>
+  <li><a href="#Type4" title="https://w3id.org/gcdfo/salmon#Type4">Type-4, Relative Abundance, medium resolution</a></li>
+  <li><a href="#Type5" title="https://w3id.org/gcdfo/salmon#Type5">Type-5, Relative Abundance, low resolution</a></li>
+  <li><a href="#Type6" title="https://w3id.org/gcdfo/salmon#Type6">Type-6, Presence or Absence</a></li>
+  <li><a href="#Uptime" title="https://w3id.org/gcdfo/salmon#Uptime">Uptime</a></li>
+  <li><a href="#Visibility" title="https://w3id.org/gcdfo/salmon#Visibility">Visibility</a></li>
+  <li><a href="#VisualGroundCount" title="https://w3id.org/gcdfo/salmon#VisualGroundCount">Visual Ground Count</a></li>
+  <li><a href="#VisualSnorkelCount" title="https://w3id.org/gcdfo/salmon#VisualSnorkelCount">Visual Snorkel Count</a></li>
+  <li><a href="#WildSalmonPolicyTheme" title="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme">Wild Salmon Policy</a></li>
+  <li><a href="#WSPBiologicalStatusZone" title="https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZone">Wild Salmon Policy biological status zone</a></li>
+  <li><a href="#WSPMetricScheme" title="https://w3id.org/gcdfo/salmon#WSPMetricScheme">Wild Salmon Policy metric scheme</a></li>
+  <li><a href="#WSPBiologicalStatusZoneScheme" title="https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZoneScheme">Wild Salmon Policy Status Zone</a></li>
+</ul>
+<div class="entity" id="AerialSurveyCount">
+  <h3>Aerial Survey Count<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#AerialSurveyCount</p>
+  <div class="comment">
+    <span class="markdown">Overflights (helicopter, fixed wing, or drone) with documented flight lines, coverage, visibility, and sensor settings. Imagery may be reviewed post-flight.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-enumeration-method-scheme">Enumeration Method Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="AmberZone">
+  <h3>Amber zone<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#AmberZone</p>
+  <div class="comment">
+    <span class="markdown">Amber status implies caution in the management of the Conservation Unit. While a CU in the Amber zone should be at a low risk of loss, there will be a degree of lost production. Decisions about the conservation of CUs in the Amber zone will involve broader consideration of biological, social, and economic issues. </span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-wild-salmon-policy-status-zone">Wild Salmon Policy Status Zone</a></dd>
+  </dl>
+</div>
+<div class="entity" id="AreaUnderTheCurve">
+  <h3>Area Under the Curve<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#AreaUnderTheCurve</p>
+  <div class="comment">
+    <span class="markdown">Integrates serial counts over time using a survey-life parameter; may apply observer efficiency.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-estimate-method-scheme">Estimate Method Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="BiologicalBenchmarkAndIndicatorScheme">
+  <h3>Biological Benchmark and Indicator Scheme<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#BiologicalBenchmarkAndIndicatorScheme</p>
+  <div class="comment">
+    <span class="markdown">Controlled vocabulary for key biological benchmarks, performance indicators, and reference points used in salmon stock assessment and management (e.g., SMSY, Sgen, spawner abundance).</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+</div>
+<div class="entity" id="BreachBypass">
+  <h3>Bypass/Breach Risk<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#BreachBypass</p>
+  <div class="comment">
+    <span class="markdown">Bypass or breach risks not monitored and verified negligible</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-downgrade-criteria-scheme">Downgrade Criteria Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="CalibratedTimeSeries">
+  <h3>Calibrated Time Series<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#CalibratedTimeSeries</p>
+  <div class="comment">
+    <span class="markdown">Regression/state-space model calibrated to a Type-1/2 series converts a lower-precision index to abundance.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-estimate-method-scheme">Estimate Method Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="Classification">
+  <h3>Classification<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#Classification</p>
+  <div class="comment">
+    <span class="markdown">Classification/attribution not documented</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-downgrade-criteria-scheme">Downgrade Criteria Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="ConfidenceCategory">
+  <h3>Confidence category<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#ConfidenceCategory</p>
+  <div class="comment">
+    <span class="markdown">Categorical confidence rating (High, Medium, Low) for stock assessment metrics.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-rapid-status-confidence-scheme">Rapid status confidence scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="COSEWICStatusScheme">
+  <h3>COSEWIC Status Scheme<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#COSEWICStatusScheme</p>
+  <div class="comment">
+    <span class="markdown">Controlled vocabulary for COSEWIC statuses</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+</div>
+<div class="entity" id="CrossSectionCoverage">
+  <h3>Cross-section Coverage<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#CrossSectionCoverage</p>
+  <div class="comment">
+    <span class="markdown">Incomplete cross-section coverage</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-downgrade-criteria-scheme">Downgrade Criteria Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="DataModelProvenanceTheme">
+  <h3>Data, Models, and Provenance<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme</p>
+  <div class="comment">
+    <span class="markdown">Data models, analytical workflows, provenance, quality dimensions, and metadata supporting salmon science.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-theme-scheme">Theme Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="Detectability">
+  <h3>Detectability<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#Detectability</p>
+  <div class="comment">
+    <span class="markdown">Detectability factors not validated</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-downgrade-criteria-scheme">Downgrade Criteria Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="DeviceConfiguration">
+  <h3>Device Configuration<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#DeviceConfiguration</p>
+  <div class="comment">
+    <span class="markdown">Device not within operational specifications</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-downgrade-criteria-scheme">Downgrade Criteria Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="Dimension">
+  <h3>Dimension<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> dqv:Dimension</p>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+</div>
+<div class="entity" id="Documentation">
+  <h3>Documentation<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#Documentation</p>
+  <div class="comment">
+    <span class="markdown">Missing SIL/SEN logs or QA/methods report</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-downgrade-criteria-scheme">Downgrade Criteria Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="DowngradeCriteria">
+  <h3>Downgrade Criteria<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#DowngradeCriteria</p>
+  <div class="comment">
+    <span class="markdown">Criteria that may result in downgrading an escapement estimate type classification</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-downgrade-criteria-scheme">Downgrade Criteria Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="DowngradeCriteriaScheme">
+  <h3>Downgrade Criteria Scheme<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#DowngradeCriteriaScheme</p>
+  <div class="comment">
+    <span class="markdown">Controlled vocabulary for estimate type downgrade criteria</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+</div>
+<div class="entity" id="EffortStandardization">
+  <h3>Effort Standardization<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#EffortStandardization</p>
+  <div class="comment">
+    <span class="markdown">Effort not standardized</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-downgrade-criteria-scheme">Downgrade Criteria Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="ElectrofishingCount">
+  <h3>Electrofishing Count<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#ElectrofishingCount</p>
+  <div class="comment">
+    <span class="markdown">Effort-standardized electrofishing passes used to generate catch-per-unit-effort (CPUE) indices.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-enumeration-method-scheme">Enumeration Method Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="EnumerationMethod">
+  <h3>Enumeration Method<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#EnumerationMethod</p>
+  <div class="comment">
+    <span class="markdown">A method used to enumerate or count salmon in the field</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-enumeration-method-scheme">Enumeration Method Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="EnumerationMethodScheme">
+  <h3>Enumeration Method Scheme<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#EnumerationMethodScheme</p>
+  <div class="comment">
+    <span class="markdown">Controlled vocabulary for salmon enumeration methods</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+</div>
+<div class="entity" id="EnvironmentalConditions">
+  <h3>Environmental Conditions<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#EnvironmentalConditions</p>
+  <div class="comment">
+    <span class="markdown">Environmental conditions outside specifications</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-downgrade-criteria-scheme">Downgrade Criteria Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="EstimateMethod">
+  <h3>Estimate Method<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#EstimateMethod</p>
+  <div class="comment">
+    <span class="markdown">A method used to analyze and estimate salmon abundance from enumeration data</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-estimate-method-scheme">Estimate Method Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="EstimateMethodScheme">
+  <h3>Estimate Method Scheme<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#EstimateMethodScheme</p>
+  <div class="comment">
+    <span class="markdown">Controlled vocabulary for salmon estimate methods</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+</div>
+<div class="entity" id="EstimateType">
+  <h3>Estimate Type<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#EstimateType</p>
+  <div class="comment">
+    <span class="markdown">Classification of escapement estimate quality based on Hyatt 1997 framework</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-estimate-type-scheme">Estimate Type Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="EstimateTypeScheme">
+  <h3>Estimate Type Scheme<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#EstimateTypeScheme</p>
+  <div class="comment">
+    <span class="markdown">Controlled vocabulary for Hyatt 1997 estimate types</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+</div>
+<div class="entity" id="ExpansionMathematicalOperations">
+  <h3>Expansion/Mathematical Operations<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#ExpansionMathematicalOperations</p>
+  <div class="comment">
+    <span class="markdown">Applies expansion factors or arithmetic transforms to a base count/index.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-estimate-method-scheme">Estimate Method Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="FisheriesManagementTheme">
+  <h3>Fisheries Management<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#FisheriesManagementTheme</p>
+  <div class="comment">
+    <span class="markdown">Fishery openings, harvest control rules, catch/effort measures, and exploitation monitoring for salmon fisheries.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-theme-scheme">Theme Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="FixedSiteCensusElectronic">
+  <h3>Fixed Site Census (Electronic)<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#FixedSiteCensusElectronic</p>
+  <div class="comment">
+    <span class="markdown">Automated counting at a constrained opening using electronic/optical counters, resistivity counters, or video/camera systems. QA review of automated events, cross-section coverage, and uptime/coverage are documented.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-enumeration-method-scheme">Enumeration Method Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="FixedSiteCensusManual">
+  <h3>Fixed Site Census (Manual)<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#FixedSiteCensusManual</p>
+  <div class="comment">
+    <span class="markdown">Salmon are guided through a controlled opening in a fence/weir where trained observers visually tally each passage event on a continuous or daily schedule. Counting chambers/windows and SIL/SEN daily logs document coverage; bypass routes are monitored and closed where possible.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-enumeration-method-scheme">Enumeration Method Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="FixedStationTally">
+  <h3>Fixed‑Station Tally<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#FixedStationTally</p>
+  <div class="comment">
+    <span class="markdown">Seasonal total = roll‑up of daily/continuous counts from a fixed (non‑sonar) station; simple arithmetic with documented coverage.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-estimate-method-scheme">Estimate Method Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="GeneticsStockCompositionTheme">
+  <h3>Genetics and Stock Composition<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme</p>
+  <div class="comment">
+    <span class="markdown">Genetic markers, assays, and analyses used to infer stock composition, parentage, and population structure.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-theme-scheme">Theme Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="GreenZone">
+  <h3>Green zone<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#GreenZone</p>
+  <div class="comment">
+    <span class="markdown">Social and economic considerations will tend to be the primary drivers for the management of Conservation Units in the Green zone, though ecosystem or other non-consumptive use values could also be considered.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-wild-salmon-policy-status-zone">Wild Salmon Policy Status Zone</a></dd>
+  </dl>
+</div>
+<div class="entity" id="HabitatEcosystemClimateTheme">
+  <h3>Habitat, Ecosystem, and Climate Pressures<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#HabitatEcosystemClimateTheme</p>
+  <div class="comment">
+    <span class="markdown">Habitat attributes, ecosystem conditions, and climate or environmental stressors affecting salmon.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-theme-scheme">Theme Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="RapidStatusConfidenceHigh">
+  <h3>High WSP rapid-status confidence<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RapidStatusConfidenceHigh</p>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-rapid-status-confidence-scheme">Rapid status confidence scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="HydroacousticModelling">
+  <h3>Hydroacoustic Modelling<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#HydroacousticModelling</p>
+  <div class="comment">
+    <span class="markdown">Model pipeline converts sonar detections to passage totals; sets range/angle/blind zones; species/size attribution rules documented.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-estimate-method-scheme">Estimate Method Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="HydroacousticSonarCount">
+  <h3>Hydroacoustic Sonar Count<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#HydroacousticSonarCount</p>
+  <div class="comment">
+    <span class="markdown">Sonar detections (ARIS, DIDSON, or other hydroacoustic systems) with documented coverage, visibility/noise conditions, and uptime. Raw detections require processing through a modelling/classification pipeline.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-enumeration-method-scheme">Enumeration Method Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="InfillMethod">
+  <h3>Infill Method<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#InfillMethod</p>
+  <div class="comment">
+    <span class="markdown">Interpolation used for missing data; defensibility must be documented</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-downgrade-criteria-scheme">Downgrade Criteria Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="RapidStatusConfidenceLow">
+  <h3>Low rapid-status confidence<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RapidStatusConfidenceLow</p>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-rapid-status-confidence-scheme">Rapid status confidence scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="MarkRecaptureAnalysis">
+  <h3>Mark-Recapture Analysis<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#MarkRecaptureAnalysis</p>
+  <div class="comment">
+    <span class="markdown">Capture-recapture estimators (Petersen, Jolly-Seber, open/Bayesian models) applied to field marks/recoveries.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-estimate-method-scheme">Estimate Method Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="MarkRecaptureAssumptions">
+  <h3>Mark-Recapture Assumptions<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#MarkRecaptureAssumptions</p>
+  <div class="comment">
+    <span class="markdown">MR assumptions not evaluated</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-downgrade-criteria-scheme">Downgrade Criteria Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="MarkRecaptureFieldProgram">
+  <h3>Mark-Recapture Field Program<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#MarkRecaptureFieldProgram</p>
+  <div class="comment">
+    <span class="markdown">Field program involving marking and subsequent recapture/recovery of tagged fish with documented assumptions and recovery coverage.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-enumeration-method-scheme">Enumeration Method Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="RapidStatusConfidenceMedium">
+  <h3>Medium rapid-status confidence<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RapidStatusConfidenceMedium</p>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-rapid-status-confidence-scheme">Rapid status confidence scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="MethodUnknown">
+  <h3>Method Unknown/Inconsistent<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#MethodUnknown</p>
+  <div class="comment">
+    <span class="markdown">Survey/analytical methods not adequately identified/consistent</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-downgrade-criteria-scheme">Downgrade Criteria Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="MonitoringFieldWorkTheme">
+  <h3>Monitoring and Field Work<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme</p>
+  <div class="comment">
+    <span class="markdown">Field observations, sampling protocols, survey events, gear, and measurement methods used to collect salmon data.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-theme-scheme">Theme Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="NumberOfVisits">
+  <h3>Number of Visits<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#NumberOfVisits</p>
+  <div class="comment">
+    <span class="markdown">Insufficient number of survey visits</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-downgrade-criteria-scheme">Downgrade Criteria Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="PeakCountAnalysis">
+  <h3>Peak Count Analysis<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#PeakCountAnalysis</p>
+  <div class="comment">
+    <span class="markdown">Uses the peak survey (live ± dead variants) as the season estimate/index.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-estimate-method-scheme">Estimate Method Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="PolicyGovernanceTheme">
+  <h3>Policy, Governance, and Organizational Structure<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme</p>
+  <div class="comment">
+    <span class="markdown">DFO policy frameworks, governance, regulations, and organizational structure relevant to salmon management.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-theme-scheme">Theme Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="PrecisionAccuracy">
+  <h3>Precision/Accuracy<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#PrecisionAccuracy</p>
+  <div class="comment">
+    <span class="markdown">Precision/accuracy weaker than expected for type</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-downgrade-criteria-scheme">Downgrade Criteria Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="QualityAnnotation">
+  <h3>Quality Annotation<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> dqv:QualityAnnotation</p>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+</div>
+<div class="entity" id="RapidStatusConfidenceScheme">
+  <h3>Rapid status confidence scheme<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RapidStatusConfidenceScheme</p>
+  <div class="comment">
+    <span class="markdown">Controlled vocabulary for categorical confidence ratings attached to rapid status assessments.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+</div>
+<div class="entity" id="ReachCoverage">
+  <h3>Reach Coverage<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#ReachCoverage</p>
+  <div class="comment">
+    <span class="markdown">Insufficient reach coverage</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-downgrade-criteria-scheme">Downgrade Criteria Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="RedZone">
+  <h3>Red zone<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RedZone</p>
+  <div class="comment">
+    <span class="markdown">A Conservation Unit in the Red zone is undesirable because of the risk of extirpation, and the loss of ecological benefits and salmon production. Changes in status will trigger management actions that will vary depending on species, geographic regions, and cause of the decline.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-wild-salmon-policy-status-zone">Wild Salmon Policy Status Zone</a></dd>
+  </dl>
+</div>
+<div class="entity" id="ReddCount">
+  <h3>Redd Count<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#ReddCount</p>
+  <div class="comment">
+    <span class="markdown">Redd counts with documentation of detectability, timing, and reach coverage. Conversion to spawner estimates requires spawners-per-redd factors handled in analysis.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-enumeration-method-scheme">Enumeration Method Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="ReddExpansionAnalysis">
+  <h3>Redd Expansion Analysis<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#ReddExpansionAnalysis</p>
+  <div class="comment">
+    <span class="markdown">Converts redd counts to spawner estimates using spawners-per-redd expansion factors.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-estimate-method-scheme">Estimate Method Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="ReviewQA">
+  <h3>Review/QA<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#ReviewQA</p>
+  <div class="comment">
+    <span class="markdown">Insufficient QA review of automated events</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-downgrade-criteria-scheme">Downgrade Criteria Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="RunCoverage">
+  <h3>Run Coverage<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RunCoverage</p>
+  <div class="comment">
+    <span class="markdown">Run-window coverage &lt; 95% of season days</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-downgrade-criteria-scheme">Downgrade Criteria Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="SalmonEnhancementHatcheriesTheme">
+  <h3>Salmon Enhancement and Hatcheries<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme</p>
+  <div class="comment">
+    <span class="markdown">Hatchery production, broodstock management, releases, and enhancement program practices for salmon.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-theme-scheme">Theme Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="SalmonOriginScheme">
+  <h3>Salmon Origin Scheme<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#SalmonOriginScheme</p>
+  <div class="comment">
+    <span class="markdown">Controlled vocabulary for describing the origin of individual salmon (e.g., natural-origin, hatchery-origin, mixed-origin).</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+</div>
+<div class="entity" id="SpeciesAtRiskRecoveryTheme">
+  <h3>Species at Risk and Recovery<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#SpeciesAtRiskRecoveryTheme</p>
+  <div class="comment">
+    <span class="markdown">COSEWIC/SARA recovery planning, critical habitat, threats, and status assessments for species of conservation concern.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-theme-scheme">Theme Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="StockAssessmentTheme">
+  <h3>Stock Assessment<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#StockAssessmentTheme</p>
+  <div class="comment">
+    <span class="markdown">Stock assessment models, benchmarks, status determinations, and performance metrics for salmon units.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-theme-scheme">Theme Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="StockStatusZoneScheme">
+  <h3>Stock Status Zone Scheme<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#StockStatusZoneScheme</p>
+  <div class="comment">
+    <span class="markdown">Controlled vocabulary for stock status zones under the Precautionary Approach.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+</div>
+<div class="entity" id="ThemeScheme">
+  <h3>Theme Scheme<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#ThemeScheme</p>
+  <div class="comment">
+    <span class="markdown">High-level thematic concept scheme for organizing DFO Salmon Ontology classes and concepts.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+</div>
+<div class="entity" id="Timing">
+  <h3>Timing<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#Timing</p>
+  <div class="comment">
+    <span class="markdown">Poor timing of surveys</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-downgrade-criteria-scheme">Downgrade Criteria Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="TrapCount">
+  <h3>Trap Count<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#TrapCount</p>
+  <div class="comment">
+    <span class="markdown">Trap-based counts from non-spanning traps with documented emptying schedule, efficiency measurements, and coverage information.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-enumeration-method-scheme">Enumeration Method Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="TrapEfficiency">
+  <h3>Trap Efficiency<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#TrapEfficiency</p>
+  <div class="comment">
+    <span class="markdown">Trap efficiency not measured/validated</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-downgrade-criteria-scheme">Downgrade Criteria Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="TrapModelAnalysis">
+  <h3>Trap Model Analysis<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#TrapModelAnalysis</p>
+  <div class="comment">
+    <span class="markdown">Trap-based counts adjusted with efficiency/coverage models to estimate total passage.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-estimate-method-scheme">Estimate Method Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="Type1">
+  <h3>Type-1, True Abundance, high resolution<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#Type1</p>
+  <div class="comment">
+    <span class="markdown">Total, seasonal counts through fence or fishway; virtually no bypass. Simple, often single step analysis. Reliable resolution of between year differences &gt;10% (in absolute units).</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-estimate-type-scheme">Estimate Type Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="Type2">
+  <h3>Type-2, True Abundance, medium resolution<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#Type2</p>
+  <div class="comment">
+    <span class="markdown">High effort (5 or more trips), standard methods (e.g. mark-recapture, serial counts for area under curve, etc.). Simple to complex multi-step, but always rigorous. Reliable resolution of between year differences &gt;25% (in absolute units).</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-estimate-type-scheme">Estimate Type Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="Type3">
+  <h3>Type-3, Relative Abundance, high resolution<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#Type3</p>
+  <div class="comment">
+    <span class="markdown">High effort (5 or more trips), standard methods (e.g. equal effort surveys executed by walk, swim, overflight, etc.). Simple to complex multi-step, but always rigorous. Reliable resolution of between year differences &gt;25% (in relative units).</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-estimate-type-scheme">Estimate Type Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="Type4">
+  <h3>Type-4, Relative Abundance, medium resolution<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#Type4</p>
+  <div class="comment">
+    <span class="markdown">Low to moderate effort (1-4 trips), known survey method. Simple analysis by known methods. Reliable resolution of between year differences &gt;200% (in relative units).</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-estimate-type-scheme">Estimate Type Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="Type5">
+  <h3>Type-5, Relative Abundance, low resolution<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#Type5</p>
+  <div class="comment">
+    <span class="markdown">Low effort (e.g. 1 trip), use of vaguely defined, inconsistent or poorly executed methods. Unknown to ill defined; inconsistent or poorly executed. Uncertain numeric comparisons, but high reliability for presence or absence.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-estimate-type-scheme">Estimate Type Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="Type6">
+  <h3>Type-6, Presence or Absence<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#Type6</p>
+  <div class="comment">
+    <span class="markdown">Any of above methods. Not required for analysis. Moderate to high reliability for presence/absence.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-estimate-type-scheme">Estimate Type Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="Uptime">
+  <h3>Uptime<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#Uptime</p>
+  <div class="comment">
+    <span class="markdown">Counting/device uptime &lt; 95% (or &lt;90% with interpolation)</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-downgrade-criteria-scheme">Downgrade Criteria Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="Visibility">
+  <h3>Visibility<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#Visibility</p>
+  <div class="comment">
+    <span class="markdown">Poor visibility conditions</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-downgrade-criteria-scheme">Downgrade Criteria Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="VisualGroundCount">
+  <h3>Visual Ground Count<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#VisualGroundCount</p>
+  <div class="comment">
+    <span class="markdown">Visual surveys conducted by stream/bank walk with documented visit schedule, reach coverage, timing, and visibility conditions.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-enumeration-method-scheme">Enumeration Method Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="VisualSnorkelCount">
+  <h3>Visual Snorkel Count<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#VisualSnorkelCount</p>
+  <div class="comment">
+    <span class="markdown">Two or more trained snorkelers conduct standardized passes within defined segments, tallying live/dead by species. Field forms capture visibility class, segment boundaries, and repeat-visit schedule; counts are aggregated across observers/passes.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-enumeration-method-scheme">Enumeration Method Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="WildSalmonPolicyTheme">
+  <h3>Wild Salmon Policy<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme</p>
+  <div class="comment">
+    <span class="markdown">Conservation Unit based stock assessment methods, metrics, and metadata</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-theme-scheme">Theme Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="WSPBiologicalStatusZone">
+  <h3>Wild Salmon Policy biological status zone<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZone</p>
+  <div class="comment">
+    <span class="markdown">The biological status of a Conservation Unit (CU) will normally be based on the abundance and distribution of spawners in the unit, or proxies thereof. For each CU, higher and lower benchmarks will be defined that will delimit three status zones: Green, Amber, and Red. As spawner abundance decreases, a CU moves towards the lower status zone, and the extent of management intervention for conservation purposes will increase.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-wild-salmon-policy-status-zone">Wild Salmon Policy Status Zone</a></dd>
+  </dl>
+</div>
+<div class="entity" id="WSPMetricScheme">
+  <h3>Wild Salmon Policy metric scheme<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#WSPMetricScheme</p>
+  <div class="comment">
+    <span class="markdown">Controlled vocabulary for the Wild Salmon Policy rapid-status metrics and related analytical concepts.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+</div>
+<div class="entity" id="WSPBiologicalStatusZoneScheme">
+  <h3>Wild Salmon Policy Status Zone<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZoneScheme</p>
+  <div class="comment">
+    <span class="markdown">Controlled vocabulary for biological status zones under the Wild Salmon Policy.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+</div>
+</div>
 <hr>
 <!--CROSSREF SECTION-->
    <div id="crossref"><h2 id="crossreference" class="list">DFO Salmon Ontology</h2>

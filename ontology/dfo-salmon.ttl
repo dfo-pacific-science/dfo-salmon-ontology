@@ -1086,7 +1086,7 @@ gcdfo:UpperStockReferencePoint a owl:Class ;
 gcdfo:WSPBiologicalStatusZone a skos:Concept ;
   skos:prefLabel "Wild Salmon Policy biological status zone"@en ;
   skos:definition "The biological status of a Conservation Unit (CU) will normally be based on the abundance and distribution of spawners in the unit, or proxies thereof. For each CU, higher and lower benchmarks will be defined that will delimit three status zones: Green, Amber, and Red. As spawner abundance decreases, a CU moves towards the lower status zone, and the extent of management intervention for conservation purposes will increase."@en ;
-  rdfs:seeAlso gcdfo:WSPBiologicalStatusZoneScheme ;
+  skos:inScheme gcdfo:WSPBiologicalStatusZoneScheme ;
   iao:0000119 "Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en ; # definition source
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:PolicyGovernanceTheme, gcdfo:WildSalmonPolicyTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .

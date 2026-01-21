@@ -30,12 +30,14 @@ def clean_list(source: str) -> List[str]:
     return [token.strip() for token in source.split() if token.strip()]
 
 
-def to_iri(symbol: str) -> str:
+def to_local_anchor(symbol: str) -> str:
+    """Convert a symbol to a local anchor (e.g., ':Foo' or 'gcdfo:Foo' -> '#Foo')."""
     if ":" not in symbol:
-        return f"https://w3id.org/gcdfo/salmon#{symbol}"
+        return f"#{symbol}"
     prefix, local = symbol.split(":", 1)
     if prefix in ("", "gcdfo"):
-        return f"https://w3id.org/gcdfo/salmon#{local}"
+        return f"#{local}"
+    # External prefix - fall back to full IRI (won't have local anchor)
     return symbol
 
 
@@ -44,11 +46,39 @@ def slugify(value: str) -> str:
     return slug or "scheme"
 
 
-def parse_ttl() -> Tuple[Dict[str, Dict[str, str]], Dict[str, Dict[str, List[str]]]]:
+def to_iri(symbol: str) -> str:
+    """Convert a symbol to a full IRI."""
+    if ":" not in symbol:
+        return f"https://w3id.org/gcdfo/salmon#{symbol}"
+    prefix, local = symbol.split(":", 1)
+    if prefix in ("", "gcdfo"):
+        return f"https://w3id.org/gcdfo/salmon#{local}"
+    return symbol
+
+
+def to_local_name(symbol: str) -> str:
+    """Extract the local name from a symbol (e.g., ':Foo' -> 'Foo')."""
+    if ":" not in symbol:
+        return symbol
+    _, local = symbol.split(":", 1)
+    return local
+
+
+def normalize_symbol(symbol: str) -> str:
+    """Normalize a symbol to a canonical form (e.g., 'gcdfo:Foo' and ':Foo' both become ':Foo')."""
+    if ":" not in symbol:
+        return f":{symbol}"
+    prefix, local = symbol.split(":", 1)
+    if prefix in ("", "gcdfo"):
+        return f":{local}"
+    return symbol
+
+
+def parse_ttl() -> Tuple[Dict[str, Dict[str, str]], Dict[str, Dict[str, str]]]:
     text = ONTOLOGY_PATH.read_text(encoding="utf-8")
     blocks = [blk for blk in text.split("\n\n") if blk.strip()]
     schemes: Dict[str, Dict[str, str]] = {}
-    concepts: Dict[str, Dict[str, List[str]]] = {}
+    concepts: Dict[str, Dict[str, str]] = {}
     labels: Dict[str, str] = {}
 
     for block in blocks:
@@ -65,7 +95,9 @@ def parse_ttl() -> Tuple[Dict[str, Dict[str, str]], Dict[str, Dict[str, List[str
             top_concepts: List[str] = []
             for match in HAS_TOP_RE.findall(block):
                 top_concepts.extend(clean_list(match))
-            schemes[subject] = {
+            # Normalize the scheme key for consistent lookups
+            normalized_subject = normalize_symbol(subject)
+            schemes[normalized_subject] = {
                 "label": labels.get(subject, subject),
                 "description": desc,
                 "top": top_concepts,
@@ -73,10 +105,14 @@ def parse_ttl() -> Tuple[Dict[str, Dict[str, str]], Dict[str, Dict[str, List[str
         if "skos:Concept" in block:
             in_scheme: List[str] = []
             for match in IN_SCHEME_RE.findall(block):
-                in_scheme.extend(clean_list(match))
+                # Normalize scheme references to match scheme keys
+                in_scheme.extend(normalize_symbol(s) for s in clean_list(match))
+            desc_match = DEF_RE.search(block)
+            desc = desc_match.group(1) if desc_match else ""
             concepts[subject] = {
                 "label": labels.get(subject, subject),
                 "schemes": in_scheme,
+                "definition": desc,
             }
 
     return schemes, concepts
@@ -84,7 +120,7 @@ def parse_ttl() -> Tuple[Dict[str, Dict[str, str]], Dict[str, Dict[str, List[str
 
 def build_section(
     schemes: Dict[str, Dict[str, str]],
-    concepts: Dict[str, Dict[str, List[str]]],
+    concepts: Dict[str, Dict[str, str]],
 ) -> str:
     scheme_concepts = defaultdict(dict)
     for subject, data in concepts.items():
@@ -95,7 +131,7 @@ def build_section(
             if top and top not in scheme_concepts[scheme_id]:
                 scheme_concepts[scheme_id][top] = concepts.get(top, {}).get("label", top)
 
-    ordered = sorted(
+    ordered_schemes = sorted(
         ((sid, info) for sid, info in schemes.items()),
         key=lambda item: item[1]["label"].lower(),
     )
@@ -108,23 +144,23 @@ def build_section(
         "<ul class=\"hlist\">",
     ]
     nav_items = []
-    for scheme_id, info in ordered:
+    for scheme_id, info in ordered_schemes:
         anchor = "scheme-" + slugify(info["label"])
         nav_items.append(f'  <li><a href="#{anchor}">{html.escape(info["label"])}</a></li>')
     lines.extend(nav_items)
     lines.append("</ul>")
 
-    for scheme_id, info in ordered:
+    for scheme_id, info in ordered_schemes:
         anchor = "scheme-" + slugify(info["label"])
         lines.append(f'<div class="scheme" id="{anchor}">')
-        lines.append(f'  <h3 class="list">{html.escape(info["label"])}</h3>')
+        lines.append(f'  <h3 id="{anchor}" class="list">{html.escape(info["label"])}</h3>')
         if info["description"]:
             lines.append(f'  <p class="markdown">{html.escape(info["description"])}</p>')
         entries = scheme_concepts.get(scheme_id, {})
         if entries:
             lines.append("  <ul>")
             for subj, lbl in sorted(entries.items(), key=lambda item: item[1].lower()):
-                href = html.escape(to_iri(subj))
+                href = html.escape(to_local_anchor(subj))
                 lines.append(f'    <li><a href="{href}">{html.escape(lbl)}</a></li>')
             lines.append("  </ul>")
         else:
@@ -133,6 +169,61 @@ def build_section(
 
     lines.append("  </div>")
     lines.append("<hr>")
+
+    # Generate entity divs for all SKOS concepts
+    lines.append('<div id="skos-concepts">')
+    lines.append('<h2 id="skos-concepts-header" class="list">SKOS Concepts</h2>')
+    lines.append("<p>This section provides details for each SKOS concept defined in the ontology.</p>")
+
+    # Build a nav list of all concepts
+    ordered_concepts = sorted(concepts.items(), key=lambda item: item[1]["label"].lower())
+    lines.append('<ul class="hlist">')
+    for subj, data in ordered_concepts:
+        local_name = to_local_name(subj)
+        lines.append(f'  <li><a href="#{html.escape(local_name)}" title="{html.escape(to_iri(subj))}">{html.escape(data["label"])}</a></li>')
+    lines.append("</ul>")
+
+    # Generate entity divs for each concept
+    for subj, data in ordered_concepts:
+        local_name = to_local_name(subj)
+        iri = to_iri(subj)
+        label = data["label"]
+        definition = data.get("definition", "")
+        concept_schemes = data.get("schemes", [])
+
+        lines.append(f'<div class="entity" id="{html.escape(local_name)}">')
+        lines.append(f'  <h3>{html.escape(label)}<sup class="type-skos" title="SKOS concept">skos</sup></h3>')
+        lines.append(f'  <p><strong>IRI:</strong> {html.escape(iri)}</p>')
+
+        if definition:
+            lines.append('  <div class="comment">')
+            lines.append(f'    <span class="markdown">{html.escape(definition)}</span>')
+            lines.append("  </div>")
+
+        lines.append('  <dl class="definedBy">')
+        lines.append("    <dt>Is defined by</dt>")
+        lines.append('    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>')
+        lines.append("  </dl>")
+
+        if concept_schemes:
+            lines.append('  <dl class="description">')
+            lines.append("    <dt>In scheme</dt>")
+            for scheme_sym in concept_schemes:
+                scheme_info = schemes.get(scheme_sym, {})
+                if scheme_info:
+                    scheme_label = scheme_info.get("label", scheme_sym)
+                else:
+                    # Fallback: use the local name as the label
+                    scheme_label = to_local_name(scheme_sym)
+                scheme_anchor = "scheme-" + slugify(scheme_label)
+                lines.append(f'    <dd><a href="#{scheme_anchor}">{html.escape(scheme_label)}</a></dd>')
+            lines.append("  </dl>")
+
+        lines.append("</div>")
+
+    lines.append("</div>")
+    lines.append("<hr>")
+
     return "\n".join(lines)
 
 
