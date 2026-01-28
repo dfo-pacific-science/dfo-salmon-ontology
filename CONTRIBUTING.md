@@ -24,9 +24,9 @@ Before submitting suggestions for new ontology terms, check whether the term alr
 
 3. Tickets with insufficient detail will be marked with a 'More info needed' label to alert the submitter. The ontology editors can process requests more rapidly when all the required information is provided.
 
-### 3. Communicate with the GCDFOS ontology editors
+### 3. Communicate with the GCDFO Salmon ontology editors
 
-1. The preferred way is to create a ticket using the [GCDFOS tracking system](https://github.com/dfo-pacific-science/dfo-salmon-ontology/issues). This allows you to monitor the progress on work on the issue, and participate in the discussion among the GC DFO Salmon ontology team members.
+1. The preferred way is to create a ticket using the [DFO Salmon Ontology tracking system](https://github.com/dfo-pacific-science/dfo-salmon-ontology/issues). This allows you to monitor the progress on work on the issue, and participate in the discussion among the GC DFO Salmon ontology team members. Detailed instructions about how to create a free account and use the GitHub repository can be found [here](./docs/SUBMIT_REQUESTS_README.md).
 
 2. Alternatively, contact the DFO Pacific Fishery & Assessment Data Section [Data Stewardship Unit](FADSDataStewardship-GestiondesdonneesSFDA@dfo-mpo.gc.ca) for your requests. Note that these requests may have a longer response time. 
 

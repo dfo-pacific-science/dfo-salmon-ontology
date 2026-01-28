@@ -1,6 +1,6 @@
 ---
 name: Term obsoletion
-about: Request a GCDFO term to be deprecated
+about: Request a DFO Salmon Term to be deprecated
 title: 'Obsolete term: [Term IRI and label]'
 labels: obsoletion
 assignees: ''
@@ -9,10 +9,10 @@ assignees: ''
 
 Please provide as much information as you can:
 
-* GCDFOS term IRI and label:
+* DFO term IRI and and label:
 * Reason for deprecation (put an X in the appropriate box):
 [ ] The reason for obsoletion is that the term is not clearly defined and usage has been inconsistent.
-[ ]  The reason for obsoletion is that more specific terms were created.
+[ ] The reason for obsoletion is that more specific terms were created.
 [ ] The reason for obsoletion is that this term was an unnecessary grouping term.
 [ ] The reason for obsoletion is that the meaning of the term is ambiguous.
 
