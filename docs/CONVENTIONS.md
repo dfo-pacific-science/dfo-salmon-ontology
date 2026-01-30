@@ -1794,8 +1794,15 @@ dfo:EscapementMeasurement a owl:Class ;
 **Ontology versioning:**
 - Use `owl:versionInfo` for version numbers
 - Use `owl:versionIRI` for version-specific IRIs
+- Use `owl:priorVersion` for the immediate previous version (previous version means the last published release)
 - Tag releases in GitHub
 - Maintain changelog
+- Publish release snapshots under `docs/releases/X.Y.Z/` (a release snapshot is an immutable copy of the docs + serializations)
+
+**Manual release steps (manual means you must run these yourself; CI does not publish releases):**
+1. Update `ontology/dfo-salmon.ttl` header fields: `dcterms:modified`, `owl:versionInfo`, `owl:versionIRI`, `owl:priorVersion`.
+2. Run `devenv shell make ci` (CI means automated checks on every push; it regenerates docs and must be committed).
+3. Run `devenv shell make release-snapshot VERSION=X.Y.Z` and commit `docs/releases/X.Y.Z/`.
 
 **Example:**
 ```turtle

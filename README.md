@@ -73,7 +73,7 @@ The GC DFO Salmon Ontology is a **data stewardship and operational process ontol
 - **Docs publishing**: `make docs-refresh` regenerates `docs/gcdfo.{ttl,owl}` via ROBOT and `docs/gcdfo.jsonld` via `rdflib` (JSON-LD is a JSON-based RDF serialization) from `ontology/dfo-salmon.ttl`, then refreshes the SKOS sections inside `docs/index.html` (it also enforces OWL Classes appearing before the SKOS sections on the rendered page).
 - **OBO-style workflow**: Use ROBOT for quality control and release management
 - **Pre-commit validation**: Install pre-commit hooks (`pre-commit install`) to validate ontology before commit
-- **CI validation**: Pushes/PRs run ROBOT ELK reasoning + ROBOT report (with custom profile)
+- **CI validation**: Pushes/PRs run ROBOT ELK reasoning + ROBOT report (with custom profile); CI (continuous integration, automated checks on every push) runs `make ci` and fails if it produces uncommitted diffs.
 - **Windows**: Use WSL2 + `nix`/`direnv` (optional) or Git Bash; `make install-robot` fetches the pinned ROBOT jar used by CI/pre-commit
 - **GitHub-based collaboration**: All changes via Pull Requests with Issues for discussion
 - **Quality first**: Use competency questions and design patterns to guide development
@@ -89,6 +89,26 @@ The GC DFO Salmon Ontology is a **data stewardship and operational process ontol
 
 ---
 
+
+---
+
+## CI + Release Workflow (manual steps)
+
+**CI entrypoint:** `devenv shell make ci` (CI means automated checks that run on every push; this command runs tests, ROBOT quality-check, and `make docs-refresh`, so it will regenerate `docs/` and must be committed before you push).
+
+**Manual release steps (manual means you must do these yourself; CI does not publish releases):**
+
+1. Update ontology header fields in `ontology/dfo-salmon.ttl`:
+   - `dcterms:modified`
+   - `owl:versionInfo`
+   - `owl:versionIRI` (example: `https://w3id.org/gcdfo/salmon/0.0.999`)
+   - `owl:priorVersion` (previous version IRI)
+2. Run `devenv shell make ci` and commit regenerated artifacts (`docs/gcdfo.{ttl,owl,jsonld}` and `docs/index.html`).
+3. Run `devenv shell make release-snapshot VERSION=X.Y.Z` to create a release snapshot (a release snapshot is an immutable copy under `docs/releases/X.Y.Z/`).
+4. Commit and push `docs/releases/X.Y.Z/` so GitHub Pages serves the versioned files.
+5. Optional: tag the release (a tag is a Git label for a specific commit, e.g., `v0.0.999`).
+
+**W3ID redirects:** You do **not** need a new W3ID PR for each release unless the hosting base URL changes; the existing redirect rules already handle `X.Y.Z` versions.
 
 ---
 

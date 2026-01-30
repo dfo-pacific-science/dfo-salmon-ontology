@@ -10,6 +10,7 @@ We will use:
 
 - **Base IRI**: `https://w3id.org/gcdfo/salmon#`
 - **Versioning**: Semantic versioning with `owl:versionInfo` and `owl:versionIRI`
+- **Dereferenceability**: W3ID redirects resolve version IRIs to immutable GitHub Pages snapshots (an immutable snapshot is a versioned copy that never changes)
 - **Stability**: No breaking changes to existing IRIs
 
 ## Rationale
@@ -53,4 +54,5 @@ We will use:
 - Base IRI: `https://w3id.org/gcdfo/salmon#`
 - Version IRIs: `https://w3id.org/gcdfo/salmon/0.0.999` (example)
 - GitHub releases with semantic versioning
-- W3ID redirect configuration for stable resolution
+- W3ID redirect configuration for stable resolution (content negotiation means serving HTML vs RDF based on the HTTP `Accept` header)
+- GitHub Pages release snapshots at `https://dfo-pacific-science.github.io/dfo-salmon-ontology/releases/<version>/`
