@@ -16,7 +16,7 @@ This file is **repo-specific** guidance for using WIDOCO here. Upstream/referenc
 - Published site/artifacts (GitHub Pages): everything under `docs/`
 - Immutable version snapshots (per release): `docs/releases/<version>/` (GitHub Pages serves from `/docs`)
 - `make docs-refresh` regenerates:
-  - `docs/` HTML via WIDOCO (`make docs-widoco`, uses `tools/widoco.jar`; runs with `-ignoreIndividuals` so SKOS concepts are not duplicated as “Named Individuals”)
+  - `docs/` HTML via WIDOCO (`make docs-widoco`, uses `tools/widoco.jar`; runs with `-ignoreIndividuals` so SKOS concepts are not duplicated as “Named Individuals”, and `-webVowl` so a WebVOWL diagram is published under `docs/webvowl/`)
   - `docs/gcdfo.ttl` + `docs/gcdfo.owl` (ROBOT convert)
   - `docs/gcdfo.jsonld` (Python `rdflib` conversion)
   - SKOS blocks inside `docs/index.html` (via `scripts/generate_skos_section.py`)
