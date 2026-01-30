@@ -23,6 +23,8 @@ Make the ontology’s public identifiers stable and usable for both humans and m
 - [x] 2026-01-30 — Publish `docs/releases/0.0.999/` and verify GitHub Pages serves the snapshot.
 - [x] 2026-01-30 — Publish `docs/releases/0.0.2/` so the previous-version link can dereference.
 - [x] 2026-01-30 — Add medium-priority docs UX features (search, mobile TOC, permalink buttons).
+- [x] 2026-01-30 — Reduce “double listing” confusion in the rendered docs (collapse Overview lists; consolidate SKOS headings; avoid duplicate TOC labels).
+- [x] 2026-01-30 — Enable WebVOWL visualization in WIDOCO output (publish under `docs/webvowl/`; embed behind a collapsible in `docs/index.html`).
 
 ## Surprises & Discoveries
 
