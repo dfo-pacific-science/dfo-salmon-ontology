@@ -1,14 +1,13 @@
 repos:
   - repo: local
     hooks:
-      - id: validate-ontology
-        name: Validate ontology with ROBOT
-        entry: scripts/pre-commit-validate-ontology.sh
+      - id: ontology-ci
+        name: Run full ontology CI bundle (make ci)
+        entry: devenv shell make ci
         language: system
-        files: ^ontology/.*\.ttl$
+        files: ^ontology/dfo-salmon\\.ttl$
         pass_filenames: false
         always_run: false
-
 
 
 

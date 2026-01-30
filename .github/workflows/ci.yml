@@ -1,26 +1,41 @@
-name: Validate Ontology
+name: Ontology CI
 
 on:
   push:
-    branches: [main, develop]
+    branches: [main]
   pull_request:
-    branches: [main, develop]
+    branches: [main]
 
 jobs:
-  validate:
+  ci:
     runs-on: ubuntu-latest
     env:
       ROBOT_VERSION: "1.9.8"
       ROBOT_JAR: tools/robot.jar
       ROBOT_URL: https://github.com/ontodev/robot/releases/download/v1.9.8/robot.jar
+      WIDOCO_VERSION: "1.4.25"
+      WIDOCO_JAR: tools/widoco.jar
+      WIDOCO_URL: https://github.com/dgarijo/Widoco/releases/download/v1.4.25/widoco-1.4.25-jar-with-dependencies_JDK-17.jar
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Java 11
         uses: actions/setup-java@v4
         with:
           java-version: "11"
           distribution: "temurin"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install rdflib==7.2.1
 
       - name: Cache ROBOT jar
         id: cache-robot
@@ -35,11 +50,29 @@ jobs:
           mkdir -p "$(dirname "$ROBOT_JAR")"
           curl -L "$ROBOT_URL" -o "$ROBOT_JAR"
 
-      - name: ROBOT ELK reasoning (consistency)
-        run: make reason
+      - name: Cache WIDOCO jar
+        id: cache-widoco
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.WIDOCO_JAR }}
+          key: widoco-${{ env.WIDOCO_VERSION }}
 
-      - name: ROBOT report (profile; fails on ERROR)
-        run: ./scripts/robot-quality-check.sh
+      - name: Download WIDOCO
+        if: steps.cache-widoco.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p "$(dirname "$WIDOCO_JAR")"
+          curl -L "$WIDOCO_URL" -o "$WIDOCO_JAR"
+
+      - name: Run full CI bundle (make ci)
+        run: make ci
+
+      - name: Fail if CI bundle produced uncommitted changes
+        run: |
+          if ! git diff --quiet; then
+            echo "::error::Running 'make ci' produced changes. Please run it locally and commit the updated artifacts (including docs/gcdfo.{ttl,owl,jsonld} and docs/index.html) before pushing."
+            git status
+            exit 1
+          fi
 
       - name: Upload ROBOT report artifacts
         if: always()

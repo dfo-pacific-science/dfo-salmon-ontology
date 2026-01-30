@@ -3,9 +3,11 @@
 let
   basePackages = with pkgs; [
     git
+    curl
     jq
     ripgrep
     fd
+    rsync
     tree
     pre-commit
     direnv
