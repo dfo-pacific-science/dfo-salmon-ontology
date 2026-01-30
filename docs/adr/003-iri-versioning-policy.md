@@ -8,7 +8,7 @@
 
 We will use:
 
-- **Base IRI**: `https://w3id.org/dfo/salmon#`
+- **Base IRI**: `https://w3id.org/gcdfo/salmon#`
 - **Versioning**: Semantic versioning with `owl:versionInfo` and `owl:versionIRI`
 - **Stability**: No breaking changes to existing IRIs
 
@@ -50,7 +50,7 @@ We will use:
 
 ## Implementation
 
-- Base IRI: `https://w3id.org/dfo/salmon#`
-- Version IRIs: `https://w3id.org/dfo/salmon/0.2.0`
+- Base IRI: `https://w3id.org/gcdfo/salmon#`
+- Version IRIs: `https://w3id.org/gcdfo/salmon/0.0.999` (example)
 - GitHub releases with semantic versioning
 - W3ID redirect configuration for stable resolution

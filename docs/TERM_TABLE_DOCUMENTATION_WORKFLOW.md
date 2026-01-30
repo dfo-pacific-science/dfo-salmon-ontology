@@ -167,16 +167,16 @@ python scripts/extract-term-tables.py
 **To change a theme label:**
 1. Update `label:` in `themes.yml`
 2. The website will automatically use the new label (no code changes needed)
-3. Pre-commit hooks will regenerate term tables automatically
+3. Regenerate term tables in this repo: run `python scripts/extract-term-tables.py` and commit the updated outputs
 
 
 
 ## Best Practices
 
 1. **Always update themes.yml** when ontology changes affect term groupings
-2. **Pre-commit hooks handle updates automatically** - they update the submodule and regenerate term tables
+2. **Regeneration is manual**: run `python scripts/extract-term-tables.py` whenever you change theme annotations or theme configuration
 3. **Commit CSV files** with ontology changes so website stays in sync
 4. **Use meaningful theme labels** - they appear automatically on the website
 5. **Keep theme IDs consistent** - changing them requires updating CSV filenames
-6. **Test locally** before committing - pre-commit hooks will validate CSV files automatically
+6. **Test locally** before committing - run `devenv shell make ci` (or `make ci` if you're already in the devenv/direnv environment); DSU repo pre-commit validates CSV/meta structure
 7. **Install R package 'yaml'** - required for reading themes.yml: `install.packages('yaml')`

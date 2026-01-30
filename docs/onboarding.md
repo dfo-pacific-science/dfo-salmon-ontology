@@ -29,7 +29,7 @@ Ontology (Schema)
 - Contains classes, properties, SKOS vocabularies, axioms, constraints
 - Purpose: define the vocabulary and grammar for describing data
 - Example: `EscapementSurveyEvent` class, `usesEnumerationMethod` property, `SnorkelSurvey` SKOS concept
-- File: `dfo-salmon.ttl` (schema only; no instance data)
+- File: `ontology/dfo-salmon.ttl` (schema only; no instance data)
 
 Knowledge Graph (Data)
 

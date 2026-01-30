@@ -23,11 +23,11 @@
 - [ ] Design brood-year vs. catch-year total abundance pattern and brood-year recruitment specialization.
 - [ ] Extend mapping to cover age-specific fishing mortality and catch-year total abundance (currently missing).
 
-## 2025-12-08 — Deferred modeling follow-ups (post-0.1.0)
+## 2025-12-08 — Deferred modeling follow-ups (post-0.0.999)
 
-- [ ] Choose pattern for age-specific fishing mortality (attribute vs. subclass) and implement in 0.2.0.
-- [ ] Add explicit catch-year total abundance subclass if the selected pattern requires it (0.2.0).
-- [ ] Add brood-year recruitment subclass only if queries/shapes need it (0.2.0).
+- [ ] Choose pattern for age-specific fishing mortality (attribute vs. subclass) and implement after 0.0.999.
+- [ ] Add explicit catch-year total abundance subclass if the selected pattern requires it (after 0.0.999).
+- [ ] Add brood-year recruitment subclass only if queries/shapes need it (after 0.0.999).
 - [ ] When human-curated sources are available, populate `IAO_0000119`/`dcterms:source` for the PublishReady items that are currently intentionally blank (do not invent sources).
 
 ## DwC-CM / SOSA alignment and assertion wrapper (review before implementation)
@@ -408,7 +408,7 @@
 
 - [ ] Review/finalize labels and definitions for core terms
 - [ ] Update ontology IRI to https://w3id.org/dfoc/salmon (currently using this IRI)
-- [ ] Create version IRI: https://w3id.org/dfoc/salmon/v0.1.0
+- [ ] Create version IRI: https://w3id.org/gcdfo/salmon/0.0.999
 - **NOTE**: Ontology currently uses `https://w3id.org/dfoc/salmon` (line 74)
 - [ ] Update all rdfs:isDefinedBy for core terms to w3id URIs
 - [ ] Document versioning strategy

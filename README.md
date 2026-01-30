@@ -2,7 +2,7 @@
 
 **Namespace:** `https://w3id.org/gcdfo/salmon#` (prefix: `gcdfo:`)  
 **License:** CC-BY 4.0  
-**Status:** Version 0.1.0 Published on W3
+**Status:** Version 0.0.999 (pre-1.0 “beta”)
 
 The GC DFO Salmon Ontology is a **data stewardship and operational process ontology** designed to provide a semantic framework for managing, integrating, and stewarding Pacific salmon data across Fisheries and Oceans Canada (DFO).
 
@@ -57,6 +57,7 @@ The GC DFO Salmon Ontology is a **data stewardship and operational process ontol
 5. **Discuss changes** in GitHub Issues before creating PRs
 6. **Follow OBO practices**: Use competency questions, design patterns, and quality checklists
 7. **Run validations**: Run `make theme-coverage` (smoke) or `make test` (theme coverage + ELK reasoning); use `make quality-check` for the full ROBOT report. Note: If using `devenv`/`nix` (optional), prefix commands with `devenv shell`.
+8. **Single local+CI entrypoint**: `make ci` (runs tests, ROBOT quality-check, and `make docs-refresh` so that ontology + docs + serializations stay in sync)
 
 ### For Users
 1. **Browse terms** using Protégé or online ontology browsers
@@ -69,6 +70,7 @@ The GC DFO Salmon Ontology is a **data stewardship and operational process ontol
 
 - **Single source of truth**: Edit and review `ontology/dfo-salmon.ttl` on a development branch; the draft file is only an idea bank and is not read by tests or term-table extraction.
 - **Theme navigation**: Tag every term with 1–3 `gcdfo:theme` values from `gcdfo:ThemeScheme` directly in the canonical file; `gcdfo:ThemeScheme` and its member theme concepts are excluded from the missing-theme check; downstream term tables rely on the annotations.
+- **Docs publishing**: `make docs-refresh` regenerates `docs/gcdfo.{ttl,owl}` via ROBOT and `docs/gcdfo.jsonld` via `rdflib` (JSON-LD is a JSON-based RDF serialization) from `ontology/dfo-salmon.ttl`, then refreshes the SKOS sections inside `docs/index.html` (it also enforces OWL Classes appearing before the SKOS sections on the rendered page).
 - **OBO-style workflow**: Use ROBOT for quality control and release management
 - **Pre-commit validation**: Install pre-commit hooks (`pre-commit install`) to validate ontology before commit
 - **CI validation**: Pushes/PRs run ROBOT ELK reasoning + ROBOT report (with custom profile)
@@ -95,6 +97,8 @@ The GC DFO Salmon Ontology is a **data stewardship and operational process ontol
 - **Base IRI**: `https://w3id.org/gcdfo/salmon#`
 - **Instances**: mint under same base (e.g., `…#Stock/SkeenaSockeye`)
 - **Versioning**: Tag GitHub releases, maintain version info in ontology header
+- **Version IRI (recommended)**: `https://w3id.org/gcdfo/salmon/<version>` (resolves via w3id redirects)
+- **Version artifacts (hosted)**: `https://dfo-pacific-science.github.io/dfo-salmon-ontology/releases/<version>/` (immutable snapshot served by GitHub Pages)
 - **For detailed conventions**: See [DFO Salmon Ontology Conventions Guide](docs/CONVENTIONS.md)
 
 ---

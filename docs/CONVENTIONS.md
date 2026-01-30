@@ -149,9 +149,9 @@ This introductory material has moved to a dedicated onboarding guide for clarity
 
 **Critical Rule: Keep the Ontology File Clean**
 
-The `dfo-salmon.ttl` file must contain **schema elements only** - no instance data. This separation is essential for maintainability, versioning, and interoperability.
+The `ontology/dfo-salmon.ttl` file must contain **schema elements only** - no instance data. This separation is essential for maintainability, versioning, and interoperability.
 
-**What Goes in the Ontology File (`dfo-salmon.ttl`):**
+**What Goes in the Ontology File (`ontology/dfo-salmon.ttl`):**
 
 - **OWL Classes**: `EscapementSurveyEvent`, `Stock`, `Measurement`
 - **OWL Properties**: `usesEnumerationMethod`, `aboutStock`, `hasCountValue`
