@@ -2,11 +2,14 @@
 @prefix dc: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix : <> .
-<https://w3id.org/gcdfo/salmon/1.0.0> a prov:Entity;
+<https://w3id.org/gcdfo/salmon/0.0.999> a prov:Entity;
 	 dc:title "GC DFO Salmon Ontology";
 	 prov:wasAttributedTo :agent0;
+	 prov:wasAttributedTo :agent1;
+	 prov:wasAttributedTo :agent2;
 	 prov:wasAttributedTo <https://github.com/dgarijo/Widoco/>,<http://www.essepuntato.it/lode/>;
-	 prov:specializationOf <https://w3id.org/gcdfo/salmon>;
 	 prov:wasGeneratedAt "2025-09-06";
 .
 :agent0 a prov:Agent; foaf:name "Fishery & Assessment Data Section (FADS) Data Stewardship Unit".
+:agent1 a prov:Agent; foaf:name "Brett Johnson".
+:agent2 a prov:Agent; foaf:name "Melissa K. Morrison".

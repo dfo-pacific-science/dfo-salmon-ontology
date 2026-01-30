@@ -83,8 +83,8 @@ xsd:anyURI   a rdfs:Datatype .
   dcterms:modified "2025-12-08"^^xsd:date ;
   dcterms:description "OWL + SKOS ontology for DFO salmon data: stocks/CUs/MUs, survey events, escapement measurements, and GSI constructs; aligns to DwC via rdfs:subClassOf; hybrid approach with SKOS for methods and OWL for events."@en ;
   rdfs:seeAlso <https://github.com/dfo-pacific-science/dfo-salmon-ontology> ;
-  owl:versionInfo "0.1.0 (hybrid OWL+SKOS approach)" ;
-  owl:versionIRI <https://w3id.org/gcdfo/salmon/0.1.0> ;
+  owl:versionInfo "0.0.999 (pre-1.0 beta draft)" ;
+  owl:versionIRI <https://w3id.org/gcdfo/salmon/0.0.999> ;
   iao:0000115 "Hybrid OWL+SKOS ontology for DFO salmon data. Uses SKOS for controlled vocabularies (methods, criteria) and OWL for formal relationships and events."@en . # definition
 
 #################################################################
@@ -3433,7 +3433,7 @@ gcdfo:usesMethod gcdfo:theme gcdfo:StockAssessmentTheme , gcdfo:MonitoringFieldW
 gcdfo:version gcdfo:theme gcdfo:DataModelProvenanceTheme .
 
 #################################################################
-# Publish-ready tagging for 0.1.0 core terms and schemes
+# Publish-ready tagging for 0.0.999 core terms and schemes
 #################################################################
 
 gcdfo:Stock gcdfo:publicationStatus gcdfo:PublishReady .

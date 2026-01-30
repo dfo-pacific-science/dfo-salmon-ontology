@@ -1,35 +1,5 @@
 body {
-  margin:0;
-  font-family:var(--bs-body-font-family);
-  font-size:var(--bs-body-font-size);
-  font-weight:var(--bs-body-font-weight);
-  line-height:var(--bs-body-line-height);
-  color:var(--bs-body-color);
-  text-align:var(--bs-body-text-align);
-  background-color:var(--bs-body-bg);
-  -webkit-text-size-adjust:100%;
-  -webkit-tap-highlight-color:transparent
-}
-
-
-.toc {
-  font-family:"Roboto",sans-serif;
-  font-size:0.9rem;
-  margin-bottom:2rem
-}
-
-@media (min-width: 992px) {
-  .toc {
-    position:sticky;
-    top:2rem;
-    right:0;
-    overflow-y:auto;
-    max-height:calc(100vh - 2rem)
-  }
-}
-
-.toc a:hover {
-  text-decoration:underline
+    text-align: justify;    
 }
 
 h1 {
