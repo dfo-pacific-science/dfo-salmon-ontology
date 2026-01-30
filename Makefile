@@ -176,15 +176,16 @@ docs-widoco: check-widoco
 	@OUT="release/tmp/widoco"; \
 	rm -rf "$$OUT"; \
 	mkdir -p "$$OUT"; \
-	java -jar $(WIDOCO_JAR) \
-		-ontFile ontology/dfo-salmon.ttl \
-		-outFolder "$$OUT" \
-		-ignoreIndividuals \
-		-uniteSections \
-		-rewriteAll \
-		-noPlaceHolderText; \
+		java -jar $(WIDOCO_JAR) \
+			-ontFile ontology/dfo-salmon.ttl \
+			-outFolder "$$OUT" \
+			-ignoreIndividuals \
+			-uniteSections \
+			-webVowl \
+			-rewriteAll \
+			-noPlaceHolderText; \
 	if [ -f "$$OUT/index-en.html" ] && [ ! -f "$$OUT/index.html" ]; then \
-		mv "$$OUT/index-en.html" "$$OUT/index.html"; \
+		cp "$$OUT/index-en.html" "$$OUT/index.html"; \
 	fi; \
 	rsync -a --exclude "ontology.*" "$$OUT/" docs/; \
 	rm -f docs/ontology.jsonld docs/ontology.nt docs/ontology.owl docs/ontology.ttl; \

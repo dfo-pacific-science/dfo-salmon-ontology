@@ -240,3 +240,28 @@ h3.list:hover .gcdfo-permalink,
   border: 1px solid var(--bs-border-color);
   border-radius: 0.375rem;
 }
+
+.gcdfo-collapsible {
+  margin: 0.5rem 0 1rem;
+}
+
+.gcdfo-collapsible summary {
+  cursor: pointer;
+  user-select: none;
+  font-size: 0.9rem;
+  color: var(--bs-link-color);
+}
+
+.gcdfo-collapsible summary:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem var(--bs-focus-ring-color);
+  border-radius: 0.375rem;
+}
+
+.gcdfo-webvowl iframe {
+  width: 100%;
+  min-height: 560px;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 0.5rem;
+  background: var(--bs-body-bg);
+}

@@ -313,11 +313,18 @@ def build_section(
         key=lambda item: item[1]["label"].lower(),
     )
 
+    scheme_count = len(ordered_schemes)
+    scheme_word = "scheme" if scheme_count == 1 else "schemes"
+
     lines: List[str] = [
         "<!--SKOS CONCEPT SCHEMES-->",
         "  <div id=\"concept-schemes\">",
-        "<h2 id=\"skos\" class=\"list\">Concept schemes & SKOS concepts</h2>",
-        "<p class=\"markdown\">Every SKOS concept scheme defined in the ontology is listed below with the current concepts assigned to it.</p>",
+        "<h2 id=\"skos\" class=\"list\">SKOS (controlled vocabularies)</h2>",
+        "<p class=\"markdown\">This section documents SKOS concept schemes and the SKOS concepts defined in the ontology.</p>",
+        "<p class=\"markdown\">Use the in-page search (left sidebar) to find a specific concept quickly.</p>",
+        "<h3 id=\"skos-schemes\" class=\"list\">Concept schemes</h3>",
+        "<details class=\"gcdfo-collapsible\">",
+        f"<summary>{scheme_count} {scheme_word} (expand)</summary>",
         "<ul class=\"hlist\">",
     ]
     nav_items = []
@@ -326,6 +333,7 @@ def build_section(
         nav_items.append(f'  <li><a href="#{anchor}">{html.escape(info["label"])}</a></li>')
     lines.extend(nav_items)
     lines.append("</ul>")
+    lines.append("</details>")
 
     for scheme_id, info in ordered_schemes:
         anchor = "scheme-" + slugify(info["label"])
@@ -335,11 +343,16 @@ def build_section(
             lines.append(f'  <p class="markdown">{html.escape(info["description"])}</p>')
         entries = scheme_concepts.get(scheme_id, {})
         if entries:
-            lines.append("  <ul>")
+            concept_count = len(entries)
+            concept_word = "concept" if concept_count == 1 else "concepts"
+            lines.append('  <details class="gcdfo-collapsible">')
+            lines.append(f"    <summary>{concept_count} {concept_word} (expand)</summary>")
+            lines.append("    <ul>")
             for subj, lbl in sorted(entries.items(), key=lambda item: item[1].lower()):
                 href = html.escape(to_local_anchor(subj))
-                lines.append(f'    <li><a href="{href}">{html.escape(lbl)}</a></li>')
-            lines.append("  </ul>")
+                lines.append(f'      <li><a href="{href}">{html.escape(lbl)}</a></li>')
+            lines.append("    </ul>")
+            lines.append("  </details>")
         else:
             lines.append("  <p class=\"markdown\"><em>Currently no SKOS concepts are declared under this scheme.</em></p>")
         lines.append("</div>")
@@ -349,16 +362,11 @@ def build_section(
 
     # Generate entity divs for all SKOS concepts
     lines.append('<div id="skos-concepts">')
-    lines.append('<h2 id="skos-concepts-header" class="list">SKOS Concepts</h2>')
+    lines.append('<h3 id="skos-concepts-header" class="list">Concepts</h3>')
     lines.append("<p>This section provides details for each SKOS concept defined in the ontology.</p>")
 
-    # Build a nav list of all concepts
     ordered_concepts = sorted(concepts.items(), key=lambda item: item[1]["label"].lower())
-    lines.append('<ul class="hlist">')
-    for subj, data in ordered_concepts:
-        local_name = to_local_name(subj)
-        lines.append(f'  <li><a href="#{html.escape(local_name)}" title="{html.escape(to_iri(subj))}">{html.escape(data["label"])}</a></li>')
-    lines.append("</ul>")
+    # (Deliberately no big concept navigation list here; the sidebar search is faster and avoids duplication.)
 
     # Generate entity divs for each concept
     for subj, data in ordered_concepts:
@@ -561,6 +569,62 @@ def ensure_custom_ui_enhancements() -> None:
             content,
             count=1,
         )
+
+    # Ensure skip link target exists.
+    if 'id="maincontent"' not in content:
+        content = content.replace(
+            '<div class="container">',
+            '<div class="container" id="maincontent">',
+            1,
+        )
+
+    # Avoid confusing duplicate TOC labels ("Classes" appears in Crossref and again in the changelog).
+    content = content.replace(
+        '<h3 id="changeClass" class="list">Classes</h3>',
+        '<h3 id="changeClass" class="list">Classes (changes)</h3>',
+    )
+
+    # WebVOWL embed: wrap the generated iframe in a collapsible to keep the Overview compact.
+    if '<details class="gcdfo-collapsible gcdfo-webvowl">' not in content:
+        content = re.sub(
+            r'<iframe\s+src="webvowl/index\.html"\s*></iframe>\s*',
+            '<details class="gcdfo-collapsible gcdfo-webvowl">'
+            "<summary>Ontology diagram (WebVOWL) (expand)</summary>"
+            '<iframe src="webvowl/index.html" loading="lazy" title="Ontology diagram (WebVOWL)"></iframe>'
+            "</details>\n",
+            content,
+            count=1,
+        )
+
+    # Reduce "double listing" confusion: collapse the Overview lists (Classes / Properties).
+    # The same terms appear again in the Cross-reference section where the details live.
+    start = content.find('<!--OVERVIEW SECTION-->')
+    end = content.find('<!--DESCRIPTION SECTION-->')
+    if start != -1 and end != -1 and start < end:
+        overview = content[start:end]
+        collapsible_marker = '<details class="gcdfo-collapsible gcdfo-overview-collapsible">'
+        if collapsible_marker not in overview:
+
+            def _collapse(match: re.Match) -> str:
+                heading = match.group(1)
+                ul = match.group(2)
+                item_count = len(re.findall(r"<li\b", ul))
+                item_word = "item" if item_count == 1 else "items"
+                summary = f"{item_count} {item_word} (expand)"
+                details = (
+                    collapsible_marker
+                    + f"<summary>{summary}</summary>"
+                    + f"{ul}"
+                    + "</details>"
+                )
+                return heading + details
+
+            pattern = re.compile(
+                r'(<h4>[^<]+</h4>)\s*(<ul[^>]*\bclass="hlist"[^>]*>.*?</ul>)',
+                re.DOTALL,
+            )
+            overview = pattern.sub(_collapse, overview)
+            content = content[:start] + overview + content[end:]
 
     # Ensure TOC nav has gcdfo-toc class and an accessible label.
     def _add_toc_class(match: re.Match) -> str:
