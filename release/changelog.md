@@ -1,6 +1,6 @@
 # DFO Salmon Ontology - Changelog
 
-## [0.0.999] - 2026-01-21
+## [0.0.999] - 2026-01-30
 
 ### Changed
 - Pre-1.0 “beta” versioning adopted (current working version: 0.0.999)

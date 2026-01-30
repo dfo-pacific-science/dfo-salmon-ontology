@@ -626,12 +626,6 @@
     ]
   },
   {
-    "@id": "http://purl.org/dc/terms/contributor",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
     "@id": "http://purl.org/dc/terms/created",
     "@type": [
       "http://www.w3.org/2002/07/owl#AnnotationProperty"
@@ -687,18 +681,6 @@
   },
   {
     "@id": "http://purl.org/dc/terms/title",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "http://purl.org/vocab/vann/preferredNamespacePrefix",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "http://purl.org/vocab/vann/preferredNamespaceUri",
     "@type": [
       "http://www.w3.org/2002/07/owl#AnnotationProperty"
     ]
@@ -1098,12 +1080,6 @@
     ]
   },
   {
-    "@id": "https://schema.org/codeRepository",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
     "@id": "https://w3id.org/gcdfo/salmon",
     "@type": [
       "http://www.w3.org/2002/07/owl#Ontology"
@@ -1112,16 +1088,6 @@
       {
         "@language": "en",
         "@value": "Hybrid OWL+SKOS ontology for DFO salmon data. Uses SKOS for controlled vocabularies (methods, criteria) and OWL for formal relationships and events."
-      }
-    ],
-    "http://purl.org/dc/terms/contributor": [
-      {
-        "@language": "en",
-        "@value": "Brett Johnson"
-      },
-      {
-        "@language": "en",
-        "@value": "Melissa K. Morrison"
       }
     ],
     "http://purl.org/dc/terms/created": [
@@ -1150,7 +1116,7 @@
     "http://purl.org/dc/terms/modified": [
       {
         "@type": "http://www.w3.org/2001/XMLSchema#date",
-        "@value": "2026-01-30"
+        "@value": "2026-01-21"
       }
     ],
     "http://purl.org/dc/terms/publisher": [
@@ -1165,39 +1131,19 @@
         "@value": "GC DFO Salmon Ontology"
       }
     ],
-    "http://purl.org/vocab/vann/preferredNamespacePrefix": [
-      {
-        "@value": "gcdfo"
-      }
-    ],
-    "http://purl.org/vocab/vann/preferredNamespaceUri": [
-      {
-        "@value": "https://w3id.org/gcdfo/salmon#"
-      }
-    ],
     "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
       {
-        "@id": "https://github.com/dfo-pacific-science/dfo-salmon-ontology"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#priorVersion": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon/0.0.2"
+        "@id": "https://github.com/dfo-pacific-science/salmon-ontology"
       }
     ],
     "http://www.w3.org/2002/07/owl#versionIRI": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon/0.0.999"
+        "@id": "https://w3id.org/gcdfo/salmon/0.0.2"
       }
     ],
     "http://www.w3.org/2002/07/owl#versionInfo": [
       {
-        "@value": "0.0.999 (expanded enumeration/estimate methods and downgrade criteria)"
-      }
-    ],
-    "https://schema.org/codeRepository": [
-      {
-        "@id": "https://github.com/dfo-pacific-science/dfo-salmon-ontology"
+        "@value": "0.0.2 (expanded enumeration/estimate methods and downgrade criteria)"
       }
     ]
   },
@@ -1245,6 +1191,53 @@
       },
       {
         "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#AlgorithmThreshold",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "Threshold value used by the rapid-status algorithm that may differ from expert-defined benchmarks to incorporate precautionary buffers."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "DFO (2024). Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under Canada’s Wild Salmon Policy. CSAS Science Response 2024/004."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://www.dfo-mpo.gc.ca/csas-sccs/Publications/ScR-RS/2024/2024_004-eng.pdf"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "WSP Algorithm threshold"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://purl.obolibrary.org/obo/IAO_0000030"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
       }
     ]
   },
@@ -1429,7 +1422,7 @@
     "http://purl.obolibrary.org/obo/IAO_0000115": [
       {
         "@language": "en",
-        "@value": "TThe parental year for a group of returning salmon, i.e. the calendar year when the majority of parents of these fish spawned."
+        "@value": "The year that a cohort of salmon spawns."
       }
     ],
     "http://purl.obolibrary.org/obo/IAO_0000119": [
@@ -1441,6 +1434,12 @@
     "http://purl.org/dc/terms/source": [
       {
         "@id": "https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The parental year for a group of returning salmon, i.e. the calendar year when the majority of parents of these fish spawned."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -2292,6 +2291,12 @@
       {
         "@language": "en",
         "@value": "A measurement or estimate of escapement tied to a stock and a survey event."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Salmon escapement count"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -3295,7 +3300,7 @@
     "http://purl.obolibrary.org/obo/IAO_0000115": [
       {
         "@language": "en",
-        "@value": "Benchmark value for a metric that helps delineate status zones (for example, the limit reference point for absolute abundance)."
+        "@value": "Benchmark value for a WSP metric that helps delineate status zones (for example, the limit reference point for absolute abundance)."
       }
     ],
     "http://purl.obolibrary.org/obo/IAO_0000119": [
@@ -4819,7 +4824,7 @@
     "http://www.w3.org/2004/02/skos/core#definition": [
       {
         "@language": "en",
-        "@value": "Indirect estimate of total spawner abundance with qualified accuracy and known precision (i.e., a variance estimate—an explicit quantitative measure of uncertainty around the estimate). Derived from high-effort, standardized methods (e.g., mark-recapture, serial counts for area under the curve) with documented analytical conversions (including interpolation/calibration as needed). Reported in absolute units (estimate ± variance). Reliable resolution of between-year differences >25% (in absolute units)."
+        "@value": "High effort (5 or more trips), standard methods (e.g. mark-recapture, serial counts for area under curve, etc.). Simple to complex multi-step, but always rigorous. Reliable resolution of between year differences >25% (in absolute units)."
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -4860,7 +4865,7 @@
     "http://www.w3.org/2004/02/skos/core#definition": [
       {
         "@language": "en",
-        "@value": "Relative abundance index (i.e., not an absolute count) derived from moderate to high effort surveys (typically 3 or more site visits) using standardized methods applied consistently between and within years (e.g., equal-effort surveys executed by walk, swim, overflight). Accuracy and precision are not fully quantified (i.e., no explicit variance estimate), but are assumed stable enough for within-series comparisons. Reliable resolution of between-year differences >25% (in relative units)."
+        "@value": "High effort (5 or more trips), standard methods (e.g. equal effort surveys executed by walk, swim, overflight, etc.). Simple to complex multi-step, but always rigorous. Reliable resolution of between year differences >25% (in relative units)."
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -4975,12 +4980,6 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
-    "http://www.w3.org/2004/02/skos/core#altLabel": [
-      {
-        "@language": "en",
-        "@value": "Presence/Not Detected"
-      }
-    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#EstimateType"
@@ -4989,7 +4988,7 @@
     "http://www.w3.org/2004/02/skos/core#definition": [
       {
         "@language": "en",
-        "@value": "Non-numeric, year-specific record of presence/not detected (i.e., present/absent without estimating a count), tied to an explicit time and location, with reliable species identification. Underlying field methods may be highly variable; analysis is not required."
+        "@value": "Any of above methods. Not required for analysis. Moderate to high reliability for presence/absence."
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -5267,15 +5266,15 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZoneScheme"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#definition": [
       {
         "@language": "en",
         "@value": "The biological status of a Conservation Unit (CU) will normally be based on the abundance and distribution of spawners in the unit, or proxies thereof. For each CU, higher and lower benchmarks will be defined that will delimit three status zones: Green, Amber, and Red. As spawner abundance decreases, a CU moves towards the lower status zone, and the extent of management intervention for conservation purposes will increase."
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#inScheme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZoneScheme"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#prefLabel": [
@@ -5336,6 +5335,45 @@
     ]
   },
   {
+    "@id": "https://w3id.org/gcdfo/salmon#WSPMetricScheme",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Controlled vocabulary for the Wild Salmon Policy rapid-status metrics and related analytical concepts."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#hasTopConcept": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPMetric"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Wild Salmon Policy metric scheme"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
     "@id": "https://w3id.org/gcdfo/salmon#WSPRapidStatus",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
@@ -5343,7 +5381,7 @@
     "http://purl.obolibrary.org/obo/IAO_0000115": [
       {
         "@language": "en",
-        "@value": "The WSP rapid status assessment approach builds on previously completed WSP integrated status assessments. The WSP rapid status approach ensures statuses are scientifically objective, consistent, and comparable across BC/Yukon CUs. This approach is also relatively easy to implement, applicable to data rich and data poor CUs, and can be updated annually."
+        "@value": "The WSP rapid status assessment approach builds on previously completed WSP integrated status assessments. The detailed WSP integrated assessments are labour intensive, taking 10-40 experts up to three days to complete for each group of CUs. For this reason, assessments have only been completed for ~11% of the 377 current Pacific Salmon CUs, many of which are outdated. The WSP rapid approach can fill gaps by expanding coverage of CU statuses across time, species, and geographic areas. The WSP rapid status approach ensures statuses are scientifically objective, consistent, and comparable across BC/Yukon CUs. This approach is also relatively easy to implement, applicable to data rich and data poor CUs, and can be updated annually."
       }
     ],
     "http://purl.obolibrary.org/obo/IAO_0000119": [
@@ -5367,53 +5405,6 @@
       {
         "@id": "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"
       },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/gcdfo/salmon#WSPRapidStatusAlgorithmThreshold",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000115": [
-      {
-        "@language": "en",
-        "@value": "Threshold value used by the rapid-status algorithm that may differ from expert-defined benchmarks to incorporate precautionary buffers."
-      }
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000119": [
-      {
-        "@language": "en",
-        "@value": "DFO (2024). Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under Canada’s Wild Salmon Policy. CSAS Science Response 2024/004."
-      }
-    ],
-    "http://purl.org/dc/terms/source": [
-      {
-        "@id": "https://www.dfo-mpo.gc.ca/csas-sccs/Publications/ScR-RS/2024/2024_004-eng.pdf"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "WSP Rapid Status Algorithm threshold"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://purl.obolibrary.org/obo/IAO_0000030"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
       },

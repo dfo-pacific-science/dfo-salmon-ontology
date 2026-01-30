@@ -8,6 +8,7 @@
 	 prov:wasAttributedTo :agent1;
 	 prov:wasAttributedTo :agent2;
 	 prov:wasAttributedTo <https://github.com/dgarijo/Widoco/>,<http://www.essepuntato.it/lode/>;
+	 prov:wasRevisionOf <https://w3id.org/gcdfo/salmon/0.0.2>;
 	 prov:wasGeneratedAt "2025-09-06";
 .
 :agent0 a prov:Agent; foaf:name "Fishery & Assessment Data Section (FADS) Data Stewardship Unit".

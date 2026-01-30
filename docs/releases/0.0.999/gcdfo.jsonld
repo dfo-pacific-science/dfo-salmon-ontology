@@ -1150,7 +1150,7 @@
     "http://purl.org/dc/terms/modified": [
       {
         "@type": "http://www.w3.org/2001/XMLSchema#date",
-        "@value": "2026-01-21"
+        "@value": "2026-01-30"
       }
     ],
     "http://purl.org/dc/terms/publisher": [
@@ -1178,6 +1178,11 @@
     "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
       {
         "@id": "https://github.com/dfo-pacific-science/dfo-salmon-ontology"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#priorVersion": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon/0.0.2"
       }
     ],
     "http://www.w3.org/2002/07/owl#versionIRI": [

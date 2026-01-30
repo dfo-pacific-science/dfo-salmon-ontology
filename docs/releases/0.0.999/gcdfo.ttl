@@ -33,12 +33,13 @@
                                  dcterms:creator "Fishery & Assessment Data Section (FADS) Data Stewardship Unit"@en ;
                                  dcterms:description "OWL + SKOS ontology for DFO salmon data: stocks/CUs/MUs, survey events, escapement measurements, and GSI constructs; aligns to DwC via rdfs:subClassOf; hybrid approach with SKOS for methods and OWL for events."@en ;
                                  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
-                                 dcterms:modified "2026-01-21"^^xsd:date ;
+                                 dcterms:modified "2026-01-30"^^xsd:date ;
                                  dcterms:publisher "Fisheries and Oceans Canada (DFO) Pacific Region Science Branch"@en ;
                                  dcterms:title "GC DFO Salmon Ontology"@en ;
                                  vann:preferredNamespacePrefix "gcdfo" ;
                                  vann:preferredNamespaceUri "https://w3id.org/gcdfo/salmon#" ;
                                  rdfs:seeAlso <https://github.com/dfo-pacific-science/dfo-salmon-ontology> ;
+                                 owl:priorVersion <https://w3id.org/gcdfo/salmon/0.0.2> ;
                                  owl:versionInfo "0.0.999 (expanded enumeration/estimate methods and downgrade criteria)" ;
                                  schema:codeRepository <https://github.com/dfo-pacific-science/dfo-salmon-ontology> .
 
