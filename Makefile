@@ -179,6 +179,7 @@ docs-widoco: check-widoco
 	java -jar $(WIDOCO_JAR) \
 		-ontFile ontology/dfo-salmon.ttl \
 		-outFolder "$$OUT" \
+		-ignoreIndividuals \
 		-uniteSections \
 		-rewriteAll \
 		-noPlaceHolderText; \

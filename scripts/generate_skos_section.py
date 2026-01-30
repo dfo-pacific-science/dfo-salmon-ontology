@@ -85,6 +85,9 @@ def update_index_metadata(metadata: OntologyMetadata) -> None:
     This avoids drift between `ontology/dfo-salmon.ttl` and `docs/index.html`.
     """
     content = INDEX_PATH.read_text(encoding="utf-8")
+    # Cleanup: earlier versions of this script inserted backslash-escaped quotes into HTML.
+    # Normalize them so the regex-based replacements work and the output is valid HTML.
+    content = content.replace('\\"', '"')
 
     # Release / modified dates.
     content, release_subs = re.subn(
@@ -132,7 +135,7 @@ def update_index_metadata(metadata: OntologyMetadata) -> None:
     if latest_version_subs == 0:
         content, insert_subs = re.subn(
             r"(<dt>This version:</dt>\s*<dd><a href=\"[^\"]+\">[^<]*</a></dd>)",
-            rf"\g<1>\n<dt>Latest version:</dt>\n<dd><a href=\"{DOCS_LATEST_URL}\">{DOCS_LATEST_URL}</a></dd>",
+            rf'\g<1>\n<dt>Latest version:</dt>\n<dd><a href="{DOCS_LATEST_URL}">{DOCS_LATEST_URL}</a></dd>',
             content,
             count=1,
         )
@@ -509,30 +512,52 @@ def ensure_custom_ui_enhancements() -> None:
     Re-apply repo-specific UI/UX enhancements after WIDOCO regeneration.
     """
     content = INDEX_PATH.read_text(encoding="utf-8")
+    content = content.replace('\\"', '"')
+
+    # Fix invalid Widoco HTML: sometimes the dark-mode toggle markup is emitted inside <head>.
+    # Move it to <body> so the document stays valid and scripts/styles behave consistently.
+    head_end = content.find("</head>")
+    if head_end != -1:
+        darkmode_re = re.compile(
+            r'<script type="module" src="resources/dark-mode-toggle\.mjs"></script>\s*'
+            r'<div class="darkmode">.*?</div>',
+            re.DOTALL,
+        )
+        match = darkmode_re.search(content, 0, head_end)
+        if match:
+            darkmode_block = match.group(0)
+            content = content[: match.start()] + content[match.end() :]
+            body_match = re.search(r"<body[^>]*>", content)
+            if body_match:
+                insert_at = body_match.end()
+                content = content[:insert_at] + "\n" + darkmode_block + "\n" + content[insert_at:]
 
     # Ensure <html lang="en">
     content = re.sub(r"<html(?![^>]*\blang=)", "<html lang=\"en\"", content, count=1)
 
-    # Ensure custom head assets are included.
-    if "resources/gcdfo-custom.css" not in content:
-        head_block = "\n".join(
-            [
-                HEAD_MARKER_BEGIN,
-                '<link rel="stylesheet" href="resources/gcdfo-custom.css" media="screen"/>',
-                '<link rel="stylesheet" href="resources/slider.css" media="screen"/>',
-                '<meta name="color-scheme" content="dark light">',
-                '<script type="module" src="resources/dark-mode-toggle.mjs"></script>',
-                HEAD_MARKER_END,
-                "",
-            ]
+    # Normalize custom head assets block (avoid duplicate Widoco assets).
+    desired_head_block = "\n".join(
+        [
+            HEAD_MARKER_BEGIN,
+            '<link rel="stylesheet" href="resources/gcdfo-custom.css" media="screen"/>',
+            HEAD_MARKER_END,
+            "",
+        ]
+    )
+    if HEAD_MARKER_BEGIN in content and HEAD_MARKER_END in content:
+        pattern = re.compile(
+            rf"{re.escape(HEAD_MARKER_BEGIN)}.*?{re.escape(HEAD_MARKER_END)}\n?",
+            re.DOTALL,
         )
-        content = content.replace("</head>", f"{head_block}</head>", 1)
+        content = pattern.sub(desired_head_block, content, count=1)
+    elif "resources/gcdfo-custom.css" not in content:
+        content = content.replace("</head>", f"{desired_head_block}</head>", 1)
 
     # Ensure skip link exists right after <body>.
     if "gcdfo-skip-link" not in content:
         content = re.sub(
             r"<body([^>]*)>",
-            r"<body\1>\n  <a class=\"visually-hidden-focusable gcdfo-skip-link\" href=\"#maincontent\">Skip to content</a>",
+            r'<body\1>\n  <a class="visually-hidden-focusable gcdfo-skip-link" href="#maincontent">Skip to content</a>',
             content,
             count=1,
         )

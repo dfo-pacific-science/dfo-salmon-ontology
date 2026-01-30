@@ -11,7 +11,7 @@ Purpose: keep one short, reliable map of what starts the system, what is wired i
 ## Build
 
 - Build command(s): `devenv shell python scripts/extract-term-tables.py` (generates term tables + SPARQL under `release/artifacts/term-tables` and `scripts/sparql`)
-- Docs refresh (WIDOCO + serializations + SKOS section): `make docs-refresh` (regenerates the base HTML docs via WIDOCO, then `docs/gcdfo.{ttl,owl}` via ROBOT and `docs/gcdfo.jsonld` via `scripts/convert_ttl_to_jsonld.py` from `ontology/dfo-salmon.ttl`, then refreshes the SKOS blocks in `docs/index.html` and enforces OWL-before-SKOS display ordering)
+- Docs refresh (WIDOCO + serializations + SKOS section): `make docs-refresh` (regenerates the base HTML docs via WIDOCO with `-ignoreIndividuals` so SKOS concepts aren’t duplicated as “Named Individuals”, then `docs/gcdfo.{ttl,owl}` via ROBOT and `docs/gcdfo.jsonld` via `scripts/convert_ttl_to_jsonld.py` from `ontology/dfo-salmon.ttl`, then refreshes the SKOS blocks in `docs/index.html` and enforces OWL-before-SKOS display ordering)
 - WIDOCO regeneration only: `make docs-widoco` (runs WIDOCO and copies output into `docs/`)
 - Release snapshot (immutable, GitHub Pages): `make release-snapshot VERSION=X.Y.Z` (creates `docs/releases/VERSION/` with `index.html` + `gcdfo.{ttl,owl,jsonld}`)
 - SKOS-only refresh: `python3 scripts/generate_skos_section.py` (reparses `ontology/dfo-salmon.ttl` and rewrites the SKOS block inside `docs/index.html`)
