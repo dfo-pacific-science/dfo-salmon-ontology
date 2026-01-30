@@ -32,6 +32,9 @@ function loadHash() {
 	loadTOC();
   gcdfoEnhanceTOC();
   gcdfoEnhanceIRIs();
+  gcdfoEnhanceSearch();
+  gcdfoEnhanceMobileTOC();
+  gcdfoEnhancePermalinks();
 }
 // BEGIN gcdfo custom: reorder sections (OWL before SKOS)
 function reorderSections() {
@@ -50,7 +53,7 @@ function reorderSections() {
   }
 }
 // END gcdfo custom: reorder sections (OWL before SKOS)
-// BEGIN gcdfo custom: ui enhancements (TOC + IRI copy)
+// BEGIN gcdfo custom: ui enhancements (TOC + IRI copy + search + permalinks)
 function gcdfoCopyText(text) {
   if (!text) return Promise.reject(new Error("No text to copy"));
   if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -72,6 +75,46 @@ function gcdfoCopyText(text) {
     } catch (e) {
       reject(e);
     }
+  });
+}
+
+function gcdfoGetHeadingText(heading) {
+  if (!heading) return "";
+  var clone = heading.cloneNode(true);
+  var sup = clone.querySelector("sup");
+  if (sup) sup.remove();
+  return (clone.textContent || "").trim();
+}
+
+function gcdfoBuildSearchIndex() {
+  if (window.gcdfoSearchIndex) return window.gcdfoSearchIndex;
+  var items = [];
+  Array.prototype.slice.call(document.querySelectorAll(".entity")).forEach(function (entity) {
+    if (!entity || !entity.id) return;
+    var heading = entity.querySelector("h3");
+    var label = gcdfoGetHeadingText(heading);
+    if (!label) return;
+    var sup = heading ? heading.querySelector("sup") : null;
+    var type = sup ? (sup.textContent || "").trim() : "";
+    var iri = "";
+    var iriLine = entity.querySelector("p");
+    if (iriLine && iriLine.textContent) {
+      iri = iriLine.textContent.replace(/^IRI:\s*/, "").trim();
+    }
+    items.push({ id: entity.id, label: label, type: type, iri: iri });
+  });
+  window.gcdfoSearchIndex = items;
+  return items;
+}
+
+function gcdfoSearchTerms(query) {
+  var q = (query || "").trim().toLowerCase();
+  if (!q) return [];
+  var tokens = q.split(/\s+/).filter(Boolean);
+  var items = gcdfoBuildSearchIndex();
+  return items.filter(function (item) {
+    var hay = (item.label + " " + item.id + " " + (item.iri || "")).toLowerCase();
+    return tokens.every(function (t) { return hay.indexOf(t) !== -1; });
   });
 }
 
@@ -236,6 +279,159 @@ function gcdfoEnhanceTOC() {
   gcdfoSetupActiveTOC();
 }
 
+function gcdfoEnhanceSearch() {
+  var toc = document.getElementById("toc");
+  if (!toc) return;
+
+  if (!toc.querySelector(".gcdfo-search")) {
+    var controls = toc.querySelector(".gcdfo-toc-controls");
+    var search = document.createElement("div");
+    search.className = "gcdfo-search";
+    search.innerHTML =
+      '<label class="gcdfo-search-label" for="gcdfo-search">Search terms</label>' +
+      '<input id="gcdfo-search" class="gcdfo-search-input" type="search" placeholder="Search classes, properties, concepts…" autocomplete="off" />' +
+      '<div class="gcdfo-search-meta" id="gcdfo-search-meta">Type to search the ontology terms.</div>' +
+      '<ul class="gcdfo-search-results" id="gcdfo-search-results"></ul>';
+    if (controls && controls.parentNode) {
+      controls.insertAdjacentElement("afterend", search);
+    } else {
+      toc.insertBefore(search, toc.firstChild);
+    }
+  }
+
+  var input = toc.querySelector("#gcdfo-search");
+  var resultsEl = toc.querySelector("#gcdfo-search-results");
+  var metaEl = toc.querySelector("#gcdfo-search-meta");
+  if (!input || !resultsEl || !metaEl) return;
+
+  function render(results) {
+    resultsEl.innerHTML = "";
+    if (!results.length) {
+      metaEl.textContent = "No matches.";
+      resultsEl.hidden = true;
+      return;
+    }
+    metaEl.textContent = results.length + " match" + (results.length === 1 ? "" : "es") + ".";
+    resultsEl.hidden = false;
+    results.slice(0, 50).forEach(function (item) {
+      var li = document.createElement("li");
+      var link = document.createElement("a");
+      link.href = "#" + item.id;
+      link.textContent = item.label;
+      li.appendChild(link);
+      if (item.type) {
+        var meta = document.createElement("span");
+        meta.className = "gcdfo-search-type";
+        meta.textContent = item.type;
+        li.appendChild(meta);
+      }
+      resultsEl.appendChild(li);
+    });
+  }
+
+  if (!input.dataset.gcdfoBound) {
+    input.dataset.gcdfoBound = "1";
+    input.addEventListener("input", function () {
+      var query = input.value;
+      if (query.trim().length < 2) {
+        resultsEl.hidden = true;
+        metaEl.textContent = "Type to search the ontology terms.";
+        return;
+      }
+      var results = gcdfoSearchTerms(query);
+      render(results);
+    });
+    input.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+        input.value = "";
+        resultsEl.hidden = true;
+        metaEl.textContent = "Type to search the ontology terms.";
+        input.blur();
+      }
+    });
+  }
+}
+
+function gcdfoEnhanceMobileTOC() {
+  var toc = document.getElementById("toc");
+  if (!toc) return;
+
+  var panel = document.querySelector(".gcdfo-toc-panel");
+  if (!panel) {
+    panel = document.createElement("div");
+    panel.className = "gcdfo-toc-panel";
+    toc.parentNode.insertBefore(panel, toc);
+    panel.appendChild(toc);
+  }
+
+  if (!document.querySelector(".gcdfo-toc-overlay")) {
+    var overlay = document.createElement("div");
+    overlay.className = "gcdfo-toc-overlay";
+    overlay.addEventListener("click", function () {
+      document.body.classList.remove("gcdfo-toc-open");
+    });
+    document.body.appendChild(overlay);
+  }
+
+  if (!document.querySelector(".gcdfo-toc-toggle")) {
+    var toggle = document.createElement("button");
+    toggle.type = "button";
+    toggle.className = "gcdfo-toc-toggle";
+    toggle.textContent = "Sections";
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.addEventListener("click", function () {
+      var open = document.body.classList.toggle("gcdfo-toc-open");
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    var head = document.querySelector(".head") || document.body;
+    head.insertBefore(toggle, head.firstChild);
+  }
+
+  Array.prototype.slice.call(toc.querySelectorAll('a[href^="#"]')).forEach(function (link) {
+    if (link.dataset.gcdfoCloseBound) return;
+    link.dataset.gcdfoCloseBound = "1";
+    link.addEventListener("click", function () {
+      document.body.classList.remove("gcdfo-toc-open");
+      var toggle = document.querySelector(".gcdfo-toc-toggle");
+      if (toggle) toggle.setAttribute("aria-expanded", "false");
+    });
+  });
+}
+
+function gcdfoEnhancePermalinks() {
+  gcdfoEnsureCopyStatusEl();
+  var headings = [];
+  Array.prototype.slice.call(document.querySelectorAll("h2.list[id], h3.list[id]")).forEach(function (h) {
+    headings.push({ heading: h, target: h.id });
+  });
+  Array.prototype.slice.call(document.querySelectorAll(".entity")).forEach(function (entity) {
+    var heading = entity.querySelector("h3");
+    if (heading && entity.id) headings.push({ heading: heading, target: entity.id });
+  });
+
+  headings.forEach(function (item) {
+    if (!item.heading || !item.target) return;
+    if (item.heading.querySelector(".gcdfo-permalink")) return;
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "gcdfo-permalink";
+    btn.setAttribute("aria-label", "Copy link to " + gcdfoGetHeadingText(item.heading));
+    btn.textContent = "#";
+    btn.addEventListener("click", function () {
+      var url = window.location.origin + window.location.pathname + "#" + item.target;
+      gcdfoCopyText(url)
+        .then(function () {
+          gcdfoFlashCopied(btn, "Link copied.");
+        })
+        .catch(function () {
+          gcdfoFlashCopied(btn, "Copy failed.");
+        });
+      window.location.hash = item.target;
+    });
+    item.heading.appendChild(btn);
+  });
+}
+
 function gcdfoEnsureCopyStatusEl() {
   if (document.getElementById("gcdfo-copy-status")) return;
   var el = document.createElement("div");
@@ -300,7 +496,7 @@ function gcdfoEnhanceIRIs() {
     p.appendChild(btn);
   });
 }
-// END gcdfo custom: ui enhancements (TOC + IRI copy)
+// END gcdfo custom: ui enhancements (TOC + IRI copy + search + permalinks)
 function loadTOC(){
 	//process toc dynamically
 	  var t='<h2>Table of contents</h2><ul>';i = 1;j=0;
@@ -7295,7 +7491,59 @@ This section provides details for each class and property defined by GC DFO Salm
    
 
 <!--CHANGELOG SECTION-->
-   <div id="changelog">null</div>
+   <div id="changelog"><div id="changelog">
+<h2 id="changes" class="list">Changes from last version</h2>
+<h3 id="changeClass" class="list">Classes</h3>
+<details><summary><u>Modified classes</u></summary>
+<ul><li><a href="#BroodYear">https://w3id.org/gcdfo/salmon#BroodYear</a>
+<ul>
+<li>Added: <http://purl.obolibrary.org/obo/IAO_0000115> "TThe parental year for a group of returning salmon, i.e. the calendar year when the majority of parents of these fish spawned."@en</li>
+</ul>
+<ul>
+<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000115> "The year that a cohort of salmon spawns."@en</li>
+<li>Deleted: rdfs:comment "The parental year for a group of returning salmon, i.e. the calendar year when the majority of parents of these fish spawned."@en</li>
+</ul>
+</li>
+<li><a href="#EscapementMeasurement">https://w3id.org/gcdfo/salmon#EscapementMeasurement</a>
+<ul>
+<li>Deleted: rdfs:comment "Salmon escapement count"@en</li>
+</ul>
+</li>
+<li><a href="#MetricBenchmark">https://w3id.org/gcdfo/salmon#MetricBenchmark</a>
+<ul>
+<li>Added: <http://purl.obolibrary.org/obo/IAO_0000115> "Benchmark value for a metric that helps delineate status zones (for example, the limit reference point for absolute abundance)."@en</li>
+</ul>
+<ul>
+<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000115> "Benchmark value for a WSP metric that helps delineate status zones (for example, the limit reference point for absolute abundance)."@en</li>
+</ul>
+</li>
+<li><a href="#WSPBiologicalStatusZone">https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZone</a>
+<ul>
+<li>Added: <http://www.w3.org/2004/02/skos/core#inScheme> https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZoneScheme</li>
+</ul>
+<ul>
+<li>Deleted: rdfs:seeAlso https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZoneScheme</li>
+</ul>
+</li>
+<li><a href="#WSPRapidStatus">https://w3id.org/gcdfo/salmon#WSPRapidStatus</a>
+<ul>
+<li>Added: <http://purl.obolibrary.org/obo/IAO_0000115> "The WSP rapid status assessment approach builds on previously completed WSP integrated status assessments. The WSP rapid status approach ensures statuses are scientifically objective, consistent, and comparable across BC/Yukon CUs. This approach is also relatively easy to implement, applicable to data rich and data poor CUs, and can be updated annually."@en</li>
+</ul>
+<ul>
+<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000115> "The WSP rapid status assessment approach builds on previously completed WSP integrated status assessments. The detailed WSP integrated assessments are labour intensive, taking 10-40 experts up to three days to complete for each group of CUs. For this reason, assessments have only been completed for ~11% of the 377 current Pacific Salmon CUs, many of which are outdated. The WSP rapid approach can fill gaps by expanding coverage of CU statuses across time, species, and geographic areas. The WSP rapid status approach ensures statuses are scientifically objective, consistent, and comparable across BC/Yukon CUs. This approach is also relatively easy to implement, applicable to data rich and data poor CUs, and can be updated annually."@en</li>
+</ul>
+</li>
+</ul></details><details><summary><u>Added classes</u></summary>
+<ul><li><a href="#WSPRapidStatusAlgorithmThreshold">https://w3id.org/gcdfo/salmon#WSPRapidStatusAlgorithmThreshold</a>
+<ul>
+<li>Added: SubClass of http://purl.obolibrary.org/obo/IAO_0000030</li>
+</ul>
+</li>
+</ul></details><details><summary><u>Deleted classes</u></summary>
+<ul><li><a href="#AlgorithmThreshold">https://w3id.org/gcdfo/salmon#AlgorithmThreshold</a>
+</li>
+</ul></details></div>
+</div>
 <div id="acknowledgments">
 <h2 id="ack" class="list">Acknowledgments <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 <p>
