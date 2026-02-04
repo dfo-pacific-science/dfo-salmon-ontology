@@ -575,17 +575,46 @@ See the canonical checklist in [Quick Start Cheatsheet → Essential Elements](#
 
 ---
 
-#### 2.3.8 Synonym Policy
+#### 2.3.8 Lexical Labels & Synonyms (OWL 2)
 
-**Default (recommended):** Use OBO In OWL synonym properties for typed synonyms:
-- `oboInOwl:hasExactSynonym` - Exact synonyms
-- `oboInOwl:hasRelatedSynonym` - Related but not exact synonyms
-- `oboInOwl:hasBroadSynonym` - Broader terms
-- `oboInOwl:hasNarrowSynonym` - Narrower terms
+Synonyms are **lexical metadata**. In our OWL 2 authoring, synonyms are represented as **annotations only** (they do not affect reasoning).
 
-**Minimalist fallback:** Use `IAO:0000118` ("alternative term") if avoiding oboInOwl. Note that this loses synonym scope typing.
+**Preferred label**
+- Use `rdfs:label` as the canonical human-facing label.
 
-**On OWL terms:** If keeping `skos:altLabel` on OWL classes for convenience, state it's non-normative (no synonym scope). The primary approach should use oboInOwl properties.
+**Typed synonyms (recommended; interoperable with OBO tooling)**
+- `oboInOwl:hasExactSynonym` — exact lexical synonyms
+- `oboInOwl:hasRelatedSynonym` — related (not exact)
+- `oboInOwl:hasBroadSynonym` — broader terms
+- `oboInOwl:hasNarrowSynonym` — narrower terms
+
+**Minimal fallback (untyped)**
+- Use `IAO:0000118` ("alternative term") when scope typing is not needed. (Tradeoff: you lose exact/broad/narrow/related typing.)
+
+**If a synonym needs metadata (type, provenance, xrefs)**
+- Use OWL 2 axiom annotations (`owl:Axiom`) on the synonym annotation assertion.
+
+**Do not**
+- Do **not** use `rdfs:comment` to encode synonyms (reserve it for editorial notes/clarifications).
+- Do **not** model lexical synonyms as `owl:equivalentClass`/`owl:sameAs`.
+
+**SKOS note (convenience only)**
+- If you also maintain SKOS concept schemes, use `skos:altLabel` there.
+- Avoid using `skos:altLabel` as the primary synonym mechanism on OWL classes; if used at all, treat as convenience-only and non-normative.
+
+**Example**
+```turtle
+:AgeAtMaturity a owl:Class ;
+  rdfs:label "Age-at-maturity"@en ;
+  oboInOwl:hasExactSynonym "Maturity age"@en ;
+  rdfs:comment "Numeric age of fish (editorial note, not a synonym)."@en .
+
+[] a owl:Axiom ;
+  owl:annotatedSource :AgeAtMaturity ;
+  owl:annotatedProperty oboInOwl:hasExactSynonym ;
+  owl:annotatedTarget "Maturity age"@en ;
+  oboInOwl:hasDbXref "Van Beveren 2024"@en .
+```
 
 ---
 
