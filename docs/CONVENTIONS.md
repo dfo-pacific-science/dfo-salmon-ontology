@@ -1861,9 +1861,28 @@ dfo:EscapementMeasurement a owl:Class ;
 |-----------|------|-------|------------|--------|--------|---------|-------|
 | EscapementMeasurement | Class | Escapement Measurement | A measurement of salmon escapement | Measurement | DFO protocols 2024 | Sonar count of 1,250 fish | Must link to stock and method |
 
-### 6.9 Using Darwin Core Conceptual Model
+### 6.9 Upper-level Alignment (DwC vs OBOE vs SOSA/SSN)
 
-**Why follow Darwin Core?** Darwin Core provides a widely-adopted standard for biodiversity data that enables interoperability with GBIF, OBIS, and other international platforms.
+This project follows an explicit, top-down alignment hierarchy (mirrors the Salmon Data Mobilization `salmon-domain-ontology` conventions):
+
+**Alignment hierarchy (top-down):**
+BFO → IAO → PROV-O → SOSA/SSN → I-ADOPT → Darwin Core → `gcdfo:` (salmon domain)
+
+**Rules of thumb (which one do I reach for?):**
+- **BFO / IAO**: upper-level typing and the info-vs-physical split (what kind of thing is this?).
+- **PROV-O**: provenance (who/what produced a dataset/record/result).
+- **SOSA/SSN**: observation/measurement event structure (how was a result produced?).
+- **I-ADOPT**: decomposable variable meaning (property + object of interest + constraints/context/matrix).
+- **Darwin Core (DwC / DwC-CM)**: interoperability scaffold for publishing/aligning biodiversity records (GBIF/OBIS etc.).
+- **`gcdfo:`**: salmon-specific domain terms that aren’t already standardized elsewhere.
+
+**How this relates to OBOE:**
+- OBOE is a valid observation/measurement model. In this ontology, SOSA/SSN is the preferred reference frame for observation structure, and we maintain crosswalk documentation where needed (see `docs/i-adopt-x-walk.md`).
+
+**Darwin Core Conceptual Model note:**
+- We implement DwC-CM patterns for record structure and interoperability; use DwC terms when the intent is explicitly to publish/consume Darwin Core-compatible data.
+
+(See also: `docs/i-adopt-x-walk.md` for SSN/SOSA ↔ O&M ↔ OBOE ↔ I-ADOPT ↔ DwC-CM crosswalk.)
 
 ### 6.10 Common Modeling Scenarios
 
