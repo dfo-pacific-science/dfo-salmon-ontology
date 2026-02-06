@@ -1,0 +1,15 @@
+Field,Short definition,Long definition,Unmatched field,table
+CU_ID,FULL_CU_IN,Alphanumeric ID number for conservation unit (CU) demographic unit. An official list of CU ID's and corresponding names can be found in the NuSEDS CU/SMU crosswalk,Yes,CU
+CU_NAME,CU Name,The official CU name from the SMU/CU crosswalk,,CU
+SMU_ID,SMU_ID,Alphanumeric ID number for stock management unit (SMU) to which this CU belongs.,Yes,CU
+LIFE_HISTORY_TYPE,Life History Type,Describes the life cycle patterns of the salmon,Yes,CU
+CU_TYPE,CU Type,There are currently nine Conservation Unit (CU) groupings for Pacific salmon.,Yes,CU
+DFO_AREA,DFO Area,"The DFO (Fisheries and Oceans Canada) area that the unit resides in, either South Coast, North Coast, Fraser and Interior, Yukon Transboundary.",Yes,CU
+LRP,Limit Reference Point,The limit reference point (LRP) represents the lower bound below which the stock is considered to have suffered serious harm.,Yes,CU
+USR,Upper Stock Reference,"The upper stock reference (USR) is to serves as an upper stock status threshold, signaling when management actions should be taken to reduce harvest.",Yes,CU
+TR,Target Reference,"A management target reference point that represents a desirable level for the stock, above the USR.",Yes,CU
+RR,Removal Reference,Removal Reference (RR) represents the maximum allowable removal rate (fraction of the population that can be harvested).,Yes,CU
+LOWER_BIO_BENCHMARK,Lower Biological Benchmark,Definition not provided.,Yes,CU
+UPPER_BIO_BENCHMARK,Upper Biological Benchmark,Definition not provided.,Yes,CU
+LOWER_WSP_BENCHMARK,Lower WSP Benchmark,Lower Wild Salmon Policy Benchmark,,CU
+UPPER_WSP_BENCHMARK,Upper WSP Benchmark,Upper Wild Salmon Policy Benchmark,,CU

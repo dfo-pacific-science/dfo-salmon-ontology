@@ -1,0 +1,10 @@
+Field,Short definition,Long definition,Unmatched field,table
+SMU_ID,FULL_SMU_I,Stock management unit (SMU) unique identifier (ID).,Yes,SMU
+SMU_NAME,SMU Name,Name of the Stock Management Unit.,,SMU
+SPECIES,Species,Species Name,,SMU
+DFO_AREA,DFO Area,"The DFO (Fisheries and Oceans Canada) area that the unit resides in, either South Coast, North Coast, Fraser and Interior, Yukon Transboundary.",Yes,SMU
+LRP,Limit Reference Point,The limit reference point (LRP) represents the lower bound below which the stock is considered to have suffered serious harm.,,SMU
+USR,Upper Stock Reference,"The upper stock reference (USR) serves as an upper stock status threshold, signaling when management actions should be taken to reduce harvest.",,SMU
+TR,Target Reference,"A management target reference point that represents a desirable level for the stock, above the USR.",,SMU
+RR,Removal Reference,Removal Reference (RR) represents the maximum allowable removal rate (fraction of the population that can be harvested).,,SMU
+INDICATOR_CWT,Indicator CWT,Indicator population Coded Wire Tag identifier (if applicable).,,SMU

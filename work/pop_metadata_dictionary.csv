@@ -1,0 +1,28 @@
+Field,Short definition,Long definition,Unmatched field,table
+POP_ID,Population ID,Population ID,,POP_METADATA
+ID,ID,Auto-generated unique identifier for the record.,,POP_METADATA
+POP_NAME,Population Name,Population Name,,POP_METADATA
+CU_ID,CU ID,Alphanumeric ID number for conservation unit (CU) demographic unit. An official list of CU ID's and corresponding names can be found in the SMU/CU crosswalk in NuSEDS.,Yes,POP_METADATA
+SMU_ID,SMU_ID,Alphanumeric ID number for stock management unit (SMU) to which this population belongs.,Yes,POP_METADATA
+LIFE_HISTORY_TYPE,Life History Type,Describes the life cycle patterns of the salmon,Yes,POP_METADATA
+CU_TYPE,CU Type,There are currently nine Conservation Unit (CU) groupings for Pacific salmon.,Yes,POP_METADATA
+DFO_AREA,DFO Area,"The DFO (Fisheries and Oceans Canada) area that the unit resides in, either South Coast, North Coast, Fraser and Interior, Yukon Transboundary.",Yes,POP_METADATA
+LRP,Limit Reference Point,The limit reference point (LRP) represents the lower bound below which the stock is considered to have suffered serious harm.,Yes,POP_METADATA
+USR,Upper Stock Reference,"The upper stock reference (USR) is to serves as an upper stock status threshold, signaling when management actions should be taken to reduce harvest.",Yes,POP_METADATA
+TR,Target Reference,"A management target reference point that represents a desirable level for the stock, above the USR.",Yes,POP_METADATA
+RR,Removal Reference,Removal Reference (RR) represents the maximum allowable removal rate (fraction of the population that can be harvested).,Yes,POP_METADATA
+LOWER_BIO_BENCHMARK,Lower Biological Benchmark,Definition not provided.,Yes,POP_METADATA
+UPPER_BIO_BENCHMARK,Upper Biological Benchmark,Definition not provided.,Yes,POP_METADATA
+LOWER_WSP_BENCHMARK,Lower WSP Benchmark,Lower Wild Salmon Policy Benchmark,,POP_METADATA
+UPPER_WSP_BENCHMARK,Upper WSP Benchmark,Upper Wild Salmon Policy Benchmark,,POP_METADATA
+START_YEAR,Start Year,The start year the times series index became available.,Yes,POP_METADATA
+END_YEAR,End Year,The end year of the time series index.,,POP_METADATA
+METHOD_COLLECTION,Data Collection Methods,"Notes on data collection methds (data sources, methods, etc.).",,POP_METADATA
+METHOD_ANALYSIS,Data Analysis Methods,"Notes on data analysis (infill methods, analytical methods, etc.).",,POP_METADATA
+YEAR_TYPE,Year Method,"The type of year definition that is used in the dataset (e.g., calendar year, brood year).",,POP_METADATA
+AGE_TYPE,Age Method,"The type of age definition that is used in the dataset (e.g., freshwater age, ocean age).",,POP_METADATA
+INFOMATION_QUALITY,Information Quality,Definition not provided.,Yes,POP_METADATA
+INDEX_QUALITY,Index Quality,Index Quality Rating (1-5).,,POP_METADATA
+REFERENCE,Reference,Reference for Data Source,,POP_METADATA
+CONTACT,Contact,Contact Person for More Information,,POP_METADATA
+COMMENTS,Comments,Additional Comments,,POP_METADATA

@@ -1,0 +1,56 @@
+dataset_id,table_id,column_name,code_value,code_label,code_description,term_iri,term_type
+spsr,smu_metadata,year_type,brood year,Brood year,Year in which cohort was spawned.,https://w3id.org/gcdfo/salmon#BroodYear,owl_class
+spsr,smu_metadata,year_type,catch year,Catch year,Calendar year of fishery catch.,https://w3id.org/gcdfo/salmon#CatchYear,owl_class
+spsr,smu_metadata,year_type,return year,Return year,Calendar year of adult return to freshwater.,,owl_class
+spsr,smu_metadata,age_type,Gilbert-Rich,Gilbert-Rich,Age notation with total age and freshwater years.,https://w3id.org/gcdfo/salmon#GilbertRichAgeNotation,skos_concept
+spsr,smu_metadata,age_type,European,European,Age notation with freshwater years and ocean years.,https://w3id.org/gcdfo/salmon#EuropeanAgeNotation,skos_concept
+spsr,smu_metadata,index_quality,1,Quality level 1,Highest quality level in source framework.,,skos_concept
+spsr,smu_metadata,index_quality,2,Quality level 2,Second quality level in source framework.,,skos_concept
+spsr,smu_metadata,index_quality,3,Quality level 3,Third quality level in source framework.,,skos_concept
+spsr,smu_metadata,index_quality,4,Quality level 4,Fourth quality level in source framework.,,skos_concept
+spsr,smu_metadata,index_quality,5,Quality level 5,Lowest quality level in source framework.,,skos_concept
+spsr,smu_metadata,index_quality,U,Unranked,No formal quality ranking provided.,,skos_concept
+spsr,cu_metadata,year_type,brood year,Brood year,Year in which cohort was spawned.,https://w3id.org/gcdfo/salmon#BroodYear,owl_class
+spsr,cu_metadata,year_type,catch year,Catch year,Calendar year of fishery catch.,https://w3id.org/gcdfo/salmon#CatchYear,owl_class
+spsr,cu_metadata,year_type,return year,Return year,Calendar year of adult return to freshwater.,,owl_class
+spsr,cu_metadata,age_type,Gilbert-Rich,Gilbert-Rich,Age notation with total age and freshwater years.,https://w3id.org/gcdfo/salmon#GilbertRichAgeNotation,skos_concept
+spsr,cu_metadata,age_type,European,European,Age notation with freshwater years and ocean years.,https://w3id.org/gcdfo/salmon#EuropeanAgeNotation,skos_concept
+spsr,cu_metadata,index_quality,1,Quality level 1,Highest quality level in source framework.,,skos_concept
+spsr,cu_metadata,index_quality,2,Quality level 2,Second quality level in source framework.,,skos_concept
+spsr,cu_metadata,index_quality,3,Quality level 3,Third quality level in source framework.,,skos_concept
+spsr,cu_metadata,index_quality,4,Quality level 4,Fourth quality level in source framework.,,skos_concept
+spsr,cu_metadata,index_quality,5,Quality level 5,Lowest quality level in source framework.,,skos_concept
+spsr,cu_metadata,index_quality,U,Unranked,No formal quality ranking provided.,,skos_concept
+spsr,pop_metadata,year_type,brood year,Brood year,Year in which cohort was spawned.,https://w3id.org/gcdfo/salmon#BroodYear,owl_class
+spsr,pop_metadata,year_type,catch year,Catch year,Calendar year of fishery catch.,https://w3id.org/gcdfo/salmon#CatchYear,owl_class
+spsr,pop_metadata,year_type,return year,Return year,Calendar year of adult return to freshwater.,,owl_class
+spsr,pop_metadata,age_type,Gilbert-Rich,Gilbert-Rich,Age notation with total age and freshwater years.,https://w3id.org/gcdfo/salmon#GilbertRichAgeNotation,skos_concept
+spsr,pop_metadata,age_type,European,European,Age notation with freshwater years and ocean years.,https://w3id.org/gcdfo/salmon#EuropeanAgeNotation,skos_concept
+spsr,pop_metadata,index_quality,1,Quality level 1,Highest quality level in source framework.,,skos_concept
+spsr,pop_metadata,index_quality,2,Quality level 2,Second quality level in source framework.,,skos_concept
+spsr,pop_metadata,index_quality,3,Quality level 3,Third quality level in source framework.,,skos_concept
+spsr,pop_metadata,index_quality,4,Quality level 4,Fourth quality level in source framework.,,skos_concept
+spsr,pop_metadata,index_quality,5,Quality level 5,Lowest quality level in source framework.,,skos_concept
+spsr,pop_metadata,index_quality,U,Unranked,No formal quality ranking provided.,,skos_concept
+spsr,indicator_metadata,year_type,brood year,Brood year,Year in which cohort was spawned.,https://w3id.org/gcdfo/salmon#BroodYear,owl_class
+spsr,indicator_metadata,year_type,catch year,Catch year,Calendar year of fishery catch.,https://w3id.org/gcdfo/salmon#CatchYear,owl_class
+spsr,indicator_metadata,year_type,return year,Return year,Calendar year of adult return to freshwater.,,owl_class
+spsr,indicator_metadata,age_type,Gilbert-Rich,Gilbert-Rich,Age notation with total age and freshwater years.,https://w3id.org/gcdfo/salmon#GilbertRichAgeNotation,skos_concept
+spsr,indicator_metadata,age_type,European,European,Age notation with freshwater years and ocean years.,https://w3id.org/gcdfo/salmon#EuropeanAgeNotation,skos_concept
+spsr,indicator_metadata,index_quality,1,Quality level 1,Highest quality level in source framework.,,skos_concept
+spsr,indicator_metadata,index_quality,2,Quality level 2,Second quality level in source framework.,,skos_concept
+spsr,indicator_metadata,index_quality,3,Quality level 3,Third quality level in source framework.,,skos_concept
+spsr,indicator_metadata,index_quality,4,Quality level 4,Fourth quality level in source framework.,,skos_concept
+spsr,indicator_metadata,index_quality,5,Quality level 5,Lowest quality level in source framework.,,skos_concept
+spsr,indicator_metadata,index_quality,U,Unranked,No formal quality ranking provided.,,skos_concept
+spsr,pfma_metadata,year_type,brood year,Brood year,Year in which cohort was spawned.,https://w3id.org/gcdfo/salmon#BroodYear,owl_class
+spsr,pfma_metadata,year_type,catch year,Catch year,Calendar year of fishery catch.,https://w3id.org/gcdfo/salmon#CatchYear,owl_class
+spsr,pfma_metadata,year_type,return year,Return year,Calendar year of adult return to freshwater.,,owl_class
+spsr,pfma_metadata,age_type,Gilbert-Rich,Gilbert-Rich,Age notation with total age and freshwater years.,https://w3id.org/gcdfo/salmon#GilbertRichAgeNotation,skos_concept
+spsr,pfma_metadata,age_type,European,European,Age notation with freshwater years and ocean years.,https://w3id.org/gcdfo/salmon#EuropeanAgeNotation,skos_concept
+spsr,pfma_metadata,index_quality,1,Quality level 1,Highest quality level in source framework.,,skos_concept
+spsr,pfma_metadata,index_quality,2,Quality level 2,Second quality level in source framework.,,skos_concept
+spsr,pfma_metadata,index_quality,3,Quality level 3,Third quality level in source framework.,,skos_concept
+spsr,pfma_metadata,index_quality,4,Quality level 4,Fourth quality level in source framework.,,skos_concept
+spsr,pfma_metadata,index_quality,5,Quality level 5,Lowest quality level in source framework.,,skos_concept
+spsr,pfma_metadata,index_quality,U,Unranked,No formal quality ranking provided.,,skos_concept
