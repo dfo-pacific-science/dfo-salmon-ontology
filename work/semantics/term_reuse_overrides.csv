@@ -1,0 +1,11 @@
+term_label,recommended_iri,recommended_term_type,notes
+AgeType,https://w3id.org/gcdfo/salmon#AgeNotation,skos_concept,Map AGE_TYPE metadata to the notation concept and represent concrete codes in codes.csv.
+IndexQuality,https://w3id.org/gcdfo/salmon#ConfidenceCategory,skos_concept,Use ConfidenceCategory as current canonical reuse point for quality ratings pending a dedicated index-quality scheme.
+Reference,http://purl.org/dc/terms/bibliographicCitation,owl_annotation_property,"REFERENCE fields are bibliographic metadata and should remain attribute role, not measurement."
+LowerBiologicalBenchmark,https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark,owl_class,Reuse canonical benchmark class for lower/WSP lower benchmark fields.
+UpperBiologicalBenchmark,https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark,owl_class,Reuse canonical benchmark class for upper/WSP upper benchmark fields.
+ManagementLevel,https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum,owl_class,Use existing management stratum class for upper/lower management level metadata fields.
+HatcheryOriginBroodstock,https://w3id.org/gcdfo/salmon#HatcheryOrigin,skos_concept,Reuse canonical HatcheryOrigin concept (SalmonOriginScheme) as origin qualifier.
+SpawnerOrCatchCounts,http://rs.tdwg.org/dwc/terms/individualCount,owl_object_property,Use Darwin Core individualCount for unresolved count-like terms where no domain-specific class exists yet.
+TerminalRunSize,http://rs.tdwg.org/dwc/terms/individualCount,owl_object_property,Treat terminal run size as count pending a dedicated run-size concept in GCDFO.
+TotalFisheryMortalityRate,https://w3id.org/gcdfo/salmon#TotalExploitationRate,owl_class,Use TotalExploitationRate where field definition indicates fishery-caused mortality proportion.

@@ -1,0 +1,13 @@
+Field,Short definition,Long definition,Unmatched field,table
+SMU_ID,SMU ID,Alphanumeric ID number for stock management unit (SMU) demographic unit. An official list of SMU ID's and corresponding names can be found in the NuSEDS CU/SMU Crosswalk,,SMU_METADATA
+START_YEAR,Start Year,The start year the times series index became available.,,SMU_METADATA
+END_YEAR,End Year,The end  year of the time series index.,,SMU_METADATA
+METHOD_COLLECTION,Data Collection Methods,"Notes on data collection methds (data sources, methods, etc.).",,SMU_METADATA
+METHOD_ANALYSIS,Data Analysis Methods,"Notes on data analysis (infill methods, analytical methods, etc.).",,SMU_METADATA
+YEAR_TYPE,Year Method,"The type of  year definition that is used in the dataset (e.g., calendar year, brood year).",,SMU_METADATA
+AGE_TYPE,Age Method,"The type of  age definition that is used in the dataset (e.g., freshwater age, ocean age).",,SMU_METADATA
+INDEX_QUALITY,Information Quality New Zealand Standard,Quality of the dataset quantified from 1-5 based on New Zealand Quality Index.,Yes,SMU_METADATA
+INFORMATION_QUALITY,Information Quality,"Quality of the dataset quantified from 1-5 based on the data quality framework in Ogden 2015, section 2.3,",,SMU_METADATA
+REFERENCE,Reference,Plain text reference for the report that the data was derived from.,,SMU_METADATA
+CONTACT,Contact,Name and email contact for a data steward or expert who provided the data.,,SMU_METADATA
+COMMENTS,Comments,Additional comments about the time series from data providers or stewards.,,SMU_METADATA

@@ -1,0 +1,18 @@
+Field,Short definition,Long definition,Unmatched field,table
+PFMA_ID,PFMA ID,Pacific Fishery Management Area ID,,PFMA_METADATA
+ID,ID,Auto-generated unique identifier for the record.,,PFMA_METADATA
+PFMA_NAME,PFMA Name,Pacific Fishery Management Area Name,,PFMA_METADATA
+DFO_AREA,DFO Area,"The DFO (Fisheries and Oceans Canada) area that the unit resides in, either South Coast, North Coast, Fraser and Interior, Yukon Transboundary.",Yes,PFMA_METADATA
+START_YEAR,Start Year,The start year the times series index became available.,Yes,PFMA_METADATA
+END_YEAR,End Year,The end year of the time series index.,,PFMA_METADATA
+METHOD_COLLECTION,Data Collection Methods,"Notes on data collection methds (data sources, methods, etc.).",,PFMA_METADATA
+METHOD_ANALYSIS,Data Analysis Methods,"Notes on data analysis (infill methods, analytical methods, etc.).",,PFMA_METADATA
+YEAR_TYPE,Year Method,"The type of year definition that is used in the dataset (e.g., calendar year, brood year).",,PFMA_METADATA
+AGE_TYPE,Age Method,"The type of age definition that is used in the dataset (e.g., freshwater age, ocean age).",,PFMA_METADATA
+UPPER_MANAGEMENT_LEVEL,Upper Management Level,Upper Management Level (numeric code if applicable).,,PFMA_METADATA
+LOWER_MANAGEMENT_LEVEL,Lower Management Level,Lower Management Level (numeric code if applicable).,,PFMA_METADATA
+INFORMATION_QUALITY,Information Quality,Information Quality Rating (1-5).,,PFMA_METADATA
+INDEX_QUALITY,Index Quality,Index Quality Rating (1-5).,,PFMA_METADATA
+REFERENCE,Reference,Reference for Data Source,,PFMA_METADATA
+CONTACT,Contact,Contact Person for More Information,,PFMA_METADATA
+COMMENTS,Comments,Additional Comments,,PFMA_METADATA
