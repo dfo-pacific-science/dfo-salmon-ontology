@@ -188,6 +188,10 @@ This ontology has the following classes and properties.</span>
       <a href="#http://purl.obolibrary.org/obo/ENVO_01000618" title="http://purl.obolibrary.org/obo/ENVO_01000618">lotic water body</a>
    </li>
    <li>
+      <a href="#LowerBiologicalBenchmark"
+         title="https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark">Lower biological benchmark</a>
+   </li>
+   <li>
       <a href="#http://purl.obolibrary.org/obo/BFO_0000040" title="http://purl.obolibrary.org/obo/BFO_0000040">material entity</a>
    </li>
    <li>
@@ -262,6 +266,10 @@ This ontology has the following classes and properties.</span>
          title="https://w3id.org/gcdfo/salmon#TotalExploitationRate">Total exploitation rate</a>
    </li>
    <li>
+      <a href="#UpperBiologicalBenchmark"
+         title="https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark">Upper biological benchmark</a>
+   </li>
+   <li>
       <a href="#UpperStockReferencePoint"
          title="https://w3id.org/gcdfo/salmon#UpperStockReferencePoint">Upper stock reference</a>
    </li>
@@ -324,6 +332,7 @@ This section provides details for each class and property defined by GC DFO Salm
   <li><a href="#http://purl.obolibrary.org/obo/ENVO_01000617" title="http://purl.obolibrary.org/obo/ENVO_01000617">lentic water body</a></li>
   <li><a href="#LimitReferencePoint" title="https://w3id.org/gcdfo/salmon#LimitReferencePoint">Limit reference point</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/ENVO_01000618" title="http://purl.obolibrary.org/obo/ENVO_01000618">lotic water body</a></li>
+  <li><a href="#LowerBiologicalBenchmark" title="https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark">Lower biological benchmark</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/BFO_0000040" title="http://purl.obolibrary.org/obo/BFO_0000040">material entity</a></li>
   <li><a href="#http://rs.tdwg.org/dwc/terms/MaterialEntity" title="http://rs.tdwg.org/dwc/terms/MaterialEntity">Material Entity</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/IAO_0000109" title="http://purl.obolibrary.org/obo/IAO_0000109">measurement datum</a></li>
@@ -347,6 +356,7 @@ This section provides details for each class and property defined by GC DFO Salm
   <li><a href="#SurveyEvent" title="https://w3id.org/gcdfo/salmon#SurveyEvent">Survey event</a></li>
   <li><a href="#TargetOrLimitRateOrAbundance" title="https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance">Target or limit rate or abundance</a></li>
   <li><a href="#TotalExploitationRate" title="https://w3id.org/gcdfo/salmon#TotalExploitationRate">Total exploitation rate</a></li>
+  <li><a href="#UpperBiologicalBenchmark" title="https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark">Upper biological benchmark</a></li>
   <li><a href="#UpperStockReferencePoint" title="https://w3id.org/gcdfo/salmon#UpperStockReferencePoint">Upper stock reference</a></li>
   <li><a href="#WSPRapidStatus" title="https://w3id.org/gcdfo/salmon#WSPRapidStatus">WSP rapid status</a></li>
   <li><a href="#WSPRapidStatusAlgorithmThreshold" title="https://w3id.org/gcdfo/salmon#WSPRapidStatusAlgorithmThreshold">WSP Rapid Status Algorithm threshold</a></li>
@@ -1025,6 +1035,40 @@ This section provides details for each class and property defined by GC DFO Salm
    </dd>
   </dl>
  </div>
+ <div class="entity" id="LowerBiologicalBenchmark">
+  <h3>Lower biological benchmark<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark</p>
+  <div class="comment">
+   <span class="markdown">Lower benchmark value for a metric used to delineate Wild Salmon Policy status zones (typically the boundary between Red and Amber zones).</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf.
+   </dd>
+   <dd>
+    <a href="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf">https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#MetricBenchmark" title="https://w3id.org/gcdfo/salmon#MetricBenchmark">Metric benchmark</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
  <div class="entity" id="http://purl.obolibrary.org/obo/BFO_0000040">
   <h3>material entity<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> http://purl.obolibrary.org/obo/BFO_0000040</p>
@@ -1139,6 +1183,12 @@ This section provides details for each class and property defined by GC DFO Salm
    </dt>
    <dd>
     <a href="#http://purl.obolibrary.org/obo/IAO_0000030" title="http://purl.obolibrary.org/obo/IAO_0000030">information content entity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#LowerBiologicalBenchmark" title="https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark">Lower biological benchmark</a> <sup class="type-c" title="class">c</sup>, <a href="#UpperBiologicalBenchmark" title="https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark">Upper biological benchmark</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -1686,6 +1736,40 @@ This section provides details for each class and property defined by GC DFO Salm
    </dd>
   </dl>
  </div>
+ <div class="entity" id="UpperBiologicalBenchmark">
+  <h3>Upper biological benchmark<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark</p>
+  <div class="comment">
+   <span class="markdown">Upper benchmark value for a metric used to delineate Wild Salmon Policy status zones (typically the boundary between Amber and Green zones).</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf.
+   </dd>
+   <dd>
+    <a href="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf">https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#MetricBenchmark" title="https://w3id.org/gcdfo/salmon#MetricBenchmark">Metric benchmark</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
  <div class="entity" id="UpperStockReferencePoint">
   <h3>Upper stock reference<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#UpperStockReferencePoint</p>
@@ -1906,7 +1990,17 @@ This section provides details for each class and property defined by GC DFO Salm
 </ul>
 </li>
 </ul></details><details><summary><u>Added classes</u></summary>
-<ul><li><a href="#WSPRapidStatusAlgorithmThreshold">https://w3id.org/gcdfo/salmon#WSPRapidStatusAlgorithmThreshold</a>
+<ul><li><a href="#LowerBiologicalBenchmark">https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark</a>
+<ul>
+<li>Added: SubClass of https://w3id.org/gcdfo/salmon#MetricBenchmark</li>
+</ul>
+</li>
+<li><a href="#UpperBiologicalBenchmark">https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark</a>
+<ul>
+<li>Added: SubClass of https://w3id.org/gcdfo/salmon#MetricBenchmark</li>
+</ul>
+</li>
+<li><a href="#WSPRapidStatusAlgorithmThreshold">https://w3id.org/gcdfo/salmon#WSPRapidStatusAlgorithmThreshold</a>
 <ul>
 <li>Added: SubClass of http://purl.obolibrary.org/obo/IAO_0000030</li>
 </ul>

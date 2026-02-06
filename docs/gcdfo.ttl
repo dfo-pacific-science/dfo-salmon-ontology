@@ -143,6 +143,10 @@ skos:hasTopConcept rdf:type owl:AnnotationProperty .
 skos:inScheme rdf:type owl:AnnotationProperty .
 
 
+###  http://www.w3.org/2004/02/skos/core#notation
+skos:notation rdf:type owl:AnnotationProperty .
+
+
 ###  http://www.w3.org/2004/02/skos/core#prefLabel
 skos:prefLabel rdf:type owl:AnnotationProperty .
 
@@ -569,6 +573,19 @@ gcdfo:LimitReferencePoint rdf:type owl:Class ;
                                       gcdfo:StockAssessmentTheme .
 
 
+###  https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark
+gcdfo:LowerBiologicalBenchmark rdf:type owl:Class ;
+                               rdfs:subClassOf gcdfo:MetricBenchmark ;
+                               <http://purl.obolibrary.org/obo/IAO_0000115> "Lower benchmark value for a metric used to delineate Wild Salmon Policy status zones (typically the boundary between Red and Amber zones)."@en ;
+                               <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en ;
+                               dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf> ;
+                               rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                               rdfs:label "Lower biological benchmark"@en ;
+                               gcdfo:theme gcdfo:PolicyGovernanceTheme ,
+                                           gcdfo:StockAssessmentTheme ,
+                                           gcdfo:WildSalmonPolicyTheme .
+
+
 ###  https://w3id.org/gcdfo/salmon#MetricBenchmark
 gcdfo:MetricBenchmark rdf:type owl:Class ;
                       rdfs:subClassOf <http://purl.obolibrary.org/obo/IAO_0000030> ;
@@ -684,6 +701,19 @@ gcdfo:TotalExploitationRate rdf:type owl:Class ;
                                         gcdfo:StockAssessmentTheme .
 
 
+###  https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark
+gcdfo:UpperBiologicalBenchmark rdf:type owl:Class ;
+                               rdfs:subClassOf gcdfo:MetricBenchmark ;
+                               <http://purl.obolibrary.org/obo/IAO_0000115> "Upper benchmark value for a metric used to delineate Wild Salmon Policy status zones (typically the boundary between Amber and Green zones)."@en ;
+                               <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en ;
+                               dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf> ;
+                               rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                               rdfs:label "Upper biological benchmark"@en ;
+                               gcdfo:theme gcdfo:PolicyGovernanceTheme ,
+                                           gcdfo:StockAssessmentTheme ,
+                                           gcdfo:WildSalmonPolicyTheme .
+
+
 ###  https://w3id.org/gcdfo/salmon#UpperStockReferencePoint
 gcdfo:UpperStockReferencePoint rdf:type owl:Class ;
                                rdfs:subClassOf gcdfo:ReferencePoint ;
@@ -746,6 +776,210 @@ gcdfo:AerialSurveyCount rdf:type owl:NamedIndividual ,
                         skos:inScheme gcdfo:EnumerationMethodScheme ;
                         skos:prefLabel "Aerial Survey Count"@en ;
                         gcdfo:theme gcdfo:MonitoringFieldWorkTheme ,
+                                    gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#Age1YearClass
+gcdfo:Age1YearClass rdf:type owl:NamedIndividual ,
+                             skos:Concept ;
+                    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                    skos:broader gcdfo:AgeClassValue ;
+                    skos:definition "Age class value 1 year."@en ;
+                    skos:inScheme gcdfo:AgeClassValueScheme ;
+                    skos:notation 1 ;
+                    skos:prefLabel "Age 1 year class"@en ;
+                    gcdfo:theme gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#Age2YearClass
+gcdfo:Age2YearClass rdf:type owl:NamedIndividual ,
+                             skos:Concept ;
+                    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                    skos:broader gcdfo:AgeClassValue ;
+                    skos:definition "Age class value 2 years."@en ;
+                    skos:inScheme gcdfo:AgeClassValueScheme ;
+                    skos:notation 2 ;
+                    skos:prefLabel "Age 2 year class"@en ;
+                    gcdfo:theme gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#Age3YearClass
+gcdfo:Age3YearClass rdf:type owl:NamedIndividual ,
+                             skos:Concept ;
+                    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                    skos:broader gcdfo:AgeClassValue ;
+                    skos:definition "Age class value 3 years."@en ;
+                    skos:inScheme gcdfo:AgeClassValueScheme ;
+                    skos:notation 3 ;
+                    skos:prefLabel "Age 3 year class"@en ;
+                    gcdfo:theme gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#Age4YearClass
+gcdfo:Age4YearClass rdf:type owl:NamedIndividual ,
+                             skos:Concept ;
+                    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                    skos:broader gcdfo:AgeClassValue ;
+                    skos:definition "Age class value 4 years."@en ;
+                    skos:inScheme gcdfo:AgeClassValueScheme ;
+                    skos:notation 4 ;
+                    skos:prefLabel "Age 4 year class"@en ;
+                    gcdfo:theme gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#Age5YearClass
+gcdfo:Age5YearClass rdf:type owl:NamedIndividual ,
+                             skos:Concept ;
+                    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                    skos:broader gcdfo:AgeClassValue ;
+                    skos:definition "Age class value 5 years."@en ;
+                    skos:inScheme gcdfo:AgeClassValueScheme ;
+                    skos:notation 5 ;
+                    skos:prefLabel "Age 5 year class"@en ;
+                    gcdfo:theme gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#Age6YearClass
+gcdfo:Age6YearClass rdf:type owl:NamedIndividual ,
+                             skos:Concept ;
+                    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                    skos:broader gcdfo:AgeClassValue ;
+                    skos:definition "Age class value 6 years."@en ;
+                    skos:inScheme gcdfo:AgeClassValueScheme ;
+                    skos:notation 6 ;
+                    skos:prefLabel "Age 6 year class"@en ;
+                    gcdfo:theme gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#Age7YearClass
+gcdfo:Age7YearClass rdf:type owl:NamedIndividual ,
+                             skos:Concept ;
+                    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                    skos:broader gcdfo:AgeClassValue ;
+                    skos:definition "Age class value 7 years."@en ;
+                    skos:inScheme gcdfo:AgeClassValueScheme ;
+                    skos:notation 7 ;
+                    skos:prefLabel "Age 7 year class"@en ;
+                    gcdfo:theme gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#AgeAtMaturityBasis
+gcdfo:AgeAtMaturityBasis rdf:type owl:NamedIndividual ,
+                                  skos:Concept ;
+                         rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                         skos:broader gcdfo:AgeBasis ;
+                         skos:definition "Age measured at maturity."@en ;
+                         skos:inScheme gcdfo:AgeBasisScheme ;
+                         skos:prefLabel "Age at maturity basis"@en ;
+                         gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                     gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#AgeAtReturnBasis
+gcdfo:AgeAtReturnBasis rdf:type owl:NamedIndividual ,
+                                skos:Concept ;
+                       rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                       skos:broader gcdfo:AgeBasis ;
+                       skos:definition "Age measured at return migration (adult return timing)."@en ;
+                       skos:inScheme gcdfo:AgeBasisScheme ;
+                       skos:prefLabel "Age at return basis"@en ;
+                       gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                   gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#AgeAtSamplingBasis
+gcdfo:AgeAtSamplingBasis rdf:type owl:NamedIndividual ,
+                                  skos:Concept ;
+                         rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                         skos:broader gcdfo:AgeBasis ;
+                         skos:definition "Age measured at the time of sampling or observation."@en ;
+                         skos:inScheme gcdfo:AgeBasisScheme ;
+                         skos:prefLabel "Age at sampling basis"@en ;
+                         gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                     gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#AgeBasis
+gcdfo:AgeBasis rdf:type owl:NamedIndividual ,
+                        skos:Concept ;
+               rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+               skos:definition "The reference event or life-history point that an age value is measured against."@en ;
+               skos:inScheme gcdfo:AgeBasisScheme ;
+               skos:prefLabel "Age basis"@en ;
+               gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                           gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#AgeBasisScheme
+gcdfo:AgeBasisScheme rdf:type owl:NamedIndividual ,
+                              skos:ConceptScheme ;
+                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                     skos:definition "Controlled vocabulary for the reference event used by an age value (for example, age at return)."@en ;
+                     skos:hasTopConcept gcdfo:AgeBasis ;
+                     skos:prefLabel "Age basis scheme"@en ;
+                     gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                 gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#AgeClassValue
+gcdfo:AgeClassValue rdf:type owl:NamedIndividual ,
+                             skos:Concept ;
+                    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                    skos:definition "An integer-like age class value used as a compositional constraint in salmon measurements."@en ;
+                    skos:inScheme gcdfo:AgeClassValueScheme ;
+                    skos:prefLabel "Age class value"@en ;
+                    gcdfo:theme gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#AgeClassValueScheme
+gcdfo:AgeClassValueScheme rdf:type owl:NamedIndividual ,
+                                   skos:ConceptScheme ;
+                          rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                          skos:definition "Controlled vocabulary for integer-like age class values used as constraints on salmon measurements."@en ;
+                          skos:hasTopConcept gcdfo:AgeClassValue ;
+                          skos:prefLabel "Age class value scheme"@en ;
+                          gcdfo:theme gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#AgeDimension
+gcdfo:AgeDimension rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                   skos:definition "The age component represented by a value (total age, freshwater years, or ocean years)."@en ;
+                   skos:inScheme gcdfo:AgeDimensionScheme ;
+                   skos:prefLabel "Age dimension"@en ;
+                   gcdfo:theme gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#AgeDimensionScheme
+gcdfo:AgeDimensionScheme rdf:type owl:NamedIndividual ,
+                                  skos:ConceptScheme ;
+                         rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                         skos:definition "Controlled vocabulary for which age component is represented (total age, freshwater years, or ocean years)."@en ;
+                         skos:hasTopConcept gcdfo:AgeDimension ;
+                         skos:prefLabel "Age dimension scheme"@en ;
+                         gcdfo:theme gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#AgeNotation
+gcdfo:AgeNotation rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                  skos:definition "A notation system used to encode salmon age values in stock assessment data."@en ;
+                  skos:inScheme gcdfo:AgeNotationScheme ;
+                  skos:prefLabel "Age notation"@en ;
+                  gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                              gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#AgeNotationScheme
+gcdfo:AgeNotationScheme rdf:type owl:NamedIndividual ,
+                                 skos:ConceptScheme ;
+                        rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                        skos:definition "Controlled vocabulary for salmon age notation systems (for example, Gilbert-Rich and European notation)."@en ;
+                        skos:hasTopConcept gcdfo:AgeNotation ;
+                        skos:prefLabel "Age notation scheme"@en ;
+                        gcdfo:theme gcdfo:DataModelProvenanceTheme ,
                                     gcdfo:StockAssessmentTheme .
 
 
@@ -824,6 +1058,17 @@ gcdfo:CalibratedTimeSeries rdf:type owl:NamedIndividual ,
                                        gcdfo:StockAssessmentTheme .
 
 
+###  https://w3id.org/gcdfo/salmon#CatchContext
+gcdfo:CatchContext rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                   skos:broader gcdfo:MeasurementContext ;
+                   skos:definition "Measurement context indicating values refer to fishery catch."@en ;
+                   skos:inScheme gcdfo:MeasurementContextScheme ;
+                   skos:prefLabel "Catch context"@en ;
+                   gcdfo:theme gcdfo:StockAssessmentTheme .
+
+
 ###  https://w3id.org/gcdfo/salmon#Classification
 gcdfo:Classification rdf:type owl:NamedIndividual ,
                               skos:Concept ;
@@ -862,6 +1107,17 @@ gcdfo:DataModelProvenanceTheme rdf:type owl:NamedIndividual ,
                                skos:definition "Data models, analytical workflows, provenance, quality dimensions, and metadata supporting salmon science."@en ;
                                skos:inScheme gcdfo:ThemeScheme ;
                                skos:prefLabel "Data, Models, and Provenance"@en ;
+                               gcdfo:theme gcdfo:DataModelProvenanceTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#DataQualityRatingContext
+gcdfo:DataQualityRatingContext rdf:type owl:NamedIndividual ,
+                                        skos:Concept ;
+                               rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                               skos:broader gcdfo:MeasurementContext ;
+                               skos:definition "Measurement context indicating categorical or ordinal quality ratings."@en ;
+                               skos:inScheme gcdfo:MeasurementContextScheme ;
+                               skos:prefLabel "Data quality rating context"@en ;
                                gcdfo:theme gcdfo:DataModelProvenanceTheme .
 
 
@@ -1027,6 +1283,20 @@ gcdfo:EstimateTypeScheme rdf:type owl:NamedIndividual ,
                          gcdfo:theme gcdfo:StockAssessmentTheme .
 
 
+###  https://w3id.org/gcdfo/salmon#EuropeanAgeNotation
+gcdfo:EuropeanAgeNotation rdf:type owl:NamedIndividual ,
+                                   skos:Concept ;
+                          dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/fraser/docs/archiv-reports-rapports/indigenous-autochtone/2010FrasRvrChkInformDoc.htm> ;
+                          rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                          skos:broader gcdfo:AgeNotation ;
+                          skos:definition "Salmon age notation that records freshwater years followed by ocean years (for example, 1.2)."@en ;
+                          skos:inScheme gcdfo:AgeNotationScheme ;
+                          skos:notation "European" ;
+                          skos:prefLabel "European age notation"@en ;
+                          gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                      gcdfo:StockAssessmentTheme .
+
+
 ###  https://w3id.org/gcdfo/salmon#ExpansionMathematicalOperations
 gcdfo:ExpansionMathematicalOperations rdf:type owl:NamedIndividual ,
                                                skos:Concept ;
@@ -1038,6 +1308,20 @@ gcdfo:ExpansionMathematicalOperations rdf:type owl:NamedIndividual ,
                                       skos:prefLabel "Expansion/Mathematical Operations"@en ;
                                       gcdfo:theme gcdfo:MonitoringFieldWorkTheme ,
                                                   gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#FishStockProvisions
+gcdfo:FishStockProvisions rdf:type owl:NamedIndividual ,
+                                   skos:Concept ;
+                          rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                          skos:altLabel "FSP"@en ;
+                          skos:broader gcdfo:PolicyFramework ;
+                          skos:definition "Legal provisions in Canada's Fisheries Act and regulations related to maintaining and rebuilding fish stocks, including obligations triggered when reference points are breached."@en ;
+                          skos:inScheme gcdfo:PolicyFrameworkScheme ;
+                          skos:prefLabel "Fish Stocks Provisions"@en ;
+                          gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                      gcdfo:PolicyGovernanceTheme ,
+                                      gcdfo:StockAssessmentTheme .
 
 
 ###  https://w3id.org/gcdfo/salmon#FisheriesManagementTheme
@@ -1088,6 +1372,17 @@ gcdfo:FixedStationTally rdf:type owl:NamedIndividual ,
                                     gcdfo:StockAssessmentTheme .
 
 
+###  https://w3id.org/gcdfo/salmon#FreshwaterAgeDimension
+gcdfo:FreshwaterAgeDimension rdf:type owl:NamedIndividual ,
+                                      skos:Concept ;
+                             rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                             skos:broader gcdfo:AgeDimension ;
+                             skos:definition "Age value represents years spent in freshwater."@en ;
+                             skos:inScheme gcdfo:AgeDimensionScheme ;
+                             skos:prefLabel "Freshwater age dimension"@en ;
+                             gcdfo:theme gcdfo:StockAssessmentTheme .
+
+
 ###  https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme
 gcdfo:GeneticsStockCompositionTheme rdf:type owl:NamedIndividual ,
                                              skos:Concept ;
@@ -1096,6 +1391,21 @@ gcdfo:GeneticsStockCompositionTheme rdf:type owl:NamedIndividual ,
                                     skos:inScheme gcdfo:ThemeScheme ;
                                     skos:prefLabel "Genetics and Stock Composition"@en ;
                                     gcdfo:theme gcdfo:DataModelProvenanceTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#GilbertRichAgeNotation
+gcdfo:GilbertRichAgeNotation rdf:type owl:NamedIndividual ,
+                                      skos:Concept ;
+                             dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/fraser/docs/archiv-reports-rapports/indigenous-autochtone/2010FrasRvrChkInformDoc.htm> ;
+                             rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                             skos:altLabel "GR age notation"@en ;
+                             skos:broader gcdfo:AgeNotation ;
+                             skos:definition "Salmon age notation where total age is annotated with freshwater years as a subscript-like suffix (for example, 4_2 for total age 4 with 2 freshwater years)."@en ;
+                             skos:inScheme gcdfo:AgeNotationScheme ;
+                             skos:notation "Gilbert-Rich" ;
+                             skos:prefLabel "Gilbert-Rich age notation"@en ;
+                             gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                         gcdfo:StockAssessmentTheme .
 
 
 ###  https://w3id.org/gcdfo/salmon#GreenZone
@@ -1119,6 +1429,18 @@ gcdfo:HabitatEcosystemClimateTheme rdf:type owl:NamedIndividual ,
                                    skos:inScheme gcdfo:ThemeScheme ;
                                    skos:prefLabel "Habitat, Ecosystem, and Climate Pressures"@en ;
                                    gcdfo:theme gcdfo:DataModelProvenanceTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#HatcheryOrigin
+gcdfo:HatcheryOrigin rdf:type owl:NamedIndividual ,
+                              skos:Concept ;
+                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                     skos:broader gcdfo:SalmonOrigin ;
+                     skos:definition "Origin category for salmon produced from hatchery broodstock and release programs."@en ;
+                     skos:inScheme gcdfo:SalmonOriginScheme ;
+                     skos:prefLabel "Hatchery origin"@en ;
+                     gcdfo:theme gcdfo:SalmonEnhancementHatcheriesTheme ,
+                                 gcdfo:StockAssessmentTheme .
 
 
 ###  https://w3id.org/gcdfo/salmon#HydroacousticModelling
@@ -1147,6 +1469,18 @@ gcdfo:HydroacousticSonarCount rdf:type owl:NamedIndividual ,
                                           gcdfo:StockAssessmentTheme .
 
 
+###  https://w3id.org/gcdfo/salmon#InRiverPhase
+gcdfo:InRiverPhase rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                   skos:altLabel "Freshwater phase"@en ;
+                   skos:broader gcdfo:LifePhase ;
+                   skos:definition "Freshwater in-river phase (migration and/or residence) outside the marine environment."@en ;
+                   skos:inScheme gcdfo:LifePhaseScheme ;
+                   skos:prefLabel "In-river phase"@en ;
+                   gcdfo:theme gcdfo:StockAssessmentTheme .
+
+
 ###  https://w3id.org/gcdfo/salmon#InfillMethod
 gcdfo:InfillMethod rdf:type owl:NamedIndividual ,
                             skos:Concept ;
@@ -1158,6 +1492,49 @@ gcdfo:InfillMethod rdf:type owl:NamedIndividual ,
                    skos:prefLabel "Infill Method"@en ;
                    gcdfo:theme gcdfo:DataModelProvenanceTheme ,
                                gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#LifePhase
+gcdfo:LifePhase rdf:type owl:NamedIndividual ,
+                         skos:Concept ;
+                rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                skos:definition "A phase or segment used to stratify salmon measurements by where or when they apply (e.g., ocean phase, terminal phase)."@en ;
+                skos:inScheme gcdfo:LifePhaseScheme ;
+                skos:prefLabel "Life phase"@en ;
+                gcdfo:theme gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#LifePhaseScheme
+gcdfo:LifePhaseScheme rdf:type owl:NamedIndividual ,
+                               skos:ConceptScheme ;
+                      rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                      skos:definition "Controlled vocabulary for life-phase or fishery/migration segment qualifiers used to stratify measurements (e.g., ocean, terminal, mainstem)."@en ;
+                      skos:hasTopConcept gcdfo:LifePhase ;
+                      skos:prefLabel "Life phase scheme"@en ;
+                      gcdfo:theme gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#MainstemPhase
+gcdfo:MainstemPhase rdf:type owl:NamedIndividual ,
+                             skos:Concept ;
+                    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                    skos:broader gcdfo:LifePhase ;
+                    skos:definition "Freshwater mainstem migration phase in a river system (often corresponding to mainstem in-river fisheries or monitoring segments)."@en ;
+                    skos:inScheme gcdfo:LifePhaseScheme ;
+                    skos:prefLabel "Mainstem phase"@en ;
+                    gcdfo:theme gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#ManagementReferenceContext
+gcdfo:ManagementReferenceContext rdf:type owl:NamedIndividual ,
+                                          skos:Concept ;
+                                 rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                 skos:broader gcdfo:MeasurementContext ;
+                                 skos:definition "Measurement context indicating values are management benchmarks or reference-oriented metrics."@en ;
+                                 skos:inScheme gcdfo:MeasurementContextScheme ;
+                                 skos:prefLabel "Management reference context"@en ;
+                                 gcdfo:theme gcdfo:PolicyGovernanceTheme ,
+                                             gcdfo:StockAssessmentTheme .
 
 
 ###  https://w3id.org/gcdfo/salmon#MarkRecaptureAnalysis
@@ -1199,6 +1576,28 @@ gcdfo:MarkRecaptureFieldProgram rdf:type owl:NamedIndividual ,
                                             gcdfo:StockAssessmentTheme .
 
 
+###  https://w3id.org/gcdfo/salmon#MeasurementContext
+gcdfo:MeasurementContext rdf:type owl:NamedIndividual ,
+                                  skos:Concept ;
+                         rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                         skos:definition "A context qualifier used to disambiguate the interpretation of a measurement column."@en ;
+                         skos:inScheme gcdfo:MeasurementContextScheme ;
+                         skos:prefLabel "Measurement context"@en ;
+                         gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                     gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#MeasurementContextScheme
+gcdfo:MeasurementContextScheme rdf:type owl:NamedIndividual ,
+                                        skos:ConceptScheme ;
+                               rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                               skos:definition "Controlled vocabulary for compositional measurement context qualifiers (for example, catch context, run context)."@en ;
+                               skos:hasTopConcept gcdfo:MeasurementContext ;
+                               skos:prefLabel "Measurement context scheme"@en ;
+                               gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                           gcdfo:StockAssessmentTheme .
+
+
 ###  https://w3id.org/gcdfo/salmon#MethodUnknown
 gcdfo:MethodUnknown rdf:type owl:NamedIndividual ,
                              skos:Concept ;
@@ -1222,6 +1621,18 @@ gcdfo:MonitoringFieldWorkTheme rdf:type owl:NamedIndividual ,
                                gcdfo:theme gcdfo:DataModelProvenanceTheme .
 
 
+###  https://w3id.org/gcdfo/salmon#NaturalOrigin
+gcdfo:NaturalOrigin rdf:type owl:NamedIndividual ,
+                             skos:Concept ;
+                    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                    skos:broader gcdfo:SalmonOrigin ;
+                    skos:definition "Origin category for naturally produced wild salmon."@en ;
+                    skos:inScheme gcdfo:SalmonOriginScheme ;
+                    skos:prefLabel "Natural origin"@en ;
+                    gcdfo:theme gcdfo:StockAssessmentTheme ,
+                                gcdfo:WildSalmonPolicyTheme .
+
+
 ###  https://w3id.org/gcdfo/salmon#NumberOfVisits
 gcdfo:NumberOfVisits rdf:type owl:NamedIndividual ,
                               skos:Concept ;
@@ -1233,6 +1644,30 @@ gcdfo:NumberOfVisits rdf:type owl:NamedIndividual ,
                      skos:prefLabel "Number of Visits"@en ;
                      gcdfo:theme gcdfo:DataModelProvenanceTheme ,
                                  gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#OceanAgeDimension
+gcdfo:OceanAgeDimension rdf:type owl:NamedIndividual ,
+                                 skos:Concept ;
+                        rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                        skos:altLabel "Marine age dimension"@en ;
+                        skos:broader gcdfo:AgeDimension ;
+                        skos:definition "Age value represents years spent in the marine environment."@en ;
+                        skos:inScheme gcdfo:AgeDimensionScheme ;
+                        skos:prefLabel "Ocean age dimension"@en ;
+                        gcdfo:theme gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#OceanPhase
+gcdfo:OceanPhase rdf:type owl:NamedIndividual ,
+                          skos:Concept ;
+                 rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                 skos:altLabel "Marine phase"@en ;
+                 skos:broader gcdfo:LifePhase ;
+                 skos:definition "Phase of the salmon life cycle or assessment period occurring in the marine environment."@en ;
+                 skos:inScheme gcdfo:LifePhaseScheme ;
+                 skos:prefLabel "Ocean phase"@en ;
+                 gcdfo:theme gcdfo:StockAssessmentTheme .
 
 
 ###  https://w3id.org/gcdfo/salmon#PeakCountAnalysis
@@ -1248,6 +1683,28 @@ gcdfo:PeakCountAnalysis rdf:type owl:NamedIndividual ,
                                     gcdfo:StockAssessmentTheme .
 
 
+###  https://w3id.org/gcdfo/salmon#PolicyFramework
+gcdfo:PolicyFramework rdf:type owl:NamedIndividual ,
+                               skos:Concept ;
+                      rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                      skos:definition "A policy, legal, or governance framework that defines how salmon status metrics, benchmarks, or reference points are set and interpreted."@en ;
+                      skos:inScheme gcdfo:PolicyFrameworkScheme ;
+                      skos:prefLabel "Policy framework"@en ;
+                      gcdfo:theme gcdfo:PolicyGovernanceTheme ,
+                                  gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PolicyFrameworkScheme
+gcdfo:PolicyFrameworkScheme rdf:type owl:NamedIndividual ,
+                                     skos:ConceptScheme ;
+                            rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                            skos:definition "Controlled vocabulary for policy and governance frameworks referenced by salmon assessment metrics and benchmarks (e.g., WSP, PA)."@en ;
+                            skos:hasTopConcept gcdfo:PolicyFramework ;
+                            skos:prefLabel "Policy framework scheme"@en ;
+                            gcdfo:theme gcdfo:PolicyGovernanceTheme ,
+                                        gcdfo:StockAssessmentTheme .
+
+
 ###  https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme
 gcdfo:PolicyGovernanceTheme rdf:type owl:NamedIndividual ,
                                      skos:Concept ;
@@ -1256,6 +1713,20 @@ gcdfo:PolicyGovernanceTheme rdf:type owl:NamedIndividual ,
                             skos:inScheme gcdfo:ThemeScheme ;
                             skos:prefLabel "Policy, Governance, and Organizational Structure"@en ;
                             gcdfo:theme gcdfo:DataModelProvenanceTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PrecautionaryApproach
+gcdfo:PrecautionaryApproach rdf:type owl:NamedIndividual ,
+                                     skos:Concept ;
+                            rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                            skos:altLabel "PA"@en ;
+                            skos:broader gcdfo:PolicyFramework ;
+                            skos:definition "DFO policy framework for applying precaution in fisheries decision-making, including use of reference points and stock status zones."@en ;
+                            skos:inScheme gcdfo:PolicyFrameworkScheme ;
+                            skos:prefLabel "Precautionary Approach"@en ;
+                            gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                        gcdfo:PolicyGovernanceTheme ,
+                                        gcdfo:StockAssessmentTheme .
 
 
 ###  https://w3id.org/gcdfo/salmon#PrecisionAccuracy
@@ -1334,6 +1805,17 @@ gcdfo:ReachCoverage rdf:type owl:NamedIndividual ,
                                 gcdfo:StockAssessmentTheme .
 
 
+###  https://w3id.org/gcdfo/salmon#RecruitStageContext
+gcdfo:RecruitStageContext rdf:type owl:NamedIndividual ,
+                                   skos:Concept ;
+                          rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                          skos:broader gcdfo:MeasurementContext ;
+                          skos:definition "Measurement context indicating values refer to recruits."@en ;
+                          skos:inScheme gcdfo:MeasurementContextScheme ;
+                          skos:prefLabel "Recruit stage context"@en ;
+                          gcdfo:theme gcdfo:StockAssessmentTheme .
+
+
 ###  https://w3id.org/gcdfo/salmon#RedZone
 gcdfo:RedZone rdf:type owl:NamedIndividual ,
                        skos:Concept ,
@@ -1386,6 +1868,17 @@ gcdfo:ReviewQA rdf:type owl:NamedIndividual ,
                            gcdfo:StockAssessmentTheme .
 
 
+###  https://w3id.org/gcdfo/salmon#RunContext
+gcdfo:RunContext rdf:type owl:NamedIndividual ,
+                          skos:Concept ;
+                 rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                 skos:broader gcdfo:MeasurementContext ;
+                 skos:definition "Measurement context indicating values refer to run size or returning run composition."@en ;
+                 skos:inScheme gcdfo:MeasurementContextScheme ;
+                 skos:prefLabel "Run context"@en ;
+                 gcdfo:theme gcdfo:StockAssessmentTheme .
+
+
 ###  https://w3id.org/gcdfo/salmon#RunCoverage
 gcdfo:RunCoverage rdf:type owl:NamedIndividual ,
                            skos:Concept ;
@@ -1409,15 +1902,38 @@ gcdfo:SalmonEnhancementHatcheriesTheme rdf:type owl:NamedIndividual ,
                                        gcdfo:theme gcdfo:DataModelProvenanceTheme .
 
 
+###  https://w3id.org/gcdfo/salmon#SalmonOrigin
+gcdfo:SalmonOrigin rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                   skos:definition "Origin category describing whether salmon are naturally produced, hatchery produced, or mixed-origin."@en ;
+                   skos:inScheme gcdfo:SalmonOriginScheme ;
+                   skos:prefLabel "Salmon origin"@en ;
+                   gcdfo:theme gcdfo:SalmonEnhancementHatcheriesTheme ,
+                               gcdfo:StockAssessmentTheme .
+
+
 ###  https://w3id.org/gcdfo/salmon#SalmonOriginScheme
 gcdfo:SalmonOriginScheme rdf:type owl:NamedIndividual ,
                                   skos:ConceptScheme ;
                          rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                          skos:definition "Controlled vocabulary for describing the origin of individual salmon (e.g., natural-origin, hatchery-origin, mixed-origin)."@en ;
+                         skos:hasTopConcept gcdfo:SalmonOrigin ;
                          skos:prefLabel "Salmon Origin Scheme"@en ;
                          gcdfo:theme gcdfo:GeneticsStockCompositionTheme ,
                                      gcdfo:SalmonEnhancementHatcheriesTheme ,
                                      gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#SpawnerStageContext
+gcdfo:SpawnerStageContext rdf:type owl:NamedIndividual ,
+                                   skos:Concept ;
+                          rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                          skos:broader gcdfo:MeasurementContext ;
+                          skos:definition "Measurement context indicating values refer to spawners or spawning-stage fish."@en ;
+                          skos:inScheme gcdfo:MeasurementContextScheme ;
+                          skos:prefLabel "Spawner stage context"@en ;
+                          gcdfo:theme gcdfo:StockAssessmentTheme .
 
 
 ###  https://w3id.org/gcdfo/salmon#SpeciesAtRiskRecoveryTheme
@@ -1451,6 +1967,28 @@ gcdfo:StockStatusZoneScheme rdf:type owl:NamedIndividual ,
                                         gcdfo:StockAssessmentTheme .
 
 
+###  https://w3id.org/gcdfo/salmon#SurvivalOrMortalityContext
+gcdfo:SurvivalOrMortalityContext rdf:type owl:NamedIndividual ,
+                                          skos:Concept ;
+                                 rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                 skos:broader gcdfo:MeasurementContext ;
+                                 skos:definition "Measurement context indicating values represent survival, mortality, or related rates."@en ;
+                                 skos:inScheme gcdfo:MeasurementContextScheme ;
+                                 skos:prefLabel "Survival or mortality context"@en ;
+                                 gcdfo:theme gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#TerminalPhase
+gcdfo:TerminalPhase rdf:type owl:NamedIndividual ,
+                             skos:Concept ;
+                    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                    skos:broader gcdfo:LifePhase ;
+                    skos:definition "Phase occurring in terminal areas near river mouths or spawning areas (often including terminal fisheries and local migration to spawning sites)."@en ;
+                    skos:inScheme gcdfo:LifePhaseScheme ;
+                    skos:prefLabel "Terminal phase"@en ;
+                    gcdfo:theme gcdfo:StockAssessmentTheme .
+
+
 ###  https://w3id.org/gcdfo/salmon#ThemeScheme
 gcdfo:ThemeScheme rdf:type owl:NamedIndividual ,
                            skos:ConceptScheme ;
@@ -1471,6 +2009,17 @@ gcdfo:Timing rdf:type owl:NamedIndividual ,
              skos:prefLabel "Timing"@en ;
              gcdfo:theme gcdfo:DataModelProvenanceTheme ,
                          gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#TotalAgeDimension
+gcdfo:TotalAgeDimension rdf:type owl:NamedIndividual ,
+                                 skos:Concept ;
+                        rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                        skos:broader gcdfo:AgeDimension ;
+                        skos:definition "Age value represents total age in years."@en ;
+                        skos:inScheme gcdfo:AgeDimensionScheme ;
+                        skos:prefLabel "Total age dimension"@en ;
+                        gcdfo:theme gcdfo:StockAssessmentTheme .
 
 
 ###  https://w3id.org/gcdfo/salmon#TrapCount
@@ -1652,6 +2201,20 @@ gcdfo:WSPBiologicalStatusZoneScheme rdf:type owl:NamedIndividual ,
                                     gcdfo:theme gcdfo:PolicyGovernanceTheme ,
                                                 gcdfo:StockAssessmentTheme ,
                                                 gcdfo:WildSalmonPolicyTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#WildSalmonPolicy
+gcdfo:WildSalmonPolicy rdf:type owl:NamedIndividual ,
+                                skos:Concept ;
+                       rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                       skos:altLabel "WSP"@en ;
+                       skos:broader gcdfo:PolicyFramework ;
+                       skos:definition "Canada's Wild Salmon Policy framework for conserving and managing wild Pacific salmon, including integrated status assessments and biological benchmarks for Conservation Units."@en ;
+                       skos:inScheme gcdfo:PolicyFrameworkScheme ;
+                       skos:prefLabel "Wild Salmon Policy"@en ;
+                       gcdfo:theme gcdfo:PolicyGovernanceTheme ,
+                                   gcdfo:StockAssessmentTheme ,
+                                   gcdfo:WildSalmonPolicyTheme .
 
 
 ###  https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme
