@@ -423,14 +423,14 @@ envo:00000234 a owl:Class ;
 #################################################################
 
 :EnumerationMethodScheme a skos:ConceptScheme ;
-  skos:prefLabel "Enumeration Method Scheme"@en ;
+  skos:prefLabel "Escapement Enumeration Method Scheme"@en ;
   skos:hasTopConcept :EnumerationMethod ;
   skos:definition "Controlled vocabulary for salmon enumeration methods"@en ;
   gcdfo:theme gcdfo:StockAssessmentTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 :EstimateMethodScheme a skos:ConceptScheme ;
-  skos:prefLabel "Estimate Method Scheme"@en ;
+  skos:prefLabel "Escapement Estimate Method Scheme"@en ;
   skos:hasTopConcept :EstimateMethod ;
   skos:definition "Controlled vocabulary for salmon estimate methods"@en ;
   gcdfo:theme gcdfo:StockAssessmentTheme ;
@@ -444,7 +444,7 @@ envo:00000234 a owl:Class ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 :EstimateTypeScheme a skos:ConceptScheme ;
-  skos:prefLabel "Estimate Type Scheme"@en ;
+  skos:prefLabel "Escapement Estimate Type Scheme"@en ;
   skos:hasTopConcept :EstimateType ;
   skos:definition "Controlled vocabulary for Hyatt 1997 estimate types"@en ;
   gcdfo:theme gcdfo:StockAssessmentTheme ;
@@ -746,6 +746,147 @@ envo:00000234 a owl:Class ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 #################################################################
+# SKOS Salmon Origin Concepts  (issue #26)
+#################################################################
+
+:NaturalOrigin a skos:Concept ;
+  skos:prefLabel "Natural-origin"@en ;
+  skos:definition "Individuals that are born and reared in the wild (natural environment)."@en ;
+  skos:inScheme :SalmonOriginScheme ;
+  iao:0000119 "DFO. (2018). Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Can. Sci. Advis. Sec. Sci. Advis. Rep. 2018/001. (Erratum: October 2023)"@en ; # definition source
+  gcdfo:theme gcdfo:PolicyGovernanceTheme, gcdfo:StockAssessmentTheme, gcdfo:GeneticsStockCompositionTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:HatcheryOrigin a skos:Concept ;
+  skos:prefLabel "Hatchery-origin"@en ;
+  skos:definition "Individuals that were born or reared in a hatchery facility."@en ;
+  skos:inScheme :SalmonOriginScheme ;
+  iao:0000119 "DFO. (2018). Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Can. Sci. Advis. Sec. Sci. Advis. Rep. 2018/001. (Erratum: October 2023)"@en ; # definition source
+  gcdfo:theme gcdfo:SalmonEnhancementHatcheriesTheme, gcdfo:StockAssessmentTheme, gcdfo:GeneticsStockCompositionTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+#################################################################
+# SKOS Age Class Concepts  (issue #23)
+#################################################################
+
+:AgeClassScheme a skos:ConceptScheme ;
+  skos:prefLabel "Age Class Scheme"@en ;
+  skos:definition "Controlled vocabulary for age-class facets used as I-ADOPT constraint values in Salmon Data Packages."@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:Age1Class a skos:Concept ;
+  skos:prefLabel "Age 1"@en ;
+  skos:definition "Fish in their first year of life."@en ;
+  skos:inScheme :AgeClassScheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:Age2Class a skos:Concept ;
+  skos:prefLabel "Age 2"@en ;
+  skos:definition "Fish in their second year of life."@en ;
+  skos:inScheme :AgeClassScheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:Age3Class a skos:Concept ;
+  skos:prefLabel "Age 3"@en ;
+  skos:definition "Fish in their third year of life."@en ;
+  skos:inScheme :AgeClassScheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:Age4Class a skos:Concept ;
+  skos:prefLabel "Age 4"@en ;
+  skos:definition "Fish in their fourth year of life."@en ;
+  skos:inScheme :AgeClassScheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:Age5Class a skos:Concept ;
+  skos:prefLabel "Age 5"@en ;
+  skos:definition "Fish in their fifth year of life."@en ;
+  skos:inScheme :AgeClassScheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:Age6Class a skos:Concept ;
+  skos:prefLabel "Age 6"@en ;
+  skos:definition "Fish in their sixth year of life."@en ;
+  skos:inScheme :AgeClassScheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:Age7Class a skos:Concept ;
+  skos:prefLabel "Age 7"@en ;
+  skos:definition "Fish in their seventh year of life."@en ;
+  skos:inScheme :AgeClassScheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+#################################################################
+# SKOS Life Phase Concepts  (issue #24)
+#################################################################
+
+:LifePhaseScheme a skos:ConceptScheme ;
+  skos:prefLabel "Life Phase Scheme"@en ;
+  skos:definition "Controlled vocabulary for life-phase facets used as I-ADOPT constraint values to stratify salmon observations by migratory phase or location."@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:OceanPhase a skos:Concept ;
+  skos:prefLabel "Ocean phase"@en ;
+  skos:definition "The marine life-history stage during which salmon reside in the open ocean prior to their terminal migration."@en ;
+  skos:inScheme :LifePhaseScheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:TerminalPhase a skos:Concept ;
+  skos:prefLabel "Terminal phase"@en ;
+  skos:definition "The near-shore or estuary stage where returning salmon transition from the open ocean to terminal areas adjacent to their natal river systems."@en ;
+  skos:inScheme :LifePhaseScheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:MainstemPhase a skos:Concept ;
+  skos:prefLabel "Mainstem phase"@en ;
+  skos:definition "The freshwater migratory stage in a major river mainstem before fish disperse into tributaries or spawning reaches."@en ;
+  skos:inScheme :LifePhaseScheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:InRiverPhase a skos:Concept ;
+  skos:prefLabel "In-river phase"@en ;
+  skos:definition "The freshwater stage encompassing upstream migration through tributary and spawning reaches."@en ;
+  skos:inScheme :LifePhaseScheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+#################################################################
+# SKOS Benchmark Level Concepts  (issue #25)
+#################################################################
+
+:BenchmarkLevelScheme a skos:ConceptScheme ;
+  skos:prefLabel "Benchmark Level Scheme"@en ;
+  skos:definition "Controlled vocabulary for generic benchmark-level qualifiers usable as I-ADOPT constraint values attached to benchmark variables or values."@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:LowerBenchmark a skos:Concept ;
+  skos:prefLabel "Lower benchmark"@en ;
+  skos:definition "A lower-threshold benchmark value, typically delineating the boundary between Red and Amber status zones."@en ;
+  skos:inScheme :BenchmarkLevelScheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:UpperBenchmark a skos:Concept ;
+  skos:prefLabel "Upper benchmark"@en ;
+  skos:definition "An upper-threshold benchmark value, typically delineating the boundary between Amber and Green status zones."@en ;
+  skos:inScheme :BenchmarkLevelScheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+#################################################################
 # SKOS Downgrade Criteria
 #################################################################
 
@@ -949,7 +1090,7 @@ gcdfo:ObservedRateOrAbundance a owl:Class ;
 
 gcdfo:TargetOrLimitRateOrAbundance a owl:Class ;
   rdfs:label "Target or limit rate or abundance"@en ;
-  iao:0000115 "A value specification representing a policy- or model-defined target or limit, such as TAC, UMSY, or reference points."@en ; # definition
+  iao:0000115 "A value specification representing a policy- or model-defined target or limit, such as TAC or UMSY."@en ; # definition
   rdfs:subClassOf iao:0000109 ; # measurement datum
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:PolicyGovernanceTheme, gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
@@ -997,6 +1138,13 @@ gcdfo:Stock a owl:Class ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
   skos:altLabel "Fish stock"@en ;
   gcdfo:theme gcdfo:PolicyGovernanceTheme, gcdfo:StockAssessmentTheme .
+
+gcdfo:Population a owl:Class ;
+  rdfs:label "Population"@en ;
+  iao:0000115 "A demographically or genetically distinct group of salmon used as a population-level aggregation in stock assessment and reporting (e.g., SPSR)."@en ; # definition
+  rdfs:subClassOf gcdfo:ReportingOrManagementStratum ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:PolicyGovernanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:StockAssessment a owl:Class ;
   rdfs:label "Stock assessment"@en ;
