@@ -1,41 +1,52 @@
-# SPSR Measurement Pattern Proposals (Issue #189)
+# SPSR measurement patterns (canonical)
 
-Entity defaults (by table prefix):
-- smu_* → StockManagementUnit (`https://w3id.org/gcdfo/salmon#StockManagementUnit`)
-- cu_*, cuyear, custatus → ConservationUnit (`https://w3id.org/gcdfo/salmon#ConservationUnit`)
-- pfma_* → Stock (PFMA-constrained) (`https://w3id.org/gcdfo/salmon#Stock`)
-- pop_*, population, indicator_* → Population (`https://w3id.org/gcdfo/salmon#Population`) — note: term not yet in ontology; tracked separately.
+_Generated from `column_dictionary.csv` on 2026-02-09._
 
-Property defaults:
-- Counts → `http://qudt.org/vocab/quantitykind/Count` with unit `http://qudt.org/vocab/unit/NUM`
-- Rates/indices/proportions → `http://qudt.org/vocab/quantitykind/DimensionlessRatio` with unit `http://qudt.org/vocab/unit/UNITLESS`
+This is the canonical pattern view for SPSR in `smn-data-gpt/assessments/spsr`.
 
-Constraint placeholder rules (record even if IRI unknown):
-- Age N → `<age_N_constraint>`
-- Location/phase → `<mainstem_phase>`, `<ocean_phase>`, `<terminal_phase>`
-- Lifestage → `<spawner_stage>`
-- Catch/run context → `<catch_context>`, `<run_context>`
-- Origin → `<hatchery_origin>`
+## Entity defaults (by table prefix)
+- `smu_*` → `https://w3id.org/gcdfo/salmon#StockManagementUnit`
+- `cu_*`, `cuyear`, `custatus` → `https://w3id.org/gcdfo/salmon#ConservationUnit`
+- `pfma_*` → `https://w3id.org/gcdfo/salmon#Stock`
+- `pop_*`, `population`, `indicator_*` → `https://w3id.org/gcdfo/salmon#Population` (tracked in ontology PR #31 context)
 
-| # | Pattern | Example columns | Count | Proposed entity | Proposed property | Proposed constraints |
-|---|---------|-----------------|-------|-----------------|-------------------|----------------------|
-| 1 | Age-location catch counts | OCEAN_AGE_1, MAINSTEM_AGE_4, TERMINAL_AGE_7 … | 63 | Table default (SMU→SMU, CU→CU, PFMA→Stock) | Count | `<age_N_constraint>`; `<mainstem_phase>`/`<ocean_phase>`/`<terminal_phase>`; `<catch_context>` |
-| 2 | Age catch counts (no location) | CATCH_AGE_1, CATCH_AGE_5 … | 28 | Table default | Count | `<age_N_constraint>`; `<catch_context>` |
-| 3 | Age spawner counts | SPAWNERS_AGE_1 … | 35 | Table default | Count | `<age_N_constraint>`; `<spawner_stage>` |
-| 4 | Age run counts | RUN_AGE_1 … | 28 | Table default | Count | `<age_N_constraint>`; `<run_context>` |
-| 5 | Catch totals by location | TOTAL_CATCH, MAINSTEM_CATCH, OCEAN_CATCH … | 14 | Table default | Count | `<mainstem_phase>`/`<ocean_phase>`/`<terminal_phase>` (when present); `<catch_context>` |
-| 6 | Run size totals by location | OCEAN_RUN_SIZE, TERMINAL_RUN_SIZE, TOTAL_RUN_SIZE | 11 | Table default | Count | `<mainstem_phase>`/`<ocean_phase>`/`<terminal_phase>` (when present); `<run_context>` |
-| 7 | Spawner totals | SPAWNERS, TOTAL_SPAWNERS | 8 | Table default | Count | `<spawner_stage>` |
-| 8 | Exploitation rates | TOTAL_EXPLOITATION_RATE, OCEAN_EXPLOITATION_RATE, ER | 11 | Table default | Dimensionless ratio | `<catch_context>`; `<mainstem_phase>`/`<ocean_phase>`/`<terminal_phase>` when implied |
-| 9 | Mortality / survival rates | MAINSTEM_MORTALITY_RATE, OCEAN_MORTALITY_RATE, CWT_MARINE_SURVIVAL_RATE | 13 | Table default | Dimensionless ratio | `<mainstem_phase>`/`<ocean_phase>`/`<terminal_phase>`; `<survival_or_mortality_context>` |
-|10 | Reference / benchmark points | LRP, USR, TR, RR, LOWER_BIO_BENCHMARK … | 41 | Table default | Dimensionless ratio (management threshold) | `<management_reference_type>` |
-|11 | Quality indices | INDEX_QUALITY | 5 | Table default | Dimensionless ratio | `<data_quality_scheme>` |
-|12 | Recruit counts | RECRUITS | 3 | Table default | Count | `<recruit_stage>` |
-|13 | Hatchery-origin proportion | PHOS | 1 | Table default | Dimensionless ratio | `<hatchery_origin>` |
-|14 | Marine survival index | MARINE_SURVIVAL_INDEX | 1 | Table default | Dimensionless ratio | `<marine_phase>` |
-|15 | Expansion factors | EXPANSION_FACTOR | 1 | Table default | Dimensionless ratio (scalar) | `<expansion_method>` |
+## Pattern inventory
 
-Notes
-- Where multiple phases/locations apply, use `;` to join constraint placeholders (e.g., `<age_3_constraint>;<ocean_phase>`).
-- If a precise constraint IRI is later identified (e.g., ENVO location, custom phase concept), replace the placeholder but keep age/location facets explicit.
-- Reference/benchmark terms likely need new SKOS concepts (gpt_proposed_terms) with parent `gcdfo:TargetOrLimitRateOrAbundance`.
+| Pattern | Unique columns | Rows | Dominant term(s) | Dominant property/unit | Missing `term_iri` rows | Example columns |
+|---|---:|---:|---|---|---:|---|
+| Catch totals by location | 4 | 14 | `http://rs.tdwg.org/dwc/terms/individualCount` (14) | `http://qudt.org/vocab/quantitykind/Count` / `http://qudt.org/vocab/unit/NUM` | 0 | `mainstem_catch, ocean_catch, terminal_catch …` |
+| Spawner totals | 2 | 8 | `http://rs.tdwg.org/dwc/terms/individualCount` (8) | `http://qudt.org/vocab/quantitykind/DimensionlessRatio` / `http://qudt.org/vocab/unit/UNITLESS` | 0 | `spawners, total_spawners` |
+| Run-size totals by location | 6 | 19 | `http://rs.tdwg.org/dwc/terms/individualCount` (19) | `http://qudt.org/vocab/quantitykind/Count` / `http://qudt.org/vocab/unit/NUM` | 0 | `ocean_run_size, terminal_run_size, total_ocean_run …` |
+| Exploitation rates | 4 | 12 | `https://w3id.org/gcdfo/salmon#TotalExploitationRate` (6), `https://w3id.org/gcdfo/salmon#ExploitationRate` (6) | `http://qudt.org/vocab/quantitykind/DimensionlessRatio` / `http://qudt.org/vocab/unit/UNITLESS` | 0 | `er, ocean_exploitation_rate, total_exploitation_rate …` |
+| Age spawner counts | 7 | 35 | `http://rs.tdwg.org/dwc/terms/individualCount` (35) | `http://qudt.org/vocab/quantitykind/DimensionlessRatio` / `http://qudt.org/vocab/unit/UNITLESS` | 0 | `spawners_age_1, spawners_age_2, spawners_age_3 …` |
+| Age run counts | 7 | 28 | `http://rs.tdwg.org/dwc/terms/individualCount` (28) | `http://qudt.org/vocab/quantitykind/Count` / `http://qudt.org/vocab/unit/NUM` | 0 | `run_age_1, run_age_2, run_age_3 …` |
+| Age catch counts | 7 | 28 | `http://rs.tdwg.org/dwc/terms/individualCount` (28) | `http://qudt.org/vocab/quantitykind/Count` / `http://qudt.org/vocab/unit/NUM` | 0 | `catch_age_1, catch_age_2, catch_age_3 …` |
+| Age-location counts | 21 | 63 | `http://rs.tdwg.org/dwc/terms/individualCount` (63) | `http://qudt.org/vocab/quantitykind/Count` / `http://qudt.org/vocab/unit/NUM` | 0 | `mainstem_age_1, mainstem_age_2, mainstem_age_3 …` |
+| Reference / benchmark points | 4 | 16 | `https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark` (8), `https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark` (8) | `http://qudt.org/vocab/quantitykind/DimensionlessRatio` / `http://qudt.org/vocab/unit/UNITLESS` | 0 | `lower_bio_benchmark, lower_wsp_benchmark, upper_bio_benchmark …` |
+| Mortality / survival rates | 6 | 10 | `<MISSING>` (10) | `http://qudt.org/vocab/quantitykind/DimensionlessRatio` / `http://qudt.org/vocab/unit/UNITLESS` | 10 | `cwt_marine_survival_rate, in_river_mortality_rate, mainstem_mortality_rate …` |
+| Recruit counts | 1 | 3 | `http://rs.tdwg.org/dwc/terms/individualCount` (3) | `http://qudt.org/vocab/quantitykind/Count` / `http://qudt.org/vocab/unit/NUM` | 0 | `recruits` |
+| Hatchery-origin indicators | 2 | 2 | `<MISSING>` (1), `https://w3id.org/gcdfo/salmon#HatcheryOrigin` (1) | `http://qudt.org/vocab/quantitykind/DimensionlessRatio` / `http://qudt.org/vocab/unit/UNITLESS` | 1 | `hatchery_origin_broodstock, phos` |
+| Broodstock removals | 1 | 1 | `http://rs.tdwg.org/dwc/terms/individualCount` (1) | `http://qudt.org/vocab/quantitykind/Count` / `http://qudt.org/vocab/unit/NUM` | 0 | `total_broodstock_removed` |
+| Marine survival index | 1 | 2 | `<MISSING>` (2) | `http://qudt.org/vocab/quantitykind/DimensionlessRatio` / `http://qudt.org/vocab/unit/UNITLESS` | 2 | `marine_survival_index` |
+| Expansion factors | 1 | 1 | `<MISSING>` (1) | `http://qudt.org/vocab/quantitykind/DimensionlessRatio` / `http://qudt.org/vocab/unit/UNITLESS` | 1 | `expansion_factor` |
+| Spawner abundance indicators | 16 | 16 | `<MISSING>` (16) | `http://qudt.org/vocab/quantitykind/DimensionlessRatio` / `http://qudt.org/vocab/unit/UNITLESS` | 16 | `relative_hatchery_spawner_abundance, relative_hatchery_spawner_abundance_change, relative_hatchery_spawner_abundance_percentile …` |
+
+## Coherence checks (from canonical mapping)
+
+- Measurement rows: **258**
+- Missing `term_iri`: **30 rows / 25 unique columns**
+- `individualCount` + non-count property/unit combos: **74 rows / 19 unique columns**
+
+### Missing `term_iri` (current canonical gap)
+
+`cwt_marine_survival_rate`, `expansion_factor`, `in_river_mortality_rate`, `mainstem_mortality_rate`, `marine_survival_index`, `ocean_mortality_rate`, `phos`, `relative_hatchery_spawner_abundance`, `relative_hatchery_spawner_abundance_change`, `relative_hatchery_spawner_abundance_percentile`, `relative_hatchery_spawner_abundance_trend`, `relative_spawner_abundance`, `relative_spawner_abundance_change`, `relative_spawner_abundance_percentile`, `relative_spawner_abundance_trend`, `relative_wild_spawner_abundance`, `relative_wild_spawner_abundance_change`, `relative_wild_spawner_abundance_percentile`, `relative_wild_spawner_abundance_trend`, `spawner_abundance`, `spawner_abundance_change`, `spawner_abundance_percentile`, `spawner_abundance_trend`, `terminal_mortality_rate`, `total_mortality_rate`
+
+### Potential count/property incoherence
+
+Rows where `term_iri = dwc:individualCount` but property/unit are not `qudt:Count` + `unit:NUM`.
+
+`spawners`, `spawners_age_1`, `spawners_age_2`, `spawners_age_3`, `spawners_age_4`, `spawners_age_5`, `spawners_age_6`, `spawners_age_7`, `terminal_age_1`, `terminal_age_2`, `terminal_age_3`, `terminal_age_4`, `terminal_age_5`, `terminal_age_6`, `terminal_age_7`, `terminal_catch`, `terminal_run_size`, `total_spawners`, `total_terminal_run`
+
+## Notes
+- Use this file as the working pattern reference; mirror/snapshot copies in other repos should be synced from this canonical view.
+- Ontology acceptance/backfill remains anchored to `dfo-salmon-ontology` PR #31.
