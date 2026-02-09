@@ -3882,6 +3882,12 @@
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
     ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "DFO. (2018). Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Can. Sci. Advis. Sec. Sci. Advis. Rep. 2018/001. (Erratum: October 2023)"
+      }
+    ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
@@ -3895,7 +3901,7 @@
     "http://www.w3.org/2004/02/skos/core#definition": [
       {
         "@language": "en",
-        "@value": "Origin category for salmon produced from hatchery broodstock and release programs."
+        "@value": "Individuals that were born or reared in a hatchery facility."
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -3906,10 +3912,13 @@
     "http://www.w3.org/2004/02/skos/core#prefLabel": [
       {
         "@language": "en",
-        "@value": "Hatchery origin"
+        "@value": "Hatchery-origin"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"
+      },
       {
         "@id": "https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme"
       },
@@ -4772,6 +4781,12 @@
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
     ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "DFO. (2018). Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Can. Sci. Advis. Sec. Sci. Advis. Rep. 2018/001. (Erratum: October 2023)"
+      }
+    ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
@@ -4785,7 +4800,7 @@
     "http://www.w3.org/2004/02/skos/core#definition": [
       {
         "@language": "en",
-        "@value": "Origin category for naturally produced wild salmon."
+        "@value": "Individuals that are born and reared in the wild (natural environment)."
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -4796,10 +4811,13 @@
     "http://www.w3.org/2004/02/skos/core#prefLabel": [
       {
         "@language": "en",
-        "@value": "Natural origin"
+        "@value": "Natural-origin"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"
+      },
       {
         "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
       },

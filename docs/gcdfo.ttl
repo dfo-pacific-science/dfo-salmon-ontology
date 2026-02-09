@@ -1454,12 +1454,14 @@ gcdfo:HabitatEcosystemClimateTheme rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/gcdfo/salmon#HatcheryOrigin
 gcdfo:HatcheryOrigin rdf:type owl:NamedIndividual ,
                               skos:Concept ;
+                     <http://purl.obolibrary.org/obo/IAO_0000119> "DFO. (2018). Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Can. Sci. Advis. Sec. Sci. Advis. Rep. 2018/001. (Erratum: October 2023)"@en ;
                      rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                      skos:broader gcdfo:SalmonOrigin ;
-                     skos:definition "Origin category for salmon produced from hatchery broodstock and release programs."@en ;
+                     skos:definition "Individuals that were born or reared in a hatchery facility."@en ;
                      skos:inScheme gcdfo:SalmonOriginScheme ;
-                     skos:prefLabel "Hatchery origin"@en ;
-                     gcdfo:theme gcdfo:SalmonEnhancementHatcheriesTheme ,
+                     skos:prefLabel "Hatchery-origin"@en ;
+                     gcdfo:theme gcdfo:GeneticsStockCompositionTheme ,
+                                 gcdfo:SalmonEnhancementHatcheriesTheme ,
                                  gcdfo:StockAssessmentTheme .
 
 
@@ -1655,12 +1657,14 @@ gcdfo:MonitoringFieldWorkTheme rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/gcdfo/salmon#NaturalOrigin
 gcdfo:NaturalOrigin rdf:type owl:NamedIndividual ,
                              skos:Concept ;
+                    <http://purl.obolibrary.org/obo/IAO_0000119> "DFO. (2018). Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Can. Sci. Advis. Sec. Sci. Advis. Rep. 2018/001. (Erratum: October 2023)"@en ;
                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                     skos:broader gcdfo:SalmonOrigin ;
-                    skos:definition "Origin category for naturally produced wild salmon."@en ;
+                    skos:definition "Individuals that are born and reared in the wild (natural environment)."@en ;
                     skos:inScheme gcdfo:SalmonOriginScheme ;
-                    skos:prefLabel "Natural origin"@en ;
-                    gcdfo:theme gcdfo:StockAssessmentTheme ,
+                    skos:prefLabel "Natural-origin"@en ;
+                    gcdfo:theme gcdfo:GeneticsStockCompositionTheme ,
+                                gcdfo:StockAssessmentTheme ,
                                 gcdfo:WildSalmonPolicyTheme .
 
 

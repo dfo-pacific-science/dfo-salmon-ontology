@@ -783,19 +783,21 @@ gcdfo:SalmonOrigin a skos:Concept ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:HatcheryOrigin a skos:Concept ;
-  skos:prefLabel "Hatchery origin"@en ;
-  skos:definition "Origin category for salmon produced from hatchery broodstock and release programs."@en ;
+  skos:prefLabel "Hatchery-origin"@en ;
+  skos:definition "Individuals that were born or reared in a hatchery facility."@en ;
   skos:inScheme :SalmonOriginScheme ;
   skos:broader gcdfo:SalmonOrigin ;
-  gcdfo:theme gcdfo:SalmonEnhancementHatcheriesTheme, gcdfo:StockAssessmentTheme ;
+  iao:0000119 "DFO. (2018). Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Can. Sci. Advis. Sec. Sci. Advis. Rep. 2018/001. (Erratum: October 2023)"@en ; # definition source
+  gcdfo:theme gcdfo:SalmonEnhancementHatcheriesTheme, gcdfo:StockAssessmentTheme, gcdfo:GeneticsStockCompositionTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:NaturalOrigin a skos:Concept ;
-  skos:prefLabel "Natural origin"@en ;
-  skos:definition "Origin category for naturally produced wild salmon."@en ;
+  skos:prefLabel "Natural-origin"@en ;
+  skos:definition "Individuals that are born and reared in the wild (natural environment)."@en ;
   skos:inScheme :SalmonOriginScheme ;
   skos:broader gcdfo:SalmonOrigin ;
-  gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme ;
+  iao:0000119 "DFO. (2018). Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Can. Sci. Advis. Sec. Sci. Advis. Rep. 2018/001. (Erratum: October 2023)"@en ; # definition source
+  gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:GeneticsStockCompositionTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:LifePhase a skos:Concept ;

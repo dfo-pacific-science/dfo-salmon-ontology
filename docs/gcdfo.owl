@@ -1916,11 +1916,13 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#HatcheryOrigin">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <obo:IAO_0000119 xml:lang="en">DFO. (2018). Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Can. Sci. Advis. Sec. Sci. Advis. Rep. 2018/001. (Erratum: October 2023)</obo:IAO_0000119>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#SalmonOrigin"/>
-        <skos:definition xml:lang="en">Origin category for salmon produced from hatchery broodstock and release programs.</skos:definition>
+        <skos:definition xml:lang="en">Individuals that were born or reared in a hatchery facility.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#SalmonOriginScheme"/>
-        <skos:prefLabel xml:lang="en">Hatchery origin</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">Hatchery-origin</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
@@ -2168,11 +2170,13 @@
 
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#NaturalOrigin">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <obo:IAO_0000119 xml:lang="en">DFO. (2018). Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Can. Sci. Advis. Sec. Sci. Advis. Rep. 2018/001. (Erratum: October 2023)</obo:IAO_0000119>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#SalmonOrigin"/>
-        <skos:definition xml:lang="en">Origin category for naturally produced wild salmon.</skos:definition>
+        <skos:definition xml:lang="en">Individuals that are born and reared in the wild (natural environment).</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#SalmonOriginScheme"/>
-        <skos:prefLabel xml:lang="en">Natural origin</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">Natural-origin</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:NamedIndividual>
