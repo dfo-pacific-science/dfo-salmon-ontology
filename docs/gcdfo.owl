@@ -312,6 +312,95 @@
     
 
 
+    <!-- https://w3id.org/gcdfo/salmon#conservationUnitOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#conservationUnitOf">
+        <owl:inverseOf rdf:resource="https://w3id.org/gcdfo/salmon#hasConservationUnit"/>
+        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#ConservationUnit"/>
+        <rdfs:range rdf:resource="https://w3id.org/gcdfo/salmon#StockManagementUnit"/>
+        <obo:IAO_0000115 xml:lang="en">Relates a Conservation Unit to the Stock Management Unit it belongs to.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Conservation Unit of</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#demeOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#demeOf">
+        <owl:inverseOf rdf:resource="https://w3id.org/gcdfo/salmon#hasDeme"/>
+        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#Deme"/>
+        <rdfs:range rdf:resource="https://w3id.org/gcdfo/salmon#Population"/>
+        <obo:IAO_0000115 xml:lang="en">Relates a deme to the population it belongs to.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">deme of</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#hasConservationUnit -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#hasConservationUnit">
+        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#StockManagementUnit"/>
+        <rdfs:range rdf:resource="https://w3id.org/gcdfo/salmon#ConservationUnit"/>
+        <obo:IAO_0000115 xml:lang="en">Relates a Stock Management Unit to one of its constituent Conservation Units.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">has Conservation Unit</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#hasDeme -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#hasDeme">
+        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#Population"/>
+        <rdfs:range rdf:resource="https://w3id.org/gcdfo/salmon#Deme"/>
+        <obo:IAO_0000115 xml:lang="en">Relates a population to one of its constituent demes.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">has deme</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#hasPopulation -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#hasPopulation">
+        <owl:inverseOf rdf:resource="https://w3id.org/gcdfo/salmon#populationOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#ConservationUnit"/>
+        <rdfs:range rdf:resource="https://w3id.org/gcdfo/salmon#Population"/>
+        <obo:IAO_0000115 xml:lang="en">Relates a Conservation Unit to one of its constituent populations.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">has population</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#populationOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#populationOf">
+        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#Population"/>
+        <rdfs:range rdf:resource="https://w3id.org/gcdfo/salmon#ConservationUnit"/>
+        <obo:IAO_0000115 xml:lang="en">Relates a population to the Conservation Unit it belongs to.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">population of</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -713,6 +802,20 @@
     
 
 
+    <!-- https://w3id.org/gcdfo/salmon#Deme -->
+
+    <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#Deme">
+        <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/dwc/terms/Organism"/>
+        <obo:IAO_0000115 xml:lang="en">A local interbreeding group of organisms within a species. In salmon, a deme typically corresponds to a spawning population at a specific site. Demes are the finest biological unit and make up populations.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Deme</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/gcdfo/salmon#Escapement -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#Escapement">
@@ -847,12 +950,13 @@
     <!-- https://w3id.org/gcdfo/salmon#Population -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#Population">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum"/>
-        <obo:IAO_0000115 xml:lang="en">A demographically or genetically distinct group of salmon used as a population-level aggregation in stock assessment and reporting (e.g., SPSR).</obo:IAO_0000115>
+        <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/dwc/terms/Organism"/>
+        <obo:IAO_0000115 xml:lang="en">A group of organisms of the same species occupying a defined area that interbreed and share a gene pool. In salmon, populations are composed of one or more demes and form the biological basis for Conservation Units.</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">Population</rdfs:label>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:Class>
     
 
@@ -889,13 +993,14 @@
     <!-- https://w3id.org/gcdfo/salmon#Stock -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#Stock">
-        <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/dwc/terms/Organism"/>
-        <obo:IAO_0000115 xml:lang="en">A biologically meaningful but operationally-focused salmon demographic unit used in assessment and reporting.</obo:IAO_0000115>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum"/>
+        <obo:IAO_0000115 xml:lang="en">An operationally-defined grouping of salmon used for assessment and management purposes. A stock is a management unit or reporting stratum, not a biological organism.</obo:IAO_0000115>
         <obo:IAO_0000119 xml:lang="en">DFO Introduction to Stock Assessment Glossary; Pacific Salmon Commission Technical Report No. 49.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">Stock</rdfs:label>
         <skos:altLabel xml:lang="en">Fish stock</skos:altLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>

@@ -2626,6 +2626,45 @@
     ]
   },
   {
+    "@id": "https://w3id.org/gcdfo/salmon#Deme",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "A local interbreeding group of organisms within a species. In salmon, a deme typically corresponds to a spawning population at a specific site. Demes are the finest biological unit and make up populations."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Deme"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://rs.tdwg.org/dwc/terms/Organism"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
     "@id": "https://w3id.org/gcdfo/salmon#Detectability",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
@@ -5157,7 +5196,7 @@
     "http://purl.obolibrary.org/obo/IAO_0000115": [
       {
         "@language": "en",
-        "@value": "A demographically or genetically distinct group of salmon used as a population-level aggregation in stock assessment and reporting (e.g., SPSR)."
+        "@value": "A group of organisms of the same species occupying a defined area that interbreed and share a gene pool. In salmon, populations are composed of one or more demes and form the biological basis for Conservation Units."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -5173,15 +5212,18 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum"
+        "@id": "http://rs.tdwg.org/dwc/terms/Organism"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"
+        "@id": "https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"
       },
       {
         "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
       }
     ]
   },
@@ -6074,7 +6116,7 @@
     "http://purl.obolibrary.org/obo/IAO_0000115": [
       {
         "@language": "en",
-        "@value": "A biologically meaningful but operationally-focused salmon demographic unit used in assessment and reporting."
+        "@value": "An operationally-defined grouping of salmon used for assessment and management purposes. A stock is a management unit or reporting stratum, not a biological organism."
       }
     ],
     "http://purl.obolibrary.org/obo/IAO_0000119": [
@@ -6101,7 +6143,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "http://rs.tdwg.org/dwc/terms/Organism"
+        "@id": "https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#altLabel": [
@@ -6111,6 +6153,9 @@
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"
+      },
       {
         "@id": "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"
       },
@@ -7590,6 +7635,273 @@
     "https://w3id.org/gcdfo/salmon#theme": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#conservationUnitOf",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "Relates a Conservation Unit to the Stock Management Unit it belongs to."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ConservationUnit"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Conservation Unit of"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockManagementUnit"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#hasConservationUnit"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#demeOf",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "Relates a deme to the population it belongs to."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#Deme"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "deme of"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#Population"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#hasDeme"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#hasConservationUnit",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "Relates a Stock Management Unit to one of its constituent Conservation Units."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockManagementUnit"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has Conservation Unit"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ConservationUnit"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#hasDeme",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "Relates a population to one of its constituent demes."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#Population"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has deme"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#Deme"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#hasPopulation",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "Relates a Conservation Unit to one of its constituent populations."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ConservationUnit"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has population"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#Population"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#populationOf",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "Relates a population to the Conservation Unit it belongs to."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#Population"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "population of"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ConservationUnit"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#hasPopulation"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
       }
     ]
   },

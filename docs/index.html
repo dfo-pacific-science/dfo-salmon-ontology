@@ -583,7 +583,7 @@ $(function(){
     <div id="overview"><h2 id="overv" class="list">GC DFO Salmon Ontology: Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 <span class="markdown">
 This ontology has the following classes and properties.</span>
-<h4>Classes</h4><details class="gcdfo-collapsible gcdfo-overview-collapsible"><summary>55 items (expand)</summary><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+<h4>Classes</h4><details class="gcdfo-collapsible gcdfo-overview-collapsible"><summary>56 items (expand)</summary><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     class="hlist">
    <li>
@@ -600,6 +600,9 @@ This ontology has the following classes and properties.</span>
    </li>
    <li>
       <a href="#ConservationUnit" title="https://w3id.org/gcdfo/salmon#ConservationUnit">Conservation Unit</a>
+   </li>
+   <li>
+      <a href="#Deme" title="https://w3id.org/gcdfo/salmon#Deme">Deme</a>
    </li>
    <li>
       <a href="#http://www.w3.org/ns/dqv#Dimension" title="http://www.w3.org/ns/dqv#Dimension">Dimension</a>
@@ -763,11 +766,30 @@ This ontology has the following classes and properties.</span>
    <li>
       <a href="#http://purl.dataone.org/odo/ECSO_00002050" title="http://purl.dataone.org/odo/ECSO_00002050">year of measurement</a>
    </li>
-</ul></details><h4>Object Properties</h4><details class="gcdfo-collapsible gcdfo-overview-collapsible"><summary>1 item (expand)</summary><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+</ul></details><h4>Object Properties</h4><details class="gcdfo-collapsible gcdfo-overview-collapsible"><summary>7 items (expand)</summary><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     class="hlist">
    <li>
+      <a href="#conservationUnitOf" title="https://w3id.org/gcdfo/salmon#conservationUnitOf">Conservation Unit of</a>
+   </li>
+   <li>
+      <a href="#demeOf" title="https://w3id.org/gcdfo/salmon#demeOf">deme of</a>
+   </li>
+   <li>
+      <a href="#hasConservationUnit"
+         title="https://w3id.org/gcdfo/salmon#hasConservationUnit">has Conservation Unit</a>
+   </li>
+   <li>
+      <a href="#hasDeme" title="https://w3id.org/gcdfo/salmon#hasDeme">has deme</a>
+   </li>
+   <li>
+      <a href="#hasPopulation" title="https://w3id.org/gcdfo/salmon#hasPopulation">has population</a>
+   </li>
+   <li>
       <a href="#http://www.w3.org/ns/dqv#inDimension" title="http://www.w3.org/ns/dqv#inDimension">in dimension</a>
+   </li>
+   <li>
+      <a href="#populationOf" title="https://w3id.org/gcdfo/salmon#populationOf">population of</a>
    </li>
 </ul></details><details class="gcdfo-collapsible gcdfo-webvowl"><summary>Ontology diagram (WebVOWL) (expand)</summary><iframe src="webvowl/index.html" loading="lazy" title="Ontology diagram (WebVOWL)"></iframe></details>
 </div>
@@ -2946,6 +2968,7 @@ This section provides details for each class and property defined by GC DFO Salm
   <li><a href="#BroodYear" title="https://w3id.org/gcdfo/salmon#BroodYear">Brood year</a></li>
   <li><a href="#CatchYear" title="https://w3id.org/gcdfo/salmon#CatchYear">Catch year</a></li>
   <li><a href="#ConservationUnit" title="https://w3id.org/gcdfo/salmon#ConservationUnit">Conservation Unit</a></li>
+  <li><a href="#Deme" title="https://w3id.org/gcdfo/salmon#Deme">Deme</a></li>
   <li><a href="#http://www.w3.org/ns/dqv#Dimension" title="http://www.w3.org/ns/dqv#Dimension">Dimension</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/IAO_0000033" title="http://purl.obolibrary.org/obo/IAO_0000033">directive information entity</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/IAO_0000310" title="http://purl.obolibrary.org/obo/IAO_0000310">document</a></li>
@@ -3148,6 +3171,53 @@ This section provides details for each class and property defined by GC DFO Salm
    </dt>
    <dd>
     <a href="#ReportingOrManagementStratum" title="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum">Reporting or management stratum</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#conservationUnitOf" title="https://w3id.org/gcdfo/salmon#conservationUnitOf">Conservation Unit of</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasPopulation" title="https://w3id.org/gcdfo/salmon#hasPopulation">has population</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasConservationUnit" title="https://w3id.org/gcdfo/salmon#hasConservationUnit">has Conservation Unit</a> <sup class="type-op" title="object property">op</sup>, <a href="#populationOf" title="https://w3id.org/gcdfo/salmon#populationOf">population of</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Deme">
+  <h3>Deme<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#Deme</p>
+  <div class="comment">
+   <span class="markdown">A local interbreeding group of organisms within a species. In salmon, a deme typically corresponds to a spawning population at a specific site. Demes are the finest biological unit and make up populations.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#http://rs.tdwg.org/dwc/terms/Organism" title="http://rs.tdwg.org/dwc/terms/Organism">Organism</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#demeOf" title="https://w3id.org/gcdfo/salmon#demeOf">deme of</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasDeme" title="https://w3id.org/gcdfo/salmon#hasDeme">has deme</a> <sup class="type-op" title="object property">op</sup>
    </dd>
   </dl>
  </div>
@@ -3913,7 +3983,7 @@ This section provides details for each class and property defined by GC DFO Salm
     has sub-classes
    </dt>
    <dd>
-    <a href="#Stock" title="https://w3id.org/gcdfo/salmon#Stock">Stock</a> <sup class="type-c" title="class">c</sup>
+    <a href="#Deme" title="https://w3id.org/gcdfo/salmon#Deme">Deme</a> <sup class="type-c" title="class">c</sup>, <a href="#Population" title="https://w3id.org/gcdfo/salmon#Population">Population</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -3967,7 +4037,7 @@ This section provides details for each class and property defined by GC DFO Salm
   <h3>Population<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#Population</p>
   <div class="comment">
-   <span class="markdown">A demographically or genetically distinct group of salmon used as a population-level aggregation in stock assessment and reporting (e.g., SPSR).</span>
+   <span class="markdown">A group of organisms of the same species occupying a defined area that interbreed and share a gene pool. In salmon, populations are composed of one or more demes and form the biological basis for Conservation Units.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -3982,7 +4052,19 @@ This section provides details for each class and property defined by GC DFO Salm
     has super-classes
    </dt>
    <dd>
-    <a href="#ReportingOrManagementStratum" title="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum">Reporting or management stratum</a> <sup class="type-c" title="class">c</sup>
+    <a href="#http://rs.tdwg.org/dwc/terms/Organism" title="http://rs.tdwg.org/dwc/terms/Organism">Organism</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#hasDeme" title="https://w3id.org/gcdfo/salmon#hasDeme">has deme</a> <sup class="type-op" title="object property">op</sup>, <a href="#populationOf" title="https://w3id.org/gcdfo/salmon#populationOf">population of</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#demeOf" title="https://w3id.org/gcdfo/salmon#demeOf">deme of</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasPopulation" title="https://w3id.org/gcdfo/salmon#hasPopulation">has population</a> <sup class="type-op" title="object property">op</sup>
    </dd>
   </dl>
  </div>
@@ -4105,7 +4187,7 @@ This section provides details for each class and property defined by GC DFO Salm
     has sub-classes
    </dt>
    <dd>
-    <a href="#ConservationUnit" title="https://w3id.org/gcdfo/salmon#ConservationUnit">Conservation Unit</a> <sup class="type-c" title="class">c</sup>, <a href="#Population" title="https://w3id.org/gcdfo/salmon#Population">Population</a> <sup class="type-c" title="class">c</sup>, <a href="#StockManagementUnit" title="https://w3id.org/gcdfo/salmon#StockManagementUnit">Stock Management Unit</a> <sup class="type-c" title="class">c</sup>
+    <a href="#ConservationUnit" title="https://w3id.org/gcdfo/salmon#ConservationUnit">Conservation Unit</a> <sup class="type-c" title="class">c</sup>, <a href="#Stock" title="https://w3id.org/gcdfo/salmon#Stock">Stock</a> <sup class="type-c" title="class">c</sup>, <a href="#StockManagementUnit" title="https://w3id.org/gcdfo/salmon#StockManagementUnit">Stock Management Unit</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -4174,7 +4256,7 @@ This section provides details for each class and property defined by GC DFO Salm
   <h3>Stock<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#Stock</p>
   <div class="comment">
-   <span class="markdown">A biologically meaningful but operationally-focused salmon demographic unit used in assessment and reporting.</span>
+   <span class="markdown">An operationally-defined grouping of salmon used for assessment and management purposes. A stock is a management unit or reporting stratum, not a biological organism.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -4200,7 +4282,7 @@ This section provides details for each class and property defined by GC DFO Salm
     has super-classes
    </dt>
    <dd>
-    <a href="#http://rs.tdwg.org/dwc/terms/Organism" title="http://rs.tdwg.org/dwc/terms/Organism">Organism</a> <sup class="type-c" title="class">c</sup>
+    <a href="#ReportingOrManagementStratum" title="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum">Reporting or management stratum</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -4269,6 +4351,18 @@ This section provides details for each class and property defined by GC DFO Salm
    </dt>
    <dd>
     <a href="#ReportingOrManagementStratum" title="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum">Reporting or management stratum</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#hasConservationUnit" title="https://w3id.org/gcdfo/salmon#hasConservationUnit">has Conservation Unit</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#conservationUnitOf" title="https://w3id.org/gcdfo/salmon#conservationUnitOf">Conservation Unit of</a> <sup class="type-op" title="object property">op</sup>
    </dd>
   </dl>
  </div>
@@ -4564,8 +4658,199 @@ This section provides details for each class and property defined by GC DFO Salm
 </div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="objectproperties">
  <h3 id="properties" class="list">Object Properties</h3>
  <ul class="hlist">
+  <li><a href="#conservationUnitOf" title="https://w3id.org/gcdfo/salmon#conservationUnitOf">Conservation Unit of</a></li>
+  <li><a href="#demeOf" title="https://w3id.org/gcdfo/salmon#demeOf">deme of</a></li>
+  <li><a href="#hasConservationUnit" title="https://w3id.org/gcdfo/salmon#hasConservationUnit">has Conservation Unit</a></li>
+  <li><a href="#hasDeme" title="https://w3id.org/gcdfo/salmon#hasDeme">has deme</a></li>
+  <li><a href="#hasPopulation" title="https://w3id.org/gcdfo/salmon#hasPopulation">has population</a></li>
   <li><a href="#http://www.w3.org/ns/dqv#inDimension" title="http://www.w3.org/ns/dqv#inDimension">in dimension</a></li>
+  <li><a href="#populationOf" title="https://w3id.org/gcdfo/salmon#populationOf">population of</a></li>
  </ul>
+ <div class="entity" id="conservationUnitOf">
+  <h3>Conservation Unit of<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#conservationUnitOf</p>
+  <div class="comment">
+   <span class="markdown">Relates a Conservation Unit to the Stock Management Unit it belongs to.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#ConservationUnit" title="https://w3id.org/gcdfo/salmon#ConservationUnit">Conservation Unit</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#StockManagementUnit" title="https://w3id.org/gcdfo/salmon#StockManagementUnit">Stock Management Unit</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#hasConservationUnit" title="https://w3id.org/gcdfo/salmon#hasConservationUnit">has Conservation Unit</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="demeOf">
+  <h3>deme of<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#demeOf</p>
+  <div class="comment">
+   <span class="markdown">Relates a deme to the population it belongs to.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Deme" title="https://w3id.org/gcdfo/salmon#Deme">Deme</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Population" title="https://w3id.org/gcdfo/salmon#Population">Population</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#hasDeme" title="https://w3id.org/gcdfo/salmon#hasDeme">has deme</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasConservationUnit">
+  <h3>has Conservation Unit<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#hasConservationUnit</p>
+  <div class="comment">
+   <span class="markdown">Relates a Stock Management Unit to one of its constituent Conservation Units.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#StockManagementUnit" title="https://w3id.org/gcdfo/salmon#StockManagementUnit">Stock Management Unit</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#ConservationUnit" title="https://w3id.org/gcdfo/salmon#ConservationUnit">Conservation Unit</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#conservationUnitOf" title="https://w3id.org/gcdfo/salmon#conservationUnitOf">Conservation Unit of</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasDeme">
+  <h3>has deme<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#hasDeme</p>
+  <div class="comment">
+   <span class="markdown">Relates a population to one of its constituent demes.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Population" title="https://w3id.org/gcdfo/salmon#Population">Population</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Deme" title="https://w3id.org/gcdfo/salmon#Deme">Deme</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#demeOf" title="https://w3id.org/gcdfo/salmon#demeOf">deme of</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasPopulation">
+  <h3>has population<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#hasPopulation</p>
+  <div class="comment">
+   <span class="markdown">Relates a Conservation Unit to one of its constituent populations.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#ConservationUnit" title="https://w3id.org/gcdfo/salmon#ConservationUnit">Conservation Unit</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Population" title="https://w3id.org/gcdfo/salmon#Population">Population</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#populationOf" title="https://w3id.org/gcdfo/salmon#populationOf">population of</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
  <div class="entity" id="http://www.w3.org/ns/dqv#inDimension">
   <h3>in dimension<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> http://www.w3.org/ns/dqv#inDimension</p>
@@ -4591,6 +4876,43 @@ This section provides details for each class and property defined by GC DFO Salm
     <a href="https://www.w3.org/TR/vocab-dqv/">https://www.w3.org/TR/vocab-dqv/</a>
    </dd>
   </dl>
+ </div>
+ <div class="entity" id="populationOf">
+  <h3>population of<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#populationOf</p>
+  <div class="comment">
+   <span class="markdown">Relates a population to the Conservation Unit it belongs to.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Population" title="https://w3id.org/gcdfo/salmon#Population">Population</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#ConservationUnit" title="https://w3id.org/gcdfo/salmon#ConservationUnit">Conservation Unit</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#hasPopulation" title="https://w3id.org/gcdfo/salmon#hasPopulation">has population</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
  </div>
 </div><div id="legend">
 <h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
@@ -4630,6 +4952,17 @@ This section provides details for each class and property defined by GC DFO Salm
 <li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000115> "Benchmark value for a WSP metric that helps delineate status zones (for example, the limit reference point for absolute abundance)."@en</li>
 </ul>
 </li>
+<li><a href="#Stock">https://w3id.org/gcdfo/salmon#Stock</a>
+<ul>
+<li>Added: <https://w3id.org/gcdfo/salmon#theme> https://w3id.org/gcdfo/salmon#FisheriesManagementTheme</li>
+<li>Added: <http://purl.obolibrary.org/obo/IAO_0000115> "An operationally-defined grouping of salmon used for assessment and management purposes. A stock is a management unit or reporting stratum, not a biological organism."@en</li>
+<li>Added: SubClass of https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum</li>
+</ul>
+<ul>
+<li>Deleted: SubClass of http://rs.tdwg.org/dwc/terms/Organism</li>
+<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000115> "A biologically meaningful but operationally-focused salmon demographic unit used in assessment and reporting."@en</li>
+</ul>
+</li>
 <li><a href="#TargetOrLimitRateOrAbundance">https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance</a>
 <ul>
 <li>Added: <http://purl.obolibrary.org/obo/IAO_0000115> "A value specification representing a policy- or model-defined target or limit, such as TAC or UMSY."@en</li>
@@ -4655,14 +4988,19 @@ This section provides details for each class and property defined by GC DFO Salm
 </ul>
 </li>
 </ul></details><details><summary><u>Added classes</u></summary>
-<ul><li><a href="#LowerBiologicalBenchmark">https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark</a>
+<ul><li><a href="#Deme">https://w3id.org/gcdfo/salmon#Deme</a>
+<ul>
+<li>Added: SubClass of http://rs.tdwg.org/dwc/terms/Organism</li>
+</ul>
+</li>
+<li><a href="#LowerBiologicalBenchmark">https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark</a>
 <ul>
 <li>Added: SubClass of https://w3id.org/gcdfo/salmon#MetricBenchmark</li>
 </ul>
 </li>
 <li><a href="#Population">https://w3id.org/gcdfo/salmon#Population</a>
 <ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum</li>
+<li>Added: SubClass of http://rs.tdwg.org/dwc/terms/Organism</li>
 </ul>
 </li>
 <li><a href="#UpperBiologicalBenchmark">https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark</a>
@@ -4677,6 +5015,50 @@ This section provides details for each class and property defined by GC DFO Salm
 </li>
 </ul></details><details><summary><u>Deleted classes</u></summary>
 <ul><li><a href="#AlgorithmThreshold">https://w3id.org/gcdfo/salmon#AlgorithmThreshold</a>
+</li>
+</ul></details><h3 id="changeProp" class="list">Object Properties</h3>
+<details><summary><u>Added object properties</u></summary>
+<ul><li><a href="#conservationUnitOf">https://w3id.org/gcdfo/salmon#conservationUnitOf</a>
+<ul>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/gcdfo/salmon#conservationUnitOf&gt; &lt;https://w3id.org/gcdfo/salmon#hasConservationUnit&gt;)</li>
+<li>Added: domain https://w3id.org/gcdfo/salmon#ConservationUnit</li>
+<li>Added: Range https://w3id.org/gcdfo/salmon#StockManagementUnit</li>
+</ul>
+</li>
+<li><a href="#demeOf">https://w3id.org/gcdfo/salmon#demeOf</a>
+<ul>
+<li>Added: domain https://w3id.org/gcdfo/salmon#Deme</li>
+<li>Added: Range https://w3id.org/gcdfo/salmon#Population</li>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/gcdfo/salmon#demeOf&gt; &lt;https://w3id.org/gcdfo/salmon#hasDeme&gt;)</li>
+</ul>
+</li>
+<li><a href="#hasConservationUnit">https://w3id.org/gcdfo/salmon#hasConservationUnit</a>
+<ul>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/gcdfo/salmon#conservationUnitOf&gt; &lt;https://w3id.org/gcdfo/salmon#hasConservationUnit&gt;)</li>
+<li>Added: domain https://w3id.org/gcdfo/salmon#StockManagementUnit</li>
+<li>Added: Range https://w3id.org/gcdfo/salmon#ConservationUnit</li>
+</ul>
+</li>
+<li><a href="#hasDeme">https://w3id.org/gcdfo/salmon#hasDeme</a>
+<ul>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/gcdfo/salmon#demeOf&gt; &lt;https://w3id.org/gcdfo/salmon#hasDeme&gt;)</li>
+<li>Added: domain https://w3id.org/gcdfo/salmon#Population</li>
+<li>Added: Range https://w3id.org/gcdfo/salmon#Deme</li>
+</ul>
+</li>
+<li><a href="#hasPopulation">https://w3id.org/gcdfo/salmon#hasPopulation</a>
+<ul>
+<li>Added: domain https://w3id.org/gcdfo/salmon#ConservationUnit</li>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/gcdfo/salmon#populationOf&gt; &lt;https://w3id.org/gcdfo/salmon#hasPopulation&gt;)</li>
+<li>Added: Range https://w3id.org/gcdfo/salmon#Population</li>
+</ul>
+</li>
+<li><a href="#populationOf">https://w3id.org/gcdfo/salmon#populationOf</a>
+<ul>
+<li>Added: domain https://w3id.org/gcdfo/salmon#Population</li>
+<li>Added: Range https://w3id.org/gcdfo/salmon#ConservationUnit</li>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/gcdfo/salmon#populationOf&gt; &lt;https://w3id.org/gcdfo/salmon#hasPopulation&gt;)</li>
+</ul>
 </li>
 </ul></details></div>
 </div>

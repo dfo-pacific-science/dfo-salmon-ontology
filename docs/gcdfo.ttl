@@ -212,6 +212,77 @@ dqv:inDimension rdf:type owl:ObjectProperty ;
                 rdfs:label "in dimension"@en .
 
 
+###  https://w3id.org/gcdfo/salmon#conservationUnitOf
+gcdfo:conservationUnitOf rdf:type owl:ObjectProperty ;
+                         owl:inverseOf gcdfo:hasConservationUnit ;
+                         rdfs:domain gcdfo:ConservationUnit ;
+                         rdfs:range gcdfo:StockManagementUnit ;
+                         <http://purl.obolibrary.org/obo/IAO_0000115> "Relates a Conservation Unit to the Stock Management Unit it belongs to."@en ;
+                         rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                         rdfs:label "Conservation Unit of"@en ;
+                         gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                     gcdfo:PolicyGovernanceTheme ,
+                                     gcdfo:WildSalmonPolicyTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#demeOf
+gcdfo:demeOf rdf:type owl:ObjectProperty ;
+             owl:inverseOf gcdfo:hasDeme ;
+             rdfs:domain gcdfo:Deme ;
+             rdfs:range gcdfo:Population ;
+             <http://purl.obolibrary.org/obo/IAO_0000115> "Relates a deme to the population it belongs to."@en ;
+             rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+             rdfs:label "deme of"@en ;
+             gcdfo:theme gcdfo:GeneticsStockCompositionTheme ,
+                         gcdfo:WildSalmonPolicyTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#hasConservationUnit
+gcdfo:hasConservationUnit rdf:type owl:ObjectProperty ;
+                          rdfs:domain gcdfo:StockManagementUnit ;
+                          rdfs:range gcdfo:ConservationUnit ;
+                          <http://purl.obolibrary.org/obo/IAO_0000115> "Relates a Stock Management Unit to one of its constituent Conservation Units."@en ;
+                          rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                          rdfs:label "has Conservation Unit"@en ;
+                          gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                      gcdfo:PolicyGovernanceTheme ,
+                                      gcdfo:WildSalmonPolicyTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#hasDeme
+gcdfo:hasDeme rdf:type owl:ObjectProperty ;
+              rdfs:domain gcdfo:Population ;
+              rdfs:range gcdfo:Deme ;
+              <http://purl.obolibrary.org/obo/IAO_0000115> "Relates a population to one of its constituent demes."@en ;
+              rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+              rdfs:label "has deme"@en ;
+              gcdfo:theme gcdfo:GeneticsStockCompositionTheme ,
+                          gcdfo:WildSalmonPolicyTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#hasPopulation
+gcdfo:hasPopulation rdf:type owl:ObjectProperty ;
+                    owl:inverseOf gcdfo:populationOf ;
+                    rdfs:domain gcdfo:ConservationUnit ;
+                    rdfs:range gcdfo:Population ;
+                    <http://purl.obolibrary.org/obo/IAO_0000115> "Relates a Conservation Unit to one of its constituent populations."@en ;
+                    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                    rdfs:label "has population"@en ;
+                    gcdfo:theme gcdfo:StockAssessmentTheme ,
+                                gcdfo:WildSalmonPolicyTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#populationOf
+gcdfo:populationOf rdf:type owl:ObjectProperty ;
+                   rdfs:domain gcdfo:Population ;
+                   rdfs:range gcdfo:ConservationUnit ;
+                   <http://purl.obolibrary.org/obo/IAO_0000115> "Relates a population to the Conservation Unit it belongs to."@en ;
+                   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                   rdfs:label "population of"@en ;
+                   gcdfo:theme gcdfo:StockAssessmentTheme ,
+                               gcdfo:WildSalmonPolicyTheme .
+
+
 #################################################################
 #    Classes
 #################################################################
@@ -504,6 +575,17 @@ gcdfo:ConservationUnit rdf:type owl:Class ;
                                    gcdfo:WildSalmonPolicyTheme .
 
 
+###  https://w3id.org/gcdfo/salmon#Deme
+gcdfo:Deme rdf:type owl:Class ;
+           rdfs:subClassOf dwc:Organism ;
+           <http://purl.obolibrary.org/obo/IAO_0000115> "A local interbreeding group of organisms within a species. In salmon, a deme typically corresponds to a spawning population at a specific site. Demes are the finest biological unit and make up populations."@en ;
+           rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+           rdfs:label "Deme"@en ;
+           gcdfo:theme gcdfo:GeneticsStockCompositionTheme ,
+                       gcdfo:StockAssessmentTheme ,
+                       gcdfo:WildSalmonPolicyTheme .
+
+
 ###  https://w3id.org/gcdfo/salmon#Escapement
 gcdfo:Escapement rdf:type owl:Class ;
                  rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000015> ;
@@ -610,12 +692,13 @@ gcdfo:ObservedRateOrAbundance rdf:type owl:Class ;
 
 ###  https://w3id.org/gcdfo/salmon#Population
 gcdfo:Population rdf:type owl:Class ;
-                 rdfs:subClassOf gcdfo:ReportingOrManagementStratum ;
-                 <http://purl.obolibrary.org/obo/IAO_0000115> "A demographically or genetically distinct group of salmon used as a population-level aggregation in stock assessment and reporting (e.g., SPSR)."@en ;
+                 rdfs:subClassOf dwc:Organism ;
+                 <http://purl.obolibrary.org/obo/IAO_0000115> "A group of organisms of the same species occupying a defined area that interbreed and share a gene pool. In salmon, populations are composed of one or more demes and form the biological basis for Conservation Units."@en ;
                  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                  rdfs:label "Population"@en ;
-                 gcdfo:theme gcdfo:PolicyGovernanceTheme ,
-                             gcdfo:StockAssessmentTheme .
+                 gcdfo:theme gcdfo:GeneticsStockCompositionTheme ,
+                             gcdfo:StockAssessmentTheme ,
+                             gcdfo:WildSalmonPolicyTheme .
 
 
 ###  https://w3id.org/gcdfo/salmon#ReferencePoint
@@ -643,14 +726,15 @@ gcdfo:ReportingOrManagementStratum rdf:type owl:Class ;
 
 ###  https://w3id.org/gcdfo/salmon#Stock
 gcdfo:Stock rdf:type owl:Class ;
-            rdfs:subClassOf dwc:Organism ;
-            <http://purl.obolibrary.org/obo/IAO_0000115> "A biologically meaningful but operationally-focused salmon demographic unit used in assessment and reporting."@en ;
+            rdfs:subClassOf gcdfo:ReportingOrManagementStratum ;
+            <http://purl.obolibrary.org/obo/IAO_0000115> "An operationally-defined grouping of salmon used for assessment and management purposes. A stock is a management unit or reporting stratum, not a biological organism."@en ;
             <http://purl.obolibrary.org/obo/IAO_0000119> "DFO Introduction to Stock Assessment Glossary; Pacific Salmon Commission Technical Report No. 49."@en ;
             dcterms:source <https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html> ;
             rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
             rdfs:label "Stock"@en ;
             skos:altLabel "Fish stock"@en ;
-            gcdfo:theme gcdfo:PolicyGovernanceTheme ,
+            gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                        gcdfo:PolicyGovernanceTheme ,
                         gcdfo:StockAssessmentTheme .
 
 
