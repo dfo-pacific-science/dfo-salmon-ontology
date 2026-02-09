@@ -844,6 +844,19 @@
     
 
 
+    <!-- https://w3id.org/gcdfo/salmon#Population -->
+
+    <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#Population">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum"/>
+        <obo:IAO_0000115 xml:lang="en">A demographically or genetically distinct group of salmon used as a population-level aggregation in stock assessment and reporting (e.g., SPSR).</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Population</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/gcdfo/salmon#ReferencePoint -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#ReferencePoint">
@@ -938,7 +951,7 @@
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000109"/>
-        <obo:IAO_0000115 xml:lang="en">A value specification representing a policy- or model-defined target or limit, such as TAC, UMSY, or reference points.</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">A value specification representing a policy- or model-defined target or limit, such as TAC or UMSY.</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">Target or limit rate or abundance</rdfs:label>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
@@ -1356,6 +1369,19 @@
     
 
 
+    <!-- https://w3id.org/gcdfo/salmon#BenchmarkLevelScheme -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#BenchmarkLevelScheme">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:definition xml:lang="en">Controlled vocabulary for generic benchmark-level qualifiers usable as I-ADOPT constraint values attached to benchmark variables or values.</skos:definition>
+        <skos:prefLabel xml:lang="en">Benchmark Level Scheme</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- https://w3id.org/gcdfo/salmon#BiologicalBenchmarkAndIndicatorScheme -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#BiologicalBenchmarkAndIndicatorScheme">
@@ -1626,7 +1652,7 @@
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <skos:definition xml:lang="en">Controlled vocabulary for salmon enumeration methods</skos:definition>
         <skos:hasTopConcept rdf:resource="https://w3id.org/gcdfo/salmon#EnumerationMethod"/>
-        <skos:prefLabel xml:lang="en">Enumeration Method Scheme</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">Escapement Enumeration Method Scheme</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
     
@@ -1669,7 +1695,7 @@
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <skos:definition xml:lang="en">Controlled vocabulary for salmon estimate methods</skos:definition>
         <skos:hasTopConcept rdf:resource="https://w3id.org/gcdfo/salmon#EstimateMethod"/>
-        <skos:prefLabel xml:lang="en">Estimate Method Scheme</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">Escapement Estimate Method Scheme</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
     
@@ -1696,7 +1722,7 @@
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <skos:definition xml:lang="en">Controlled vocabulary for Hyatt 1997 estimate types</skos:definition>
         <skos:hasTopConcept rdf:resource="https://w3id.org/gcdfo/salmon#EstimateType"/>
-        <skos:prefLabel xml:lang="en">Estimate Type Scheme</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">Escapement Estimate Type Scheme</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
     
@@ -1986,6 +2012,20 @@
         <skos:hasTopConcept rdf:resource="https://w3id.org/gcdfo/salmon#LifePhase"/>
         <skos:prefLabel xml:lang="en">Life phase scheme</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#LowerBenchmark -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#LowerBenchmark">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:definition xml:lang="en">A lower-threshold benchmark value, typically delineating the boundary between Red and Amber status zones.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#BenchmarkLevelScheme"/>
+        <skos:prefLabel xml:lang="en">Lower benchmark</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:NamedIndividual>
     
 
@@ -2762,6 +2802,20 @@
         <skos:prefLabel xml:lang="en">Type-6, Presence or Absence</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#UpperBenchmark -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#UpperBenchmark">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:definition xml:lang="en">An upper-threshold benchmark value, typically delineating the boundary between Amber and Green status zones.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#BenchmarkLevelScheme"/>
+        <skos:prefLabel xml:lang="en">Upper benchmark</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:NamedIndividual>
     
 

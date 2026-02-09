@@ -423,14 +423,14 @@ envo:00000234 a owl:Class ;
 #################################################################
 
 :EnumerationMethodScheme a skos:ConceptScheme ;
-  skos:prefLabel "Enumeration Method Scheme"@en ;
+  skos:prefLabel "Escapement Enumeration Method Scheme"@en ;
   skos:hasTopConcept :EnumerationMethod ;
   skos:definition "Controlled vocabulary for salmon enumeration methods"@en ;
   gcdfo:theme gcdfo:StockAssessmentTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 :EstimateMethodScheme a skos:ConceptScheme ;
-  skos:prefLabel "Estimate Method Scheme"@en ;
+  skos:prefLabel "Escapement Estimate Method Scheme"@en ;
   skos:hasTopConcept :EstimateMethod ;
   skos:definition "Controlled vocabulary for salmon estimate methods"@en ;
   gcdfo:theme gcdfo:StockAssessmentTheme ;
@@ -444,7 +444,7 @@ envo:00000234 a owl:Class ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 :EstimateTypeScheme a skos:ConceptScheme ;
-  skos:prefLabel "Estimate Type Scheme"@en ;
+  skos:prefLabel "Escapement Estimate Type Scheme"@en ;
   skos:hasTopConcept :EstimateType ;
   skos:definition "Controlled vocabulary for Hyatt 1997 estimate types"@en ;
   gcdfo:theme gcdfo:StockAssessmentTheme ;
@@ -536,6 +536,12 @@ envo:00000234 a owl:Class ;
   skos:definition "Controlled vocabulary for life-phase or fishery/migration segment qualifiers used to stratify measurements (e.g., ocean, terminal, mainstem)."@en ;
   skos:hasTopConcept gcdfo:LifePhase ;
   gcdfo:theme gcdfo:StockAssessmentTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:BenchmarkLevelScheme a skos:ConceptScheme ;
+  skos:prefLabel "Benchmark Level Scheme"@en ;
+  skos:definition "Controlled vocabulary for generic benchmark-level qualifiers usable as I-ADOPT constraint values attached to benchmark variables or values."@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 :PolicyFrameworkScheme a skos:ConceptScheme ;
@@ -831,6 +837,20 @@ gcdfo:InRiverPhase a skos:Concept ;
   skos:inScheme :LifePhaseScheme ;
   skos:broader gcdfo:LifePhase ;
   gcdfo:theme gcdfo:StockAssessmentTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:LowerBenchmark a skos:Concept ;
+  skos:prefLabel "Lower benchmark"@en ;
+  skos:definition "A lower-threshold benchmark value, typically delineating the boundary between Red and Amber status zones."@en ;
+  skos:inScheme :BenchmarkLevelScheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:UpperBenchmark a skos:Concept ;
+  skos:prefLabel "Upper benchmark"@en ;
+  skos:definition "An upper-threshold benchmark value, typically delineating the boundary between Amber and Green status zones."@en ;
+  skos:inScheme :BenchmarkLevelScheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:PolicyFramework a skos:Concept ;
@@ -1325,7 +1345,7 @@ gcdfo:ObservedRateOrAbundance a owl:Class ;
 
 gcdfo:TargetOrLimitRateOrAbundance a owl:Class ;
   rdfs:label "Target or limit rate or abundance"@en ;
-  iao:0000115 "A value specification representing a policy- or model-defined target or limit, such as TAC, UMSY, or reference points."@en ; # definition
+  iao:0000115 "A value specification representing a policy- or model-defined target or limit, such as TAC or UMSY."@en ; # definition
   rdfs:subClassOf iao:0000109 ; # measurement datum
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:PolicyGovernanceTheme, gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
@@ -1373,6 +1393,13 @@ gcdfo:Stock a owl:Class ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
   skos:altLabel "Fish stock"@en ;
   gcdfo:theme gcdfo:PolicyGovernanceTheme, gcdfo:StockAssessmentTheme .
+
+gcdfo:Population a owl:Class ;
+  rdfs:label "Population"@en ;
+  iao:0000115 "A demographically or genetically distinct group of salmon used as a population-level aggregation in stock assessment and reporting (e.g., SPSR)."@en ; # definition
+  rdfs:subClassOf gcdfo:ReportingOrManagementStratum ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:PolicyGovernanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:StockAssessment a owl:Class ;
   rdfs:label "Stock assessment"@en ;

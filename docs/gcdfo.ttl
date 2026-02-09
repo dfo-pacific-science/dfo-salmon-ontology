@@ -608,6 +608,16 @@ gcdfo:ObservedRateOrAbundance rdf:type owl:Class ;
                                           gcdfo:StockAssessmentTheme .
 
 
+###  https://w3id.org/gcdfo/salmon#Population
+gcdfo:Population rdf:type owl:Class ;
+                 rdfs:subClassOf gcdfo:ReportingOrManagementStratum ;
+                 <http://purl.obolibrary.org/obo/IAO_0000115> "A demographically or genetically distinct group of salmon used as a population-level aggregation in stock assessment and reporting (e.g., SPSR)."@en ;
+                 rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                 rdfs:label "Population"@en ;
+                 gcdfo:theme gcdfo:PolicyGovernanceTheme ,
+                             gcdfo:StockAssessmentTheme .
+
+
 ###  https://w3id.org/gcdfo/salmon#ReferencePoint
 gcdfo:ReferencePoint rdf:type owl:Class ;
                      rdfs:subClassOf <http://purl.obolibrary.org/obo/IAO_0000030> ;
@@ -683,7 +693,7 @@ gcdfo:SurveyEvent rdf:type owl:Class ;
 ###  https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance
 gcdfo:TargetOrLimitRateOrAbundance rdf:type owl:Class ;
                                    rdfs:subClassOf <http://purl.obolibrary.org/obo/IAO_0000109> ;
-                                   <http://purl.obolibrary.org/obo/IAO_0000115> "A value specification representing a policy- or model-defined target or limit, such as TAC, UMSY, or reference points."@en ;
+                                   <http://purl.obolibrary.org/obo/IAO_0000115> "A value specification representing a policy- or model-defined target or limit, such as TAC or UMSY."@en ;
                                    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                                    rdfs:label "Target or limit rate or abundance"@en ;
                                    gcdfo:theme gcdfo:DataModelProvenanceTheme ,
@@ -1009,6 +1019,16 @@ gcdfo:AreaUnderTheCurve rdf:type owl:NamedIndividual ,
                                     gcdfo:StockAssessmentTheme .
 
 
+###  https://w3id.org/gcdfo/salmon#BenchmarkLevelScheme
+gcdfo:BenchmarkLevelScheme rdf:type owl:NamedIndividual ,
+                                    skos:ConceptScheme ;
+                           rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                           skos:definition "Controlled vocabulary for generic benchmark-level qualifiers usable as I-ADOPT constraint values attached to benchmark variables or values."@en ;
+                           skos:prefLabel "Benchmark Level Scheme"@en ;
+                           gcdfo:theme gcdfo:StockAssessmentTheme ,
+                                       gcdfo:WildSalmonPolicyTheme .
+
+
 ###  https://w3id.org/gcdfo/salmon#BiologicalBenchmarkAndIndicatorScheme
 gcdfo:BiologicalBenchmarkAndIndicatorScheme rdf:type owl:NamedIndividual ,
                                                      skos:ConceptScheme ;
@@ -1224,7 +1244,7 @@ gcdfo:EnumerationMethodScheme rdf:type owl:NamedIndividual ,
                               rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                               skos:definition "Controlled vocabulary for salmon enumeration methods"@en ;
                               skos:hasTopConcept gcdfo:EnumerationMethod ;
-                              skos:prefLabel "Enumeration Method Scheme"@en ;
+                              skos:prefLabel "Escapement Enumeration Method Scheme"@en ;
                               gcdfo:theme gcdfo:StockAssessmentTheme .
 
 
@@ -1258,7 +1278,7 @@ gcdfo:EstimateMethodScheme rdf:type owl:NamedIndividual ,
                            rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                            skos:definition "Controlled vocabulary for salmon estimate methods"@en ;
                            skos:hasTopConcept gcdfo:EstimateMethod ;
-                           skos:prefLabel "Estimate Method Scheme"@en ;
+                           skos:prefLabel "Escapement Estimate Method Scheme"@en ;
                            gcdfo:theme gcdfo:StockAssessmentTheme .
 
 
@@ -1279,7 +1299,7 @@ gcdfo:EstimateTypeScheme rdf:type owl:NamedIndividual ,
                          rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                          skos:definition "Controlled vocabulary for Hyatt 1997 estimate types"@en ;
                          skos:hasTopConcept gcdfo:EstimateType ;
-                         skos:prefLabel "Estimate Type Scheme"@en ;
+                         skos:prefLabel "Escapement Estimate Type Scheme"@en ;
                          gcdfo:theme gcdfo:StockAssessmentTheme .
 
 
@@ -1512,6 +1532,17 @@ gcdfo:LifePhaseScheme rdf:type owl:NamedIndividual ,
                       skos:hasTopConcept gcdfo:LifePhase ;
                       skos:prefLabel "Life phase scheme"@en ;
                       gcdfo:theme gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#LowerBenchmark
+gcdfo:LowerBenchmark rdf:type owl:NamedIndividual ,
+                              skos:Concept ;
+                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                     skos:definition "A lower-threshold benchmark value, typically delineating the boundary between Red and Amber status zones."@en ;
+                     skos:inScheme gcdfo:BenchmarkLevelScheme ;
+                     skos:prefLabel "Lower benchmark"@en ;
+                     gcdfo:theme gcdfo:StockAssessmentTheme ,
+                                 gcdfo:WildSalmonPolicyTheme .
 
 
 ###  https://w3id.org/gcdfo/salmon#MainstemPhase
@@ -2132,6 +2163,17 @@ gcdfo:Type6 rdf:type owl:NamedIndividual ,
             skos:prefLabel "Type-6, Presence or Absence"@en ;
             gcdfo:theme gcdfo:DataModelProvenanceTheme ,
                         gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#UpperBenchmark
+gcdfo:UpperBenchmark rdf:type owl:NamedIndividual ,
+                              skos:Concept ;
+                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                     skos:definition "An upper-threshold benchmark value, typically delineating the boundary between Amber and Green status zones."@en ;
+                     skos:inScheme gcdfo:BenchmarkLevelScheme ;
+                     skos:prefLabel "Upper benchmark"@en ;
+                     gcdfo:theme gcdfo:StockAssessmentTheme ,
+                                 gcdfo:WildSalmonPolicyTheme .
 
 
 ###  https://w3id.org/gcdfo/salmon#Uptime

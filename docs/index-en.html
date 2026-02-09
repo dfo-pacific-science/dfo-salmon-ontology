@@ -220,6 +220,9 @@ This ontology has the following classes and properties.</span>
       <a href="#http://purl.obolibrary.org/obo/ENVO_00000033" title="http://purl.obolibrary.org/obo/ENVO_00000033">pond</a>
    </li>
    <li>
+      <a href="#Population" title="https://w3id.org/gcdfo/salmon#Population">Population</a>
+   </li>
+   <li>
       <a href="#http://purl.obolibrary.org/obo/BFO_0000015" title="http://purl.obolibrary.org/obo/BFO_0000015">process</a>
    </li>
    <li>
@@ -342,6 +345,7 @@ This section provides details for each class and property defined by GC DFO Salm
   <li><a href="#http://rs.tdwg.org/dwc/terms/Organism" title="http://rs.tdwg.org/dwc/terms/Organism">Organism</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/IAO_0000104" title="http://purl.obolibrary.org/obo/IAO_0000104">plan specification</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/ENVO_00000033" title="http://purl.obolibrary.org/obo/ENVO_00000033">pond</a></li>
+  <li><a href="#Population" title="https://w3id.org/gcdfo/salmon#Population">Population</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/BFO_0000015" title="http://purl.obolibrary.org/obo/BFO_0000015">process</a></li>
   <li><a href="#http://www.w3.org/ns/dqv#QualityAnnotation" title="http://www.w3.org/ns/dqv#QualityAnnotation">Quality Annotation</a></li>
   <li><a href="#ReferencePoint" title="https://w3id.org/gcdfo/salmon#ReferencePoint">Reference point</a></li>
@@ -1329,6 +1333,29 @@ This section provides details for each class and property defined by GC DFO Salm
    </dd>
   </dl>
  </div>
+ <div class="entity" id="Population">
+  <h3>Population<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#Population</p>
+  <div class="comment">
+   <span class="markdown">A demographically or genetically distinct group of salmon used as a population-level aggregation in stock assessment and reporting (e.g., SPSR).</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#ReportingOrManagementStratum" title="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum">Reporting or management stratum</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
  <div class="entity" id="http://purl.obolibrary.org/obo/BFO_0000015">
   <h3>process<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> http://purl.obolibrary.org/obo/BFO_0000015</p>
@@ -1448,7 +1475,7 @@ This section provides details for each class and property defined by GC DFO Salm
     has sub-classes
    </dt>
    <dd>
-    <a href="#ConservationUnit" title="https://w3id.org/gcdfo/salmon#ConservationUnit">Conservation Unit</a> <sup class="type-c" title="class">c</sup>, <a href="#StockManagementUnit" title="https://w3id.org/gcdfo/salmon#StockManagementUnit">Stock Management Unit</a> <sup class="type-c" title="class">c</sup>
+    <a href="#ConservationUnit" title="https://w3id.org/gcdfo/salmon#ConservationUnit">Conservation Unit</a> <sup class="type-c" title="class">c</sup>, <a href="#Population" title="https://w3id.org/gcdfo/salmon#Population">Population</a> <sup class="type-c" title="class">c</sup>, <a href="#StockManagementUnit" title="https://w3id.org/gcdfo/salmon#StockManagementUnit">Stock Management Unit</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -1688,7 +1715,7 @@ This section provides details for each class and property defined by GC DFO Salm
   <h3>Target or limit rate or abundance<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance</p>
   <div class="comment">
-   <span class="markdown">A value specification representing a policy- or model-defined target or limit, such as TAC, UMSY, or reference points.</span>
+   <span class="markdown">A value specification representing a policy- or model-defined target or limit, such as TAC or UMSY.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -1973,6 +2000,14 @@ This section provides details for each class and property defined by GC DFO Salm
 <li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000115> "Benchmark value for a WSP metric that helps delineate status zones (for example, the limit reference point for absolute abundance)."@en</li>
 </ul>
 </li>
+<li><a href="#TargetOrLimitRateOrAbundance">https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance</a>
+<ul>
+<li>Added: <http://purl.obolibrary.org/obo/IAO_0000115> "A value specification representing a policy- or model-defined target or limit, such as TAC or UMSY."@en</li>
+</ul>
+<ul>
+<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000115> "A value specification representing a policy- or model-defined target or limit, such as TAC, UMSY, or reference points."@en</li>
+</ul>
+</li>
 <li><a href="#WSPBiologicalStatusZone">https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZone</a>
 <ul>
 <li>Added: <http://www.w3.org/2004/02/skos/core#inScheme> https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZoneScheme</li>
@@ -1993,6 +2028,11 @@ This section provides details for each class and property defined by GC DFO Salm
 <ul><li><a href="#LowerBiologicalBenchmark">https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark</a>
 <ul>
 <li>Added: SubClass of https://w3id.org/gcdfo/salmon#MetricBenchmark</li>
+</ul>
+</li>
+<li><a href="#Population">https://w3id.org/gcdfo/salmon#Population</a>
+<ul>
+<li>Added: SubClass of https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum</li>
 </ul>
 </li>
 <li><a href="#UpperBiologicalBenchmark">https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark</a>
