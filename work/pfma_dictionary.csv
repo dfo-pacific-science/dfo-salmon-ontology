@@ -1,5 +1,0 @@
-Field,Short definition,Long definition,Unmatched field,table
-ID,ID,Auto-generated unique identifier for the record.,,PFMA
-PFMA_ID,PFMA ID,Pacific Fishery Management Area ID,,PFMA
-PFMA_NAME,PFMA Name,Pacific Fishery Management Area Name,,PFMA
-DFO_AREA,DFO Area,"The DFO (Fisheries and Oceans Canada) area that the unit resides in, either South Coast, North Coast, Fraser and Interior, Yukon Transboundary.",Yes,PFMA
