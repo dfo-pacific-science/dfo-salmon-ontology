@@ -201,6 +201,12 @@
     
 
 
+    <!-- http://www.w3.org/2004/02/skos/core#notation -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#notation"/>
+    
+
+
     <!-- http://www.w3.org/2004/02/skos/core#prefLabel -->
 
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#prefLabel"/>
@@ -302,6 +308,95 @@
         <rdfs:comment xml:lang="en">Dimensions are meant to systematically organize metrics, quality certificates and quality annotations. The Data Quality Vocabulary defines no specific cardinality constraints for dqv:inDimension, since distinct quality frameworks might have different perspectives over a metric. A metric may therefore be associated to more than one dimension. However, those who define new quality metrics should try to avoid this as much as possible and assign only one dimension to the metrics they define. More than one dimension can be indicated for each quality annotation or certificate.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/dqv#"/>
         <rdfs:label xml:lang="en">in dimension</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#conservationUnitOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#conservationUnitOf">
+        <owl:inverseOf rdf:resource="https://w3id.org/gcdfo/salmon#hasConservationUnit"/>
+        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#ConservationUnit"/>
+        <rdfs:range rdf:resource="https://w3id.org/gcdfo/salmon#StockManagementUnit"/>
+        <obo:IAO_0000115 xml:lang="en">Relates a Conservation Unit to the Stock Management Unit it belongs to.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Conservation Unit of</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#demeOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#demeOf">
+        <owl:inverseOf rdf:resource="https://w3id.org/gcdfo/salmon#hasDeme"/>
+        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#Deme"/>
+        <rdfs:range rdf:resource="https://w3id.org/gcdfo/salmon#Population"/>
+        <obo:IAO_0000115 xml:lang="en">Relates a deme to the population it belongs to.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">deme of</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#hasConservationUnit -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#hasConservationUnit">
+        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#StockManagementUnit"/>
+        <rdfs:range rdf:resource="https://w3id.org/gcdfo/salmon#ConservationUnit"/>
+        <obo:IAO_0000115 xml:lang="en">Relates a Stock Management Unit to one of its constituent Conservation Units.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">has Conservation Unit</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#hasDeme -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#hasDeme">
+        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#Population"/>
+        <rdfs:range rdf:resource="https://w3id.org/gcdfo/salmon#Deme"/>
+        <obo:IAO_0000115 xml:lang="en">Relates a population to one of its constituent demes.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">has deme</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#hasPopulation -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#hasPopulation">
+        <owl:inverseOf rdf:resource="https://w3id.org/gcdfo/salmon#populationOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#ConservationUnit"/>
+        <rdfs:range rdf:resource="https://w3id.org/gcdfo/salmon#Population"/>
+        <obo:IAO_0000115 xml:lang="en">Relates a Conservation Unit to one of its constituent populations.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">has population</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#populationOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#populationOf">
+        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#Population"/>
+        <rdfs:range rdf:resource="https://w3id.org/gcdfo/salmon#ConservationUnit"/>
+        <obo:IAO_0000115 xml:lang="en">Relates a population to the Conservation Unit it belongs to.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">population of</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:ObjectProperty>
     
 
@@ -707,6 +802,20 @@
     
 
 
+    <!-- https://w3id.org/gcdfo/salmon#Deme -->
+
+    <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#Deme">
+        <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/dwc/terms/Organism"/>
+        <obo:IAO_0000115 xml:lang="en">A local interbreeding group of organisms within a species. In salmon, a deme typically corresponds to a spawning population at a specific site. Demes are the finest biological unit and make up populations.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Deme</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/gcdfo/salmon#Escapement -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#Escapement">
@@ -794,6 +903,22 @@
     
 
 
+    <!-- https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark -->
+
+    <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#MetricBenchmark"/>
+        <obo:IAO_0000115 xml:lang="en">Lower benchmark value for a metric used to delineate Wild Salmon Policy status zones (typically the boundary between Red and Amber zones).</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf.</obo:IAO_0000119>
+        <dcterms:source rdf:resource="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Lower biological benchmark</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/gcdfo/salmon#MetricBenchmark -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#MetricBenchmark">
@@ -818,6 +943,20 @@
         <rdfs:label xml:lang="en">Observed rate or abundance</rdfs:label>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#Population -->
+
+    <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#Population">
+        <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/dwc/terms/Organism"/>
+        <obo:IAO_0000115 xml:lang="en">A group of organisms of the same species occupying a defined area that interbreed and share a gene pool. In salmon, populations are composed of one or more demes and form the biological basis for Conservation Units.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Population</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:Class>
     
 
@@ -854,13 +993,14 @@
     <!-- https://w3id.org/gcdfo/salmon#Stock -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#Stock">
-        <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/dwc/terms/Organism"/>
-        <obo:IAO_0000115 xml:lang="en">A biologically meaningful but operationally-focused salmon demographic unit used in assessment and reporting.</obo:IAO_0000115>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum"/>
+        <obo:IAO_0000115 xml:lang="en">An operationally-defined grouping of salmon used for assessment and management purposes. A stock is a management unit or reporting stratum, not a biological organism.</obo:IAO_0000115>
         <obo:IAO_0000119 xml:lang="en">DFO Introduction to Stock Assessment Glossary; Pacific Salmon Commission Technical Report No. 49.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">Stock</rdfs:label>
         <skos:altLabel xml:lang="en">Fish stock</skos:altLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
@@ -916,7 +1056,7 @@
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000109"/>
-        <obo:IAO_0000115 xml:lang="en">A value specification representing a policy- or model-defined target or limit, such as TAC, UMSY, or reference points.</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">A value specification representing a policy- or model-defined target or limit, such as TAC or UMSY.</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">Target or limit rate or abundance</rdfs:label>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
@@ -935,6 +1075,22 @@
         <rdfs:label xml:lang="en">Total exploitation rate</rdfs:label>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark -->
+
+    <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#MetricBenchmark"/>
+        <obo:IAO_0000115 xml:lang="en">Upper benchmark value for a metric used to delineate Wild Salmon Policy status zones (typically the boundary between Amber and Green zones).</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf.</obo:IAO_0000119>
+        <dcterms:source rdf:resource="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Upper biological benchmark</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:Class>
     
 
@@ -1028,6 +1184,264 @@
     
 
 
+    <!-- https://w3id.org/gcdfo/salmon#Age1YearClass -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#Age1YearClass">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#AgeClassValue"/>
+        <skos:definition xml:lang="en">Age class value 1 year.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#AgeClassValueScheme"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:notation>
+        <skos:prefLabel xml:lang="en">Age 1 year class</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#Age2YearClass -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#Age2YearClass">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#AgeClassValue"/>
+        <skos:definition xml:lang="en">Age class value 2 years.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#AgeClassValueScheme"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:notation>
+        <skos:prefLabel xml:lang="en">Age 2 year class</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#Age3YearClass -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#Age3YearClass">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#AgeClassValue"/>
+        <skos:definition xml:lang="en">Age class value 3 years.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#AgeClassValueScheme"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:notation>
+        <skos:prefLabel xml:lang="en">Age 3 year class</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#Age4YearClass -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#Age4YearClass">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#AgeClassValue"/>
+        <skos:definition xml:lang="en">Age class value 4 years.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#AgeClassValueScheme"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</skos:notation>
+        <skos:prefLabel xml:lang="en">Age 4 year class</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#Age5YearClass -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#Age5YearClass">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#AgeClassValue"/>
+        <skos:definition xml:lang="en">Age class value 5 years.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#AgeClassValueScheme"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</skos:notation>
+        <skos:prefLabel xml:lang="en">Age 5 year class</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#Age6YearClass -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#Age6YearClass">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#AgeClassValue"/>
+        <skos:definition xml:lang="en">Age class value 6 years.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#AgeClassValueScheme"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</skos:notation>
+        <skos:prefLabel xml:lang="en">Age 6 year class</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#Age7YearClass -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#Age7YearClass">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#AgeClassValue"/>
+        <skos:definition xml:lang="en">Age class value 7 years.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#AgeClassValueScheme"/>
+        <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</skos:notation>
+        <skos:prefLabel xml:lang="en">Age 7 year class</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#AgeAtMaturityBasis -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#AgeAtMaturityBasis">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#AgeBasis"/>
+        <skos:definition xml:lang="en">Age measured at maturity.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#AgeBasisScheme"/>
+        <skos:prefLabel xml:lang="en">Age at maturity basis</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#AgeAtReturnBasis -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#AgeAtReturnBasis">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#AgeBasis"/>
+        <skos:definition xml:lang="en">Age measured at return migration (adult return timing).</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#AgeBasisScheme"/>
+        <skos:prefLabel xml:lang="en">Age at return basis</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#AgeAtSamplingBasis -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#AgeAtSamplingBasis">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#AgeBasis"/>
+        <skos:definition xml:lang="en">Age measured at the time of sampling or observation.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#AgeBasisScheme"/>
+        <skos:prefLabel xml:lang="en">Age at sampling basis</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#AgeBasis -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#AgeBasis">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:definition xml:lang="en">The reference event or life-history point that an age value is measured against.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#AgeBasisScheme"/>
+        <skos:prefLabel xml:lang="en">Age basis</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#AgeBasisScheme -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#AgeBasisScheme">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:definition xml:lang="en">Controlled vocabulary for the reference event used by an age value (for example, age at return).</skos:definition>
+        <skos:hasTopConcept rdf:resource="https://w3id.org/gcdfo/salmon#AgeBasis"/>
+        <skos:prefLabel xml:lang="en">Age basis scheme</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#AgeClassValue -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#AgeClassValue">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:definition xml:lang="en">An integer-like age class value used as a compositional constraint in salmon measurements.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#AgeClassValueScheme"/>
+        <skos:prefLabel xml:lang="en">Age class value</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#AgeClassValueScheme -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#AgeClassValueScheme">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:definition xml:lang="en">Controlled vocabulary for integer-like age class values used as constraints on salmon measurements.</skos:definition>
+        <skos:hasTopConcept rdf:resource="https://w3id.org/gcdfo/salmon#AgeClassValue"/>
+        <skos:prefLabel xml:lang="en">Age class value scheme</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#AgeDimension -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#AgeDimension">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:definition xml:lang="en">The age component represented by a value (total age, freshwater years, or ocean years).</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#AgeDimensionScheme"/>
+        <skos:prefLabel xml:lang="en">Age dimension</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#AgeDimensionScheme -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#AgeDimensionScheme">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:definition xml:lang="en">Controlled vocabulary for which age component is represented (total age, freshwater years, or ocean years).</skos:definition>
+        <skos:hasTopConcept rdf:resource="https://w3id.org/gcdfo/salmon#AgeDimension"/>
+        <skos:prefLabel xml:lang="en">Age dimension scheme</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#AgeNotation -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#AgeNotation">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:definition xml:lang="en">A notation system used to encode salmon age values in stock assessment data.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#AgeNotationScheme"/>
+        <skos:prefLabel xml:lang="en">Age notation</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#AgeNotationScheme -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#AgeNotationScheme">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:definition xml:lang="en">Controlled vocabulary for salmon age notation systems (for example, Gilbert-Rich and European notation).</skos:definition>
+        <skos:hasTopConcept rdf:resource="https://w3id.org/gcdfo/salmon#AgeNotation"/>
+        <skos:prefLabel xml:lang="en">Age notation scheme</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- https://w3id.org/gcdfo/salmon#AmberZone -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#AmberZone">
@@ -1056,6 +1470,19 @@
         <skos:prefLabel xml:lang="en">Area Under the Curve</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#BenchmarkLevelScheme -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#BenchmarkLevelScheme">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:definition xml:lang="en">Controlled vocabulary for generic benchmark-level qualifiers usable as I-ADOPT constraint values attached to benchmark variables or values.</skos:definition>
+        <skos:prefLabel xml:lang="en">Benchmark Level Scheme</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:NamedIndividual>
     
 
@@ -1121,6 +1548,20 @@
     
 
 
+    <!-- https://w3id.org/gcdfo/salmon#CatchContext -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#CatchContext">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContext"/>
+        <skos:definition xml:lang="en">Measurement context indicating values refer to fishery catch.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContextScheme"/>
+        <skos:prefLabel xml:lang="en">Catch context</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- https://w3id.org/gcdfo/salmon#Classification -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#Classification">
@@ -1169,6 +1610,20 @@
         <skos:definition xml:lang="en">Data models, analytical workflows, provenance, quality dimensions, and metadata supporting salmon science.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#ThemeScheme"/>
         <skos:prefLabel xml:lang="en">Data, Models, and Provenance</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#DataQualityRatingContext -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#DataQualityRatingContext">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContext"/>
+        <skos:definition xml:lang="en">Measurement context indicating categorical or ordinal quality ratings.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContextScheme"/>
+        <skos:prefLabel xml:lang="en">Data quality rating context</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
     </owl:NamedIndividual>
     
@@ -1302,7 +1757,7 @@
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <skos:definition xml:lang="en">Controlled vocabulary for salmon enumeration methods</skos:definition>
         <skos:hasTopConcept rdf:resource="https://w3id.org/gcdfo/salmon#EnumerationMethod"/>
-        <skos:prefLabel xml:lang="en">Enumeration Method Scheme</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">Escapement Enumeration Method Scheme</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
     
@@ -1345,7 +1800,7 @@
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <skos:definition xml:lang="en">Controlled vocabulary for salmon estimate methods</skos:definition>
         <skos:hasTopConcept rdf:resource="https://w3id.org/gcdfo/salmon#EstimateMethod"/>
-        <skos:prefLabel xml:lang="en">Estimate Method Scheme</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">Escapement Estimate Method Scheme</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
     
@@ -1372,7 +1827,24 @@
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <skos:definition xml:lang="en">Controlled vocabulary for Hyatt 1997 estimate types</skos:definition>
         <skos:hasTopConcept rdf:resource="https://w3id.org/gcdfo/salmon#EstimateType"/>
-        <skos:prefLabel xml:lang="en">Estimate Type Scheme</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">Escapement Estimate Type Scheme</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#EuropeanAgeNotation -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#EuropeanAgeNotation">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <dcterms:source rdf:resource="https://www.pac.dfo-mpo.gc.ca/fm-gp/fraser/docs/archiv-reports-rapports/indigenous-autochtone/2010FrasRvrChkInformDoc.htm"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#AgeNotation"/>
+        <skos:definition xml:lang="en">Salmon age notation that records freshwater years followed by ocean years (for example, 1.2).</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#AgeNotationScheme"/>
+        <skos:notation>European</skos:notation>
+        <skos:prefLabel xml:lang="en">European age notation</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
     
@@ -1389,6 +1861,23 @@
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EstimateMethodScheme"/>
         <skos:prefLabel xml:lang="en">Expansion/Mathematical Operations</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#FishStockProvisions -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#FishStockProvisions">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:altLabel xml:lang="en">FSP</skos:altLabel>
+        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#PolicyFramework"/>
+        <skos:definition xml:lang="en">Legal provisions in Canada&apos;s Fisheries Act and regulations related to maintaining and rebuilding fish stocks, including obligations triggered when reference points are breached.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyFrameworkScheme"/>
+        <skos:prefLabel xml:lang="en">Fish Stocks Provisions</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
     
@@ -1454,6 +1943,20 @@
     
 
 
+    <!-- https://w3id.org/gcdfo/salmon#FreshwaterAgeDimension -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#FreshwaterAgeDimension">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#AgeDimension"/>
+        <skos:definition xml:lang="en">Age value represents years spent in freshwater.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#AgeDimensionScheme"/>
+        <skos:prefLabel xml:lang="en">Freshwater age dimension</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme">
@@ -1463,6 +1966,24 @@
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#ThemeScheme"/>
         <skos:prefLabel xml:lang="en">Genetics and Stock Composition</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#GilbertRichAgeNotation -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#GilbertRichAgeNotation">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <dcterms:source rdf:resource="https://www.pac.dfo-mpo.gc.ca/fm-gp/fraser/docs/archiv-reports-rapports/indigenous-autochtone/2010FrasRvrChkInformDoc.htm"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:altLabel xml:lang="en">GR age notation</skos:altLabel>
+        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#AgeNotation"/>
+        <skos:definition xml:lang="en">Salmon age notation where total age is annotated with freshwater years as a subscript-like suffix (for example, 4_2 for total age 4 with 2 freshwater years).</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#AgeNotationScheme"/>
+        <skos:notation>Gilbert-Rich</skos:notation>
+        <skos:prefLabel xml:lang="en">Gilbert-Rich age notation</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
     
 
@@ -1492,6 +2013,23 @@
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#ThemeScheme"/>
         <skos:prefLabel xml:lang="en">Habitat, Ecosystem, and Climate Pressures</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#HatcheryOrigin -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#HatcheryOrigin">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <obo:IAO_0000119 xml:lang="en">DFO. (2018). Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Can. Sci. Advis. Sec. Sci. Advis. Rep. 2018/001. (Erratum: October 2023)</obo:IAO_0000119>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#SalmonOrigin"/>
+        <skos:definition xml:lang="en">Individuals that were born or reared in a hatchery facility.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#SalmonOriginScheme"/>
+        <skos:prefLabel xml:lang="en">Hatchery-origin</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
     
 
@@ -1528,6 +2066,21 @@
     
 
 
+    <!-- https://w3id.org/gcdfo/salmon#InRiverPhase -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#InRiverPhase">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:altLabel xml:lang="en">Freshwater phase</skos:altLabel>
+        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#LifePhase"/>
+        <skos:definition xml:lang="en">Freshwater in-river phase (migration and/or residence) outside the marine environment.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#LifePhaseScheme"/>
+        <skos:prefLabel xml:lang="en">In-river phase</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- https://w3id.org/gcdfo/salmon#InfillMethod -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#InfillMethod">
@@ -1539,6 +2092,75 @@
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteriaScheme"/>
         <skos:prefLabel xml:lang="en">Infill Method</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#LifePhase -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#LifePhase">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:definition xml:lang="en">A phase or segment used to stratify salmon measurements by where or when they apply (e.g., ocean phase, terminal phase).</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#LifePhaseScheme"/>
+        <skos:prefLabel xml:lang="en">Life phase</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#LifePhaseScheme -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#LifePhaseScheme">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:definition xml:lang="en">Controlled vocabulary for life-phase or fishery/migration segment qualifiers used to stratify measurements (e.g., ocean, terminal, mainstem).</skos:definition>
+        <skos:hasTopConcept rdf:resource="https://w3id.org/gcdfo/salmon#LifePhase"/>
+        <skos:prefLabel xml:lang="en">Life phase scheme</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#LowerBenchmark -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#LowerBenchmark">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:definition xml:lang="en">A lower-threshold benchmark value, typically delineating the boundary between Red and Amber status zones.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#BenchmarkLevelScheme"/>
+        <skos:prefLabel xml:lang="en">Lower benchmark</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#MainstemPhase -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#MainstemPhase">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#LifePhase"/>
+        <skos:definition xml:lang="en">Freshwater mainstem migration phase in a river system (often corresponding to mainstem in-river fisheries or monitoring segments).</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#LifePhaseScheme"/>
+        <skos:prefLabel xml:lang="en">Mainstem phase</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#ManagementReferenceContext -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#ManagementReferenceContext">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContext"/>
+        <skos:definition xml:lang="en">Measurement context indicating values are management benchmarks or reference-oriented metrics.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContextScheme"/>
+        <skos:prefLabel xml:lang="en">Management reference context</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
     
@@ -1592,6 +2214,34 @@
     
 
 
+    <!-- https://w3id.org/gcdfo/salmon#MeasurementContext -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#MeasurementContext">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:definition xml:lang="en">A context qualifier used to disambiguate the interpretation of a measurement column.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContextScheme"/>
+        <skos:prefLabel xml:lang="en">Measurement context</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#MeasurementContextScheme -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#MeasurementContextScheme">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:definition xml:lang="en">Controlled vocabulary for compositional measurement context qualifiers (for example, catch context, run context).</skos:definition>
+        <skos:hasTopConcept rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContext"/>
+        <skos:prefLabel xml:lang="en">Measurement context scheme</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- https://w3id.org/gcdfo/salmon#MethodUnknown -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#MethodUnknown">
@@ -1621,6 +2271,23 @@
     
 
 
+    <!-- https://w3id.org/gcdfo/salmon#NaturalOrigin -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#NaturalOrigin">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <obo:IAO_0000119 xml:lang="en">DFO. (2018). Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Can. Sci. Advis. Sec. Sci. Advis. Rep. 2018/001. (Erratum: October 2023)</obo:IAO_0000119>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#SalmonOrigin"/>
+        <skos:definition xml:lang="en">Individuals that are born and reared in the wild (natural environment).</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#SalmonOriginScheme"/>
+        <skos:prefLabel xml:lang="en">Natural-origin</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- https://w3id.org/gcdfo/salmon#NumberOfVisits -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#NumberOfVisits">
@@ -1632,6 +2299,36 @@
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteriaScheme"/>
         <skos:prefLabel xml:lang="en">Number of Visits</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#OceanAgeDimension -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#OceanAgeDimension">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:altLabel xml:lang="en">Marine age dimension</skos:altLabel>
+        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#AgeDimension"/>
+        <skos:definition xml:lang="en">Age value represents years spent in the marine environment.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#AgeDimensionScheme"/>
+        <skos:prefLabel xml:lang="en">Ocean age dimension</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#OceanPhase -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#OceanPhase">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:altLabel xml:lang="en">Marine phase</skos:altLabel>
+        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#LifePhase"/>
+        <skos:definition xml:lang="en">Phase of the salmon life cycle or assessment period occurring in the marine environment.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#LifePhaseScheme"/>
+        <skos:prefLabel xml:lang="en">Ocean phase</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
     
@@ -1653,6 +2350,34 @@
     
 
 
+    <!-- https://w3id.org/gcdfo/salmon#PolicyFramework -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#PolicyFramework">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:definition xml:lang="en">A policy, legal, or governance framework that defines how salmon status metrics, benchmarks, or reference points are set and interpreted.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyFrameworkScheme"/>
+        <skos:prefLabel xml:lang="en">Policy framework</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#PolicyFrameworkScheme -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#PolicyFrameworkScheme">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:definition xml:lang="en">Controlled vocabulary for policy and governance frameworks referenced by salmon assessment metrics and benchmarks (e.g., WSP, PA).</skos:definition>
+        <skos:hasTopConcept rdf:resource="https://w3id.org/gcdfo/salmon#PolicyFramework"/>
+        <skos:prefLabel xml:lang="en">Policy framework scheme</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme">
@@ -1662,6 +2387,23 @@
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#ThemeScheme"/>
         <skos:prefLabel xml:lang="en">Policy, Governance, and Organizational Structure</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#PrecautionaryApproach -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#PrecautionaryApproach">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:altLabel xml:lang="en">PA</skos:altLabel>
+        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#PolicyFramework"/>
+        <skos:definition xml:lang="en">DFO policy framework for applying precaution in fisheries decision-making, including use of reference points and stock status zones.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyFrameworkScheme"/>
+        <skos:prefLabel xml:lang="en">Precautionary Approach</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
     
 
@@ -1760,6 +2502,20 @@
     
 
 
+    <!-- https://w3id.org/gcdfo/salmon#RecruitStageContext -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#RecruitStageContext">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContext"/>
+        <skos:definition xml:lang="en">Measurement context indicating values refer to recruits.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContextScheme"/>
+        <skos:prefLabel xml:lang="en">Recruit stage context</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- https://w3id.org/gcdfo/salmon#RedZone -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#RedZone">
@@ -1824,6 +2580,20 @@
     
 
 
+    <!-- https://w3id.org/gcdfo/salmon#RunContext -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#RunContext">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContext"/>
+        <skos:definition xml:lang="en">Measurement context indicating values refer to run size or returning run composition.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContextScheme"/>
+        <skos:prefLabel xml:lang="en">Run context</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- https://w3id.org/gcdfo/salmon#RunCoverage -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#RunCoverage">
@@ -1853,15 +2623,44 @@
     
 
 
+    <!-- https://w3id.org/gcdfo/salmon#SalmonOrigin -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#SalmonOrigin">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:definition xml:lang="en">Origin category describing whether salmon are naturally produced, hatchery produced, or mixed-origin.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#SalmonOriginScheme"/>
+        <skos:prefLabel xml:lang="en">Salmon origin</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- https://w3id.org/gcdfo/salmon#SalmonOriginScheme -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#SalmonOriginScheme">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <skos:definition xml:lang="en">Controlled vocabulary for describing the origin of individual salmon (e.g., natural-origin, hatchery-origin, mixed-origin).</skos:definition>
+        <skos:hasTopConcept rdf:resource="https://w3id.org/gcdfo/salmon#SalmonOrigin"/>
         <skos:prefLabel xml:lang="en">Salmon Origin Scheme</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#SpawnerStageContext -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#SpawnerStageContext">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContext"/>
+        <skos:definition xml:lang="en">Measurement context indicating values refer to spawners or spawning-stage fish.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContextScheme"/>
+        <skos:prefLabel xml:lang="en">Spawner stage context</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
     
@@ -1907,6 +2706,34 @@
     
 
 
+    <!-- https://w3id.org/gcdfo/salmon#SurvivalOrMortalityContext -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#SurvivalOrMortalityContext">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContext"/>
+        <skos:definition xml:lang="en">Measurement context indicating values represent survival, mortality, or related rates.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContextScheme"/>
+        <skos:prefLabel xml:lang="en">Survival or mortality context</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#TerminalPhase -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#TerminalPhase">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#LifePhase"/>
+        <skos:definition xml:lang="en">Phase occurring in terminal areas near river mouths or spawning areas (often including terminal fisheries and local migration to spawning sites).</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#LifePhaseScheme"/>
+        <skos:prefLabel xml:lang="en">Terminal phase</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- https://w3id.org/gcdfo/salmon#ThemeScheme -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#ThemeScheme">
@@ -1930,6 +2757,20 @@
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteriaScheme"/>
         <skos:prefLabel xml:lang="en">Timing</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#TotalAgeDimension -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#TotalAgeDimension">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#AgeDimension"/>
+        <skos:definition xml:lang="en">Age value represents total age in years.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#AgeDimensionScheme"/>
+        <skos:prefLabel xml:lang="en">Total age dimension</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
     
@@ -2074,6 +2915,20 @@
     
 
 
+    <!-- https://w3id.org/gcdfo/salmon#UpperBenchmark -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#UpperBenchmark">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:definition xml:lang="en">An upper-threshold benchmark value, typically delineating the boundary between Amber and Green status zones.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#BenchmarkLevelScheme"/>
+        <skos:prefLabel xml:lang="en">Upper benchmark</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- https://w3id.org/gcdfo/salmon#Uptime -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#Uptime">
@@ -2154,6 +3009,23 @@
         <skos:definition xml:lang="en">Controlled vocabulary for biological status zones under the Wild Salmon Policy.</skos:definition>
         <skos:hasTopConcept rdf:resource="https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZone"/>
         <skos:prefLabel xml:lang="en">Wild Salmon Policy Status Zone</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#WildSalmonPolicy -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#WildSalmonPolicy">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:altLabel xml:lang="en">WSP</skos:altLabel>
+        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#PolicyFramework"/>
+        <skos:definition xml:lang="en">Canada&apos;s Wild Salmon Policy framework for conserving and managing wild Pacific salmon, including integrated status assessments and biological benchmarks for Conservation Units.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyFrameworkScheme"/>
+        <skos:prefLabel xml:lang="en">Wild Salmon Policy</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>

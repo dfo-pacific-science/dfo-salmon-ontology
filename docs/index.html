@@ -583,7 +583,7 @@ $(function(){
     <div id="overview"><h2 id="overv" class="list">GC DFO Salmon Ontology: Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 <span class="markdown">
 This ontology has the following classes and properties.</span>
-<h4>Classes</h4><details class="gcdfo-collapsible gcdfo-overview-collapsible"><summary>52 items (expand)</summary><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+<h4>Classes</h4><details class="gcdfo-collapsible gcdfo-overview-collapsible"><summary>56 items (expand)</summary><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     class="hlist">
    <li>
@@ -600,6 +600,9 @@ This ontology has the following classes and properties.</span>
    </li>
    <li>
       <a href="#ConservationUnit" title="https://w3id.org/gcdfo/salmon#ConservationUnit">Conservation Unit</a>
+   </li>
+   <li>
+      <a href="#Deme" title="https://w3id.org/gcdfo/salmon#Deme">Deme</a>
    </li>
    <li>
       <a href="#http://www.w3.org/ns/dqv#Dimension" title="http://www.w3.org/ns/dqv#Dimension">Dimension</a>
@@ -662,6 +665,10 @@ This ontology has the following classes and properties.</span>
       <a href="#http://purl.obolibrary.org/obo/ENVO_01000618" title="http://purl.obolibrary.org/obo/ENVO_01000618">lotic water body</a>
    </li>
    <li>
+      <a href="#LowerBiologicalBenchmark"
+         title="https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark">Lower biological benchmark</a>
+   </li>
+   <li>
       <a href="#http://purl.obolibrary.org/obo/BFO_0000040" title="http://purl.obolibrary.org/obo/BFO_0000040">material entity</a>
    </li>
    <li>
@@ -688,6 +695,9 @@ This ontology has the following classes and properties.</span>
    </li>
    <li>
       <a href="#http://purl.obolibrary.org/obo/ENVO_00000033" title="http://purl.obolibrary.org/obo/ENVO_00000033">pond</a>
+   </li>
+   <li>
+      <a href="#Population" title="https://w3id.org/gcdfo/salmon#Population">Population</a>
    </li>
    <li>
       <a href="#http://purl.obolibrary.org/obo/BFO_0000015" title="http://purl.obolibrary.org/obo/BFO_0000015">process</a>
@@ -736,6 +746,10 @@ This ontology has the following classes and properties.</span>
          title="https://w3id.org/gcdfo/salmon#TotalExploitationRate">Total exploitation rate</a>
    </li>
    <li>
+      <a href="#UpperBiologicalBenchmark"
+         title="https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark">Upper biological benchmark</a>
+   </li>
+   <li>
       <a href="#UpperStockReferencePoint"
          title="https://w3id.org/gcdfo/salmon#UpperStockReferencePoint">Upper stock reference</a>
    </li>
@@ -752,11 +766,30 @@ This ontology has the following classes and properties.</span>
    <li>
       <a href="#http://purl.dataone.org/odo/ECSO_00002050" title="http://purl.dataone.org/odo/ECSO_00002050">year of measurement</a>
    </li>
-</ul></details><h4>Object Properties</h4><details class="gcdfo-collapsible gcdfo-overview-collapsible"><summary>1 item (expand)</summary><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+</ul></details><h4>Object Properties</h4><details class="gcdfo-collapsible gcdfo-overview-collapsible"><summary>7 items (expand)</summary><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     class="hlist">
    <li>
+      <a href="#conservationUnitOf" title="https://w3id.org/gcdfo/salmon#conservationUnitOf">Conservation Unit of</a>
+   </li>
+   <li>
+      <a href="#demeOf" title="https://w3id.org/gcdfo/salmon#demeOf">deme of</a>
+   </li>
+   <li>
+      <a href="#hasConservationUnit"
+         title="https://w3id.org/gcdfo/salmon#hasConservationUnit">has Conservation Unit</a>
+   </li>
+   <li>
+      <a href="#hasDeme" title="https://w3id.org/gcdfo/salmon#hasDeme">has deme</a>
+   </li>
+   <li>
+      <a href="#hasPopulation" title="https://w3id.org/gcdfo/salmon#hasPopulation">has population</a>
+   </li>
+   <li>
       <a href="#http://www.w3.org/ns/dqv#inDimension" title="http://www.w3.org/ns/dqv#inDimension">in dimension</a>
+   </li>
+   <li>
+      <a href="#populationOf" title="https://w3id.org/gcdfo/salmon#populationOf">population of</a>
    </li>
 </ul></details><details class="gcdfo-collapsible gcdfo-webvowl"><summary>Ontology diagram (WebVOWL) (expand)</summary><iframe src="webvowl/index.html" loading="lazy" title="Ontology diagram (WebVOWL)"></iframe></details>
 </div>
@@ -775,14 +808,22 @@ This ontology has the following classes and properties.</span>
 <p class="markdown">Use the in-page search (left sidebar) to find a specific concept quickly.</p>
 <h3 id="skos-schemes" class="list">Concept schemes</h3>
 <details class="gcdfo-collapsible">
-<summary>11 schemes (expand)</summary>
+<summary>19 schemes (expand)</summary>
 <ul class="hlist">
+  <li><a href="#scheme-age-basis-scheme">Age basis scheme</a></li>
+  <li><a href="#scheme-age-class-value-scheme">Age class value scheme</a></li>
+  <li><a href="#scheme-age-dimension-scheme">Age dimension scheme</a></li>
+  <li><a href="#scheme-age-notation-scheme">Age notation scheme</a></li>
+  <li><a href="#scheme-benchmark-level-scheme">Benchmark Level Scheme</a></li>
   <li><a href="#scheme-biological-benchmark-and-indicator-scheme">Biological Benchmark and Indicator Scheme</a></li>
   <li><a href="#scheme-cosewic-status-scheme">COSEWIC Status Scheme</a></li>
   <li><a href="#scheme-downgrade-criteria-scheme">Downgrade Criteria Scheme</a></li>
-  <li><a href="#scheme-enumeration-method-scheme">Enumeration Method Scheme</a></li>
-  <li><a href="#scheme-estimate-method-scheme">Estimate Method Scheme</a></li>
-  <li><a href="#scheme-estimate-type-scheme">Estimate Type Scheme</a></li>
+  <li><a href="#scheme-escapement-enumeration-method-scheme">Escapement Enumeration Method Scheme</a></li>
+  <li><a href="#scheme-escapement-estimate-method-scheme">Escapement Estimate Method Scheme</a></li>
+  <li><a href="#scheme-escapement-estimate-type-scheme">Escapement Estimate Type Scheme</a></li>
+  <li><a href="#scheme-life-phase-scheme">Life phase scheme</a></li>
+  <li><a href="#scheme-measurement-context-scheme">Measurement context scheme</a></li>
+  <li><a href="#scheme-policy-framework-scheme">Policy framework scheme</a></li>
   <li><a href="#scheme-rapid-status-confidence-scheme">Rapid status confidence scheme</a></li>
   <li><a href="#scheme-salmon-origin-scheme">Salmon Origin Scheme</a></li>
   <li><a href="#scheme-stock-status-zone-scheme">Stock Status Zone Scheme</a></li>
@@ -790,6 +831,72 @@ This ontology has the following classes and properties.</span>
   <li><a href="#scheme-wild-salmon-policy-status-zone">Wild Salmon Policy Status Zone</a></li>
 </ul>
 </details>
+<div class="scheme" id="scheme-age-basis-scheme">
+  <h3 id="scheme-age-basis-scheme" class="list">Age basis scheme</h3>
+  <p class="markdown">Controlled vocabulary for the reference event used by an age value (for example, age at return).</p>
+  <details class="gcdfo-collapsible">
+    <summary>4 concepts (expand)</summary>
+    <ul>
+      <li><a href="#AgeAtMaturityBasis">Age at maturity basis</a></li>
+      <li><a href="#AgeAtReturnBasis">Age at return basis</a></li>
+      <li><a href="#AgeAtSamplingBasis">Age at sampling basis</a></li>
+      <li><a href="#AgeBasis">Age basis</a></li>
+    </ul>
+  </details>
+</div>
+<div class="scheme" id="scheme-age-class-value-scheme">
+  <h3 id="scheme-age-class-value-scheme" class="list">Age class value scheme</h3>
+  <p class="markdown">Controlled vocabulary for integer-like age class values used as constraints on salmon measurements.</p>
+  <details class="gcdfo-collapsible">
+    <summary>8 concepts (expand)</summary>
+    <ul>
+      <li><a href="#Age1YearClass">Age 1 year class</a></li>
+      <li><a href="#Age2YearClass">Age 2 year class</a></li>
+      <li><a href="#Age3YearClass">Age 3 year class</a></li>
+      <li><a href="#Age4YearClass">Age 4 year class</a></li>
+      <li><a href="#Age5YearClass">Age 5 year class</a></li>
+      <li><a href="#Age6YearClass">Age 6 year class</a></li>
+      <li><a href="#Age7YearClass">Age 7 year class</a></li>
+      <li><a href="#AgeClassValue">Age class value</a></li>
+    </ul>
+  </details>
+</div>
+<div class="scheme" id="scheme-age-dimension-scheme">
+  <h3 id="scheme-age-dimension-scheme" class="list">Age dimension scheme</h3>
+  <p class="markdown">Controlled vocabulary for which age component is represented (total age, freshwater years, or ocean years).</p>
+  <details class="gcdfo-collapsible">
+    <summary>4 concepts (expand)</summary>
+    <ul>
+      <li><a href="#AgeDimension">Age dimension</a></li>
+      <li><a href="#FreshwaterAgeDimension">Freshwater age dimension</a></li>
+      <li><a href="#OceanAgeDimension">Ocean age dimension</a></li>
+      <li><a href="#TotalAgeDimension">Total age dimension</a></li>
+    </ul>
+  </details>
+</div>
+<div class="scheme" id="scheme-age-notation-scheme">
+  <h3 id="scheme-age-notation-scheme" class="list">Age notation scheme</h3>
+  <p class="markdown">Controlled vocabulary for salmon age notation systems (for example, Gilbert-Rich and European notation).</p>
+  <details class="gcdfo-collapsible">
+    <summary>3 concepts (expand)</summary>
+    <ul>
+      <li><a href="#AgeNotation">Age notation</a></li>
+      <li><a href="#EuropeanAgeNotation">European age notation</a></li>
+      <li><a href="#GilbertRichAgeNotation">Gilbert-Rich age notation</a></li>
+    </ul>
+  </details>
+</div>
+<div class="scheme" id="scheme-benchmark-level-scheme">
+  <h3 id="scheme-benchmark-level-scheme" class="list">Benchmark Level Scheme</h3>
+  <p class="markdown">Controlled vocabulary for generic benchmark-level qualifiers usable as I-ADOPT constraint values attached to benchmark variables or values.</p>
+  <details class="gcdfo-collapsible">
+    <summary>2 concepts (expand)</summary>
+    <ul>
+      <li><a href="#LowerBenchmark">Lower benchmark</a></li>
+      <li><a href="#UpperBenchmark">Upper benchmark</a></li>
+    </ul>
+  </details>
+</div>
 <div class="scheme" id="scheme-biological-benchmark-and-indicator-scheme">
   <h3 id="scheme-biological-benchmark-and-indicator-scheme" class="list">Biological Benchmark and Indicator Scheme</h3>
   <p class="markdown">Controlled vocabulary for key biological benchmarks, performance indicators, and reference points used in salmon stock assessment and management (e.g., SMSY, Sgen, spawner abundance).</p>
@@ -840,8 +947,8 @@ This ontology has the following classes and properties.</span>
     </ul>
   </details>
 </div>
-<div class="scheme" id="scheme-enumeration-method-scheme">
-  <h3 id="scheme-enumeration-method-scheme" class="list">Enumeration Method Scheme</h3>
+<div class="scheme" id="scheme-escapement-enumeration-method-scheme">
+  <h3 id="scheme-escapement-enumeration-method-scheme" class="list">Escapement Enumeration Method Scheme</h3>
   <p class="markdown">Controlled vocabulary for salmon enumeration methods</p>
   <details class="gcdfo-collapsible">
     <summary>11 concepts (expand)</summary>
@@ -860,8 +967,8 @@ This ontology has the following classes and properties.</span>
     </ul>
   </details>
 </div>
-<div class="scheme" id="scheme-estimate-method-scheme">
-  <h3 id="scheme-estimate-method-scheme" class="list">Estimate Method Scheme</h3>
+<div class="scheme" id="scheme-escapement-estimate-method-scheme">
+  <h3 id="scheme-escapement-estimate-method-scheme" class="list">Escapement Estimate Method Scheme</h3>
   <p class="markdown">Controlled vocabulary for salmon estimate methods</p>
   <details class="gcdfo-collapsible">
     <summary>10 concepts (expand)</summary>
@@ -879,8 +986,8 @@ This ontology has the following classes and properties.</span>
     </ul>
   </details>
 </div>
-<div class="scheme" id="scheme-estimate-type-scheme">
-  <h3 id="scheme-estimate-type-scheme" class="list">Estimate Type Scheme</h3>
+<div class="scheme" id="scheme-escapement-estimate-type-scheme">
+  <h3 id="scheme-escapement-estimate-type-scheme" class="list">Escapement Estimate Type Scheme</h3>
   <p class="markdown">Controlled vocabulary for Hyatt 1997 estimate types</p>
   <details class="gcdfo-collapsible">
     <summary>7 concepts (expand)</summary>
@@ -892,6 +999,50 @@ This ontology has the following classes and properties.</span>
       <li><a href="#Type4">Type-4, Relative Abundance, medium resolution</a></li>
       <li><a href="#Type5">Type-5, Relative Abundance, low resolution</a></li>
       <li><a href="#Type6">Type-6, Presence or Absence</a></li>
+    </ul>
+  </details>
+</div>
+<div class="scheme" id="scheme-life-phase-scheme">
+  <h3 id="scheme-life-phase-scheme" class="list">Life phase scheme</h3>
+  <p class="markdown">Controlled vocabulary for life-phase or fishery/migration segment qualifiers used to stratify measurements (e.g., ocean, terminal, mainstem).</p>
+  <details class="gcdfo-collapsible">
+    <summary>5 concepts (expand)</summary>
+    <ul>
+      <li><a href="#InRiverPhase">In-river phase</a></li>
+      <li><a href="#LifePhase">Life phase</a></li>
+      <li><a href="#MainstemPhase">Mainstem phase</a></li>
+      <li><a href="#OceanPhase">Ocean phase</a></li>
+      <li><a href="#TerminalPhase">Terminal phase</a></li>
+    </ul>
+  </details>
+</div>
+<div class="scheme" id="scheme-measurement-context-scheme">
+  <h3 id="scheme-measurement-context-scheme" class="list">Measurement context scheme</h3>
+  <p class="markdown">Controlled vocabulary for compositional measurement context qualifiers (for example, catch context, run context).</p>
+  <details class="gcdfo-collapsible">
+    <summary>8 concepts (expand)</summary>
+    <ul>
+      <li><a href="#CatchContext">Catch context</a></li>
+      <li><a href="#DataQualityRatingContext">Data quality rating context</a></li>
+      <li><a href="#ManagementReferenceContext">Management reference context</a></li>
+      <li><a href="#MeasurementContext">Measurement context</a></li>
+      <li><a href="#RecruitStageContext">Recruit stage context</a></li>
+      <li><a href="#RunContext">Run context</a></li>
+      <li><a href="#SpawnerStageContext">Spawner stage context</a></li>
+      <li><a href="#SurvivalOrMortalityContext">Survival or mortality context</a></li>
+    </ul>
+  </details>
+</div>
+<div class="scheme" id="scheme-policy-framework-scheme">
+  <h3 id="scheme-policy-framework-scheme" class="list">Policy framework scheme</h3>
+  <p class="markdown">Controlled vocabulary for policy and governance frameworks referenced by salmon assessment metrics and benchmarks (e.g., WSP, PA).</p>
+  <details class="gcdfo-collapsible">
+    <summary>4 concepts (expand)</summary>
+    <ul>
+      <li><a href="#FishStockProvisions">Fish Stocks Provisions</a></li>
+      <li><a href="#PolicyFramework">Policy framework</a></li>
+      <li><a href="#PrecautionaryApproach">Precautionary Approach</a></li>
+      <li><a href="#WildSalmonPolicy">Wild Salmon Policy</a></li>
     </ul>
   </details>
 </div>
@@ -911,7 +1062,14 @@ This ontology has the following classes and properties.</span>
 <div class="scheme" id="scheme-salmon-origin-scheme">
   <h3 id="scheme-salmon-origin-scheme" class="list">Salmon Origin Scheme</h3>
   <p class="markdown">Controlled vocabulary for describing the origin of individual salmon (e.g., natural-origin, hatchery-origin, mixed-origin).</p>
-  <p class="markdown"><em>Currently no SKOS concepts are declared under this scheme.</em></p>
+  <details class="gcdfo-collapsible">
+    <summary>3 concepts (expand)</summary>
+    <ul>
+      <li><a href="#HatcheryOrigin">Hatchery-origin</a></li>
+      <li><a href="#NaturalOrigin">Natural-origin</a></li>
+      <li><a href="#SalmonOrigin">Salmon origin</a></li>
+    </ul>
+  </details>
 </div>
 <div class="scheme" id="scheme-stock-status-zone-scheme">
   <h3 id="scheme-stock-status-zone-scheme" class="list">Stock Status Zone Scheme</h3>
@@ -973,7 +1131,261 @@ This ontology has the following classes and properties.</span>
   </dl>
   <dl class="description">
     <dt>In scheme</dt>
-    <dd><a href="#scheme-enumeration-method-scheme">Enumeration Method Scheme</a></dd>
+    <dd><a href="#scheme-escapement-enumeration-method-scheme">Escapement Enumeration Method Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="Age1YearClass">
+  <h3>Age 1 year class<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#Age1YearClass</p>
+  <div class="comment">
+    <span class="markdown">Age class value 1 year.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-age-class-value-scheme">Age class value scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="Age2YearClass">
+  <h3>Age 2 year class<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#Age2YearClass</p>
+  <div class="comment">
+    <span class="markdown">Age class value 2 years.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-age-class-value-scheme">Age class value scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="Age3YearClass">
+  <h3>Age 3 year class<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#Age3YearClass</p>
+  <div class="comment">
+    <span class="markdown">Age class value 3 years.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-age-class-value-scheme">Age class value scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="Age4YearClass">
+  <h3>Age 4 year class<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#Age4YearClass</p>
+  <div class="comment">
+    <span class="markdown">Age class value 4 years.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-age-class-value-scheme">Age class value scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="Age5YearClass">
+  <h3>Age 5 year class<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#Age5YearClass</p>
+  <div class="comment">
+    <span class="markdown">Age class value 5 years.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-age-class-value-scheme">Age class value scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="Age6YearClass">
+  <h3>Age 6 year class<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#Age6YearClass</p>
+  <div class="comment">
+    <span class="markdown">Age class value 6 years.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-age-class-value-scheme">Age class value scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="Age7YearClass">
+  <h3>Age 7 year class<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#Age7YearClass</p>
+  <div class="comment">
+    <span class="markdown">Age class value 7 years.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-age-class-value-scheme">Age class value scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="AgeAtMaturityBasis">
+  <h3>Age at maturity basis<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#AgeAtMaturityBasis</p>
+  <div class="comment">
+    <span class="markdown">Age measured at maturity.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-age-basis-scheme">Age basis scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="AgeAtReturnBasis">
+  <h3>Age at return basis<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#AgeAtReturnBasis</p>
+  <div class="comment">
+    <span class="markdown">Age measured at return migration (adult return timing).</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-age-basis-scheme">Age basis scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="AgeAtSamplingBasis">
+  <h3>Age at sampling basis<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#AgeAtSamplingBasis</p>
+  <div class="comment">
+    <span class="markdown">Age measured at the time of sampling or observation.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-age-basis-scheme">Age basis scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="AgeBasis">
+  <h3>Age basis<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#AgeBasis</p>
+  <div class="comment">
+    <span class="markdown">The reference event or life-history point that an age value is measured against.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-age-basis-scheme">Age basis scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="AgeBasisScheme">
+  <h3>Age basis scheme<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#AgeBasisScheme</p>
+  <div class="comment">
+    <span class="markdown">Controlled vocabulary for the reference event used by an age value (for example, age at return).</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+</div>
+<div class="entity" id="AgeClassValue">
+  <h3>Age class value<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#AgeClassValue</p>
+  <div class="comment">
+    <span class="markdown">An integer-like age class value used as a compositional constraint in salmon measurements.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-age-class-value-scheme">Age class value scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="AgeClassValueScheme">
+  <h3>Age class value scheme<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#AgeClassValueScheme</p>
+  <div class="comment">
+    <span class="markdown">Controlled vocabulary for integer-like age class values used as constraints on salmon measurements.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+</div>
+<div class="entity" id="AgeDimension">
+  <h3>Age dimension<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#AgeDimension</p>
+  <div class="comment">
+    <span class="markdown">The age component represented by a value (total age, freshwater years, or ocean years).</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-age-dimension-scheme">Age dimension scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="AgeDimensionScheme">
+  <h3>Age dimension scheme<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#AgeDimensionScheme</p>
+  <div class="comment">
+    <span class="markdown">Controlled vocabulary for which age component is represented (total age, freshwater years, or ocean years).</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+</div>
+<div class="entity" id="AgeNotation">
+  <h3>Age notation<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#AgeNotation</p>
+  <div class="comment">
+    <span class="markdown">A notation system used to encode salmon age values in stock assessment data.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-age-notation-scheme">Age notation scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="AgeNotationScheme">
+  <h3>Age notation scheme<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#AgeNotationScheme</p>
+  <div class="comment">
+    <span class="markdown">Controlled vocabulary for salmon age notation systems (for example, Gilbert-Rich and European notation).</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
   </dl>
 </div>
 <div class="entity" id="AmberZone">
@@ -1003,7 +1415,18 @@ This ontology has the following classes and properties.</span>
   </dl>
   <dl class="description">
     <dt>In scheme</dt>
-    <dd><a href="#scheme-estimate-method-scheme">Estimate Method Scheme</a></dd>
+    <dd><a href="#scheme-escapement-estimate-method-scheme">Escapement Estimate Method Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="BenchmarkLevelScheme">
+  <h3>Benchmark Level Scheme<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#BenchmarkLevelScheme</p>
+  <div class="comment">
+    <span class="markdown">Controlled vocabulary for generic benchmark-level qualifiers usable as I-ADOPT constraint values attached to benchmark variables or values.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
   </dl>
 </div>
 <div class="entity" id="BiologicalBenchmarkAndIndicatorScheme">
@@ -1044,7 +1467,22 @@ This ontology has the following classes and properties.</span>
   </dl>
   <dl class="description">
     <dt>In scheme</dt>
-    <dd><a href="#scheme-estimate-method-scheme">Estimate Method Scheme</a></dd>
+    <dd><a href="#scheme-escapement-estimate-method-scheme">Escapement Estimate Method Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="CatchContext">
+  <h3>Catch context<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#CatchContext</p>
+  <div class="comment">
+    <span class="markdown">Measurement context indicating values refer to fishery catch.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-measurement-context-scheme">Measurement context scheme</a></dd>
   </dl>
 </div>
 <div class="entity" id="Classification">
@@ -1101,6 +1539,21 @@ This ontology has the following classes and properties.</span>
   <dl class="description">
     <dt>In scheme</dt>
     <dd><a href="#scheme-downgrade-criteria-scheme">Downgrade Criteria Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="DataQualityRatingContext">
+  <h3>Data quality rating context<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#DataQualityRatingContext</p>
+  <div class="comment">
+    <span class="markdown">Measurement context indicating categorical or ordinal quality ratings.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-measurement-context-scheme">Measurement context scheme</a></dd>
   </dl>
 </div>
 <div class="entity" id="DataModelProvenanceTheme">
@@ -1224,7 +1677,7 @@ This ontology has the following classes and properties.</span>
   </dl>
   <dl class="description">
     <dt>In scheme</dt>
-    <dd><a href="#scheme-enumeration-method-scheme">Enumeration Method Scheme</a></dd>
+    <dd><a href="#scheme-escapement-enumeration-method-scheme">Escapement Enumeration Method Scheme</a></dd>
   </dl>
 </div>
 <div class="entity" id="EnumerationMethod">
@@ -1239,18 +1692,7 @@ This ontology has the following classes and properties.</span>
   </dl>
   <dl class="description">
     <dt>In scheme</dt>
-    <dd><a href="#scheme-enumeration-method-scheme">Enumeration Method Scheme</a></dd>
-  </dl>
-</div>
-<div class="entity" id="EnumerationMethodScheme">
-  <h3>Enumeration Method Scheme<sup class="type-skos" title="SKOS concept">skos</sup></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#EnumerationMethodScheme</p>
-  <div class="comment">
-    <span class="markdown">Controlled vocabulary for salmon enumeration methods</span>
-  </div>
-  <dl class="definedBy">
-    <dt>Is defined by</dt>
-    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+    <dd><a href="#scheme-escapement-enumeration-method-scheme">Escapement Enumeration Method Scheme</a></dd>
   </dl>
 </div>
 <div class="entity" id="EnvironmentalConditions">
@@ -1268,6 +1710,39 @@ This ontology has the following classes and properties.</span>
     <dd><a href="#scheme-downgrade-criteria-scheme">Downgrade Criteria Scheme</a></dd>
   </dl>
 </div>
+<div class="entity" id="EnumerationMethodScheme">
+  <h3>Escapement Enumeration Method Scheme<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#EnumerationMethodScheme</p>
+  <div class="comment">
+    <span class="markdown">Controlled vocabulary for salmon enumeration methods</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+</div>
+<div class="entity" id="EstimateMethodScheme">
+  <h3>Escapement Estimate Method Scheme<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#EstimateMethodScheme</p>
+  <div class="comment">
+    <span class="markdown">Controlled vocabulary for salmon estimate methods</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+</div>
+<div class="entity" id="EstimateTypeScheme">
+  <h3>Escapement Estimate Type Scheme<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#EstimateTypeScheme</p>
+  <div class="comment">
+    <span class="markdown">Controlled vocabulary for Hyatt 1997 estimate types</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+</div>
 <div class="entity" id="EstimateMethod">
   <h3>Estimate Method<sup class="type-skos" title="SKOS concept">skos</sup></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#EstimateMethod</p>
@@ -1280,18 +1755,7 @@ This ontology has the following classes and properties.</span>
   </dl>
   <dl class="description">
     <dt>In scheme</dt>
-    <dd><a href="#scheme-estimate-method-scheme">Estimate Method Scheme</a></dd>
-  </dl>
-</div>
-<div class="entity" id="EstimateMethodScheme">
-  <h3>Estimate Method Scheme<sup class="type-skos" title="SKOS concept">skos</sup></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#EstimateMethodScheme</p>
-  <div class="comment">
-    <span class="markdown">Controlled vocabulary for salmon estimate methods</span>
-  </div>
-  <dl class="definedBy">
-    <dt>Is defined by</dt>
-    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+    <dd><a href="#scheme-escapement-estimate-method-scheme">Escapement Estimate Method Scheme</a></dd>
   </dl>
 </div>
 <div class="entity" id="EstimateType">
@@ -1306,18 +1770,22 @@ This ontology has the following classes and properties.</span>
   </dl>
   <dl class="description">
     <dt>In scheme</dt>
-    <dd><a href="#scheme-estimate-type-scheme">Estimate Type Scheme</a></dd>
+    <dd><a href="#scheme-escapement-estimate-type-scheme">Escapement Estimate Type Scheme</a></dd>
   </dl>
 </div>
-<div class="entity" id="EstimateTypeScheme">
-  <h3>Estimate Type Scheme<sup class="type-skos" title="SKOS concept">skos</sup></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#EstimateTypeScheme</p>
+<div class="entity" id="EuropeanAgeNotation">
+  <h3>European age notation<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#EuropeanAgeNotation</p>
   <div class="comment">
-    <span class="markdown">Controlled vocabulary for Hyatt 1997 estimate types</span>
+    <span class="markdown">Salmon age notation that records freshwater years followed by ocean years (for example, 1.2).</span>
   </div>
   <dl class="definedBy">
     <dt>Is defined by</dt>
     <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-age-notation-scheme">Age notation scheme</a></dd>
   </dl>
 </div>
 <div class="entity" id="ExpansionMathematicalOperations">
@@ -1332,7 +1800,22 @@ This ontology has the following classes and properties.</span>
   </dl>
   <dl class="description">
     <dt>In scheme</dt>
-    <dd><a href="#scheme-estimate-method-scheme">Estimate Method Scheme</a></dd>
+    <dd><a href="#scheme-escapement-estimate-method-scheme">Escapement Estimate Method Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="FishStockProvisions">
+  <h3>Fish Stocks Provisions<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#FishStockProvisions</p>
+  <div class="comment">
+    <span class="markdown">Legal provisions in Canada&#x27;s Fisheries Act and regulations related to maintaining and rebuilding fish stocks, including obligations triggered when reference points are breached.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-policy-framework-scheme">Policy framework scheme</a></dd>
   </dl>
 </div>
 <div class="entity" id="FisheriesManagementTheme">
@@ -1362,7 +1845,7 @@ This ontology has the following classes and properties.</span>
   </dl>
   <dl class="description">
     <dt>In scheme</dt>
-    <dd><a href="#scheme-enumeration-method-scheme">Enumeration Method Scheme</a></dd>
+    <dd><a href="#scheme-escapement-enumeration-method-scheme">Escapement Enumeration Method Scheme</a></dd>
   </dl>
 </div>
 <div class="entity" id="FixedSiteCensusManual">
@@ -1377,7 +1860,7 @@ This ontology has the following classes and properties.</span>
   </dl>
   <dl class="description">
     <dt>In scheme</dt>
-    <dd><a href="#scheme-enumeration-method-scheme">Enumeration Method Scheme</a></dd>
+    <dd><a href="#scheme-escapement-enumeration-method-scheme">Escapement Enumeration Method Scheme</a></dd>
   </dl>
 </div>
 <div class="entity" id="FixedStationTally">
@@ -1392,7 +1875,22 @@ This ontology has the following classes and properties.</span>
   </dl>
   <dl class="description">
     <dt>In scheme</dt>
-    <dd><a href="#scheme-estimate-method-scheme">Estimate Method Scheme</a></dd>
+    <dd><a href="#scheme-escapement-estimate-method-scheme">Escapement Estimate Method Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="FreshwaterAgeDimension">
+  <h3>Freshwater age dimension<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#FreshwaterAgeDimension</p>
+  <div class="comment">
+    <span class="markdown">Age value represents years spent in freshwater.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-age-dimension-scheme">Age dimension scheme</a></dd>
   </dl>
 </div>
 <div class="entity" id="GeneticsStockCompositionTheme">
@@ -1408,6 +1906,21 @@ This ontology has the following classes and properties.</span>
   <dl class="description">
     <dt>In scheme</dt>
     <dd><a href="#scheme-theme-scheme">Theme Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="GilbertRichAgeNotation">
+  <h3>Gilbert-Rich age notation<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#GilbertRichAgeNotation</p>
+  <div class="comment">
+    <span class="markdown">Salmon age notation where total age is annotated with freshwater years as a subscript-like suffix (for example, 4_2 for total age 4 with 2 freshwater years).</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-age-notation-scheme">Age notation scheme</a></dd>
   </dl>
 </div>
 <div class="entity" id="GreenZone">
@@ -1440,6 +1953,21 @@ This ontology has the following classes and properties.</span>
     <dd><a href="#scheme-theme-scheme">Theme Scheme</a></dd>
   </dl>
 </div>
+<div class="entity" id="HatcheryOrigin">
+  <h3>Hatchery-origin<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#HatcheryOrigin</p>
+  <div class="comment">
+    <span class="markdown">Individuals that were born or reared in a hatchery facility.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-salmon-origin-scheme">Salmon Origin Scheme</a></dd>
+  </dl>
+</div>
 <div class="entity" id="RapidStatusConfidenceHigh">
   <h3>High WSP rapid-status confidence<sup class="type-skos" title="SKOS concept">skos</sup></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RapidStatusConfidenceHigh</p>
@@ -1464,7 +1992,7 @@ This ontology has the following classes and properties.</span>
   </dl>
   <dl class="description">
     <dt>In scheme</dt>
-    <dd><a href="#scheme-estimate-method-scheme">Estimate Method Scheme</a></dd>
+    <dd><a href="#scheme-escapement-estimate-method-scheme">Escapement Estimate Method Scheme</a></dd>
   </dl>
 </div>
 <div class="entity" id="HydroacousticSonarCount">
@@ -1479,7 +2007,22 @@ This ontology has the following classes and properties.</span>
   </dl>
   <dl class="description">
     <dt>In scheme</dt>
-    <dd><a href="#scheme-enumeration-method-scheme">Enumeration Method Scheme</a></dd>
+    <dd><a href="#scheme-escapement-enumeration-method-scheme">Escapement Enumeration Method Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="InRiverPhase">
+  <h3>In-river phase<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#InRiverPhase</p>
+  <div class="comment">
+    <span class="markdown">Freshwater in-river phase (migration and/or residence) outside the marine environment.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-life-phase-scheme">Life phase scheme</a></dd>
   </dl>
 </div>
 <div class="entity" id="InfillMethod">
@@ -1497,6 +2040,32 @@ This ontology has the following classes and properties.</span>
     <dd><a href="#scheme-downgrade-criteria-scheme">Downgrade Criteria Scheme</a></dd>
   </dl>
 </div>
+<div class="entity" id="LifePhase">
+  <h3>Life phase<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#LifePhase</p>
+  <div class="comment">
+    <span class="markdown">A phase or segment used to stratify salmon measurements by where or when they apply (e.g., ocean phase, terminal phase).</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-life-phase-scheme">Life phase scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="LifePhaseScheme">
+  <h3>Life phase scheme<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#LifePhaseScheme</p>
+  <div class="comment">
+    <span class="markdown">Controlled vocabulary for life-phase or fishery/migration segment qualifiers used to stratify measurements (e.g., ocean, terminal, mainstem).</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+</div>
 <div class="entity" id="RapidStatusConfidenceLow">
   <h3>Low rapid-status confidence<sup class="type-skos" title="SKOS concept">skos</sup></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RapidStatusConfidenceLow</p>
@@ -1507,6 +2076,51 @@ This ontology has the following classes and properties.</span>
   <dl class="description">
     <dt>In scheme</dt>
     <dd><a href="#scheme-rapid-status-confidence-scheme">Rapid status confidence scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="LowerBenchmark">
+  <h3>Lower benchmark<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#LowerBenchmark</p>
+  <div class="comment">
+    <span class="markdown">A lower-threshold benchmark value, typically delineating the boundary between Red and Amber status zones.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-benchmark-level-scheme">Benchmark Level Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="MainstemPhase">
+  <h3>Mainstem phase<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#MainstemPhase</p>
+  <div class="comment">
+    <span class="markdown">Freshwater mainstem migration phase in a river system (often corresponding to mainstem in-river fisheries or monitoring segments).</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-life-phase-scheme">Life phase scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="ManagementReferenceContext">
+  <h3>Management reference context<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#ManagementReferenceContext</p>
+  <div class="comment">
+    <span class="markdown">Measurement context indicating values are management benchmarks or reference-oriented metrics.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-measurement-context-scheme">Measurement context scheme</a></dd>
   </dl>
 </div>
 <div class="entity" id="MarkRecaptureAnalysis">
@@ -1521,7 +2135,7 @@ This ontology has the following classes and properties.</span>
   </dl>
   <dl class="description">
     <dt>In scheme</dt>
-    <dd><a href="#scheme-estimate-method-scheme">Estimate Method Scheme</a></dd>
+    <dd><a href="#scheme-escapement-estimate-method-scheme">Escapement Estimate Method Scheme</a></dd>
   </dl>
 </div>
 <div class="entity" id="MarkRecaptureAssumptions">
@@ -1551,7 +2165,33 @@ This ontology has the following classes and properties.</span>
   </dl>
   <dl class="description">
     <dt>In scheme</dt>
-    <dd><a href="#scheme-enumeration-method-scheme">Enumeration Method Scheme</a></dd>
+    <dd><a href="#scheme-escapement-enumeration-method-scheme">Escapement Enumeration Method Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="MeasurementContext">
+  <h3>Measurement context<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#MeasurementContext</p>
+  <div class="comment">
+    <span class="markdown">A context qualifier used to disambiguate the interpretation of a measurement column.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-measurement-context-scheme">Measurement context scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="MeasurementContextScheme">
+  <h3>Measurement context scheme<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#MeasurementContextScheme</p>
+  <div class="comment">
+    <span class="markdown">Controlled vocabulary for compositional measurement context qualifiers (for example, catch context, run context).</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
   </dl>
 </div>
 <div class="entity" id="RapidStatusConfidenceMedium">
@@ -1596,6 +2236,21 @@ This ontology has the following classes and properties.</span>
     <dd><a href="#scheme-theme-scheme">Theme Scheme</a></dd>
   </dl>
 </div>
+<div class="entity" id="NaturalOrigin">
+  <h3>Natural-origin<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#NaturalOrigin</p>
+  <div class="comment">
+    <span class="markdown">Individuals that are born and reared in the wild (natural environment).</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-salmon-origin-scheme">Salmon Origin Scheme</a></dd>
+  </dl>
+</div>
 <div class="entity" id="NumberOfVisits">
   <h3>Number of Visits<sup class="type-skos" title="SKOS concept">skos</sup></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#NumberOfVisits</p>
@@ -1611,6 +2266,36 @@ This ontology has the following classes and properties.</span>
     <dd><a href="#scheme-downgrade-criteria-scheme">Downgrade Criteria Scheme</a></dd>
   </dl>
 </div>
+<div class="entity" id="OceanAgeDimension">
+  <h3>Ocean age dimension<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#OceanAgeDimension</p>
+  <div class="comment">
+    <span class="markdown">Age value represents years spent in the marine environment.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-age-dimension-scheme">Age dimension scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="OceanPhase">
+  <h3>Ocean phase<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#OceanPhase</p>
+  <div class="comment">
+    <span class="markdown">Phase of the salmon life cycle or assessment period occurring in the marine environment.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-life-phase-scheme">Life phase scheme</a></dd>
+  </dl>
+</div>
 <div class="entity" id="PeakCountAnalysis">
   <h3>Peak Count Analysis<sup class="type-skos" title="SKOS concept">skos</sup></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#PeakCountAnalysis</p>
@@ -1623,7 +2308,33 @@ This ontology has the following classes and properties.</span>
   </dl>
   <dl class="description">
     <dt>In scheme</dt>
-    <dd><a href="#scheme-estimate-method-scheme">Estimate Method Scheme</a></dd>
+    <dd><a href="#scheme-escapement-estimate-method-scheme">Escapement Estimate Method Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="PolicyFramework">
+  <h3>Policy framework<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#PolicyFramework</p>
+  <div class="comment">
+    <span class="markdown">A policy, legal, or governance framework that defines how salmon status metrics, benchmarks, or reference points are set and interpreted.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-policy-framework-scheme">Policy framework scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="PolicyFrameworkScheme">
+  <h3>Policy framework scheme<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#PolicyFrameworkScheme</p>
+  <div class="comment">
+    <span class="markdown">Controlled vocabulary for policy and governance frameworks referenced by salmon assessment metrics and benchmarks (e.g., WSP, PA).</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
   </dl>
 </div>
 <div class="entity" id="PolicyGovernanceTheme">
@@ -1639,6 +2350,21 @@ This ontology has the following classes and properties.</span>
   <dl class="description">
     <dt>In scheme</dt>
     <dd><a href="#scheme-theme-scheme">Theme Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="PrecautionaryApproach">
+  <h3>Precautionary Approach<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#PrecautionaryApproach</p>
+  <div class="comment">
+    <span class="markdown">DFO policy framework for applying precaution in fisheries decision-making, including use of reference points and stock status zones.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-policy-framework-scheme">Policy framework scheme</a></dd>
   </dl>
 </div>
 <div class="entity" id="PrecisionAccuracy">
@@ -1690,6 +2416,21 @@ This ontology has the following classes and properties.</span>
     <dd><a href="#scheme-downgrade-criteria-scheme">Downgrade Criteria Scheme</a></dd>
   </dl>
 </div>
+<div class="entity" id="RecruitStageContext">
+  <h3>Recruit stage context<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RecruitStageContext</p>
+  <div class="comment">
+    <span class="markdown">Measurement context indicating values refer to recruits.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-measurement-context-scheme">Measurement context scheme</a></dd>
+  </dl>
+</div>
 <div class="entity" id="RedZone">
   <h3>Red zone<sup class="type-skos" title="SKOS concept">skos</sup></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RedZone</p>
@@ -1717,7 +2458,7 @@ This ontology has the following classes and properties.</span>
   </dl>
   <dl class="description">
     <dt>In scheme</dt>
-    <dd><a href="#scheme-enumeration-method-scheme">Enumeration Method Scheme</a></dd>
+    <dd><a href="#scheme-escapement-enumeration-method-scheme">Escapement Enumeration Method Scheme</a></dd>
   </dl>
 </div>
 <div class="entity" id="ReddExpansionAnalysis">
@@ -1732,7 +2473,7 @@ This ontology has the following classes and properties.</span>
   </dl>
   <dl class="description">
     <dt>In scheme</dt>
-    <dd><a href="#scheme-estimate-method-scheme">Estimate Method Scheme</a></dd>
+    <dd><a href="#scheme-escapement-estimate-method-scheme">Escapement Estimate Method Scheme</a></dd>
   </dl>
 </div>
 <div class="entity" id="ReviewQA">
@@ -1748,6 +2489,21 @@ This ontology has the following classes and properties.</span>
   <dl class="description">
     <dt>In scheme</dt>
     <dd><a href="#scheme-downgrade-criteria-scheme">Downgrade Criteria Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="RunContext">
+  <h3>Run context<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RunContext</p>
+  <div class="comment">
+    <span class="markdown">Measurement context indicating values refer to run size or returning run composition.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-measurement-context-scheme">Measurement context scheme</a></dd>
   </dl>
 </div>
 <div class="entity" id="RunCoverage">
@@ -1780,6 +2536,21 @@ This ontology has the following classes and properties.</span>
     <dd><a href="#scheme-theme-scheme">Theme Scheme</a></dd>
   </dl>
 </div>
+<div class="entity" id="SalmonOrigin">
+  <h3>Salmon origin<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#SalmonOrigin</p>
+  <div class="comment">
+    <span class="markdown">Origin category describing whether salmon are naturally produced, hatchery produced, or mixed-origin.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-salmon-origin-scheme">Salmon Origin Scheme</a></dd>
+  </dl>
+</div>
 <div class="entity" id="SalmonOriginScheme">
   <h3>Salmon Origin Scheme<sup class="type-skos" title="SKOS concept">skos</sup></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#SalmonOriginScheme</p>
@@ -1789,6 +2560,21 @@ This ontology has the following classes and properties.</span>
   <dl class="definedBy">
     <dt>Is defined by</dt>
     <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+</div>
+<div class="entity" id="SpawnerStageContext">
+  <h3>Spawner stage context<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#SpawnerStageContext</p>
+  <div class="comment">
+    <span class="markdown">Measurement context indicating values refer to spawners or spawning-stage fish.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-measurement-context-scheme">Measurement context scheme</a></dd>
   </dl>
 </div>
 <div class="entity" id="SpeciesAtRiskRecoveryTheme">
@@ -1832,6 +2618,36 @@ This ontology has the following classes and properties.</span>
     <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
   </dl>
 </div>
+<div class="entity" id="SurvivalOrMortalityContext">
+  <h3>Survival or mortality context<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#SurvivalOrMortalityContext</p>
+  <div class="comment">
+    <span class="markdown">Measurement context indicating values represent survival, mortality, or related rates.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-measurement-context-scheme">Measurement context scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="TerminalPhase">
+  <h3>Terminal phase<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#TerminalPhase</p>
+  <div class="comment">
+    <span class="markdown">Phase occurring in terminal areas near river mouths or spawning areas (often including terminal fisheries and local migration to spawning sites).</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-life-phase-scheme">Life phase scheme</a></dd>
+  </dl>
+</div>
 <div class="entity" id="ThemeScheme">
   <h3>Theme Scheme<sup class="type-skos" title="SKOS concept">skos</sup></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#ThemeScheme</p>
@@ -1858,6 +2674,21 @@ This ontology has the following classes and properties.</span>
     <dd><a href="#scheme-downgrade-criteria-scheme">Downgrade Criteria Scheme</a></dd>
   </dl>
 </div>
+<div class="entity" id="TotalAgeDimension">
+  <h3>Total age dimension<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#TotalAgeDimension</p>
+  <div class="comment">
+    <span class="markdown">Age value represents total age in years.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-age-dimension-scheme">Age dimension scheme</a></dd>
+  </dl>
+</div>
 <div class="entity" id="TrapCount">
   <h3>Trap Count<sup class="type-skos" title="SKOS concept">skos</sup></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#TrapCount</p>
@@ -1870,7 +2701,7 @@ This ontology has the following classes and properties.</span>
   </dl>
   <dl class="description">
     <dt>In scheme</dt>
-    <dd><a href="#scheme-enumeration-method-scheme">Enumeration Method Scheme</a></dd>
+    <dd><a href="#scheme-escapement-enumeration-method-scheme">Escapement Enumeration Method Scheme</a></dd>
   </dl>
 </div>
 <div class="entity" id="TrapEfficiency">
@@ -1900,7 +2731,7 @@ This ontology has the following classes and properties.</span>
   </dl>
   <dl class="description">
     <dt>In scheme</dt>
-    <dd><a href="#scheme-estimate-method-scheme">Estimate Method Scheme</a></dd>
+    <dd><a href="#scheme-escapement-estimate-method-scheme">Escapement Estimate Method Scheme</a></dd>
   </dl>
 </div>
 <div class="entity" id="Type1">
@@ -1915,7 +2746,7 @@ This ontology has the following classes and properties.</span>
   </dl>
   <dl class="description">
     <dt>In scheme</dt>
-    <dd><a href="#scheme-estimate-type-scheme">Estimate Type Scheme</a></dd>
+    <dd><a href="#scheme-escapement-estimate-type-scheme">Escapement Estimate Type Scheme</a></dd>
   </dl>
 </div>
 <div class="entity" id="Type2">
@@ -1930,7 +2761,7 @@ This ontology has the following classes and properties.</span>
   </dl>
   <dl class="description">
     <dt>In scheme</dt>
-    <dd><a href="#scheme-estimate-type-scheme">Estimate Type Scheme</a></dd>
+    <dd><a href="#scheme-escapement-estimate-type-scheme">Escapement Estimate Type Scheme</a></dd>
   </dl>
 </div>
 <div class="entity" id="Type3">
@@ -1945,7 +2776,7 @@ This ontology has the following classes and properties.</span>
   </dl>
   <dl class="description">
     <dt>In scheme</dt>
-    <dd><a href="#scheme-estimate-type-scheme">Estimate Type Scheme</a></dd>
+    <dd><a href="#scheme-escapement-estimate-type-scheme">Escapement Estimate Type Scheme</a></dd>
   </dl>
 </div>
 <div class="entity" id="Type4">
@@ -1960,7 +2791,7 @@ This ontology has the following classes and properties.</span>
   </dl>
   <dl class="description">
     <dt>In scheme</dt>
-    <dd><a href="#scheme-estimate-type-scheme">Estimate Type Scheme</a></dd>
+    <dd><a href="#scheme-escapement-estimate-type-scheme">Escapement Estimate Type Scheme</a></dd>
   </dl>
 </div>
 <div class="entity" id="Type5">
@@ -1975,7 +2806,7 @@ This ontology has the following classes and properties.</span>
   </dl>
   <dl class="description">
     <dt>In scheme</dt>
-    <dd><a href="#scheme-estimate-type-scheme">Estimate Type Scheme</a></dd>
+    <dd><a href="#scheme-escapement-estimate-type-scheme">Escapement Estimate Type Scheme</a></dd>
   </dl>
 </div>
 <div class="entity" id="Type6">
@@ -1990,7 +2821,22 @@ This ontology has the following classes and properties.</span>
   </dl>
   <dl class="description">
     <dt>In scheme</dt>
-    <dd><a href="#scheme-estimate-type-scheme">Estimate Type Scheme</a></dd>
+    <dd><a href="#scheme-escapement-estimate-type-scheme">Escapement Estimate Type Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="UpperBenchmark">
+  <h3>Upper benchmark<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#UpperBenchmark</p>
+  <div class="comment">
+    <span class="markdown">An upper-threshold benchmark value, typically delineating the boundary between Amber and Green status zones.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-benchmark-level-scheme">Benchmark Level Scheme</a></dd>
   </dl>
 </div>
 <div class="entity" id="Uptime">
@@ -2035,7 +2881,7 @@ This ontology has the following classes and properties.</span>
   </dl>
   <dl class="description">
     <dt>In scheme</dt>
-    <dd><a href="#scheme-enumeration-method-scheme">Enumeration Method Scheme</a></dd>
+    <dd><a href="#scheme-escapement-enumeration-method-scheme">Escapement Enumeration Method Scheme</a></dd>
   </dl>
 </div>
 <div class="entity" id="VisualSnorkelCount">
@@ -2050,7 +2896,7 @@ This ontology has the following classes and properties.</span>
   </dl>
   <dl class="description">
     <dt>In scheme</dt>
-    <dd><a href="#scheme-enumeration-method-scheme">Enumeration Method Scheme</a></dd>
+    <dd><a href="#scheme-escapement-enumeration-method-scheme">Escapement Enumeration Method Scheme</a></dd>
   </dl>
 </div>
 <div class="entity" id="WildSalmonPolicyTheme">
@@ -2066,6 +2912,21 @@ This ontology has the following classes and properties.</span>
   <dl class="description">
     <dt>In scheme</dt>
     <dd><a href="#scheme-theme-scheme">Theme Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="WildSalmonPolicy">
+  <h3>Wild Salmon Policy<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#WildSalmonPolicy</p>
+  <div class="comment">
+    <span class="markdown">Canada&#x27;s Wild Salmon Policy framework for conserving and managing wild Pacific salmon, including integrated status assessments and biological benchmarks for Conservation Units.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-policy-framework-scheme">Policy framework scheme</a></dd>
   </dl>
 </div>
 <div class="entity" id="WSPBiologicalStatusZone">
@@ -2107,6 +2968,7 @@ This section provides details for each class and property defined by GC DFO Salm
   <li><a href="#BroodYear" title="https://w3id.org/gcdfo/salmon#BroodYear">Brood year</a></li>
   <li><a href="#CatchYear" title="https://w3id.org/gcdfo/salmon#CatchYear">Catch year</a></li>
   <li><a href="#ConservationUnit" title="https://w3id.org/gcdfo/salmon#ConservationUnit">Conservation Unit</a></li>
+  <li><a href="#Deme" title="https://w3id.org/gcdfo/salmon#Deme">Deme</a></li>
   <li><a href="#http://www.w3.org/ns/dqv#Dimension" title="http://www.w3.org/ns/dqv#Dimension">Dimension</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/IAO_0000033" title="http://purl.obolibrary.org/obo/IAO_0000033">directive information entity</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/IAO_0000310" title="http://purl.obolibrary.org/obo/IAO_0000310">document</a></li>
@@ -2126,6 +2988,7 @@ This section provides details for each class and property defined by GC DFO Salm
   <li><a href="#http://purl.obolibrary.org/obo/ENVO_01000617" title="http://purl.obolibrary.org/obo/ENVO_01000617">lentic water body</a></li>
   <li><a href="#LimitReferencePoint" title="https://w3id.org/gcdfo/salmon#LimitReferencePoint">Limit reference point</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/ENVO_01000618" title="http://purl.obolibrary.org/obo/ENVO_01000618">lotic water body</a></li>
+  <li><a href="#LowerBiologicalBenchmark" title="https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark">Lower biological benchmark</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/BFO_0000040" title="http://purl.obolibrary.org/obo/BFO_0000040">material entity</a></li>
   <li><a href="#http://rs.tdwg.org/dwc/terms/MaterialEntity" title="http://rs.tdwg.org/dwc/terms/MaterialEntity">Material Entity</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/IAO_0000109" title="http://purl.obolibrary.org/obo/IAO_0000109">measurement datum</a></li>
@@ -2135,6 +2998,7 @@ This section provides details for each class and property defined by GC DFO Salm
   <li><a href="#http://rs.tdwg.org/dwc/terms/Organism" title="http://rs.tdwg.org/dwc/terms/Organism">Organism</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/IAO_0000104" title="http://purl.obolibrary.org/obo/IAO_0000104">plan specification</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/ENVO_00000033" title="http://purl.obolibrary.org/obo/ENVO_00000033">pond</a></li>
+  <li><a href="#Population" title="https://w3id.org/gcdfo/salmon#Population">Population</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/BFO_0000015" title="http://purl.obolibrary.org/obo/BFO_0000015">process</a></li>
   <li><a href="#http://www.w3.org/ns/dqv#QualityAnnotation" title="http://www.w3.org/ns/dqv#QualityAnnotation">Quality Annotation</a></li>
   <li><a href="#ReferencePoint" title="https://w3id.org/gcdfo/salmon#ReferencePoint">Reference point</a></li>
@@ -2149,6 +3013,7 @@ This section provides details for each class and property defined by GC DFO Salm
   <li><a href="#SurveyEvent" title="https://w3id.org/gcdfo/salmon#SurveyEvent">Survey event</a></li>
   <li><a href="#TargetOrLimitRateOrAbundance" title="https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance">Target or limit rate or abundance</a></li>
   <li><a href="#TotalExploitationRate" title="https://w3id.org/gcdfo/salmon#TotalExploitationRate">Total exploitation rate</a></li>
+  <li><a href="#UpperBiologicalBenchmark" title="https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark">Upper biological benchmark</a></li>
   <li><a href="#UpperStockReferencePoint" title="https://w3id.org/gcdfo/salmon#UpperStockReferencePoint">Upper stock reference</a></li>
   <li><a href="#WSPRapidStatus" title="https://w3id.org/gcdfo/salmon#WSPRapidStatus">WSP rapid status</a></li>
   <li><a href="#WSPRapidStatusAlgorithmThreshold" title="https://w3id.org/gcdfo/salmon#WSPRapidStatusAlgorithmThreshold">WSP Rapid Status Algorithm threshold</a></li>
@@ -2306,6 +3171,53 @@ This section provides details for each class and property defined by GC DFO Salm
    </dt>
    <dd>
     <a href="#ReportingOrManagementStratum" title="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum">Reporting or management stratum</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#conservationUnitOf" title="https://w3id.org/gcdfo/salmon#conservationUnitOf">Conservation Unit of</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasPopulation" title="https://w3id.org/gcdfo/salmon#hasPopulation">has population</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasConservationUnit" title="https://w3id.org/gcdfo/salmon#hasConservationUnit">has Conservation Unit</a> <sup class="type-op" title="object property">op</sup>, <a href="#populationOf" title="https://w3id.org/gcdfo/salmon#populationOf">population of</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Deme">
+  <h3>Deme<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#Deme</p>
+  <div class="comment">
+   <span class="markdown">A local interbreeding group of organisms within a species. In salmon, a deme typically corresponds to a spawning population at a specific site. Demes are the finest biological unit and make up populations.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#http://rs.tdwg.org/dwc/terms/Organism" title="http://rs.tdwg.org/dwc/terms/Organism">Organism</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#demeOf" title="https://w3id.org/gcdfo/salmon#demeOf">deme of</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasDeme" title="https://w3id.org/gcdfo/salmon#hasDeme">has deme</a> <sup class="type-op" title="object property">op</sup>
    </dd>
   </dl>
  </div>
@@ -2827,6 +3739,40 @@ This section provides details for each class and property defined by GC DFO Salm
    </dd>
   </dl>
  </div>
+ <div class="entity" id="LowerBiologicalBenchmark">
+  <h3>Lower biological benchmark<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark</p>
+  <div class="comment">
+   <span class="markdown">Lower benchmark value for a metric used to delineate Wild Salmon Policy status zones (typically the boundary between Red and Amber zones).</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf.
+   </dd>
+   <dd>
+    <a href="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf">https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#MetricBenchmark" title="https://w3id.org/gcdfo/salmon#MetricBenchmark">Metric benchmark</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
  <div class="entity" id="http://purl.obolibrary.org/obo/BFO_0000040">
   <h3>material entity<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> http://purl.obolibrary.org/obo/BFO_0000040</p>
@@ -2942,6 +3888,12 @@ This section provides details for each class and property defined by GC DFO Salm
    <dd>
     <a href="#http://purl.obolibrary.org/obo/IAO_0000030" title="http://purl.obolibrary.org/obo/IAO_0000030">information content entity</a> <sup class="type-c" title="class">c</sup>
    </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#LowerBiologicalBenchmark" title="https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark">Lower biological benchmark</a> <sup class="type-c" title="class">c</sup>, <a href="#UpperBiologicalBenchmark" title="https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark">Upper biological benchmark</a> <sup class="type-c" title="class">c</sup>
+   </dd>
   </dl>
  </div>
  <div class="entity" id="ObservedRateOrAbundance">
@@ -3031,7 +3983,7 @@ This section provides details for each class and property defined by GC DFO Salm
     has sub-classes
    </dt>
    <dd>
-    <a href="#Stock" title="https://w3id.org/gcdfo/salmon#Stock">Stock</a> <sup class="type-c" title="class">c</sup>
+    <a href="#Deme" title="https://w3id.org/gcdfo/salmon#Deme">Deme</a> <sup class="type-c" title="class">c</sup>, <a href="#Population" title="https://w3id.org/gcdfo/salmon#Population">Population</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -3078,6 +4030,41 @@ This section provides details for each class and property defined by GC DFO Salm
    </dt>
    <dd>
     <a href="#http://purl.obolibrary.org/obo/ENVO_01000617" title="http://purl.obolibrary.org/obo/ENVO_01000617">lentic water body</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Population">
+  <h3>Population<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#Population</p>
+  <div class="comment">
+   <span class="markdown">A group of organisms of the same species occupying a defined area that interbreed and share a gene pool. In salmon, populations are composed of one or more demes and form the biological basis for Conservation Units.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#http://rs.tdwg.org/dwc/terms/Organism" title="http://rs.tdwg.org/dwc/terms/Organism">Organism</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#hasDeme" title="https://w3id.org/gcdfo/salmon#hasDeme">has deme</a> <sup class="type-op" title="object property">op</sup>, <a href="#populationOf" title="https://w3id.org/gcdfo/salmon#populationOf">population of</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#demeOf" title="https://w3id.org/gcdfo/salmon#demeOf">deme of</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasPopulation" title="https://w3id.org/gcdfo/salmon#hasPopulation">has population</a> <sup class="type-op" title="object property">op</sup>
    </dd>
   </dl>
  </div>
@@ -3200,7 +4187,7 @@ This section provides details for each class and property defined by GC DFO Salm
     has sub-classes
    </dt>
    <dd>
-    <a href="#ConservationUnit" title="https://w3id.org/gcdfo/salmon#ConservationUnit">Conservation Unit</a> <sup class="type-c" title="class">c</sup>, <a href="#StockManagementUnit" title="https://w3id.org/gcdfo/salmon#StockManagementUnit">Stock Management Unit</a> <sup class="type-c" title="class">c</sup>
+    <a href="#ConservationUnit" title="https://w3id.org/gcdfo/salmon#ConservationUnit">Conservation Unit</a> <sup class="type-c" title="class">c</sup>, <a href="#Stock" title="https://w3id.org/gcdfo/salmon#Stock">Stock</a> <sup class="type-c" title="class">c</sup>, <a href="#StockManagementUnit" title="https://w3id.org/gcdfo/salmon#StockManagementUnit">Stock Management Unit</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -3269,7 +4256,7 @@ This section provides details for each class and property defined by GC DFO Salm
   <h3>Stock<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#Stock</p>
   <div class="comment">
-   <span class="markdown">A biologically meaningful but operationally-focused salmon demographic unit used in assessment and reporting.</span>
+   <span class="markdown">An operationally-defined grouping of salmon used for assessment and management purposes. A stock is a management unit or reporting stratum, not a biological organism.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -3295,7 +4282,7 @@ This section provides details for each class and property defined by GC DFO Salm
     has super-classes
    </dt>
    <dd>
-    <a href="#http://rs.tdwg.org/dwc/terms/Organism" title="http://rs.tdwg.org/dwc/terms/Organism">Organism</a> <sup class="type-c" title="class">c</sup>
+    <a href="#ReportingOrManagementStratum" title="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum">Reporting or management stratum</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -3364,6 +4351,18 @@ This section provides details for each class and property defined by GC DFO Salm
    </dt>
    <dd>
     <a href="#ReportingOrManagementStratum" title="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum">Reporting or management stratum</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#hasConservationUnit" title="https://w3id.org/gcdfo/salmon#hasConservationUnit">has Conservation Unit</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#conservationUnitOf" title="https://w3id.org/gcdfo/salmon#conservationUnitOf">Conservation Unit of</a> <sup class="type-op" title="object property">op</sup>
    </dd>
   </dl>
  </div>
@@ -3440,7 +4439,7 @@ This section provides details for each class and property defined by GC DFO Salm
   <h3>Target or limit rate or abundance<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance</p>
   <div class="comment">
-   <span class="markdown">A value specification representing a policy- or model-defined target or limit, such as TAC, UMSY, or reference points.</span>
+   <span class="markdown">A value specification representing a policy- or model-defined target or limit, such as TAC or UMSY.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -3485,6 +4484,40 @@ This section provides details for each class and property defined by GC DFO Salm
    </dt>
    <dd>
     <a href="#ExploitationRate" title="https://w3id.org/gcdfo/salmon#ExploitationRate">Exploitation rate</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="UpperBiologicalBenchmark">
+  <h3>Upper biological benchmark<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark</p>
+  <div class="comment">
+   <span class="markdown">Upper benchmark value for a metric used to delineate Wild Salmon Policy status zones (typically the boundary between Amber and Green zones).</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf.
+   </dd>
+   <dd>
+    <a href="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf">https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#MetricBenchmark" title="https://w3id.org/gcdfo/salmon#MetricBenchmark">Metric benchmark</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -3625,8 +4658,199 @@ This section provides details for each class and property defined by GC DFO Salm
 </div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="objectproperties">
  <h3 id="properties" class="list">Object Properties</h3>
  <ul class="hlist">
+  <li><a href="#conservationUnitOf" title="https://w3id.org/gcdfo/salmon#conservationUnitOf">Conservation Unit of</a></li>
+  <li><a href="#demeOf" title="https://w3id.org/gcdfo/salmon#demeOf">deme of</a></li>
+  <li><a href="#hasConservationUnit" title="https://w3id.org/gcdfo/salmon#hasConservationUnit">has Conservation Unit</a></li>
+  <li><a href="#hasDeme" title="https://w3id.org/gcdfo/salmon#hasDeme">has deme</a></li>
+  <li><a href="#hasPopulation" title="https://w3id.org/gcdfo/salmon#hasPopulation">has population</a></li>
   <li><a href="#http://www.w3.org/ns/dqv#inDimension" title="http://www.w3.org/ns/dqv#inDimension">in dimension</a></li>
+  <li><a href="#populationOf" title="https://w3id.org/gcdfo/salmon#populationOf">population of</a></li>
  </ul>
+ <div class="entity" id="conservationUnitOf">
+  <h3>Conservation Unit of<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#conservationUnitOf</p>
+  <div class="comment">
+   <span class="markdown">Relates a Conservation Unit to the Stock Management Unit it belongs to.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#ConservationUnit" title="https://w3id.org/gcdfo/salmon#ConservationUnit">Conservation Unit</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#StockManagementUnit" title="https://w3id.org/gcdfo/salmon#StockManagementUnit">Stock Management Unit</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#hasConservationUnit" title="https://w3id.org/gcdfo/salmon#hasConservationUnit">has Conservation Unit</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="demeOf">
+  <h3>deme of<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#demeOf</p>
+  <div class="comment">
+   <span class="markdown">Relates a deme to the population it belongs to.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Deme" title="https://w3id.org/gcdfo/salmon#Deme">Deme</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Population" title="https://w3id.org/gcdfo/salmon#Population">Population</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#hasDeme" title="https://w3id.org/gcdfo/salmon#hasDeme">has deme</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasConservationUnit">
+  <h3>has Conservation Unit<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#hasConservationUnit</p>
+  <div class="comment">
+   <span class="markdown">Relates a Stock Management Unit to one of its constituent Conservation Units.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#StockManagementUnit" title="https://w3id.org/gcdfo/salmon#StockManagementUnit">Stock Management Unit</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#ConservationUnit" title="https://w3id.org/gcdfo/salmon#ConservationUnit">Conservation Unit</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#conservationUnitOf" title="https://w3id.org/gcdfo/salmon#conservationUnitOf">Conservation Unit of</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasDeme">
+  <h3>has deme<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#hasDeme</p>
+  <div class="comment">
+   <span class="markdown">Relates a population to one of its constituent demes.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Population" title="https://w3id.org/gcdfo/salmon#Population">Population</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Deme" title="https://w3id.org/gcdfo/salmon#Deme">Deme</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#demeOf" title="https://w3id.org/gcdfo/salmon#demeOf">deme of</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasPopulation">
+  <h3>has population<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#hasPopulation</p>
+  <div class="comment">
+   <span class="markdown">Relates a Conservation Unit to one of its constituent populations.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#ConservationUnit" title="https://w3id.org/gcdfo/salmon#ConservationUnit">Conservation Unit</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Population" title="https://w3id.org/gcdfo/salmon#Population">Population</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#populationOf" title="https://w3id.org/gcdfo/salmon#populationOf">population of</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
  <div class="entity" id="http://www.w3.org/ns/dqv#inDimension">
   <h3>in dimension<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> http://www.w3.org/ns/dqv#inDimension</p>
@@ -3652,6 +4876,43 @@ This section provides details for each class and property defined by GC DFO Salm
     <a href="https://www.w3.org/TR/vocab-dqv/">https://www.w3.org/TR/vocab-dqv/</a>
    </dd>
   </dl>
+ </div>
+ <div class="entity" id="populationOf">
+  <h3>population of<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#populationOf</p>
+  <div class="comment">
+   <span class="markdown">Relates a population to the Conservation Unit it belongs to.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Population" title="https://w3id.org/gcdfo/salmon#Population">Population</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#ConservationUnit" title="https://w3id.org/gcdfo/salmon#ConservationUnit">Conservation Unit</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#hasPopulation" title="https://w3id.org/gcdfo/salmon#hasPopulation">has population</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
  </div>
 </div><div id="legend">
 <h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
@@ -3691,6 +4952,25 @@ This section provides details for each class and property defined by GC DFO Salm
 <li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000115> "Benchmark value for a WSP metric that helps delineate status zones (for example, the limit reference point for absolute abundance)."@en</li>
 </ul>
 </li>
+<li><a href="#Stock">https://w3id.org/gcdfo/salmon#Stock</a>
+<ul>
+<li>Added: <https://w3id.org/gcdfo/salmon#theme> https://w3id.org/gcdfo/salmon#FisheriesManagementTheme</li>
+<li>Added: <http://purl.obolibrary.org/obo/IAO_0000115> "An operationally-defined grouping of salmon used for assessment and management purposes. A stock is a management unit or reporting stratum, not a biological organism."@en</li>
+<li>Added: SubClass of https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum</li>
+</ul>
+<ul>
+<li>Deleted: SubClass of http://rs.tdwg.org/dwc/terms/Organism</li>
+<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000115> "A biologically meaningful but operationally-focused salmon demographic unit used in assessment and reporting."@en</li>
+</ul>
+</li>
+<li><a href="#TargetOrLimitRateOrAbundance">https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance</a>
+<ul>
+<li>Added: <http://purl.obolibrary.org/obo/IAO_0000115> "A value specification representing a policy- or model-defined target or limit, such as TAC or UMSY."@en</li>
+</ul>
+<ul>
+<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000115> "A value specification representing a policy- or model-defined target or limit, such as TAC, UMSY, or reference points."@en</li>
+</ul>
+</li>
 <li><a href="#WSPBiologicalStatusZone">https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZone</a>
 <ul>
 <li>Added: <http://www.w3.org/2004/02/skos/core#inScheme> https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZoneScheme</li>
@@ -3708,13 +4988,77 @@ This section provides details for each class and property defined by GC DFO Salm
 </ul>
 </li>
 </ul></details><details><summary><u>Added classes</u></summary>
-<ul><li><a href="#WSPRapidStatusAlgorithmThreshold">https://w3id.org/gcdfo/salmon#WSPRapidStatusAlgorithmThreshold</a>
+<ul><li><a href="#Deme">https://w3id.org/gcdfo/salmon#Deme</a>
+<ul>
+<li>Added: SubClass of http://rs.tdwg.org/dwc/terms/Organism</li>
+</ul>
+</li>
+<li><a href="#LowerBiologicalBenchmark">https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark</a>
+<ul>
+<li>Added: SubClass of https://w3id.org/gcdfo/salmon#MetricBenchmark</li>
+</ul>
+</li>
+<li><a href="#Population">https://w3id.org/gcdfo/salmon#Population</a>
+<ul>
+<li>Added: SubClass of http://rs.tdwg.org/dwc/terms/Organism</li>
+</ul>
+</li>
+<li><a href="#UpperBiologicalBenchmark">https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark</a>
+<ul>
+<li>Added: SubClass of https://w3id.org/gcdfo/salmon#MetricBenchmark</li>
+</ul>
+</li>
+<li><a href="#WSPRapidStatusAlgorithmThreshold">https://w3id.org/gcdfo/salmon#WSPRapidStatusAlgorithmThreshold</a>
 <ul>
 <li>Added: SubClass of http://purl.obolibrary.org/obo/IAO_0000030</li>
 </ul>
 </li>
 </ul></details><details><summary><u>Deleted classes</u></summary>
 <ul><li><a href="#AlgorithmThreshold">https://w3id.org/gcdfo/salmon#AlgorithmThreshold</a>
+</li>
+</ul></details><h3 id="changeProp" class="list">Object Properties</h3>
+<details><summary><u>Added object properties</u></summary>
+<ul><li><a href="#conservationUnitOf">https://w3id.org/gcdfo/salmon#conservationUnitOf</a>
+<ul>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/gcdfo/salmon#conservationUnitOf&gt; &lt;https://w3id.org/gcdfo/salmon#hasConservationUnit&gt;)</li>
+<li>Added: domain https://w3id.org/gcdfo/salmon#ConservationUnit</li>
+<li>Added: Range https://w3id.org/gcdfo/salmon#StockManagementUnit</li>
+</ul>
+</li>
+<li><a href="#demeOf">https://w3id.org/gcdfo/salmon#demeOf</a>
+<ul>
+<li>Added: domain https://w3id.org/gcdfo/salmon#Deme</li>
+<li>Added: Range https://w3id.org/gcdfo/salmon#Population</li>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/gcdfo/salmon#demeOf&gt; &lt;https://w3id.org/gcdfo/salmon#hasDeme&gt;)</li>
+</ul>
+</li>
+<li><a href="#hasConservationUnit">https://w3id.org/gcdfo/salmon#hasConservationUnit</a>
+<ul>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/gcdfo/salmon#conservationUnitOf&gt; &lt;https://w3id.org/gcdfo/salmon#hasConservationUnit&gt;)</li>
+<li>Added: domain https://w3id.org/gcdfo/salmon#StockManagementUnit</li>
+<li>Added: Range https://w3id.org/gcdfo/salmon#ConservationUnit</li>
+</ul>
+</li>
+<li><a href="#hasDeme">https://w3id.org/gcdfo/salmon#hasDeme</a>
+<ul>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/gcdfo/salmon#demeOf&gt; &lt;https://w3id.org/gcdfo/salmon#hasDeme&gt;)</li>
+<li>Added: domain https://w3id.org/gcdfo/salmon#Population</li>
+<li>Added: Range https://w3id.org/gcdfo/salmon#Deme</li>
+</ul>
+</li>
+<li><a href="#hasPopulation">https://w3id.org/gcdfo/salmon#hasPopulation</a>
+<ul>
+<li>Added: domain https://w3id.org/gcdfo/salmon#ConservationUnit</li>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/gcdfo/salmon#populationOf&gt; &lt;https://w3id.org/gcdfo/salmon#hasPopulation&gt;)</li>
+<li>Added: Range https://w3id.org/gcdfo/salmon#Population</li>
+</ul>
+</li>
+<li><a href="#populationOf">https://w3id.org/gcdfo/salmon#populationOf</a>
+<ul>
+<li>Added: domain https://w3id.org/gcdfo/salmon#Population</li>
+<li>Added: Range https://w3id.org/gcdfo/salmon#ConservationUnit</li>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/gcdfo/salmon#populationOf&gt; &lt;https://w3id.org/gcdfo/salmon#hasPopulation&gt;)</li>
+</ul>
 </li>
 </ul></details></div>
 </div>
