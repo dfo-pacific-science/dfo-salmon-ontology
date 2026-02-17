@@ -1726,7 +1726,7 @@ gcdfo:PercentChangeMetric a owl:Class ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:BenchmarkRatioMetric a owl:Class ;
-  rdfs:label "BenchmarkRatioMetric"@en ;
+  rdfs:label "Benchmark ratio metric"@en ;
   iao:0000115 "Dimensionless ratio of generational average abundance to a benchmark threshold used in WSP rapid-status logic."@en ;
   rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
   dcterms:source <https://github.com/sos-program/WSP-Metrics-Pkg> ;
@@ -1735,7 +1735,7 @@ gcdfo:BenchmarkRatioMetric a owl:Class ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:ProbabilityDeclineBelowLowerBenchmarkMetric a owl:Class ;
-  rdfs:label "ProbabilityDeclineBelowLowerBenchmarkMetric"@en ;
+  rdfs:label "Probability of decline below lower benchmark metric"@en ;
   iao:0000115 "Probability metric estimating risk of abundance declining below lower benchmark."@en ;
   rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
   dcterms:source <https://github.com/sos-program/WSP-Metrics-Pkg> ;
@@ -1744,7 +1744,7 @@ gcdfo:ProbabilityDeclineBelowLowerBenchmarkMetric a owl:Class ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:AbundancePercentileMetric a owl:Class ;
-  rdfs:label "AbundancePercentileMetric"@en ;
+  rdfs:label "Abundance percentile metric"@en ;
   iao:0000115 "Percentile rank of current generational abundance relative to historical distribution."@en ;
   rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
   dcterms:source <https://github.com/sos-program/WSP-Metrics-Pkg> ;
@@ -1753,7 +1753,7 @@ gcdfo:AbundancePercentileMetric a owl:Class ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:RapidStatusScoreMetric a owl:Class ;
-  rdfs:label "RapidStatusScoreMetric"@en ;
+  rdfs:label "Rapid status score metric"@en ;
   iao:0000115 "Numeric score output from WSP rapid-status decision system."@en ;
   rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
   dcterms:source <https://github.com/sos-program/WSP-Metrics-Pkg> ;
