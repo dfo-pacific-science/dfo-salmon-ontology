@@ -1706,7 +1706,8 @@ gcdfo:IndicatorRiver a owl:Class ;
   skos:definition "Classification describing whether a conservation-unit data series supports absolute abundance metrics (Abs_Abd) or only relative index metrics (RelIdx) in WSP workflows."@en ;
   skos:inScheme :MeasurementContextScheme ;
   skos:broader gcdfo:MeasurementContext ;
-  dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses>, <https://doi.org/10.5281/zenodo.18498157> ;
+  dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses> ;
+  dcterms:source <https://doi.org/10.5281/zenodo.18498157> ;
   iao:0000119 "sos-program. Approved-WSP-Statuses repository (Approved WSP Statuses) and associated Zenodo release (doi:10.5281/zenodo.18498157)."@en ;
   gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
