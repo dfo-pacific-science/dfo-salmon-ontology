@@ -1722,3 +1722,39 @@ gcdfo:PercentChangeMetric a owl:Class ;
   iao:0000119 "Source documented in WSP integration proposal"@en ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:BenchmarkRatioMetric a owl:Class ;
+  rdfs:label "BenchmarkRatioMetric"@en ;
+  iao:0000115 "Dimensionless ratio of generational average abundance to a benchmark threshold used in WSP rapid-status logic."@en ;
+  rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
+  dcterms:source <https://github.com/sos-program/WSP-Metrics-Pkg> ;
+  iao:0000119 "Source documented in WSP integration proposal"@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:ProbabilityDeclineBelowLowerBenchmarkMetric a owl:Class ;
+  rdfs:label "ProbabilityDeclineBelowLowerBenchmarkMetric"@en ;
+  iao:0000115 "Probability metric estimating risk of abundance declining below lower benchmark."@en ;
+  rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
+  dcterms:source <https://github.com/sos-program/WSP-Metrics-Pkg> ;
+  iao:0000119 "Source documented in WSP integration proposal"@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:AbundancePercentileMetric a owl:Class ;
+  rdfs:label "AbundancePercentileMetric"@en ;
+  iao:0000115 "Percentile rank of current generational abundance relative to historical distribution."@en ;
+  rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
+  dcterms:source <https://github.com/sos-program/WSP-Metrics-Pkg> ;
+  iao:0000119 "Source documented in WSP integration proposal"@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:RapidStatusScoreMetric a owl:Class ;
+  rdfs:label "RapidStatusScoreMetric"@en ;
+  iao:0000115 "Numeric score output from WSP rapid-status decision system."@en ;
+  rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
+  dcterms:source <https://github.com/sos-program/WSP-Metrics-Pkg> ;
+  iao:0000119 "Source documented in WSP integration proposal"@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
