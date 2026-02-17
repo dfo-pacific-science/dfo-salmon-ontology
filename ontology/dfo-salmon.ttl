@@ -1690,14 +1690,16 @@ gcdfo:IndicatorRiver a owl:Class ;
 #################################################################
 
 :AbundanceDataType a skos:Concept ;
-  skos:prefLabel "AbundanceDataType"@en ;
+  skos:prefLabel "Abundance data type"@en ;
   skos:definition "Classification describing whether a conservation-unit data series supports absolute abundance metrics (Abs_Abd) or only relative index metrics (RelIdx) in WSP workflows."@en ;
+  skos:inScheme :MeasurementContextScheme ;
+  skos:broader gcdfo:MeasurementContext ;
   dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses> ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:GenerationalAverageAbundance a owl:Class ;
-  rdfs:label "GenerationalAverageAbundance"@en ;
+  rdfs:label "Generational average abundance"@en ;
   iao:0000115 "Mean spawner abundance across the most recent generation-length years used as the numerator for WSP benchmark ratios."@en ;
   rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
   dcterms:source <https://github.com/sos-program/WSP-Metrics-Pkg> ;
@@ -1706,7 +1708,7 @@ gcdfo:GenerationalAverageAbundance a owl:Class ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:LongTermTrendMetric a owl:Class ;
-  rdfs:label "LongTermTrendMetric"@en ;
+  rdfs:label "Long-term trend metric"@en ;
   iao:0000115 "WSP long-term trend metric computed from trend-designated wild spawner series to support rapid status determination."@en ;
   rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
   dcterms:source <https://github.com/sos-program/WSP-Metrics-Pkg> ;
@@ -1715,7 +1717,7 @@ gcdfo:LongTermTrendMetric a owl:Class ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:PercentChangeMetric a owl:Class ;
-  rdfs:label "PercentChangeMetric"@en ;
+  rdfs:label "Percent change metric"@en ;
   iao:0000115 "WSP percent-change metric measuring generational abundance change used in rapid status decision logic."@en ;
   rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
   dcterms:source <https://github.com/sos-program/WSP-Metrics-Pkg> ;
