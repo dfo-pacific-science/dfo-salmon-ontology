@@ -1694,69 +1694,84 @@ gcdfo:IndicatorRiver a owl:Class ;
   skos:definition "Classification describing whether a conservation-unit data series supports absolute abundance metrics (Abs_Abd) or only relative index metrics (RelIdx) in WSP workflows."@en ;
   skos:inScheme :MeasurementContextScheme ;
   skos:broader gcdfo:MeasurementContext ;
-  dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses> ;
-  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses>, <https://doi.org/10.5281/zenodo.18498157> ;
+  iao:0000119 "sos-program/Approved-WSP-Statuses: Approved WSP Statuses for the Fraser River CUs. Zenodo v1.0.1 (2026)."@en ;
+  gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:GenerationalAverageAbundance a owl:Class ;
   rdfs:label "Generational average abundance"@en ;
   iao:0000115 "Mean spawner abundance across the most recent generation-length years used as the numerator for WSP benchmark ratios."@en ;
   rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
-  dcterms:source <https://github.com/sos-program/WSP-Metrics-Pkg> ;
-  iao:0000119 "Source documented in WSP integration proposal"@en ;
-  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  dcterms:source <https://publications.gc.ca/collections/collection_2023/mpo-dfo/Fs97-6-3570-eng.pdf>,
+    <https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2009/2009_058-eng.htm> ;
+  iao:0000119 "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570."@en ;
+  iao:0000119 "Holt, C.A., Cass, A., Holtby, B., and Riddell, B. 2009. Indicators of Status and Benchmarks for Conservation Units in Canada's Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2009/058."@en ;
+  gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:LongTermTrendMetric a owl:Class ;
   rdfs:label "Long-term trend metric"@en ;
   iao:0000115 "WSP long-term trend metric computed from trend-designated wild spawner series to support rapid status determination."@en ;
   rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
-  dcterms:source <https://github.com/sos-program/WSP-Metrics-Pkg> ;
-  iao:0000119 "Source documented in WSP integration proposal"@en ;
-  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  dcterms:source <https://publications.gc.ca/collections/collection_2023/mpo-dfo/Fs97-6-3570-eng.pdf>,
+    <https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2009/2009_058-eng.htm> ;
+  iao:0000119 "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570."@en ;
+  iao:0000119 "Holt, C.A., Cass, A., Holtby, B., and Riddell, B. 2009. Indicators of Status and Benchmarks for Conservation Units in Canada's Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2009/058."@en ;
+  gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:PercentChangeMetric a owl:Class ;
-  rdfs:label "Percent change metric"@en ;
+  rdfs:label "WSP percent change metric"@en ;
   iao:0000115 "WSP percent-change metric measuring generational abundance change used in rapid status decision logic."@en ;
   rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
-  dcterms:source <https://github.com/sos-program/WSP-Metrics-Pkg> ;
-  iao:0000119 "Source documented in WSP integration proposal"@en ;
-  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  dcterms:source <https://publications.gc.ca/collections/collection_2023/mpo-dfo/Fs97-6-3570-eng.pdf>,
+    <https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2009/2009_058-eng.htm> ;
+  iao:0000119 "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570."@en ;
+  iao:0000119 "Holt, C.A., Cass, A., Holtby, B., and Riddell, B. 2009. Indicators of Status and Benchmarks for Conservation Units in Canada's Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2009/058."@en ;
+  gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:BenchmarkRatioMetric a owl:Class ;
   rdfs:label "Benchmark ratio metric"@en ;
   iao:0000115 "Dimensionless ratio of generational average abundance to a benchmark threshold used in WSP rapid-status logic."@en ;
   rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
-  dcterms:source <https://github.com/sos-program/WSP-Metrics-Pkg> ;
-  iao:0000119 "Source documented in WSP integration proposal"@en ;
-  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  dcterms:source <https://publications.gc.ca/collections/collection_2023/mpo-dfo/Fs97-6-3570-eng.pdf>,
+    <https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2009/2009_058-eng.htm> ;
+  iao:0000119 "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570."@en ;
+  iao:0000119 "Holt, C.A., Cass, A., Holtby, B., and Riddell, B. 2009. Indicators of Status and Benchmarks for Conservation Units in Canada's Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2009/058."@en ;
+  gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:ProbabilityDeclineBelowLowerBenchmarkMetric a owl:Class ;
   rdfs:label "Probability of decline below lower benchmark metric"@en ;
   iao:0000115 "Probability metric estimating risk of abundance declining below lower benchmark."@en ;
   rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
-  dcterms:source <https://github.com/sos-program/WSP-Metrics-Pkg> ;
-  iao:0000119 "Source documented in WSP integration proposal"@en ;
-  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  dcterms:source <https://publications.gc.ca/collections/collection_2023/mpo-dfo/Fs97-6-3570-eng.pdf>,
+    <https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2009/2009_058-eng.htm> ;
+  iao:0000119 "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570."@en ;
+  iao:0000119 "Holt, C.A., Cass, A., Holtby, B., and Riddell, B. 2009. Indicators of Status and Benchmarks for Conservation Units in Canada's Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2009/058."@en ;
+  gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:AbundancePercentileMetric a owl:Class ;
   rdfs:label "Abundance percentile metric"@en ;
   iao:0000115 "Percentile rank of current generational abundance relative to historical distribution."@en ;
   rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
-  dcterms:source <https://github.com/sos-program/WSP-Metrics-Pkg> ;
-  iao:0000119 "Source documented in WSP integration proposal"@en ;
-  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  dcterms:source <https://publications.gc.ca/collections/collection_2023/mpo-dfo/Fs97-6-3570-eng.pdf>,
+    <https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2009/2009_058-eng.htm> ;
+  iao:0000119 "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570."@en ;
+  iao:0000119 "Holt, C.A., Cass, A., Holtby, B., and Riddell, B. 2009. Indicators of Status and Benchmarks for Conservation Units in Canada's Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2009/058."@en ;
+  gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:RapidStatusScoreMetric a owl:Class ;
   rdfs:label "Rapid status score metric"@en ;
   iao:0000115 "Numeric score output from WSP rapid-status decision system."@en ;
   rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
-  dcterms:source <https://github.com/sos-program/WSP-Metrics-Pkg> ;
-  iao:0000119 "Source documented in WSP integration proposal"@en ;
-  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  dcterms:source <https://publications.gc.ca/collections/collection_2023/mpo-dfo/Fs97-6-3570-eng.pdf>,
+    <https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2009/2009_058-eng.htm> ;
+  iao:0000119 "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570."@en ;
+  iao:0000119 "Holt, C.A., Cass, A., Holtby, B., and Riddell, B. 2009. Indicators of Status and Benchmarks for Conservation Units in Canada's Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2009/058."@en ;
+  gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
