@@ -164,6 +164,24 @@ h3.list:hover .gcdfo-permalink,
   margin-top: 1rem;
 }
 
+@media (min-width: 901px) {
+  .gcdfo-toc-panel {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    width: min(360px, 32vw);
+    max-height: calc(100vh - 2rem);
+    overflow-y: auto;
+    z-index: 997;
+    margin-top: 0;
+  }
+
+  #maincontent {
+    max-width: min(1100px, calc(100% - 400px));
+    margin-right: auto;
+  }
+}
+
 .gcdfo-toc-toggle {
   display: none;
   align-items: center;
