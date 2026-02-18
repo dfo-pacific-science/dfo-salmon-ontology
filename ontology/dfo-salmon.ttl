@@ -168,7 +168,7 @@ xsd:anyURI   a rdfs:Datatype .
 #################################################################
 
 <https://w3id.org/gcdfo/salmon> a owl:Ontology ;
-  dcterms:title "GC DFO Salmon Ontology"@en ;
+  dcterms:title "DFO Salmon Ontology"@en ;
   dcterms:creator "Fishery & Assessment Data Section (FADS) Data Stewardship Unit"@en ;
   dcterms:contributor "Brett Johnson"@en, "Melissa K. Morrison"@en ;
   dcterms:publisher "Fisheries and Oceans Canada (DFO) Pacific Region Science Branch"@en ;
@@ -458,10 +458,12 @@ envo:00000234 a owl:Class ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 :StockStatusZoneScheme a skos:ConceptScheme ;
-  skos:prefLabel "Stock Status Zone Scheme"@en ;
-  skos:hasTopConcept :StockStatusZone ;
-  skos:definition "Controlled vocabulary for stock status zones under the Precautionary Approach."@en ;
-  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:FisheriesManagementTheme ;
+  skos:prefLabel "Stock Status Zone Scheme (legacy alias)"@en ;
+  skos:altLabel "Stock Status Zone Scheme"@en ;
+  skos:hasTopConcept gcdfo:WSPBiologicalStatusZone ;
+  skos:definition "Legacy alias scheme for stock status zones. Use :WSPBiologicalStatusZoneScheme as the canonical scheme for Red/Amber/Green Wild Salmon Policy biological status zones."@en ;
+  skos:exactMatch :WSPBiologicalStatusZoneScheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:FisheriesManagementTheme, gcdfo:WildSalmonPolicyTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 :COSEWICStatusScheme a skos:ConceptScheme ;
@@ -548,7 +550,7 @@ envo:00000234 a owl:Class ;
   skos:prefLabel "Policy framework scheme"@en ;
   skos:definition "Controlled vocabulary for policy and governance frameworks referenced by salmon assessment metrics and benchmarks (e.g., WSP, PA)."@en ;
   skos:hasTopConcept gcdfo:PolicyFramework ;
-  gcdfo:theme gcdfo:PolicyGovernanceTheme, gcdfo:StockAssessmentTheme ;
+  gcdfo:theme gcdfo:PolicyGovernanceTheme, gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:AgeNotation a skos:Concept ;
@@ -861,7 +863,7 @@ gcdfo:PolicyFramework a skos:Concept ;
   skos:prefLabel "Policy framework"@en ;
   skos:definition "A policy, legal, or governance framework that defines how salmon status metrics, benchmarks, or reference points are set and interpreted."@en ;
   skos:inScheme :PolicyFrameworkScheme ;
-  gcdfo:theme gcdfo:PolicyGovernanceTheme, gcdfo:StockAssessmentTheme ;
+  gcdfo:theme gcdfo:PolicyGovernanceTheme, gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:WildSalmonPolicy a skos:Concept ;

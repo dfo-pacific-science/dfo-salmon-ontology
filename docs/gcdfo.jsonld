@@ -1162,7 +1162,7 @@
     "http://purl.org/dc/terms/title": [
       {
         "@language": "en",
-        "@value": "GC DFO Salmon Ontology"
+        "@value": "DFO Salmon Ontology"
       }
     ],
     "http://purl.org/vocab/vann/preferredNamespacePrefix": [
@@ -1198,6 +1198,121 @@
     "https://schema.org/codeRepository": [
       {
         "@id": "https://github.com/dfo-pacific-science/dfo-salmon-ontology"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#AbundanceDataType",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "sos-program. Approved-WSP-Statuses repository (Approved WSP Statuses) and associated Zenodo release (doi:10.5281/zenodo.18498157)."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://doi.org/10.5281/zenodo.18498157"
+      },
+      {
+        "@id": "https://github.com/sos-program/Approved-WSP-Statuses"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#MeasurementContext"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Classification describing whether a conservation-unit data series supports absolute abundance metrics (Abs_Abd) or only relative index metrics (RelIdx) in WSP workflows."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#MeasurementContextScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Abundance data type"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#AbundancePercentileMetric",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "Percentile rank of current generational abundance relative to historical distribution."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Holt, C.A., Cass, A., Holtby, B., and Riddell, B. 2009. Indicators of Status and Benchmarks for Conservation Units in Canada's Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2009/058."
+      },
+      {
+        "@language": "en",
+        "@value": "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://publications.gc.ca/site/eng/9.928944/publication.html"
+      },
+      {
+        "@id": "https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2009/2009_058-eng.htm"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Abundance percentile metric"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
       }
     ]
   },
@@ -1964,7 +2079,12 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."
+        "@value": "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -2077,6 +2197,63 @@
     ]
   },
   {
+    "@id": "https://w3id.org/gcdfo/salmon#BenchmarkRatioMetric",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "Dimensionless ratio of generational average abundance to a benchmark threshold used in WSP rapid-status logic."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Holt, C.A., Cass, A., Holtby, B., and Riddell, B. 2009. Indicators of Status and Benchmarks for Conservation Units in Canada's Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2009/058."
+      },
+      {
+        "@language": "en",
+        "@value": "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://publications.gc.ca/site/eng/9.928944/publication.html"
+      },
+      {
+        "@id": "https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2009/2009_058-eng.htm"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Benchmark ratio metric"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
     "@id": "https://w3id.org/gcdfo/salmon#BiologicalBenchmarkAndIndicatorScheme",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#ConceptScheme"
@@ -2173,7 +2350,7 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "Adapted from the Government of Canada Pacific Salmon Glossary"
+        "@value": "Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html."
       }
     ],
     "http://purl.org/dc/terms/source": [
@@ -2462,11 +2639,11 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "Canada's Policy for Conservation of Wild Pacific Salmon Glossary."
+        "@value": "Fisheries and Oceans Canada. 2005. Canada's Policy for Conservation of Wild Pacific Salmon. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf."
       },
       {
         "@language": "en",
-        "@value": "Fisheries and Oceans Canada. (2005). Canada's Policy for Conservation of Wild Pacific Salmon. Retrieved from https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf."
+        "@value": "Fisheries and Oceans Canada. Canada's Policy for Conservation of Wild Pacific Salmon - Glossary. https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/wsp-pss/policy-politique-eng.html#glossary."
       }
     ],
     "http://purl.org/dc/terms/isPartOf": [
@@ -2475,6 +2652,9 @@
       }
     ],
     "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf"
+      },
       {
         "@id": "https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/wsp-pss/policy-politique-eng.html#glossary"
       }
@@ -3098,7 +3278,7 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "Fisheries and Oceans Canada. (2005). Canada's Policy for Conservation of Wild Pacific Salmon. Retrieved from https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf"
+        "@value": "Fisheries and Oceans Canada. 2005. Canada's Policy for Conservation of Wild Pacific Salmon. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf."
       }
     ],
     "http://purl.org/dc/terms/source": [
@@ -3465,7 +3645,12 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "Fisheries and Oceans Canada. (2019). Government of Canada. Pacific Salmon - Glossary. https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html. [Accessed 09-10-2025] "
+        "@value": "Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -3750,6 +3935,63 @@
     ]
   },
   {
+    "@id": "https://w3id.org/gcdfo/salmon#GenerationalAverageAbundance",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "Mean spawner abundance across the most recent generation-length years used as the numerator for WSP benchmark ratios."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Holt, C.A., Cass, A., Holtby, B., and Riddell, B. 2009. Indicators of Status and Benchmarks for Conservation Units in Canada's Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2009/058."
+      },
+      {
+        "@language": "en",
+        "@value": "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://publications.gc.ca/site/eng/9.928944/publication.html"
+      },
+      {
+        "@id": "https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2009/2009_058-eng.htm"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Generational average abundance"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
     "@id": "https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
@@ -3849,7 +4091,12 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."
+        "@value": "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -3924,7 +4171,12 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "DFO. (2018). Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Can. Sci. Advis. Sec. Sci. Advis. Rep. 2018/001. (Erratum: October 2023)"
+        "@value": "Fisheries and Oceans Canada. 2018. Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Canadian Science Advisory Secretariat Science Advisory Report 2018/001 (Erratum: October 2023)."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://www.dfo-mpo.gc.ca/csas-sccs/Publications/SAR-AS/2018/2018_001-eng.html"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -4273,7 +4525,12 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "Fisheries and Oceans Canada. (2024). Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html. [Accessed 09-10-2025]."
+        "@value": "Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -4307,6 +4564,63 @@
       },
       {
         "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#LongTermTrendMetric",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "WSP long-term trend metric computed from trend-designated wild spawner series to support rapid status determination."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Holt, C.A., Cass, A., Holtby, B., and Riddell, B. 2009. Indicators of Status and Benchmarks for Conservation Units in Canada's Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2009/058."
+      },
+      {
+        "@language": "en",
+        "@value": "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://publications.gc.ca/site/eng/9.928944/publication.html"
+      },
+      {
+        "@id": "https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2009/2009_058-eng.htm"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Long-term trend metric"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
       }
     ]
   },
@@ -4360,7 +4674,7 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."
+        "@value": "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."
       }
     ],
     "http://purl.org/dc/terms/source": [
@@ -4749,7 +5063,7 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "Pestal, G. et al. (2023). State of the Salmon: Rapid Status Assessment Approach for Pacific Salmon under Canada’s Wild Salmon Policy."
+        "@value": "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570."
       }
     ],
     "http://purl.org/dc/terms/source": [
@@ -4823,7 +5137,12 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "DFO. (2018). Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Can. Sci. Advis. Sec. Sci. Advis. Rep. 2018/001. (Erratum: October 2023)"
+        "@value": "Fisheries and Oceans Canada. 2018. Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Canadian Science Advisory Secretariat Science Advisory Report 2018/001 (Erratum: October 2023)."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://www.dfo-mpo.gc.ca/csas-sccs/Publications/SAR-AS/2018/2018_001-eng.html"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -5084,6 +5403,63 @@
     ]
   },
   {
+    "@id": "https://w3id.org/gcdfo/salmon#PercentChangeMetric",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "WSP percent-change metric measuring generational abundance change used in rapid status decision logic."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Holt, C.A., Cass, A., Holtby, B., and Riddell, B. 2009. Indicators of Status and Benchmarks for Conservation Units in Canada's Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2009/058."
+      },
+      {
+        "@language": "en",
+        "@value": "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://publications.gc.ca/site/eng/9.928944/publication.html"
+      },
+      {
+        "@id": "https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2009/2009_058-eng.htm"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "WSP percent change metric"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
     "@id": "https://w3id.org/gcdfo/salmon#PolicyFramework",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
@@ -5116,6 +5492,9 @@
       },
       {
         "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
       }
     ]
   },
@@ -5152,6 +5531,9 @@
       },
       {
         "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
       }
     ]
   },
@@ -5325,6 +5707,63 @@
     ]
   },
   {
+    "@id": "https://w3id.org/gcdfo/salmon#ProbabilityDeclineBelowLowerBenchmarkMetric",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "Probability metric estimating risk of abundance declining below lower benchmark."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Holt, C.A., Cass, A., Holtby, B., and Riddell, B. 2009. Indicators of Status and Benchmarks for Conservation Units in Canada's Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2009/058."
+      },
+      {
+        "@language": "en",
+        "@value": "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://publications.gc.ca/site/eng/9.928944/publication.html"
+      },
+      {
+        "@id": "https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2009/2009_058-eng.htm"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Probability of decline below lower benchmark metric"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
     "@id": "https://w3id.org/gcdfo/salmon#RapidStatusConfidenceHigh",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept",
@@ -5490,6 +5929,63 @@
     ]
   },
   {
+    "@id": "https://w3id.org/gcdfo/salmon#RapidStatusScoreMetric",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "Numeric score output from WSP rapid-status decision system."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Holt, C.A., Cass, A., Holtby, B., and Riddell, B. 2009. Indicators of Status and Benchmarks for Conservation Units in Canada's Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2009/058."
+      },
+      {
+        "@language": "en",
+        "@value": "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://publications.gc.ca/site/eng/9.928944/publication.html"
+      },
+      {
+        "@id": "https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2009/2009_058-eng.htm"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Rapid status score metric"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
     "@id": "https://w3id.org/gcdfo/salmon#ReachCoverage",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
@@ -5583,7 +6079,12 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."
+        "@value": "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -5725,7 +6226,7 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "DFO Introduction to Stock Assessment Glossary."
+        "@value": "Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html."
       }
     ],
     "http://purl.org/dc/terms/source": [
@@ -6122,7 +6623,7 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "DFO Introduction to Stock Assessment Glossary; Pacific Salmon Commission Technical Report No. 49."
+        "@value": "Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html."
       }
     ],
     "http://purl.org/dc/terms/source": [
@@ -6178,7 +6679,12 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "Fisheries and Oceans Canada. (2024). Introduction to Stock Assessment. Available at https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/module-1/09-eng.html"
+        "@value": "Fisheries and Oceans Canada. Introduction to Stock Assessment. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/module-1/09-eng.html."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/module-1/09-eng.html"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -6250,11 +6756,7 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "DFO Introduction to Stock Assessment Glossary."
-      },
-      {
-        "@language": "en",
-        "@value": "Fisheries and Oceans Canada. (2024). Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html. [Accessed 09-10-2025]."
+        "@value": "Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html."
       }
     ],
     "http://purl.org/dc/terms/source": [
@@ -6306,21 +6808,32 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2004/02/skos/core#altLabel": [
+      {
+        "@language": "en",
+        "@value": "Stock Status Zone Scheme"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#definition": [
       {
         "@language": "en",
-        "@value": "Controlled vocabulary for stock status zones under the Precautionary Approach."
+        "@value": "Legacy alias scheme for stock status zones. Use :WSPBiologicalStatusZoneScheme as the canonical scheme for Red/Amber/Green Wild Salmon Policy biological status zones."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZoneScheme"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#hasTopConcept": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#StockStatusZone"
+        "@id": "https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZone"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#prefLabel": [
       {
         "@language": "en",
-        "@value": "Stock Status Zone Scheme"
+        "@value": "Stock Status Zone Scheme (legacy alias)"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
@@ -6329,6 +6842,9 @@
       },
       {
         "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
       }
     ]
   },
@@ -6346,7 +6862,12 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "Fisheries and Oceans Canada. (2021). About the Sustainability Survey for Fisheries. Available at https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html. [Accessed 09-10-2025]."
+        "@value": "Fisheries and Oceans Canada. About the Sustainability Survey for Fisheries. https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -7081,7 +7602,7 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."
+        "@value": "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."
       }
     ],
     "http://purl.org/dc/terms/source": [
@@ -7131,7 +7652,12 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "DFO Introduction to Stock Assessment Glossary."
+        "@value": "Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -7364,7 +7890,12 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."
+        "@value": "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -7454,7 +7985,12 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "Pestal, G., MacDonald, B. L., Grant, S. C. H., and Holt, C. A. (2023). State of the Salmon: rapid status assessment approach for Pacific salmon under Canada’s Wild Salmon Policy. Can. Tech. Rep. Fish. Aquat. Sci. 3570: xiv + 200 p."
+        "@value": "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://publications.gc.ca/site/eng/9.928944/publication.html"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -7494,12 +8030,12 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "DFO (2024). Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under Canada’s Wild Salmon Policy. CSAS Science Response 2024/004."
+        "@value": "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under Fisheries and Oceans Canada Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Science Response 2024/004."
       }
     ],
     "http://purl.org/dc/terms/source": [
       {
-        "@id": "https://www.dfo-mpo.gc.ca/csas-sccs/Publications/ScR-RS/2024/2024_004-eng.pdf"
+        "@id": "https://www.dfo-mpo.gc.ca/csas-sccs/Publications/ScR-RS/2024/2024_004-eng.html"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
