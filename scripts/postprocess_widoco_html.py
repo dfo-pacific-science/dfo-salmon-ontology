@@ -42,6 +42,13 @@ def patch_html(path: Path) -> None:
         flags=re.S,
     )
 
+    # Ensure custom enhancement JS is loaded.
+    if "resources/gcdfo-enhancements.js" not in content:
+        content = content.replace(
+            "</head>",
+            '<script src="resources/gcdfo-enhancements.js" defer></script>\n</head>',
+        )
+
     if content != original:
         path.write_text(content, encoding="utf-8")
         print(f"Patched {path}")
