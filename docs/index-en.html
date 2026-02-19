@@ -254,6 +254,10 @@ This ontology has the following classes and properties.</span>
       <a href="#http://rs.tdwg.org/dwc/terms/Organism" title="http://rs.tdwg.org/dwc/terms/Organism">Organism</a>
    </li>
    <li>
+      <a href="#PercentChangeMetric"
+         title="https://w3id.org/gcdfo/salmon#PercentChangeMetric">Percent change metric</a>
+   </li>
+   <li>
       <a href="#http://purl.obolibrary.org/obo/IAO_0000104" title="http://purl.obolibrary.org/obo/IAO_0000104">plan specification</a>
    </li>
    <li>
@@ -403,10 +407,6 @@ This ontology has the following classes and properties.</span>
          title="https://w3id.org/gcdfo/salmon#UpperStockReferencePoint">Upper stock reference</a>
    </li>
    <li>
-      <a href="#PercentChangeMetric"
-         title="https://w3id.org/gcdfo/salmon#PercentChangeMetric">WSP percent change metric</a>
-   </li>
-   <li>
       <a href="#WSPRapidStatus" title="https://w3id.org/gcdfo/salmon#WSPRapidStatus">WSP rapid status</a>
    </li>
    <li>
@@ -502,6 +502,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <li><a href="#http://rs.tdwg.org/dwc/terms/Occurrence" title="http://rs.tdwg.org/dwc/terms/Occurrence">Occurrence</a></li>
   <li><a href="#OceanMortalityRate" title="https://w3id.org/gcdfo/salmon#OceanMortalityRate">Ocean mortality rate</a></li>
   <li><a href="#http://rs.tdwg.org/dwc/terms/Organism" title="http://rs.tdwg.org/dwc/terms/Organism">Organism</a></li>
+  <li><a href="#PercentChangeMetric" title="https://w3id.org/gcdfo/salmon#PercentChangeMetric">Percent change metric</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/IAO_0000104" title="http://purl.obolibrary.org/obo/IAO_0000104">plan specification</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/ENVO_00000033" title="http://purl.obolibrary.org/obo/ENVO_00000033">pond</a></li>
   <li><a href="#Population" title="https://w3id.org/gcdfo/salmon#Population">Population</a></li>
@@ -543,7 +544,6 @@ This section provides details for each class and property defined by DFO Salmon 
   <li><a href="#TotalMortalityRate" title="https://w3id.org/gcdfo/salmon#TotalMortalityRate">Total mortality rate</a></li>
   <li><a href="#UpperBiologicalBenchmark" title="https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark">Upper biological benchmark</a></li>
   <li><a href="#UpperStockReferencePoint" title="https://w3id.org/gcdfo/salmon#UpperStockReferencePoint">Upper stock reference</a></li>
-  <li><a href="#PercentChangeMetric" title="https://w3id.org/gcdfo/salmon#PercentChangeMetric">WSP percent change metric</a></li>
   <li><a href="#WSPRapidStatus" title="https://w3id.org/gcdfo/salmon#WSPRapidStatus">WSP rapid status</a></li>
   <li><a href="#WSPRapidStatusAlgorithmThreshold" title="https://w3id.org/gcdfo/salmon#WSPRapidStatusAlgorithmThreshold">WSP Rapid Status Algorithm threshold</a></li>
   <li><a href="#YearBasis" title="https://w3id.org/gcdfo/salmon#YearBasis">Year basis</a></li>
@@ -553,7 +553,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Abundance percentile metric<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#AbundancePercentileMetric</p>
   <div class="comment">
-   <span class="markdown">Percentile rank of current generational abundance relative to historical distribution.</span>
+   <span class="markdown">A WSP rapid status metric giving the percentile rank of the current generational average spawner abundance relative to a historical reference distribution.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -568,16 +568,10 @@ This section provides details for each class and property defined by DFO Salmon 
     Source
    </dt>
    <dd>
-    Holt, C.A., Cass, A., Holtby, B., and Riddell, B. 2009. Indicators of Status and Benchmarks for Conservation Units in Canada's Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2009/058.
+    Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004.
    </dd>
    <dd>
-    Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570.
-   </dd>
-   <dd>
-    <a href="https://publications.gc.ca/site/eng/9.928944/publication.html">https://publications.gc.ca/site/eng/9.928944/publication.html</a>
-   </dd>
-   <dd>
-    <a href="https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2009/2009_058-eng.htm">https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2009/2009_058-eng.htm</a>
+    <a href="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf">https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf</a>
    </dd>
   </dl>
   <dl class="description">
@@ -653,7 +647,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Benchmark ratio metric<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#BenchmarkRatioMetric</p>
   <div class="comment">
-   <span class="markdown">Dimensionless ratio of generational average abundance to a benchmark threshold used in WSP rapid-status logic.</span>
+   <span class="markdown">A WSP rapid status metric equal to the ratio of current generational average spawner abundance to a specified benchmark (lower or upper benchmark), where 1.0 indicates equality to that benchmark.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -668,16 +662,10 @@ This section provides details for each class and property defined by DFO Salmon 
     Source
    </dt>
    <dd>
-    Holt, C.A., Cass, A., Holtby, B., and Riddell, B. 2009. Indicators of Status and Benchmarks for Conservation Units in Canada's Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2009/058.
+    Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004.
    </dd>
    <dd>
-    Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570.
-   </dd>
-   <dd>
-    <a href="https://publications.gc.ca/site/eng/9.928944/publication.html">https://publications.gc.ca/site/eng/9.928944/publication.html</a>
-   </dd>
-   <dd>
-    <a href="https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2009/2009_058-eng.htm">https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2009/2009_058-eng.htm</a>
+    <a href="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf">https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf</a>
    </dd>
   </dl>
   <dl class="description">
@@ -802,7 +790,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>CWT marine survival rate<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#CWTMarineSurvivalRate</p>
   <div class="comment">
-   <span class="markdown">The estimated marine survival proportion for coded-wire-tagged fish.</span>
+   <span class="markdown">A marine survival proportion estimated for a coded-wire-tag (CWT) release group, defined as the portion of tagged smolts that survive to be caught in marine fisheries or return to freshwater as adults.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -817,7 +805,10 @@ This section provides details for each class and property defined by DFO Salmon 
     Source
    </dt>
    <dd>
-    <a href="https://github.com/dfo-pacific-science/salmon-population-summary-repository">https://github.com/dfo-pacific-science/salmon-population-summary-repository</a>
+    Fisheries and Oceans Canada. 2021. Marine Survival Forecast of Southern British Columbia Coho (defines marine survival as (Catch+Escapement)/Release for coded-wire-tag smolt releases).
+   </dd>
+   <dd>
+    <a href="https://waves-vagues.dfo-mpo.gc.ca/Library/40978680.pdf">https://waves-vagues.dfo-mpo.gc.ca/Library/40978680.pdf</a>
    </dd>
   </dl>
   <dl class="description">
@@ -1171,7 +1162,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Generational average abundance<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#GenerationalAverageAbundance</p>
   <div class="comment">
-   <span class="markdown">Mean spawner abundance across the most recent generation-length years used as the numerator for WSP benchmark ratios.</span>
+   <span class="markdown">The generational average of spawner abundance, calculated as a geometric mean across the number of years corresponding to the most common age at return (generation length), optionally after smoothing depending on CU group.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -1186,16 +1177,10 @@ This section provides details for each class and property defined by DFO Salmon 
     Source
    </dt>
    <dd>
-    Holt, C.A., Cass, A., Holtby, B., and Riddell, B. 2009. Indicators of Status and Benchmarks for Conservation Units in Canada's Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2009/058.
+    Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004.
    </dd>
    <dd>
-    Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570.
-   </dd>
-   <dd>
-    <a href="https://publications.gc.ca/site/eng/9.928944/publication.html">https://publications.gc.ca/site/eng/9.928944/publication.html</a>
-   </dd>
-   <dd>
-    <a href="https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2009/2009_058-eng.htm">https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2009/2009_058-eng.htm</a>
+    <a href="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf">https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf</a>
    </dd>
   </dl>
   <dl class="description">
@@ -1265,7 +1250,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>In-river mortality rate<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#InRiverMortalityRate</p>
   <div class="comment">
-   <span class="markdown">The proportion of fish that die in freshwater in-river environments.</span>
+   <span class="markdown">The proportion of fish that die during freshwater migration and residence in river (excluding ocean phase), for the defined population/cohort and assessment period.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -1279,6 +1264,9 @@ This section provides details for each class and property defined by DFO Salmon 
    <dt>
     Source
    </dt>
+   <dd>
+    Derived for SPSR term coverage from salmon-population-summary-repository (Issue #33 term request scope); phase wording aligns with the ontology’s life phase concept scheme.
+   </dd>
    <dd>
     <a href="https://github.com/dfo-pacific-science/salmon-population-summary-repository">https://github.com/dfo-pacific-science/salmon-population-summary-repository</a>
    </dd>
@@ -1434,7 +1422,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Long-term trend metric<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#LongTermTrendMetric</p>
   <div class="comment">
-   <span class="markdown">WSP long-term trend metric computed from trend-designated wild spawner series to support rapid status determination.</span>
+   <span class="markdown">A WSP rapid status long-term trend metric comparing current generational average (geometric mean) spawner abundance to the long-term average (geometric mean) spawner abundance for the CU time series.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -1449,16 +1437,10 @@ This section provides details for each class and property defined by DFO Salmon 
     Source
    </dt>
    <dd>
-    Holt, C.A., Cass, A., Holtby, B., and Riddell, B. 2009. Indicators of Status and Benchmarks for Conservation Units in Canada's Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2009/058.
+    Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004.
    </dd>
    <dd>
-    Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570.
-   </dd>
-   <dd>
-    <a href="https://publications.gc.ca/site/eng/9.928944/publication.html">https://publications.gc.ca/site/eng/9.928944/publication.html</a>
-   </dd>
-   <dd>
-    <a href="https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2009/2009_058-eng.htm">https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2009/2009_058-eng.htm</a>
+    <a href="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf">https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf</a>
    </dd>
   </dl>
   <dl class="description">
@@ -1537,7 +1519,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Mainstem mortality rate<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#MainstemMortalityRate</p>
   <div class="comment">
-   <span class="markdown">The proportion of fish that die during the freshwater mainstem phase.</span>
+   <span class="markdown">The proportion of fish that die during migration through the freshwater mainstem portion of a river system (as defined by the assessment workflow).</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -1551,6 +1533,9 @@ This section provides details for each class and property defined by DFO Salmon 
    <dt>
     Source
    </dt>
+   <dd>
+    Derived for SPSR term coverage from salmon-population-summary-repository (Issue #33 term request scope); boundary of 'mainstem' is assessment-defined.
+   </dd>
    <dd>
     <a href="https://github.com/dfo-pacific-science/salmon-population-summary-repository">https://github.com/dfo-pacific-science/salmon-population-summary-repository</a>
    </dd>
@@ -1568,7 +1553,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Marine survival index<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#MarineSurvivalIndex</p>
   <div class="comment">
-   <span class="markdown">An index representing marine survival conditions or relative marine survival outcomes.</span>
+   <span class="markdown">A dimensionless index or covariate representing marine survival conditions or relative marine survival outcomes (not necessarily a survival proportion).</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -1583,7 +1568,10 @@ This section provides details for each class and property defined by DFO Salmon 
     Source
    </dt>
    <dd>
-    <a href="https://github.com/dfo-pacific-science/salmon-population-summary-repository">https://github.com/dfo-pacific-science/salmon-population-summary-repository</a>
+    Fisheries and Oceans Canada. 2021. Marine Survival Forecast of Southern British Columbia Coho (uses climate indicators correlated with marine survival; supports index-like predictors for survival conditions).
+   </dd>
+   <dd>
+    <a href="https://waves-vagues.dfo-mpo.gc.ca/Library/40978680.pdf">https://waves-vagues.dfo-mpo.gc.ca/Library/40978680.pdf</a>
    </dd>
   </dl>
   <dl class="description">
@@ -1743,7 +1731,7 @@ This section provides details for each class and property defined by DFO Salmon 
     has sub-classes
    </dt>
    <dd>
-    <a href="#AbundancePercentileMetric" title="https://w3id.org/gcdfo/salmon#AbundancePercentileMetric">Abundance percentile metric</a> <sup class="type-c" title="class">c</sup>, <a href="#BenchmarkRatioMetric" title="https://w3id.org/gcdfo/salmon#BenchmarkRatioMetric">Benchmark ratio metric</a> <sup class="type-c" title="class">c</sup>, <a href="#CWTMarineSurvivalRate" title="https://w3id.org/gcdfo/salmon#CWTMarineSurvivalRate">CWT marine survival rate</a> <sup class="type-c" title="class">c</sup>, <a href="#GenerationalAverageAbundance" title="https://w3id.org/gcdfo/salmon#GenerationalAverageAbundance">Generational average abundance</a> <sup class="type-c" title="class">c</sup>, <a href="#InRiverMortalityRate" title="https://w3id.org/gcdfo/salmon#InRiverMortalityRate">In-river mortality rate</a> <sup class="type-c" title="class">c</sup>, <a href="#LongTermTrendMetric" title="https://w3id.org/gcdfo/salmon#LongTermTrendMetric">Long-term trend metric</a> <sup class="type-c" title="class">c</sup>, <a href="#MainstemMortalityRate" title="https://w3id.org/gcdfo/salmon#MainstemMortalityRate">Mainstem mortality rate</a> <sup class="type-c" title="class">c</sup>, <a href="#MarineSurvivalIndex" title="https://w3id.org/gcdfo/salmon#MarineSurvivalIndex">Marine survival index</a> <sup class="type-c" title="class">c</sup>, <a href="#OceanMortalityRate" title="https://w3id.org/gcdfo/salmon#OceanMortalityRate">Ocean mortality rate</a> <sup class="type-c" title="class">c</sup>, <a href="#ProbabilityDeclineBelowLowerBenchmarkMetric" title="https://w3id.org/gcdfo/salmon#ProbabilityDeclineBelowLowerBenchmarkMetric">Probability of decline below lower benchmark metric</a> <sup class="type-c" title="class">c</sup>, <a href="#ProportionHatcheryOriginSpawners" title="https://w3id.org/gcdfo/salmon#ProportionHatcheryOriginSpawners">Proportion of hatchery-origin spawners</a> <sup class="type-c" title="class">c</sup>, <a href="#RapidStatusScoreMetric" title="https://w3id.org/gcdfo/salmon#RapidStatusScoreMetric">Rapid status score metric</a> <sup class="type-c" title="class">c</sup>, <a href="#SpawnerAbundance" title="https://w3id.org/gcdfo/salmon#SpawnerAbundance">Spawner abundance</a> <sup class="type-c" title="class">c</sup>, <a href="#SpawnerAbundanceChange" title="https://w3id.org/gcdfo/salmon#SpawnerAbundanceChange">Spawner abundance change</a> <sup class="type-c" title="class">c</sup>, <a href="#SpawnerAbundancePercentile" title="https://w3id.org/gcdfo/salmon#SpawnerAbundancePercentile">Spawner abundance percentile</a> <sup class="type-c" title="class">c</sup>, <a href="#SpawnerAbundanceTrend" title="https://w3id.org/gcdfo/salmon#SpawnerAbundanceTrend">Spawner abundance trend</a> <sup class="type-c" title="class">c</sup>, <a href="#TerminalMortalityRate" title="https://w3id.org/gcdfo/salmon#TerminalMortalityRate">Terminal mortality rate</a> <sup class="type-c" title="class">c</sup>, <a href="#TotalMortalityRate" title="https://w3id.org/gcdfo/salmon#TotalMortalityRate">Total mortality rate</a> <sup class="type-c" title="class">c</sup>, <a href="#PercentChangeMetric" title="https://w3id.org/gcdfo/salmon#PercentChangeMetric">WSP percent change metric</a> <sup class="type-c" title="class">c</sup>
+    <a href="#AbundancePercentileMetric" title="https://w3id.org/gcdfo/salmon#AbundancePercentileMetric">Abundance percentile metric</a> <sup class="type-c" title="class">c</sup>, <a href="#BenchmarkRatioMetric" title="https://w3id.org/gcdfo/salmon#BenchmarkRatioMetric">Benchmark ratio metric</a> <sup class="type-c" title="class">c</sup>, <a href="#CWTMarineSurvivalRate" title="https://w3id.org/gcdfo/salmon#CWTMarineSurvivalRate">CWT marine survival rate</a> <sup class="type-c" title="class">c</sup>, <a href="#GenerationalAverageAbundance" title="https://w3id.org/gcdfo/salmon#GenerationalAverageAbundance">Generational average abundance</a> <sup class="type-c" title="class">c</sup>, <a href="#InRiverMortalityRate" title="https://w3id.org/gcdfo/salmon#InRiverMortalityRate">In-river mortality rate</a> <sup class="type-c" title="class">c</sup>, <a href="#LongTermTrendMetric" title="https://w3id.org/gcdfo/salmon#LongTermTrendMetric">Long-term trend metric</a> <sup class="type-c" title="class">c</sup>, <a href="#MainstemMortalityRate" title="https://w3id.org/gcdfo/salmon#MainstemMortalityRate">Mainstem mortality rate</a> <sup class="type-c" title="class">c</sup>, <a href="#MarineSurvivalIndex" title="https://w3id.org/gcdfo/salmon#MarineSurvivalIndex">Marine survival index</a> <sup class="type-c" title="class">c</sup>, <a href="#OceanMortalityRate" title="https://w3id.org/gcdfo/salmon#OceanMortalityRate">Ocean mortality rate</a> <sup class="type-c" title="class">c</sup>, <a href="#PercentChangeMetric" title="https://w3id.org/gcdfo/salmon#PercentChangeMetric">Percent change metric</a> <sup class="type-c" title="class">c</sup>, <a href="#ProbabilityDeclineBelowLowerBenchmarkMetric" title="https://w3id.org/gcdfo/salmon#ProbabilityDeclineBelowLowerBenchmarkMetric">Probability of decline below lower benchmark metric</a> <sup class="type-c" title="class">c</sup>, <a href="#ProportionHatcheryOriginSpawners" title="https://w3id.org/gcdfo/salmon#ProportionHatcheryOriginSpawners">Proportion of hatchery-origin spawners</a> <sup class="type-c" title="class">c</sup>, <a href="#RapidStatusScoreMetric" title="https://w3id.org/gcdfo/salmon#RapidStatusScoreMetric">Rapid status score metric</a> <sup class="type-c" title="class">c</sup>, <a href="#SpawnerAbundance" title="https://w3id.org/gcdfo/salmon#SpawnerAbundance">Spawner abundance</a> <sup class="type-c" title="class">c</sup>, <a href="#SpawnerAbundanceChange" title="https://w3id.org/gcdfo/salmon#SpawnerAbundanceChange">Spawner abundance change</a> <sup class="type-c" title="class">c</sup>, <a href="#SpawnerAbundancePercentile" title="https://w3id.org/gcdfo/salmon#SpawnerAbundancePercentile">Spawner abundance percentile</a> <sup class="type-c" title="class">c</sup>, <a href="#SpawnerAbundanceTrend" title="https://w3id.org/gcdfo/salmon#SpawnerAbundanceTrend">Spawner abundance trend</a> <sup class="type-c" title="class">c</sup>, <a href="#TerminalMortalityRate" title="https://w3id.org/gcdfo/salmon#TerminalMortalityRate">Terminal mortality rate</a> <sup class="type-c" title="class">c</sup>, <a href="#TotalMortalityRate" title="https://w3id.org/gcdfo/salmon#TotalMortalityRate">Total mortality rate</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -1782,7 +1770,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Ocean mortality rate<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#OceanMortalityRate</p>
   <div class="comment">
-   <span class="markdown">The proportion of fish that die during the marine phase.</span>
+   <span class="markdown">The proportion of fish that die during the ocean (marine) phase, for the defined population/cohort and assessment period.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -1796,6 +1784,9 @@ This section provides details for each class and property defined by DFO Salmon 
    <dt>
     Source
    </dt>
+   <dd>
+    Derived for SPSR term coverage from salmon-population-summary-repository (Issue #33 term request scope); aligned to 'ocean phase' in the ontology’s life phase scheme.
+   </dd>
    <dd>
     <a href="https://github.com/dfo-pacific-science/salmon-population-summary-repository">https://github.com/dfo-pacific-science/salmon-population-summary-repository</a>
    </dd>
@@ -1843,6 +1834,40 @@ This section provides details for each class and property defined by DFO Salmon 
    </dt>
    <dd>
     <a href="#Deme" title="https://w3id.org/gcdfo/salmon#Deme">Deme</a> <sup class="type-c" title="class">c</sup>, <a href="#Population" title="https://w3id.org/gcdfo/salmon#Population">Population</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="PercentChangeMetric">
+  <h3>Percent change metric<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#PercentChangeMetric</p>
+  <div class="comment">
+   <span class="markdown">A WSP rapid status short-term trend metric quantifying the percent (linear) change in spawner abundance over the most recent three generations.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004.
+   </dd>
+   <dd>
+    <a href="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf">https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#ObservedRateOrAbundance" title="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance">Observed rate or abundance</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -1931,7 +1956,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Probability of decline below lower benchmark metric<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#ProbabilityDeclineBelowLowerBenchmarkMetric</p>
   <div class="comment">
-   <span class="markdown">Probability metric estimating risk of abundance declining below lower benchmark.</span>
+   <span class="markdown">A probability metric estimating the risk that spawner abundance will be below the lower benchmark, given uncertainty in benchmark estimates and/or abundance estimates, for a defined forecast or assessment horizon.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -1946,16 +1971,10 @@ This section provides details for each class and property defined by DFO Salmon 
     Source
    </dt>
    <dd>
-    Holt, C.A., Cass, A., Holtby, B., and Riddell, B. 2009. Indicators of Status and Benchmarks for Conservation Units in Canada's Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2009/058.
+    Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004.
    </dd>
    <dd>
-    Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570.
-   </dd>
-   <dd>
-    <a href="https://publications.gc.ca/site/eng/9.928944/publication.html">https://publications.gc.ca/site/eng/9.928944/publication.html</a>
-   </dd>
-   <dd>
-    <a href="https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2009/2009_058-eng.htm">https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2009/2009_058-eng.htm</a>
+    <a href="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf">https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf</a>
    </dd>
   </dl>
   <dl class="description">
@@ -1994,7 +2013,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Proportion of hatchery-origin spawners<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#ProportionHatcheryOriginSpawners</p>
   <div class="comment">
-   <span class="markdown">The proportion of spawners in a population-year that are hatchery-origin.</span>
+   <span class="markdown">The proportion of spawners in a population-year that are hatchery-origin (hatchery-origin spawners divided by total spawners).</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -2009,7 +2028,10 @@ This section provides details for each class and property defined by DFO Salmon 
     Source
    </dt>
    <dd>
-    <a href="https://github.com/dfo-pacific-science/salmon-population-summary-repository">https://github.com/dfo-pacific-science/salmon-population-summary-repository</a>
+    Derived for SPSR term coverage (Issue #33 term request scope); ‘hatchery-origin’ is defined in the Salmon Origin scheme and operational marking is described in the DFO Coded Wire Tag Program page.
+   </dd>
+   <dd>
+    <a href="https://www.pac.dfo-mpo.gc.ca/pacific-smon-pacifique/science/research-recherche/cwt-mmc-eng.html">https://www.pac.dfo-mpo.gc.ca/pacific-smon-pacifique/science/research-recherche/cwt-mmc-eng.html</a>
    </dd>
   </dl>
   <dl class="description">
@@ -2056,7 +2078,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Rapid status score metric<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RapidStatusScoreMetric</p>
   <div class="comment">
-   <span class="markdown">Numeric score output from WSP rapid-status decision system.</span>
+   <span class="markdown">A numeric score produced by a WSP rapid status algorithm used to represent an ordered status outcome and/or decision-rule position.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -2071,16 +2093,10 @@ This section provides details for each class and property defined by DFO Salmon 
     Source
    </dt>
    <dd>
-    Holt, C.A., Cass, A., Holtby, B., and Riddell, B. 2009. Indicators of Status and Benchmarks for Conservation Units in Canada's Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2009/058.
+    Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004.
    </dd>
    <dd>
-    Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570.
-   </dd>
-   <dd>
-    <a href="https://publications.gc.ca/site/eng/9.928944/publication.html">https://publications.gc.ca/site/eng/9.928944/publication.html</a>
-   </dd>
-   <dd>
-    <a href="https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2009/2009_058-eng.htm">https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2009/2009_058-eng.htm</a>
+    <a href="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf">https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf</a>
    </dd>
   </dl>
   <dl class="description">
@@ -2136,7 +2152,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Relative hatchery spawner abundance<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundance</p>
   <div class="comment">
-   <span class="markdown">Relative spawner abundance restricted to hatchery-origin spawners.</span>
+   <span class="markdown">Spawner abundance expressed as a relative index for hatchery-origin spawners, relative to a specified reference for within-series comparison.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -2151,7 +2167,10 @@ This section provides details for each class and property defined by DFO Salmon 
     Source
    </dt>
    <dd>
-    <a href="https://github.com/dfo-pacific-science/salmon-population-summary-repository">https://github.com/dfo-pacific-science/salmon-population-summary-repository</a>
+    Derived for SPSR term coverage; hatchery-origin is defined in the Salmon Origin scheme.
+   </dd>
+   <dd>
+    <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology">https://github.com/dfo-pacific-science/dfo-salmon-ontology</a>
    </dd>
   </dl>
   <dl class="description">
@@ -2167,7 +2186,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Relative hatchery spawner abundance change<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundanceChange</p>
   <div class="comment">
-   <span class="markdown">Temporal change in relative hatchery-origin spawner abundance.</span>
+   <span class="markdown">A change metric (delta or percent change, as defined by the workflow) computed from relative hatchery-origin spawner abundance values over time.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -2181,6 +2200,9 @@ This section provides details for each class and property defined by DFO Salmon 
    <dt>
     Source
    </dt>
+   <dd>
+    Derived for SPSR term coverage from salmon-population-summary-repository.
+   </dd>
    <dd>
     <a href="https://github.com/dfo-pacific-science/salmon-population-summary-repository">https://github.com/dfo-pacific-science/salmon-population-summary-repository</a>
    </dd>
@@ -2198,7 +2220,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Relative hatchery spawner abundance percentile<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundancePercentile</p>
   <div class="comment">
-   <span class="markdown">Percentile rank of relative hatchery-origin spawner abundance against a historical reference distribution.</span>
+   <span class="markdown">The percentile rank of relative hatchery-origin spawner abundance against a defined historical reference distribution.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -2213,7 +2235,10 @@ This section provides details for each class and property defined by DFO Salmon 
     Source
    </dt>
    <dd>
-    <a href="https://github.com/dfo-pacific-science/salmon-population-summary-repository">https://github.com/dfo-pacific-science/salmon-population-summary-repository</a>
+    Fisheries and Oceans Canada. 2024. Rapid Status Approximations… CSAS Science Response 2024/004 (percentile benchmarks discussion).
+   </dd>
+   <dd>
+    <a href="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf">https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf</a>
    </dd>
   </dl>
   <dl class="description">
@@ -2229,7 +2254,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Relative hatchery spawner abundance trend<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundanceTrend</p>
   <div class="comment">
-   <span class="markdown">A trend metric for relative hatchery-origin spawner abundance over time.</span>
+   <span class="markdown">A trend metric computed from relative hatchery-origin spawner abundance values over time using a defined trend method.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -2243,6 +2268,9 @@ This section provides details for each class and property defined by DFO Salmon 
    <dt>
     Source
    </dt>
+   <dd>
+    Derived for SPSR term coverage.
+   </dd>
    <dd>
     <a href="https://github.com/dfo-pacific-science/salmon-population-summary-repository">https://github.com/dfo-pacific-science/salmon-population-summary-repository</a>
    </dd>
@@ -2260,7 +2288,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Relative spawner abundance<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundance</p>
   <div class="comment">
-   <span class="markdown">A relative-index form of spawner abundance used for within-series comparison.</span>
+   <span class="markdown">Spawner abundance expressed as a relative index to a defined reference (e.g., long-term mean, baseline period, or scaling factor) for within-series comparison.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -2275,7 +2303,10 @@ This section provides details for each class and property defined by DFO Salmon 
     Source
    </dt>
    <dd>
-    <a href="https://github.com/dfo-pacific-science/salmon-population-summary-repository">https://github.com/dfo-pacific-science/salmon-population-summary-repository</a>
+    Fisheries and Oceans Canada. 2024. Rapid Status Approximations… CSAS Science Response 2024/004 (rapid status algorithm supports relative index vs absolute abundance data types).
+   </dd>
+   <dd>
+    <a href="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf">https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf</a>
    </dd>
   </dl>
   <dl class="description">
@@ -2297,7 +2328,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Relative spawner abundance change<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundanceChange</p>
   <div class="comment">
-   <span class="markdown">Temporal change in relative spawner abundance metrics.</span>
+   <span class="markdown">A change metric (delta or percent change, as defined by the workflow) computed from relative spawner abundance values over time.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -2311,6 +2342,9 @@ This section provides details for each class and property defined by DFO Salmon 
    <dt>
     Source
    </dt>
+   <dd>
+    Derived for SPSR term coverage from salmon-population-summary-repository.
+   </dd>
    <dd>
     <a href="https://github.com/dfo-pacific-science/salmon-population-summary-repository">https://github.com/dfo-pacific-science/salmon-population-summary-repository</a>
    </dd>
@@ -2334,7 +2368,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Relative spawner abundance percentile<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundancePercentile</p>
   <div class="comment">
-   <span class="markdown">Percentile rank of relative spawner abundance against a historical reference distribution.</span>
+   <span class="markdown">The percentile rank of relative spawner abundance against a defined historical reference distribution.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -2349,7 +2383,10 @@ This section provides details for each class and property defined by DFO Salmon 
     Source
    </dt>
    <dd>
-    <a href="https://github.com/dfo-pacific-science/salmon-population-summary-repository">https://github.com/dfo-pacific-science/salmon-population-summary-repository</a>
+    Fisheries and Oceans Canada. 2024. Rapid Status Approximations… CSAS Science Response 2024/004 (percentile benchmarks discussion).
+   </dd>
+   <dd>
+    <a href="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf">https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf</a>
    </dd>
   </dl>
   <dl class="description">
@@ -2371,7 +2408,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Relative spawner abundance trend<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundanceTrend</p>
   <div class="comment">
-   <span class="markdown">A trend metric for relative spawner abundance over time.</span>
+   <span class="markdown">A trend metric computed from relative spawner abundance values over time using a defined trend method.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -2385,6 +2422,9 @@ This section provides details for each class and property defined by DFO Salmon 
    <dt>
     Source
    </dt>
+   <dd>
+    Derived for SPSR term coverage.
+   </dd>
    <dd>
     <a href="https://github.com/dfo-pacific-science/salmon-population-summary-repository">https://github.com/dfo-pacific-science/salmon-population-summary-repository</a>
    </dd>
@@ -2408,7 +2448,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Relative wild spawner abundance<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundance</p>
   <div class="comment">
-   <span class="markdown">Relative spawner abundance restricted to wild-origin spawners.</span>
+   <span class="markdown">Spawner abundance expressed as a relative index for natural-origin (wild) spawners, relative to a specified reference for within-series comparison.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -2423,7 +2463,10 @@ This section provides details for each class and property defined by DFO Salmon 
     Source
    </dt>
    <dd>
-    <a href="https://github.com/dfo-pacific-science/salmon-population-summary-repository">https://github.com/dfo-pacific-science/salmon-population-summary-repository</a>
+    Derived for SPSR term coverage; natural-origin is defined in the Salmon Origin scheme.
+   </dd>
+   <dd>
+    <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology">https://github.com/dfo-pacific-science/dfo-salmon-ontology</a>
    </dd>
   </dl>
   <dl class="description">
@@ -2439,7 +2482,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Relative wild spawner abundance change<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundanceChange</p>
   <div class="comment">
-   <span class="markdown">Temporal change in relative wild-origin spawner abundance.</span>
+   <span class="markdown">A change metric (delta or percent change, as defined by the workflow) computed from relative natural-origin spawner abundance values over time.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -2453,6 +2496,9 @@ This section provides details for each class and property defined by DFO Salmon 
    <dt>
     Source
    </dt>
+   <dd>
+    Derived for SPSR term coverage from salmon-population-summary-repository.
+   </dd>
    <dd>
     <a href="https://github.com/dfo-pacific-science/salmon-population-summary-repository">https://github.com/dfo-pacific-science/salmon-population-summary-repository</a>
    </dd>
@@ -2470,7 +2516,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Relative wild spawner abundance percentile<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundancePercentile</p>
   <div class="comment">
-   <span class="markdown">Percentile rank of relative wild-origin spawner abundance against a historical reference distribution.</span>
+   <span class="markdown">The percentile rank of relative natural-origin spawner abundance against a defined historical reference distribution.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -2485,7 +2531,10 @@ This section provides details for each class and property defined by DFO Salmon 
     Source
    </dt>
    <dd>
-    <a href="https://github.com/dfo-pacific-science/salmon-population-summary-repository">https://github.com/dfo-pacific-science/salmon-population-summary-repository</a>
+    Fisheries and Oceans Canada. 2024. Rapid Status Approximations… CSAS Science Response 2024/004 (percentile benchmarks discussion).
+   </dd>
+   <dd>
+    <a href="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf">https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf</a>
    </dd>
   </dl>
   <dl class="description">
@@ -2501,7 +2550,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Relative wild spawner abundance trend<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundanceTrend</p>
   <div class="comment">
-   <span class="markdown">A trend metric for relative wild-origin spawner abundance over time.</span>
+   <span class="markdown">A trend metric computed from relative natural-origin spawner abundance values over time using a defined trend method.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -2515,6 +2564,9 @@ This section provides details for each class and property defined by DFO Salmon 
    <dt>
     Source
    </dt>
+   <dd>
+    Derived for SPSR term coverage.
+   </dd>
    <dd>
     <a href="https://github.com/dfo-pacific-science/salmon-population-summary-repository">https://github.com/dfo-pacific-science/salmon-population-summary-repository</a>
    </dd>
@@ -2561,7 +2613,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Return year<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#ReturnYear</p>
   <div class="comment">
-   <span class="markdown">The calendar year in which adult salmon return to freshwater systems.</span>
+   <span class="markdown">The calendar year in which adult salmon return from the ocean to freshwater systems (a year basis used to contextualize run/return-related measurements).</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -2576,7 +2628,10 @@ This section provides details for each class and property defined by DFO Salmon 
     Source
    </dt>
    <dd>
-    <a href="https://github.com/dfo-pacific-science/salmon-population-summary-repository">https://github.com/dfo-pacific-science/salmon-population-summary-repository</a>
+    Fisheries and Oceans Canada. Pacific Salmon Glossary (Pacific Region web page).
+   </dd>
+   <dd>
+    <a href="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html">https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html</a>
    </dd>
   </dl>
   <dl class="description">
@@ -2638,7 +2693,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Spawner abundance<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#SpawnerAbundance</p>
   <div class="comment">
-   <span class="markdown">A metric representing abundance of spawning fish.</span>
+   <span class="markdown">The abundance (count) of adult salmon that reach spawning grounds in a given system and time period (often operationalized as escapement/spawning escapement).</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -2653,7 +2708,10 @@ This section provides details for each class and property defined by DFO Salmon 
     Source
    </dt>
    <dd>
-    <a href="https://github.com/dfo-pacific-science/salmon-population-summary-repository">https://github.com/dfo-pacific-science/salmon-population-summary-repository</a>
+    Fisheries and Oceans Canada. Pacific Salmon Glossary (defines escapement/spawning escapement as the number of salmon returning to the spawning grounds).
+   </dd>
+   <dd>
+    <a href="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html">https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html</a>
    </dd>
   </dl>
   <dl class="description">
@@ -2675,7 +2733,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Spawner abundance change<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#SpawnerAbundanceChange</p>
   <div class="comment">
-   <span class="markdown">A metric describing temporal change in spawner abundance.</span>
+   <span class="markdown">A change metric (delta or percent change, as defined by the workflow) computed from spawner abundance values over time.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -2689,6 +2747,9 @@ This section provides details for each class and property defined by DFO Salmon 
    <dt>
     Source
    </dt>
+   <dd>
+    Derived for SPSR term coverage from salmon-population-summary-repository; distinct from WSP PercentChangeMetric (3-generation metric).
+   </dd>
    <dd>
     <a href="https://github.com/dfo-pacific-science/salmon-population-summary-repository">https://github.com/dfo-pacific-science/salmon-population-summary-repository</a>
    </dd>
@@ -2712,7 +2773,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Spawner abundance percentile<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#SpawnerAbundancePercentile</p>
   <div class="comment">
-   <span class="markdown">The percentile rank of a spawner abundance value against a historical reference distribution.</span>
+   <span class="markdown">The percentile rank of a spawner abundance value (annual or period-specific) against a defined historical reference distribution.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -2727,7 +2788,10 @@ This section provides details for each class and property defined by DFO Salmon 
     Source
    </dt>
    <dd>
-    <a href="https://github.com/dfo-pacific-science/salmon-population-summary-repository">https://github.com/dfo-pacific-science/salmon-population-summary-repository</a>
+    Fisheries and Oceans Canada. 2024. Rapid Status Approximations… CSAS Science Response 2024/004 (percentile benchmarks discussion).
+   </dd>
+   <dd>
+    <a href="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf">https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf</a>
    </dd>
   </dl>
   <dl class="description">
@@ -2749,7 +2813,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Spawner abundance trend<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#SpawnerAbundanceTrend</p>
   <div class="comment">
-   <span class="markdown">A trend metric derived from spawner abundance over time.</span>
+   <span class="markdown">A trend metric computed from spawner abundance over time using a defined trend method (e.g., slope over a specified window).</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -2764,7 +2828,10 @@ This section provides details for each class and property defined by DFO Salmon 
     Source
    </dt>
    <dd>
-    <a href="https://github.com/dfo-pacific-science/salmon-population-summary-repository">https://github.com/dfo-pacific-science/salmon-population-summary-repository</a>
+    Derived for SPSR term coverage; distinct from WSP LongTermTrendMetric (current generational average vs long-term average) in CSAS Science Response 2024/004.
+   </dd>
+   <dd>
+    <a href="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf">https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf</a>
    </dd>
   </dl>
   <dl class="description">
@@ -3016,7 +3083,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Terminal mortality rate<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#TerminalMortalityRate</p>
   <div class="comment">
-   <span class="markdown">The proportion of fish that die during terminal in-river phases.</span>
+   <span class="markdown">The proportion of fish that die during the terminal (late-stage) freshwater phase near spawning, as defined by the assessment workflow.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -3030,6 +3097,9 @@ This section provides details for each class and property defined by DFO Salmon 
    <dt>
     Source
    </dt>
+   <dd>
+    Derived for SPSR term coverage from salmon-population-summary-repository (Issue #33 term request scope); 'terminal phase' is referenced in the ontology’s life phase scheme.
+   </dd>
    <dd>
     <a href="https://github.com/dfo-pacific-science/salmon-population-summary-repository">https://github.com/dfo-pacific-science/salmon-population-summary-repository</a>
    </dd>
@@ -3070,7 +3140,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Total mortality rate<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#TotalMortalityRate</p>
   <div class="comment">
-   <span class="markdown">The overall proportion of fish that die across all phases in the period of interest.</span>
+   <span class="markdown">The overall proportion of fish that die across all defined phases over the assessment period, aggregating the relevant phase-specific mortalities.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -3084,6 +3154,9 @@ This section provides details for each class and property defined by DFO Salmon 
    <dt>
     Source
    </dt>
+   <dd>
+    Derived for SPSR term coverage from salmon-population-summary-repository (Issue #33 term request scope).
+   </dd>
    <dd>
     <a href="https://github.com/dfo-pacific-science/salmon-population-summary-repository">https://github.com/dfo-pacific-science/salmon-population-summary-repository</a>
    </dd>
@@ -3162,46 +3235,6 @@ This section provides details for each class and property defined by DFO Salmon 
    </dt>
    <dd>
     <a href="#ReferencePoint" title="https://w3id.org/gcdfo/salmon#ReferencePoint">Reference point</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-  </dl>
- </div>
- <div class="entity" id="PercentChangeMetric">
-  <h3>WSP percent change metric<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#PercentChangeMetric</p>
-  <div class="comment">
-   <span class="markdown">WSP percent-change metric measuring generational abundance change used in rapid status decision logic.</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <dl class="definedBy">
-   <dt>
-    Source
-   </dt>
-   <dd>
-    Holt, C.A., Cass, A., Holtby, B., and Riddell, B. 2009. Indicators of Status and Benchmarks for Conservation Units in Canada's Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2009/058.
-   </dd>
-   <dd>
-    Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570.
-   </dd>
-   <dd>
-    <a href="https://publications.gc.ca/site/eng/9.928944/publication.html">https://publications.gc.ca/site/eng/9.928944/publication.html</a>
-   </dd>
-   <dd>
-    <a href="https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2009/2009_058-eng.htm">https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2009/2009_058-eng.htm</a>
-   </dd>
-  </dl>
-  <dl class="description">
-   <dt>
-    has super-classes
-   </dt>
-   <dd>
-    <a href="#ObservedRateOrAbundance" title="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance">Observed rate or abundance</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>

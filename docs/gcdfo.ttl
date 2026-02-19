@@ -151,6 +151,10 @@ skos:notation rdf:type owl:AnnotationProperty .
 skos:prefLabel rdf:type owl:AnnotationProperty .
 
 
+###  http://www.w3.org/2004/02/skos/core#scopeNote
+skos:scopeNote rdf:type owl:AnnotationProperty .
+
+
 ###  https://schema.org/codeRepository
 schema:codeRepository rdf:type owl:AnnotationProperty .
 
@@ -538,11 +542,9 @@ oa:Annotation rdf:type owl:Class ;
 ###  https://w3id.org/gcdfo/salmon#AbundancePercentileMetric
 gcdfo:AbundancePercentileMetric rdf:type owl:Class ;
                                 rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
-                                <http://purl.obolibrary.org/obo/IAO_0000115> "Percentile rank of current generational abundance relative to historical distribution."@en ;
-                                <http://purl.obolibrary.org/obo/IAO_0000119> "Holt, C.A., Cass, A., Holtby, B., and Riddell, B. 2009. Indicators of Status and Benchmarks for Conservation Units in Canada's Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2009/058."@en ,
-                                                                             "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570."@en ;
-                                dcterms:source <https://publications.gc.ca/site/eng/9.928944/publication.html> ,
-                                               <https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2009/2009_058-eng.htm> ;
+                                <http://purl.obolibrary.org/obo/IAO_0000115> "A WSP rapid status metric giving the percentile rank of the current generational average spawner abundance relative to a historical reference distribution."@en ;
+                                <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."@en ;
+                                dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
                                 rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                                 rdfs:label "Abundance percentile metric"@en ;
                                 gcdfo:theme gcdfo:DataModelProvenanceTheme ,
@@ -553,11 +555,9 @@ gcdfo:AbundancePercentileMetric rdf:type owl:Class ;
 ###  https://w3id.org/gcdfo/salmon#BenchmarkRatioMetric
 gcdfo:BenchmarkRatioMetric rdf:type owl:Class ;
                            rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
-                           <http://purl.obolibrary.org/obo/IAO_0000115> "Dimensionless ratio of generational average abundance to a benchmark threshold used in WSP rapid-status logic."@en ;
-                           <http://purl.obolibrary.org/obo/IAO_0000119> "Holt, C.A., Cass, A., Holtby, B., and Riddell, B. 2009. Indicators of Status and Benchmarks for Conservation Units in Canada's Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2009/058."@en ,
-                                                                        "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570."@en ;
-                           dcterms:source <https://publications.gc.ca/site/eng/9.928944/publication.html> ,
-                                          <https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2009/2009_058-eng.htm> ;
+                           <http://purl.obolibrary.org/obo/IAO_0000115> "A WSP rapid status metric equal to the ratio of current generational average spawner abundance to a specified benchmark (lower or upper benchmark), where 1.0 indicates equality to that benchmark."@en ;
+                           <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."@en ;
+                           dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
                            rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                            rdfs:label "Benchmark ratio metric"@en ;
                            gcdfo:theme gcdfo:DataModelProvenanceTheme ,
@@ -580,8 +580,9 @@ gcdfo:BroodYear rdf:type owl:Class ;
 ###  https://w3id.org/gcdfo/salmon#CWTMarineSurvivalRate
 gcdfo:CWTMarineSurvivalRate rdf:type owl:Class ;
                             rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
-                            <http://purl.obolibrary.org/obo/IAO_0000115> "The estimated marine survival proportion for coded-wire-tagged fish."@en ;
-                            dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+                            <http://purl.obolibrary.org/obo/IAO_0000115> "A marine survival proportion estimated for a coded-wire-tag (CWT) release group, defined as the portion of tagged smolts that survive to be caught in marine fisheries or return to freshwater as adults."@en ;
+                            <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. 2021. Marine Survival Forecast of Southern British Columbia Coho (defines marine survival as (Catch+Escapement)/Release for coded-wire-tag smolt releases)."@en ;
+                            dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/Library/40978680.pdf> ;
                             rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                             rdfs:label "CWT marine survival rate"@en ;
                             skos:altLabel "Coded-wire-tag marine survival rate"@en ;
@@ -678,11 +679,9 @@ gcdfo:ExploitationRate rdf:type owl:Class ;
 ###  https://w3id.org/gcdfo/salmon#GenerationalAverageAbundance
 gcdfo:GenerationalAverageAbundance rdf:type owl:Class ;
                                    rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
-                                   <http://purl.obolibrary.org/obo/IAO_0000115> "Mean spawner abundance across the most recent generation-length years used as the numerator for WSP benchmark ratios."@en ;
-                                   <http://purl.obolibrary.org/obo/IAO_0000119> "Holt, C.A., Cass, A., Holtby, B., and Riddell, B. 2009. Indicators of Status and Benchmarks for Conservation Units in Canada's Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2009/058."@en ,
-                                                                                "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570."@en ;
-                                   dcterms:source <https://publications.gc.ca/site/eng/9.928944/publication.html> ,
-                                                  <https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2009/2009_058-eng.htm> ;
+                                   <http://purl.obolibrary.org/obo/IAO_0000115> "The generational average of spawner abundance, calculated as a geometric mean across the number of years corresponding to the most common age at return (generation length), optionally after smoothing depending on CU group."@en ;
+                                   <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."@en ;
+                                   dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
                                    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                                    rdfs:label "Generational average abundance"@en ;
                                    gcdfo:theme gcdfo:DataModelProvenanceTheme ,
@@ -693,7 +692,8 @@ gcdfo:GenerationalAverageAbundance rdf:type owl:Class ;
 ###  https://w3id.org/gcdfo/salmon#InRiverMortalityRate
 gcdfo:InRiverMortalityRate rdf:type owl:Class ;
                            rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
-                           <http://purl.obolibrary.org/obo/IAO_0000115> "The proportion of fish that die in freshwater in-river environments."@en ;
+                           <http://purl.obolibrary.org/obo/IAO_0000115> "The proportion of fish that die during freshwater migration and residence in river (excluding ocean phase), for the defined population/cohort and assessment period."@en ;
+                           <http://purl.obolibrary.org/obo/IAO_0000119> "Derived for SPSR term coverage from salmon-population-summary-repository (Issue #33 term request scope); phase wording aligns with the ontology’s life phase concept scheme."@en ;
                            dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
                            rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                            rdfs:label "In-river mortality rate"@en ;
@@ -728,11 +728,9 @@ gcdfo:LimitReferencePoint rdf:type owl:Class ;
 ###  https://w3id.org/gcdfo/salmon#LongTermTrendMetric
 gcdfo:LongTermTrendMetric rdf:type owl:Class ;
                           rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
-                          <http://purl.obolibrary.org/obo/IAO_0000115> "WSP long-term trend metric computed from trend-designated wild spawner series to support rapid status determination."@en ;
-                          <http://purl.obolibrary.org/obo/IAO_0000119> "Holt, C.A., Cass, A., Holtby, B., and Riddell, B. 2009. Indicators of Status and Benchmarks for Conservation Units in Canada's Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2009/058."@en ,
-                                                                       "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570."@en ;
-                          dcterms:source <https://publications.gc.ca/site/eng/9.928944/publication.html> ,
-                                         <https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2009/2009_058-eng.htm> ;
+                          <http://purl.obolibrary.org/obo/IAO_0000115> "A WSP rapid status long-term trend metric comparing current generational average (geometric mean) spawner abundance to the long-term average (geometric mean) spawner abundance for the CU time series."@en ;
+                          <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."@en ;
+                          dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
                           rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                           rdfs:label "Long-term trend metric"@en ;
                           gcdfo:theme gcdfo:DataModelProvenanceTheme ,
@@ -756,7 +754,8 @@ gcdfo:LowerBiologicalBenchmark rdf:type owl:Class ;
 ###  https://w3id.org/gcdfo/salmon#MainstemMortalityRate
 gcdfo:MainstemMortalityRate rdf:type owl:Class ;
                             rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
-                            <http://purl.obolibrary.org/obo/IAO_0000115> "The proportion of fish that die during the freshwater mainstem phase."@en ;
+                            <http://purl.obolibrary.org/obo/IAO_0000115> "The proportion of fish that die during migration through the freshwater mainstem portion of a river system (as defined by the assessment workflow)."@en ;
+                            <http://purl.obolibrary.org/obo/IAO_0000119> "Derived for SPSR term coverage from salmon-population-summary-repository (Issue #33 term request scope); boundary of 'mainstem' is assessment-defined."@en ;
                             dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
                             rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                             rdfs:label "Mainstem mortality rate"@en ;
@@ -766,8 +765,9 @@ gcdfo:MainstemMortalityRate rdf:type owl:Class ;
 ###  https://w3id.org/gcdfo/salmon#MarineSurvivalIndex
 gcdfo:MarineSurvivalIndex rdf:type owl:Class ;
                           rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
-                          <http://purl.obolibrary.org/obo/IAO_0000115> "An index representing marine survival conditions or relative marine survival outcomes."@en ;
-                          dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+                          <http://purl.obolibrary.org/obo/IAO_0000115> "A dimensionless index or covariate representing marine survival conditions or relative marine survival outcomes (not necessarily a survival proportion)."@en ;
+                          <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. 2021. Marine Survival Forecast of Southern British Columbia Coho (uses climate indicators correlated with marine survival; supports index-like predictors for survival conditions)."@en ;
+                          dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/Library/40978680.pdf> ;
                           rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                           rdfs:label "Marine survival index"@en ;
                           gcdfo:theme gcdfo:HabitatEcosystemClimateTheme ,
@@ -799,7 +799,8 @@ gcdfo:ObservedRateOrAbundance rdf:type owl:Class ;
 ###  https://w3id.org/gcdfo/salmon#OceanMortalityRate
 gcdfo:OceanMortalityRate rdf:type owl:Class ;
                          rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
-                         <http://purl.obolibrary.org/obo/IAO_0000115> "The proportion of fish that die during the marine phase."@en ;
+                         <http://purl.obolibrary.org/obo/IAO_0000115> "The proportion of fish that die during the ocean (marine) phase, for the defined population/cohort and assessment period."@en ;
+                         <http://purl.obolibrary.org/obo/IAO_0000119> "Derived for SPSR term coverage from salmon-population-summary-repository (Issue #33 term request scope); aligned to 'ocean phase' in the ontology’s life phase scheme."@en ;
                          dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
                          rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                          rdfs:label "Ocean mortality rate"@en ;
@@ -809,13 +810,12 @@ gcdfo:OceanMortalityRate rdf:type owl:Class ;
 ###  https://w3id.org/gcdfo/salmon#PercentChangeMetric
 gcdfo:PercentChangeMetric rdf:type owl:Class ;
                           rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
-                          <http://purl.obolibrary.org/obo/IAO_0000115> "WSP percent-change metric measuring generational abundance change used in rapid status decision logic."@en ;
-                          <http://purl.obolibrary.org/obo/IAO_0000119> "Holt, C.A., Cass, A., Holtby, B., and Riddell, B. 2009. Indicators of Status and Benchmarks for Conservation Units in Canada's Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2009/058."@en ,
-                                                                       "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570."@en ;
-                          dcterms:source <https://publications.gc.ca/site/eng/9.928944/publication.html> ,
-                                         <https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2009/2009_058-eng.htm> ;
+                          <http://purl.obolibrary.org/obo/IAO_0000115> "A WSP rapid status short-term trend metric quantifying the percent (linear) change in spawner abundance over the most recent three generations."@en ;
+                          <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."@en ;
+                          dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
                           rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
-                          rdfs:label "WSP percent change metric"@en ;
+                          rdfs:label "Percent change metric"@en ;
+                          skos:altLabel "WSP percent change metric"@en ;
                           gcdfo:theme gcdfo:DataModelProvenanceTheme ,
                                       gcdfo:StockAssessmentTheme ,
                                       gcdfo:WildSalmonPolicyTheme .
@@ -835,11 +835,9 @@ gcdfo:Population rdf:type owl:Class ;
 ###  https://w3id.org/gcdfo/salmon#ProbabilityDeclineBelowLowerBenchmarkMetric
 gcdfo:ProbabilityDeclineBelowLowerBenchmarkMetric rdf:type owl:Class ;
                                                   rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
-                                                  <http://purl.obolibrary.org/obo/IAO_0000115> "Probability metric estimating risk of abundance declining below lower benchmark."@en ;
-                                                  <http://purl.obolibrary.org/obo/IAO_0000119> "Holt, C.A., Cass, A., Holtby, B., and Riddell, B. 2009. Indicators of Status and Benchmarks for Conservation Units in Canada's Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2009/058."@en ,
-                                                                                               "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570."@en ;
-                                                  dcterms:source <https://publications.gc.ca/site/eng/9.928944/publication.html> ,
-                                                                 <https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2009/2009_058-eng.htm> ;
+                                                  <http://purl.obolibrary.org/obo/IAO_0000115> "A probability metric estimating the risk that spawner abundance will be below the lower benchmark, given uncertainty in benchmark estimates and/or abundance estimates, for a defined forecast or assessment horizon."@en ;
+                                                  <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."@en ;
+                                                  dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
                                                   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                                                   rdfs:label "Probability of decline below lower benchmark metric"@en ;
                                                   gcdfo:theme gcdfo:DataModelProvenanceTheme ,
@@ -850,8 +848,9 @@ gcdfo:ProbabilityDeclineBelowLowerBenchmarkMetric rdf:type owl:Class ;
 ###  https://w3id.org/gcdfo/salmon#ProportionHatcheryOriginSpawners
 gcdfo:ProportionHatcheryOriginSpawners rdf:type owl:Class ;
                                        rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
-                                       <http://purl.obolibrary.org/obo/IAO_0000115> "The proportion of spawners in a population-year that are hatchery-origin."@en ;
-                                       dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+                                       <http://purl.obolibrary.org/obo/IAO_0000115> "The proportion of spawners in a population-year that are hatchery-origin (hatchery-origin spawners divided by total spawners)."@en ;
+                                       <http://purl.obolibrary.org/obo/IAO_0000119> "Derived for SPSR term coverage (Issue #33 term request scope); ‘hatchery-origin’ is defined in the Salmon Origin scheme and operational marking is described in the DFO Coded Wire Tag Program page."@en ;
+                                       dcterms:source <https://www.pac.dfo-mpo.gc.ca/pacific-smon-pacifique/science/research-recherche/cwt-mmc-eng.html> ;
                                        rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                                        rdfs:label "Proportion of hatchery-origin spawners"@en ;
                                        skos:altLabel "pHOS"@en ;
@@ -862,11 +861,9 @@ gcdfo:ProportionHatcheryOriginSpawners rdf:type owl:Class ;
 ###  https://w3id.org/gcdfo/salmon#RapidStatusScoreMetric
 gcdfo:RapidStatusScoreMetric rdf:type owl:Class ;
                              rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
-                             <http://purl.obolibrary.org/obo/IAO_0000115> "Numeric score output from WSP rapid-status decision system."@en ;
-                             <http://purl.obolibrary.org/obo/IAO_0000119> "Holt, C.A., Cass, A., Holtby, B., and Riddell, B. 2009. Indicators of Status and Benchmarks for Conservation Units in Canada's Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2009/058."@en ,
-                                                                          "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570."@en ;
-                             dcterms:source <https://publications.gc.ca/site/eng/9.928944/publication.html> ,
-                                            <https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2009/2009_058-eng.htm> ;
+                             <http://purl.obolibrary.org/obo/IAO_0000115> "A numeric score produced by a WSP rapid status algorithm used to represent an ordered status outcome and/or decision-rule position."@en ;
+                             <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."@en ;
+                             dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
                              rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                              rdfs:label "Rapid status score metric"@en ;
                              gcdfo:theme gcdfo:DataModelProvenanceTheme ,
@@ -890,8 +887,9 @@ gcdfo:ReferencePoint rdf:type owl:Class ;
 ###  https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundance
 gcdfo:RelativeHatcherySpawnerAbundance rdf:type owl:Class ;
                                        rdfs:subClassOf gcdfo:RelativeSpawnerAbundance ;
-                                       <http://purl.obolibrary.org/obo/IAO_0000115> "Relative spawner abundance restricted to hatchery-origin spawners."@en ;
-                                       dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+                                       <http://purl.obolibrary.org/obo/IAO_0000115> "Spawner abundance expressed as a relative index for hatchery-origin spawners, relative to a specified reference for within-series comparison."@en ;
+                                       <http://purl.obolibrary.org/obo/IAO_0000119> "Derived for SPSR term coverage; hatchery-origin is defined in the Salmon Origin scheme."@en ;
+                                       dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology> ;
                                        rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                                        rdfs:label "Relative hatchery spawner abundance"@en ;
                                        gcdfo:theme gcdfo:SalmonEnhancementHatcheriesTheme ,
@@ -901,7 +899,8 @@ gcdfo:RelativeHatcherySpawnerAbundance rdf:type owl:Class ;
 ###  https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundanceChange
 gcdfo:RelativeHatcherySpawnerAbundanceChange rdf:type owl:Class ;
                                              rdfs:subClassOf gcdfo:RelativeSpawnerAbundanceChange ;
-                                             <http://purl.obolibrary.org/obo/IAO_0000115> "Temporal change in relative hatchery-origin spawner abundance."@en ;
+                                             <http://purl.obolibrary.org/obo/IAO_0000115> "A change metric (delta or percent change, as defined by the workflow) computed from relative hatchery-origin spawner abundance values over time."@en ;
+                                             <http://purl.obolibrary.org/obo/IAO_0000119> "Derived for SPSR term coverage from salmon-population-summary-repository."@en ;
                                              dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
                                              rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                                              rdfs:label "Relative hatchery spawner abundance change"@en ;
@@ -912,8 +911,9 @@ gcdfo:RelativeHatcherySpawnerAbundanceChange rdf:type owl:Class ;
 ###  https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundancePercentile
 gcdfo:RelativeHatcherySpawnerAbundancePercentile rdf:type owl:Class ;
                                                  rdfs:subClassOf gcdfo:RelativeSpawnerAbundancePercentile ;
-                                                 <http://purl.obolibrary.org/obo/IAO_0000115> "Percentile rank of relative hatchery-origin spawner abundance against a historical reference distribution."@en ;
-                                                 dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+                                                 <http://purl.obolibrary.org/obo/IAO_0000115> "The percentile rank of relative hatchery-origin spawner abundance against a defined historical reference distribution."@en ;
+                                                 <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. 2024. Rapid Status Approximations… CSAS Science Response 2024/004 (percentile benchmarks discussion)."@en ;
+                                                 dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
                                                  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                                                  rdfs:label "Relative hatchery spawner abundance percentile"@en ;
                                                  gcdfo:theme gcdfo:SalmonEnhancementHatcheriesTheme ,
@@ -923,7 +923,8 @@ gcdfo:RelativeHatcherySpawnerAbundancePercentile rdf:type owl:Class ;
 ###  https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundanceTrend
 gcdfo:RelativeHatcherySpawnerAbundanceTrend rdf:type owl:Class ;
                                             rdfs:subClassOf gcdfo:RelativeSpawnerAbundanceTrend ;
-                                            <http://purl.obolibrary.org/obo/IAO_0000115> "A trend metric for relative hatchery-origin spawner abundance over time."@en ;
+                                            <http://purl.obolibrary.org/obo/IAO_0000115> "A trend metric computed from relative hatchery-origin spawner abundance values over time using a defined trend method."@en ;
+                                            <http://purl.obolibrary.org/obo/IAO_0000119> "Derived for SPSR term coverage."@en ;
                                             dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
                                             rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                                             rdfs:label "Relative hatchery spawner abundance trend"@en ;
@@ -934,8 +935,9 @@ gcdfo:RelativeHatcherySpawnerAbundanceTrend rdf:type owl:Class ;
 ###  https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundance
 gcdfo:RelativeSpawnerAbundance rdf:type owl:Class ;
                                rdfs:subClassOf gcdfo:SpawnerAbundance ;
-                               <http://purl.obolibrary.org/obo/IAO_0000115> "A relative-index form of spawner abundance used for within-series comparison."@en ;
-                               dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+                               <http://purl.obolibrary.org/obo/IAO_0000115> "Spawner abundance expressed as a relative index to a defined reference (e.g., long-term mean, baseline period, or scaling factor) for within-series comparison."@en ;
+                               <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. 2024. Rapid Status Approximations… CSAS Science Response 2024/004 (rapid status algorithm supports relative index vs absolute abundance data types)."@en ;
+                               dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
                                rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                                rdfs:label "Relative spawner abundance"@en ;
                                gcdfo:theme gcdfo:StockAssessmentTheme ,
@@ -945,7 +947,8 @@ gcdfo:RelativeSpawnerAbundance rdf:type owl:Class ;
 ###  https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundanceChange
 gcdfo:RelativeSpawnerAbundanceChange rdf:type owl:Class ;
                                      rdfs:subClassOf gcdfo:SpawnerAbundanceChange ;
-                                     <http://purl.obolibrary.org/obo/IAO_0000115> "Temporal change in relative spawner abundance metrics."@en ;
+                                     <http://purl.obolibrary.org/obo/IAO_0000115> "A change metric (delta or percent change, as defined by the workflow) computed from relative spawner abundance values over time."@en ;
+                                     <http://purl.obolibrary.org/obo/IAO_0000119> "Derived for SPSR term coverage from salmon-population-summary-repository."@en ;
                                      dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
                                      rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                                      rdfs:label "Relative spawner abundance change"@en ;
@@ -956,8 +959,9 @@ gcdfo:RelativeSpawnerAbundanceChange rdf:type owl:Class ;
 ###  https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundancePercentile
 gcdfo:RelativeSpawnerAbundancePercentile rdf:type owl:Class ;
                                          rdfs:subClassOf gcdfo:SpawnerAbundancePercentile ;
-                                         <http://purl.obolibrary.org/obo/IAO_0000115> "Percentile rank of relative spawner abundance against a historical reference distribution."@en ;
-                                         dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+                                         <http://purl.obolibrary.org/obo/IAO_0000115> "The percentile rank of relative spawner abundance against a defined historical reference distribution."@en ;
+                                         <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. 2024. Rapid Status Approximations… CSAS Science Response 2024/004 (percentile benchmarks discussion)."@en ;
+                                         dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
                                          rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                                          rdfs:label "Relative spawner abundance percentile"@en ;
                                          gcdfo:theme gcdfo:StockAssessmentTheme ,
@@ -967,7 +971,8 @@ gcdfo:RelativeSpawnerAbundancePercentile rdf:type owl:Class ;
 ###  https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundanceTrend
 gcdfo:RelativeSpawnerAbundanceTrend rdf:type owl:Class ;
                                     rdfs:subClassOf gcdfo:SpawnerAbundanceTrend ;
-                                    <http://purl.obolibrary.org/obo/IAO_0000115> "A trend metric for relative spawner abundance over time."@en ;
+                                    <http://purl.obolibrary.org/obo/IAO_0000115> "A trend metric computed from relative spawner abundance values over time using a defined trend method."@en ;
+                                    <http://purl.obolibrary.org/obo/IAO_0000119> "Derived for SPSR term coverage."@en ;
                                     dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
                                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                                     rdfs:label "Relative spawner abundance trend"@en ;
@@ -978,8 +983,9 @@ gcdfo:RelativeSpawnerAbundanceTrend rdf:type owl:Class ;
 ###  https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundance
 gcdfo:RelativeWildSpawnerAbundance rdf:type owl:Class ;
                                    rdfs:subClassOf gcdfo:RelativeSpawnerAbundance ;
-                                   <http://purl.obolibrary.org/obo/IAO_0000115> "Relative spawner abundance restricted to wild-origin spawners."@en ;
-                                   dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+                                   <http://purl.obolibrary.org/obo/IAO_0000115> "Spawner abundance expressed as a relative index for natural-origin (wild) spawners, relative to a specified reference for within-series comparison."@en ;
+                                   <http://purl.obolibrary.org/obo/IAO_0000119> "Derived for SPSR term coverage; natural-origin is defined in the Salmon Origin scheme."@en ;
+                                   dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology> ;
                                    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                                    rdfs:label "Relative wild spawner abundance"@en ;
                                    gcdfo:theme gcdfo:StockAssessmentTheme ,
@@ -989,7 +995,8 @@ gcdfo:RelativeWildSpawnerAbundance rdf:type owl:Class ;
 ###  https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundanceChange
 gcdfo:RelativeWildSpawnerAbundanceChange rdf:type owl:Class ;
                                          rdfs:subClassOf gcdfo:RelativeSpawnerAbundanceChange ;
-                                         <http://purl.obolibrary.org/obo/IAO_0000115> "Temporal change in relative wild-origin spawner abundance."@en ;
+                                         <http://purl.obolibrary.org/obo/IAO_0000115> "A change metric (delta or percent change, as defined by the workflow) computed from relative natural-origin spawner abundance values over time."@en ;
+                                         <http://purl.obolibrary.org/obo/IAO_0000119> "Derived for SPSR term coverage from salmon-population-summary-repository."@en ;
                                          dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
                                          rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                                          rdfs:label "Relative wild spawner abundance change"@en ;
@@ -1000,8 +1007,9 @@ gcdfo:RelativeWildSpawnerAbundanceChange rdf:type owl:Class ;
 ###  https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundancePercentile
 gcdfo:RelativeWildSpawnerAbundancePercentile rdf:type owl:Class ;
                                              rdfs:subClassOf gcdfo:RelativeSpawnerAbundancePercentile ;
-                                             <http://purl.obolibrary.org/obo/IAO_0000115> "Percentile rank of relative wild-origin spawner abundance against a historical reference distribution."@en ;
-                                             dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+                                             <http://purl.obolibrary.org/obo/IAO_0000115> "The percentile rank of relative natural-origin spawner abundance against a defined historical reference distribution."@en ;
+                                             <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. 2024. Rapid Status Approximations… CSAS Science Response 2024/004 (percentile benchmarks discussion)."@en ;
+                                             dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
                                              rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                                              rdfs:label "Relative wild spawner abundance percentile"@en ;
                                              gcdfo:theme gcdfo:StockAssessmentTheme ,
@@ -1011,7 +1019,8 @@ gcdfo:RelativeWildSpawnerAbundancePercentile rdf:type owl:Class ;
 ###  https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundanceTrend
 gcdfo:RelativeWildSpawnerAbundanceTrend rdf:type owl:Class ;
                                         rdfs:subClassOf gcdfo:RelativeSpawnerAbundanceTrend ;
-                                        <http://purl.obolibrary.org/obo/IAO_0000115> "A trend metric for relative wild-origin spawner abundance over time."@en ;
+                                        <http://purl.obolibrary.org/obo/IAO_0000115> "A trend metric computed from relative natural-origin spawner abundance values over time using a defined trend method."@en ;
+                                        <http://purl.obolibrary.org/obo/IAO_0000119> "Derived for SPSR term coverage."@en ;
                                         dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
                                         rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                                         rdfs:label "Relative wild spawner abundance trend"@en ;
@@ -1032,8 +1041,9 @@ gcdfo:ReportingOrManagementStratum rdf:type owl:Class ;
 ###  https://w3id.org/gcdfo/salmon#ReturnYear
 gcdfo:ReturnYear rdf:type owl:Class ;
                  rdfs:subClassOf gcdfo:YearBasis ;
-                 <http://purl.obolibrary.org/obo/IAO_0000115> "The calendar year in which adult salmon return to freshwater systems."@en ;
-                 dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+                 <http://purl.obolibrary.org/obo/IAO_0000115> "The calendar year in which adult salmon return from the ocean to freshwater systems (a year basis used to contextualize run/return-related measurements)."@en ;
+                 <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Pacific Salmon Glossary (Pacific Region web page)."@en ;
+                 dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html> ;
                  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                  rdfs:label "Return year"@en ;
                  gcdfo:theme gcdfo:FisheriesManagementTheme ,
@@ -1044,10 +1054,13 @@ gcdfo:ReturnYear rdf:type owl:Class ;
 ###  https://w3id.org/gcdfo/salmon#SpawnerAbundance
 gcdfo:SpawnerAbundance rdf:type owl:Class ;
                        rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
-                       <http://purl.obolibrary.org/obo/IAO_0000115> "A metric representing abundance of spawning fish."@en ;
-                       dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+                       <http://purl.obolibrary.org/obo/IAO_0000115> "The abundance (count) of adult salmon that reach spawning grounds in a given system and time period (often operationalized as escapement/spawning escapement)."@en ;
+                       <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Pacific Salmon Glossary (defines escapement/spawning escapement as the number of salmon returning to the spawning grounds)."@en ;
+                       dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html> ;
                        rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                        rdfs:label "Spawner abundance"@en ;
+                       skos:altLabel "Escapement (count)"@en ;
+                       skos:closeMatch odo:SALMON_00000479 ;
                        gcdfo:theme gcdfo:StockAssessmentTheme ,
                                    gcdfo:WildSalmonPolicyTheme .
 
@@ -1055,7 +1068,8 @@ gcdfo:SpawnerAbundance rdf:type owl:Class ;
 ###  https://w3id.org/gcdfo/salmon#SpawnerAbundanceChange
 gcdfo:SpawnerAbundanceChange rdf:type owl:Class ;
                              rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
-                             <http://purl.obolibrary.org/obo/IAO_0000115> "A metric describing temporal change in spawner abundance."@en ;
+                             <http://purl.obolibrary.org/obo/IAO_0000115> "A change metric (delta or percent change, as defined by the workflow) computed from spawner abundance values over time."@en ;
+                             <http://purl.obolibrary.org/obo/IAO_0000119> "Derived for SPSR term coverage from salmon-population-summary-repository; distinct from WSP PercentChangeMetric (3-generation metric)."@en ;
                              dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
                              rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                              rdfs:label "Spawner abundance change"@en ;
@@ -1066,8 +1080,9 @@ gcdfo:SpawnerAbundanceChange rdf:type owl:Class ;
 ###  https://w3id.org/gcdfo/salmon#SpawnerAbundancePercentile
 gcdfo:SpawnerAbundancePercentile rdf:type owl:Class ;
                                  rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
-                                 <http://purl.obolibrary.org/obo/IAO_0000115> "The percentile rank of a spawner abundance value against a historical reference distribution."@en ;
-                                 dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+                                 <http://purl.obolibrary.org/obo/IAO_0000115> "The percentile rank of a spawner abundance value (annual or period-specific) against a defined historical reference distribution."@en ;
+                                 <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. 2024. Rapid Status Approximations… CSAS Science Response 2024/004 (percentile benchmarks discussion)."@en ;
+                                 dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
                                  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                                  rdfs:label "Spawner abundance percentile"@en ;
                                  gcdfo:theme gcdfo:StockAssessmentTheme ,
@@ -1077,8 +1092,9 @@ gcdfo:SpawnerAbundancePercentile rdf:type owl:Class ;
 ###  https://w3id.org/gcdfo/salmon#SpawnerAbundanceTrend
 gcdfo:SpawnerAbundanceTrend rdf:type owl:Class ;
                             rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
-                            <http://purl.obolibrary.org/obo/IAO_0000115> "A trend metric derived from spawner abundance over time."@en ;
-                            dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+                            <http://purl.obolibrary.org/obo/IAO_0000115> "A trend metric computed from spawner abundance over time using a defined trend method (e.g., slope over a specified window)."@en ;
+                            <http://purl.obolibrary.org/obo/IAO_0000119> "Derived for SPSR term coverage; distinct from WSP LongTermTrendMetric (current generational average vs long-term average) in CSAS Science Response 2024/004."@en ;
+                            dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
                             rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                             rdfs:label "Spawner abundance trend"@en ;
                             gcdfo:theme gcdfo:StockAssessmentTheme ,
@@ -1150,7 +1166,8 @@ gcdfo:TargetOrLimitRateOrAbundance rdf:type owl:Class ;
 ###  https://w3id.org/gcdfo/salmon#TerminalMortalityRate
 gcdfo:TerminalMortalityRate rdf:type owl:Class ;
                             rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
-                            <http://purl.obolibrary.org/obo/IAO_0000115> "The proportion of fish that die during terminal in-river phases."@en ;
+                            <http://purl.obolibrary.org/obo/IAO_0000115> "The proportion of fish that die during the terminal (late-stage) freshwater phase near spawning, as defined by the assessment workflow."@en ;
+                            <http://purl.obolibrary.org/obo/IAO_0000119> "Derived for SPSR term coverage from salmon-population-summary-repository (Issue #33 term request scope); 'terminal phase' is referenced in the ontology’s life phase scheme."@en ;
                             dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
                             rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                             rdfs:label "Terminal mortality rate"@en ;
@@ -1170,7 +1187,8 @@ gcdfo:TotalExploitationRate rdf:type owl:Class ;
 ###  https://w3id.org/gcdfo/salmon#TotalMortalityRate
 gcdfo:TotalMortalityRate rdf:type owl:Class ;
                          rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
-                         <http://purl.obolibrary.org/obo/IAO_0000115> "The overall proportion of fish that die across all phases in the period of interest."@en ;
+                         <http://purl.obolibrary.org/obo/IAO_0000115> "The overall proportion of fish that die across all defined phases over the assessment period, aggregating the relevant phase-specific mortalities."@en ;
+                         <http://purl.obolibrary.org/obo/IAO_0000119> "Derived for SPSR term coverage from salmon-population-summary-repository (Issue #33 term request scope)."@en ;
                          dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
                          rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                          rdfs:label "Total mortality rate"@en ;
@@ -1247,14 +1265,15 @@ gcdfo:YearBasis rdf:type owl:Class ;
 ###  https://w3id.org/gcdfo/salmon#AbundanceDataType
 gcdfo:AbundanceDataType rdf:type owl:NamedIndividual ,
                                  skos:Concept ;
-                        <http://purl.obolibrary.org/obo/IAO_0000119> "sos-program. Approved-WSP-Statuses repository (Approved WSP Statuses) and associated Zenodo release (doi:10.5281/zenodo.18498157)."@en ;
-                        dcterms:source <https://doi.org/10.5281/zenodo.18498157> ,
-                                       <https://github.com/sos-program/Approved-WSP-Statuses> ;
+                        <http://purl.obolibrary.org/obo/IAO_0000115> "A categorical attribute indicating whether an abundance time series is recorded as absolute abundance or as a relative index (used by WSP rapid status workflows)."@en ;
+                        <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."@en ;
+                        dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
                         rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                         skos:broader gcdfo:MeasurementContext ;
-                        skos:definition "Classification describing whether a conservation-unit data series supports absolute abundance metrics (Abs_Abd) or only relative index metrics (RelIdx) in WSP workflows."@en ;
+                        skos:definition "A categorical attribute indicating whether an abundance time series is recorded as absolute abundance or as a relative index (used by WSP rapid status workflows)."@en ;
                         skos:inScheme gcdfo:MeasurementContextScheme ;
                         skos:prefLabel "Abundance data type"@en ;
+                        skos:scopeNote "In SPSR/WSP workflows, this field distinguishes absolute abundance vs relative index inputs (often abbreviated in code as 'Abs_Abd' and 'RelIdx')."@en ;
                         gcdfo:theme gcdfo:DataModelProvenanceTheme ,
                                     gcdfo:StockAssessmentTheme ,
                                     gcdfo:WildSalmonPolicyTheme .
@@ -1805,10 +1824,12 @@ gcdfo:EuropeanAgeNotation rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/gcdfo/salmon#ExpansionFactor
 gcdfo:ExpansionFactor rdf:type owl:NamedIndividual ,
                                skos:Concept ;
-                      dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+                      <http://purl.obolibrary.org/obo/IAO_0000115> "A multiplicative factor used to expand observed counts or detections from a sampled subset (e.g., indicator sites, PIT detections) to an estimated total abundance or escapement."@en ;
+                      <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. 2021. Marine Survival Forecast of Southern British Columbia Coho (describes applying expansion factors to PIT detections to estimate total escapement)."@en ;
+                      dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/Library/40978680.pdf> ;
                       rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                       skos:broader gcdfo:ExpansionMathematicalOperations ;
-                      skos:definition "A multiplicative factor used to expand observed values to estimated totals."@en ;
+                      skos:definition "A multiplicative factor used to expand observed counts or detections from a sampled subset (e.g., indicator sites, PIT detections) to an estimated total abundance or escapement."@en ;
                       skos:inScheme gcdfo:EstimateMethodScheme ;
                       skos:prefLabel "Expansion factor"@en ;
                       gcdfo:theme gcdfo:DataModelProvenanceTheme ,
@@ -2679,10 +2700,12 @@ gcdfo:Type6 rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/gcdfo/salmon#UnrankedIndexQuality
 gcdfo:UnrankedIndexQuality rdf:type owl:NamedIndividual ,
                                     skos:Concept ;
-                           dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+                           <http://purl.obolibrary.org/obo/IAO_0000115> "A data quality category indicating that no escapement estimate type / index quality classification was assigned for the record."@en ;
+                           <http://purl.obolibrary.org/obo/IAO_0000119> "dfo-pacific-science/dfo-salmon-ontology Issue #33: term request for general/legacy SPSR metrics (documents need for explicit unranked/legacy categories for dictionary closure)."@en ;
+                           dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/issues/33> ;
                            rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                            skos:broader gcdfo:EstimateType ;
-                           skos:definition "A dataset quality category indicating that no formal index quality rank was assigned."@en ;
+                           skos:definition "A data quality category indicating that no escapement estimate type / index quality classification was assigned for the record."@en ;
                            skos:inScheme gcdfo:EstimateTypeScheme ;
                            skos:prefLabel "Unranked index quality"@en ;
                            gcdfo:theme gcdfo:DataModelProvenanceTheme ,
