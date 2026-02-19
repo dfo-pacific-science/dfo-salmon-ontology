@@ -58,12 +58,12 @@
       "contributor" : [ {
         "identifier" : "contributor",
         "language" : "en",
-        "value" : "Melissa K. Morrison",
+        "value" : "Brett Johnson",
         "type" : "label"
       }, {
         "identifier" : "contributor",
         "language" : "en",
-        "value" : "Brett Johnson",
+        "value" : "Melissa K. Morrison",
         "type" : "label"
       } ],
       "IAO_0000115" : [ {
@@ -127,7 +127,7 @@
     "id" : "10",
     "type" : "owl:Class"
   }, {
-    "id" : "11",
+    "id" : "13",
     "type" : "owl:Class"
   }, {
     "id" : "14",
@@ -151,13 +151,13 @@
     "id" : "24",
     "type" : "owl:Class"
   }, {
-    "id" : "13",
+    "id" : "12",
     "type" : "owl:Class"
   }, {
     "id" : "25",
     "type" : "owl:Class"
   }, {
-    "id" : "12",
+    "id" : "11",
     "type" : "owl:Class"
   }, {
     "id" : "32",
@@ -172,7 +172,7 @@
     "id" : "37",
     "type" : "owl:Class"
   }, {
-    "id" : "39",
+    "id" : "43",
     "type" : "owl:Class"
   }, {
     "id" : "45",
@@ -187,7 +187,7 @@
     "id" : "50",
     "type" : "owl:Class"
   }, {
-    "id" : "51",
+    "id" : "52",
     "type" : "owl:Class"
   }, {
     "id" : "53",
@@ -202,7 +202,7 @@
     "id" : "57",
     "type" : "owl:Class"
   }, {
-    "id" : "42",
+    "id" : "41",
     "type" : "owl:Class"
   }, {
     "id" : "58",
@@ -229,7 +229,7 @@
     "id" : "9",
     "type" : "owl:Class"
   }, {
-    "id" : "52",
+    "id" : "51",
     "type" : "owl:Class"
   }, {
     "id" : "65",
@@ -286,7 +286,7 @@
     "id" : "15",
     "type" : "owl:Class"
   }, {
-    "id" : "41",
+    "id" : "40",
     "type" : "owl:Class"
   }, {
     "id" : "135",
@@ -298,10 +298,10 @@
     "id" : "35",
     "type" : "owl:Class"
   }, {
-    "id" : "27",
+    "id" : "143",
     "type" : "owl:Class"
   }, {
-    "id" : "143",
+    "id" : "27",
     "type" : "owl:Class"
   }, {
     "id" : "121",
@@ -319,10 +319,10 @@
     "id" : "23",
     "type" : "owl:Class"
   }, {
-    "id" : "28",
+    "id" : "86",
     "type" : "owl:Class"
   }, {
-    "id" : "86",
+    "id" : "28",
     "type" : "owl:Class"
   }, {
     "id" : "109",
@@ -422,12 +422,12 @@
       }, {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
         "type" : "iri"
       }, {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
         "type" : "iri"
       } ],
       "definition" : [ {
@@ -483,12 +483,12 @@
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
           "type" : "iri"
         }, {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
           "type" : "iri"
         } ],
         "source" : [ {
@@ -529,22 +529,22 @@
           "value" : "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf.",
           "type" : "label"
         } ],
+        "theme" : [ {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
+          "type" : "iri"
+        }, {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme",
+          "type" : "iri"
+        } ],
         "definition" : [ {
           "identifier" : "definition",
           "language" : "en",
           "value" : "Social and economic considerations will tend to be the primary drivers for the management of Conservation Units in the Green zone, though ecosystem or other non-consumptive use values could also be considered.",
           "type" : "label"
-        } ],
-        "theme" : [ {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme",
-          "type" : "iri"
-        }, {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
-          "type" : "iri"
         } ],
         "source" : [ {
           "identifier" : "source",
@@ -584,22 +584,22 @@
           "value" : "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf.",
           "type" : "label"
         } ],
-        "theme" : [ {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
-          "type" : "iri"
-        }, {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
-          "type" : "iri"
-        } ],
         "definition" : [ {
           "identifier" : "definition",
           "language" : "en",
           "value" : "Amber status implies caution in the management of the Conservation Unit. While a CU in the Amber zone should be at a low risk of loss, there will be a degree of lost production. Decisions about the conservation of CUs in the Amber zone will involve broader consideration of biological, social, and economic issues. ",
           "type" : "label"
+        } ],
+        "theme" : [ {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "type" : "iri"
+        }, {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
+          "type" : "iri"
         } ],
         "source" : [ {
           "identifier" : "source",
@@ -658,12 +658,12 @@
       "theme" : [ {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#HabitatEcosystemClimateTheme",
         "type" : "iri"
       }, {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#HabitatEcosystemClimateTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
         "type" : "iri"
       } ],
       "source" : [ {
@@ -788,47 +788,6 @@
     "id" : "8",
     "superClasses" : [ "9" ]
   }, {
-    "iri" : "https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundanceChange",
-    "baseIri" : "https://w3id.org/gcdfo/salmon",
-    "instances" : 0,
-    "annotations" : {
-      "isDefinedBy" : [ {
-        "identifier" : "isDefinedBy",
-        "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon",
-        "type" : "iri"
-      } ],
-      "IAO_0000115" : [ {
-        "identifier" : "IAO_0000115",
-        "language" : "en",
-        "value" : "Temporal change in relative wild-origin spawner abundance.",
-        "type" : "label"
-      } ],
-      "theme" : [ {
-        "identifier" : "theme",
-        "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
-        "type" : "iri"
-      }, {
-        "identifier" : "theme",
-        "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
-        "type" : "iri"
-      } ],
-      "source" : [ {
-        "identifier" : "source",
-        "language" : "undefined",
-        "value" : "https://github.com/dfo-pacific-science/salmon-population-summary-repository",
-        "type" : "iri"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "RelativeWildSpawnerAbundanceChange",
-      "en" : "Relative wild spawner abundance change"
-    },
-    "id" : "10",
-    "superClasses" : [ "11" ]
-  }, {
     "iri" : "https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundanceChange",
     "baseIri" : "https://w3id.org/gcdfo/salmon",
     "instances" : 0,
@@ -848,12 +807,12 @@
       "theme" : [ {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
         "type" : "iri"
       }, {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
         "type" : "iri"
       } ],
       "source" : [ {
@@ -867,9 +826,50 @@
       "IRI-based" : "RelativeSpawnerAbundanceChange",
       "en" : "Relative spawner abundance change"
     },
-    "subClasses" : [ "13", "10" ],
-    "id" : "11",
-    "superClasses" : [ "12" ]
+    "subClasses" : [ "12", "13" ],
+    "id" : "10",
+    "superClasses" : [ "11" ]
+  }, {
+    "iri" : "https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundanceChange",
+    "baseIri" : "https://w3id.org/gcdfo/salmon",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://w3id.org/gcdfo/salmon",
+        "type" : "iri"
+      } ],
+      "IAO_0000115" : [ {
+        "identifier" : "IAO_0000115",
+        "language" : "en",
+        "value" : "Temporal change in relative wild-origin spawner abundance.",
+        "type" : "label"
+      } ],
+      "theme" : [ {
+        "identifier" : "theme",
+        "language" : "undefined",
+        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+        "type" : "iri"
+      }, {
+        "identifier" : "theme",
+        "language" : "undefined",
+        "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
+        "type" : "iri"
+      } ],
+      "source" : [ {
+        "identifier" : "source",
+        "language" : "undefined",
+        "value" : "https://github.com/dfo-pacific-science/salmon-population-summary-repository",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "RelativeWildSpawnerAbundanceChange",
+      "en" : "Relative wild spawner abundance change"
+    },
+    "id" : "13",
+    "superClasses" : [ "10" ]
   }, {
     "iri" : "https://w3id.org/gcdfo/salmon#ConservationUnit",
     "baseIri" : "https://w3id.org/gcdfo/salmon",
@@ -901,7 +901,7 @@
       "theme" : [ {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme",
         "type" : "iri"
       }, {
         "identifier" : "theme",
@@ -911,18 +911,18 @@
       }, {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme",
         "type" : "iri"
       } ],
       "source" : [ {
         "identifier" : "source",
         "language" : "undefined",
-        "value" : "https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/wsp-pss/policy-politique-eng.html#glossary",
+        "value" : "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf",
         "type" : "iri"
       }, {
         "identifier" : "source",
         "language" : "undefined",
-        "value" : "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf",
+        "value" : "https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/wsp-pss/policy-politique-eng.html#glossary",
         "type" : "iri"
       } ],
       "isPartOf" : [ {
@@ -986,12 +986,13 @@
         "value" : "Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html.",
         "type" : "label"
       } ],
+      "altLabel" : [ {
+        "identifier" : "altLabel",
+        "language" : "en",
+        "value" : "USR",
+        "type" : "label"
+      } ],
       "theme" : [ {
-        "identifier" : "theme",
-        "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme",
-        "type" : "iri"
-      }, {
         "identifier" : "theme",
         "language" : "undefined",
         "value" : "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme",
@@ -999,14 +1000,13 @@
       }, {
         "identifier" : "theme",
         "language" : "undefined",
+        "value" : "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme",
+        "type" : "iri"
+      }, {
+        "identifier" : "theme",
+        "language" : "undefined",
         "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
         "type" : "iri"
-      } ],
-      "altLabel" : [ {
-        "identifier" : "altLabel",
-        "language" : "en",
-        "value" : "USR",
-        "type" : "label"
       } ],
       "source" : [ {
         "identifier" : "source",
@@ -1068,12 +1068,12 @@
       "source" : [ {
         "identifier" : "source",
         "language" : "undefined",
-        "value" : "https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2009/2009_058-eng.htm",
+        "value" : "https://publications.gc.ca/site/eng/9.928944/publication.html",
         "type" : "iri"
       }, {
         "identifier" : "source",
         "language" : "undefined",
-        "value" : "https://publications.gc.ca/site/eng/9.928944/publication.html",
+        "value" : "https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2009/2009_058-eng.htm",
         "type" : "iri"
       } ]
     },
@@ -1193,12 +1193,12 @@
       "theme" : [ {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
         "type" : "iri"
       }, {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme",
         "type" : "iri"
       } ],
       "source" : [ {
@@ -1253,8 +1253,8 @@
       "IRI-based" : "RelativeHatcherySpawnerAbundanceChange",
       "en" : "Relative hatchery spawner abundance change"
     },
-    "id" : "13",
-    "superClasses" : [ "11" ]
+    "id" : "12",
+    "superClasses" : [ "10" ]
   }, {
     "iri" : "https://w3id.org/gcdfo/salmon#YearBasis",
     "baseIri" : "https://w3id.org/gcdfo/salmon",
@@ -1305,12 +1305,12 @@
       "theme" : [ {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
         "type" : "iri"
       }, {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
         "type" : "iri"
       } ],
       "source" : [ {
@@ -1324,8 +1324,8 @@
       "IRI-based" : "SpawnerAbundanceChange",
       "en" : "Spawner abundance change"
     },
-    "subClasses" : [ "11" ],
-    "id" : "12",
+    "subClasses" : [ "10" ],
+    "id" : "11",
     "superClasses" : [ "4" ]
   }, {
     "iri" : "https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark",
@@ -1353,17 +1353,17 @@
       "theme" : [ {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme",
-        "type" : "iri"
-      }, {
-        "identifier" : "theme",
-        "language" : "undefined",
         "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
         "type" : "iri"
       }, {
         "identifier" : "theme",
         "language" : "undefined",
         "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+        "type" : "iri"
+      }, {
+        "identifier" : "theme",
+        "language" : "undefined",
+        "value" : "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme",
         "type" : "iri"
       } ],
       "source" : [ {
@@ -1455,12 +1455,12 @@
       "theme" : [ {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme",
         "type" : "iri"
       }, {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
         "type" : "iri"
       } ],
       "source" : [ {
@@ -1532,7 +1532,7 @@
       "IRI-based" : "Stock",
       "en" : "Stock"
     },
-    "id" : "39",
+    "id" : "43",
     "superClasses" : [ "15" ]
   }, {
     "iri" : "https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance",
@@ -1554,17 +1554,17 @@
       "theme" : [ {
         "identifier" : "theme",
         "language" : "undefined",
+        "value" : "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme",
+        "type" : "iri"
+      }, {
+        "identifier" : "theme",
+        "language" : "undefined",
         "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
         "type" : "iri"
       }, {
         "identifier" : "theme",
         "language" : "undefined",
         "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
-        "type" : "iri"
-      }, {
-        "identifier" : "theme",
-        "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme",
         "type" : "iri"
       } ]
     },
@@ -1601,17 +1601,17 @@
       "theme" : [ {
         "identifier" : "theme",
         "language" : "undefined",
+        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+        "type" : "iri"
+      }, {
+        "identifier" : "theme",
+        "language" : "undefined",
         "value" : "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme",
         "type" : "iri"
       }, {
         "identifier" : "theme",
         "language" : "undefined",
         "value" : "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme",
-        "type" : "iri"
-      }, {
-        "identifier" : "theme",
-        "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
         "type" : "iri"
       } ],
       "altLabel" : [ {
@@ -1662,10 +1662,16 @@
           "value" : "Stock Status Zone Scheme (legacy alias)",
           "type" : "label"
         } ],
+        "altLabel" : [ {
+          "identifier" : "altLabel",
+          "language" : "en",
+          "value" : "Stock Status Zone Scheme",
+          "type" : "label"
+        } ],
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
           "type" : "iri"
         }, {
           "identifier" : "theme",
@@ -1675,19 +1681,13 @@
         }, {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme",
           "type" : "iri"
         } ],
         "definition" : [ {
           "identifier" : "definition",
           "language" : "en",
           "value" : "Legacy alias scheme for stock status zones. Use :WSPBiologicalStatusZoneScheme as the canonical scheme for Red/Amber/Green Wild Salmon Policy biological status zones.",
-          "type" : "label"
-        } ],
-        "altLabel" : [ {
-          "identifier" : "altLabel",
-          "language" : "en",
-          "value" : "Stock Status Zone Scheme",
           "type" : "label"
         } ],
         "hasTopConcept" : [ {
@@ -1716,12 +1716,13 @@
           "value" : "Salmon Origin Scheme",
           "type" : "label"
         } ],
-        "theme" : [ {
-          "identifier" : "theme",
+        "hasTopConcept" : [ {
+          "identifier" : "hasTopConcept",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#SalmonOrigin",
           "type" : "iri"
-        }, {
+        } ],
+        "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme",
@@ -1731,18 +1732,17 @@
           "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme",
           "type" : "iri"
+        }, {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "type" : "iri"
         } ],
         "definition" : [ {
           "identifier" : "definition",
           "language" : "en",
           "value" : "Controlled vocabulary for describing the origin of individual salmon (e.g., natural-origin, hatchery-origin, mixed-origin).",
           "type" : "label"
-        } ],
-        "hasTopConcept" : [ {
-          "identifier" : "hasTopConcept",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#SalmonOrigin",
-          "type" : "iri"
         } ]
       },
       "labels" : {
@@ -1764,19 +1764,12 @@
           "value" : "Policy framework scheme",
           "type" : "label"
         } ],
-        "hasTopConcept" : [ {
-          "identifier" : "hasTopConcept",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#PolicyFramework",
-          "type" : "iri"
-        } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "Controlled vocabulary for policy and governance frameworks referenced by salmon assessment metrics and benchmarks (e.g., WSP, PA).",
-          "type" : "label"
-        } ],
         "theme" : [ {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme",
+          "type" : "iri"
+        }, {
           "identifier" : "theme",
           "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
@@ -1786,10 +1779,17 @@
           "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
           "type" : "iri"
-        }, {
-          "identifier" : "theme",
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Controlled vocabulary for policy and governance frameworks referenced by salmon assessment metrics and benchmarks (e.g., WSP, PA).",
+          "type" : "label"
+        } ],
+        "hasTopConcept" : [ {
+          "identifier" : "hasTopConcept",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#PolicyFramework",
           "type" : "iri"
         } ]
       },
@@ -1812,11 +1812,11 @@
           "value" : "Escapement Estimate Method Scheme",
           "type" : "label"
         } ],
-        "theme" : [ {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
-          "type" : "iri"
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Controlled vocabulary for salmon estimate methods",
+          "type" : "label"
         } ],
         "hasTopConcept" : [ {
           "identifier" : "hasTopConcept",
@@ -1824,11 +1824,11 @@
           "value" : "https://w3id.org/gcdfo/salmon#EstimateMethod",
           "type" : "iri"
         } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "Controlled vocabulary for salmon estimate methods",
-          "type" : "label"
+        "theme" : [ {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "type" : "iri"
         } ]
       },
       "labels" : {
@@ -1850,17 +1850,17 @@
           "value" : "Escapement Enumeration Method Scheme",
           "type" : "label"
         } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "Controlled vocabulary for salmon enumeration methods",
-          "type" : "label"
-        } ],
         "hasTopConcept" : [ {
           "identifier" : "hasTopConcept",
           "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#EnumerationMethod",
           "type" : "iri"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Controlled vocabulary for salmon enumeration methods",
+          "type" : "label"
         } ],
         "theme" : [ {
           "identifier" : "theme",
@@ -1891,12 +1891,18 @@
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
           "type" : "iri"
         }, {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "type" : "iri"
+        } ],
+        "hasTopConcept" : [ {
+          "identifier" : "hasTopConcept",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#MeasurementContext",
           "type" : "iri"
         } ],
         "definition" : [ {
@@ -1904,12 +1910,6 @@
           "language" : "en",
           "value" : "Controlled vocabulary for compositional measurement context qualifiers (for example, catch context, run context).",
           "type" : "label"
-        } ],
-        "hasTopConcept" : [ {
-          "identifier" : "hasTopConcept",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#MeasurementContext",
-          "type" : "iri"
         } ]
       },
       "labels" : {
@@ -1931,12 +1931,6 @@
           "value" : "Biological Benchmark and Indicator Scheme",
           "type" : "label"
         } ],
-        "hasTopConcept" : [ {
-          "identifier" : "hasTopConcept",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance",
-          "type" : "iri"
-        } ],
         "definition" : [ {
           "identifier" : "definition",
           "language" : "en",
@@ -1953,58 +1947,16 @@
           "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
           "type" : "iri"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "BiologicalBenchmarkAndIndicatorScheme"
-      }
-    }, {
-      "iri" : "https://w3id.org/gcdfo/salmon#COSEWICStatusScheme",
-      "baseIri" : "https://w3id.org/gcdfo/salmon",
-      "annotations" : {
-        "isDefinedBy" : [ {
-          "identifier" : "isDefinedBy",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon",
-          "type" : "iri"
-        } ],
-        "prefLabel" : [ {
-          "identifier" : "prefLabel",
-          "language" : "en",
-          "value" : "COSEWIC Status Scheme",
-          "type" : "label"
-        } ],
-        "theme" : [ {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#SpeciesAtRiskRecoveryTheme",
-          "type" : "iri"
-        }, {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
-          "type" : "iri"
-        }, {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme",
-          "type" : "iri"
-        } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "Controlled vocabulary for COSEWIC statuses",
-          "type" : "label"
         } ],
         "hasTopConcept" : [ {
           "identifier" : "hasTopConcept",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#COSEWICStatusCategory",
+          "value" : "https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance",
           "type" : "iri"
         } ]
       },
       "labels" : {
-        "IRI-based" : "COSEWICStatusScheme"
+        "IRI-based" : "BiologicalBenchmarkAndIndicatorScheme"
       }
     }, {
       "iri" : "https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZoneScheme",
@@ -2031,12 +1983,12 @@
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme",
           "type" : "iri"
         }, {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
           "type" : "iri"
         }, {
           "identifier" : "theme",
@@ -2053,6 +2005,54 @@
       },
       "labels" : {
         "IRI-based" : "WSPBiologicalStatusZoneScheme"
+      }
+    }, {
+      "iri" : "https://w3id.org/gcdfo/salmon#COSEWICStatusScheme",
+      "baseIri" : "https://w3id.org/gcdfo/salmon",
+      "annotations" : {
+        "isDefinedBy" : [ {
+          "identifier" : "isDefinedBy",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "COSEWIC Status Scheme",
+          "type" : "label"
+        } ],
+        "theme" : [ {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "type" : "iri"
+        }, {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme",
+          "type" : "iri"
+        }, {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#SpeciesAtRiskRecoveryTheme",
+          "type" : "iri"
+        } ],
+        "hasTopConcept" : [ {
+          "identifier" : "hasTopConcept",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#COSEWICStatusCategory",
+          "type" : "iri"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Controlled vocabulary for COSEWIC statuses",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "COSEWICStatusScheme"
       }
     }, {
       "iri" : "https://w3id.org/gcdfo/salmon#AgeDimensionScheme",
@@ -2108,17 +2108,17 @@
           "value" : "Life phase scheme",
           "type" : "label"
         } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "Controlled vocabulary for life-phase or fishery/migration segment qualifiers used to stratify measurements (e.g., ocean, terminal, mainstem).",
-          "type" : "label"
-        } ],
         "hasTopConcept" : [ {
           "identifier" : "hasTopConcept",
           "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#LifePhase",
           "type" : "iri"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Controlled vocabulary for life-phase or fishery/migration segment qualifiers used to stratify measurements (e.g., ocean, terminal, mainstem).",
+          "type" : "label"
         } ],
         "theme" : [ {
           "identifier" : "theme",
@@ -2178,12 +2178,6 @@
           "value" : "Downgrade Criteria Scheme",
           "type" : "label"
         } ],
-        "theme" : [ {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
-          "type" : "iri"
-        } ],
         "hasTopConcept" : [ {
           "identifier" : "hasTopConcept",
           "language" : "undefined",
@@ -2195,53 +2189,16 @@
           "language" : "en",
           "value" : "Controlled vocabulary for estimate type downgrade criteria",
           "type" : "label"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "DowngradeCriteriaScheme"
-      }
-    }, {
-      "iri" : "https://w3id.org/gcdfo/salmon#AgeNotationScheme",
-      "baseIri" : "https://w3id.org/gcdfo/salmon",
-      "annotations" : {
-        "isDefinedBy" : [ {
-          "identifier" : "isDefinedBy",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon",
-          "type" : "iri"
-        } ],
-        "prefLabel" : [ {
-          "identifier" : "prefLabel",
-          "language" : "en",
-          "value" : "Age notation scheme",
-          "type" : "label"
         } ],
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
-          "type" : "iri"
-        }, {
-          "identifier" : "theme",
-          "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
-          "type" : "iri"
-        } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "Controlled vocabulary for salmon age notation systems (for example, Gilbert-Rich and European notation).",
-          "type" : "label"
-        } ],
-        "hasTopConcept" : [ {
-          "identifier" : "hasTopConcept",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#AgeNotation",
           "type" : "iri"
         } ]
       },
       "labels" : {
-        "IRI-based" : "AgeNotationScheme"
+        "IRI-based" : "DowngradeCriteriaScheme"
       }
     }, {
       "iri" : "https://w3id.org/gcdfo/salmon#RapidStatusConfidenceScheme",
@@ -2259,32 +2216,75 @@
           "value" : "Rapid status confidence scheme",
           "type" : "label"
         } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "Controlled vocabulary for categorical confidence ratings attached to rapid status assessments.",
-          "type" : "label"
-        } ],
-        "theme" : [ {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
-          "type" : "iri"
-        }, {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
-          "type" : "iri"
-        } ],
         "hasTopConcept" : [ {
           "identifier" : "hasTopConcept",
           "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#ConfidenceCategory",
           "type" : "iri"
+        } ],
+        "theme" : [ {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
+          "type" : "iri"
+        }, {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "type" : "iri"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Controlled vocabulary for categorical confidence ratings attached to rapid status assessments.",
+          "type" : "label"
         } ]
       },
       "labels" : {
         "IRI-based" : "RapidStatusConfidenceScheme"
+      }
+    }, {
+      "iri" : "https://w3id.org/gcdfo/salmon#AgeNotationScheme",
+      "baseIri" : "https://w3id.org/gcdfo/salmon",
+      "annotations" : {
+        "isDefinedBy" : [ {
+          "identifier" : "isDefinedBy",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Age notation scheme",
+          "type" : "label"
+        } ],
+        "hasTopConcept" : [ {
+          "identifier" : "hasTopConcept",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#AgeNotation",
+          "type" : "iri"
+        } ],
+        "theme" : [ {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
+          "type" : "iri"
+        }, {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "type" : "iri"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Controlled vocabulary for salmon age notation systems (for example, Gilbert-Rich and European notation).",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "AgeNotationScheme"
       }
     }, {
       "iri" : "https://w3id.org/gcdfo/salmon#AgeClassValueScheme",
@@ -2308,16 +2308,16 @@
           "value" : "Controlled vocabulary for integer-like age class values used as constraints on salmon measurements.",
           "type" : "label"
         } ],
-        "hasTopConcept" : [ {
-          "identifier" : "hasTopConcept",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#AgeClassValue",
-          "type" : "iri"
-        } ],
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "type" : "iri"
+        } ],
+        "hasTopConcept" : [ {
+          "identifier" : "hasTopConcept",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#AgeClassValue",
           "type" : "iri"
         } ]
       },
@@ -2349,12 +2349,12 @@
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
           "type" : "iri"
         }, {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
           "type" : "iri"
         } ]
       },
@@ -2377,12 +2377,6 @@
           "value" : "Escapement Estimate Type Scheme",
           "type" : "label"
         } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "Controlled vocabulary for Hyatt 1997 estimate types",
-          "type" : "label"
-        } ],
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
@@ -2394,6 +2388,12 @@
           "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#EstimateType",
           "type" : "iri"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Controlled vocabulary for Hyatt 1997 estimate types",
+          "type" : "label"
         } ]
       },
       "labels" : {
@@ -2415,12 +2415,6 @@
           "value" : "Age basis scheme",
           "type" : "label"
         } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "Controlled vocabulary for the reference event used by an age value (for example, age at return).",
-          "type" : "label"
-        } ],
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
@@ -2431,6 +2425,12 @@
           "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
           "type" : "iri"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Controlled vocabulary for the reference event used by an age value (for example, age at return).",
+          "type" : "label"
         } ],
         "hasTopConcept" : [ {
           "identifier" : "hasTopConcept",
@@ -2445,6 +2445,37 @@
     } ],
     "attributes" : [ "external" ],
     "id" : "49"
+  }, {
+    "iri" : "http://www.w3.org/ns/dqv#Dimension",
+    "baseIri" : "http://www.w3.org/ns/dqv",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://www.w3.org/ns/dqv#",
+        "type" : "iri"
+      } ],
+      "IAO_0000115" : [ {
+        "identifier" : "IAO_0000115",
+        "language" : "en",
+        "value" : "Represents criteria relevant for assessing quality. Each quality dimension must have one or more metric to measure it. A dimension is linked with a category using the dqv:inCategory property.",
+        "type" : "label"
+      } ],
+      "IAO_0000119" : [ {
+        "identifier" : "IAO_0000119",
+        "language" : "undefined",
+        "value" : "https://www.w3.org/TR/vocab-dqv/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Dimension",
+      "en" : "Dimension"
+    },
+    "attributes" : [ "external" ],
+    "id" : "50",
+    "superClasses" : [ "51" ]
   }, {
     "iri" : "https://w3id.org/gcdfo/salmon#TerminalMortalityRate",
     "baseIri" : "https://w3id.org/gcdfo/salmon",
@@ -2479,39 +2510,8 @@
       "IRI-based" : "TerminalMortalityRate",
       "en" : "Terminal mortality rate"
     },
-    "id" : "50",
+    "id" : "52",
     "superClasses" : [ "4" ]
-  }, {
-    "iri" : "http://www.w3.org/ns/dqv#Dimension",
-    "baseIri" : "http://www.w3.org/ns/dqv",
-    "instances" : 0,
-    "annotations" : {
-      "isDefinedBy" : [ {
-        "identifier" : "isDefinedBy",
-        "language" : "undefined",
-        "value" : "http://www.w3.org/ns/dqv#",
-        "type" : "iri"
-      } ],
-      "IAO_0000115" : [ {
-        "identifier" : "IAO_0000115",
-        "language" : "en",
-        "value" : "Represents criteria relevant for assessing quality. Each quality dimension must have one or more metric to measure it. A dimension is linked with a category using the dqv:inCategory property.",
-        "type" : "label"
-      } ],
-      "IAO_0000119" : [ {
-        "identifier" : "IAO_0000119",
-        "language" : "undefined",
-        "value" : "https://www.w3.org/TR/vocab-dqv/",
-        "type" : "iri"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "Dimension",
-      "en" : "Dimension"
-    },
-    "attributes" : [ "external" ],
-    "id" : "51",
-    "superClasses" : [ "52" ]
   }, {
     "iri" : "http://purl.obolibrary.org/obo/ENVO_00000234",
     "baseIri" : "http://purl.obolibrary.org/obo",
@@ -2575,17 +2575,17 @@
       "theme" : [ {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme",
-        "type" : "iri"
-      }, {
-        "identifier" : "theme",
-        "language" : "undefined",
         "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
         "type" : "iri"
       }, {
         "identifier" : "theme",
         "language" : "undefined",
         "value" : "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme",
+        "type" : "iri"
+      }, {
+        "identifier" : "theme",
+        "language" : "undefined",
+        "value" : "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme",
         "type" : "iri"
       } ],
       "source" : [ {
@@ -2655,7 +2655,7 @@
       "IRI-based" : "Organism",
       "en" : "Organism"
     },
-    "subClasses" : [ "42", "41" ],
+    "subClasses" : [ "41", "40" ],
     "attributes" : [ "external" ],
     "id" : "57",
     "superClasses" : [ "2" ]
@@ -2679,7 +2679,7 @@
       "theme" : [ {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme",
         "type" : "iri"
       }, {
         "identifier" : "theme",
@@ -2689,7 +2689,7 @@
       }, {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
         "type" : "iri"
       } ]
     },
@@ -2697,7 +2697,7 @@
       "IRI-based" : "Population",
       "en" : "Population"
     },
-    "id" : "42",
+    "id" : "41",
     "superClasses" : [ "57" ]
   }, {
     "iri" : "https://w3id.org/gcdfo/salmon#TotalExploitationRate",
@@ -2796,12 +2796,12 @@
       "theme" : [ {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
         "type" : "iri"
       }, {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
         "type" : "iri"
       }, {
         "identifier" : "theme",
@@ -2812,12 +2812,12 @@
       "source" : [ {
         "identifier" : "source",
         "language" : "undefined",
-        "value" : "https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2009/2009_058-eng.htm",
+        "value" : "https://publications.gc.ca/site/eng/9.928944/publication.html",
         "type" : "iri"
       }, {
         "identifier" : "source",
         "language" : "undefined",
-        "value" : "https://publications.gc.ca/site/eng/9.928944/publication.html",
+        "value" : "https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2009/2009_058-eng.htm",
         "type" : "iri"
       } ]
     },
@@ -2916,12 +2916,12 @@
       "source" : [ {
         "identifier" : "source",
         "language" : "undefined",
-        "value" : "https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2009/2009_058-eng.htm",
+        "value" : "https://publications.gc.ca/site/eng/9.928944/publication.html",
         "type" : "iri"
       }, {
         "identifier" : "source",
         "language" : "undefined",
-        "value" : "https://publications.gc.ca/site/eng/9.928944/publication.html",
+        "value" : "https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2009/2009_058-eng.htm",
         "type" : "iri"
       } ]
     },
@@ -3088,6 +3088,12 @@
           "value" : "Cross-section Coverage",
           "type" : "label"
         } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Incomplete cross-section coverage",
+          "type" : "label"
+        } ],
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
@@ -3098,12 +3104,6 @@
           "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
           "type" : "iri"
-        } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "Incomplete cross-section coverage",
-          "type" : "label"
         } ],
         "broader" : [ {
           "identifier" : "broader",
@@ -3143,12 +3143,12 @@
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
           "type" : "iri"
         }, {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
           "type" : "iri"
         } ],
         "definition" : [ {
@@ -3209,50 +3209,6 @@
         "IRI-based" : "SalmonEnhancementHatcheriesTheme"
       }
     }, {
-      "iri" : "https://w3id.org/gcdfo/salmon#RapidStatusConfidenceLow",
-      "baseIri" : "https://w3id.org/gcdfo/salmon",
-      "annotations" : {
-        "isDefinedBy" : [ {
-          "identifier" : "isDefinedBy",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon",
-          "type" : "iri"
-        } ],
-        "IAO_0000115" : [ {
-          "identifier" : "IAO_0000115",
-          "language" : "en",
-          "value" : "Rapid status confidence category indicating limited supporting data (for example, derived from trend metrics alone).",
-          "type" : "label"
-        } ],
-        "inScheme" : [ {
-          "identifier" : "inScheme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#RapidStatusConfidenceScheme",
-          "type" : "iri"
-        } ],
-        "prefLabel" : [ {
-          "identifier" : "prefLabel",
-          "language" : "en",
-          "value" : "Low confidence",
-          "type" : "label"
-        } ],
-        "theme" : [ {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
-          "type" : "iri"
-        }, {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
-          "type" : "iri"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "RapidStatusConfidenceLow",
-        "en" : "Low rapid-status confidence"
-      }
-    }, {
       "iri" : "https://w3id.org/gcdfo/salmon#RapidStatusConfidenceMedium",
       "baseIri" : "https://w3id.org/gcdfo/salmon",
       "annotations" : {
@@ -3283,18 +3239,62 @@
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
           "type" : "iri"
         }, {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
           "type" : "iri"
         } ]
       },
       "labels" : {
         "IRI-based" : "RapidStatusConfidenceMedium",
         "en" : "Medium rapid-status confidence"
+      }
+    }, {
+      "iri" : "https://w3id.org/gcdfo/salmon#RapidStatusConfidenceLow",
+      "baseIri" : "https://w3id.org/gcdfo/salmon",
+      "annotations" : {
+        "isDefinedBy" : [ {
+          "identifier" : "isDefinedBy",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#RapidStatusConfidenceScheme",
+          "type" : "iri"
+        } ],
+        "IAO_0000115" : [ {
+          "identifier" : "IAO_0000115",
+          "language" : "en",
+          "value" : "Rapid status confidence category indicating limited supporting data (for example, derived from trend metrics alone).",
+          "type" : "label"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Low confidence",
+          "type" : "label"
+        } ],
+        "theme" : [ {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "type" : "iri"
+        }, {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "RapidStatusConfidenceLow",
+        "en" : "Low rapid-status confidence"
       }
     }, {
       "iri" : "https://w3id.org/gcdfo/salmon#HydroacousticModelling",
@@ -3379,12 +3379,12 @@
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
           "type" : "iri"
         }, {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
           "type" : "iri"
         } ],
         "definition" : [ {
@@ -3393,125 +3393,21 @@
           "value" : "Salmon age notation that records freshwater years followed by ocean years (for example, 1.2).",
           "type" : "label"
         } ],
-        "source" : [ {
-          "identifier" : "source",
-          "language" : "undefined",
-          "value" : "https://www.pac.dfo-mpo.gc.ca/fm-gp/fraser/docs/archiv-reports-rapports/indigenous-autochtone/2010FrasRvrChkInformDoc.htm",
-          "type" : "iri"
-        } ],
         "broader" : [ {
           "identifier" : "broader",
           "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#AgeNotation",
           "type" : "iri"
+        } ],
+        "source" : [ {
+          "identifier" : "source",
+          "language" : "undefined",
+          "value" : "https://www.pac.dfo-mpo.gc.ca/fm-gp/fraser/docs/archiv-reports-rapports/indigenous-autochtone/2010FrasRvrChkInformDoc.htm",
+          "type" : "iri"
         } ]
       },
       "labels" : {
         "IRI-based" : "EuropeanAgeNotation"
-      }
-    }, {
-      "iri" : "https://w3id.org/gcdfo/salmon#Detectability",
-      "baseIri" : "https://w3id.org/gcdfo/salmon",
-      "annotations" : {
-        "isDefinedBy" : [ {
-          "identifier" : "isDefinedBy",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon",
-          "type" : "iri"
-        } ],
-        "inScheme" : [ {
-          "identifier" : "inScheme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#DowngradeCriteriaScheme",
-          "type" : "iri"
-        } ],
-        "prefLabel" : [ {
-          "identifier" : "prefLabel",
-          "language" : "en",
-          "value" : "Detectability",
-          "type" : "label"
-        } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "Detectability factors not validated",
-          "type" : "label"
-        } ],
-        "theme" : [ {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
-          "type" : "iri"
-        }, {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
-          "type" : "iri"
-        } ],
-        "broader" : [ {
-          "identifier" : "broader",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#DowngradeCriteria",
-          "type" : "iri"
-        } ]
-      },
-      "comment" : {
-        "en" : "Limits to Type 3 maximum"
-      },
-      "labels" : {
-        "IRI-based" : "Detectability"
-      }
-    }, {
-      "iri" : "https://w3id.org/gcdfo/salmon#ReddCount",
-      "baseIri" : "https://w3id.org/gcdfo/salmon",
-      "annotations" : {
-        "isDefinedBy" : [ {
-          "identifier" : "isDefinedBy",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon",
-          "type" : "iri"
-        } ],
-        "inScheme" : [ {
-          "identifier" : "inScheme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#EnumerationMethodScheme",
-          "type" : "iri"
-        } ],
-        "prefLabel" : [ {
-          "identifier" : "prefLabel",
-          "language" : "en",
-          "value" : "Redd Count",
-          "type" : "label"
-        } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "Redd counts with documentation of detectability, timing, and reach coverage. Conversion to spawner estimates requires spawners-per-redd factors handled in analysis.",
-          "type" : "label"
-        } ],
-        "theme" : [ {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
-          "type" : "iri"
-        }, {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme",
-          "type" : "iri"
-        } ],
-        "broader" : [ {
-          "identifier" : "broader",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#EnumerationMethod",
-          "type" : "iri"
-        } ]
-      },
-      "comment" : {
-        "en" : "Legacy methods: Redd Counts"
-      },
-      "labels" : {
-        "IRI-based" : "ReddCount"
       }
     }, {
       "iri" : "https://w3id.org/gcdfo/salmon#UpperBenchmark",
@@ -3544,17 +3440,121 @@
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "type" : "iri"
+        }, {
+          "identifier" : "theme",
+          "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "UpperBenchmark"
+      }
+    }, {
+      "iri" : "https://w3id.org/gcdfo/salmon#ReddCount",
+      "baseIri" : "https://w3id.org/gcdfo/salmon",
+      "annotations" : {
+        "isDefinedBy" : [ {
+          "identifier" : "isDefinedBy",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#EnumerationMethodScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Redd Count",
+          "type" : "label"
+        } ],
+        "theme" : [ {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme",
           "type" : "iri"
         }, {
           "identifier" : "theme",
           "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
           "type" : "iri"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Redd counts with documentation of detectability, timing, and reach coverage. Conversion to spawner estimates requires spawners-per-redd factors handled in analysis.",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#EnumerationMethod",
+          "type" : "iri"
         } ]
       },
+      "comment" : {
+        "en" : "Legacy methods: Redd Counts"
+      },
       "labels" : {
-        "IRI-based" : "UpperBenchmark"
+        "IRI-based" : "ReddCount"
+      }
+    }, {
+      "iri" : "https://w3id.org/gcdfo/salmon#Detectability",
+      "baseIri" : "https://w3id.org/gcdfo/salmon",
+      "annotations" : {
+        "isDefinedBy" : [ {
+          "identifier" : "isDefinedBy",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#DowngradeCriteriaScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Detectability",
+          "type" : "label"
+        } ],
+        "theme" : [ {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "type" : "iri"
+        }, {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
+          "type" : "iri"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Detectability factors not validated",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#DowngradeCriteria",
+          "type" : "iri"
+        } ]
+      },
+      "comment" : {
+        "en" : "Limits to Type 3 maximum"
+      },
+      "labels" : {
+        "IRI-based" : "Detectability"
       }
     }, {
       "iri" : "https://w3id.org/gcdfo/salmon#PeakCountAnalysis",
@@ -3581,12 +3581,12 @@
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme",
           "type" : "iri"
         }, {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
           "type" : "iri"
         } ],
         "definition" : [ {
@@ -3636,16 +3636,16 @@
           "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
           "type" : "iri"
         } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "Freshwater in-river phase (migration and/or residence) outside the marine environment.",
-          "type" : "label"
-        } ],
         "altLabel" : [ {
           "identifier" : "altLabel",
           "language" : "en",
           "value" : "Freshwater phase",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Freshwater in-river phase (migration and/or residence) outside the marine environment.",
           "type" : "label"
         } ],
         "broader" : [ {
@@ -3657,6 +3657,58 @@
       },
       "labels" : {
         "IRI-based" : "InRiverPhase"
+      }
+    }, {
+      "iri" : "https://w3id.org/gcdfo/salmon#Visibility",
+      "baseIri" : "https://w3id.org/gcdfo/salmon",
+      "annotations" : {
+        "isDefinedBy" : [ {
+          "identifier" : "isDefinedBy",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#DowngradeCriteriaScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Visibility",
+          "type" : "label"
+        } ],
+        "theme" : [ {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
+          "type" : "iri"
+        }, {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "type" : "iri"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Poor visibility conditions",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#DowngradeCriteria",
+          "type" : "iri"
+        } ]
+      },
+      "comment" : {
+        "en" : "Limits to Type 3 maximum"
+      },
+      "labels" : {
+        "IRI-based" : "Visibility"
       }
     }, {
       "iri" : "https://w3id.org/gcdfo/salmon#PrecisionAccuracy",
@@ -3711,7 +3763,7 @@
         "IRI-based" : "PrecisionAccuracy"
       }
     }, {
-      "iri" : "https://w3id.org/gcdfo/salmon#Visibility",
+      "iri" : "https://w3id.org/gcdfo/salmon#VisualSnorkelCount",
       "baseIri" : "https://w3id.org/gcdfo/salmon",
       "annotations" : {
         "isDefinedBy" : [ {
@@ -3723,13 +3775,13 @@
         "inScheme" : [ {
           "identifier" : "inScheme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#DowngradeCriteriaScheme",
+          "value" : "https://w3id.org/gcdfo/salmon#EnumerationMethodScheme",
           "type" : "iri"
         } ],
         "prefLabel" : [ {
           "identifier" : "prefLabel",
           "language" : "en",
-          "value" : "Visibility",
+          "value" : "Visual Snorkel Count",
           "type" : "label"
         } ],
         "theme" : [ {
@@ -3740,27 +3792,27 @@
         }, {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme",
           "type" : "iri"
         } ],
         "definition" : [ {
           "identifier" : "definition",
           "language" : "en",
-          "value" : "Poor visibility conditions",
+          "value" : "Two or more trained snorkelers conduct standardized passes within defined segments, tallying live/dead by species. Field forms capture visibility class, segment boundaries, and repeat-visit schedule; counts are aggregated across observers/passes.",
           "type" : "label"
         } ],
         "broader" : [ {
           "identifier" : "broader",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#DowngradeCriteria",
+          "value" : "https://w3id.org/gcdfo/salmon#EnumerationMethod",
           "type" : "iri"
         } ]
       },
       "comment" : {
-        "en" : "Limits to Type 3 maximum"
+        "en" : "Legacy methods: Snorkel, Snorkel Swim"
       },
       "labels" : {
-        "IRI-based" : "Visibility"
+        "IRI-based" : "VisualSnorkelCount"
       }
     }, {
       "iri" : "https://w3id.org/gcdfo/salmon#InfillMethod",
@@ -3784,22 +3836,22 @@
           "value" : "Infill Method",
           "type" : "label"
         } ],
+        "theme" : [ {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
+          "type" : "iri"
+        }, {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "type" : "iri"
+        } ],
         "definition" : [ {
           "identifier" : "definition",
           "language" : "en",
           "value" : "Interpolation used for missing data; defensibility must be documented",
           "type" : "label"
-        } ],
-        "theme" : [ {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
-          "type" : "iri"
-        }, {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
-          "type" : "iri"
         } ],
         "broader" : [ {
           "identifier" : "broader",
@@ -3813,58 +3865,6 @@
       },
       "labels" : {
         "IRI-based" : "InfillMethod"
-      }
-    }, {
-      "iri" : "https://w3id.org/gcdfo/salmon#VisualSnorkelCount",
-      "baseIri" : "https://w3id.org/gcdfo/salmon",
-      "annotations" : {
-        "isDefinedBy" : [ {
-          "identifier" : "isDefinedBy",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon",
-          "type" : "iri"
-        } ],
-        "inScheme" : [ {
-          "identifier" : "inScheme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#EnumerationMethodScheme",
-          "type" : "iri"
-        } ],
-        "prefLabel" : [ {
-          "identifier" : "prefLabel",
-          "language" : "en",
-          "value" : "Visual Snorkel Count",
-          "type" : "label"
-        } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "Two or more trained snorkelers conduct standardized passes within defined segments, tallying live/dead by species. Field forms capture visibility class, segment boundaries, and repeat-visit schedule; counts are aggregated across observers/passes.",
-          "type" : "label"
-        } ],
-        "theme" : [ {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme",
-          "type" : "iri"
-        }, {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
-          "type" : "iri"
-        } ],
-        "broader" : [ {
-          "identifier" : "broader",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#EnumerationMethod",
-          "type" : "iri"
-        } ]
-      },
-      "comment" : {
-        "en" : "Legacy methods: Snorkel, Snorkel Swim"
-      },
-      "labels" : {
-        "IRI-based" : "VisualSnorkelCount"
       }
     }, {
       "iri" : "https://w3id.org/gcdfo/salmon#OceanPhase",
@@ -3888,11 +3888,11 @@
           "value" : "Ocean phase",
           "type" : "label"
         } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "Phase of the salmon life cycle or assessment period occurring in the marine environment.",
-          "type" : "label"
+        "theme" : [ {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "type" : "iri"
         } ],
         "altLabel" : [ {
           "identifier" : "altLabel",
@@ -3900,11 +3900,11 @@
           "value" : "Marine phase",
           "type" : "label"
         } ],
-        "theme" : [ {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
-          "type" : "iri"
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Phase of the salmon life cycle or assessment period occurring in the marine environment.",
+          "type" : "label"
         } ],
         "broader" : [ {
           "identifier" : "broader",
@@ -3938,17 +3938,17 @@
           "value" : "Spawner stage context",
           "type" : "label"
         } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "Measurement context indicating values refer to spawners or spawning-stage fish.",
-          "type" : "label"
-        } ],
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
           "type" : "iri"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Measurement context indicating values refer to spawners or spawning-stage fish.",
+          "type" : "label"
         } ],
         "broader" : [ {
           "identifier" : "broader",
@@ -3970,17 +3970,17 @@
           "value" : "https://w3id.org/gcdfo/salmon",
           "type" : "iri"
         } ],
-        "IAO_0000115" : [ {
-          "identifier" : "IAO_0000115",
-          "language" : "en",
-          "value" : "Rapid status confidence category indicating that high-quality abundance metrics support the result.",
-          "type" : "label"
-        } ],
         "inScheme" : [ {
           "identifier" : "inScheme",
           "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#RapidStatusConfidenceScheme",
           "type" : "iri"
+        } ],
+        "IAO_0000115" : [ {
+          "identifier" : "IAO_0000115",
+          "language" : "en",
+          "value" : "Rapid status confidence category indicating that high-quality abundance metrics support the result.",
+          "type" : "label"
         } ],
         "prefLabel" : [ {
           "identifier" : "prefLabel",
@@ -3991,12 +3991,12 @@
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
           "type" : "iri"
         }, {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
           "type" : "iri"
         } ]
       },
@@ -4120,12 +4120,6 @@
           "value" : "Downgrade Criteria",
           "type" : "label"
         } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "Criteria that may result in downgrading an escapement estimate type classification",
-          "type" : "label"
-        } ],
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
@@ -4136,6 +4130,12 @@
           "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
           "type" : "iri"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Criteria that may result in downgrading an escapement estimate type classification",
+          "type" : "label"
         } ]
       },
       "labels" : {
@@ -4163,6 +4163,12 @@
           "value" : "Visual Ground Count",
           "type" : "label"
         } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Visual surveys conducted by stream/bank walk with documented visit schedule, reach coverage, timing, and visibility conditions.",
+          "type" : "label"
+        } ],
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
@@ -4173,12 +4179,6 @@
           "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
           "type" : "iri"
-        } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "Visual surveys conducted by stream/bank walk with documented visit schedule, reach coverage, timing, and visibility conditions.",
-          "type" : "label"
         } ],
         "broader" : [ {
           "identifier" : "broader",
@@ -4215,17 +4215,17 @@
           "value" : "Data quality rating context",
           "type" : "label"
         } ],
-        "theme" : [ {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
-          "type" : "iri"
-        } ],
         "definition" : [ {
           "identifier" : "definition",
           "language" : "en",
           "value" : "Measurement context indicating categorical or ordinal quality ratings.",
           "type" : "label"
+        } ],
+        "theme" : [ {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
+          "type" : "iri"
         } ],
         "broader" : [ {
           "identifier" : "broader",
@@ -4309,18 +4309,61 @@
           "value" : "Policy framework",
           "type" : "label"
         } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "A policy, legal, or governance framework that defines how salmon status metrics, benchmarks, or reference points are set and interpreted.",
-          "type" : "label"
-        } ],
         "theme" : [ {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
+          "type" : "iri"
+        }, {
           "identifier" : "theme",
           "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
           "type" : "iri"
         }, {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme",
+          "type" : "iri"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "A policy, legal, or governance framework that defines how salmon status metrics, benchmarks, or reference points are set and interpreted.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "PolicyFramework"
+      }
+    }, {
+      "iri" : "https://w3id.org/gcdfo/salmon#GreenZone",
+      "baseIri" : "https://w3id.org/gcdfo/salmon",
+      "annotations" : {
+        "isDefinedBy" : [ {
+          "identifier" : "isDefinedBy",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZoneScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Green zone",
+          "type" : "label"
+        } ],
+        "IAO_0000119" : [ {
+          "identifier" : "IAO_0000119",
+          "language" : "en",
+          "value" : "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf.",
+          "type" : "label"
+        } ],
+        "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
@@ -4330,10 +4373,22 @@
           "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme",
           "type" : "iri"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Social and economic considerations will tend to be the primary drivers for the management of Conservation Units in the Green zone, though ecosystem or other non-consumptive use values could also be considered.",
+          "type" : "label"
+        } ],
+        "source" : [ {
+          "identifier" : "source",
+          "language" : "undefined",
+          "value" : "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf",
+          "type" : "iri"
         } ]
       },
       "labels" : {
-        "IRI-based" : "PolicyFramework"
+        "IRI-based" : "GreenZone"
       }
     }, {
       "iri" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme",
@@ -4372,61 +4427,6 @@
       },
       "labels" : {
         "IRI-based" : "MonitoringFieldWorkTheme"
-      }
-    }, {
-      "iri" : "https://w3id.org/gcdfo/salmon#GreenZone",
-      "baseIri" : "https://w3id.org/gcdfo/salmon",
-      "annotations" : {
-        "isDefinedBy" : [ {
-          "identifier" : "isDefinedBy",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon",
-          "type" : "iri"
-        } ],
-        "inScheme" : [ {
-          "identifier" : "inScheme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZoneScheme",
-          "type" : "iri"
-        } ],
-        "prefLabel" : [ {
-          "identifier" : "prefLabel",
-          "language" : "en",
-          "value" : "Green zone",
-          "type" : "label"
-        } ],
-        "IAO_0000119" : [ {
-          "identifier" : "IAO_0000119",
-          "language" : "en",
-          "value" : "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf.",
-          "type" : "label"
-        } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "Social and economic considerations will tend to be the primary drivers for the management of Conservation Units in the Green zone, though ecosystem or other non-consumptive use values could also be considered.",
-          "type" : "label"
-        } ],
-        "theme" : [ {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme",
-          "type" : "iri"
-        }, {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
-          "type" : "iri"
-        } ],
-        "source" : [ {
-          "identifier" : "source",
-          "language" : "undefined",
-          "value" : "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf",
-          "type" : "iri"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "GreenZone"
       }
     }, {
       "iri" : "https://w3id.org/gcdfo/salmon#NumberOfVisits",
@@ -4502,17 +4502,17 @@
           "value" : "Genetics and Stock Composition",
           "type" : "label"
         } ],
-        "theme" : [ {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
-          "type" : "iri"
-        } ],
         "definition" : [ {
           "identifier" : "definition",
           "language" : "en",
           "value" : "Genetic markers, assays, and analyses used to infer stock composition, parentage, and population structure.",
           "type" : "label"
+        } ],
+        "theme" : [ {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
+          "type" : "iri"
         } ]
       },
       "labels" : {
@@ -4540,6 +4540,12 @@
           "value" : "Management reference context",
           "type" : "label"
         } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Measurement context indicating values are management benchmarks or reference-oriented metrics.",
+          "type" : "label"
+        } ],
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
@@ -4550,12 +4556,6 @@
           "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme",
           "type" : "iri"
-        } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "Measurement context indicating values are management benchmarks or reference-oriented metrics.",
-          "type" : "label"
         } ],
         "broader" : [ {
           "identifier" : "broader",
@@ -4589,22 +4589,22 @@
           "value" : "Effort Standardization",
           "type" : "label"
         } ],
-        "theme" : [ {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
-          "type" : "iri"
-        }, {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
-          "type" : "iri"
-        } ],
         "definition" : [ {
           "identifier" : "definition",
           "language" : "en",
           "value" : "Effort not standardized",
           "type" : "label"
+        } ],
+        "theme" : [ {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
+          "type" : "iri"
+        }, {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "type" : "iri"
         } ],
         "broader" : [ {
           "identifier" : "broader",
@@ -4644,12 +4644,12 @@
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
           "type" : "iri"
         }, {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
           "type" : "iri"
         } ],
         "definition" : [ {
@@ -4693,11 +4693,6 @@
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
-          "type" : "iri"
-        }, {
-          "identifier" : "theme",
-          "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme",
           "type" : "iri"
         }, {
@@ -4705,17 +4700,22 @@
           "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme",
           "type" : "iri"
-        } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "DFO policy framework for applying precaution in fisheries decision-making, including use of reference points and stock status zones.",
-          "type" : "label"
+        }, {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "type" : "iri"
         } ],
         "altLabel" : [ {
           "identifier" : "altLabel",
           "language" : "en",
           "value" : "PA",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "DFO policy framework for applying precaution in fisheries decision-making, including use of reference points and stock status zones.",
           "type" : "label"
         } ],
         "broader" : [ {
@@ -4756,17 +4756,17 @@
           "value" : "Age 7 year class",
           "type" : "label"
         } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "Age class value 7 years.",
-          "type" : "label"
-        } ],
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
           "type" : "iri"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Age class value 7 years.",
+          "type" : "label"
         } ],
         "broader" : [ {
           "identifier" : "broader",
@@ -4852,12 +4852,6 @@
           "value" : "Aerial Survey Count",
           "type" : "label"
         } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "Overflights (helicopter, fixed wing, or drone) with documented flight lines, coverage, visibility, and sensor settings. Imagery may be reviewed post-flight.",
-          "type" : "label"
-        } ],
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
@@ -4868,6 +4862,12 @@
           "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme",
           "type" : "iri"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Overflights (helicopter, fixed wing, or drone) with documented flight lines, coverage, visibility, and sensor settings. Imagery may be reviewed post-flight.",
+          "type" : "label"
         } ],
         "broader" : [ {
           "identifier" : "broader",
@@ -4918,12 +4918,12 @@
         }, {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme",
           "type" : "iri"
         }, {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
           "type" : "iri"
         } ],
         "definition" : [ {
@@ -4932,16 +4932,16 @@
           "value" : "Individuals that are born and reared in the wild (natural environment).",
           "type" : "label"
         } ],
-        "broader" : [ {
-          "identifier" : "broader",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#SalmonOrigin",
-          "type" : "iri"
-        } ],
         "source" : [ {
           "identifier" : "source",
           "language" : "undefined",
           "value" : "https://www.dfo-mpo.gc.ca/csas-sccs/Publications/SAR-AS/2018/2018_001-eng.html",
+          "type" : "iri"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#SalmonOrigin",
           "type" : "iri"
         } ]
       },
@@ -5022,17 +5022,6 @@
           "value" : "Area Under the Curve",
           "type" : "label"
         } ],
-        "theme" : [ {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme",
-          "type" : "iri"
-        }, {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
-          "type" : "iri"
-        } ],
         "definition" : [ {
           "identifier" : "definition",
           "language" : "en",
@@ -5044,6 +5033,17 @@
           "language" : "en",
           "value" : "AUC",
           "type" : "label"
+        } ],
+        "theme" : [ {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme",
+          "type" : "iri"
+        }, {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "type" : "iri"
         } ],
         "broader" : [ {
           "identifier" : "broader",
@@ -5077,17 +5077,17 @@
           "value" : "Run context",
           "type" : "label"
         } ],
-        "theme" : [ {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
-          "type" : "iri"
-        } ],
         "definition" : [ {
           "identifier" : "definition",
           "language" : "en",
           "value" : "Measurement context indicating values refer to run size or returning run composition.",
           "type" : "label"
+        } ],
+        "theme" : [ {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "type" : "iri"
         } ],
         "broader" : [ {
           "identifier" : "broader",
@@ -5121,27 +5121,27 @@
           "value" : "Type-6, Presence or Absence",
           "type" : "label"
         } ],
+        "altLabel" : [ {
+          "identifier" : "altLabel",
+          "language" : "en",
+          "value" : "Presence/Not Detected",
+          "type" : "label"
+        } ],
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
           "type" : "iri"
         }, {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
           "type" : "iri"
         } ],
         "definition" : [ {
           "identifier" : "definition",
           "language" : "en",
           "value" : "Non-numeric, year-specific record of presence/not detected (i.e., present/absent without estimating a count), tied to an explicit time and location, with reliable species identification. Underlying field methods may be highly variable; analysis is not required.",
-          "type" : "label"
-        } ],
-        "altLabel" : [ {
-          "identifier" : "altLabel",
-          "language" : "en",
-          "value" : "Presence/Not Detected",
           "type" : "label"
         } ],
         "broader" : [ {
@@ -5179,7 +5179,7 @@
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
           "type" : "iri"
         }, {
           "identifier" : "theme",
@@ -5189,7 +5189,7 @@
         }, {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme",
           "type" : "iri"
         } ],
         "definition" : [ {
@@ -5242,22 +5242,22 @@
           "value" : "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf.",
           "type" : "label"
         } ],
-        "theme" : [ {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
-          "type" : "iri"
-        }, {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
-          "type" : "iri"
-        } ],
         "definition" : [ {
           "identifier" : "definition",
           "language" : "en",
           "value" : "Amber status implies caution in the management of the Conservation Unit. While a CU in the Amber zone should be at a low risk of loss, there will be a degree of lost production. Decisions about the conservation of CUs in the Amber zone will involve broader consideration of biological, social, and economic issues. ",
           "type" : "label"
+        } ],
+        "theme" : [ {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "type" : "iri"
+        }, {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
+          "type" : "iri"
         } ],
         "source" : [ {
           "identifier" : "source",
@@ -5291,22 +5291,22 @@
           "value" : "Trap Efficiency",
           "type" : "label"
         } ],
-        "theme" : [ {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
-          "type" : "iri"
-        }, {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
-          "type" : "iri"
-        } ],
         "definition" : [ {
           "identifier" : "definition",
           "language" : "en",
           "value" : "Trap efficiency not measured/validated",
           "type" : "label"
+        } ],
+        "theme" : [ {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "type" : "iri"
+        }, {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
+          "type" : "iri"
         } ],
         "broader" : [ {
           "identifier" : "broader",
@@ -5343,22 +5343,22 @@
           "value" : "Hydroacoustic Sonar Count",
           "type" : "label"
         } ],
-        "theme" : [ {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
-          "type" : "iri"
-        }, {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme",
-          "type" : "iri"
-        } ],
         "definition" : [ {
           "identifier" : "definition",
           "language" : "en",
           "value" : "Sonar detections (ARIS, DIDSON, or other hydroacoustic systems) with documented coverage, visibility/noise conditions, and uptime. Raw detections require processing through a modelling/classification pipeline.",
           "type" : "label"
+        } ],
+        "theme" : [ {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme",
+          "type" : "iri"
+        }, {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "type" : "iri"
         } ],
         "broader" : [ {
           "identifier" : "broader",
@@ -5395,22 +5395,22 @@
           "value" : "Reach Coverage",
           "type" : "label"
         } ],
-        "theme" : [ {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
-          "type" : "iri"
-        }, {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
-          "type" : "iri"
-        } ],
         "definition" : [ {
           "identifier" : "definition",
           "language" : "en",
           "value" : "Insufficient reach coverage",
           "type" : "label"
+        } ],
+        "theme" : [ {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "type" : "iri"
+        }, {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
+          "type" : "iri"
         } ],
         "broader" : [ {
           "identifier" : "broader",
@@ -5516,6 +5516,58 @@
         "IRI-based" : "TrapModelAnalysis"
       }
     }, {
+      "iri" : "https://w3id.org/gcdfo/salmon#Classification",
+      "baseIri" : "https://w3id.org/gcdfo/salmon",
+      "annotations" : {
+        "isDefinedBy" : [ {
+          "identifier" : "isDefinedBy",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#DowngradeCriteriaScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Classification",
+          "type" : "label"
+        } ],
+        "theme" : [ {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
+          "type" : "iri"
+        }, {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "type" : "iri"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Classification/attribution not documented",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#DowngradeCriteria",
+          "type" : "iri"
+        } ]
+      },
+      "comment" : {
+        "en" : "Limits to Type 3 maximum"
+      },
+      "labels" : {
+        "IRI-based" : "Classification"
+      }
+    }, {
       "iri" : "https://w3id.org/gcdfo/salmon#MarkRecaptureAnalysis",
       "baseIri" : "https://w3id.org/gcdfo/salmon",
       "annotations" : {
@@ -5540,12 +5592,12 @@
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
           "type" : "iri"
         }, {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme",
           "type" : "iri"
         } ],
         "definition" : [ {
@@ -5566,58 +5618,6 @@
       },
       "labels" : {
         "IRI-based" : "MarkRecaptureAnalysis"
-      }
-    }, {
-      "iri" : "https://w3id.org/gcdfo/salmon#Classification",
-      "baseIri" : "https://w3id.org/gcdfo/salmon",
-      "annotations" : {
-        "isDefinedBy" : [ {
-          "identifier" : "isDefinedBy",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon",
-          "type" : "iri"
-        } ],
-        "inScheme" : [ {
-          "identifier" : "inScheme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#DowngradeCriteriaScheme",
-          "type" : "iri"
-        } ],
-        "prefLabel" : [ {
-          "identifier" : "prefLabel",
-          "language" : "en",
-          "value" : "Classification",
-          "type" : "label"
-        } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "Classification/attribution not documented",
-          "type" : "label"
-        } ],
-        "theme" : [ {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
-          "type" : "iri"
-        }, {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
-          "type" : "iri"
-        } ],
-        "broader" : [ {
-          "identifier" : "broader",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#DowngradeCriteria",
-          "type" : "iri"
-        } ]
-      },
-      "comment" : {
-        "en" : "Limits to Type 3 maximum"
-      },
-      "labels" : {
-        "IRI-based" : "Classification"
       }
     }, {
       "iri" : "https://w3id.org/gcdfo/salmon#Age5YearClass",
@@ -5694,12 +5694,12 @@
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme",
           "type" : "iri"
         }, {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
           "type" : "iri"
         } ],
         "definition" : [ {
@@ -5734,17 +5734,17 @@
           "value" : "Data, Models, and Provenance",
           "type" : "label"
         } ],
-        "theme" : [ {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
-          "type" : "iri"
-        } ],
         "definition" : [ {
           "identifier" : "definition",
           "language" : "en",
           "value" : "Data models, analytical workflows, provenance, quality dimensions, and metadata supporting salmon science.",
           "type" : "label"
+        } ],
+        "theme" : [ {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
+          "type" : "iri"
         } ]
       },
       "labels" : {
@@ -5772,22 +5772,22 @@
           "value" : "Age at sampling basis",
           "type" : "label"
         } ],
+        "theme" : [ {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
+          "type" : "iri"
+        }, {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "type" : "iri"
+        } ],
         "definition" : [ {
           "identifier" : "definition",
           "language" : "en",
           "value" : "Age measured at the time of sampling or observation.",
           "type" : "label"
-        } ],
-        "theme" : [ {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
-          "type" : "iri"
-        }, {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
-          "type" : "iri"
         } ],
         "broader" : [ {
           "identifier" : "broader",
@@ -5821,17 +5821,17 @@
           "value" : "Habitat, Ecosystem, and Climate Pressures",
           "type" : "label"
         } ],
-        "theme" : [ {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
-          "type" : "iri"
-        } ],
         "definition" : [ {
           "identifier" : "definition",
           "language" : "en",
           "value" : "Habitat attributes, ecosystem conditions, and climate or environmental stressors affecting salmon.",
           "type" : "label"
+        } ],
+        "theme" : [ {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
+          "type" : "iri"
         } ]
       },
       "labels" : {
@@ -5859,17 +5859,17 @@
           "value" : "Terminal phase",
           "type" : "label"
         } ],
-        "theme" : [ {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
-          "type" : "iri"
-        } ],
         "definition" : [ {
           "identifier" : "definition",
           "language" : "en",
           "value" : "Phase occurring in terminal areas near river mouths or spawning areas (often including terminal fisheries and local migration to spawning sites).",
           "type" : "label"
+        } ],
+        "theme" : [ {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "type" : "iri"
         } ],
         "broader" : [ {
           "identifier" : "broader",
@@ -5903,17 +5903,17 @@
           "value" : "Age class value",
           "type" : "label"
         } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "An integer-like age class value used as a compositional constraint in salmon measurements.",
-          "type" : "label"
-        } ],
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
           "type" : "iri"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "An integer-like age class value used as a compositional constraint in salmon measurements.",
+          "type" : "label"
         } ]
       },
       "labels" : {
@@ -5941,16 +5941,16 @@
           "value" : "Ocean age dimension",
           "type" : "label"
         } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "Age value represents years spent in the marine environment.",
-          "type" : "label"
-        } ],
         "altLabel" : [ {
           "identifier" : "altLabel",
           "language" : "en",
           "value" : "Marine age dimension",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Age value represents years spent in the marine environment.",
           "type" : "label"
         } ],
         "theme" : [ {
@@ -5994,12 +5994,12 @@
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme",
           "type" : "iri"
         }, {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
           "type" : "iri"
         } ],
         "definition" : [ {
@@ -6057,49 +6057,6 @@
         "IRI-based" : "MainstemPhase"
       }
     }, {
-      "iri" : "https://w3id.org/gcdfo/salmon#MeasurementContext",
-      "baseIri" : "https://w3id.org/gcdfo/salmon",
-      "annotations" : {
-        "isDefinedBy" : [ {
-          "identifier" : "isDefinedBy",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon",
-          "type" : "iri"
-        } ],
-        "inScheme" : [ {
-          "identifier" : "inScheme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#MeasurementContextScheme",
-          "type" : "iri"
-        } ],
-        "prefLabel" : [ {
-          "identifier" : "prefLabel",
-          "language" : "en",
-          "value" : "Measurement context",
-          "type" : "label"
-        } ],
-        "theme" : [ {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
-          "type" : "iri"
-        }, {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
-          "type" : "iri"
-        } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "A context qualifier used to disambiguate the interpretation of a measurement column.",
-          "type" : "label"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "MeasurementContext"
-      }
-    }, {
       "iri" : "https://w3id.org/gcdfo/salmon#SurvivalOrMortalityContext",
       "baseIri" : "https://w3id.org/gcdfo/salmon",
       "annotations" : {
@@ -6142,6 +6099,49 @@
       },
       "labels" : {
         "IRI-based" : "SurvivalOrMortalityContext"
+      }
+    }, {
+      "iri" : "https://w3id.org/gcdfo/salmon#MeasurementContext",
+      "baseIri" : "https://w3id.org/gcdfo/salmon",
+      "annotations" : {
+        "isDefinedBy" : [ {
+          "identifier" : "isDefinedBy",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#MeasurementContextScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Measurement context",
+          "type" : "label"
+        } ],
+        "theme" : [ {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
+          "type" : "iri"
+        }, {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "type" : "iri"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "A context qualifier used to disambiguate the interpretation of a measurement column.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "MeasurementContext"
       }
     }, {
       "iri" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
@@ -6258,6 +6258,12 @@
           "value" : "Device Configuration",
           "type" : "label"
         } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Device not within operational specifications",
+          "type" : "label"
+        } ],
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
@@ -6268,12 +6274,6 @@
           "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
           "type" : "iri"
-        } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "Device not within operational specifications",
-          "type" : "label"
         } ],
         "broader" : [ {
           "identifier" : "broader",
@@ -6341,55 +6341,6 @@
         "IRI-based" : "Timing"
       }
     }, {
-      "iri" : "https://w3id.org/gcdfo/salmon#Type1",
-      "baseIri" : "https://w3id.org/gcdfo/salmon",
-      "annotations" : {
-        "isDefinedBy" : [ {
-          "identifier" : "isDefinedBy",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon",
-          "type" : "iri"
-        } ],
-        "inScheme" : [ {
-          "identifier" : "inScheme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#EstimateTypeScheme",
-          "type" : "iri"
-        } ],
-        "prefLabel" : [ {
-          "identifier" : "prefLabel",
-          "language" : "en",
-          "value" : "Type-1, True Abundance, high resolution",
-          "type" : "label"
-        } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "Total, seasonal counts through fence or fishway; virtually no bypass. Simple, often single step analysis. Reliable resolution of between year differences >10% (in absolute units).",
-          "type" : "label"
-        } ],
-        "theme" : [ {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
-          "type" : "iri"
-        }, {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
-          "type" : "iri"
-        } ],
-        "broader" : [ {
-          "identifier" : "broader",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#EstimateType",
-          "type" : "iri"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "Type1"
-      }
-    }, {
       "iri" : "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme",
       "baseIri" : "https://w3id.org/gcdfo/salmon",
       "annotations" : {
@@ -6411,7 +6362,50 @@
           "value" : "Policy, Governance, and Organizational Structure",
           "type" : "label"
         } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "DFO policy frameworks, governance, regulations, and organizational structure relevant to salmon management.",
+          "type" : "label"
+        } ],
         "theme" : [ {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "PolicyGovernanceTheme"
+      }
+    }, {
+      "iri" : "https://w3id.org/gcdfo/salmon#Type1",
+      "baseIri" : "https://w3id.org/gcdfo/salmon",
+      "annotations" : {
+        "isDefinedBy" : [ {
+          "identifier" : "isDefinedBy",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#EstimateTypeScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Type-1, True Abundance, high resolution",
+          "type" : "label"
+        } ],
+        "theme" : [ {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "type" : "iri"
+        }, {
           "identifier" : "theme",
           "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
@@ -6420,12 +6414,18 @@
         "definition" : [ {
           "identifier" : "definition",
           "language" : "en",
-          "value" : "DFO policy frameworks, governance, regulations, and organizational structure relevant to salmon management.",
+          "value" : "Total, seasonal counts through fence or fishway; virtually no bypass. Simple, often single step analysis. Reliable resolution of between year differences >10% (in absolute units).",
           "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#EstimateType",
+          "type" : "iri"
         } ]
       },
       "labels" : {
-        "IRI-based" : "PolicyGovernanceTheme"
+        "IRI-based" : "Type1"
       }
     }, {
       "iri" : "https://w3id.org/gcdfo/salmon#Type3",
@@ -6458,12 +6458,12 @@
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
           "type" : "iri"
         }, {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
           "type" : "iri"
         } ],
         "broader" : [ {
@@ -6547,12 +6547,6 @@
           "value" : "Review/QA",
           "type" : "label"
         } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "Insufficient QA review of automated events",
-          "type" : "label"
-        } ],
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
@@ -6563,6 +6557,12 @@
           "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
           "type" : "iri"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Insufficient QA review of automated events",
+          "type" : "label"
         } ],
         "broader" : [ {
           "identifier" : "broader",
@@ -6602,12 +6602,12 @@
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
           "type" : "iri"
         }, {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
           "type" : "iri"
         } ],
         "definition" : [ {
@@ -6648,12 +6648,6 @@
           "value" : "Type-4, Relative Abundance, medium resolution",
           "type" : "label"
         } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "Low to moderate effort (1-4 trips), known survey method. Simple analysis by known methods. Reliable resolution of between year differences >200% (in relative units).",
-          "type" : "label"
-        } ],
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
@@ -6664,6 +6658,12 @@
           "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
           "type" : "iri"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Low to moderate effort (1-4 trips), known survey method. Simple analysis by known methods. Reliable resolution of between year differences >200% (in relative units).",
+          "type" : "label"
         } ],
         "broader" : [ {
           "identifier" : "broader",
@@ -6697,22 +6697,22 @@
           "value" : "Expansion factor",
           "type" : "label"
         } ],
+        "theme" : [ {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "type" : "iri"
+        }, {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
+          "type" : "iri"
+        } ],
         "definition" : [ {
           "identifier" : "definition",
           "language" : "en",
           "value" : "A multiplicative factor used to expand observed values to estimated totals.",
           "type" : "label"
-        } ],
-        "theme" : [ {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
-          "type" : "iri"
-        }, {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
-          "type" : "iri"
         } ],
         "broader" : [ {
           "identifier" : "broader",
@@ -6901,12 +6901,12 @@
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
           "type" : "iri"
         }, {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
           "type" : "iri"
         } ],
         "broader" : [ {
@@ -7039,12 +7039,6 @@
           "value" : "Wild Salmon Policy",
           "type" : "label"
         } ],
-        "altLabel" : [ {
-          "identifier" : "altLabel",
-          "language" : "en",
-          "value" : "WSP",
-          "type" : "label"
-        } ],
         "definition" : [ {
           "identifier" : "definition",
           "language" : "en",
@@ -7054,6 +7048,11 @@
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
+          "type" : "iri"
+        }, {
+          "identifier" : "theme",
+          "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme",
           "type" : "iri"
         }, {
@@ -7061,11 +7060,12 @@
           "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
           "type" : "iri"
-        }, {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
-          "type" : "iri"
+        } ],
+        "altLabel" : [ {
+          "identifier" : "altLabel",
+          "language" : "en",
+          "value" : "WSP",
+          "type" : "label"
         } ],
         "broader" : [ {
           "identifier" : "broader",
@@ -7102,12 +7102,12 @@
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
           "type" : "iri"
         }, {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
           "type" : "iri"
         } ],
         "definition" : [ {
@@ -7258,17 +7258,17 @@
           "value" : "Age 4 year class",
           "type" : "label"
         } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "Age class value 4 years.",
-          "type" : "label"
-        } ],
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
           "type" : "iri"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Age class value 4 years.",
+          "type" : "label"
         } ],
         "broader" : [ {
           "identifier" : "broader",
@@ -7354,22 +7354,22 @@
           "value" : "Redd Expansion Analysis",
           "type" : "label"
         } ],
-        "theme" : [ {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme",
-          "type" : "iri"
-        }, {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
-          "type" : "iri"
-        } ],
         "definition" : [ {
           "identifier" : "definition",
           "language" : "en",
           "value" : "Converts redd counts to spawner estimates using spawners-per-redd expansion factors.",
           "type" : "label"
+        } ],
+        "theme" : [ {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "type" : "iri"
+        }, {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme",
+          "type" : "iri"
         } ],
         "broader" : [ {
           "identifier" : "broader",
@@ -7409,12 +7409,12 @@
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
           "type" : "iri"
         }, {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme",
           "type" : "iri"
         } ],
         "definition" : [ {
@@ -7464,12 +7464,6 @@
           "value" : "sos-program. Approved-WSP-Statuses repository (Approved WSP Statuses) and associated Zenodo release (doi:10.5281/zenodo.18498157).",
           "type" : "label"
         } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "Classification describing whether a conservation-unit data series supports absolute abundance metrics (Abs_Abd) or only relative index metrics (RelIdx) in WSP workflows.",
-          "type" : "label"
-        } ],
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
@@ -7485,6 +7479,12 @@
           "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
           "type" : "iri"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Classification describing whether a conservation-unit data series supports absolute abundance metrics (Abs_Abd) or only relative index metrics (RelIdx) in WSP workflows.",
+          "type" : "label"
         } ],
         "source" : [ {
           "identifier" : "source",
@@ -7538,12 +7538,12 @@
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
           "type" : "iri"
         }, {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
           "type" : "iri"
         } ],
         "broader" : [ {
@@ -7587,12 +7587,6 @@
           "value" : "Gilbert-Rich age notation",
           "type" : "label"
         } ],
-        "altLabel" : [ {
-          "identifier" : "altLabel",
-          "language" : "en",
-          "value" : "GR age notation",
-          "type" : "label"
-        } ],
         "definition" : [ {
           "identifier" : "definition",
           "language" : "en",
@@ -7610,16 +7604,22 @@
           "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
           "type" : "iri"
         } ],
-        "source" : [ {
-          "identifier" : "source",
-          "language" : "undefined",
-          "value" : "https://www.pac.dfo-mpo.gc.ca/fm-gp/fraser/docs/archiv-reports-rapports/indigenous-autochtone/2010FrasRvrChkInformDoc.htm",
-          "type" : "iri"
+        "altLabel" : [ {
+          "identifier" : "altLabel",
+          "language" : "en",
+          "value" : "GR age notation",
+          "type" : "label"
         } ],
         "broader" : [ {
           "identifier" : "broader",
           "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#AgeNotation",
+          "type" : "iri"
+        } ],
+        "source" : [ {
+          "identifier" : "source",
+          "language" : "undefined",
+          "value" : "https://www.pac.dfo-mpo.gc.ca/fm-gp/fraser/docs/archiv-reports-rapports/indigenous-autochtone/2010FrasRvrChkInformDoc.htm",
           "type" : "iri"
         } ]
       },
@@ -7648,17 +7648,17 @@
           "value" : "Fisheries Management",
           "type" : "label"
         } ],
-        "theme" : [ {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
-          "type" : "iri"
-        } ],
         "definition" : [ {
           "identifier" : "definition",
           "language" : "en",
           "value" : "Fishery openings, harvest control rules, catch/effort measures, and exploitation monitoring for salmon fisheries.",
           "type" : "label"
+        } ],
+        "theme" : [ {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
+          "type" : "iri"
         } ]
       },
       "labels" : {
@@ -7736,12 +7736,6 @@
           "value" : "Trap Count",
           "type" : "label"
         } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "Trap-based counts from non-spanning traps with documented emptying schedule, efficiency measurements, and coverage information.",
-          "type" : "label"
-        } ],
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
@@ -7752,6 +7746,12 @@
           "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
           "type" : "iri"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Trap-based counts from non-spanning traps with documented emptying schedule, efficiency measurements, and coverage information.",
+          "type" : "label"
         } ],
         "broader" : [ {
           "identifier" : "broader",
@@ -7797,17 +7797,17 @@
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme",
-          "type" : "iri"
-        }, {
-          "identifier" : "theme",
-          "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme",
           "type" : "iri"
         }, {
           "identifier" : "theme",
           "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "type" : "iri"
+        }, {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme",
           "type" : "iri"
         } ],
         "definition" : [ {
@@ -7918,12 +7918,12 @@
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
           "type" : "iri"
         }, {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
           "type" : "iri"
         } ],
         "source" : [ {
@@ -7935,6 +7935,49 @@
       },
       "labels" : {
         "IRI-based" : "RedZone"
+      }
+    }, {
+      "iri" : "https://w3id.org/gcdfo/salmon#AgeNotation",
+      "baseIri" : "https://w3id.org/gcdfo/salmon",
+      "annotations" : {
+        "isDefinedBy" : [ {
+          "identifier" : "isDefinedBy",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#AgeNotationScheme",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Age notation",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "A notation system used to encode salmon age values in stock assessment data.",
+          "type" : "label"
+        } ],
+        "theme" : [ {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "type" : "iri"
+        }, {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "AgeNotation"
       }
     }, {
       "iri" : "https://w3id.org/gcdfo/salmon#Age6YearClass",
@@ -7985,49 +8028,6 @@
       },
       "labels" : {
         "IRI-based" : "Age6YearClass"
-      }
-    }, {
-      "iri" : "https://w3id.org/gcdfo/salmon#AgeNotation",
-      "baseIri" : "https://w3id.org/gcdfo/salmon",
-      "annotations" : {
-        "isDefinedBy" : [ {
-          "identifier" : "isDefinedBy",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon",
-          "type" : "iri"
-        } ],
-        "inScheme" : [ {
-          "identifier" : "inScheme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#AgeNotationScheme",
-          "type" : "iri"
-        } ],
-        "prefLabel" : [ {
-          "identifier" : "prefLabel",
-          "language" : "en",
-          "value" : "Age notation",
-          "type" : "label"
-        } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "A notation system used to encode salmon age values in stock assessment data.",
-          "type" : "label"
-        } ],
-        "theme" : [ {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
-          "type" : "iri"
-        }, {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
-          "type" : "iri"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "AgeNotation"
       }
     }, {
       "iri" : "https://w3id.org/gcdfo/salmon#SpeciesAtRiskRecoveryTheme",
@@ -8089,17 +8089,17 @@
           "value" : "Freshwater age dimension",
           "type" : "label"
         } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "Age value represents years spent in freshwater.",
-          "type" : "label"
-        } ],
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
           "type" : "iri"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Age value represents years spent in freshwater.",
+          "type" : "label"
         } ],
         "broader" : [ {
           "identifier" : "broader",
@@ -8171,6 +8171,12 @@
           "value" : "Lower benchmark",
           "type" : "label"
         } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "A lower-threshold benchmark value, typically delineating the boundary between Red and Amber status zones.",
+          "type" : "label"
+        } ],
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
@@ -8181,12 +8187,6 @@
           "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
           "type" : "iri"
-        } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "A lower-threshold benchmark value, typically delineating the boundary between Red and Amber status zones.",
-          "type" : "label"
         } ]
       },
       "labels" : {
@@ -8217,12 +8217,12 @@
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme",
           "type" : "iri"
         }, {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
           "type" : "iri"
         } ],
         "definition" : [ {
@@ -8266,17 +8266,17 @@
           "value" : "Stock Assessment",
           "type" : "label"
         } ],
-        "definition" : [ {
-          "identifier" : "definition",
-          "language" : "en",
-          "value" : "Stock assessment models, benchmarks, status determinations, and performance metrics for salmon units.",
-          "type" : "label"
-        } ],
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
           "type" : "iri"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Stock assessment models, benchmarks, status determinations, and performance metrics for salmon units.",
+          "type" : "label"
         } ]
       },
       "labels" : {
@@ -8304,22 +8304,22 @@
           "value" : "Enumeration Method",
           "type" : "label"
         } ],
+        "theme" : [ {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "type" : "iri"
+        }, {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme",
+          "type" : "iri"
+        } ],
         "definition" : [ {
           "identifier" : "definition",
           "language" : "en",
           "value" : "A method used to enumerate or count salmon in the field",
           "type" : "label"
-        } ],
-        "theme" : [ {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme",
-          "type" : "iri"
-        }, {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
-          "type" : "iri"
         } ]
       },
       "labels" : {
@@ -8421,9 +8421,9 @@
         "IRI-based" : "FixedSiteCensusElectronic"
       }
     } ],
-    "subClasses" : [ "51" ],
+    "subClasses" : [ "50" ],
     "attributes" : [ "external" ],
-    "id" : "52"
+    "id" : "51"
   }, {
     "iri" : "https://w3id.org/gcdfo/salmon#RapidStatusScoreMetric",
     "baseIri" : "https://w3id.org/gcdfo/salmon",
@@ -8444,23 +8444,23 @@
       "IAO_0000119" : [ {
         "identifier" : "IAO_0000119",
         "language" : "en",
-        "value" : "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570.",
+        "value" : "Holt, C.A., Cass, A., Holtby, B., and Riddell, B. 2009. Indicators of Status and Benchmarks for Conservation Units in Canada's Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2009/058.",
         "type" : "label"
       }, {
         "identifier" : "IAO_0000119",
         "language" : "en",
-        "value" : "Holt, C.A., Cass, A., Holtby, B., and Riddell, B. 2009. Indicators of Status and Benchmarks for Conservation Units in Canada's Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2009/058.",
+        "value" : "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570.",
         "type" : "label"
       } ],
       "theme" : [ {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
         "type" : "iri"
       }, {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
         "type" : "iri"
       }, {
         "identifier" : "theme",
@@ -8593,12 +8593,12 @@
       "theme" : [ {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
         "type" : "iri"
       }, {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme",
         "type" : "iri"
       } ]
     },
@@ -8736,12 +8736,12 @@
       "theme" : [ {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
         "type" : "iri"
       }, {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme",
         "type" : "iri"
       }, {
         "identifier" : "theme",
@@ -9022,12 +9022,12 @@
       "theme" : [ {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
         "type" : "iri"
       }, {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
         "type" : "iri"
       } ]
     },
@@ -9035,7 +9035,7 @@
       "IRI-based" : "ObservedRateOrAbundance",
       "en" : "Observed rate or abundance"
     },
-    "subClasses" : [ "5", "12", "80", "78", "50", "65", "71", "69", "20", "73", "60", "3", "21", "120", "61", "62", "95", "121", "76" ],
+    "subClasses" : [ "5", "11", "80", "78", "52", "65", "71", "69", "20", "73", "60", "3", "21", "120", "61", "62", "95", "121", "76" ],
     "id" : "4",
     "superClasses" : [ "17" ]
   }, {
@@ -9071,7 +9071,7 @@
       "IRI-based" : "ReportingOrManagementStratum",
       "en" : "Reporting or management stratum"
     },
-    "subClasses" : [ "14", "39", "30" ],
+    "subClasses" : [ "14", "43", "30" ],
     "id" : "15",
     "superClasses" : [ "35" ]
   }, {
@@ -9094,11 +9094,6 @@
       "theme" : [ {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
-        "type" : "iri"
-      }, {
-        "identifier" : "theme",
-        "language" : "undefined",
         "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
         "type" : "iri"
       }, {
@@ -9106,13 +9101,18 @@
         "language" : "undefined",
         "value" : "https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme",
         "type" : "iri"
+      }, {
+        "identifier" : "theme",
+        "language" : "undefined",
+        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+        "type" : "iri"
       } ]
     },
     "label" : {
       "IRI-based" : "Deme",
       "en" : "Deme"
     },
-    "id" : "41",
+    "id" : "40",
     "superClasses" : [ "57" ]
   }, {
     "iri" : "http://purl.obolibrary.org/obo/BFO_0000020",
@@ -9190,52 +9190,6 @@
     "id" : "35",
     "superClasses" : [ "141" ]
   }, {
-    "iri" : "https://w3id.org/gcdfo/salmon#ReturnYear",
-    "baseIri" : "https://w3id.org/gcdfo/salmon",
-    "instances" : 0,
-    "annotations" : {
-      "isDefinedBy" : [ {
-        "identifier" : "isDefinedBy",
-        "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon",
-        "type" : "iri"
-      } ],
-      "IAO_0000115" : [ {
-        "identifier" : "IAO_0000115",
-        "language" : "en",
-        "value" : "The calendar year in which adult salmon return to freshwater systems.",
-        "type" : "label"
-      } ],
-      "theme" : [ {
-        "identifier" : "theme",
-        "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
-        "type" : "iri"
-      }, {
-        "identifier" : "theme",
-        "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
-        "type" : "iri"
-      }, {
-        "identifier" : "theme",
-        "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme",
-        "type" : "iri"
-      } ],
-      "source" : [ {
-        "identifier" : "source",
-        "language" : "undefined",
-        "value" : "https://github.com/dfo-pacific-science/salmon-population-summary-repository",
-        "type" : "iri"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "ReturnYear",
-      "en" : "Return year"
-    },
-    "id" : "27",
-    "superClasses" : [ "25" ]
-  }, {
     "iri" : "https://w3id.org/gcdfo/salmon#ConfidenceCategory",
     "baseIri" : "https://w3id.org/gcdfo/salmon",
     "instances" : 0,
@@ -9280,50 +9234,6 @@
       "IRI-based" : "ConfidenceCategory"
     },
     "individuals" : [ {
-      "iri" : "https://w3id.org/gcdfo/salmon#RapidStatusConfidenceLow",
-      "baseIri" : "https://w3id.org/gcdfo/salmon",
-      "annotations" : {
-        "isDefinedBy" : [ {
-          "identifier" : "isDefinedBy",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon",
-          "type" : "iri"
-        } ],
-        "IAO_0000115" : [ {
-          "identifier" : "IAO_0000115",
-          "language" : "en",
-          "value" : "Rapid status confidence category indicating limited supporting data (for example, derived from trend metrics alone).",
-          "type" : "label"
-        } ],
-        "inScheme" : [ {
-          "identifier" : "inScheme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#RapidStatusConfidenceScheme",
-          "type" : "iri"
-        } ],
-        "prefLabel" : [ {
-          "identifier" : "prefLabel",
-          "language" : "en",
-          "value" : "Low confidence",
-          "type" : "label"
-        } ],
-        "theme" : [ {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
-          "type" : "iri"
-        }, {
-          "identifier" : "theme",
-          "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
-          "type" : "iri"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "RapidStatusConfidenceLow",
-        "en" : "Low rapid-status confidence"
-      }
-    }, {
       "iri" : "https://w3id.org/gcdfo/salmon#RapidStatusConfidenceMedium",
       "baseIri" : "https://w3id.org/gcdfo/salmon",
       "annotations" : {
@@ -9354,12 +9264,12 @@
         "theme" : [ {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
           "type" : "iri"
         }, {
           "identifier" : "theme",
           "language" : "undefined",
-          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
           "type" : "iri"
         } ]
       },
@@ -9368,7 +9278,7 @@
         "en" : "Medium rapid-status confidence"
       }
     }, {
-      "iri" : "https://w3id.org/gcdfo/salmon#RapidStatusConfidenceHigh",
+      "iri" : "https://w3id.org/gcdfo/salmon#RapidStatusConfidenceLow",
       "baseIri" : "https://w3id.org/gcdfo/salmon",
       "annotations" : {
         "isDefinedBy" : [ {
@@ -9377,22 +9287,22 @@
           "value" : "https://w3id.org/gcdfo/salmon",
           "type" : "iri"
         } ],
-        "IAO_0000115" : [ {
-          "identifier" : "IAO_0000115",
-          "language" : "en",
-          "value" : "Rapid status confidence category indicating that high-quality abundance metrics support the result.",
-          "type" : "label"
-        } ],
         "inScheme" : [ {
           "identifier" : "inScheme",
           "language" : "undefined",
           "value" : "https://w3id.org/gcdfo/salmon#RapidStatusConfidenceScheme",
           "type" : "iri"
         } ],
+        "IAO_0000115" : [ {
+          "identifier" : "IAO_0000115",
+          "language" : "en",
+          "value" : "Rapid status confidence category indicating limited supporting data (for example, derived from trend metrics alone).",
+          "type" : "label"
+        } ],
         "prefLabel" : [ {
           "identifier" : "prefLabel",
           "language" : "en",
-          "value" : "High confidence",
+          "value" : "Low confidence",
           "type" : "label"
         } ],
         "theme" : [ {
@@ -9408,11 +9318,101 @@
         } ]
       },
       "labels" : {
+        "IRI-based" : "RapidStatusConfidenceLow",
+        "en" : "Low rapid-status confidence"
+      }
+    }, {
+      "iri" : "https://w3id.org/gcdfo/salmon#RapidStatusConfidenceHigh",
+      "baseIri" : "https://w3id.org/gcdfo/salmon",
+      "annotations" : {
+        "isDefinedBy" : [ {
+          "identifier" : "isDefinedBy",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon",
+          "type" : "iri"
+        } ],
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#RapidStatusConfidenceScheme",
+          "type" : "iri"
+        } ],
+        "IAO_0000115" : [ {
+          "identifier" : "IAO_0000115",
+          "language" : "en",
+          "value" : "Rapid status confidence category indicating that high-quality abundance metrics support the result.",
+          "type" : "label"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "High confidence",
+          "type" : "label"
+        } ],
+        "theme" : [ {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
+          "type" : "iri"
+        }, {
+          "identifier" : "theme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
         "IRI-based" : "RapidStatusConfidenceHigh",
         "en" : "High WSP rapid-status confidence"
       }
     } ],
     "id" : "143"
+  }, {
+    "iri" : "https://w3id.org/gcdfo/salmon#ReturnYear",
+    "baseIri" : "https://w3id.org/gcdfo/salmon",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://w3id.org/gcdfo/salmon",
+        "type" : "iri"
+      } ],
+      "IAO_0000115" : [ {
+        "identifier" : "IAO_0000115",
+        "language" : "en",
+        "value" : "The calendar year in which adult salmon return to freshwater systems.",
+        "type" : "label"
+      } ],
+      "theme" : [ {
+        "identifier" : "theme",
+        "language" : "undefined",
+        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+        "type" : "iri"
+      }, {
+        "identifier" : "theme",
+        "language" : "undefined",
+        "value" : "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme",
+        "type" : "iri"
+      }, {
+        "identifier" : "theme",
+        "language" : "undefined",
+        "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
+        "type" : "iri"
+      } ],
+      "source" : [ {
+        "identifier" : "source",
+        "language" : "undefined",
+        "value" : "https://github.com/dfo-pacific-science/salmon-population-summary-repository",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "ReturnYear",
+      "en" : "Return year"
+    },
+    "id" : "27",
+    "superClasses" : [ "25" ]
   }, {
     "iri" : "https://w3id.org/gcdfo/salmon#CWTMarineSurvivalRate",
     "baseIri" : "https://w3id.org/gcdfo/salmon",
@@ -9430,22 +9430,22 @@
         "value" : "The estimated marine survival proportion for coded-wire-tagged fish.",
         "type" : "label"
       } ],
+      "theme" : [ {
+        "identifier" : "theme",
+        "language" : "undefined",
+        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+        "type" : "iri"
+      }, {
+        "identifier" : "theme",
+        "language" : "undefined",
+        "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme",
+        "type" : "iri"
+      } ],
       "altLabel" : [ {
         "identifier" : "altLabel",
         "language" : "en",
         "value" : "Coded-wire-tag marine survival rate",
         "type" : "label"
-      } ],
-      "theme" : [ {
-        "identifier" : "theme",
-        "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme",
-        "type" : "iri"
-      }, {
-        "identifier" : "theme",
-        "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
-        "type" : "iri"
       } ],
       "source" : [ {
         "identifier" : "source",
@@ -9527,18 +9527,18 @@
       "IAO_0000119" : [ {
         "identifier" : "IAO_0000119",
         "language" : "en",
-        "value" : "Holt, C.A., Cass, A., Holtby, B., and Riddell, B. 2009. Indicators of Status and Benchmarks for Conservation Units in Canada's Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2009/058.",
+        "value" : "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570.",
         "type" : "label"
       }, {
         "identifier" : "IAO_0000119",
         "language" : "en",
-        "value" : "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570.",
+        "value" : "Holt, C.A., Cass, A., Holtby, B., and Riddell, B. 2009. Indicators of Status and Benchmarks for Conservation Units in Canada's Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2009/058.",
         "type" : "label"
       } ],
       "theme" : [ {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
         "type" : "iri"
       }, {
         "identifier" : "theme",
@@ -9548,7 +9548,7 @@
       }, {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
         "type" : "iri"
       } ],
       "source" : [ {
@@ -9600,12 +9600,12 @@
       }, {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
         "type" : "iri"
       }, {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme",
         "type" : "iri"
       } ],
       "source" : [ {
@@ -9647,6 +9647,32 @@
     "attributes" : [ "external" ],
     "id" : "23"
   }, {
+    "iri" : "http://purl.obolibrary.org/obo/ENVO_01000617",
+    "baseIri" : "http://purl.obolibrary.org/obo",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://purl.obolibrary.org/obo/envo.owl",
+        "type" : "iri"
+      } ],
+      "IAO_0000115" : [ {
+        "identifier" : "IAO_0000115",
+        "language" : "en",
+        "value" : "A lentic water body is a water body in which the accumulated water, in its totality, has very little to no directed flow.",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "ENVO_01000617",
+      "en" : "lentic water body"
+    },
+    "subClasses" : [ "85", "111" ],
+    "attributes" : [ "external" ],
+    "id" : "86",
+    "superClasses" : [ "2" ]
+  }, {
     "iri" : "https://w3id.org/gcdfo/salmon#CatchYear",
     "baseIri" : "https://w3id.org/gcdfo/salmon",
     "instances" : 0,
@@ -9676,32 +9702,6 @@
     },
     "id" : "28",
     "superClasses" : [ "25" ]
-  }, {
-    "iri" : "http://purl.obolibrary.org/obo/ENVO_01000617",
-    "baseIri" : "http://purl.obolibrary.org/obo",
-    "instances" : 0,
-    "annotations" : {
-      "isDefinedBy" : [ {
-        "identifier" : "isDefinedBy",
-        "language" : "undefined",
-        "value" : "http://purl.obolibrary.org/obo/envo.owl",
-        "type" : "iri"
-      } ],
-      "IAO_0000115" : [ {
-        "identifier" : "IAO_0000115",
-        "language" : "en",
-        "value" : "A lentic water body is a water body in which the accumulated water, in its totality, has very little to no directed flow.",
-        "type" : "label"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "ENVO_01000617",
-      "en" : "lentic water body"
-    },
-    "subClasses" : [ "85", "111" ],
-    "attributes" : [ "external" ],
-    "id" : "86",
-    "superClasses" : [ "2" ]
   }, {
     "iri" : "http://purl.obolibrary.org/obo/ENVO_01000618",
     "baseIri" : "http://purl.obolibrary.org/obo",
@@ -9773,12 +9773,12 @@
       "theme" : [ {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
         "type" : "iri"
       }, {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
         "type" : "iri"
       } ],
       "source" : [ {
@@ -9925,12 +9925,12 @@
       "theme" : [ {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
         "type" : "iri"
       }, {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme",
         "type" : "iri"
       } ],
       "source" : [ {
@@ -9977,17 +9977,17 @@
       "theme" : [ {
         "identifier" : "theme",
         "language" : "undefined",
+        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+        "type" : "iri"
+      }, {
+        "identifier" : "theme",
+        "language" : "undefined",
         "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme",
         "type" : "iri"
       }, {
         "identifier" : "theme",
         "language" : "undefined",
         "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
-        "type" : "iri"
-      }, {
-        "identifier" : "theme",
-        "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
         "type" : "iri"
       } ],
       "source" : [ {
@@ -10031,12 +10031,13 @@
         "value" : "Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html.",
         "type" : "label"
       } ],
+      "altLabel" : [ {
+        "identifier" : "altLabel",
+        "language" : "en",
+        "value" : "LRP",
+        "type" : "label"
+      } ],
       "theme" : [ {
-        "identifier" : "theme",
-        "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme",
-        "type" : "iri"
-      }, {
         "identifier" : "theme",
         "language" : "undefined",
         "value" : "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme",
@@ -10044,14 +10045,13 @@
       }, {
         "identifier" : "theme",
         "language" : "undefined",
+        "value" : "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme",
+        "type" : "iri"
+      }, {
+        "identifier" : "theme",
+        "language" : "undefined",
         "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
         "type" : "iri"
-      } ],
-      "altLabel" : [ {
-        "identifier" : "altLabel",
-        "language" : "en",
-        "value" : "LRP",
-        "type" : "label"
       } ],
       "source" : [ {
         "identifier" : "source",
@@ -10086,12 +10086,12 @@
       "theme" : [ {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme",
         "type" : "iri"
       }, {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
         "type" : "iri"
       } ],
       "altLabel" : [ {
@@ -10252,12 +10252,12 @@
       "theme" : [ {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme",
         "type" : "iri"
       }, {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
         "type" : "iri"
       } ],
       "source" : [ {
@@ -10294,12 +10294,12 @@
       "theme" : [ {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
         "type" : "iri"
       }, {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme",
         "type" : "iri"
       } ],
       "altLabel" : [ {
@@ -10492,7 +10492,7 @@
     "id" : "29",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "40",
+    "id" : "39",
     "type" : "owl:objectProperty"
   }, {
     "id" : "44",
@@ -10606,7 +10606,7 @@
     "id" : "125",
     "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "43",
+    "id" : "42",
     "type" : "owl:objectProperty"
   }, {
     "id" : "126",
@@ -10785,12 +10785,12 @@
       }, {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme",
         "type" : "iri"
       }, {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
         "type" : "iri"
       } ]
     },
@@ -10803,9 +10803,9 @@
     "id" : "29"
   }, {
     "iri" : "https://w3id.org/gcdfo/salmon#demeOf",
-    "inverse" : "43",
+    "inverse" : "42",
     "baseIri" : "https://w3id.org/gcdfo/salmon",
-    "range" : "42",
+    "range" : "41",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
@@ -10822,12 +10822,12 @@
       "theme" : [ {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme",
         "type" : "iri"
       }, {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
         "type" : "iri"
       } ]
     },
@@ -10835,13 +10835,13 @@
       "IRI-based" : "demeOf",
       "en" : "deme of"
     },
-    "domain" : "41",
+    "domain" : "40",
     "attributes" : [ "object" ],
-    "id" : "40"
+    "id" : "39"
   }, {
     "iri" : "https://w3id.org/gcdfo/salmon#hasPopulation",
     "baseIri" : "https://w3id.org/gcdfo/salmon",
-    "range" : "42",
+    "range" : "41",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
@@ -10911,37 +10911,37 @@
   }, {
     "range" : "4",
     "domain" : "21",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "63"
   }, {
     "range" : "4",
     "domain" : "3",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "66"
   }, {
     "range" : "4",
     "domain" : "60",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "67"
   }, {
     "range" : "4",
     "domain" : "69",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "68"
   }, {
     "range" : "4",
     "domain" : "71",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "70"
   }, {
     "range" : "4",
     "domain" : "73",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "72"
   }, {
     "range" : "4",
     "domain" : "20",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "74"
   }, {
     "iri" : "https://w3id.org/gcdfo/salmon#populationOf",
@@ -10977,148 +10977,148 @@
       "IRI-based" : "populationOf",
       "en" : "population of"
     },
-    "domain" : "42",
+    "domain" : "41",
     "attributes" : [ "object" ],
     "id" : "75"
   }, {
     "range" : "4",
     "domain" : "78",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "77"
   }, {
     "range" : "4",
     "domain" : "80",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "79"
   }, {
     "range" : "4",
     "domain" : "65",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "82"
   }, {
     "range" : "4",
-    "domain" : "50",
-    "attributes" : [ "anonymous", "object" ],
+    "domain" : "52",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "83"
   }, {
     "range" : "4",
     "domain" : "5",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "87"
   }, {
     "range" : "46",
     "domain" : "58",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "88"
   }, {
     "range" : "4",
-    "domain" : "12",
-    "attributes" : [ "anonymous", "object" ],
+    "domain" : "11",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "89"
   }, {
     "range" : "38",
     "domain" : "37",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "92"
   }, {
-    "range" : "11",
-    "domain" : "10",
-    "attributes" : [ "anonymous", "object" ],
+    "range" : "10",
+    "domain" : "13",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "93"
   }, {
     "range" : "54",
     "domain" : "53",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "94"
   }, {
     "range" : "38",
     "domain" : "97",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "96"
   }, {
     "range" : "17",
     "domain" : "16",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "99"
   }, {
-    "range" : "11",
-    "domain" : "13",
-    "attributes" : [ "anonymous", "object" ],
+    "range" : "10",
+    "domain" : "12",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "100"
   }, {
     "range" : "17",
     "domain" : "4",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "101"
   }, {
     "range" : "35",
     "domain" : "9",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "102"
   }, {
     "range" : "35",
     "domain" : "19",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "105"
   }, {
     "range" : "35",
     "domain" : "107",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "106"
   }, {
     "range" : "35",
     "domain" : "113",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "112"
   }, {
     "range" : "35",
     "domain" : "115",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "114"
   }, {
     "range" : "35",
     "domain" : "34",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "116"
   }, {
     "range" : "35",
     "domain" : "33",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "117"
   }, {
-    "range" : "12",
-    "domain" : "11",
-    "attributes" : [ "anonymous", "object" ],
+    "range" : "11",
+    "domain" : "10",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "118"
   }, {
     "range" : "25",
     "domain" : "28",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "119"
   }, {
     "range" : "35",
     "domain" : "15",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "122"
   }, {
     "range" : "35",
     "domain" : "84",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "123"
   }, {
     "range" : "25",
     "domain" : "27",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "124"
   }, {
     "range" : "25",
     "domain" : "26",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "125"
   }, {
     "iri" : "https://w3id.org/gcdfo/salmon#hasDeme",
     "baseIri" : "https://w3id.org/gcdfo/salmon",
-    "range" : "41",
+    "range" : "40",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
@@ -11135,12 +11135,12 @@
       "theme" : [ {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme",
         "type" : "iri"
       }, {
         "identifier" : "theme",
         "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme",
+        "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
         "type" : "iri"
       } ]
     },
@@ -11148,78 +11148,78 @@
       "IRI-based" : "hasDeme",
       "en" : "has deme"
     },
-    "domain" : "42",
+    "domain" : "41",
     "attributes" : [ "object" ],
-    "id" : "43"
+    "id" : "42"
   }, {
     "range" : "15",
     "domain" : "30",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "126"
   }, {
     "range" : "4",
     "domain" : "76",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "127"
   }, {
     "range" : "4",
     "domain" : "121",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "128"
   }, {
     "range" : "15",
-    "domain" : "39",
-    "attributes" : [ "anonymous", "object" ],
+    "domain" : "43",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "129"
   }, {
     "range" : "15",
     "domain" : "14",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "130"
   }, {
     "range" : "4",
     "domain" : "61",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "131"
   }, {
     "range" : "4",
     "domain" : "120",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "132"
   }, {
     "range" : "4",
     "domain" : "95",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "133"
   }, {
     "range" : "4",
     "domain" : "62",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "134"
   }, {
     "range" : "78",
     "domain" : "7",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "136"
   }, {
     "range" : "2",
     "domain" : "57",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "137"
   }, {
     "range" : "57",
-    "domain" : "41",
-    "attributes" : [ "anonymous", "object" ],
+    "domain" : "40",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "138"
   }, {
     "range" : "57",
-    "domain" : "42",
-    "attributes" : [ "anonymous", "object" ],
+    "domain" : "41",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "139"
   }, {
     "range" : "2",
     "domain" : "109",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "140"
   }, {
     "iri" : "https://w3id.org/gcdfo/salmon#hasConservationUnit",
@@ -11241,17 +11241,17 @@
       "theme" : [ {
         "identifier" : "theme",
         "language" : "undefined",
+        "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
+        "type" : "iri"
+      }, {
+        "identifier" : "theme",
+        "language" : "undefined",
         "value" : "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme",
         "type" : "iri"
       }, {
         "identifier" : "theme",
         "language" : "undefined",
         "value" : "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme",
-        "type" : "iri"
-      }, {
-        "identifier" : "theme",
-        "language" : "undefined",
-        "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme",
         "type" : "iri"
       } ]
     },
@@ -11265,125 +11265,125 @@
   }, {
     "range" : "2",
     "domain" : "1",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "142"
   }, {
     "range" : "2",
     "domain" : "86",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "144"
   }, {
     "range" : "109",
     "domain" : "110",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "145"
   }, {
     "range" : "109",
     "domain" : "54",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "146"
   }, {
     "range" : "2",
     "domain" : "148",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "147"
   }, {
     "range" : "2",
     "domain" : "108",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "149"
   }, {
     "range" : "19",
     "domain" : "18",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "150"
   }, {
     "range" : "19",
     "domain" : "55",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "151"
   }, {
     "range" : "86",
     "domain" : "111",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "152"
   }, {
     "range" : "86",
     "domain" : "85",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "153"
   }, {
     "range" : "23",
     "domain" : "22",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "154"
   }, {
     "range" : "23",
     "domain" : "36",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "155"
   }, {
     "range" : "23",
     "domain" : "24",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "157"
   }, {
     "range" : "45",
     "domain" : "46",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "158"
   }, {
     "range" : "35",
     "domain" : "17",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "159"
   }, {
     "range" : "23",
     "domain" : "156",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "160"
   }, {
     "range" : "23",
     "domain" : "59",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "161"
   }, {
     "range" : "33",
     "domain" : "32",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "162"
   }, {
     "range" : "33",
     "domain" : "64",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "163"
   }, {
     "range" : "9",
     "domain" : "8",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "164"
   }, {
-    "range" : "52",
-    "domain" : "51",
-    "attributes" : [ "anonymous", "object" ],
+    "range" : "51",
+    "domain" : "50",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "165"
   }, {
     "range" : "17",
     "domain" : "56",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "166"
   }, {
     "range" : "17",
     "domain" : "45",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "167"
   }, {
     "range" : "17",
     "domain" : "81",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "168"
   }, {
-    "domain" : "52",
+    "domain" : "51",
     "range" : "143",
     "id" : "170",
     "label" : {
@@ -11391,7 +11391,7 @@
       "undefined" : "is a"
     }
   }, {
-    "domain" : "52",
+    "domain" : "51",
     "range" : "0",
     "id" : "171",
     "label" : {
@@ -11401,47 +11401,47 @@
   }, {
     "range" : "7",
     "domain" : "6",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "172"
   }, {
     "range" : "7",
     "domain" : "169",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "173"
   }, {
     "range" : "61",
     "domain" : "38",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "174"
   }, {
     "range" : "69",
     "domain" : "104",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "175"
   }, {
     "range" : "104",
     "domain" : "177",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "178"
   }, {
     "range" : "156",
     "domain" : "91",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "179"
   }, {
     "range" : "141",
     "domain" : "35",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "180"
   }, {
     "range" : "104",
     "domain" : "103",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "181"
   }, {
     "range" : "91",
     "domain" : "90",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "182"
   } ]
 }
