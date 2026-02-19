@@ -9,7 +9,7 @@ WIDOCO_JAR := tools/widoco.jar
 WIDOCO_URL := https://github.com/dgarijo/Widoco/releases/download/v$(WIDOCO_VERSION)/widoco-$(WIDOCO_VERSION)-jar-with-dependencies_JDK-17.jar
 DSU_ONTOLOGY_DIR ?= ../data-stewardship-unit/data/ontology
 
-.PHONY: help quality-check reason convert clean install-robot install-widoco publish-clean dsu-sync-term-tables dsu-sync-and-stage theme-coverage test docs-refresh docs-widoco docs-serializations docs-skos release-snapshot
+.PHONY: help quality-check reason convert clean install-robot install-widoco publish-clean dsu-sync-term-tables dsu-sync-and-stage theme-coverage test docs-refresh docs-widoco docs-serializations docs-skos docs-postprocess release-snapshot
 
 # Default target
 help:
@@ -187,7 +187,7 @@ docs-widoco: check-widoco
 	if [ -f "$$OUT/index-en.html" ] && [ ! -f "$$OUT/index.html" ]; then \
 		cp "$$OUT/index-en.html" "$$OUT/index.html"; \
 	fi; \
-	rsync -a --exclude "ontology.*" "$$OUT/" docs/; \
+	rsync -a --exclude "/ontology.*" "$$OUT/" docs/; \
 	rm -f docs/ontology.jsonld docs/ontology.nt docs/ontology.owl docs/ontology.ttl; \
 	rm -rf "$$OUT"; \
 	echo "✅ WIDOCO regenerated into docs/"
@@ -205,7 +205,12 @@ docs-skos:
 	@python3 scripts/generate_skos_section.py
 	@echo "✅ Updated docs/index.html SKOS section (and enforced OWL-before-SKOS ordering)"
 
-docs-refresh: docs-widoco docs-serializations docs-skos
+docs-postprocess:
+	@echo "🧩 Applying project-specific WIDOCO post-processing..."
+	@python3 scripts/postprocess_widoco_html.py
+	@echo "✅ WIDOCO post-processing complete."
+
+docs-refresh: docs-widoco docs-serializations docs-skos docs-postprocess
 	@echo "✅ Docs refresh complete."
 
 # Create an immutable snapshot of the current published artifacts under docs/releases/<version>/.
@@ -237,11 +242,11 @@ release-snapshot: docs-refresh
 				'  <meta charset="UTF-8" />' \
 				'  <meta name="viewport" content="width=device-width, initial-scale=1" />' \
 				'  <link rel="canonical" href="https://w3id.org/gcdfo/salmon/$(VERSION)" />' \
-				'  <title>GC DFO Salmon Ontology — Version $(VERSION)</title>' \
+				'  <title>DFO Salmon Ontology — Version $(VERSION)</title>' \
 				'</head>' \
 				'<body>' \
 				'  <main>' \
-			'    <h1>GC DFO Salmon Ontology — Version $(VERSION)</h1>' \
+			'    <h1>DFO Salmon Ontology — Version $(VERSION)</h1>' \
 			'    <p>This is an immutable release snapshot hosted from GitHub Pages.</p>' \
 			'    <h2>Download</h2>' \
 			'    <ul>' \
