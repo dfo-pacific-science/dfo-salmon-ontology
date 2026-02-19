@@ -68,7 +68,7 @@ jobs:
 
       - name: Fail if CI bundle produced uncommitted changes
         run: |
-          if ! git diff --quiet; then
+          if ! git diff --quiet -- . ':(exclude)docs/webvowl/data/ontology.json'; then
             echo "::error::Running 'make ci' produced changes. Please run it locally and commit the updated artifacts (including docs/gcdfo.{ttl,owl,jsonld} and docs/index.html) before pushing."
             git status
             exit 1

@@ -1,0 +1,1873 @@
+{
+  "metadata": {
+    "csv": "/Users/alan/.openclaw/workspace/Metadata-Questionnaire-CU-Series/data/x_CU_Level_Metadata.csv",
+    "ttl": "/Users/alan/.openclaw/workspace/dfo-salmon-ontology/ontology/dfo-salmon.ttl",
+    "row_count": 66,
+    "column_count": 103,
+    "categorical_columns": 57,
+    "ontology_terms_with_labels": 200
+  },
+  "columns": [
+    {
+      "column": "Species",
+      "non_empty_count": 66,
+      "unique_values": 5,
+      "matched_values": 0,
+      "missing_values": 5,
+      "placeholder_values": 0,
+      "matched": [],
+      "missing": [
+        {
+          "value": "Chinook",
+          "count": 32
+        },
+        {
+          "value": "Chum",
+          "count": 1
+        },
+        {
+          "value": "Coho",
+          "count": 7
+        },
+        {
+          "value": "Pink",
+          "count": 1
+        },
+        {
+          "value": "Sockeye",
+          "count": 25
+        }
+      ],
+      "placeholders": []
+    },
+    {
+      "column": "CU_Verification",
+      "non_empty_count": 66,
+      "unique_values": 2,
+      "matched_values": 0,
+      "missing_values": 0,
+      "placeholder_values": 2,
+      "matched": [],
+      "missing": [],
+      "placeholders": [
+        {
+          "value": "Pending",
+          "count": 2
+        },
+        {
+          "value": "Yes",
+          "count": 64
+        }
+      ]
+    },
+    {
+      "column": "CU_Status_Assessed",
+      "non_empty_count": 66,
+      "unique_values": 2,
+      "matched_values": 0,
+      "missing_values": 0,
+      "placeholder_values": 2,
+      "matched": [],
+      "missing": [],
+      "placeholders": [
+        {
+          "value": "No",
+          "count": 2
+        },
+        {
+          "value": "Yes",
+          "count": 64
+        }
+      ]
+    },
+    {
+      "column": "Site_Verification",
+      "non_empty_count": 66,
+      "unique_values": 3,
+      "matched_values": 0,
+      "missing_values": 0,
+      "placeholder_values": 3,
+      "matched": [],
+      "missing": [],
+      "placeholders": [
+        {
+          "value": "NA",
+          "count": 10
+        },
+        {
+          "value": "TBD",
+          "count": 1
+        },
+        {
+          "value": "Yes",
+          "count": 55
+        }
+      ]
+    },
+    {
+      "column": "Site_Verification_nuSEDS_Match",
+      "non_empty_count": 66,
+      "unique_values": 3,
+      "matched_values": 0,
+      "missing_values": 0,
+      "placeholder_values": 3,
+      "matched": [],
+      "missing": [],
+      "placeholders": [
+        {
+          "value": "NA",
+          "count": 34
+        },
+        {
+          "value": "TBD",
+          "count": 15
+        },
+        {
+          "value": "Yes",
+          "count": 17
+        }
+      ]
+    },
+    {
+      "column": "LifeHistoryType_General",
+      "non_empty_count": 66,
+      "unique_values": 9,
+      "matched_values": 0,
+      "missing_values": 8,
+      "placeholder_values": 1,
+      "matched": [],
+      "missing": [
+        {
+          "value": "CK",
+          "count": 19
+        },
+        {
+          "value": "CM",
+          "count": 1
+        },
+        {
+          "value": "CO",
+          "count": 7
+        },
+        {
+          "value": "Lake-type Sockeye",
+          "count": 1
+        },
+        {
+          "value": "PKO",
+          "count": 1
+        },
+        {
+          "value": "RT",
+          "count": 1
+        },
+        {
+          "value": "SEL",
+          "count": 21
+        },
+        {
+          "value": "Stream-type Chinook",
+          "count": 12
+        }
+      ],
+      "placeholders": [
+        {
+          "value": "NA",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "column": "Location_Spawning_Type",
+      "non_empty_count": 66,
+      "unique_values": 4,
+      "matched_values": 2,
+      "missing_values": 0,
+      "placeholder_values": 2,
+      "matched": [
+        {
+          "value": "Lake",
+          "count": 22,
+          "matches": [
+            {
+              "iri": "envo:00000020",
+              "label": "lake",
+              "schemes": []
+            }
+          ]
+        },
+        {
+          "value": "River",
+          "count": 15,
+          "matches": [
+            {
+              "iri": "envo:00000022",
+              "label": "river",
+              "schemes": []
+            }
+          ]
+        }
+      ],
+      "missing": [],
+      "placeholders": [
+        {
+          "value": "NA",
+          "count": 1
+        },
+        {
+          "value": "TBD",
+          "count": 28
+        }
+      ]
+    },
+    {
+      "column": "Location_Rearing_Type",
+      "non_empty_count": 66,
+      "unique_values": 5,
+      "matched_values": 2,
+      "missing_values": 1,
+      "placeholder_values": 2,
+      "matched": [
+        {
+          "value": "Lake",
+          "count": 23,
+          "matches": [
+            {
+              "iri": "envo:00000020",
+              "label": "lake",
+              "schemes": []
+            }
+          ]
+        },
+        {
+          "value": "River",
+          "count": 12,
+          "matches": [
+            {
+              "iri": "envo:00000022",
+              "label": "river",
+              "schemes": []
+            }
+          ]
+        }
+      ],
+      "missing": [
+        {
+          "value": "Ocean",
+          "count": 2
+        }
+      ],
+      "placeholders": [
+        {
+          "value": "NA",
+          "count": 1
+        },
+        {
+          "value": "TBD",
+          "count": 28
+        }
+      ]
+    },
+    {
+      "column": "LifeHistory_DominantAgeClass",
+      "non_empty_count": 66,
+      "unique_values": 2,
+      "matched_values": 0,
+      "missing_values": 1,
+      "placeholder_values": 1,
+      "matched": [],
+      "missing": [
+        {
+          "value": "4sub2",
+          "count": 1
+        }
+      ],
+      "placeholders": [
+        {
+          "value": "NA",
+          "count": 65
+        }
+      ]
+    },
+    {
+      "column": "Cyclic",
+      "non_empty_count": 66,
+      "unique_values": 3,
+      "matched_values": 0,
+      "missing_values": 0,
+      "placeholder_values": 3,
+      "matched": [],
+      "missing": [],
+      "placeholders": [
+        {
+          "value": "FALSE",
+          "count": 60
+        },
+        {
+          "value": "NA",
+          "count": 1
+        },
+        {
+          "value": "TRUE",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "column": "AvgGen_Variability",
+      "non_empty_count": 66,
+      "unique_values": 4,
+      "matched_values": 0,
+      "missing_values": 2,
+      "placeholder_values": 2,
+      "matched": [],
+      "missing": [
+        {
+          "value": "Highly Stable",
+          "count": 1
+        },
+        {
+          "value": "Low",
+          "count": 5
+        }
+      ],
+      "placeholders": [
+        {
+          "value": "Not Applicable",
+          "count": 2
+        },
+        {
+          "value": "TBD",
+          "count": 58
+        }
+      ]
+    },
+    {
+      "column": "AvgGen_Trends",
+      "non_empty_count": 66,
+      "unique_values": 5,
+      "matched_values": 0,
+      "missing_values": 3,
+      "placeholder_values": 2,
+      "matched": [],
+      "missing": [
+        {
+          "value": "Highly Stable",
+          "count": 1
+        },
+        {
+          "value": "Slight increase in age-at-maturity",
+          "count": 3
+        },
+        {
+          "value": "Stable age composition",
+          "count": 2
+        }
+      ],
+      "placeholders": [
+        {
+          "value": "Not Applicable",
+          "count": 2
+        },
+        {
+          "value": "TBD",
+          "count": 58
+        }
+      ]
+    },
+    {
+      "column": "Freshwater_Adaptive_Zone",
+      "non_empty_count": 66,
+      "unique_values": 18,
+      "matched_values": 0,
+      "missing_values": 16,
+      "placeholder_values": 2,
+      "matched": [],
+      "missing": [
+        {
+          "value": "BB",
+          "count": 1
+        },
+        {
+          "value": "FRCany",
+          "count": 2
+        },
+        {
+          "value": "FRCany + LFR",
+          "count": 1
+        },
+        {
+          "value": "LFR",
+          "count": 12
+        },
+        {
+          "value": "LFR + LILL",
+          "count": 1
+        },
+        {
+          "value": "LILL",
+          "count": 3
+        },
+        {
+          "value": "LTh",
+          "count": 1
+        },
+        {
+          "value": "LTh + Nth",
+          "count": 1
+        },
+        {
+          "value": "MFR",
+          "count": 14
+        },
+        {
+          "value": "NTh",
+          "count": 5
+        },
+        {
+          "value": "OK",
+          "count": 2
+        },
+        {
+          "value": "STh",
+          "count": 7
+        },
+        {
+          "value": "STh + Nth + Lth + LFR + MFR + FRCany + LILL",
+          "count": 1
+        },
+        {
+          "value": "UFR",
+          "count": 1
+        },
+        {
+          "value": "UFR + MFR",
+          "count": 1
+        },
+        {
+          "value": "YukSlk",
+          "count": 3
+        }
+      ],
+      "placeholders": [
+        {
+          "value": "???",
+          "count": 9
+        },
+        {
+          "value": "NA",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "column": "Marine_Adaptive_Zone",
+      "non_empty_count": 66,
+      "unique_values": 4,
+      "matched_values": 0,
+      "missing_values": 3,
+      "placeholder_values": 1,
+      "matched": [],
+      "missing": [
+        {
+          "value": "Ber",
+          "count": 12
+        },
+        {
+          "value": "GStr",
+          "count": 51
+        },
+        {
+          "value": "ORWA",
+          "count": 2
+        }
+      ],
+      "placeholders": [
+        {
+          "value": "NA",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "column": "StockMgmtUnit",
+      "non_empty_count": 66,
+      "unique_values": 19,
+      "matched_values": 0,
+      "missing_values": 17,
+      "placeholder_values": 2,
+      "matched": [],
+      "missing": [
+        {
+          "value": "FRASER CHUM SALMON",
+          "count": 1
+        },
+        {
+          "value": "FRASER FALL RUN 41 CHINOOK SALMON",
+          "count": 1
+        },
+        {
+          "value": "FRASER PINK SALMON - ODD",
+          "count": 1
+        },
+        {
+          "value": "FRASER SOCKEYE SALMON - EARLY STUART",
+          "count": 1
+        },
+        {
+          "value": "FRASER SOCKEYE SALMON - EARLY SUMMER",
+          "count": 10
+        },
+        {
+          "value": "FRASER SOCKEYE SALMON - LATE",
+          "count": 6
+        },
+        {
+          "value": "FRASER SOCKEYE SALMON - SUMMER",
+          "count": 7
+        },
+        {
+          "value": "FRASER SPRING RUN 42 CHINOOK SALMON",
+          "count": 2
+        },
+        {
+          "value": "FRASER SPRING RUN 52 CHINOOK SALMON",
+          "count": 5
+        },
+        {
+          "value": "FRASER SUMMER RUN 41 CHINOOK SALMON",
+          "count": 3
+        },
+        {
+          "value": "FRASER SUMMER RUN 52 CHINOOK SALMON",
+          "count": 6
+        },
+        {
+          "value": "INTERIOR FRASER COHO SALMON",
+          "count": 5
+        },
+        {
+          "value": "LOWER FRASER COHO SALMON",
+          "count": 2
+        },
+        {
+          "value": "OKANAGAN CHINOOK SALMON",
+          "count": 1
+        },
+        {
+          "value": "OKANAGAN SOCKEYE SALMON",
+          "count": 1
+        },
+        {
+          "value": "PORCUPINE CHINOOK SALMON",
+          "count": 3
+        },
+        {
+          "value": "YUKON CHINOOK SALMON",
+          "count": 9
+        }
+      ],
+      "placeholders": [
+        {
+          "value": "NA",
+          "count": 1
+        },
+        {
+          "value": "TBD",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "column": "StockMgmtUnit_Group",
+      "non_empty_count": 66,
+      "unique_values": 7,
+      "matched_values": 0,
+      "missing_values": 5,
+      "placeholder_values": 2,
+      "matched": [],
+      "missing": [
+        {
+          "value": "Fraser Chinook",
+          "count": 18
+        },
+        {
+          "value": "Fraser Chum",
+          "count": 1
+        },
+        {
+          "value": "Fraser Coho",
+          "count": 7
+        },
+        {
+          "value": "Fraser Sockeye",
+          "count": 1
+        },
+        {
+          "value": "Okanagan Chinook",
+          "count": 1
+        }
+      ],
+      "placeholders": [
+        {
+          "value": "NA",
+          "count": 37
+        },
+        {
+          "value": "TBD",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "column": "StockMgmtUnit_MatchRationale",
+      "non_empty_count": 66,
+      "unique_values": 3,
+      "matched_values": 0,
+      "missing_values": 2,
+      "placeholder_values": 1,
+      "matched": [],
+      "missing": [
+        {
+          "value": "Link to SMU_Group Metadata",
+          "count": 64
+        },
+        {
+          "value": "NEED RATIONALE",
+          "count": 1
+        }
+      ],
+      "placeholders": [
+        {
+          "value": "NA",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "column": "DFORegion",
+      "non_empty_count": 66,
+      "unique_values": 5,
+      "matched_values": 0,
+      "missing_values": 4,
+      "placeholder_values": 1,
+      "matched": [],
+      "missing": [
+        {
+          "value": "Fraser",
+          "count": 50
+        },
+        {
+          "value": "Okanagan",
+          "count": 2
+        },
+        {
+          "value": "SouthCoast",
+          "count": 1
+        },
+        {
+          "value": "Yukon",
+          "count": 12
+        }
+      ],
+      "placeholders": [
+        {
+          "value": "NA",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "column": "StatusGroup",
+      "non_empty_count": 66,
+      "unique_values": 11,
+      "matched_values": 0,
+      "missing_values": 10,
+      "placeholder_values": 1,
+      "matched": [],
+      "missing": [
+        {
+          "value": "CK-Columbia",
+          "count": 1
+        },
+        {
+          "value": "CK-Fraser",
+          "count": 17
+        },
+        {
+          "value": "CK-Inner_South_Coast",
+          "count": 1
+        },
+        {
+          "value": "CK-Yukon",
+          "count": 12
+        },
+        {
+          "value": "CM-Fraser_Lower",
+          "count": 1
+        },
+        {
+          "value": "CO-Fraser_Int",
+          "count": 5
+        },
+        {
+          "value": "CO-Fraser_Low",
+          "count": 2
+        },
+        {
+          "value": "PK_Fraser",
+          "count": 1
+        },
+        {
+          "value": "SK-Fraser",
+          "count": 24
+        },
+        {
+          "value": "SK-Okanagan",
+          "count": 1
+        }
+      ],
+      "placeholders": [
+        {
+          "value": "NA",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "column": "Spn_TrendVsAbd",
+      "non_empty_count": 66,
+      "unique_values": 3,
+      "matched_values": 0,
+      "missing_values": 2,
+      "placeholder_values": 1,
+      "matched": [],
+      "missing": [
+        {
+          "value": "Different",
+          "count": 19
+        },
+        {
+          "value": "Same",
+          "count": 30
+        }
+      ],
+      "placeholders": [
+        {
+          "value": "NA",
+          "count": 17
+        }
+      ]
+    },
+    {
+      "column": "Spn_EstSource_General",
+      "non_empty_count": 66,
+      "unique_values": 7,
+      "matched_values": 0,
+      "missing_values": 5,
+      "placeholder_values": 2,
+      "matched": [],
+      "missing": [
+        {
+          "value": "DFO Area StAD",
+          "count": 16
+        },
+        {
+          "value": "DFO Fraser-BCI Stock Assessment Sockeye Analytical staff",
+          "count": 20
+        },
+        {
+          "value": "DFO Science",
+          "count": 7
+        },
+        {
+          "value": "Okanagan Nation Alliance",
+          "count": 1
+        },
+        {
+          "value": "Pacific Salmon Commission",
+          "count": 1
+        }
+      ],
+      "placeholders": [
+        {
+          "value": "NA",
+          "count": 1
+        },
+        {
+          "value": "TBD",
+          "count": 20
+        }
+      ]
+    },
+    {
+      "column": "Spn_EstUnc_Type",
+      "non_empty_count": 37,
+      "unique_values": 5,
+      "matched_values": 0,
+      "missing_values": 2,
+      "placeholder_values": 3,
+      "matched": [],
+      "missing": [
+        {
+          "value": "Assumed CV",
+          "count": 2
+        },
+        {
+          "value": "Bayesian Posterior",
+          "count": 7
+        }
+      ],
+      "placeholders": [
+        {
+          "value": "FALSE",
+          "count": 3
+        },
+        {
+          "value": "NA",
+          "count": 1
+        },
+        {
+          "value": "None",
+          "count": 24
+        }
+      ]
+    },
+    {
+      "column": "Spn_Coverage_QualAbd",
+      "non_empty_count": 66,
+      "unique_values": 5,
+      "matched_values": 0,
+      "missing_values": 3,
+      "placeholder_values": 2,
+      "matched": [],
+      "missing": [
+        {
+          "value": "Any guesses?",
+          "count": 1
+        },
+        {
+          "value": "Estimates don't cover full CU; but expert consensus that total spawner abundance consistently well below 1500.",
+          "count": 1
+        },
+        {
+          "value": "Expert consensus that Nahatlatch accounts for almost all the spawners.",
+          "count": 1
+        }
+      ],
+      "placeholders": [
+        {
+          "value": "NA",
+          "count": 59
+        },
+        {
+          "value": "Unknown",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "column": "Site_Based",
+      "non_empty_count": 65,
+      "unique_values": 3,
+      "matched_values": 0,
+      "missing_values": 0,
+      "placeholder_values": 3,
+      "matched": [],
+      "missing": [],
+      "placeholders": [
+        {
+          "value": "FALSE",
+          "count": 11
+        },
+        {
+          "value": "TBD",
+          "count": 30
+        },
+        {
+          "value": "TRUE",
+          "count": 24
+        }
+      ]
+    },
+    {
+      "column": "Site_Records_Source_General",
+      "non_empty_count": 66,
+      "unique_values": 4,
+      "matched_values": 0,
+      "missing_values": 2,
+      "placeholder_values": 2,
+      "matched": [],
+      "missing": [
+        {
+          "value": "DFO",
+          "count": 22
+        },
+        {
+          "value": "Okanagan Nation Alliance",
+          "count": 1
+        }
+      ],
+      "placeholders": [
+        {
+          "value": "????",
+          "count": 2
+        },
+        {
+          "value": "NA",
+          "count": 41
+        }
+      ]
+    },
+    {
+      "column": "Site_Adj_General",
+      "non_empty_count": 36,
+      "unique_values": 11,
+      "matched_values": 0,
+      "missing_values": 6,
+      "placeholder_values": 5,
+      "matched": [],
+      "missing": [
+        {
+          "value": "Any low quality sites excluded????",
+          "count": 1
+        },
+        {
+          "value": "Site selection",
+          "count": 1
+        },
+        {
+          "value": "Site selection; infilling",
+          "count": 1
+        },
+        {
+          "value": "Sites that don't meet site-level data standards",
+          "count": 6
+        },
+        {
+          "value": "Sites that don't meet site-level data standards and sites with high enhancement classification were excluded.",
+          "count": 2
+        },
+        {
+          "value": "Sites that don't meet site-level data standards were excluded.",
+          "count": 2
+        }
+      ],
+      "placeholders": [
+        {
+          "value": "????",
+          "count": 2
+        },
+        {
+          "value": "FALSE",
+          "count": 4
+        },
+        {
+          "value": "NA",
+          "count": 12
+        },
+        {
+          "value": "None",
+          "count": 1
+        },
+        {
+          "value": "TRUE",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "column": "DataUpdate_ProcessType",
+      "non_empty_count": 66,
+      "unique_values": 5,
+      "matched_values": 0,
+      "missing_values": 4,
+      "placeholder_values": 1,
+      "matched": [],
+      "missing": [
+        {
+          "value": "Area staff generate annual update.",
+          "count": 11
+        },
+        {
+          "value": "Area staff generate update",
+          "count": 8
+        },
+        {
+          "value": "Compile survey results locally",
+          "count": 2
+        },
+        {
+          "value": "Rerun the Bayesian Model",
+          "count": 7
+        }
+      ],
+      "placeholders": [
+        {
+          "value": "NA",
+          "count": 38
+        }
+      ]
+    },
+    {
+      "column": "DataUpdate_DFOLead",
+      "non_empty_count": 66,
+      "unique_values": 6,
+      "matched_values": 0,
+      "missing_values": 4,
+      "placeholder_values": 2,
+      "matched": [],
+      "missing": [
+        {
+          "value": "Fraser Chinook Coho Analytical Lead",
+          "count": 10
+        },
+        {
+          "value": "Fraser Chum Lead",
+          "count": 1
+        },
+        {
+          "value": "Fraser-BCI Sockeye Analytical Program",
+          "count": 23
+        },
+        {
+          "value": "Yukon Chinook Bio",
+          "count": 2
+        }
+      ],
+      "placeholders": [
+        {
+          "value": "???",
+          "count": 7
+        },
+        {
+          "value": "NA",
+          "count": 23
+        }
+      ]
+    },
+    {
+      "column": "RelBM_UsedFor",
+      "non_empty_count": 66,
+      "unique_values": 7,
+      "matched_values": 0,
+      "missing_values": 6,
+      "placeholder_values": 1,
+      "matched": [],
+      "missing": [
+        {
+          "value": "None Available",
+          "count": 12
+        },
+        {
+          "value": "None Available??",
+          "count": 2
+        },
+        {
+          "value": "Not Assessed",
+          "count": 1
+        },
+        {
+          "value": "Not Used",
+          "count": 1
+        },
+        {
+          "value": "Reference Only",
+          "count": 10
+        },
+        {
+          "value": "Status",
+          "count": 37
+        }
+      ],
+      "placeholders": [
+        {
+          "value": "TBD",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "column": "Rel_LowerBM_BasedOn",
+      "non_empty_count": 66,
+      "unique_values": 9,
+      "matched_values": 0,
+      "missing_values": 6,
+      "placeholder_values": 3,
+      "matched": [],
+      "missing": [
+        {
+          "value": "Lake Productivity",
+          "count": 1
+        },
+        {
+          "value": "Spawner-Recruit",
+          "count": 29
+        },
+        {
+          "value": "Spawning Habitat Capacity",
+          "count": 1
+        },
+        {
+          "value": "Watershed Area",
+          "count": 9
+        },
+        {
+          "value": "Watershed Area; Spawner-Recruit",
+          "count": 2
+        },
+        {
+          "value": "Watershed Area?",
+          "count": 6
+        }
+      ],
+      "placeholders": [
+        {
+          "value": "None",
+          "count": 14
+        },
+        {
+          "value": "None?",
+          "count": 1
+        },
+        {
+          "value": "TBD",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "column": "Rel_LowerBM_Version",
+      "non_empty_count": 66,
+      "unique_values": 7,
+      "matched_values": 0,
+      "missing_values": 4,
+      "placeholder_values": 3,
+      "matched": [],
+      "missing": [
+        {
+          "value": "20pSmax",
+          "count": 10
+        },
+        {
+          "value": "Sgen",
+          "count": 32
+        },
+        {
+          "value": "Sgen for Dominant Cycle",
+          "count": 5
+        },
+        {
+          "value": "Sgen?",
+          "count": 1
+        }
+      ],
+      "placeholders": [
+        {
+          "value": "None",
+          "count": 14
+        },
+        {
+          "value": "None?",
+          "count": 1
+        },
+        {
+          "value": "TBD",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "column": "Rel_UpperBM_BasedOn",
+      "non_empty_count": 66,
+      "unique_values": 9,
+      "matched_values": 0,
+      "missing_values": 6,
+      "placeholder_values": 3,
+      "matched": [],
+      "missing": [
+        {
+          "value": "Lake Productivity",
+          "count": 1
+        },
+        {
+          "value": "Spawner-Recruit",
+          "count": 29
+        },
+        {
+          "value": "Spawning habitat capacity",
+          "count": 1
+        },
+        {
+          "value": "Watershed Area",
+          "count": 4
+        },
+        {
+          "value": "Watershed Area; Spawner-Recruit",
+          "count": 2
+        },
+        {
+          "value": "Watershed Area?",
+          "count": 6
+        }
+      ],
+      "placeholders": [
+        {
+          "value": "NA",
+          "count": 7
+        },
+        {
+          "value": "None",
+          "count": 12
+        },
+        {
+          "value": "None?",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "column": "Rel_UpperBM_Version",
+      "non_empty_count": 66,
+      "unique_values": 7,
+      "matched_values": 0,
+      "missing_values": 5,
+      "placeholder_values": 2,
+      "matched": [],
+      "missing": [
+        {
+          "value": "40pSmax",
+          "count": 8
+        },
+        {
+          "value": "80pSmsy",
+          "count": 16
+        },
+        {
+          "value": "80pSmsy for Dominant Cycle",
+          "count": 5
+        },
+        {
+          "value": "80pSmsy?",
+          "count": 1
+        },
+        {
+          "value": "85pSmsy",
+          "count": 13
+        }
+      ],
+      "placeholders": [
+        {
+          "value": "NA",
+          "count": 8
+        },
+        {
+          "value": "None",
+          "count": 15
+        }
+      ]
+    },
+    {
+      "column": "Rel_UpperBM_VersionRationale",
+      "non_empty_count": 66,
+      "unique_values": 6,
+      "matched_values": 0,
+      "missing_values": 4,
+      "placeholder_values": 2,
+      "matched": [],
+      "missing": [
+        {
+          "value": "Same as lower BM",
+          "count": 11
+        },
+        {
+          "value": "Same as lower benchmark",
+          "count": 25
+        },
+        {
+          "value": "Used 85p of Smsy for consistency with other Chinook status assessments.",
+          "count": 5
+        },
+        {
+          "value": "Used default benchmark when appropriate SR model fits available.",
+          "count": 6
+        }
+      ],
+      "placeholders": [
+        {
+          "value": "NA",
+          "count": 8
+        },
+        {
+          "value": "None",
+          "count": 11
+        }
+      ]
+    },
+    {
+      "column": "Rel_UpperBM_MethodNotes",
+      "non_empty_count": 66,
+      "unique_values": 4,
+      "matched_values": 0,
+      "missing_values": 3,
+      "placeholder_values": 1,
+      "matched": [],
+      "missing": [
+        {
+          "value": "No available data for estimating rel abd BMs",
+          "count": 4
+        },
+        {
+          "value": "Same as lower BM",
+          "count": 17
+        },
+        {
+          "value": "Same as lower benchmark",
+          "count": 38
+        }
+      ],
+      "placeholders": [
+        {
+          "value": "NA",
+          "count": 7
+        }
+      ]
+    },
+    {
+      "column": "ActiveInterventions_Flag",
+      "non_empty_count": 31,
+      "unique_values": 4,
+      "matched_values": 0,
+      "missing_values": 1,
+      "placeholder_values": 3,
+      "matched": [],
+      "missing": [
+        {
+          "value": "Spawning channel",
+          "count": 1
+        }
+      ],
+      "placeholders": [
+        {
+          "value": "FALSE",
+          "count": 20
+        },
+        {
+          "value": "FALSE??",
+          "count": 2
+        },
+        {
+          "value": "TRUE",
+          "count": 8
+        }
+      ]
+    },
+    {
+      "column": "ActiveInterventions_General",
+      "non_empty_count": 30,
+      "unique_values": 4,
+      "matched_values": 0,
+      "missing_values": 2,
+      "placeholder_values": 2,
+      "matched": [],
+      "missing": [
+        {
+          "value": "Release of hatchery-origin juveniles",
+          "count": 10
+        },
+        {
+          "value": "Spawning channel started operations in 1965",
+          "count": 1
+        }
+      ],
+      "placeholders": [
+        {
+          "value": "FALSE",
+          "count": 3
+        },
+        {
+          "value": "NA",
+          "count": 16
+        }
+      ]
+    },
+    {
+      "column": "ActiveInterventions_DataAdjustmentsFlag",
+      "non_empty_count": 26,
+      "unique_values": 3,
+      "matched_values": 0,
+      "missing_values": 0,
+      "placeholder_values": 3,
+      "matched": [],
+      "missing": [],
+      "placeholders": [
+        {
+          "value": "FALSE",
+          "count": 5
+        },
+        {
+          "value": "NA",
+          "count": 19
+        },
+        {
+          "value": "TRUE",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "column": "ActiveInterventions_DataAdjustmentsType",
+      "non_empty_count": 66,
+      "unique_values": 3,
+      "matched_values": 0,
+      "missing_values": 1,
+      "placeholder_values": 2,
+      "matched": [],
+      "missing": [
+        {
+          "value": "Exclude estimated share of hatchery-origin fish",
+          "count": 2
+        }
+      ],
+      "placeholders": [
+        {
+          "value": "NA",
+          "count": 62
+        },
+        {
+          "value": "None",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "column": "DataQualkIdx",
+      "non_empty_count": 66,
+      "unique_values": 3,
+      "matched_values": 0,
+      "missing_values": 2,
+      "placeholder_values": 1,
+      "matched": [],
+      "missing": [
+        {
+          "value": "Abs_Abd",
+          "count": 46
+        },
+        {
+          "value": "Rel_Idx",
+          "count": 16
+        }
+      ],
+      "placeholders": [
+        {
+          "value": "NA",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "column": "AbdMetric",
+      "non_empty_count": 66,
+      "unique_values": 3,
+      "matched_values": 0,
+      "missing_values": 0,
+      "placeholder_values": 3,
+      "matched": [],
+      "missing": [],
+      "placeholders": [
+        {
+          "value": "FALSE",
+          "count": 20
+        },
+        {
+          "value": "NA",
+          "count": 1
+        },
+        {
+          "value": "TRUE",
+          "count": 45
+        }
+      ]
+    },
+    {
+      "column": "AbsAbdMetric",
+      "non_empty_count": 66,
+      "unique_values": 3,
+      "matched_values": 0,
+      "missing_values": 0,
+      "placeholder_values": 3,
+      "matched": [],
+      "missing": [],
+      "placeholders": [
+        {
+          "value": "FALSE",
+          "count": 19
+        },
+        {
+          "value": "NA",
+          "count": 1
+        },
+        {
+          "value": "TRUE",
+          "count": 46
+        }
+      ]
+    },
+    {
+      "column": "ShortTrendMetric",
+      "non_empty_count": 66,
+      "unique_values": 3,
+      "matched_values": 0,
+      "missing_values": 0,
+      "placeholder_values": 3,
+      "matched": [],
+      "missing": [],
+      "placeholders": [
+        {
+          "value": "FALSE",
+          "count": 3
+        },
+        {
+          "value": "NA",
+          "count": 1
+        },
+        {
+          "value": "TRUE",
+          "count": 62
+        }
+      ]
+    },
+    {
+      "column": "LongTrendMetric",
+      "non_empty_count": 66,
+      "unique_values": 3,
+      "matched_values": 0,
+      "missing_values": 0,
+      "placeholder_values": 3,
+      "matched": [],
+      "missing": [],
+      "placeholders": [
+        {
+          "value": "FALSE",
+          "count": 3
+        },
+        {
+          "value": "NA",
+          "count": 1
+        },
+        {
+          "value": "TRUE",
+          "count": 62
+        }
+      ]
+    },
+    {
+      "column": "PercentileMetric",
+      "non_empty_count": 66,
+      "unique_values": 3,
+      "matched_values": 0,
+      "missing_values": 0,
+      "placeholder_values": 3,
+      "matched": [],
+      "missing": [],
+      "placeholders": [
+        {
+          "value": "FALSE",
+          "count": 37
+        },
+        {
+          "value": "NA",
+          "count": 1
+        },
+        {
+          "value": "TRUE",
+          "count": 28
+        }
+      ]
+    },
+    {
+      "column": "Cyclic_DUPLICATE",
+      "non_empty_count": 66,
+      "unique_values": 3,
+      "matched_values": 0,
+      "missing_values": 0,
+      "placeholder_values": 3,
+      "matched": [],
+      "missing": [],
+      "placeholders": [
+        {
+          "value": "FALSE",
+          "count": 60
+        },
+        {
+          "value": "NA",
+          "count": 1
+        },
+        {
+          "value": "TRUE",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "column": "Cyc_Dom",
+      "non_empty_count": 65,
+      "unique_values": 4,
+      "matched_values": 0,
+      "missing_values": 0,
+      "placeholder_values": 4,
+      "matched": [],
+      "missing": [],
+      "placeholders": [
+        {
+          "value": "1",
+          "count": 1
+        },
+        {
+          "value": "3",
+          "count": 3
+        },
+        {
+          "value": "4",
+          "count": 2
+        },
+        {
+          "value": "NA",
+          "count": 59
+        }
+      ]
+    },
+    {
+      "column": "Cyc_Dom_Year",
+      "non_empty_count": 65,
+      "unique_values": 3,
+      "matched_values": 0,
+      "missing_values": 0,
+      "placeholder_values": 3,
+      "matched": [],
+      "missing": [],
+      "placeholders": [
+        {
+          "value": "1950",
+          "count": 2
+        },
+        {
+          "value": "1953",
+          "count": 3
+        },
+        {
+          "value": "NA",
+          "count": 60
+        }
+      ]
+    },
+    {
+      "column": "TrendLog",
+      "non_empty_count": 66,
+      "unique_values": 2,
+      "matched_values": 0,
+      "missing_values": 0,
+      "placeholder_values": 2,
+      "matched": [],
+      "missing": [],
+      "placeholders": [
+        {
+          "value": "NA",
+          "count": 1
+        },
+        {
+          "value": "TRUE",
+          "count": 65
+        }
+      ]
+    },
+    {
+      "column": "TrendSmooth",
+      "non_empty_count": 66,
+      "unique_values": 3,
+      "matched_values": 0,
+      "missing_values": 0,
+      "placeholder_values": 3,
+      "matched": [],
+      "missing": [],
+      "placeholders": [
+        {
+          "value": "FALSE",
+          "count": 20
+        },
+        {
+          "value": "NA",
+          "count": 1
+        },
+        {
+          "value": "TRUE",
+          "count": 45
+        }
+      ]
+    },
+    {
+      "column": "AvgType",
+      "non_empty_count": 66,
+      "unique_values": 2,
+      "matched_values": 0,
+      "missing_values": 1,
+      "placeholder_values": 1,
+      "matched": [],
+      "missing": [
+        {
+          "value": "geomean",
+          "count": 65
+        }
+      ],
+      "placeholders": [
+        {
+          "value": "NA",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "column": "AvgSmooth",
+      "non_empty_count": 66,
+      "unique_values": 3,
+      "matched_values": 0,
+      "missing_values": 0,
+      "placeholder_values": 3,
+      "matched": [],
+      "missing": [],
+      "placeholders": [
+        {
+          "value": "FALSE",
+          "count": 27
+        },
+        {
+          "value": "NA",
+          "count": 1
+        },
+        {
+          "value": "TRUE",
+          "count": 38
+        }
+      ]
+    },
+    {
+      "column": "AvgRecentExcl",
+      "non_empty_count": 66,
+      "unique_values": 2,
+      "matched_values": 0,
+      "missing_values": 0,
+      "placeholder_values": 2,
+      "matched": [],
+      "missing": [],
+      "placeholders": [
+        {
+          "value": "FALSE",
+          "count": 65
+        },
+        {
+          "value": "NA",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "column": "RelAbd_AvgData",
+      "non_empty_count": 66,
+      "unique_values": 2,
+      "matched_values": 0,
+      "missing_values": 1,
+      "placeholder_values": 1,
+      "matched": [],
+      "missing": [
+        {
+          "value": "regular",
+          "count": 65
+        }
+      ],
+      "placeholders": [
+        {
+          "value": "NA",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "column": "StatusProcess_AssessmentStage",
+      "non_empty_count": 66,
+      "unique_values": 3,
+      "matched_values": 0,
+      "missing_values": 2,
+      "placeholder_values": 1,
+      "matched": [],
+      "missing": [
+        {
+          "value": "??? REMOVED???",
+          "count": 1
+        },
+        {
+          "value": "Complete",
+          "count": 64
+        }
+      ],
+      "placeholders": [
+        {
+          "value": "???",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "column": "StatusProcess_LatestStatusYear",
+      "non_empty_count": 66,
+      "unique_values": 2,
+      "matched_values": 0,
+      "missing_values": 0,
+      "placeholder_values": 2,
+      "matched": [],
+      "missing": [],
+      "placeholders": [
+        {
+          "value": "2024",
+          "count": 12
+        },
+        {
+          "value": "NA",
+          "count": 54
+        }
+      ]
+    },
+    {
+      "column": "StatusProcess_AssessmentContact",
+      "non_empty_count": 66,
+      "unique_values": 5,
+      "matched_values": 0,
+      "missing_values": 4,
+      "placeholder_values": 1,
+      "matched": [],
+      "missing": [
+        {
+          "value": "Athena Ogden (DFO)",
+          "count": 1
+        },
+        {
+          "value": "Dylan Glaser (DFO)",
+          "count": 1
+        },
+        {
+          "value": "Fraser-BCI Sockeye Analytical Program Lead",
+          "count": 21
+        },
+        {
+          "value": "Yukon River Senior Biologist (Adam O'Dell)",
+          "count": 12
+        }
+      ],
+      "placeholders": [
+        {
+          "value": "NA",
+          "count": 31
+        }
+      ]
+    }
+  ]
+}

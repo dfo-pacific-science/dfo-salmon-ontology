@@ -1790,3 +1790,228 @@ gcdfo:RapidStatusScoreMetric a owl:Class ;
   iao:0000119 "Holt, C.A., Cass, A., Holtby, B., and Riddell, B. 2009. Indicators of Status and Benchmarks for Conservation Units in Canada's Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2009/058."@en ;
   gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+#################################################################
+# SPSR general/legacy term batch for dictionary closure (Issue #33)
+#################################################################
+
+gcdfo:ReturnYear a owl:Class ;
+  rdfs:label "Return year"@en ;
+  rdfs:subClassOf gcdfo:YearBasis ;
+  iao:0000115 "The calendar year in which adult salmon return to freshwater systems."@en ;
+  dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme, gcdfo:FisheriesManagementTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:UnrankedIndexQuality a skos:Concept ;
+  skos:prefLabel "Unranked index quality"@en ;
+  skos:definition "A dataset quality category indicating that no formal index quality rank was assigned."@en ;
+  skos:inScheme :EstimateTypeScheme ;
+  skos:broader :EstimateType ;
+  dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:MainstemMortalityRate a owl:Class ;
+  rdfs:label "Mainstem mortality rate"@en ;
+  iao:0000115 "The proportion of fish that die during the freshwater mainstem phase."@en ;
+  rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
+  dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+  gcdfo:theme gcdfo:StockAssessmentTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:OceanMortalityRate a owl:Class ;
+  rdfs:label "Ocean mortality rate"@en ;
+  iao:0000115 "The proportion of fish that die during the marine phase."@en ;
+  rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
+  dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+  gcdfo:theme gcdfo:StockAssessmentTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:TerminalMortalityRate a owl:Class ;
+  rdfs:label "Terminal mortality rate"@en ;
+  iao:0000115 "The proportion of fish that die during terminal in-river phases."@en ;
+  rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
+  dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+  gcdfo:theme gcdfo:StockAssessmentTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:CWTMarineSurvivalRate a owl:Class ;
+  rdfs:label "CWT marine survival rate"@en ;
+  skos:altLabel "Coded-wire-tag marine survival rate"@en ;
+  iao:0000115 "The estimated marine survival proportion for coded-wire-tagged fish."@en ;
+  rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
+  dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:InRiverMortalityRate a owl:Class ;
+  rdfs:label "In-river mortality rate"@en ;
+  iao:0000115 "The proportion of fish that die in freshwater in-river environments."@en ;
+  rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
+  dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+  gcdfo:theme gcdfo:StockAssessmentTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:TotalMortalityRate a owl:Class ;
+  rdfs:label "Total mortality rate"@en ;
+  iao:0000115 "The overall proportion of fish that die across all phases in the period of interest."@en ;
+  rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
+  dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+  gcdfo:theme gcdfo:StockAssessmentTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:ProportionHatcheryOriginSpawners a owl:Class ;
+  rdfs:label "Proportion of hatchery-origin spawners"@en ;
+  skos:altLabel "pHOS"@en ;
+  iao:0000115 "The proportion of spawners in a population-year that are hatchery-origin."@en ;
+  rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
+  dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:SalmonEnhancementHatcheriesTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:MarineSurvivalIndex a owl:Class ;
+  rdfs:label "Marine survival index"@en ;
+  iao:0000115 "An index representing marine survival conditions or relative marine survival outcomes."@en ;
+  rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
+  dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:HabitatEcosystemClimateTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:SpawnerAbundance a owl:Class ;
+  rdfs:label "Spawner abundance"@en ;
+  iao:0000115 "A metric representing abundance of spawning fish."@en ;
+  rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
+  dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:RelativeSpawnerAbundance a owl:Class ;
+  rdfs:label "Relative spawner abundance"@en ;
+  iao:0000115 "A relative-index form of spawner abundance used for within-series comparison."@en ;
+  rdfs:subClassOf gcdfo:SpawnerAbundance ;
+  dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:RelativeWildSpawnerAbundance a owl:Class ;
+  rdfs:label "Relative wild spawner abundance"@en ;
+  iao:0000115 "Relative spawner abundance restricted to wild-origin spawners."@en ;
+  rdfs:subClassOf gcdfo:RelativeSpawnerAbundance ;
+  dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:RelativeHatcherySpawnerAbundance a owl:Class ;
+  rdfs:label "Relative hatchery spawner abundance"@en ;
+  iao:0000115 "Relative spawner abundance restricted to hatchery-origin spawners."@en ;
+  rdfs:subClassOf gcdfo:RelativeSpawnerAbundance ;
+  dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:SalmonEnhancementHatcheriesTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:SpawnerAbundanceChange a owl:Class ;
+  rdfs:label "Spawner abundance change"@en ;
+  iao:0000115 "A metric describing temporal change in spawner abundance."@en ;
+  rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
+  dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:RelativeSpawnerAbundanceChange a owl:Class ;
+  rdfs:label "Relative spawner abundance change"@en ;
+  iao:0000115 "Temporal change in relative spawner abundance metrics."@en ;
+  rdfs:subClassOf gcdfo:SpawnerAbundanceChange ;
+  dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:RelativeWildSpawnerAbundanceChange a owl:Class ;
+  rdfs:label "Relative wild spawner abundance change"@en ;
+  iao:0000115 "Temporal change in relative wild-origin spawner abundance."@en ;
+  rdfs:subClassOf gcdfo:RelativeSpawnerAbundanceChange ;
+  dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:RelativeHatcherySpawnerAbundanceChange a owl:Class ;
+  rdfs:label "Relative hatchery spawner abundance change"@en ;
+  iao:0000115 "Temporal change in relative hatchery-origin spawner abundance."@en ;
+  rdfs:subClassOf gcdfo:RelativeSpawnerAbundanceChange ;
+  dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:SalmonEnhancementHatcheriesTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:SpawnerAbundanceTrend a owl:Class ;
+  rdfs:label "Spawner abundance trend"@en ;
+  iao:0000115 "A trend metric derived from spawner abundance over time."@en ;
+  rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
+  dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:RelativeSpawnerAbundanceTrend a owl:Class ;
+  rdfs:label "Relative spawner abundance trend"@en ;
+  iao:0000115 "A trend metric for relative spawner abundance over time."@en ;
+  rdfs:subClassOf gcdfo:SpawnerAbundanceTrend ;
+  dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:RelativeWildSpawnerAbundanceTrend a owl:Class ;
+  rdfs:label "Relative wild spawner abundance trend"@en ;
+  iao:0000115 "A trend metric for relative wild-origin spawner abundance over time."@en ;
+  rdfs:subClassOf gcdfo:RelativeSpawnerAbundanceTrend ;
+  dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:RelativeHatcherySpawnerAbundanceTrend a owl:Class ;
+  rdfs:label "Relative hatchery spawner abundance trend"@en ;
+  iao:0000115 "A trend metric for relative hatchery-origin spawner abundance over time."@en ;
+  rdfs:subClassOf gcdfo:RelativeSpawnerAbundanceTrend ;
+  dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:SalmonEnhancementHatcheriesTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:SpawnerAbundancePercentile a owl:Class ;
+  rdfs:label "Spawner abundance percentile"@en ;
+  iao:0000115 "The percentile rank of a spawner abundance value against a historical reference distribution."@en ;
+  rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
+  dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:RelativeSpawnerAbundancePercentile a owl:Class ;
+  rdfs:label "Relative spawner abundance percentile"@en ;
+  iao:0000115 "Percentile rank of relative spawner abundance against a historical reference distribution."@en ;
+  rdfs:subClassOf gcdfo:SpawnerAbundancePercentile ;
+  dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:RelativeWildSpawnerAbundancePercentile a owl:Class ;
+  rdfs:label "Relative wild spawner abundance percentile"@en ;
+  iao:0000115 "Percentile rank of relative wild-origin spawner abundance against a historical reference distribution."@en ;
+  rdfs:subClassOf gcdfo:RelativeSpawnerAbundancePercentile ;
+  dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:RelativeHatcherySpawnerAbundancePercentile a owl:Class ;
+  rdfs:label "Relative hatchery spawner abundance percentile"@en ;
+  iao:0000115 "Percentile rank of relative hatchery-origin spawner abundance against a historical reference distribution."@en ;
+  rdfs:subClassOf gcdfo:RelativeSpawnerAbundancePercentile ;
+  dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:SalmonEnhancementHatcheriesTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:ExpansionFactor a skos:Concept ;
+  skos:prefLabel "Expansion factor"@en ;
+  skos:definition "A multiplicative factor used to expand observed values to estimated totals."@en ;
+  skos:inScheme :EstimateMethodScheme ;
+  skos:broader :ExpansionMathematicalOperations ;
+  dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository> ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
