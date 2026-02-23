@@ -7,9 +7,7 @@ ROBOT_URL := https://github.com/ontodev/robot/releases/download/v$(ROBOT_VERSION
 WIDOCO_VERSION := 1.4.25
 WIDOCO_JAR := tools/widoco.jar
 WIDOCO_URL := https://github.com/dgarijo/Widoco/releases/download/v$(WIDOCO_VERSION)/widoco-$(WIDOCO_VERSION)-jar-with-dependencies_JDK-17.jar
-DSU_ONTOLOGY_DIR ?= ../data-stewardship-unit/data/ontology
-
-.PHONY: help quality-check reason convert clean install-robot install-widoco publish-clean dsu-sync-term-tables dsu-sync-and-stage theme-coverage test docs-refresh docs-widoco docs-serializations docs-skos release-snapshot
+.PHONY: help quality-check reason convert clean install-robot install-widoco publish-clean theme-coverage test docs-refresh docs-widoco docs-serializations docs-skos release-snapshot
 
 # Default target
 help:
@@ -30,8 +28,6 @@ help:
 	@echo "  install-robot   Download ROBOT JAR file"
 	@echo "  install-widoco  Download WIDOCO JAR file"
 	@echo "  clean          Remove generated files"
-	@echo "  dsu-sync-term-tables Sync term tables into DSU submodule (DSU_ONTOLOGY_DIR)"
-	@echo "  dsu-sync-and-stage  Sync term tables and stage DSU submodule (if clean)"
 	@echo ""
 	@echo "Documentation:"
 	@echo "  docs           Open documentation in browser"
@@ -141,29 +137,6 @@ clean:
 	@rm -rf release/artifacts/*.html
 	@rm -rf release/artifacts/*.log
 	@echo "✅ Cleanup completed."
-
-# Sync term tables into DSU submodule (local)
-dsu-sync-term-tables:
-	@./scripts/sync_term_tables_to_dsu.sh
-
-# Sync and stage DSU submodule pointer when repo is otherwise clean
-dsu-sync-and-stage: dsu-sync-term-tables
-	@if [ ! -d "$(DSU_ONTOLOGY_DIR)" ]; then \
-		echo "❌ DSU ontology dir not found: $(DSU_ONTOLOGY_DIR). Set DSU_ONTOLOGY_DIR or adjust path."; \
-		exit 1; \
-	fi
-	@DSU_ROOT=$$(cd "$(DSU_ONTOLOGY_DIR)/../.." && pwd); \
-	if [ ! -d "$$DSU_ROOT/.git" ]; then \
-		echo "❌ DSU repo not found at $$DSU_ROOT"; exit 1; \
-	fi; \
-	OTHER=$$(cd "$$DSU_ROOT" && git status --porcelain | grep -v '^?? data/ontology' | grep -v '^ M data/ontology' || true); \
-	if [ -n "$$OTHER" ]; then \
-		echo "ℹ️ DSU repo has other changes; not staging data/ontology."; \
-		echo "$$OTHER"; \
-	else \
-		cd "$$DSU_ROOT" && git add data/ontology && git status --short; \
-		echo "✅ Staged data/ontology in DSU repo"; \
-	fi
 
 # Documentation
 docs:

@@ -75,6 +75,9 @@ analysis/
 release/artifacts/*
 !release/artifacts/.gitkeep
 
+# Release temporary build outputs
+release/tmp/*
+
 # Test outputs
 test-results/
 coverage/

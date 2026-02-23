@@ -6,7 +6,7 @@ Thank you for your interest in contributing to the GC DFO Salmon Ontology! This 
 
 ### 1. Check whether the term already exists
 
-Before submitting suggestions for new ontology terms, check whether the term already exists, either as a primary term or a synonym. To do this, search the ontology within the [FADS Open Science Documentation Hub](https://dfo-pacific-science.github.io/data-stewardship-unit/reference_info/data_standards/controlled-vocabulary-thesauri.html) or browse the [ontology file](https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/main/ontology/dfo-salmon.ttl) directly. If you feel a synonym is missing, or the textual definition of a term needs clarification, please submit a ticket for that.
+Before submitting suggestions for new ontology terms, check whether the term already exists, either as a primary term or a synonym. To do this, search the ontology within the [published WIDOCO site](https://dfo-pacific-science.github.io/dfo-salmon-ontology/) or browse the [ontology file](https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/main/ontology/dfo-salmon.ttl) directly. If you feel a synonym is missing, or the textual definition of a term needs clarification, please submit a ticket for that.
 
 ### 2. Gather as much necessary information as possible
 
@@ -36,7 +36,7 @@ Before submitting suggestions for new ontology terms, check whether the term alr
 
 - **Issues**: Use GitHub issues for questions and discussions
 - **Documentation**: Check existing docs in the `docs/` directory
-- **Community**: Engage with the DFO data stewardship community! Our Unit can be found at the [FADS Open Science Documentation Hub](https://dfo-pacific-science.github.io/data-stewardship-unit/).
+- **Community**: Engage with the DFO data stewardship community through issues/discussions in this repository and the published ontology docs at <https://dfo-pacific-science.github.io/dfo-salmon-ontology/>.
 
 ## Code of Conduct
 
