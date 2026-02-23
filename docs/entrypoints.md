@@ -10,7 +10,7 @@ Purpose: keep one short, reliable map of what starts the system, what is wired i
 
 ## Build
 
-- Build command(s): `devenv shell python scripts/extract-term-tables.py` (generates local term-table artifacts under `release/artifacts/term-tables` plus SPARQL in `scripts/sparql`; these artifacts are intentionally not source-controlled)
+- Build command(s): `devenv shell python scripts/extract-term-tables.py` (generates local term-table artifacts under `release/artifacts/term-tables` plus generated term-table SPARQL files in `scripts/sparql`; these generated artifacts are intentionally not source-controlled)
 - Docs refresh (WIDOCO + serializations + SKOS section): `make docs-refresh` (regenerates the base HTML docs via WIDOCO with `-ignoreIndividuals` so SKOS concepts aren’t duplicated as “Named Individuals” and `-webVowl` so an ontology diagram is published under `docs/webvowl/`, then `docs/gcdfo.{ttl,owl}` via ROBOT and `docs/gcdfo.jsonld` via `scripts/convert_ttl_to_jsonld.py` from `ontology/dfo-salmon.ttl`, then refreshes the SKOS blocks in `docs/index.html` and enforces OWL-before-SKOS display ordering)
 - WIDOCO regeneration only: `make docs-widoco` (runs WIDOCO and copies output into `docs/`)
 - Release snapshot (immutable, GitHub Pages): `make release-snapshot VERSION=X.Y.Z` (creates `docs/releases/VERSION/` with `index.html` + `gcdfo.{ttl,owl,jsonld}`)
@@ -25,7 +25,7 @@ Purpose: keep one short, reliable map of what starts the system, what is wired i
 ## App Entry Points / Wiring
 
 - Main entry file(s): `ontology/dfo-salmon.ttl` (canonical ontology)
-- Routes / handlers / commands: `scripts/extract-term-tables.py` (uses `scripts/config/themes.yml` and writes generated outputs to `scripts/sparql/*.rq` and `release/artifacts/term-tables/*.csv`)
+- Routes / handlers / commands: `scripts/extract-term-tables.py` (uses `scripts/config/themes.yml` and writes local generated outputs to `scripts/sparql/*-terms.rq` and `release/artifacts/term-tables/*.csv`)
 - Background jobs (if any): none
 
 ## UI Styling
@@ -51,4 +51,4 @@ Purpose: keep one short, reliable map of what starts the system, what is wired i
 ## Canonical Implementations (Per Feature)
 
 - Ontology schema → `ontology/dfo-salmon.ttl`
-- Term tables/themes → `scripts/config/themes.yml`, generated `scripts/sparql/*.rq`, local `release/artifacts/term-tables/*.csv` outputs
+- Term tables/themes → `scripts/config/themes.yml`; generated local outputs: `scripts/sparql/*-terms.rq` and `release/artifacts/term-tables/*.csv`

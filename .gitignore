@@ -78,6 +78,9 @@ release/artifacts/*
 # Release temporary build outputs
 release/tmp/*
 
+# Generated SPARQL query outputs from term-table extraction
+scripts/sparql/*-terms.rq
+
 # Test outputs
 test-results/
 coverage/
