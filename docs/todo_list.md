@@ -52,7 +52,7 @@
 - [x] Expand `scripts/config/themes.yml` to all 9 themes aligned to draft ontology
 - [x] Add Makefile target to chain publish slice + extraction (`make publish-and-extract`)
 - [x] Add Makefile target to clean publish temp artifacts (`make publish-clean`)
-- [x] Add Makefile target to sync term tables into DSU submodule (`make dsu-sync-term-tables`; set `DSU_ONTOLOGY_DIR` as needed)
+- [x] (Deprecated/removed) DSU sync target path (`make dsu-sync-term-tables`) was retired in favor of the WIDOCO-only publication flow.
 
 ### Cross-Repo Automation
 
