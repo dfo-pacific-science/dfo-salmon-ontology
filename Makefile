@@ -7,7 +7,7 @@ ROBOT_URL := https://github.com/ontodev/robot/releases/download/v$(ROBOT_VERSION
 WIDOCO_VERSION := 1.4.25
 WIDOCO_JAR := tools/widoco.jar
 WIDOCO_URL := https://github.com/dgarijo/Widoco/releases/download/v$(WIDOCO_VERSION)/widoco-$(WIDOCO_VERSION)-jar-with-dependencies_JDK-17.jar
-.PHONY: help quality-check reason convert clean install-robot install-widoco publish-clean theme-coverage test docs-refresh docs-widoco docs-serializations docs-skos release-snapshot
+.PHONY: help quality-check reason convert clean install-robot install-widoco theme-coverage test docs-refresh docs-widoco docs-serializations docs-skos release-snapshot
 
 # Default target
 help:
