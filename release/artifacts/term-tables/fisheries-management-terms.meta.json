@@ -2,10 +2,10 @@
   "theme": "fisheries_management",
   "label": "Fisheries Management",
   "theme_iri": "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme",
-  "row_count": 12,
-  "source_version": "243fa9b201bb4ae77778d85ccbb43e6ab4b18e73",
-  "source_timestamp": "2026-02-17T19:15:17.399367+00:00",
+  "row_count": 10,
+  "source_version": "16c2e13d2f5bcf6bb473fd168e2bca74daf206e0",
+  "source_timestamp": "2025-12-16T22:14:38.625018+00:00",
   "query_checksum": "ce2c2e10b501908af81e4d12cee67ec902e584f02b3527fb5bf24298fbdce759",
-  "generated_at": "2026-02-17T19:15:18.444280+00:00",
-  "source_file": "/Users/alan/code/dfo-salmon-ontology/ontology/dfo-salmon.ttl"
+  "generated_at": "2025-12-16T22:14:38.831692+00:00",
+  "source_file": "/Users/brettjohnson/code/dfo-salmon-ontology/ontology/dfo-salmon.ttl"
 }

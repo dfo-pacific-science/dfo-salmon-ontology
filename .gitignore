@@ -68,11 +68,12 @@ result*
 *.reasoned.owl
 *.reasoned.json
 
+# Analysis outputs
+analysis/
+
 # Release artifacts (keep structure but ignore contents)
 release/artifacts/*
 !release/artifacts/.gitkeep
-!release/artifacts/term-tables/
-!release/artifacts/term-tables/**
 
 # Test outputs
 test-results/

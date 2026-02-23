@@ -2,10 +2,10 @@
   "theme": "policy_governance",
   "label": "Policy, Governance, and Organizational Structure",
   "theme_iri": "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme",
-  "row_count": 23,
-  "source_version": "243fa9b201bb4ae77778d85ccbb43e6ab4b18e73",
-  "source_timestamp": "2026-02-17T19:15:17.399367+00:00",
+  "row_count": 16,
+  "source_version": "16c2e13d2f5bcf6bb473fd168e2bca74daf206e0",
+  "source_timestamp": "2025-12-16T22:14:38.625018+00:00",
   "query_checksum": "73d38ca74b78839598551528e5ac3927cbf6ac7a0fcaae4c8bb6dcf226bd45e7",
-  "generated_at": "2026-02-17T19:15:19.044924+00:00",
-  "source_file": "/Users/alan/code/dfo-salmon-ontology/ontology/dfo-salmon.ttl"
+  "generated_at": "2025-12-16T22:14:39.011656+00:00",
+  "source_file": "/Users/brettjohnson/code/dfo-salmon-ontology/ontology/dfo-salmon.ttl"
 }
