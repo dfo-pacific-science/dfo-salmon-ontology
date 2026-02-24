@@ -387,6 +387,37 @@
     
 
 
+    <!-- https://w3id.org/gcdfo/salmon#hasTargetOrLimitExploitationRate -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#hasTargetOrLimitExploitationRate">
+        <owl:inverseOf rdf:resource="https://w3id.org/gcdfo/salmon#isTargetOrLimitForObservedExploitationRate"/>
+        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#ObservedExploitationRate"/>
+        <rdfs:range rdf:resource="https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate"/>
+        <obo:IAO_0000115 xml:lang="en">Relates an observed exploitation-rate estimate to the target, threshold, or limit exploitation-rate value used to evaluate it.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">has target or limit exploitation rate</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#isTargetOrLimitForObservedExploitationRate -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#isTargetOrLimitForObservedExploitationRate">
+        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate"/>
+        <rdfs:range rdf:resource="https://w3id.org/gcdfo/salmon#ObservedExploitationRate"/>
+        <obo:IAO_0000115 xml:lang="en">Relates a target, threshold, or limit exploitation-rate value to the observed exploitation-rate estimate it evaluates.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">is target or limit for observed exploitation rate</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/gcdfo/salmon#populationOf -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#populationOf">

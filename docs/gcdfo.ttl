@@ -272,6 +272,31 @@ gcdfo:hasPopulation rdf:type owl:ObjectProperty ;
                                 gcdfo:WildSalmonPolicyTheme .
 
 
+###  https://w3id.org/gcdfo/salmon#hasTargetOrLimitExploitationRate
+gcdfo:hasTargetOrLimitExploitationRate rdf:type owl:ObjectProperty ;
+                                       owl:inverseOf gcdfo:isTargetOrLimitForObservedExploitationRate ;
+                                       rdfs:domain gcdfo:ObservedExploitationRate ;
+                                       rdfs:range gcdfo:TargetOrLimitExploitationRate ;
+                                       <http://purl.obolibrary.org/obo/IAO_0000115> "Relates an observed exploitation-rate estimate to the target, threshold, or limit exploitation-rate value used to evaluate it."@en ;
+                                       rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                       rdfs:label "has target or limit exploitation rate"@en ;
+                                       gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                   gcdfo:PolicyGovernanceTheme ,
+                                                   gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#isTargetOrLimitForObservedExploitationRate
+gcdfo:isTargetOrLimitForObservedExploitationRate rdf:type owl:ObjectProperty ;
+                                                 rdfs:domain gcdfo:TargetOrLimitExploitationRate ;
+                                                 rdfs:range gcdfo:ObservedExploitationRate ;
+                                                 <http://purl.obolibrary.org/obo/IAO_0000115> "Relates a target, threshold, or limit exploitation-rate value to the observed exploitation-rate estimate it evaluates."@en ;
+                                                 rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                                 rdfs:label "is target or limit for observed exploitation rate"@en ;
+                                                 gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                             gcdfo:PolicyGovernanceTheme ,
+                                                             gcdfo:StockAssessmentTheme .
+
+
 ###  https://w3id.org/gcdfo/salmon#populationOf
 gcdfo:populationOf rdf:type owl:ObjectProperty ;
                    rdfs:domain gcdfo:Population ;

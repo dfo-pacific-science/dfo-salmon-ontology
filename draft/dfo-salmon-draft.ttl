@@ -940,6 +940,21 @@ gcdfo:hasYearBasis a owl:ObjectProperty ;
   rdfs:range [ owl:unionOf ( gcdfo:BroodYear gcdfo:CatchYear ) ] ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
+gcdfo:hasTargetOrLimitExploitationRate a owl:ObjectProperty ;
+  rdfs:label "has target or limit exploitation rate"@en ;
+  iao:0000115 "Relates an observed exploitation-rate estimate to the target, threshold, or limit exploitation-rate value used to evaluate it."@en ; # definition
+  rdfs:domain gcdfo:ObservedExploitationRate ;
+  rdfs:range gcdfo:TargetOrLimitExploitationRate ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:isTargetOrLimitForObservedExploitationRate a owl:ObjectProperty ;
+  rdfs:label "is target or limit for observed exploitation rate"@en ;
+  iao:0000115 "Relates a target, threshold, or limit exploitation-rate value to the observed exploitation-rate estimate it evaluates."@en ; # definition
+  owl:inverseOf gcdfo:hasTargetOrLimitExploitationRate ;
+  rdfs:domain gcdfo:TargetOrLimitExploitationRate ;
+  rdfs:range gcdfo:ObservedExploitationRate ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
 gcdfo:Catch a owl:Class ;
   rdfs:label "Catch"@en ;
   iao:0000115 "The number of adult fishes that are caught in commercial, recreational, and First Nations fisheries."@en ; # definition

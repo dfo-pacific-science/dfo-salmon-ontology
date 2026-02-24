@@ -320,7 +320,15 @@ This ontology has the following classes and properties.</span>
       <a href="#hasPopulation" title="https://w3id.org/gcdfo/salmon#hasPopulation">has population</a>
    </li>
    <li>
+      <a href="#hasTargetOrLimitExploitationRate"
+         title="https://w3id.org/gcdfo/salmon#hasTargetOrLimitExploitationRate">has target or limit exploitation rate</a>
+   </li>
+   <li>
       <a href="#http://www.w3.org/ns/dqv#inDimension" title="http://www.w3.org/ns/dqv#inDimension">in dimension</a>
+   </li>
+   <li>
+      <a href="#isTargetOrLimitForObservedExploitationRate"
+         title="https://w3id.org/gcdfo/salmon#isTargetOrLimitForObservedExploitationRate">is target or limit for observed exploitation rate</a>
    </li>
    <li>
       <a href="#populationOf" title="https://w3id.org/gcdfo/salmon#populationOf">population of</a>
@@ -1317,6 +1325,18 @@ This section provides details for each class and property defined by GC DFO Salm
    <dd>
     <a href="#TotalExploitationRate" title="https://w3id.org/gcdfo/salmon#TotalExploitationRate">Total exploitation rate</a> <sup class="type-c" title="class">c</sup>
    </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#hasTargetOrLimitExploitationRate" title="https://w3id.org/gcdfo/salmon#hasTargetOrLimitExploitationRate">has target or limit exploitation rate</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#isTargetOrLimitForObservedExploitationRate" title="https://w3id.org/gcdfo/salmon#isTargetOrLimitForObservedExploitationRate">is target or limit for observed exploitation rate</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
   </dl>
  </div>
  <div class="entity" id="ObservedRateOrAbundance">
@@ -1896,6 +1916,18 @@ This section provides details for each class and property defined by GC DFO Salm
    <dd>
     <a href="#ExploitationRate" title="https://w3id.org/gcdfo/salmon#ExploitationRate">Exploitation rate</a> <sup class="type-c" title="class">c</sup>, <a href="#TargetOrLimitRateOrAbundance" title="https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance">Target or limit rate or abundance</a> <sup class="type-c" title="class">c</sup>
    </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#isTargetOrLimitForObservedExploitationRate" title="https://w3id.org/gcdfo/salmon#isTargetOrLimitForObservedExploitationRate">is target or limit for observed exploitation rate</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasTargetOrLimitExploitationRate" title="https://w3id.org/gcdfo/salmon#hasTargetOrLimitExploitationRate">has target or limit exploitation rate</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
   </dl>
  </div>
  <div class="entity" id="TargetOrLimitRateOrAbundance">
@@ -2126,7 +2158,9 @@ This section provides details for each class and property defined by GC DFO Salm
   <li><a href="#hasConservationUnit" title="https://w3id.org/gcdfo/salmon#hasConservationUnit">has Conservation Unit</a></li>
   <li><a href="#hasDeme" title="https://w3id.org/gcdfo/salmon#hasDeme">has deme</a></li>
   <li><a href="#hasPopulation" title="https://w3id.org/gcdfo/salmon#hasPopulation">has population</a></li>
+  <li><a href="#hasTargetOrLimitExploitationRate" title="https://w3id.org/gcdfo/salmon#hasTargetOrLimitExploitationRate">has target or limit exploitation rate</a></li>
   <li><a href="#http://www.w3.org/ns/dqv#inDimension" title="http://www.w3.org/ns/dqv#inDimension">in dimension</a></li>
+  <li><a href="#isTargetOrLimitForObservedExploitationRate" title="https://w3id.org/gcdfo/salmon#isTargetOrLimitForObservedExploitationRate">is target or limit for observed exploitation rate</a></li>
   <li><a href="#populationOf" title="https://w3id.org/gcdfo/salmon#populationOf">population of</a></li>
  </ul>
  <div class="entity" id="conservationUnitOf">
@@ -2314,6 +2348,43 @@ This section provides details for each class and property defined by GC DFO Salm
    </dl>
   </div>
  </div>
+ <div class="entity" id="hasTargetOrLimitExploitationRate">
+  <h3>has target or limit exploitation rate<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#hasTargetOrLimitExploitationRate</p>
+  <div class="comment">
+   <span class="markdown">Relates an observed exploitation-rate estimate to the target, threshold, or limit exploitation-rate value used to evaluate it.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#ObservedExploitationRate" title="https://w3id.org/gcdfo/salmon#ObservedExploitationRate">Observed exploitation rate</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#TargetOrLimitExploitationRate" title="https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate">Target or limit exploitation rate</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#isTargetOrLimitForObservedExploitationRate" title="https://w3id.org/gcdfo/salmon#isTargetOrLimitForObservedExploitationRate">is target or limit for observed exploitation rate</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
  <div class="entity" id="http://www.w3.org/ns/dqv#inDimension">
   <h3>in dimension<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> http://www.w3.org/ns/dqv#inDimension</p>
@@ -2339,6 +2410,43 @@ This section provides details for each class and property defined by GC DFO Salm
     <a href="https://www.w3.org/TR/vocab-dqv/">https://www.w3.org/TR/vocab-dqv/</a>
    </dd>
   </dl>
+ </div>
+ <div class="entity" id="isTargetOrLimitForObservedExploitationRate">
+  <h3>is target or limit for observed exploitation rate<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#isTargetOrLimitForObservedExploitationRate</p>
+  <div class="comment">
+   <span class="markdown">Relates a target, threshold, or limit exploitation-rate value to the observed exploitation-rate estimate it evaluates.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#TargetOrLimitExploitationRate" title="https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate">Target or limit exploitation rate</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#ObservedExploitationRate" title="https://w3id.org/gcdfo/salmon#ObservedExploitationRate">Observed exploitation rate</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#hasTargetOrLimitExploitationRate" title="https://w3id.org/gcdfo/salmon#hasTargetOrLimitExploitationRate">has target or limit exploitation rate</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
  </div>
  <div class="entity" id="populationOf">
   <h3>population of<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
@@ -2547,6 +2655,20 @@ This section provides details for each class and property defined by GC DFO Salm
 <li>Added: domain https://w3id.org/gcdfo/salmon#ConservationUnit</li>
 <li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/gcdfo/salmon#populationOf&gt; &lt;https://w3id.org/gcdfo/salmon#hasPopulation&gt;)</li>
 <li>Added: Range https://w3id.org/gcdfo/salmon#Population</li>
+</ul>
+</li>
+<li><a href="#hasTargetOrLimitExploitationRate">https://w3id.org/gcdfo/salmon#hasTargetOrLimitExploitationRate</a>
+<ul>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/gcdfo/salmon#isTargetOrLimitForObservedExploitationRate&gt; &lt;https://w3id.org/gcdfo/salmon#hasTargetOrLimitExploitationRate&gt;)</li>
+<li>Added: domain https://w3id.org/gcdfo/salmon#ObservedExploitationRate</li>
+<li>Added: Range https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate</li>
+</ul>
+</li>
+<li><a href="#isTargetOrLimitForObservedExploitationRate">https://w3id.org/gcdfo/salmon#isTargetOrLimitForObservedExploitationRate</a>
+<ul>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/gcdfo/salmon#isTargetOrLimitForObservedExploitationRate&gt; &lt;https://w3id.org/gcdfo/salmon#hasTargetOrLimitExploitationRate&gt;)</li>
+<li>Added: Range https://w3id.org/gcdfo/salmon#ObservedExploitationRate</li>
+<li>Added: domain https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate</li>
 </ul>
 </li>
 <li><a href="#populationOf">https://w3id.org/gcdfo/salmon#populationOf</a>
