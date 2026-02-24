@@ -876,12 +876,14 @@
     <!-- https://w3id.org/gcdfo/salmon#IndicatorRiver -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#IndicatorRiver">
-        <obo:IAO_0000115 xml:lang="en">Indicator streams are those that have been identified in some Regions as providing more reliable indices of spawner abundance. Indicator streams tend to give relatively accurate annual spawner abundance estimates, given that they use higher quality methodologies and are more intensively/regularly surveyed. Indicator streams are also assumed to be representative of spawner returns to other streams in close geographic proximity.</obo:IAO_0000115>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum"/>
+        <obo:IAO_0000115 xml:lang="en">A reporting and assessment stratum identifying monitored indicator streams that provide representative indices of spawner abundance for nearby streams.</obo:IAO_0000115>
         <dcterms:source rdf:resource="https://www.salmonexplorer.ca/methods/glossary.html"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">Indicator river</rdfs:label>
         <skos:altLabel xml:lang="en">Indicator stream</skos:altLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
     

@@ -949,7 +949,7 @@ This section provides details for each class and property defined by GC DFO Salm
   <h3>Indicator river<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#IndicatorRiver</p>
   <div class="comment">
-   <span class="markdown">Indicator streams are those that have been identified in some Regions as providing more reliable indices of spawner abundance. Indicator streams tend to give relatively accurate annual spawner abundance estimates, given that they use higher quality methodologies and are more intensively/regularly surveyed. Indicator streams are also assumed to be representative of spawner returns to other streams in close geographic proximity.</span>
+   <span class="markdown">A reporting and assessment stratum identifying monitored indicator streams that provide representative indices of spawner abundance for nearby streams.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -965,6 +965,14 @@ This section provides details for each class and property defined by GC DFO Salm
    </dt>
    <dd>
     <a href="https://www.salmonexplorer.ca/methods/glossary.html">https://www.salmonexplorer.ca/methods/glossary.html</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#ReportingOrManagementStratum" title="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum">Reporting or management stratum</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -1557,7 +1565,7 @@ This section provides details for each class and property defined by GC DFO Salm
     has sub-classes
    </dt>
    <dd>
-    <a href="#ConservationUnit" title="https://w3id.org/gcdfo/salmon#ConservationUnit">Conservation Unit</a> <sup class="type-c" title="class">c</sup>, <a href="#Stock" title="https://w3id.org/gcdfo/salmon#Stock">Stock</a> <sup class="type-c" title="class">c</sup>, <a href="#StockManagementUnit" title="https://w3id.org/gcdfo/salmon#StockManagementUnit">Stock Management Unit</a> <sup class="type-c" title="class">c</sup>
+    <a href="#ConservationUnit" title="https://w3id.org/gcdfo/salmon#ConservationUnit">Conservation Unit</a> <sup class="type-c" title="class">c</sup>, <a href="#IndicatorRiver" title="https://w3id.org/gcdfo/salmon#IndicatorRiver">Indicator river</a> <sup class="type-c" title="class">c</sup>, <a href="#Stock" title="https://w3id.org/gcdfo/salmon#Stock">Stock</a> <sup class="type-c" title="class">c</sup>, <a href="#StockManagementUnit" title="https://w3id.org/gcdfo/salmon#StockManagementUnit">Stock Management Unit</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -2312,6 +2320,16 @@ This section provides details for each class and property defined by GC DFO Salm
 <li><a href="#EscapementMeasurement">https://w3id.org/gcdfo/salmon#EscapementMeasurement</a>
 <ul>
 <li>Deleted: rdfs:comment "Salmon escapement count"@en</li>
+</ul>
+</li>
+<li><a href="#IndicatorRiver">https://w3id.org/gcdfo/salmon#IndicatorRiver</a>
+<ul>
+<li>Added: <http://purl.obolibrary.org/obo/IAO_0000115> "A reporting and assessment stratum identifying monitored indicator streams that provide representative indices of spawner abundance for nearby streams."@en</li>
+<li>Added: <https://w3id.org/gcdfo/salmon#theme> https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme</li>
+<li>Added: SubClass of https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum</li>
+</ul>
+<ul>
+<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000115> "Indicator streams are those that have been identified in some Regions as providing more reliable indices of spawner abundance. Indicator streams tend to give relatively accurate annual spawner abundance estimates, given that they use higher quality methodologies and are more intensively/regularly surveyed. Indicator streams are also assumed to be representative of spawner returns to other streams in close geographic proximity."@en</li>
 </ul>
 </li>
 <li><a href="#MetricBenchmark">https://w3id.org/gcdfo/salmon#MetricBenchmark</a>

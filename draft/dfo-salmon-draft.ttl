@@ -1228,8 +1228,8 @@ gcdfo:IndicatorPopulation a owl:Class ;
 gcdfo:IndicatorRiver a owl:Class ;
   rdfs:label "Indicator river"@en ;
   skos:altLabel "Indicator stream"@en ;
-  rdfs:subClassOf envo:01000618 ; # lotic water body
-  iao:0000115 "All spawning streams that are listed to be monitored by DFO are classified as an indicator or non-indicator stream. Indicator streams are those that have been identified in some Regions as providing more reliable indices of spawner abundance. Indicator streams tend to give relatively accurate annual spawner abundance estimates, given that they use higher quality methodologies and are more intensively/regularly surveyed. Indicator streams are also assumed to be representative of spawner returns to other streams in close geographic proximity. Non-indicator streams are typically less consistently surveyed, using more variable methodologies, and/or may simply be difficult to survey (e.g., poor water quality, remote location, etc.)."@en ; # definition
+  rdfs:subClassOf gcdfo:ReportingOrManagementStratum ;
+  iao:0000115 "A reporting and assessment stratum identifying monitored indicator streams that provide representative indices of spawner abundance for nearby streams."@en ; # definition
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:GraphicalVisualization a owl:Class ;
@@ -3190,7 +3190,7 @@ gcdfo:HealthyZone gcdfo:theme gcdfo:StockAssessmentTheme , gcdfo:FisheriesManage
 gcdfo:IndexBased gcdfo:theme gcdfo:StockAssessmentTheme , gcdfo:FisheriesManagementTheme .
 gcdfo:Indicator gcdfo:theme gcdfo:StockAssessmentTheme .
 gcdfo:IndicatorPopulation gcdfo:theme gcdfo:StockAssessmentTheme , gcdfo:FisheriesManagementTheme , gcdfo:SalmonEnhancementHatcheriesTheme .
-gcdfo:IndicatorRiver gcdfo:theme gcdfo:StockAssessmentTheme , gcdfo:MonitoringFieldWorkTheme , gcdfo:HabitatEcosystemClimateTheme .
+gcdfo:IndicatorRiver gcdfo:theme gcdfo:StockAssessmentTheme , gcdfo:MonitoringFieldWorkTheme , gcdfo:PolicyGovernanceTheme .
 gcdfo:KobePlot gcdfo:theme gcdfo:StockAssessmentTheme , gcdfo:FisheriesManagementTheme .
 gcdfo:LifeCycleModel gcdfo:theme gcdfo:StockAssessmentTheme , gcdfo:SalmonEnhancementHatcheriesTheme , gcdfo:PolicyGovernanceTheme .
 gcdfo:LimitReferencePoint gcdfo:theme gcdfo:StockAssessmentTheme , gcdfo:FisheriesManagementTheme , gcdfo:SpeciesAtRiskRecoveryTheme .
