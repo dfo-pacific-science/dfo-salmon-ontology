@@ -15,9 +15,10 @@ These module files provide **optional** upper-level/data-model alignment layers 
   - Not intended for immediate core merge without targeted review + competency-query checks.
 
 - `upper-level-view.ttl`
-  - Standalone upper-level visualization artifact (SOSA / PROV / I-ADOPT / DwC / DwC-DP bridge view).
-  - Deliberately does **not** import `https://w3id.org/gcdfo/salmon` so WebVOWL can show only the upper-level/crosswalk model.
-  - Intended for review discussions and orientation, not normative inference.
+  - Standalone **Salmon Data Metamodel** view (SOSA / PROV / I-ADOPT core with DwC / DwC-DP reference mappings).
+  - Uses explicit OWL classes, object properties, and bridge restrictions for observation/entity/property/constraint/variable/event/sample/sampling structure.
+  - Deliberately does **not** import `https://w3id.org/gcdfo/salmon` so WebVOWL can show only the upper-level/metamodel graph.
+  - Intended for review discussions and architecture orientation (not normative core inference).
 
 ## When to use each
 

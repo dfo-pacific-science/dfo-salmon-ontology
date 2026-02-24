@@ -1,126 +1,125 @@
-@prefix :       <https://w3id.org/gcdfo/salmon/modules/upper-level-view#> .
-@prefix owl:    <http://www.w3.org/2002/07/owl#> .
-@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
-@prefix prov:   <http://www.w3.org/ns/prov#> .
-@prefix sosa:   <http://www.w3.org/ns/sosa/> .
-@prefix iop:    <https://w3id.org/iadopt/ont/> .
-@prefix dwc:    <http://rs.tdwg.org/dwc/terms/> .
-@prefix dwcdp:  <https://rs.tdwg.org/dwc/dp/terms/> .
+@prefix :        <https://w3id.org/gcdfo/salmon/modules/salmon-data-metamodel#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix sosa:    <http://www.w3.org/ns/sosa/> .
+@prefix iop:     <https://w3id.org/iadopt/ont/> .
+@prefix dwc:     <http://rs.tdwg.org/dwc/terms/> .
+@prefix dwcdp:   <https://rs.tdwg.org/dwc/dp/terms/> .
+@prefix bfo:     <http://purl.obolibrary.org/obo/BFO_> .
+@prefix iao:     <http://purl.obolibrary.org/obo/IAO_> .
 
-: a owl:Ontology ;
-  rdfs:label "Upper-level alignment view (SOSA/PROV/I-ADOPT/DwC)"@en ;
-  rdfs:comment "Standalone visualization file derived from files 74/75/76/77. No gcdfo import; intended for WebVOWL inspection of upper-level model and cross-framework bridges."@en .
-
-#################################################################
-# Core classes (declared for graph visibility)
-#################################################################
-
-sosa:Observation a owl:Class .
-sosa:Sampling a owl:Class .
-sosa:Sample a owl:Class .
-sosa:FeatureOfInterest a owl:Class .
-sosa:ObservableProperty a owl:Class .
-sosa:Procedure a owl:Class .
-sosa:Result a owl:Class .
-sosa:Sensor a owl:Class .
-sosa:Sampler a owl:Class .
-
-iop:Variable a owl:Class .
-iop:Entity a owl:Class .
-iop:Property a owl:Class .
-iop:Constraint a owl:Class .
-iop:StatisticalModifier a owl:Class .
-
-dwc:Event a owl:Class .
-dwc:Occurrence a owl:Class .
-dwc:MaterialEntity a owl:Class .
-
-# DwC-DP profile entities (kept as classes here for graph readability)
-dwcdp:Survey a owl:Class .
-dwcdp:Protocol a owl:Class .
+<https://w3id.org/gcdfo/salmon/modules/salmon-data-metamodel> a owl:Ontology ;
+  rdfs:label "Salmon Data Metamodel (upper-level alignment view)"@en ;
+  rdfs:comment "Standalone OWL alignment view focused on SOSA + I-ADOPT + PROV, with DwC/DwC-DP kept as reference mappings. No import of core gcdfo ontology to keep WebVOWL focused on metamodel structure."@en .
 
 #################################################################
-# Object properties (declared for graph visibility)
+# Upper-level anchors (optional but explicit)
 #################################################################
 
-sosa:hasFeatureOfInterest a owl:ObjectProperty .
-sosa:hasResult a owl:ObjectProperty .
-sosa:madeBySampler a owl:ObjectProperty .
-sosa:usedProcedure a owl:ObjectProperty .
-sosa:isSampleOf a owl:ObjectProperty .
-sosa:isResultOf a owl:ObjectProperty .
-sosa:observedProperty a owl:ObjectProperty .
-sosa:madeBySensor a owl:ObjectProperty .
+sosa:Observation rdfs:subClassOf bfo:0000015, prov:Activity .
+sosa:Sampling rdfs:subClassOf bfo:0000015, prov:Activity .
+sosa:Sample rdfs:subClassOf bfo:0000040, prov:Entity .
+sosa:Result rdfs:subClassOf prov:Entity .
 
-iop:hasProperty a owl:ObjectProperty .
-iop:hasObjectOfInterest a owl:ObjectProperty .
-iop:hasMatrix a owl:ObjectProperty .
-iop:hasContextObject a owl:ObjectProperty .
-iop:hasConstraint a owl:ObjectProperty .
-iop:constrains a owl:ObjectProperty .
-iop:hasStatisticalModifier a owl:ObjectProperty .
-
-dwc:eventID a owl:ObjectProperty .
-dwc:parentEventID a owl:ObjectProperty .
-dwcdp:samplingEffortProtocolID a owl:ObjectProperty .
+iop:Variable rdfs:subClassOf iao:0000030 .
+iop:Constraint rdfs:subClassOf iao:0000030 .
+iop:Property rdfs:subClassOf iao:0000030 .
 
 #################################################################
-# Upper-level anchors (from queued crosswalk notes)
+# Core SOSA–I-ADOPT bridge classes (OWL restrictions)
 #################################################################
 
-sosa:Observation rdfs:subClassOf prov:Activity .
-sosa:Sampling rdfs:subClassOf prov:Activity .
-sosa:Sample rdfs:subClassOf prov:Entity .
-dwc:Occurrence rdfs:subClassOf prov:Activity .
-dwc:MaterialEntity rdfs:subClassOf prov:Entity .
-dwcdp:Survey rdfs:subClassOf prov:Activity .
+:SalmonDataObservation a owl:Class ;
+  rdfs:label "Salmon data observation"@en ;
+  rdfs:subClassOf sosa:Observation ,
+    [ a owl:Restriction ; owl:onProperty sosa:hasFeatureOfInterest ; owl:someValuesFrom iop:Entity ] ,
+    [ a owl:Restriction ; owl:onProperty sosa:observedProperty ; owl:someValuesFrom iop:Property ] ,
+    [ a owl:Restriction ; owl:onProperty sosa:hasResult ; owl:someValuesFrom sosa:Result ] ,
+    [ a owl:Restriction ; owl:onProperty :hasVariable ; owl:someValuesFrom iop:Variable ] .
+
+:SalmonDataSampling a owl:Class ;
+  rdfs:label "Salmon data sampling"@en ;
+  rdfs:subClassOf sosa:Sampling ,
+    [ a owl:Restriction ; owl:onProperty sosa:hasFeatureOfInterest ; owl:someValuesFrom iop:Entity ] ,
+    [ a owl:Restriction ; owl:onProperty sosa:hasResult ; owl:someValuesFrom sosa:Sample ] .
 
 #################################################################
-# SOSA relation skeleton
+# Bridge object properties (OWL object properties, not annotations)
 #################################################################
 
-sosa:Sampling sosa:hasFeatureOfInterest sosa:FeatureOfInterest .
-sosa:Sampling sosa:hasResult sosa:Sample .
-sosa:Sampling sosa:madeBySampler sosa:Sampler .
-sosa:Sampling sosa:usedProcedure sosa:Procedure .
+:hasVariable a owl:ObjectProperty ;
+  rdfs:label "has variable"@en ;
+  rdfs:domain sosa:Observation ;
+  rdfs:range iop:Variable ;
+  rdfs:comment "Links a SOSA observation to an I-ADOPT variable decomposition used in salmon data workflows."@en .
 
-sosa:Sample sosa:isSampleOf sosa:FeatureOfInterest .
-sosa:Sample sosa:isResultOf sosa:Sampling .
+:variableHasEntity a owl:ObjectProperty ;
+  rdfs:label "variable has entity"@en ;
+  rdfs:subPropertyOf iop:hasObjectOfInterest ;
+  rdfs:domain iop:Variable ;
+  rdfs:range iop:Entity .
 
-sosa:Observation sosa:hasFeatureOfInterest sosa:FeatureOfInterest .
-sosa:Observation sosa:observedProperty sosa:ObservableProperty .
-sosa:Observation sosa:hasResult sosa:Result .
-sosa:Observation sosa:madeBySensor sosa:Sensor .
-sosa:Observation sosa:usedProcedure sosa:Procedure .
+:variableHasProperty a owl:ObjectProperty ;
+  rdfs:label "variable has property"@en ;
+  rdfs:subPropertyOf iop:hasProperty ;
+  rdfs:domain iop:Variable ;
+  rdfs:range iop:Property .
+
+:variableHasConstraint a owl:ObjectProperty ;
+  rdfs:label "variable has constraint"@en ;
+  rdfs:subPropertyOf iop:hasConstraint ;
+  rdfs:domain iop:Variable ;
+  rdfs:range iop:Constraint .
+
+:constraintConstrains a owl:ObjectProperty ;
+  rdfs:label "constraint constrains"@en ;
+  rdfs:subPropertyOf iop:constrains ;
+  rdfs:domain iop:Constraint ;
+  rdfs:range owl:Thing .
+
+:observationUsedFeature a owl:ObjectProperty ;
+  rdfs:label "observation used feature"@en ;
+  rdfs:subPropertyOf sosa:hasFeatureOfInterest , prov:used ;
+  rdfs:domain sosa:Observation ;
+  rdfs:range sosa:FeatureOfInterest .
+
+:observationGeneratedResult a owl:ObjectProperty ;
+  rdfs:label "observation generated result"@en ;
+  rdfs:subPropertyOf sosa:hasResult , prov:generated ;
+  rdfs:domain sosa:Observation ;
+  rdfs:range sosa:Result .
+
+:samplingGeneratedSample a owl:ObjectProperty ;
+  rdfs:label "sampling generated sample"@en ;
+  rdfs:subPropertyOf sosa:hasResult , prov:generated ;
+  rdfs:domain sosa:Sampling ;
+  rdfs:range sosa:Sample .
 
 #################################################################
-# I-ADOPT decomposition skeleton
-#################################################################
-
-iop:Variable iop:hasProperty iop:Property .
-iop:Variable iop:hasObjectOfInterest iop:Entity .
-iop:Variable iop:hasMatrix iop:Entity .
-iop:Variable iop:hasContextObject iop:Entity .
-iop:Variable iop:hasConstraint iop:Constraint .
-iop:Variable iop:hasStatisticalModifier iop:StatisticalModifier .
-iop:Constraint iop:constrains iop:Entity .
-iop:Constraint iop:constrains iop:Property .
-iop:Constraint iop:constrains iop:StatisticalModifier .
-
-#################################################################
-# Bridge mappings from queued files (representation/conceptual)
+# Conceptual crosswalks (non-logical links)
 #################################################################
 
 sosa:FeatureOfInterest skos:closeMatch iop:Entity .
 sosa:ObservableProperty skos:closeMatch iop:Property .
+
+# DwC / DwC-DP are treated as reference mappings (not strict equivalence axioms)
 sosa:Sampling skos:closeMatch dwc:Event .
+sosa:Observation skos:closeMatch dwc:Occurrence .
 sosa:Sample skos:closeMatch dwc:MaterialEntity .
 sosa:Procedure skos:closeMatch dwcdp:Protocol .
 
-# DwC-DP relationship hints from queued notes
-# (kept as lightweight links for graph orientation)
-dwcdp:Survey dwc:eventID dwc:Event .
-dwc:Occurrence dwc:eventID dwc:Event .
-dwc:Event dwc:parentEventID dwc:Event .
-dwcdp:Survey dwcdp:samplingEffortProtocolID dwcdp:Protocol .
+#################################################################
+# Survey/event structure hints (still non-strict)
+#################################################################
+
+dwcdp:Survey a owl:Class ;
+  rdfs:subClassOf prov:Activity .
+
+:partOfSurvey a owl:ObjectProperty ;
+  rdfs:label "part of survey"@en ;
+  rdfs:domain sosa:Sampling ;
+  rdfs:range dwcdp:Survey ;
+  rdfs:comment "Use this (or a BFO part-of relation) to group many sampling acts under a survey/campaign activity."@en .
