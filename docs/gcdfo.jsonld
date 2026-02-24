@@ -1,6 +1,6 @@
 [
   {
-    "@id": "_:n8835b42234c34c739d4da39b8b70aa90b1",
+    "@id": "_:b1",
     "http://www.w3.org/2002/07/owl#unionOf": [
       {
         "@list": [
@@ -27,7 +27,7 @@
     ]
   },
   {
-    "@id": "_:n8835b42234c34c739d4da39b8b70aa90b8",
+    "@id": "_:b2",
     "http://www.w3.org/2002/07/owl#unionOf": [
       {
         "@list": [
@@ -9980,7 +9980,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
-        "@id": "_:n8835b42234c34c739d4da39b8b70aa90b1"
+        "@id": "_:b1"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -9996,7 +9996,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "_:n8835b42234c34c739d4da39b8b70aa90b8"
+        "@id": "_:b2"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
