@@ -1575,6 +1575,15 @@ gcdfo:LimitReferencePoint a owl:Class ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:FisheriesManagementTheme, gcdfo:PolicyGovernanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
+gcdfo:FisheriesReferencePointLower a owl:Class ;
+  rdfs:label "Fisheries Reference Point - Lower"@en ;
+  skos:altLabel "FRP-L"@en ;
+  iao:0000115 "A lower fisheries-management reference point defined for Stock Management Units (SMUs) and related fishery decision frameworks. It may be informed by Conservation Unit (CU) lower biological benchmarks, but is not identical to CU-level lower biological benchmarks used to delineate Wild Salmon Policy biological status zones."@en ; # definition
+  rdfs:subClassOf gcdfo:LimitReferencePoint ;
+  iao:0000119 "Fisheries and Oceans Canada. (2022). Methodologies and Guidelines for Defining Limit Reference Points for Pacific Salmon. DFO Can. Sci. Advis. Sec. Sci. Advis. Rep. 2022/030. (Erratum: December 2022)."@en ; # definition source
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:FisheriesManagementTheme, gcdfo:PolicyGovernanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
 gcdfo:UpperStockReferencePoint a owl:Class ;
   rdfs:label "Upper stock reference"@en ;
   iao:0000115 "A threshold below which fishing must be reduced to avoid reaching the LRP. The USR must be set at an appropriate distance above the LRP to provide sufficient opportunity for managers to recognize a declining stock status and sufficient time for management actions to take effect. "@en ; # definition
@@ -1640,8 +1649,8 @@ gcdfo:MetricBenchmark a owl:Class ;
 
 gcdfo:LowerBiologicalBenchmark a owl:Class ;
   rdfs:label "Lower biological benchmark"@en ;
-  iao:0000115 "Lower benchmark value for a metric used to delineate Wild Salmon Policy status zones (typically the boundary between Red and Amber zones)."@en ; # definition
-  iao:0000119 "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en ; # definition source
+  iao:0000115 "Lower benchmark value for a Conservation Unit (CU) metric used to delineate Wild Salmon Policy status zones (typically the boundary between Red and Amber zones). This CU-level biological benchmark is distinct from SMU-level fisheries management lower reference points such as FRP-L."@en ; # definition
+  iao:0000119 "Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en ; # definition source
   dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf> ;
   rdfs:subClassOf gcdfo:MetricBenchmark ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme, gcdfo:PolicyGovernanceTheme ;
