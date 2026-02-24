@@ -207,6 +207,10 @@ This ontology has the following classes and properties.</span>
       <a href="#MetricBenchmark" title="https://w3id.org/gcdfo/salmon#MetricBenchmark">Metric benchmark</a>
    </li>
    <li>
+      <a href="#ObservedExploitationRate"
+         title="https://w3id.org/gcdfo/salmon#ObservedExploitationRate">Observed exploitation rate</a>
+   </li>
+   <li>
       <a href="#ObservedRateOrAbundance"
          title="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance">Observed rate or abundance</a>
    </li>
@@ -262,6 +266,10 @@ This ontology has the following classes and properties.</span>
    </li>
    <li>
       <a href="#SurveyEvent" title="https://w3id.org/gcdfo/salmon#SurveyEvent">Survey event</a>
+   </li>
+   <li>
+      <a href="#TargetOrLimitExploitationRate"
+         title="https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate">Target or limit exploitation rate</a>
    </li>
    <li>
       <a href="#TargetOrLimitRateOrAbundance"
@@ -363,6 +371,7 @@ This section provides details for each class and property defined by GC DFO Salm
   <li><a href="#http://rs.tdwg.org/dwc/terms/MaterialEntity" title="http://rs.tdwg.org/dwc/terms/MaterialEntity">Material Entity</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/IAO_0000109" title="http://purl.obolibrary.org/obo/IAO_0000109">measurement datum</a></li>
   <li><a href="#MetricBenchmark" title="https://w3id.org/gcdfo/salmon#MetricBenchmark">Metric benchmark</a></li>
+  <li><a href="#ObservedExploitationRate" title="https://w3id.org/gcdfo/salmon#ObservedExploitationRate">Observed exploitation rate</a></li>
   <li><a href="#ObservedRateOrAbundance" title="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance">Observed rate or abundance</a></li>
   <li><a href="#http://rs.tdwg.org/dwc/terms/Occurrence" title="http://rs.tdwg.org/dwc/terms/Occurrence">Occurrence</a></li>
   <li><a href="#http://rs.tdwg.org/dwc/terms/Organism" title="http://rs.tdwg.org/dwc/terms/Organism">Organism</a></li>
@@ -381,6 +390,7 @@ This section provides details for each class and property defined by GC DFO Salm
   <li><a href="#StockManagementUnit" title="https://w3id.org/gcdfo/salmon#StockManagementUnit">Stock Management Unit</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/ENVO_00000023" title="http://purl.obolibrary.org/obo/ENVO_00000023">stream</a></li>
   <li><a href="#SurveyEvent" title="https://w3id.org/gcdfo/salmon#SurveyEvent">Survey event</a></li>
+  <li><a href="#TargetOrLimitExploitationRate" title="https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate">Target or limit exploitation rate</a></li>
   <li><a href="#TargetOrLimitRateOrAbundance" title="https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance">Target or limit rate or abundance</a></li>
   <li><a href="#TotalExploitationRate" title="https://w3id.org/gcdfo/salmon#TotalExploitationRate">Total exploitation rate</a></li>
   <li><a href="#UpperBiologicalBenchmark" title="https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark">Upper biological benchmark</a></li>
@@ -789,7 +799,7 @@ This section provides details for each class and property defined by GC DFO Salm
   <h3>Exploitation rate<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#ExploitationRate</p>
   <div class="comment">
-   <span class="markdown">Expressed as a percentage, the proportion of the total return of adult salmon in a given year that die as a result of fishing activity.</span>
+   <span class="markdown">A fishing mortality rate expressed as the proportion of the total return removed by fishing over a specified assessment period.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -804,7 +814,10 @@ This section provides details for each class and property defined by GC DFO Salm
     Source
    </dt>
    <dd>
-    Fisheries and Oceans Canada. (2019). Government of Canada. Pacific Salmon - Glossary. https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html. [Accessed 09-10-2025]
+    Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html.
+   </dd>
+   <dd>
+    <a href="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html">https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html</a>
    </dd>
   </dl>
   <dl class="description">
@@ -812,13 +825,13 @@ This section provides details for each class and property defined by GC DFO Salm
     has super-classes
    </dt>
    <dd>
-    <a href="#TargetOrLimitRateOrAbundance" title="https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance">Target or limit rate or abundance</a> <sup class="type-c" title="class">c</sup>
+    <a href="#http://purl.obolibrary.org/obo/IAO_0000109" title="http://purl.obolibrary.org/obo/IAO_0000109">measurement datum</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     has sub-classes
    </dt>
    <dd>
-    <a href="#TotalExploitationRate" title="https://w3id.org/gcdfo/salmon#TotalExploitationRate">Total exploitation rate</a> <sup class="type-c" title="class">c</sup>
+    <a href="#ObservedExploitationRate" title="https://w3id.org/gcdfo/salmon#ObservedExploitationRate">Observed exploitation rate</a> <sup class="type-c" title="class">c</sup>, <a href="#TargetOrLimitExploitationRate" title="https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate">Target or limit exploitation rate</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -1222,7 +1235,7 @@ This section provides details for each class and property defined by GC DFO Salm
     has sub-classes
    </dt>
    <dd>
-    <a href="#EscapementMeasurement" title="https://w3id.org/gcdfo/salmon#EscapementMeasurement">Escapement measurement</a> <sup class="type-c" title="class">c</sup>, <a href="#ObservedRateOrAbundance" title="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance">Observed rate or abundance</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.dataone.org/odo/SALMON_00000479" title="http://purl.dataone.org/odo/SALMON_00000479">Salmon escapement count</a> <sup class="type-c" title="class">c</sup>, <a href="#TargetOrLimitRateOrAbundance" title="https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance">Target or limit rate or abundance</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.dataone.org/odo/ECSO_00002050" title="http://purl.dataone.org/odo/ECSO_00002050">year of measurement</a> <sup class="type-c" title="class">c</sup>
+    <a href="#EscapementMeasurement" title="https://w3id.org/gcdfo/salmon#EscapementMeasurement">Escapement measurement</a> <sup class="type-c" title="class">c</sup>, <a href="#ExploitationRate" title="https://w3id.org/gcdfo/salmon#ExploitationRate">Exploitation rate</a> <sup class="type-c" title="class">c</sup>, <a href="#ObservedRateOrAbundance" title="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance">Observed rate or abundance</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.dataone.org/odo/SALMON_00000479" title="http://purl.dataone.org/odo/SALMON_00000479">Salmon escapement count</a> <sup class="type-c" title="class">c</sup>, <a href="#TargetOrLimitRateOrAbundance" title="https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance">Target or limit rate or abundance</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.dataone.org/odo/ECSO_00002050" title="http://purl.dataone.org/odo/ECSO_00002050">year of measurement</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -1266,6 +1279,46 @@ This section provides details for each class and property defined by GC DFO Salm
    </dd>
   </dl>
  </div>
+ <div class="entity" id="ObservedExploitationRate">
+  <h3>Observed exploitation rate<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#ObservedExploitationRate</p>
+  <div class="comment">
+   <span class="markdown">An empirically estimated exploitation rate derived from observed or reconstructed catches/removals and returns/escapement for a specified stock and period.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html.
+   </dd>
+   <dd>
+    <a href="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html">https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#ExploitationRate" title="https://w3id.org/gcdfo/salmon#ExploitationRate">Exploitation rate</a> <sup class="type-c" title="class">c</sup>, <a href="#ObservedRateOrAbundance" title="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance">Observed rate or abundance</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#TotalExploitationRate" title="https://w3id.org/gcdfo/salmon#TotalExploitationRate">Total exploitation rate</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
  <div class="entity" id="ObservedRateOrAbundance">
   <h3>Observed rate or abundance<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance</p>
@@ -1286,6 +1339,12 @@ This section provides details for each class and property defined by GC DFO Salm
    </dt>
    <dd>
     <a href="#http://purl.obolibrary.org/obo/IAO_0000109" title="http://purl.obolibrary.org/obo/IAO_0000109">measurement datum</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#ObservedExploitationRate" title="https://w3id.org/gcdfo/salmon#ObservedExploitationRate">Observed exploitation rate</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -1805,6 +1864,40 @@ This section provides details for each class and property defined by GC DFO Salm
    </dd>
   </dl>
  </div>
+ <div class="entity" id="TargetOrLimitExploitationRate">
+  <h3>Target or limit exploitation rate<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate</p>
+  <div class="comment">
+   <span class="markdown">A policy- or management-defined exploitation-rate value used as a target, threshold, or limit reference in decision rules.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html.
+   </dd>
+   <dd>
+    <a href="https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html">https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#ExploitationRate" title="https://w3id.org/gcdfo/salmon#ExploitationRate">Exploitation rate</a> <sup class="type-c" title="class">c</sup>, <a href="#TargetOrLimitRateOrAbundance" title="https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance">Target or limit rate or abundance</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
  <div class="entity" id="TargetOrLimitRateOrAbundance">
   <h3>Target or limit rate or abundance<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance</p>
@@ -1830,7 +1923,7 @@ This section provides details for each class and property defined by GC DFO Salm
     has sub-classes
    </dt>
    <dd>
-    <a href="#ExploitationRate" title="https://w3id.org/gcdfo/salmon#ExploitationRate">Exploitation rate</a> <sup class="type-c" title="class">c</sup>
+    <a href="#TargetOrLimitExploitationRate" title="https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate">Target or limit exploitation rate</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -1853,7 +1946,7 @@ This section provides details for each class and property defined by GC DFO Salm
     has super-classes
    </dt>
    <dd>
-    <a href="#ExploitationRate" title="https://w3id.org/gcdfo/salmon#ExploitationRate">Exploitation rate</a> <sup class="type-c" title="class">c</sup>
+    <a href="#ObservedExploitationRate" title="https://w3id.org/gcdfo/salmon#ObservedExploitationRate">Observed exploitation rate</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -2314,6 +2407,19 @@ This section provides details for each class and property defined by GC DFO Salm
 <li>Deleted: rdfs:comment "Salmon escapement count"@en</li>
 </ul>
 </li>
+<li><a href="#ExploitationRate">https://w3id.org/gcdfo/salmon#ExploitationRate</a>
+<ul>
+<li>Added: <http://purl.org/dc/terms/source> https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html</li>
+<li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html."@en</li>
+<li>Added: <http://purl.obolibrary.org/obo/IAO_0000115> "A fishing mortality rate expressed as the proportion of the total return removed by fishing over a specified assessment period."@en</li>
+<li>Added: SubClass of http://purl.obolibrary.org/obo/IAO_0000109</li>
+</ul>
+<ul>
+<li>Deleted: SubClass of https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance</li>
+<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. (2019). Government of Canada. Pacific Salmon - Glossary. https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html. [Accessed 09-10-2025] "@en</li>
+<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000115> "Expressed as a percentage, the proportion of the total return of adult salmon in a given year that die as a result of fishing activity."@en</li>
+</ul>
+</li>
 <li><a href="#MetricBenchmark">https://w3id.org/gcdfo/salmon#MetricBenchmark</a>
 <ul>
 <li>Added: <http://purl.obolibrary.org/obo/IAO_0000115> "Benchmark value for a metric that helps delineate status zones (for example, the limit reference point for absolute abundance)."@en</li>
@@ -2339,6 +2445,14 @@ This section provides details for each class and property defined by GC DFO Salm
 </ul>
 <ul>
 <li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000115> "A value specification representing a policy- or model-defined target or limit, such as TAC, UMSY, or reference points."@en</li>
+</ul>
+</li>
+<li><a href="#TotalExploitationRate">https://w3id.org/gcdfo/salmon#TotalExploitationRate</a>
+<ul>
+<li>Added: SubClass of https://w3id.org/gcdfo/salmon#ObservedExploitationRate</li>
+</ul>
+<ul>
+<li>Deleted: SubClass of https://w3id.org/gcdfo/salmon#ExploitationRate</li>
 </ul>
 </li>
 <li><a href="#WSPBiologicalStatusZone">https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZone</a>
@@ -2368,9 +2482,21 @@ This section provides details for each class and property defined by GC DFO Salm
 <li>Added: SubClass of https://w3id.org/gcdfo/salmon#MetricBenchmark</li>
 </ul>
 </li>
+<li><a href="#ObservedExploitationRate">https://w3id.org/gcdfo/salmon#ObservedExploitationRate</a>
+<ul>
+<li>Added: SubClass of https://w3id.org/gcdfo/salmon#ExploitationRate</li>
+<li>Added: SubClass of https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance</li>
+</ul>
+</li>
 <li><a href="#Population">https://w3id.org/gcdfo/salmon#Population</a>
 <ul>
 <li>Added: SubClass of http://rs.tdwg.org/dwc/terms/Organism</li>
+</ul>
+</li>
+<li><a href="#TargetOrLimitExploitationRate">https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate</a>
+<ul>
+<li>Added: SubClass of https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance</li>
+<li>Added: SubClass of https://w3id.org/gcdfo/salmon#ExploitationRate</li>
 </ul>
 </li>
 <li><a href="#UpperBiologicalBenchmark">https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark</a>

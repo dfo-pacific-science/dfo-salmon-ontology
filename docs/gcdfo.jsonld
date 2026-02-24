@@ -3459,13 +3459,18 @@
     "http://purl.obolibrary.org/obo/IAO_0000115": [
       {
         "@language": "en",
-        "@value": "Expressed as a percentage, the proportion of the total return of adult salmon in a given year that die as a result of fishing activity."
+        "@value": "A fishing mortality rate expressed as the proportion of the total return removed by fishing over a specified assessment period."
       }
     ],
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "Fisheries and Oceans Canada. (2019). Government of Canada. Pacific Salmon - Glossary. https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html. [Accessed 09-10-2025] "
+        "@value": "Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -3481,7 +3486,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance"
+        "@id": "http://purl.obolibrary.org/obo/IAO_0000109"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
@@ -4906,6 +4911,59 @@
     "https://w3id.org/gcdfo/salmon#theme": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#ObservedExploitationRate",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "An empirically estimated exploitation rate derived from observed or reconstructed catches/removals and returns/escapement for a specified stock and period."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Observed exploitation rate"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ExploitationRate"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"
       },
       {
         "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
@@ -6413,6 +6471,59 @@
     ]
   },
   {
+    "@id": "https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "A policy- or management-defined exploitation-rate value used as a target, threshold, or limit reference in decision rules."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Target or limit exploitation rate"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ExploitationRate"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
     "@id": "https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
@@ -6626,7 +6737,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#ExploitationRate"
+        "@id": "https://w3id.org/gcdfo/salmon#ObservedExploitationRate"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [

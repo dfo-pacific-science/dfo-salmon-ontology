@@ -622,9 +622,10 @@ gcdfo:EscapementSurveyEvent rdf:type owl:Class ;
 
 ###  https://w3id.org/gcdfo/salmon#ExploitationRate
 gcdfo:ExploitationRate rdf:type owl:Class ;
-                       rdfs:subClassOf gcdfo:TargetOrLimitRateOrAbundance ;
-                       <http://purl.obolibrary.org/obo/IAO_0000115> "Expressed as a percentage, the proportion of the total return of adult salmon in a given year that die as a result of fishing activity."@en ;
-                       <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. (2019). Government of Canada. Pacific Salmon - Glossary. https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html. [Accessed 09-10-2025] "@en ;
+                       rdfs:subClassOf <http://purl.obolibrary.org/obo/IAO_0000109> ;
+                       <http://purl.obolibrary.org/obo/IAO_0000115> "A fishing mortality rate expressed as the proportion of the total return removed by fishing over a specified assessment period."@en ;
+                       <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html."@en ;
+                       dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html> ;
                        rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                        rdfs:label "Exploitation rate"@en ;
                        gcdfo:theme gcdfo:FisheriesManagementTheme ,
@@ -678,6 +679,20 @@ gcdfo:MetricBenchmark rdf:type owl:Class ;
                       rdfs:label "Metric benchmark"@en ;
                       gcdfo:theme gcdfo:StockAssessmentTheme ,
                                   gcdfo:WildSalmonPolicyTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#ObservedExploitationRate
+gcdfo:ObservedExploitationRate rdf:type owl:Class ;
+                               rdfs:subClassOf gcdfo:ExploitationRate ,
+                                               gcdfo:ObservedRateOrAbundance ;
+                               <http://purl.obolibrary.org/obo/IAO_0000115> "An empirically estimated exploitation rate derived from observed or reconstructed catches/removals and returns/escapement for a specified stock and period."@en ;
+                               <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html."@en ;
+                               dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html> ;
+                               rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                               rdfs:label "Observed exploitation rate"@en ;
+                               gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                           gcdfo:FisheriesManagementTheme ,
+                                           gcdfo:StockAssessmentTheme .
 
 
 ###  https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance
@@ -774,6 +789,20 @@ gcdfo:SurveyEvent rdf:type owl:Class ;
                               gcdfo:StockAssessmentTheme .
 
 
+###  https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate
+gcdfo:TargetOrLimitExploitationRate rdf:type owl:Class ;
+                                    rdfs:subClassOf gcdfo:ExploitationRate ,
+                                                    gcdfo:TargetOrLimitRateOrAbundance ;
+                                    <http://purl.obolibrary.org/obo/IAO_0000115> "A policy- or management-defined exploitation-rate value used as a target, threshold, or limit reference in decision rules."@en ;
+                                    <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html."@en ;
+                                    dcterms:source <https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html> ;
+                                    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                    rdfs:label "Target or limit exploitation rate"@en ;
+                                    gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                gcdfo:PolicyGovernanceTheme ,
+                                                gcdfo:StockAssessmentTheme .
+
+
 ###  https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance
 gcdfo:TargetOrLimitRateOrAbundance rdf:type owl:Class ;
                                    rdfs:subClassOf <http://purl.obolibrary.org/obo/IAO_0000109> ;
@@ -787,7 +816,7 @@ gcdfo:TargetOrLimitRateOrAbundance rdf:type owl:Class ;
 
 ###  https://w3id.org/gcdfo/salmon#TotalExploitationRate
 gcdfo:TotalExploitationRate rdf:type owl:Class ;
-                            rdfs:subClassOf gcdfo:ExploitationRate ;
+                            rdfs:subClassOf gcdfo:ObservedExploitationRate ;
                             <http://purl.obolibrary.org/obo/IAO_0000115> "The overall proportion of the total return of adult salmon removed by all fisheries over a defined period, aggregating across gear or fishery components."@en ;
                             rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                             rdfs:label "Total exploitation rate"@en ;
