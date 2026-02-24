@@ -559,6 +559,16 @@
     
 
 
+    <!-- http://purl.obolibrary.org/obo/ENVO_00000063 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/ENVO_00000063">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/envo.owl"/>
+        <rdfs:label xml:lang="en">water body</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/ENVO_00000234 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/ENVO_00000234">
@@ -575,7 +585,7 @@
     <!-- http://purl.obolibrary.org/obo/ENVO_01000617 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/ENVO_01000617">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/ENVO_00000063"/>
         <obo:IAO_0000115 xml:lang="en">A lentic water body is a water body in which the accumulated water, in its totality, has very little to no directed flow.</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/envo.owl"/>
         <rdfs:label xml:lang="en">lentic water body</rdfs:label>
@@ -586,7 +596,7 @@
     <!-- http://purl.obolibrary.org/obo/ENVO_01000618 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/ENVO_01000618">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/ENVO_00000063"/>
         <obo:IAO_0000115 xml:lang="en">A lotic water body is a water body in which the accumulated water, in its totality, is flowing.</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/envo.owl"/>
         <rdfs:label xml:lang="en">lotic water body</rdfs:label>

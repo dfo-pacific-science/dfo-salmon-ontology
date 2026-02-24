@@ -615,10 +615,15 @@ odo:SALMON_00000639 a owl:Class ;
 # Environment Ontology (ENVO)
 #################################################################
 
+envo:00000063 a owl:Class ;
+  rdfs:label "water body"@en ;
+  rdfs:subClassOf bfo:0000040 ; # material entity
+  rdfs:isDefinedBy <http://purl.obolibrary.org/obo/envo.owl> .
+
 envo:01000617 a owl:Class ;
   rdfs:label "lentic water body"@en ;
   iao:0000115 "A lentic water body is a water body in which the accumulated water, in its totality, has very little to no directed flow."@en ; # definition
-  rdfs:subClassOf bfo:0000040 ; # material entity
+  rdfs:subClassOf envo:00000063 ;
   rdfs:isDefinedBy <http://purl.obolibrary.org/obo/envo.owl> .
 
 envo:00000020 a owl:Class ;
@@ -636,7 +641,7 @@ envo:00000033 a owl:Class ;
 envo:01000618 a owl:Class ;
   rdfs:label "lotic water body"@en ;
   iao:0000115 "A lotic water body is a water body in which the accumulated water, in its totality, is flowing."@en ; # definition
-  rdfs:subClassOf bfo:0000040 ; # material entity
+  rdfs:subClassOf envo:00000063 ;
   rdfs:isDefinedBy <http://purl.obolibrary.org/obo/envo.owl> .
 
 envo:00000022 a owl:Class ;

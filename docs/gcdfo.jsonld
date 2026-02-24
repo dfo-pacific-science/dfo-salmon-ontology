@@ -356,6 +356,28 @@
     ]
   },
   {
+    "@id": "http://purl.obolibrary.org/obo/ENVO_00000063",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://purl.obolibrary.org/obo/envo.owl"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "water body"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://purl.obolibrary.org/obo/BFO_0000040"
+      }
+    ]
+  },
+  {
     "@id": "http://purl.obolibrary.org/obo/ENVO_00000234",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
@@ -419,7 +441,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "http://purl.obolibrary.org/obo/BFO_0000040"
+        "@id": "http://purl.obolibrary.org/obo/ENVO_00000063"
       }
     ]
   },
@@ -447,7 +469,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "http://purl.obolibrary.org/obo/BFO_0000040"
+        "@id": "http://purl.obolibrary.org/obo/ENVO_00000063"
       }
     ]
   },

@@ -393,6 +393,13 @@ odo:SALMON_00000639 rdf:type owl:Class ;
                                                rdfs:label "pond"@en .
 
 
+###  http://purl.obolibrary.org/obo/ENVO_00000063
+<http://purl.obolibrary.org/obo/ENVO_00000063> rdf:type owl:Class ;
+                                               rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000040> ;
+                                               rdfs:isDefinedBy <http://purl.obolibrary.org/obo/envo.owl> ;
+                                               rdfs:label "water body"@en .
+
+
 ###  http://purl.obolibrary.org/obo/ENVO_00000234
 <http://purl.obolibrary.org/obo/ENVO_00000234> rdf:type owl:Class ;
                                                rdfs:subClassOf <http://purl.obolibrary.org/obo/ENVO_00000023> ;
@@ -405,7 +412,7 @@ odo:SALMON_00000639 rdf:type owl:Class ;
 
 ###  http://purl.obolibrary.org/obo/ENVO_01000617
 <http://purl.obolibrary.org/obo/ENVO_01000617> rdf:type owl:Class ;
-                                               rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000040> ;
+                                               rdfs:subClassOf <http://purl.obolibrary.org/obo/ENVO_00000063> ;
                                                <http://purl.obolibrary.org/obo/IAO_0000115> "A lentic water body is a water body in which the accumulated water, in its totality, has very little to no directed flow."@en ;
                                                rdfs:isDefinedBy <http://purl.obolibrary.org/obo/envo.owl> ;
                                                rdfs:label "lentic water body"@en .
@@ -413,7 +420,7 @@ odo:SALMON_00000639 rdf:type owl:Class ;
 
 ###  http://purl.obolibrary.org/obo/ENVO_01000618
 <http://purl.obolibrary.org/obo/ENVO_01000618> rdf:type owl:Class ;
-                                               rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000040> ;
+                                               rdfs:subClassOf <http://purl.obolibrary.org/obo/ENVO_00000063> ;
                                                <http://purl.obolibrary.org/obo/IAO_0000115> "A lotic water body is a water body in which the accumulated water, in its totality, is flowing."@en ;
                                                rdfs:isDefinedBy <http://purl.obolibrary.org/obo/envo.owl> ;
                                                rdfs:label "lotic water body"@en .
