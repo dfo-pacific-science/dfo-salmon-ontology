@@ -25,7 +25,7 @@
      xmlns:dcterms="http://purl.org/dc/terms/"
      xmlns:qudtunit="http://qudt.org/vocab/unit/">
     <owl:Ontology rdf:about="https://w3id.org/gcdfo/salmon">
-        <owl:versionIRI rdf:resource="https://w3id.org/gcdfo/salmon/0.0.999"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/gcdfo/salmon/0.0.6-alpha"/>
         <obo:IAO_0000115 xml:lang="en">Hybrid OWL+SKOS ontology for DFO salmon data. Uses SKOS for controlled vocabularies (methods, criteria) and OWL for formal relationships and events.</obo:IAO_0000115>
         <dcterms:contributor xml:lang="en">Brett Johnson</dcterms:contributor>
         <dcterms:contributor xml:lang="en">Melissa K. Morrison</dcterms:contributor>
@@ -33,14 +33,14 @@
         <dcterms:creator xml:lang="en">Fishery &amp; Assessment Data Section (FADS) Data Stewardship Unit</dcterms:creator>
         <dcterms:description xml:lang="en">OWL + SKOS ontology for DFO salmon data: stocks/CUs/MUs, survey events, escapement measurements, and GSI constructs; aligns to DwC via rdfs:subClassOf; hybrid approach with SKOS for methods and OWL for events.</dcterms:description>
         <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
-        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-01-30</dcterms:modified>
+        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-02-24</dcterms:modified>
         <dcterms:publisher xml:lang="en">Fisheries and Oceans Canada (DFO) Pacific Region Science Branch</dcterms:publisher>
         <dcterms:title xml:lang="en">DFO Salmon Ontology</dcterms:title>
         <vann:preferredNamespacePrefix>gcdfo</vann:preferredNamespacePrefix>
         <vann:preferredNamespaceUri>https://w3id.org/gcdfo/salmon#</vann:preferredNamespaceUri>
         <rdfs:seeAlso rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology"/>
         <owl:priorVersion rdf:resource="https://w3id.org/gcdfo/salmon/0.0.2"/>
-        <owl:versionInfo>0.0.999 (expanded enumeration/estimate methods and downgrade criteria)</owl:versionInfo>
+        <owl:versionInfo>0.0.6-alpha (integrated pre-release review branch)</owl:versionInfo>
         <schema:codeRepository rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology"/>
     </owl:Ontology>
     
@@ -404,6 +404,39 @@
         <rdfs:label xml:lang="en">has target or limit exploitation rate</rdfs:label>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#hasYearBasis -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#hasYearBasis">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/gcdfo/salmon#EscapementMeasurement"/>
+                    <rdf:Description rdf:about="https://w3id.org/gcdfo/salmon#ExploitationRate"/>
+                    <rdf:Description rdf:about="https://w3id.org/gcdfo/salmon#ObservedExploitationRate"/>
+                    <rdf:Description rdf:about="https://w3id.org/gcdfo/salmon#SpawnerAbundance"/>
+                    <rdf:Description rdf:about="https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate"/>
+                    <rdf:Description rdf:about="https://w3id.org/gcdfo/salmon#TotalExploitationRate"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/gcdfo/salmon#BroodYear"/>
+                    <rdf:Description rdf:about="https://w3id.org/gcdfo/salmon#CatchYear"/>
+                    <rdf:Description rdf:about="https://w3id.org/gcdfo/salmon#ReturnYear"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <obo:IAO_0000115 xml:lang="en">Links a measurement or rate to the year basis (e.g., brood year, catch year, or return year) it is reported against.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">has year basis</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:ObjectProperty>
     
@@ -834,7 +867,7 @@
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#BroodYear">
         <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#YearBasis"/>
-        <obo:IAO_0000115 xml:lang="en">TThe parental year for a group of returning salmon, i.e. the calendar year when the majority of parents of these fish spawned.</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">The parental year for a group of returning salmon, i.e. the calendar year when the majority of parents of these fish spawned.</obo:IAO_0000115>
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
@@ -1718,6 +1751,7 @@
     <!-- https://w3id.org/gcdfo/salmon#WSPRapidStatus -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#WSPRapidStatus">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <obo:IAO_0000115 xml:lang="en">The WSP rapid status assessment approach builds on previously completed WSP integrated status assessments. The WSP rapid status approach ensures statuses are scientifically objective, consistent, and comparable across BC/Yukon CUs. This approach is also relatively easy to implement, applicable to data rich and data poor CUs, and can be updated annually.</obo:IAO_0000115>
         <obo:IAO_0000119 xml:lang="en">Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada&apos;s Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://publications.gc.ca/site/eng/9.928944/publication.html"/>
@@ -1748,7 +1782,8 @@
     <!-- https://w3id.org/gcdfo/salmon#YearBasis -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#YearBasis">
-        <obo:IAO_0000115 xml:lang="en">A year-based temporal reference used to contextualize measurements or rates (e.g., brood year or catch year).</obo:IAO_0000115>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
+        <obo:IAO_0000115 xml:lang="en">A year-based temporal reference used to contextualize measurements or rates (e.g., brood year, catch year, or return year).</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">Year basis</rdfs:label>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>

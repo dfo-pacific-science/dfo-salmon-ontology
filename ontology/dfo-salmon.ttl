@@ -176,12 +176,12 @@ xsd:anyURI   a rdfs:Datatype .
   vann:preferredNamespaceUri "https://w3id.org/gcdfo/salmon#" ;
   vann:preferredNamespacePrefix "gcdfo" ;
   dcterms:created "2025-09-06"^^xsd:date ;
-  dcterms:modified "2026-01-30"^^xsd:date ;
+  dcterms:modified "2026-02-24"^^xsd:date ;
   dcterms:description "OWL + SKOS ontology for DFO salmon data: stocks/CUs/MUs, survey events, escapement measurements, and GSI constructs; aligns to DwC via rdfs:subClassOf; hybrid approach with SKOS for methods and OWL for events."@en ;
   schema:codeRepository <https://github.com/dfo-pacific-science/dfo-salmon-ontology> ;
   rdfs:seeAlso <https://github.com/dfo-pacific-science/dfo-salmon-ontology> ;
-  owl:versionInfo "0.0.999 (expanded enumeration/estimate methods and downgrade criteria)" ;
-  owl:versionIRI <https://w3id.org/gcdfo/salmon/0.0.999> ;
+  owl:versionInfo "0.0.6-alpha (integrated pre-release review branch)" ;
+  owl:versionIRI <https://w3id.org/gcdfo/salmon/0.0.6-alpha> ;
   owl:priorVersion <https://w3id.org/gcdfo/salmon/0.0.2> ;
   iao:0000115 "Hybrid OWL+SKOS ontology for DFO salmon data. Uses SKOS for controlled vocabularies (methods, criteria) and OWL for formal relationships and events."@en . # definition
 
@@ -1440,20 +1440,29 @@ gcdfo:isTargetOrLimitForObservedExploitationRate a owl:ObjectProperty ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:FisheriesManagementTheme, gcdfo:PolicyGovernanceTheme .
 
+gcdfo:hasYearBasis a owl:ObjectProperty ;
+  rdfs:label "has year basis"@en ;
+  iao:0000115 "Links a measurement or rate to the year basis (e.g., brood year, catch year, or return year) it is reported against."@en ; # definition
+  rdfs:domain [ owl:unionOf ( gcdfo:ExploitationRate gcdfo:ObservedExploitationRate gcdfo:TargetOrLimitExploitationRate gcdfo:TotalExploitationRate gcdfo:SpawnerAbundance gcdfo:EscapementMeasurement ) ] ;
+  rdfs:range [ owl:unionOf ( gcdfo:BroodYear gcdfo:CatchYear gcdfo:ReturnYear ) ] ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme .
+
 #################################################################
 # OWL Classes
 #################################################################
 
 gcdfo:YearBasis a owl:Class ;
   rdfs:label "Year basis"@en ;
-  iao:0000115 "A year-based temporal reference used to contextualize measurements or rates (e.g., brood year or catch year)."@en ; # definition
+  iao:0000115 "A year-based temporal reference used to contextualize measurements or rates (e.g., brood year, catch year, or return year)."@en ; # definition
+  rdfs:subClassOf iao:0000030 ; # information content entity
   gcdfo:theme gcdfo:StockAssessmentTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:BroodYear a owl:Class ;
   rdfs:label "Brood year"@en ;
   rdfs:subClassOf gcdfo:YearBasis ;
-  iao:0000115 "TThe parental year for a group of returning salmon, i.e. the calendar year when the majority of parents of these fish spawned."@en ; # definition
+  iao:0000115 "The parental year for a group of returning salmon, i.e. the calendar year when the majority of parents of these fish spawned."@en ; # definition
   iao:0000119 "Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html."@en ; # definition source
   dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html> ;
   skos:closeMatch odo:SALMON_00000520 ; # "Brood Year" from NCEAS Salmon Ontology (ODO)
@@ -1632,6 +1641,7 @@ gcdfo:RedZone a gcdfo:WSPBiologicalStatusZone , skos:Concept ;
 
 gcdfo:WSPRapidStatus a owl:Class;
   rdfs:label "WSP rapid status"@en ;
+  rdfs:subClassOf iao:0000030 ; # information content entity
   iao:0000115 "The WSP rapid status assessment approach builds on previously completed WSP integrated status assessments. The WSP rapid status approach ensures statuses are scientifically objective, consistent, and comparable across BC/Yukon CUs. This approach is also relatively easy to implement, applicable to data rich and data poor CUs, and can be updated annually."@en ;
   iao:0000119 "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570."@en ; # definition source
   dcterms:source <https://publications.gc.ca/site/eng/9.928944/publication.html> ;

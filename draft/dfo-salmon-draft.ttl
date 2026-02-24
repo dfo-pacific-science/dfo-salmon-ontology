@@ -920,6 +920,7 @@ gcdfo:AgeAtMaturity a owl:Class ;
 gcdfo:YearBasis a owl:Class ;
   rdfs:label "Year basis"@en ;
   iao:0000115 "A year-based temporal reference used to contextualize measurements or rates (e.g., brood year or catch year)."@en ; # definition
+  rdfs:subClassOf iao:0000030 ; # information content entity
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:BroodYear a owl:Class ;
@@ -941,7 +942,7 @@ gcdfo:CatchYear a owl:Class ;
 gcdfo:hasYearBasis a owl:ObjectProperty ;
   rdfs:label "has year basis"@en ;
   iao:0000115 "Links a measurement or rate to the year basis (e.g., brood year or catch year) it is reported against."@en ; # definition
-  rdfs:domain [ owl:unionOf ( gcdfo:ExploitationRate gcdfo:TotalExploitationRate gcdfo:Catch gcdfo:Recruitment gcdfo:SpawnerAbundance gcdfo:EscapementMeasurement ) ] ;
+  rdfs:domain [ owl:unionOf ( gcdfo:ExploitationRate gcdfo:ObservedExploitationRate gcdfo:TargetOrLimitExploitationRate gcdfo:TotalExploitationRate gcdfo:Catch gcdfo:Recruitment gcdfo:SpawnerAbundance gcdfo:EscapementMeasurement ) ] ;
   rdfs:range [ owl:unionOf ( gcdfo:BroodYear gcdfo:CatchYear ) ] ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 

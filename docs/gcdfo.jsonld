@@ -1,5 +1,50 @@
 [
   {
+    "@id": "_:n8835b42234c34c739d4da39b8b70aa90b1",
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/gcdfo/salmon#ExploitationRate"
+          },
+          {
+            "@id": "https://w3id.org/gcdfo/salmon#ObservedExploitationRate"
+          },
+          {
+            "@id": "https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate"
+          },
+          {
+            "@id": "https://w3id.org/gcdfo/salmon#TotalExploitationRate"
+          },
+          {
+            "@id": "https://w3id.org/gcdfo/salmon#SpawnerAbundance"
+          },
+          {
+            "@id": "https://w3id.org/gcdfo/salmon#EscapementMeasurement"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "_:n8835b42234c34c739d4da39b8b70aa90b8",
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/gcdfo/salmon#BroodYear"
+          },
+          {
+            "@id": "https://w3id.org/gcdfo/salmon#CatchYear"
+          },
+          {
+            "@id": "https://w3id.org/gcdfo/salmon#ReturnYear"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "@id": "http://purl.dataone.org/odo/ECSO_00002050",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
@@ -1172,7 +1217,7 @@
     "http://purl.org/dc/terms/modified": [
       {
         "@type": "http://www.w3.org/2001/XMLSchema#date",
-        "@value": "2026-01-30"
+        "@value": "2026-02-24"
       }
     ],
     "http://purl.org/dc/terms/publisher": [
@@ -1209,12 +1254,12 @@
     ],
     "http://www.w3.org/2002/07/owl#versionIRI": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon/0.0.999"
+        "@id": "https://w3id.org/gcdfo/salmon/0.0.6-alpha"
       }
     ],
     "http://www.w3.org/2002/07/owl#versionInfo": [
       {
-        "@value": "0.0.999 (expanded enumeration/estimate methods and downgrade criteria)"
+        "@value": "0.0.6-alpha (integrated pre-release review branch)"
       }
     ],
     "https://schema.org/codeRepository": [
@@ -2361,7 +2406,7 @@
     "http://purl.obolibrary.org/obo/IAO_0000115": [
       {
         "@language": "en",
-        "@value": "TThe parental year for a group of returning salmon, i.e. the calendar year when the majority of parents of these fish spawned."
+        "@value": "The parental year for a group of returning salmon, i.e. the calendar year when the majority of parents of these fish spawned."
       }
     ],
     "http://purl.obolibrary.org/obo/IAO_0000119": [
@@ -9477,6 +9522,11 @@
         "@value": "WSP rapid status"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://purl.obolibrary.org/obo/IAO_0000030"
+      }
+    ],
     "https://w3id.org/gcdfo/salmon#theme": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"
@@ -9627,7 +9677,7 @@
     "http://purl.obolibrary.org/obo/IAO_0000115": [
       {
         "@language": "en",
-        "@value": "A year-based temporal reference used to contextualize measurements or rates (e.g., brood year or catch year)."
+        "@value": "A year-based temporal reference used to contextualize measurements or rates (e.g., brood year, catch year, or return year)."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -9639,6 +9689,11 @@
       {
         "@language": "en",
         "@value": "Year basis"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://purl.obolibrary.org/obo/IAO_0000030"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
@@ -9906,6 +9961,47 @@
       },
       {
         "@id": "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#hasYearBasis",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "Links a measurement or rate to the year basis (e.g., brood year, catch year, or return year) it is reported against."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "_:n8835b42234c34c739d4da39b8b70aa90b1"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has year basis"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "_:n8835b42234c34c739d4da39b8b70aa90b8"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
       },
       {
         "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"

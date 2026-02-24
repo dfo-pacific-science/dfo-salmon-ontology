@@ -2,7 +2,7 @@
 @prefix dc: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix : <> .
-<https://w3id.org/gcdfo/salmon/0.0.999> a prov:Entity;
+<https://w3id.org/gcdfo/salmon/0.0.6-alpha> a prov:Entity;
 	 dc:title "DFO Salmon Ontology";
 	 prov:wasAttributedTo :agent0;
 	 prov:wasAttributedTo :agent1;
