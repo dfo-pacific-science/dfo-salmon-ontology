@@ -1,0 +1,48 @@
+@prefix gcdfo:    <https://w3id.org/gcdfo/salmon#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov:     <http://www.w3.org/ns/prov#> .
+@prefix dwc:      <http://rs.tdwg.org/dwc/terms/> .
+@prefix ro:       <http://purl.obolibrary.org/obo/RO_> .
+@prefix :         <https://w3id.org/gcdfo/salmon/modules/alignment-main#> .
+
+: a owl:Ontology ;
+  rdfs:label "DFO Salmon Ontology Alignment Module (main-candidate)"@en ;
+  rdfs:comment "Conservative upper-level alignment bridges derived from SOSA/I-ADOPT/DwC crosswalk workbooks (files 74, 75, 76, 77). Intended for near-term merge safety."@en ;
+  owl:imports <https://w3id.org/gcdfo/salmon> .
+
+#################################################################
+# Conservative class bridges (annotation-level)
+#################################################################
+
+gcdfo:SurveyEvent skos:closeMatch <http://www.w3.org/ns/sosa/Sampling> .
+gcdfo:EscapementSurveyEvent skos:closeMatch <http://www.w3.org/ns/sosa/Sampling> .
+gcdfo:EscapementMeasurement skos:closeMatch <http://www.w3.org/ns/sosa/Result> .
+
+gcdfo:ReportingOrManagementStratum skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
+gcdfo:Stock skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
+gcdfo:ConservationUnit skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
+gcdfo:StockManagementUnit skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
+gcdfo:IndicatorRiver skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
+
+gcdfo:ReferencePoint skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
+gcdfo:LowerBiologicalBenchmark skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
+gcdfo:FisheriesReferencePointLower skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
+
+#################################################################
+# Safe property reuse links
+#################################################################
+
+gcdfo:hasDeme rdfs:subPropertyOf ro:0002351 .
+gcdfo:hasPopulation rdfs:subPropertyOf ro:0002351 .
+gcdfo:hasConservationUnit rdfs:subPropertyOf ro:0002351 .
+
+#################################################################
+# Representation-level bridges (annotation only)
+#################################################################
+
+<http://www.w3.org/ns/sosa/Sampling> skos:closeMatch dwc:Event .
+<http://www.w3.org/ns/sosa/Sample> skos:closeMatch dwc:MaterialEntity .
+<http://www.w3.org/ns/sosa/Observation> skos:closeMatch dwc:Occurrence .
+<http://www.w3.org/ns/sosa/Procedure> skos:closeMatch <https://rs.tdwg.org/dwc/dp/terms/Protocol> .
