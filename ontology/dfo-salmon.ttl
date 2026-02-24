@@ -1733,8 +1733,9 @@ gcdfo:TotalExploitationRate a owl:Class ;
 gcdfo:IndicatorRiver a owl:Class ;
   rdfs:label "Indicator river"@en ;
   skos:altLabel "Indicator stream"@en ;
-  iao:0000115 "Indicator streams are those that have been identified in some Regions as providing more reliable indices of spawner abundance. Indicator streams tend to give relatively accurate annual spawner abundance estimates, given that they use higher quality methodologies and are more intensively/regularly surveyed. Indicator streams are also assumed to be representative of spawner returns to other streams in close geographic proximity."@en ; # definition
-  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
+  rdfs:subClassOf gcdfo:ReportingOrManagementStratum ;
+  iao:0000115 "A reporting and assessment stratum identifying monitored indicator streams that provide representative indices of spawner abundance for nearby streams."@en ; # definition
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme, gcdfo:PolicyGovernanceTheme ;
   dcterms:source <https://www.salmonexplorer.ca/methods/glossary.html> ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
