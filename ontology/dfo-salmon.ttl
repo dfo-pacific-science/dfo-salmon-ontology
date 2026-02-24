@@ -1730,7 +1730,7 @@ gcdfo:GenerationalAverageAbundance a owl:Class ;
 
 gcdfo:LongTermTrendMetric a owl:Class ;
   rdfs:label "Long-term trend metric"@en ;
-  iao:0000115 "A WSP rapid status long-term trend metric comparing current generational average (geometric mean) spawner abundance to the long-term average (geometric mean) spawner abundance for the CU time series."@en ;
+  iao:0000115 "A long-term trend metric comparing the current generational average (geometric mean) spawner abundance to the long-term average (geometric mean) spawner abundance for an assessed time series."@en ;
   rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
   iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."@en ;
   dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
@@ -1978,7 +1978,7 @@ gcdfo:SpawnerAbundanceTrend a owl:Class ;
   rdfs:label "Spawner abundance trend"@en ;
   iao:0000115 "A trend metric computed from spawner abundance over time using a defined trend method (e.g., slope over a specified window)."@en ;
   rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
-  iao:0000119 "Derived for SPSR term coverage; distinct from WSP LongTermTrendMetric (current generational average vs long-term average) in CSAS Science Response 2024/004."@en ;
+  iao:0000119 "Derived for SPSR term coverage; distinct from gcdfo:LongTermTrendMetric (current generational average vs long-term average) in CSAS Science Response 2024/004."@en ;
   dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .

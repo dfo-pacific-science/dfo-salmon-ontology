@@ -1776,7 +1776,7 @@ gcdfo:RelativeAbundanceMetric a gcdfo:WSPMetric , skos:Concept ;
 gcdfo:LongTermTrendMetric a gcdfo:WSPMetric , skos:Concept ;
   rdfs:label "Long-term trend metric"@en ;
   skos:prefLabel "Long-term trend"@en ;
-  iao:0000115 "Wild Salmon Policy metric comparing current generational average to long-term average spawner abundance."@en ; # definition
+  iao:0000115 "Long-term trend metric comparing current generational average spawner abundance to long-term average spawner abundance."@en ; # definition
   skos:inScheme :WSPMetricScheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 

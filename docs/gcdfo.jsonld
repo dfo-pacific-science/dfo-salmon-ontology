@@ -4721,7 +4721,7 @@
     "http://purl.obolibrary.org/obo/IAO_0000115": [
       {
         "@language": "en",
-        "@value": "A WSP rapid status long-term trend metric comparing current generational average (geometric mean) spawner abundance to the long-term average (geometric mean) spawner abundance for the CU time series."
+        "@value": "A long-term trend metric comparing the current generational average (geometric mean) spawner abundance to the long-term average (geometric mean) spawner abundance for an assessed time series."
       }
     ],
     "http://purl.obolibrary.org/obo/IAO_0000119": [
@@ -7639,7 +7639,7 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "Derived for SPSR term coverage; distinct from WSP LongTermTrendMetric (current generational average vs long-term average) in CSAS Science Response 2024/004."
+        "@value": "Derived for SPSR term coverage; distinct from gcdfo:LongTermTrendMetric (current generational average vs long-term average) in CSAS Science Response 2024/004."
       }
     ],
     "http://purl.org/dc/terms/source": [

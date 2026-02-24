@@ -995,7 +995,7 @@
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#LongTermTrendMetric">
         <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"/>
-        <obo:IAO_0000115 xml:lang="en">A WSP rapid status long-term trend metric comparing current generational average (geometric mean) spawner abundance to the long-term average (geometric mean) spawner abundance for the CU time series.</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">A long-term trend metric comparing the current generational average (geometric mean) spawner abundance to the long-term average (geometric mean) spawner abundance for an assessed time series.</obo:IAO_0000115>
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
@@ -1453,7 +1453,7 @@
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#SpawnerAbundanceTrend">
         <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"/>
         <obo:IAO_0000115 xml:lang="en">A trend metric computed from spawner abundance over time using a defined trend method (e.g., slope over a specified window).</obo:IAO_0000115>
-        <obo:IAO_0000119 xml:lang="en">Derived for SPSR term coverage; distinct from WSP LongTermTrendMetric (current generational average vs long-term average) in CSAS Science Response 2024/004.</obo:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">Derived for SPSR term coverage; distinct from gcdfo:LongTermTrendMetric (current generational average vs long-term average) in CSAS Science Response 2024/004.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">Spawner abundance trend</rdfs:label>
