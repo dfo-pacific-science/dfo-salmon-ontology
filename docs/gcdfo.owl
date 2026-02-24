@@ -586,6 +586,36 @@
     
 
 
+    <!-- https://w3id.org/gcdfo/salmon#variableHasContextObject -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#variableHasContextObject">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/iadopt/ont/hasContextObject"/>
+        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#SalmonDataVariable"/>
+        <rdfs:range rdf:resource="https://w3id.org/iadopt/ont/Entity"/>
+        <obo:IAO_0000115 xml:lang="en">Relates a salmon data variable to an optional context object/entity component in I-ADOPT decomposition.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">variable has context object</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#variableHasMatrix -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#variableHasMatrix">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/iadopt/ont/hasMatrix"/>
+        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#SalmonDataVariable"/>
+        <rdfs:range rdf:resource="https://w3id.org/iadopt/ont/Entity"/>
+        <obo:IAO_0000115 xml:lang="en">Relates a salmon data variable to an optional matrix/context entity component in I-ADOPT decomposition.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">variable has matrix</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/gcdfo/salmon#variableHasObjectOfInterest -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#variableHasObjectOfInterest">
@@ -634,6 +664,18 @@
     <!-- https://w3id.org/iadopt/ont/hasConstraint -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/iadopt/ont/hasConstraint"/>
+    
+
+
+    <!-- https://w3id.org/iadopt/ont/hasContextObject -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/iadopt/ont/hasContextObject"/>
+    
+
+
+    <!-- https://w3id.org/iadopt/ont/hasMatrix -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/iadopt/ont/hasMatrix"/>
     
 
 

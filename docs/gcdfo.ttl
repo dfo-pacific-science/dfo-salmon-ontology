@@ -427,6 +427,30 @@ gcdfo:variableHasConstraint rdf:type owl:ObjectProperty ;
                                         gcdfo:StockAssessmentTheme .
 
 
+###  https://w3id.org/gcdfo/salmon#variableHasContextObject
+gcdfo:variableHasContextObject rdf:type owl:ObjectProperty ;
+                               rdfs:subPropertyOf iop:hasContextObject ;
+                               rdfs:domain gcdfo:SalmonDataVariable ;
+                               rdfs:range iop:Entity ;
+                               <http://purl.obolibrary.org/obo/IAO_0000115> "Relates a salmon data variable to an optional context object/entity component in I-ADOPT decomposition."@en ;
+                               rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                               rdfs:label "variable has context object"@en ;
+                               gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                           gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#variableHasMatrix
+gcdfo:variableHasMatrix rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf iop:hasMatrix ;
+                        rdfs:domain gcdfo:SalmonDataVariable ;
+                        rdfs:range iop:Entity ;
+                        <http://purl.obolibrary.org/obo/IAO_0000115> "Relates a salmon data variable to an optional matrix/context entity component in I-ADOPT decomposition."@en ;
+                        rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                        rdfs:label "variable has matrix"@en ;
+                        gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                    gcdfo:StockAssessmentTheme .
+
+
 ###  https://w3id.org/gcdfo/salmon#variableHasObjectOfInterest
 gcdfo:variableHasObjectOfInterest rdf:type owl:ObjectProperty ;
                                   rdfs:subPropertyOf iop:hasObjectOfInterest ;
@@ -465,6 +489,14 @@ gcdfo:variableHasStatisticalModifier rdf:type owl:ObjectProperty ;
 
 ###  https://w3id.org/iadopt/ont/hasConstraint
 iop:hasConstraint rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/iadopt/ont/hasContextObject
+iop:hasContextObject rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/iadopt/ont/hasMatrix
+iop:hasMatrix rdf:type owl:ObjectProperty .
 
 
 ###  https://w3id.org/iadopt/ont/hasObjectOfInterest

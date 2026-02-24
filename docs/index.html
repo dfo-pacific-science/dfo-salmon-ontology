@@ -912,7 +912,7 @@ This ontology has the following classes and properties.</span>
    <li>
       <a href="#http://purl.dataone.org/odo/ECSO_00002050" title="http://purl.dataone.org/odo/ECSO_00002050">year of measurement</a>
    </li>
-</ul></details><h4>Object Properties</h4><details class="gcdfo-collapsible gcdfo-overview-collapsible" open><summary>19 items (expand)</summary><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+</ul></details><h4>Object Properties</h4><details class="gcdfo-collapsible gcdfo-overview-collapsible" open><summary>21 items (expand)</summary><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     class="hlist">
    <li>
@@ -970,6 +970,13 @@ This ontology has the following classes and properties.</span>
    <li>
       <a href="#variableHasConstraint"
          title="https://w3id.org/gcdfo/salmon#variableHasConstraint">variable has constraint</a>
+   </li>
+   <li>
+      <a href="#variableHasContextObject"
+         title="https://w3id.org/gcdfo/salmon#variableHasContextObject">variable has context object</a>
+   </li>
+   <li>
+      <a href="#variableHasMatrix" title="https://w3id.org/gcdfo/salmon#variableHasMatrix">variable has matrix</a>
    </li>
    <li>
       <a href="#variableHasObjectOfInterest"
@@ -5633,7 +5640,7 @@ This section provides details for each class and property defined by DFO Salmon 
     is in domain of
    </dt>
    <dd>
-    <a href="#variableHasConstraint" title="https://w3id.org/gcdfo/salmon#variableHasConstraint">variable has constraint</a> <sup class="type-op" title="object property">op</sup>, <a href="#variableHasObjectOfInterest" title="https://w3id.org/gcdfo/salmon#variableHasObjectOfInterest">variable has object of interest</a> <sup class="type-op" title="object property">op</sup>, <a href="#variableHasProperty" title="https://w3id.org/gcdfo/salmon#variableHasProperty">variable has property</a> <sup class="type-op" title="object property">op</sup>, <a href="#variableHasStatisticalModifier" title="https://w3id.org/gcdfo/salmon#variableHasStatisticalModifier">variable has statistical modifier</a> <sup class="type-op" title="object property">op</sup>
+    <a href="#variableHasConstraint" title="https://w3id.org/gcdfo/salmon#variableHasConstraint">variable has constraint</a> <sup class="type-op" title="object property">op</sup>, <a href="#variableHasContextObject" title="https://w3id.org/gcdfo/salmon#variableHasContextObject">variable has context object</a> <sup class="type-op" title="object property">op</sup>, <a href="#variableHasMatrix" title="https://w3id.org/gcdfo/salmon#variableHasMatrix">variable has matrix</a> <sup class="type-op" title="object property">op</sup>, <a href="#variableHasObjectOfInterest" title="https://w3id.org/gcdfo/salmon#variableHasObjectOfInterest">variable has object of interest</a> <sup class="type-op" title="object property">op</sup>, <a href="#variableHasProperty" title="https://w3id.org/gcdfo/salmon#variableHasProperty">variable has property</a> <sup class="type-op" title="object property">op</sup>, <a href="#variableHasStatisticalModifier" title="https://w3id.org/gcdfo/salmon#variableHasStatisticalModifier">variable has statistical modifier</a> <sup class="type-op" title="object property">op</sup>
    </dd>
    <dt>
     is in range of
@@ -6419,6 +6426,8 @@ This section provides details for each class and property defined by DFO Salmon 
   <li><a href="#populationOf" title="https://w3id.org/gcdfo/salmon#populationOf">population of</a></li>
   <li><a href="#usesObservationProcedure" title="https://w3id.org/gcdfo/salmon#usesObservationProcedure">uses observation procedure</a></li>
   <li><a href="#variableHasConstraint" title="https://w3id.org/gcdfo/salmon#variableHasConstraint">variable has constraint</a></li>
+  <li><a href="#variableHasContextObject" title="https://w3id.org/gcdfo/salmon#variableHasContextObject">variable has context object</a></li>
+  <li><a href="#variableHasMatrix" title="https://w3id.org/gcdfo/salmon#variableHasMatrix">variable has matrix</a></li>
   <li><a href="#variableHasObjectOfInterest" title="https://w3id.org/gcdfo/salmon#variableHasObjectOfInterest">variable has object of interest</a></li>
   <li><a href="#variableHasProperty" title="https://w3id.org/gcdfo/salmon#variableHasProperty">variable has property</a></li>
   <li><a href="#variableHasStatisticalModifier" title="https://w3id.org/gcdfo/salmon#variableHasStatisticalModifier">variable has statistical modifier</a></li>
@@ -6982,6 +6991,80 @@ This section provides details for each class and property defined by DFO Salmon 
     </dt>
     <dd>
      <a href="https://w3id.org/iadopt/ont/Constraint" target="_blank" title="https://w3id.org/iadopt/ont/Constraint">Constraint</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="variableHasContextObject">
+  <h3>variable has context object<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#variableHasContextObject</p>
+  <div class="comment">
+   <span class="markdown">Relates a salmon data variable to an optional context object/entity component in I-ADOPT decomposition.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://w3id.org/iadopt/ont/hasContextObject" target="_blank" title="https://w3id.org/iadopt/ont/hasContextObject">has Context Object</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#SalmonDataVariable" title="https://w3id.org/gcdfo/salmon#SalmonDataVariable">Salmon data variable</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="https://w3id.org/iadopt/ont/Entity" target="_blank" title="https://w3id.org/iadopt/ont/Entity">Entity</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="variableHasMatrix">
+  <h3>variable has matrix<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#variableHasMatrix</p>
+  <div class="comment">
+   <span class="markdown">Relates a salmon data variable to an optional matrix/context entity component in I-ADOPT decomposition.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://w3id.org/iadopt/ont/hasMatrix" target="_blank" title="https://w3id.org/iadopt/ont/hasMatrix">has Matrix</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#SalmonDataVariable" title="https://w3id.org/gcdfo/salmon#SalmonDataVariable">Salmon data variable</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="https://w3id.org/iadopt/ont/Entity" target="_blank" title="https://w3id.org/iadopt/ont/Entity">Entity</a> <sup class="type-c" title="class">c</sup>
     </dd>
    </dl>
   </div>
@@ -7662,6 +7745,20 @@ This section provides details for each class and property defined by DFO Salmon 
 <li>Added: domain https://w3id.org/gcdfo/salmon#SalmonDataVariable</li>
 </ul>
 </li>
+<li><a href="#variableHasContextObject">https://w3id.org/gcdfo/salmon#variableHasContextObject</a>
+<ul>
+<li>Added: Range https://w3id.org/iadopt/ont/Entity</li>
+<li>Added: SubProperty of https://w3id.org/iadopt/ont/hasContextObject</li>
+<li>Added: domain https://w3id.org/gcdfo/salmon#SalmonDataVariable</li>
+</ul>
+</li>
+<li><a href="#variableHasMatrix">https://w3id.org/gcdfo/salmon#variableHasMatrix</a>
+<ul>
+<li>Added: Range https://w3id.org/iadopt/ont/Entity</li>
+<li>Added: SubProperty of https://w3id.org/iadopt/ont/hasMatrix</li>
+<li>Added: domain https://w3id.org/gcdfo/salmon#SalmonDataVariable</li>
+</ul>
+</li>
 <li><a href="#variableHasObjectOfInterest">https://w3id.org/gcdfo/salmon#variableHasObjectOfInterest</a>
 <ul>
 <li>Added: Range https://w3id.org/iadopt/ont/Entity</li>
@@ -7684,6 +7781,10 @@ This section provides details for each class and property defined by DFO Salmon 
 </ul>
 </li>
 <li><a href="#https://w3id.org/iadopt/ont/hasConstraint">https://w3id.org/iadopt/ont/hasConstraint</a>
+</li>
+<li><a href="#https://w3id.org/iadopt/ont/hasContextObject">https://w3id.org/iadopt/ont/hasContextObject</a>
+</li>
+<li><a href="#https://w3id.org/iadopt/ont/hasMatrix">https://w3id.org/iadopt/ont/hasMatrix</a>
 </li>
 <li><a href="#https://w3id.org/iadopt/ont/hasObjectOfInterest">https://w3id.org/iadopt/ont/hasObjectOfInterest</a>
 </li>
