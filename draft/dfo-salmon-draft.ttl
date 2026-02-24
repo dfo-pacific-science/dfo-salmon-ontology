@@ -1065,7 +1065,7 @@ gcdfo:CUBenchmark a skos:Concept ;
 
 gcdfo:CULowerBenchmark a gcdfo:CUBenchmark , skos:Concept ;
   skos:prefLabel "Conservation Unit lower benchmark"@en ;
-  skos:definition "A reference point in biological status associated with significant losses in production between the Amber and Red zones, and which allows for a substantial buffer between it and any level of abundance that could lead to a CU being considered at risk of extinction."@en ;
+  skos:definition "A Conservation Unit (CU)-level biological reference point associated with significant losses in production between the Amber and Red zones, and which allows for a substantial buffer between it and any level of abundance that could lead to a CU being considered at risk of extinction. This CU benchmark is distinct from SMU-level fisheries management lower reference points such as FRP-L."@en ;
   skos:inScheme gcdfo:BiologicalBenchmarkScheme ;
   iao:0000119 "Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en ; # definition source
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
@@ -1271,6 +1271,14 @@ gcdfo:LimitReferencePoint a owl:Class ;
   iao:0000115 "A fish stock experiencing serious harm may be depleted to the point where it has impaired productivity or reproductive capacity. As a result, the stock would be less resilient to fishing and could not easily rebuild. Serious harm may be irreversible, or only slowly reversible over the long-term, and can be due to fishing, other human-induced impacts, or natural causes. Under the Precautionary Approach policy and the Fish Stocks Provisions (FSPs), breaching the LRP is a trigger for a rebuilding plan."@en ; # definition
   rdfs:subClassOf gcdfo:ReferencePoint ;
   iao:0000119 "Fisheries and Oceans Canada. (2024). Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html. [Accessed 09-10-2025]."@en ; # definition source
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:FisheriesReferencePointLower a owl:Class ;
+  rdfs:label "Fisheries Reference Point - Lower"@en ;
+  skos:altLabel "FRP-L"@en ;
+  iao:0000115 "A lower fisheries-management reference point defined for Stock Management Units (SMUs) and related fishery decision frameworks. It may be informed by Conservation Unit (CU) lower biological benchmarks, but is not identical to CU-level lower biological benchmarks used to delineate Wild Salmon Policy biological status zones."@en ; # definition
+  rdfs:subClassOf gcdfo:LimitReferencePoint ;
+  iao:0000119 "Fisheries and Oceans Canada. (2022). Methodologies and Guidelines for Defining Limit Reference Points for Pacific Salmon. DFO Can. Sci. Advis. Sec. Sci. Advis. Rep. 2022/030. (Erratum: December 2022)."@en ; # definition source
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:MarineSurvival a owl:Class ;
@@ -3170,6 +3178,7 @@ gcdfo:Extinct gcdfo:theme gcdfo:StockAssessmentTheme , gcdfo:SpeciesAtRiskRecove
 gcdfo:Extirpated gcdfo:theme gcdfo:StockAssessmentTheme , gcdfo:SpeciesAtRiskRecoveryTheme .
 gcdfo:Fecundity gcdfo:theme gcdfo:StockAssessmentTheme .
 gcdfo:FisheryReferencePoint gcdfo:theme gcdfo:StockAssessmentTheme , gcdfo:FisheriesManagementTheme .
+gcdfo:FisheriesReferencePointLower gcdfo:theme gcdfo:StockAssessmentTheme , gcdfo:FisheriesManagementTheme , gcdfo:PolicyGovernanceTheme .
 gcdfo:FishingEffort gcdfo:theme gcdfo:StockAssessmentTheme , gcdfo:FisheriesManagementTheme , gcdfo:PolicyGovernanceTheme .
 gcdfo:FishingMortality gcdfo:theme gcdfo:FisheriesManagementTheme , gcdfo:PolicyGovernanceTheme .
 gcdfo:FixedStationCountAnalysis gcdfo:theme gcdfo:MonitoringFieldWorkTheme .
@@ -3445,6 +3454,7 @@ gcdfo:EscapementSurveyEvent gcdfo:publicationStatus gcdfo:PublishReady .
 gcdfo:EscapementMeasurement gcdfo:publicationStatus gcdfo:PublishReady .
 gcdfo:ReferencePoint gcdfo:publicationStatus gcdfo:PublishReady .
 gcdfo:LimitReferencePoint gcdfo:publicationStatus gcdfo:PublishReady .
+gcdfo:FisheriesReferencePointLower gcdfo:publicationStatus gcdfo:PublishReady .
 gcdfo:UpperStockReferencePoint gcdfo:publicationStatus gcdfo:PublishReady .
 gcdfo:WSPBiologicalStatusZone gcdfo:publicationStatus gcdfo:PublishReady .
 gcdfo:GreenZone gcdfo:publicationStatus gcdfo:PublishReady .

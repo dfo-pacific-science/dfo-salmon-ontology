@@ -583,7 +583,7 @@ $(function(){
     <div id="overview"><h2 id="overv" class="list">GC DFO Salmon Ontology: Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 <span class="markdown">
 This ontology has the following classes and properties.</span>
-<h4>Classes</h4><details class="gcdfo-collapsible gcdfo-overview-collapsible"><summary>56 items (expand)</summary><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+<h4>Classes</h4><details class="gcdfo-collapsible gcdfo-overview-collapsible"><summary>57 items (expand)</summary><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     class="hlist">
    <li>
@@ -635,6 +635,10 @@ This ontology has the following classes and properties.</span>
    </li>
    <li>
       <a href="#http://purl.dataone.org/odo/SALMON_00000639" title="http://purl.dataone.org/odo/SALMON_00000639">Fish stock type</a>
+   </li>
+   <li>
+      <a href="#FisheriesReferencePointLower"
+         title="https://w3id.org/gcdfo/salmon#FisheriesReferencePointLower">Fisheries Reference Point - Lower</a>
    </li>
    <li>
       <a href="#http://purl.dataone.org/odo/SALMON_00000137" title="http://purl.dataone.org/odo/SALMON_00000137">Fishery type</a>
@@ -2979,6 +2983,7 @@ This section provides details for each class and property defined by GC DFO Salm
   <li><a href="#ExploitationRate" title="https://w3id.org/gcdfo/salmon#ExploitationRate">Exploitation rate</a></li>
   <li><a href="#http://purl.dataone.org/odo/SALMON_00000167" title="http://purl.dataone.org/odo/SALMON_00000167">Fish measurement type</a></li>
   <li><a href="#http://purl.dataone.org/odo/SALMON_00000639" title="http://purl.dataone.org/odo/SALMON_00000639">Fish stock type</a></li>
+  <li><a href="#FisheriesReferencePointLower" title="https://w3id.org/gcdfo/salmon#FisheriesReferencePointLower">Fisheries Reference Point - Lower</a></li>
   <li><a href="#http://purl.dataone.org/odo/SALMON_00000137" title="http://purl.dataone.org/odo/SALMON_00000137">Fishery type</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/BFO_0000031" title="http://purl.obolibrary.org/obo/BFO_0000031">generically dependent continuant</a></li>
   <li><a href="#http://rs.tdwg.org/dwc/terms/Identification" title="http://rs.tdwg.org/dwc/terms/Identification">Identification</a></li>
@@ -3498,6 +3503,37 @@ This section provides details for each class and property defined by GC DFO Salm
    </dd>
   </dl>
  </div>
+ <div class="entity" id="FisheriesReferencePointLower">
+  <h3>Fisheries Reference Point - Lower<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#FisheriesReferencePointLower</p>
+  <div class="comment">
+   <span class="markdown">A lower fisheries-management reference point defined for Stock Management Units (SMUs) and related fishery decision frameworks. It may be informed by Conservation Unit (CU) lower biological benchmarks, but is not identical to CU-level lower biological benchmarks used to delineate Wild Salmon Policy biological status zones.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Fisheries and Oceans Canada. (2022). Methodologies and Guidelines for Defining Limit Reference Points for Pacific Salmon. DFO Can. Sci. Advis. Sec. Sci. Advis. Rep. 2022/030. (Erratum: December 2022).
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#LimitReferencePoint" title="https://w3id.org/gcdfo/salmon#LimitReferencePoint">Limit reference point</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
  <div class="entity" id="http://purl.dataone.org/odo/SALMON_00000137">
   <h3>Fishery type<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> http://purl.dataone.org/odo/SALMON_00000137</p>
@@ -3708,6 +3744,12 @@ This section provides details for each class and property defined by GC DFO Salm
    <dd>
     <a href="#ReferencePoint" title="https://w3id.org/gcdfo/salmon#ReferencePoint">Reference point</a> <sup class="type-c" title="class">c</sup>
    </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#FisheriesReferencePointLower" title="https://w3id.org/gcdfo/salmon#FisheriesReferencePointLower">Fisheries Reference Point - Lower</a> <sup class="type-c" title="class">c</sup>
+   </dd>
   </dl>
  </div>
  <div class="entity" id="http://purl.obolibrary.org/obo/ENVO_01000618">
@@ -3743,7 +3785,7 @@ This section provides details for each class and property defined by GC DFO Salm
   <h3>Lower biological benchmark<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark</p>
   <div class="comment">
-   <span class="markdown">Lower benchmark value for a metric used to delineate Wild Salmon Policy status zones (typically the boundary between Red and Amber zones).</span>
+   <span class="markdown">Lower benchmark value for a Conservation Unit (CU) metric used to delineate Wild Salmon Policy status zones (typically the boundary between Red and Amber zones). This CU-level biological benchmark is distinct from SMU-level fisheries management lower reference points such as FRP-L.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -4991,6 +5033,11 @@ This section provides details for each class and property defined by GC DFO Salm
 <ul><li><a href="#Deme">https://w3id.org/gcdfo/salmon#Deme</a>
 <ul>
 <li>Added: SubClass of http://rs.tdwg.org/dwc/terms/Organism</li>
+</ul>
+</li>
+<li><a href="#FisheriesReferencePointLower">https://w3id.org/gcdfo/salmon#FisheriesReferencePointLower</a>
+<ul>
+<li>Added: SubClass of https://w3id.org/gcdfo/salmon#LimitReferencePoint</li>
 </ul>
 </li>
 <li><a href="#LowerBiologicalBenchmark">https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark</a>

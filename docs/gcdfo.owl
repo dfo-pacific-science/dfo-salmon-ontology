@@ -873,6 +873,22 @@
     
 
 
+    <!-- https://w3id.org/gcdfo/salmon#FisheriesReferencePointLower -->
+
+    <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#FisheriesReferencePointLower">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#LimitReferencePoint"/>
+        <obo:IAO_0000115 xml:lang="en">A lower fisheries-management reference point defined for Stock Management Units (SMUs) and related fishery decision frameworks. It may be informed by Conservation Unit (CU) lower biological benchmarks, but is not identical to CU-level lower biological benchmarks used to delineate Wild Salmon Policy biological status zones.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. (2022). Methodologies and Guidelines for Defining Limit Reference Points for Pacific Salmon. DFO Can. Sci. Advis. Sec. Sci. Advis. Rep. 2022/030. (Erratum: December 2022).</obo:IAO_0000119>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Fisheries Reference Point - Lower</rdfs:label>
+        <skos:altLabel xml:lang="en">FRP-L</skos:altLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/gcdfo/salmon#IndicatorRiver -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#IndicatorRiver">
@@ -907,7 +923,7 @@
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark">
         <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#MetricBenchmark"/>
-        <obo:IAO_0000115 xml:lang="en">Lower benchmark value for a metric used to delineate Wild Salmon Policy status zones (typically the boundary between Red and Amber zones).</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">Lower benchmark value for a Conservation Unit (CU) metric used to delineate Wild Salmon Policy status zones (typically the boundary between Red and Amber zones). This CU-level biological benchmark is distinct from SMU-level fisheries management lower reference points such as FRP-L.</obo:IAO_0000115>
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
