@@ -54,7 +54,7 @@ iop:Property rdfs:subClassOf iao:0000030 .
   rdfs:label "has variable"@en ;
   rdfs:domain sosa:Observation ;
   rdfs:range iop:Variable ;
-  rdfs:comment "Links a SOSA observation to an I-ADOPT variable decomposition used in salmon data workflows."@en .
+  rdfs:comment "Links a SOSA observation to an I-ADOPT variable decomposition used in salmon data workflows. In SDP workflows this is typically represented as a compound term concept with decomposition annotations."@en .
 
 :variableHasEntity a owl:ObjectProperty ;
   rdfs:label "variable has entity"@en ;

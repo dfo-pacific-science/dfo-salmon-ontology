@@ -66,6 +66,7 @@ For Salmon Data Package work (`term_iri`, `property_iri`, `entity_iri`, optional
 
 - Keep the **normative salmon metamodel spine** in `ontology/dfo-salmon.ttl` (stable classes/properties contributors must rely on).
 - Keep broader cross-framework and publication-profile mappings in these module files.
+- Treat I-ADOPT Variables as **compound terms** in day-to-day data packaging (typically represented as SKOS concepts with decomposition annotations), while maintaining OWL-level bridge semantics for metamodel interoperability.
 
 Rule of thumb:
 - If contributors need it every day to encode SDP semantics, promote it to core.

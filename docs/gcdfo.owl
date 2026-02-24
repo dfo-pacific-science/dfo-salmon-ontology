@@ -435,8 +435,8 @@
 
     <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#hasObservedVariable">
         <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#SurveyEvent"/>
-        <rdfs:range rdf:resource="https://w3id.org/gcdfo/salmon#SalmonDataVariable"/>
-        <obo:IAO_0000115 xml:lang="en">Relates a survey event to a salmon data variable specification that defines what was measured or derived.</obo:IAO_0000115>
+        <rdfs:range rdf:resource="https://w3id.org/iadopt/ont/Variable"/>
+        <obo:IAO_0000115 xml:lang="en">Relates a survey event to an I-ADOPT variable used as a compound term that defines what was measured or derived (typically represented as a SKOS concept with decomposition annotations in SDP workflows).</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">has observed variable</rdfs:label>
         <skos:closeMatch rdf:resource="http://www.w3.org/ns/sosa/observedProperty"/>
@@ -575,9 +575,9 @@
 
     <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#variableHasConstraint">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/iadopt/ont/hasConstraint"/>
-        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#SalmonDataVariable"/>
+        <rdfs:domain rdf:resource="https://w3id.org/iadopt/ont/Variable"/>
         <rdfs:range rdf:resource="https://w3id.org/iadopt/ont/Constraint"/>
-        <obo:IAO_0000115 xml:lang="en">Relates a salmon data variable to an optional constraint component in I-ADOPT decomposition.</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">Relates an I-ADOPT compound variable term to an optional constraint component in decomposition.</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">variable has constraint</rdfs:label>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
@@ -590,9 +590,9 @@
 
     <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#variableHasContextObject">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/iadopt/ont/hasContextObject"/>
-        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#SalmonDataVariable"/>
+        <rdfs:domain rdf:resource="https://w3id.org/iadopt/ont/Variable"/>
         <rdfs:range rdf:resource="https://w3id.org/iadopt/ont/Entity"/>
-        <obo:IAO_0000115 xml:lang="en">Relates a salmon data variable to an optional context object/entity component in I-ADOPT decomposition.</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">Relates an I-ADOPT compound variable term to an optional context object/entity component in decomposition.</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">variable has context object</rdfs:label>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
@@ -605,9 +605,9 @@
 
     <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#variableHasMatrix">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/iadopt/ont/hasMatrix"/>
-        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#SalmonDataVariable"/>
+        <rdfs:domain rdf:resource="https://w3id.org/iadopt/ont/Variable"/>
         <rdfs:range rdf:resource="https://w3id.org/iadopt/ont/Entity"/>
-        <obo:IAO_0000115 xml:lang="en">Relates a salmon data variable to an optional matrix/context entity component in I-ADOPT decomposition.</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">Relates an I-ADOPT compound variable term to an optional matrix/context entity component in decomposition.</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">variable has matrix</rdfs:label>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
@@ -620,9 +620,9 @@
 
     <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#variableHasObjectOfInterest">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/iadopt/ont/hasObjectOfInterest"/>
-        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#SalmonDataVariable"/>
+        <rdfs:domain rdf:resource="https://w3id.org/iadopt/ont/Variable"/>
         <rdfs:range rdf:resource="https://w3id.org/iadopt/ont/Entity"/>
-        <obo:IAO_0000115 xml:lang="en">Relates a salmon data variable to the entity/object-of-interest component in I-ADOPT decomposition.</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">Relates an I-ADOPT compound variable term to the entity/object-of-interest component in decomposition.</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">variable has object of interest</rdfs:label>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
@@ -635,9 +635,9 @@
 
     <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#variableHasProperty">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/iadopt/ont/hasProperty"/>
-        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#SalmonDataVariable"/>
+        <rdfs:domain rdf:resource="https://w3id.org/iadopt/ont/Variable"/>
         <rdfs:range rdf:resource="https://w3id.org/iadopt/ont/Property"/>
-        <obo:IAO_0000115 xml:lang="en">Relates a salmon data variable to the measured/estimated property component in I-ADOPT decomposition.</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">Relates an I-ADOPT compound variable term to the measured/estimated property component in decomposition.</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">variable has property</rdfs:label>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
@@ -650,9 +650,9 @@
 
     <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#variableHasStatisticalModifier">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/iadopt/ont/hasStatisticalModifier"/>
-        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#SalmonDataVariable"/>
+        <rdfs:domain rdf:resource="https://w3id.org/iadopt/ont/Variable"/>
         <rdfs:range rdf:resource="https://w3id.org/iadopt/ont/StatisticalModifier"/>
-        <obo:IAO_0000115 xml:lang="en">Relates a salmon data variable to an optional statistical modifier component in I-ADOPT decomposition.</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">Relates an I-ADOPT compound variable term to an optional statistical modifier component in decomposition.</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">variable has statistical modifier</rdfs:label>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
@@ -1744,21 +1744,6 @@
     
 
 
-    <!-- https://w3id.org/gcdfo/salmon#SalmonDataVariable -->
-
-    <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#SalmonDataVariable">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
-        <obo:IAO_0000115 xml:lang="en">A variable specification used to decompose a measured salmon-data quantity into semantic components (object of interest, property, and optional constraints/modifiers), following the I-ADOPT variable pattern for SDP metadata workflows.</obo:IAO_0000115>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <rdfs:label xml:lang="en">Salmon data variable</rdfs:label>
-        <skos:closeMatch rdf:resource="http://www.w3.org/ns/sosa/Property"/>
-        <skos:closeMatch rdf:resource="https://w3id.org/iadopt/ont/Variable"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-    </owl:Class>
-    
-
-
     <!-- https://w3id.org/gcdfo/salmon#SpawnerAbundance -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#SpawnerAbundance">
@@ -2064,6 +2049,12 @@
     <!-- https://w3id.org/iadopt/ont/StatisticalModifier -->
 
     <owl:Class rdf:about="https://w3id.org/iadopt/ont/StatisticalModifier"/>
+    
+
+
+    <!-- https://w3id.org/iadopt/ont/Variable -->
+
+    <owl:Class rdf:about="https://w3id.org/iadopt/ont/Variable"/>
     
 
 

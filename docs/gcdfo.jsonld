@@ -7557,50 +7557,6 @@
     ]
   },
   {
-    "@id": "https://w3id.org/gcdfo/salmon#SalmonDataVariable",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000115": [
-      {
-        "@language": "en",
-        "@value": "A variable specification used to decompose a measured salmon-data quantity into semantic components (object of interest, property, and optional constraints/modifiers), following the I-ADOPT variable pattern for SDP metadata workflows."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Salmon data variable"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://purl.obolibrary.org/obo/IAO_0000030"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#closeMatch": [
-      {
-        "@id": "http://www.w3.org/ns/sosa/Property"
-      },
-      {
-        "@id": "https://w3id.org/iadopt/ont/Variable"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
     "@id": "https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
@@ -10062,7 +10018,7 @@
     "http://purl.obolibrary.org/obo/IAO_0000115": [
       {
         "@language": "en",
-        "@value": "Relates a survey event to a salmon data variable specification that defines what was measured or derived."
+        "@value": "Relates a survey event to an I-ADOPT variable used as a compound term that defines what was measured or derived (typically represented as a SKOS concept with decomposition annotations in SDP workflows)."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
@@ -10083,7 +10039,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#SalmonDataVariable"
+        "@id": "https://w3id.org/iadopt/ont/Variable"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#closeMatch": [
@@ -10457,12 +10413,12 @@
     "http://purl.obolibrary.org/obo/IAO_0000115": [
       {
         "@language": "en",
-        "@value": "Relates a salmon data variable to an optional constraint component in I-ADOPT decomposition."
+        "@value": "Relates an I-ADOPT compound variable term to an optional constraint component in decomposition."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#SalmonDataVariable"
+        "@id": "https://w3id.org/iadopt/ont/Variable"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -10503,12 +10459,12 @@
     "http://purl.obolibrary.org/obo/IAO_0000115": [
       {
         "@language": "en",
-        "@value": "Relates a salmon data variable to an optional context object/entity component in I-ADOPT decomposition."
+        "@value": "Relates an I-ADOPT compound variable term to an optional context object/entity component in decomposition."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#SalmonDataVariable"
+        "@id": "https://w3id.org/iadopt/ont/Variable"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -10549,12 +10505,12 @@
     "http://purl.obolibrary.org/obo/IAO_0000115": [
       {
         "@language": "en",
-        "@value": "Relates a salmon data variable to an optional matrix/context entity component in I-ADOPT decomposition."
+        "@value": "Relates an I-ADOPT compound variable term to an optional matrix/context entity component in decomposition."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#SalmonDataVariable"
+        "@id": "https://w3id.org/iadopt/ont/Variable"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -10595,12 +10551,12 @@
     "http://purl.obolibrary.org/obo/IAO_0000115": [
       {
         "@language": "en",
-        "@value": "Relates a salmon data variable to the entity/object-of-interest component in I-ADOPT decomposition."
+        "@value": "Relates an I-ADOPT compound variable term to the entity/object-of-interest component in decomposition."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#SalmonDataVariable"
+        "@id": "https://w3id.org/iadopt/ont/Variable"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -10641,12 +10597,12 @@
     "http://purl.obolibrary.org/obo/IAO_0000115": [
       {
         "@language": "en",
-        "@value": "Relates a salmon data variable to the measured/estimated property component in I-ADOPT decomposition."
+        "@value": "Relates an I-ADOPT compound variable term to the measured/estimated property component in decomposition."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#SalmonDataVariable"
+        "@id": "https://w3id.org/iadopt/ont/Variable"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -10687,12 +10643,12 @@
     "http://purl.obolibrary.org/obo/IAO_0000115": [
       {
         "@language": "en",
-        "@value": "Relates a salmon data variable to an optional statistical modifier component in I-ADOPT decomposition."
+        "@value": "Relates an I-ADOPT compound variable term to an optional statistical modifier component in decomposition."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#SalmonDataVariable"
+        "@id": "https://w3id.org/iadopt/ont/Variable"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [

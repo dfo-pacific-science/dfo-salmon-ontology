@@ -88,7 +88,6 @@ gcdfo:ReferencePoint skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
 gcdfo:LowerBiologicalBenchmark skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
 gcdfo:FisheriesReferencePointLower skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
 gcdfo:WSPRapidStatus skos:closeMatch <https://w3id.org/iadopt/ont/Variable> .
-gcdfo:SalmonDataVariable skos:closeMatch <https://w3id.org/iadopt/ont/Variable>, <http://www.w3.org/ns/sosa/Property> .
 
 #################################################################
 # Candidate bridge properties (exploratory)
