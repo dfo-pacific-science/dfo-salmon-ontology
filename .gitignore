@@ -68,11 +68,18 @@ result*
 *.reasoned.owl
 *.reasoned.json
 
+# Analysis outputs
+analysis/
+
 # Release artifacts (keep structure but ignore contents)
 release/artifacts/*
 !release/artifacts/.gitkeep
-!release/artifacts/term-tables/
-!release/artifacts/term-tables/**
+
+# Release temporary build outputs
+release/tmp/*
+
+# Generated SPARQL query outputs from term-table extraction
+scripts/sparql/*-terms.rq
 
 # Test outputs
 test-results/

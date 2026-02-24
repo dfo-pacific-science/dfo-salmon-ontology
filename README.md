@@ -70,8 +70,9 @@ The GC DFO Salmon Ontology is a **data stewardship and operational process ontol
 
 - **Single source of truth**: Edit and review `ontology/dfo-salmon.ttl` on a development branch; the draft file is only an idea bank and is not read by tests or term-table extraction.
 - **SPSR mapping source boundary**: canonical SPSR assessment/mapping artifacts live in `Br-Johnson/smn-data-gpt/assessments/spsr`; this repo's `work/` folder is an integration snapshot/working cache for ontology work (see `work/README.md`).
-- **Theme navigation**: Tag every term with 1–3 `gcdfo:theme` values from `gcdfo:ThemeScheme` directly in the canonical file; `gcdfo:ThemeScheme` and its member theme concepts are excluded from the missing-theme check; downstream term tables rely on the annotations.
+- **Theme navigation**: Tag every term with 1–3 `gcdfo:theme` values from `gcdfo:ThemeScheme` directly in the canonical file; `gcdfo:ThemeScheme` and its member theme concepts are excluded from the missing-theme check; generated term tables and generated term-table SPARQL queries are local build artifacts (not source-controlled outputs).
 - **Docs publishing**: `make docs-refresh` regenerates `docs/gcdfo.{ttl,owl}` via ROBOT and `docs/gcdfo.jsonld` via `rdflib` (JSON-LD is a JSON-based RDF serialization) from `ontology/dfo-salmon.ttl`, then refreshes the SKOS sections inside `docs/index.html` (it also enforces OWL Classes appearing before the SKOS sections on the rendered page).
+- **Release paths**: root-level `release/` is for transient local/CI build outputs; canonical published artifacts and immutable version snapshots live under `docs/` and `docs/releases/X.Y.Z/`.
 - **OBO-style workflow**: Use ROBOT for quality control and release management
 - **Pre-commit validation**: Install pre-commit hooks (`pre-commit install`) to validate ontology before commit
 - **CI validation**: Pushes/PRs run ROBOT ELK reasoning + ROBOT report (with custom profile); CI (continuous integration, automated checks on every push) runs `make ci` and fails if it produces uncommitted diffs.
