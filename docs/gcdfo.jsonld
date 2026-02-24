@@ -356,6 +356,28 @@
     ]
   },
   {
+    "@id": "http://purl.obolibrary.org/obo/ENVO_00000063",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://purl.obolibrary.org/obo/envo.owl"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "water body"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://purl.obolibrary.org/obo/BFO_0000040"
+      }
+    ]
+  },
+  {
     "@id": "http://purl.obolibrary.org/obo/ENVO_00000234",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
@@ -419,7 +441,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "http://purl.obolibrary.org/obo/BFO_0000040"
+        "@id": "http://purl.obolibrary.org/obo/ENVO_00000063"
       }
     ]
   },
@@ -447,7 +469,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "http://purl.obolibrary.org/obo/BFO_0000040"
+        "@id": "http://purl.obolibrary.org/obo/ENVO_00000063"
       }
     ]
   },
@@ -1162,7 +1184,7 @@
     "http://purl.org/dc/terms/title": [
       {
         "@language": "en",
-        "@value": "GC DFO Salmon Ontology"
+        "@value": "DFO Salmon Ontology"
       }
     ],
     "http://purl.org/vocab/vann/preferredNamespacePrefix": [
@@ -1198,6 +1220,123 @@
     "https://schema.org/codeRepository": [
       {
         "@id": "https://github.com/dfo-pacific-science/dfo-salmon-ontology"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#AbundanceDataType",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "A categorical attribute indicating whether an abundance time series is recorded as absolute abundance or as a relative index (used by rapid-status workflows)."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#MeasurementContext"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A categorical attribute indicating whether an abundance time series is recorded as absolute abundance or as a relative index (used by rapid-status workflows)."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#MeasurementContextScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Abundance data type"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "en",
+        "@value": "In SPSR rapid-status workflows, this field distinguishes absolute abundance vs relative index inputs (often abbreviated in code as 'Abs_Abd' and 'RelIdx')."
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#AbundancePercentileMetric",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "An abundance percentile metric giving the percentile rank of the current generational average spawner abundance relative to a historical reference distribution."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Abundance percentile metric"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
       }
     ]
   },
@@ -1964,7 +2103,12 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."
+        "@value": "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -2077,6 +2221,56 @@
     ]
   },
   {
+    "@id": "https://w3id.org/gcdfo/salmon#BenchmarkRatioMetric",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "A benchmark-ratio metric equal to the ratio of current generational average spawner abundance to a specified benchmark (lower or upper benchmark), where 1.0 indicates equality to that benchmark."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Benchmark ratio metric"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
     "@id": "https://w3id.org/gcdfo/salmon#BiologicalBenchmarkAndIndicatorScheme",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#ConceptScheme"
@@ -2173,7 +2367,7 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "Adapted from the Government of Canada Pacific Salmon Glossary"
+        "@value": "Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html."
       }
     ],
     "http://purl.org/dc/terms/source": [
@@ -2241,6 +2435,59 @@
       },
       {
         "@id": "https://w3id.org/gcdfo/salmon#SpeciesAtRiskRecoveryTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#CWTMarineSurvivalRate",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "A marine survival proportion estimated for a coded-wire-tag (CWT) release group, defined as the portion of tagged smolts that survive to be caught in marine fisheries or return to freshwater as adults."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. 2021. Marine Survival Forecast of Southern British Columbia Coho (defines marine survival as (Catch+Escapement)/Release for coded-wire-tag smolt releases)."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/Library/40978680.pdf"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "CWT marine survival rate"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#altLabel": [
+      {
+        "@language": "en",
+        "@value": "Coded-wire-tag marine survival rate"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"
       },
       {
         "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
@@ -2462,11 +2709,11 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "Canada's Policy for Conservation of Wild Pacific Salmon Glossary."
+        "@value": "Fisheries and Oceans Canada. 2005. Canada's Policy for Conservation of Wild Pacific Salmon. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf."
       },
       {
         "@language": "en",
-        "@value": "Fisheries and Oceans Canada. (2005). Canada's Policy for Conservation of Wild Pacific Salmon. Retrieved from https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf."
+        "@value": "Fisheries and Oceans Canada. Canada's Policy for Conservation of Wild Pacific Salmon - Glossary. https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/wsp-pss/policy-politique-eng.html#glossary."
       }
     ],
     "http://purl.org/dc/terms/isPartOf": [
@@ -2475,6 +2722,9 @@
       }
     ],
     "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf"
+      },
       {
         "@id": "https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/wsp-pss/policy-politique-eng.html#glossary"
       }
@@ -3098,7 +3348,7 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "Fisheries and Oceans Canada. (2005). Canada's Policy for Conservation of Wild Pacific Salmon. Retrieved from https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf"
+        "@value": "Fisheries and Oceans Canada. 2005. Canada's Policy for Conservation of Wild Pacific Salmon. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf."
       }
     ],
     "http://purl.org/dc/terms/source": [
@@ -3405,6 +3655,64 @@
     ]
   },
   {
+    "@id": "https://w3id.org/gcdfo/salmon#ExpansionFactor",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "A multiplicative factor used to expand observed counts or detections from a sampled subset (e.g., indicator sites, PIT detections) to an estimated total abundance or escapement."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. 2021. Marine Survival Forecast of Southern British Columbia Coho (describes applying expansion factors to PIT detections to estimate total escapement)."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/Library/40978680.pdf"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ExpansionMathematicalOperations"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A multiplicative factor used to expand observed counts or detections from a sampled subset (e.g., indicator sites, PIT detections) to an estimated total abundance or escapement."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#EstimateMethodScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Expansion factor"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
     "@id": "https://w3id.org/gcdfo/salmon#ExpansionMathematicalOperations",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
@@ -3465,7 +3773,12 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "Fisheries and Oceans Canada. (2019). Government of Canada. Pacific Salmon - Glossary. https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html. [Accessed 09-10-2025] "
+        "@value": "Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -3750,6 +4063,56 @@
     ]
   },
   {
+    "@id": "https://w3id.org/gcdfo/salmon#GenerationalAverageAbundance",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "The generational average of spawner abundance, calculated as a geometric mean across the number of years corresponding to the most common age at return (generation length), optionally after smoothing depending on CU group."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Generational average abundance"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
     "@id": "https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
@@ -3849,7 +4212,12 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."
+        "@value": "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -3924,7 +4292,12 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "DFO. (2018). Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Can. Sci. Advis. Sec. Sci. Advis. Rep. 2018/001. (Erratum: October 2023)"
+        "@value": "Fisheries and Oceans Canada. 2018. Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Canadian Science Advisory Secretariat Science Advisory Report 2018/001 (Erratum: October 2023)."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://www.dfo-mpo.gc.ca/csas-sccs/Publications/SAR-AS/2018/2018_001-eng.html"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -4055,6 +4428,53 @@
       {
         "@id": "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"
       },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#InRiverMortalityRate",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "The proportion of fish in a defined population/cohort that die during freshwater migration in-river on the way to spawning areas during a specified assessment interval, excluding landed catch (fishery removals) where those are accounted separately."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. 2025. Stock-Specific Fraser River Sockeye Salmon Run Size Determination. CSAS Pacific Region Science Advisory Report 2025/021 (en route mortality excluding landed catch). COSEWIC. 2017. Sockeye Salmon (Oncorhynchus nerka) assessment and status report (en-route loss is fish that perished in the river en-route to spawning grounds for reasons other than fishing)."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41294622.pdf"
+      },
+      {
+        "@id": "https://www.canada.ca/en/environment-climate-change/services/species-risk-public-registry/cosewic-assessments-status-reports/sockeye-salmon-2017.html"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "In-river mortality rate"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
       }
@@ -4273,7 +4693,12 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "Fisheries and Oceans Canada. (2024). Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html. [Accessed 09-10-2025]."
+        "@value": "Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -4307,6 +4732,56 @@
       },
       {
         "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#LongTermTrendMetric",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "A long-term trend metric comparing the current generational average (geometric mean) spawner abundance to the long-term average (geometric mean) spawner abundance for an assessed time series."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Long-term trend metric"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
       }
     ]
   },
@@ -4360,7 +4835,7 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."
+        "@value": "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."
       }
     ],
     "http://purl.org/dc/terms/source": [
@@ -4393,6 +4868,50 @@
       },
       {
         "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#MainstemMortalityRate",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "The proportion of fish that die while migrating through the freshwater mainstem portion of a river system (as operationally delimited by the assessment workflow), over a specified interval or between specified mainstem reference points."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "LGL Limited. Migration and Survival of Late-run Fraser Sockeye (radio-telemetry methods; fish detected at Mission are classified as survivors, fishery-related mortalities, or in-river mortalities; fixed-station tracking is conducted at strategic locations including mainstem confluences)."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/341440.pdf"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Mainstem mortality rate"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
       }
     ]
   },
@@ -4469,6 +4988,53 @@
     "https://w3id.org/gcdfo/salmon#theme": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#MarineSurvivalIndex",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "A dimensionless index or covariate representing marine survival conditions or relative marine survival outcomes (not necessarily a survival proportion)."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. 2021. Marine Survival Forecast of Southern British Columbia Coho (uses climate indicators correlated with marine survival; supports index-like predictors for survival conditions)."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/Library/40978680.pdf"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Marine survival index"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#HabitatEcosystemClimateTheme"
       },
       {
         "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
@@ -4749,7 +5315,7 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "Pestal, G. et al. (2023). State of the Salmon: Rapid Status Assessment Approach for Pacific Salmon under Canada’s Wild Salmon Policy."
+        "@value": "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570."
       }
     ],
     "http://purl.org/dc/terms/source": [
@@ -4823,7 +5389,12 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "DFO. (2018). Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Can. Sci. Advis. Sec. Sci. Advis. Rep. 2018/001. (Erratum: October 2023)"
+        "@value": "Fisheries and Oceans Canada. 2018. Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Canadian Science Advisory Secretariat Science Advisory Report 2018/001 (Erratum: October 2023)."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://www.dfo-mpo.gc.ca/csas-sccs/Publications/SAR-AS/2018/2018_001-eng.html"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -4993,6 +5564,50 @@
     ]
   },
   {
+    "@id": "https://w3id.org/gcdfo/salmon#OceanMortalityRate",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "The proportion of fish that die during the ocean (marine) life-history phase for a defined population/cohort and interval; when a marine survival proportion is available, ocean mortality may be represented as its complement under the assessment’s accounting conventions."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "COSEWIC. 2017. Sockeye Salmon (Oncorhynchus nerka) assessment and status report (marine survival index described and interpreted in a Pacific salmon assessment context)."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://www.canada.ca/en/environment-climate-change/services/species-risk-public-registry/cosewic-assessments-status-reports/sockeye-salmon-2017.html"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Ocean mortality rate"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
     "@id": "https://w3id.org/gcdfo/salmon#OceanPhase",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
@@ -5084,6 +5699,62 @@
     ]
   },
   {
+    "@id": "https://w3id.org/gcdfo/salmon#PercentChangeMetric",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "A short-term trend metric quantifying the percent (linear) change in spawner abundance over the most recent three generations."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Percent change metric"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#altLabel": [
+      {
+        "@language": "en",
+        "@value": "Rapid-status percent change metric"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
     "@id": "https://w3id.org/gcdfo/salmon#PolicyFramework",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
@@ -5116,6 +5787,9 @@
       },
       {
         "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
       }
     ]
   },
@@ -5152,6 +5826,9 @@
       },
       {
         "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
       }
     ]
   },
@@ -5325,6 +6002,109 @@
     ]
   },
   {
+    "@id": "https://w3id.org/gcdfo/salmon#ProbabilityDeclineBelowLowerBenchmarkMetric",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "A probability metric estimating the risk that spawner abundance will be below the lower benchmark, given uncertainty in benchmark estimates and/or abundance estimates, for a defined forecast or assessment horizon."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Probability of decline below lower benchmark metric"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#ProportionHatcheryOriginSpawners",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "The proportion of spawners in a population-year that are hatchery-origin (hatchery-origin spawners divided by total spawners)."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Derived for SPSR term coverage (Issue #33 term request scope); ‘hatchery-origin’ is defined in the Salmon Origin scheme and operational marking is described in the DFO Coded Wire Tag Program page."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://www.pac.dfo-mpo.gc.ca/pacific-smon-pacifique/science/research-recherche/cwt-mmc-eng.html"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Proportion of hatchery-origin spawners"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#altLabel": [
+      {
+        "@language": "en",
+        "@value": "pHOS"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
     "@id": "https://w3id.org/gcdfo/salmon#RapidStatusConfidenceHigh",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept",
@@ -5344,7 +6124,7 @@
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "High WSP rapid-status confidence"
+        "@value": "High rapid-status confidence"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -5490,6 +6270,56 @@
     ]
   },
   {
+    "@id": "https://w3id.org/gcdfo/salmon#RapidStatusScoreMetric",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "A numeric score produced by a rapid-status algorithm used to represent an ordered status outcome and/or decision-rule position."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Rapid status score metric"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
     "@id": "https://w3id.org/gcdfo/salmon#ReachCoverage",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
@@ -5583,7 +6413,12 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."
+        "@value": "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -5725,7 +6560,7 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "DFO Introduction to Stock Assessment Glossary."
+        "@value": "Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html."
       }
     ],
     "http://purl.org/dc/terms/source": [
@@ -5762,6 +6597,576 @@
     ]
   },
   {
+    "@id": "https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundance",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "Hatchery-origin spawner abundance expressed as a relative (dimensionless) abundance metric to a defined reference (commonly benchmarks), for within-series comparison; in rapid-status workflows, relative abundance is computed using the current generational average (geometric mean) divided by CU-specific lower and/or upper benchmarks."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon… CSAS Pacific Region Science Response 2024/004 (relative abundance metric definition and computation). Holt et al. 2009. Indicators of Status and Benchmarks… CSAS Res. Doc. 2009/058 (discusses hatchery/wild considerations for status assessments)."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/339096.pdf"
+      },
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Relative hatchery spawner abundance"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundance"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundanceChange",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "A change metric (delta or percent change, as defined by the workflow) computed from relative hatchery-origin spawner abundance values over time; in rapid-status workflows, percent change is derived from log-transformed series and quantified over the most recent three generations."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon… CSAS Pacific Region Science Response 2024/004 (definition and computation notes for percent change as a short-term trend over three generations)."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Relative hatchery spawner abundance change"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundanceChange"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundancePercentile",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "The percentile rank of relative hatchery-origin spawner abundance against a defined historical reference distribution."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. 2024. Rapid Status Approximations… CSAS Science Response 2024/004 (percentile benchmarks discussion)."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Relative hatchery spawner abundance percentile"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundancePercentile"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundanceTrend",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "A trend metric computed from relative hatchery-origin spawner abundance using a defined trend method; in rapid-status workflows, long-term trend is the ratio of current generational average (geometric mean) abundance to long-term average (geometric mean)."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon… CSAS Pacific Region Science Response 2024/004 (long-term trend in abundance metric definition)."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Relative hatchery spawner abundance trend"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundanceTrend"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundance",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "Spawner abundance expressed as a relative (dimensionless) abundance metric to a defined reference (commonly benchmarks), for within-series comparison; in rapid-status workflows, relative abundance is computed using the current generational average (geometric mean) divided by CU-specific lower and/or upper benchmarks."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under Fisheries and Oceans Canada Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004 (relative abundance metric definition and computation)."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Relative spawner abundance"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#SpawnerAbundance"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundanceChange",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "A change metric (delta or percent change, as defined by the workflow) computed from relative spawner abundance values over time; where rapid-status percent-change approaches are used, it represents change in abundance over the most recent three generations after log transformation (and smoothing where applicable)."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon… CSAS Pacific Region Science Response 2024/004 (definition and computation notes for percent change as a short-term trend over three generations)."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Relative spawner abundance change"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#SpawnerAbundanceChange"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundancePercentile",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "The percentile rank of relative spawner abundance against a defined historical reference distribution."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. 2024. Rapid Status Approximations… CSAS Science Response 2024/004 (percentile benchmarks discussion)."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Relative spawner abundance percentile"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#SpawnerAbundancePercentile"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundanceTrend",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "A long-term trend metric expressed as the ratio of the current generational average (geometric mean) spawner abundance to the long-term average (geometric mean), yielding a dimensionless measure of relative abundance through time."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon… CSAS Pacific Region Science Response 2024/004 (long-term trend in abundance defined as ratio of current generational average to long-term average)."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Relative spawner abundance trend"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#SpawnerAbundanceTrend"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundance",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "Natural-origin (wild) spawner abundance expressed as a relative (dimensionless) abundance metric to a defined reference (commonly benchmarks), for within-series comparison; where WSP-style relative abundance is used, it is computed using current generational averages (geometric mean) relative to CU-specific benchmarks."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon… CSAS Pacific Region Science Response 2024/004 (relative abundance metric definition). Holt et al. 2009. Indicators of Status and Benchmarks for Conservation Units in Canada's Wild Salmon Policy. CSAS Res. Doc. 2009/058 (wild vs hatchery-origin considerations in spawner series context)."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/339096.pdf"
+      },
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Relative wild spawner abundance"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundance"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundanceChange",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "A change metric (delta or percent change, as defined by the workflow) computed from relative natural-origin spawner abundance values over time; in rapid-status workflows, percent change is defined over the most recent three generations using log-transformed abundance series."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon… CSAS Pacific Region Science Response 2024/004 (definition and computation notes for percent change over the most recent three generations)."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Relative wild spawner abundance change"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundanceChange"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundancePercentile",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "The percentile rank of relative natural-origin spawner abundance against a defined historical reference distribution."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. 2024. Rapid Status Approximations… CSAS Science Response 2024/004 (percentile benchmarks discussion)."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Relative wild spawner abundance percentile"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundancePercentile"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundanceTrend",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "A trend metric computed from relative natural-origin spawner abundance using a defined trend method; in rapid-status workflows, long-term trend is the ratio of current generational average (geometric mean) abundance to long-term average (geometric mean)."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon… CSAS Pacific Region Science Response 2024/004 (long-term trend in abundance metric definition)."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Relative wild spawner abundance trend"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundanceTrend"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
     "@id": "https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
@@ -5794,6 +7199,56 @@
       },
       {
         "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#ReturnYear",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "The calendar year in which adult salmon return from the ocean to freshwater systems (a year basis used to contextualize run/return-related measurements)."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. Pacific Salmon Glossary (Pacific Region web page)."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Return year"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#YearBasis"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
       }
     ]
   },
@@ -6038,6 +7493,208 @@
     ]
   },
   {
+    "@id": "https://w3id.org/gcdfo/salmon#SpawnerAbundance",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "The abundance (count) of adult salmon that reach spawning grounds in a given system and time period (often operationalized as escapement/spawning escapement)."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. Pacific Salmon Glossary (defines escapement/spawning escapement as the number of salmon returning to the spawning grounds)."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Spawner abundance"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#altLabel": [
+      {
+        "@language": "en",
+        "@value": "Escapement (count)"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#closeMatch": [
+      {
+        "@id": "http://purl.dataone.org/odo/SALMON_00000479"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#SpawnerAbundanceChange",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "A change metric (delta or percent change, as defined by the workflow) computed from spawner abundance values over time; in rapid-status workflows, percent change is quantified as a linear change in log-transformed abundance over the most recent three generations."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon… CSAS Pacific Region Science Response 2024/004 (percent change definition and computation notes). COSEWIC. 2017. Sockeye Salmon assessment and status report (log-linear rate-of-change model and percent-change derivation over three generations)."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf"
+      },
+      {
+        "@id": "https://www.canada.ca/en/environment-climate-change/services/species-risk-public-registry/cosewic-assessments-status-reports/sockeye-salmon-2017.html"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Spawner abundance change"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#SpawnerAbundancePercentile",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "The percentile rank of a spawner abundance value (annual or period-specific) against a defined historical reference distribution."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. 2024. Rapid Status Approximations… CSAS Science Response 2024/004 (percentile benchmarks discussion)."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Spawner abundance percentile"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#SpawnerAbundanceTrend",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "A trend metric computed from spawner abundance over time using a defined trend method (e.g., slope over a specified window)."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Derived for SPSR term coverage; distinct from gcdfo:LongTermTrendMetric (current generational average vs long-term average) in CSAS Science Response 2024/004."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Spawner abundance trend"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
     "@id": "https://w3id.org/gcdfo/salmon#SpawnerStageContext",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
@@ -6122,7 +7779,7 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "DFO Introduction to Stock Assessment Glossary; Pacific Salmon Commission Technical Report No. 49."
+        "@value": "Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html."
       }
     ],
     "http://purl.org/dc/terms/source": [
@@ -6178,7 +7835,12 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "Fisheries and Oceans Canada. (2024). Introduction to Stock Assessment. Available at https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/module-1/09-eng.html"
+        "@value": "Fisheries and Oceans Canada. Introduction to Stock Assessment. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/module-1/09-eng.html."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/module-1/09-eng.html"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -6250,11 +7912,7 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "DFO Introduction to Stock Assessment Glossary."
-      },
-      {
-        "@language": "en",
-        "@value": "Fisheries and Oceans Canada. (2024). Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html. [Accessed 09-10-2025]."
+        "@value": "Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html."
       }
     ],
     "http://purl.org/dc/terms/source": [
@@ -6306,21 +7964,32 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2004/02/skos/core#altLabel": [
+      {
+        "@language": "en",
+        "@value": "Stock Status Zone Scheme"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#definition": [
       {
         "@language": "en",
-        "@value": "Controlled vocabulary for stock status zones under the Precautionary Approach."
+        "@value": "Legacy alias scheme for stock status zones. Use :WSPBiologicalStatusZoneScheme as the canonical scheme for Red/Amber/Green Wild Salmon Policy biological status zones."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZoneScheme"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#hasTopConcept": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#StockStatusZone"
+        "@id": "https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZone"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#prefLabel": [
       {
         "@language": "en",
-        "@value": "Stock Status Zone Scheme"
+        "@value": "Stock Status Zone Scheme (legacy alias)"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
@@ -6329,6 +7998,9 @@
       },
       {
         "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
       }
     ]
   },
@@ -6346,7 +8018,12 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "Fisheries and Oceans Canada. (2021). About the Sustainability Survey for Fisheries. Available at https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html. [Accessed 09-10-2025]."
+        "@value": "Fisheries and Oceans Canada. About the Sustainability Survey for Fisheries. https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -6446,6 +8123,53 @@
       {
         "@id": "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"
       },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#TerminalMortalityRate",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "The proportion of fish that die after reaching terminal spawning areas (or immediate vicinity) but before successfully spawning, as defined by the assessment workflow (i.e., pre-spawn mortality in terminal areas)."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "COSEWIC. 2017. Sockeye Salmon (Oncorhynchus nerka) assessment and status report (pre-spawn mortality includes fish that made it to spawning grounds but did not successfully spawn). LGL Limited. Migration and Survival of Late-run Fraser Sockeye (operational identification of pre-spawn mortalities from spawning-area detections)."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/341440.pdf"
+      },
+      {
+        "@id": "https://www.canada.ca/en/environment-climate-change/services/species-risk-public-registry/cosewic-assessments-status-reports/sockeye-salmon-2017.html"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Terminal mortality rate"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
       }
@@ -6633,6 +8357,53 @@
       {
         "@id": "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"
       },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#TotalMortalityRate",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "The overall proportion of fish in a defined cohort that die over the full assessment interval across all included phases and mortality sources, consistent with the workflow’s accounting (e.g., catch vs escapement vs migration losses where relevant)."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. 2025. Stock-Specific Fraser River Sockeye Salmon Run Size Determination. CSAS Pacific Region Science Advisory Report 2025/021 (run size components include catch, spawning escapement, and en route mortality; other Pacific salmon run sizes typically sum catch + escapement). COSEWIC. 2017. Sockeye Salmon assessment and status report (uses catch, escapement, and en-route loss as distinct accounting components)."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41294622.pdf"
+      },
+      {
+        "@id": "https://www.canada.ca/en/environment-climate-change/services/species-risk-public-registry/cosewic-assessments-status-reports/sockeye-salmon-2017.html"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Total mortality rate"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
       }
@@ -7032,6 +8803,64 @@
     ]
   },
   {
+    "@id": "https://w3id.org/gcdfo/salmon#UnrankedIndexQuality",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "A data quality category indicating that no spawner-abundance estimate classification / index quality rating was assigned for the record (i.e., an 'Unknown' estimate classification with no quality rating)."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. 2020. 2020 summary of abundance data for Chinook salmon (Oncorhynchus tshawytscha) in southern British Columbia, Canada (nuSEDS Estimate Classification includes 'Unknown: no quality rating')."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/Library/40890041.pdf"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#EstimateType"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A data quality category indicating that no spawner-abundance estimate classification / index quality rating was assigned for the record (i.e., an 'Unknown' estimate classification with no quality rating)."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#EstimateTypeScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Unranked index quality"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
     "@id": "https://w3id.org/gcdfo/salmon#UpperBenchmark",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
@@ -7081,7 +8910,7 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."
+        "@value": "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."
       }
     ],
     "http://purl.org/dc/terms/source": [
@@ -7131,7 +8960,12 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "DFO Introduction to Stock Assessment Glossary."
+        "@value": "Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -7364,7 +9198,12 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."
+        "@value": "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -7454,7 +9293,12 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "Pestal, G., MacDonald, B. L., Grant, S. C. H., and Holt, C. A. (2023). State of the Salmon: rapid status assessment approach for Pacific salmon under Canada’s Wild Salmon Policy. Can. Tech. Rep. Fish. Aquat. Sci. 3570: xiv + 200 p."
+        "@value": "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://publications.gc.ca/site/eng/9.928944/publication.html"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -7494,12 +9338,12 @@
     "http://purl.obolibrary.org/obo/IAO_0000119": [
       {
         "@language": "en",
-        "@value": "DFO (2024). Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under Canada’s Wild Salmon Policy. CSAS Science Response 2024/004."
+        "@value": "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under Fisheries and Oceans Canada Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Science Response 2024/004."
       }
     ],
     "http://purl.org/dc/terms/source": [
       {
-        "@id": "https://www.dfo-mpo.gc.ca/csas-sccs/Publications/ScR-RS/2024/2024_004-eng.pdf"
+        "@id": "https://www.dfo-mpo.gc.ca/csas-sccs/Publications/ScR-RS/2024/2024_004-eng.html"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -7510,7 +9354,7 @@
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "WSP Rapid Status Algorithm threshold"
+        "@value": "Rapid-status algorithm threshold"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
