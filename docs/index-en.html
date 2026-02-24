@@ -358,6 +358,10 @@ This ontology has the following classes and properties.</span>
       <a href="#http://purl.obolibrary.org/obo/ENVO_00000022" title="http://purl.obolibrary.org/obo/ENVO_00000022">river</a>
    </li>
    <li>
+      <a href="#SalmonDataVariable"
+         title="https://w3id.org/gcdfo/salmon#SalmonDataVariable">Salmon data variable</a>
+   </li>
+   <li>
       <a href="#http://purl.dataone.org/odo/SALMON_00000479" title="http://purl.dataone.org/odo/SALMON_00000479">Salmon escapement count</a>
    </li>
    <li>
@@ -451,6 +455,18 @@ This ontology has the following classes and properties.</span>
       <a href="#hasDeme" title="https://w3id.org/gcdfo/salmon#hasDeme">has deme</a>
    </li>
    <li>
+      <a href="#hasFeatureOfInterest"
+         title="https://w3id.org/gcdfo/salmon#hasFeatureOfInterest">has feature of interest</a>
+   </li>
+   <li>
+      <a href="#hasObservationResult"
+         title="https://w3id.org/gcdfo/salmon#hasObservationResult">has observation result</a>
+   </li>
+   <li>
+      <a href="#hasObservedVariable"
+         title="https://w3id.org/gcdfo/salmon#hasObservedVariable">has observed variable</a>
+   </li>
+   <li>
       <a href="#hasPopulation" title="https://w3id.org/gcdfo/salmon#hasPopulation">has population</a>
    </li>
    <li>
@@ -464,11 +480,34 @@ This ontology has the following classes and properties.</span>
       <a href="#http://www.w3.org/ns/dqv#inDimension" title="http://www.w3.org/ns/dqv#inDimension">in dimension</a>
    </li>
    <li>
+      <a href="#isSampleOfStratum" title="https://w3id.org/gcdfo/salmon#isSampleOfStratum">is sample of stratum</a>
+   </li>
+   <li>
       <a href="#isTargetOrLimitForObservedExploitationRate"
          title="https://w3id.org/gcdfo/salmon#isTargetOrLimitForObservedExploitationRate">is target or limit for observed exploitation rate</a>
    </li>
    <li>
       <a href="#populationOf" title="https://w3id.org/gcdfo/salmon#populationOf">population of</a>
+   </li>
+   <li>
+      <a href="#usesObservationProcedure"
+         title="https://w3id.org/gcdfo/salmon#usesObservationProcedure">uses observation procedure</a>
+   </li>
+   <li>
+      <a href="#variableHasConstraint"
+         title="https://w3id.org/gcdfo/salmon#variableHasConstraint">variable has constraint</a>
+   </li>
+   <li>
+      <a href="#variableHasObjectOfInterest"
+         title="https://w3id.org/gcdfo/salmon#variableHasObjectOfInterest">variable has object of interest</a>
+   </li>
+   <li>
+      <a href="#variableHasProperty"
+         title="https://w3id.org/gcdfo/salmon#variableHasProperty">variable has property</a>
+   </li>
+   <li>
+      <a href="#variableHasStatisticalModifier"
+         title="https://w3id.org/gcdfo/salmon#variableHasStatisticalModifier">variable has statistical modifier</a>
    </li>
 </ul><iframe src="webvowl/index.html"></iframe> 
 </div>
@@ -556,6 +595,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <li><a href="#ReportingOrManagementStratum" title="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum">Reporting or management stratum</a></li>
   <li><a href="#ReturnYear" title="https://w3id.org/gcdfo/salmon#ReturnYear">Return year</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/ENVO_00000022" title="http://purl.obolibrary.org/obo/ENVO_00000022">river</a></li>
+  <li><a href="#SalmonDataVariable" title="https://w3id.org/gcdfo/salmon#SalmonDataVariable">Salmon data variable</a></li>
   <li><a href="#http://purl.dataone.org/odo/SALMON_00000479" title="http://purl.dataone.org/odo/SALMON_00000479">Salmon escapement count</a></li>
   <li><a href="#SpawnerAbundance" title="https://w3id.org/gcdfo/salmon#SpawnerAbundance">Spawner abundance</a></li>
   <li><a href="#SpawnerAbundanceChange" title="https://w3id.org/gcdfo/salmon#SpawnerAbundanceChange">Spawner abundance change</a></li>
@@ -1035,6 +1075,12 @@ This section provides details for each class and property defined by DFO Salmon 
    <dd>
     <a href="#hasYearBasis" title="https://w3id.org/gcdfo/salmon#hasYearBasis">has year basis</a> <sup class="type-op" title="object property">op</sup>
    </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasObservationResult" title="https://w3id.org/gcdfo/salmon#hasObservationResult">has observation result</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
   </dl>
  </div>
  <div class="entity" id="EscapementSurveyEvent">
@@ -1424,7 +1470,7 @@ This section provides details for each class and property defined by DFO Salmon 
     has sub-classes
    </dt>
    <dd>
-    <a href="#http://www.w3.org/ns/oa#Annotation" title="http://www.w3.org/ns/oa#Annotation">Annotation</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.dataone.org/odo/SALMON_00000167" title="http://purl.dataone.org/odo/SALMON_00000167">Fish measurement type</a> <sup class="type-c" title="class">c</sup>, <a href="#MetricBenchmark" title="https://w3id.org/gcdfo/salmon#MetricBenchmark">Metric benchmark</a> <sup class="type-c" title="class">c</sup>, <a href="#WSPRapidStatusAlgorithmThreshold" title="https://w3id.org/gcdfo/salmon#WSPRapidStatusAlgorithmThreshold">Rapid-status algorithm threshold</a> <sup class="type-c" title="class">c</sup>, <a href="#ReferencePoint" title="https://w3id.org/gcdfo/salmon#ReferencePoint">Reference point</a> <sup class="type-c" title="class">c</sup>, <a href="#ReportingOrManagementStratum" title="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum">Reporting or management stratum</a> <sup class="type-c" title="class">c</sup>, <a href="#WSPRapidStatus" title="https://w3id.org/gcdfo/salmon#WSPRapidStatus">WSP rapid status</a> <sup class="type-c" title="class">c</sup>, <a href="#YearBasis" title="https://w3id.org/gcdfo/salmon#YearBasis">Year basis</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.obolibrary.org/obo/IAO_0000033" title="http://purl.obolibrary.org/obo/IAO_0000033">directive information entity</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.obolibrary.org/obo/IAO_0000310" title="http://purl.obolibrary.org/obo/IAO_0000310">document</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.obolibrary.org/obo/IAO_0000109" title="http://purl.obolibrary.org/obo/IAO_0000109">measurement datum</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.obolibrary.org/obo/IAO_0000104" title="http://purl.obolibrary.org/obo/IAO_0000104">plan specification</a> <sup class="type-c" title="class">c</sup>
+    <a href="#http://www.w3.org/ns/oa#Annotation" title="http://www.w3.org/ns/oa#Annotation">Annotation</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.dataone.org/odo/SALMON_00000167" title="http://purl.dataone.org/odo/SALMON_00000167">Fish measurement type</a> <sup class="type-c" title="class">c</sup>, <a href="#MetricBenchmark" title="https://w3id.org/gcdfo/salmon#MetricBenchmark">Metric benchmark</a> <sup class="type-c" title="class">c</sup>, <a href="#WSPRapidStatusAlgorithmThreshold" title="https://w3id.org/gcdfo/salmon#WSPRapidStatusAlgorithmThreshold">Rapid-status algorithm threshold</a> <sup class="type-c" title="class">c</sup>, <a href="#ReferencePoint" title="https://w3id.org/gcdfo/salmon#ReferencePoint">Reference point</a> <sup class="type-c" title="class">c</sup>, <a href="#ReportingOrManagementStratum" title="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum">Reporting or management stratum</a> <sup class="type-c" title="class">c</sup>, <a href="#SalmonDataVariable" title="https://w3id.org/gcdfo/salmon#SalmonDataVariable">Salmon data variable</a> <sup class="type-c" title="class">c</sup>, <a href="#WSPRapidStatus" title="https://w3id.org/gcdfo/salmon#WSPRapidStatus">WSP rapid status</a> <sup class="type-c" title="class">c</sup>, <a href="#YearBasis" title="https://w3id.org/gcdfo/salmon#YearBasis">Year basis</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.obolibrary.org/obo/IAO_0000033" title="http://purl.obolibrary.org/obo/IAO_0000033">directive information entity</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.obolibrary.org/obo/IAO_0000310" title="http://purl.obolibrary.org/obo/IAO_0000310">document</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.obolibrary.org/obo/IAO_0000109" title="http://purl.obolibrary.org/obo/IAO_0000109">measurement datum</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.obolibrary.org/obo/IAO_0000104" title="http://purl.obolibrary.org/obo/IAO_0000104">plan specification</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -1737,6 +1783,12 @@ This section provides details for each class and property defined by DFO Salmon 
    <dd>
     <a href="#http://purl.obolibrary.org/obo/BFO_0000040" title="http://purl.obolibrary.org/obo/BFO_0000040">material entity</a> <sup class="type-c" title="class">c</sup>
    </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#isSampleOfStratum" title="https://w3id.org/gcdfo/salmon#isSampleOfStratum">is sample of stratum</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
   </dl>
  </div>
  <div class="entity" id="http://purl.obolibrary.org/obo/IAO_0000109">
@@ -2045,6 +2097,12 @@ This section provides details for each class and property defined by DFO Salmon 
    </dt>
    <dd>
     <a href="#http://purl.obolibrary.org/obo/IAO_0000030" title="http://purl.obolibrary.org/obo/IAO_0000030">information content entity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#usesObservationProcedure" title="https://w3id.org/gcdfo/salmon#usesObservationProcedure">uses observation procedure</a> <sup class="type-op" title="object property">op</sup>
    </dd>
   </dl>
  </div>
@@ -2801,6 +2859,12 @@ This section provides details for each class and property defined by DFO Salmon 
    <dd>
     <a href="#ConservationUnit" title="https://w3id.org/gcdfo/salmon#ConservationUnit">Conservation Unit</a> <sup class="type-c" title="class">c</sup>, <a href="#IndicatorRiver" title="https://w3id.org/gcdfo/salmon#IndicatorRiver">Indicator river</a> <sup class="type-c" title="class">c</sup>, <a href="#Stock" title="https://w3id.org/gcdfo/salmon#Stock">Stock</a> <sup class="type-c" title="class">c</sup>, <a href="#StockManagementUnit" title="https://w3id.org/gcdfo/salmon#StockManagementUnit">Stock Management Unit</a> <sup class="type-c" title="class">c</sup>
    </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasFeatureOfInterest" title="https://w3id.org/gcdfo/salmon#hasFeatureOfInterest">has feature of interest</a> <sup class="type-op" title="object property">op</sup>, <a href="#isSampleOfStratum" title="https://w3id.org/gcdfo/salmon#isSampleOfStratum">is sample of stratum</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
   </dl>
  </div>
  <div class="entity" id="ReturnYear">
@@ -2863,6 +2927,41 @@ This section provides details for each class and property defined by DFO Salmon 
    </dt>
    <dd>
     <a href="#http://purl.obolibrary.org/obo/ENVO_01000618" title="http://purl.obolibrary.org/obo/ENVO_01000618">lotic water body</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="SalmonDataVariable">
+  <h3>Salmon data variable<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#SalmonDataVariable</p>
+  <div class="comment">
+   <span class="markdown">A variable specification used to decompose a measured salmon-data quantity into semantic components (object of interest, property, and optional constraints/modifiers), following the I-ADOPT variable pattern for SDP metadata workflows.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#http://purl.obolibrary.org/obo/IAO_0000030" title="http://purl.obolibrary.org/obo/IAO_0000030">information content entity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#variableHasConstraint" title="https://w3id.org/gcdfo/salmon#variableHasConstraint">variable has constraint</a> <sup class="type-op" title="object property">op</sup>, <a href="#variableHasObjectOfInterest" title="https://w3id.org/gcdfo/salmon#variableHasObjectOfInterest">variable has object of interest</a> <sup class="type-op" title="object property">op</sup>, <a href="#variableHasProperty" title="https://w3id.org/gcdfo/salmon#variableHasProperty">variable has property</a> <sup class="type-op" title="object property">op</sup>, <a href="#variableHasStatisticalModifier" title="https://w3id.org/gcdfo/salmon#variableHasStatisticalModifier">variable has statistical modifier</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasObservedVariable" title="https://w3id.org/gcdfo/salmon#hasObservedVariable">has observed variable</a> <sup class="type-op" title="object property">op</sup>
    </dd>
   </dl>
  </div>
@@ -3249,13 +3348,19 @@ This section provides details for each class and property defined by DFO Salmon 
     has super-classes
    </dt>
    <dd>
-    <a href="#http://rs.tdwg.org/dwc/terms/Event" title="http://rs.tdwg.org/dwc/terms/Event">Event</a> <sup class="type-c" title="class">c</sup>
+    <a href="http://www.w3.org/ns/prov#Activity" target="_blank" title="http://www.w3.org/ns/prov#Activity">Activity</a> <sup class="type-c" title="class">c</sup>, <a href="#http://rs.tdwg.org/dwc/terms/Event" title="http://rs.tdwg.org/dwc/terms/Event">Event</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     has sub-classes
    </dt>
    <dd>
     <a href="#EscapementSurveyEvent" title="https://w3id.org/gcdfo/salmon#EscapementSurveyEvent">Escapement Survey Event</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#hasFeatureOfInterest" title="https://w3id.org/gcdfo/salmon#hasFeatureOfInterest">has feature of interest</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasObservationResult" title="https://w3id.org/gcdfo/salmon#hasObservationResult">has observation result</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasObservedVariable" title="https://w3id.org/gcdfo/salmon#hasObservedVariable">has observed variable</a> <sup class="type-op" title="object property">op</sup>, <a href="#usesObservationProcedure" title="https://w3id.org/gcdfo/salmon#usesObservationProcedure">uses observation procedure</a> <sup class="type-op" title="object property">op</sup>
    </dd>
   </dl>
  </div>
@@ -3624,12 +3729,21 @@ This section provides details for each class and property defined by DFO Salmon 
   <li><a href="#demeOf" title="https://w3id.org/gcdfo/salmon#demeOf">deme of</a></li>
   <li><a href="#hasConservationUnit" title="https://w3id.org/gcdfo/salmon#hasConservationUnit">has Conservation Unit</a></li>
   <li><a href="#hasDeme" title="https://w3id.org/gcdfo/salmon#hasDeme">has deme</a></li>
+  <li><a href="#hasFeatureOfInterest" title="https://w3id.org/gcdfo/salmon#hasFeatureOfInterest">has feature of interest</a></li>
+  <li><a href="#hasObservationResult" title="https://w3id.org/gcdfo/salmon#hasObservationResult">has observation result</a></li>
+  <li><a href="#hasObservedVariable" title="https://w3id.org/gcdfo/salmon#hasObservedVariable">has observed variable</a></li>
   <li><a href="#hasPopulation" title="https://w3id.org/gcdfo/salmon#hasPopulation">has population</a></li>
   <li><a href="#hasTargetOrLimitExploitationRate" title="https://w3id.org/gcdfo/salmon#hasTargetOrLimitExploitationRate">has target or limit exploitation rate</a></li>
   <li><a href="#hasYearBasis" title="https://w3id.org/gcdfo/salmon#hasYearBasis">has year basis</a></li>
   <li><a href="#http://www.w3.org/ns/dqv#inDimension" title="http://www.w3.org/ns/dqv#inDimension">in dimension</a></li>
+  <li><a href="#isSampleOfStratum" title="https://w3id.org/gcdfo/salmon#isSampleOfStratum">is sample of stratum</a></li>
   <li><a href="#isTargetOrLimitForObservedExploitationRate" title="https://w3id.org/gcdfo/salmon#isTargetOrLimitForObservedExploitationRate">is target or limit for observed exploitation rate</a></li>
   <li><a href="#populationOf" title="https://w3id.org/gcdfo/salmon#populationOf">population of</a></li>
+  <li><a href="#usesObservationProcedure" title="https://w3id.org/gcdfo/salmon#usesObservationProcedure">uses observation procedure</a></li>
+  <li><a href="#variableHasConstraint" title="https://w3id.org/gcdfo/salmon#variableHasConstraint">variable has constraint</a></li>
+  <li><a href="#variableHasObjectOfInterest" title="https://w3id.org/gcdfo/salmon#variableHasObjectOfInterest">variable has object of interest</a></li>
+  <li><a href="#variableHasProperty" title="https://w3id.org/gcdfo/salmon#variableHasProperty">variable has property</a></li>
+  <li><a href="#variableHasStatisticalModifier" title="https://w3id.org/gcdfo/salmon#variableHasStatisticalModifier">variable has statistical modifier</a></li>
  </ul>
  <div class="entity" id="conservationUnitOf">
   <h3>Conservation Unit of<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
@@ -3779,6 +3893,111 @@ This section provides details for each class and property defined by DFO Salmon 
    </dl>
   </div>
  </div>
+ <div class="entity" id="hasFeatureOfInterest">
+  <h3>has feature of interest<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#hasFeatureOfInterest</p>
+  <div class="comment">
+   <span class="markdown">Relates a survey event to the reporting or management stratum that the event targets for inference or status interpretation.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/ns/prov#used" target="_blank" title="http://www.w3.org/ns/prov#used">used</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#SurveyEvent" title="https://w3id.org/gcdfo/salmon#SurveyEvent">Survey event</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#ReportingOrManagementStratum" title="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum">Reporting or management stratum</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasObservationResult">
+  <h3>has observation result<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#hasObservationResult</p>
+  <div class="comment">
+   <span class="markdown">Relates a survey event to a measurement datum/result it produces for salmon assessment workflows.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/ns/prov#generated" target="_blank" title="http://www.w3.org/ns/prov#generated">generated</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#SurveyEvent" title="https://w3id.org/gcdfo/salmon#SurveyEvent">Survey event</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#EscapementMeasurement" title="https://w3id.org/gcdfo/salmon#EscapementMeasurement">Escapement measurement</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasObservedVariable">
+  <h3>has observed variable<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#hasObservedVariable</p>
+  <div class="comment">
+   <span class="markdown">Relates a survey event to a salmon data variable specification that defines what was measured or derived.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#SurveyEvent" title="https://w3id.org/gcdfo/salmon#SurveyEvent">Survey event</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#SalmonDataVariable" title="https://w3id.org/gcdfo/salmon#SalmonDataVariable">Salmon data variable</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
  <div class="entity" id="hasPopulation">
   <h3>has population<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#hasPopulation</p>
@@ -3910,6 +4129,43 @@ This section provides details for each class and property defined by DFO Salmon 
    </dd>
   </dl>
  </div>
+ <div class="entity" id="isSampleOfStratum">
+  <h3>is sample of stratum<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#isSampleOfStratum</p>
+  <div class="comment">
+   <span class="markdown">Relates a material sample to the reporting or management stratum it is taken to represent in analysis.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/ns/prov#wasDerivedFrom" target="_blank" title="http://www.w3.org/ns/prov#wasDerivedFrom">was Derived From</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#http://rs.tdwg.org/dwc/terms/MaterialEntity" title="http://rs.tdwg.org/dwc/terms/MaterialEntity">Material Entity</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#ReportingOrManagementStratum" title="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum">Reporting or management stratum</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
  <div class="entity" id="isTargetOrLimitForObservedExploitationRate">
   <h3>is target or limit for observed exploitation rate<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#isTargetOrLimitForObservedExploitationRate</p>
@@ -3984,6 +4240,185 @@ This section provides details for each class and property defined by DFO Salmon 
    </dl>
   </div>
  </div>
+ <div class="entity" id="usesObservationProcedure">
+  <h3>uses observation procedure<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#usesObservationProcedure</p>
+  <div class="comment">
+   <span class="markdown">Relates a survey event to the procedure/protocol used to execute it.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#SurveyEvent" title="https://w3id.org/gcdfo/salmon#SurveyEvent">Survey event</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#http://purl.obolibrary.org/obo/IAO_0000104" title="http://purl.obolibrary.org/obo/IAO_0000104">plan specification</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="variableHasConstraint">
+  <h3>variable has constraint<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#variableHasConstraint</p>
+  <div class="comment">
+   <span class="markdown">Relates a salmon data variable to an optional constraint component in I-ADOPT decomposition.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://w3id.org/iadopt/ont/hasConstraint" target="_blank" title="https://w3id.org/iadopt/ont/hasConstraint">has Constraint</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#SalmonDataVariable" title="https://w3id.org/gcdfo/salmon#SalmonDataVariable">Salmon data variable</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="https://w3id.org/iadopt/ont/Constraint" target="_blank" title="https://w3id.org/iadopt/ont/Constraint">Constraint</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="variableHasObjectOfInterest">
+  <h3>variable has object of interest<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#variableHasObjectOfInterest</p>
+  <div class="comment">
+   <span class="markdown">Relates a salmon data variable to the entity/object-of-interest component in I-ADOPT decomposition.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://w3id.org/iadopt/ont/hasObjectOfInterest" target="_blank" title="https://w3id.org/iadopt/ont/hasObjectOfInterest">has Object Of Interest</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#SalmonDataVariable" title="https://w3id.org/gcdfo/salmon#SalmonDataVariable">Salmon data variable</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="https://w3id.org/iadopt/ont/Entity" target="_blank" title="https://w3id.org/iadopt/ont/Entity">Entity</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="variableHasProperty">
+  <h3>variable has property<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#variableHasProperty</p>
+  <div class="comment">
+   <span class="markdown">Relates a salmon data variable to the measured/estimated property component in I-ADOPT decomposition.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://w3id.org/iadopt/ont/hasProperty" target="_blank" title="https://w3id.org/iadopt/ont/hasProperty">has Property</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#SalmonDataVariable" title="https://w3id.org/gcdfo/salmon#SalmonDataVariable">Salmon data variable</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="https://w3id.org/iadopt/ont/Property" target="_blank" title="https://w3id.org/iadopt/ont/Property">Property</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="variableHasStatisticalModifier">
+  <h3>variable has statistical modifier<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#variableHasStatisticalModifier</p>
+  <div class="comment">
+   <span class="markdown">Relates a salmon data variable to an optional statistical modifier component in I-ADOPT decomposition.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://w3id.org/iadopt/ont/hasStatisticalModifier" target="_blank" title="https://w3id.org/iadopt/ont/hasStatisticalModifier">has Statistical Modifier</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#SalmonDataVariable" title="https://w3id.org/gcdfo/salmon#SalmonDataVariable">Salmon data variable</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="https://w3id.org/iadopt/ont/StatisticalModifier" target="_blank" title="https://w3id.org/iadopt/ont/StatisticalModifier">Statistical Modifier</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
 </div><div id="legend">
 <h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 <div   class="entity">
@@ -4048,7 +4483,15 @@ This section provides details for each class and property defined by DFO Salmon 
 </li>
 <li><a href="#EscapementMeasurement">https://w3id.org/gcdfo/salmon#EscapementMeasurement</a>
 <ul>
+<li>Added: <http://www.w3.org/2004/02/skos/core#closeMatch> http://www.w3.org/ns/sosa/Result</li>
+</ul>
+<ul>
 <li>Deleted: rdfs:comment "Salmon escapement count"@en</li>
+</ul>
+</li>
+<li><a href="#EscapementSurveyEvent">https://w3id.org/gcdfo/salmon#EscapementSurveyEvent</a>
+<ul>
+<li>Added: <http://www.w3.org/2004/02/skos/core#closeMatch> http://www.w3.org/ns/sosa/Sampling</li>
 </ul>
 </li>
 <li><a href="#ExploitationRate">https://w3id.org/gcdfo/salmon#ExploitationRate</a>
@@ -4101,6 +4544,11 @@ This section provides details for each class and property defined by DFO Salmon 
 <li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000119> "DFO Introduction to Stock Assessment Glossary."@en</li>
 </ul>
 </li>
+<li><a href="#ReportingOrManagementStratum">https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum</a>
+<ul>
+<li>Added: <http://www.w3.org/2004/02/skos/core#closeMatch> http://www.w3.org/ns/sosa/FeatureOfInterest</li>
+</ul>
+</li>
 <li><a href="#Stock">https://w3id.org/gcdfo/salmon#Stock</a>
 <ul>
 <li>Added: <http://purl.obolibrary.org/obo/IAO_0000115> "An operationally-defined grouping of salmon used for assessment and management purposes. A stock is a management unit or reporting stratum, not a biological organism."@en</li>
@@ -4136,6 +4584,8 @@ This section provides details for each class and property defined by DFO Salmon 
 <ul>
 <li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. About the Sustainability Survey for Fisheries. https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html."@en</li>
 <li>Added: <http://purl.org/dc/terms/source> https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html</li>
+<li>Added: <http://www.w3.org/2004/02/skos/core#closeMatch> http://www.w3.org/ns/sosa/Sampling</li>
+<li>Added: SubClass of http://www.w3.org/ns/prov#Activity</li>
 </ul>
 <ul>
 <li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. (2021). About the Sustainability Survey for Fisheries. Available at https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html. [Accessed 09-10-2025]."@en</li>
@@ -4203,6 +4653,8 @@ This section provides details for each class and property defined by DFO Salmon 
 <ul>
 <li>Added: SubClass of http://purl.obolibrary.org/obo/BFO_0000040</li>
 </ul>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#Activity">http://www.w3.org/ns/prov#Activity</a>
 </li>
 <li><a href="#AbundancePercentileMetric">https://w3id.org/gcdfo/salmon#AbundancePercentileMetric</a>
 <ul>
@@ -4360,6 +4812,11 @@ This section provides details for each class and property defined by DFO Salmon 
 <li>Added: SubClass of https://w3id.org/gcdfo/salmon#YearBasis</li>
 </ul>
 </li>
+<li><a href="#SalmonDataVariable">https://w3id.org/gcdfo/salmon#SalmonDataVariable</a>
+<ul>
+<li>Added: SubClass of http://purl.obolibrary.org/obo/IAO_0000030</li>
+</ul>
+</li>
 <li><a href="#SpawnerAbundance">https://w3id.org/gcdfo/salmon#SpawnerAbundance</a>
 <ul>
 <li>Added: SubClass of https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance</li>
@@ -4406,12 +4863,26 @@ This section provides details for each class and property defined by DFO Salmon 
 <li>Added: SubClass of http://purl.obolibrary.org/obo/IAO_0000030</li>
 </ul>
 </li>
+<li><a href="#https://w3id.org/iadopt/ont/Constraint">https://w3id.org/iadopt/ont/Constraint</a>
+</li>
+<li><a href="#https://w3id.org/iadopt/ont/Entity">https://w3id.org/iadopt/ont/Entity</a>
+</li>
+<li><a href="#https://w3id.org/iadopt/ont/Property">https://w3id.org/iadopt/ont/Property</a>
+</li>
+<li><a href="#https://w3id.org/iadopt/ont/StatisticalModifier">https://w3id.org/iadopt/ont/StatisticalModifier</a>
+</li>
 </ul></details><details><summary><u>Deleted classes</u></summary>
 <ul><li><a href="#AlgorithmThreshold">https://w3id.org/gcdfo/salmon#AlgorithmThreshold</a>
 </li>
 </ul></details><h3 id="changeProp" class="list">Object Properties</h3>
 <details><summary><u>Added object properties</u></summary>
-<ul><li><a href="#conservationUnitOf">https://w3id.org/gcdfo/salmon#conservationUnitOf</a>
+<ul><li><a href="#http://www.w3.org/ns/prov#generated">http://www.w3.org/ns/prov#generated</a>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#used">http://www.w3.org/ns/prov#used</a>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#wasDerivedFrom">http://www.w3.org/ns/prov#wasDerivedFrom</a>
+</li>
+<li><a href="#conservationUnitOf">https://w3id.org/gcdfo/salmon#conservationUnitOf</a>
 <ul>
 <li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/gcdfo/salmon#conservationUnitOf&gt; &lt;https://w3id.org/gcdfo/salmon#hasConservationUnit&gt;)</li>
 <li>Added: domain https://w3id.org/gcdfo/salmon#ConservationUnit</li>
@@ -4439,6 +4910,26 @@ This section provides details for each class and property defined by DFO Salmon 
 <li>Added: domain https://w3id.org/gcdfo/salmon#Population</li>
 </ul>
 </li>
+<li><a href="#hasFeatureOfInterest">https://w3id.org/gcdfo/salmon#hasFeatureOfInterest</a>
+<ul>
+<li>Added: Range https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum</li>
+<li>Added: SubProperty of http://www.w3.org/ns/prov#used</li>
+<li>Added: domain https://w3id.org/gcdfo/salmon#SurveyEvent</li>
+</ul>
+</li>
+<li><a href="#hasObservationResult">https://w3id.org/gcdfo/salmon#hasObservationResult</a>
+<ul>
+<li>Added: Range https://w3id.org/gcdfo/salmon#EscapementMeasurement</li>
+<li>Added: SubProperty of http://www.w3.org/ns/prov#generated</li>
+<li>Added: domain https://w3id.org/gcdfo/salmon#SurveyEvent</li>
+</ul>
+</li>
+<li><a href="#hasObservedVariable">https://w3id.org/gcdfo/salmon#hasObservedVariable</a>
+<ul>
+<li>Added: Range https://w3id.org/gcdfo/salmon#SalmonDataVariable</li>
+<li>Added: domain https://w3id.org/gcdfo/salmon#SurveyEvent</li>
+</ul>
+</li>
 <li><a href="#hasPopulation">https://w3id.org/gcdfo/salmon#hasPopulation</a>
 <ul>
 <li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/gcdfo/salmon#populationOf&gt; &lt;https://w3id.org/gcdfo/salmon#hasPopulation&gt;)</li>
@@ -4459,6 +4950,13 @@ This section provides details for each class and property defined by DFO Salmon 
 <li>Added: domain Union of (https://w3id.org/gcdfo/salmon#EscapementMeasurement, https://w3id.org/gcdfo/salmon#ExploitationRate, https://w3id.org/gcdfo/salmon#ObservedExploitationRate, https://w3id.org/gcdfo/salmon#SpawnerAbundance, https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate, https://w3id.org/gcdfo/salmon#TotalExploitationRate)</li>
 </ul>
 </li>
+<li><a href="#isSampleOfStratum">https://w3id.org/gcdfo/salmon#isSampleOfStratum</a>
+<ul>
+<li>Added: Range https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum</li>
+<li>Added: SubProperty of http://www.w3.org/ns/prov#wasDerivedFrom</li>
+<li>Added: domain http://rs.tdwg.org/dwc/terms/MaterialEntity</li>
+</ul>
+</li>
 <li><a href="#isTargetOrLimitForObservedExploitationRate">https://w3id.org/gcdfo/salmon#isTargetOrLimitForObservedExploitationRate</a>
 <ul>
 <li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/gcdfo/salmon#isTargetOrLimitForObservedExploitationRate&gt; &lt;https://w3id.org/gcdfo/salmon#hasTargetOrLimitExploitationRate&gt;)</li>
@@ -4472,6 +4970,48 @@ This section provides details for each class and property defined by DFO Salmon 
 <li>Added: Range https://w3id.org/gcdfo/salmon#ConservationUnit</li>
 <li>Added: domain https://w3id.org/gcdfo/salmon#Population</li>
 </ul>
+</li>
+<li><a href="#usesObservationProcedure">https://w3id.org/gcdfo/salmon#usesObservationProcedure</a>
+<ul>
+<li>Added: Range http://purl.obolibrary.org/obo/IAO_0000104</li>
+<li>Added: domain https://w3id.org/gcdfo/salmon#SurveyEvent</li>
+</ul>
+</li>
+<li><a href="#variableHasConstraint">https://w3id.org/gcdfo/salmon#variableHasConstraint</a>
+<ul>
+<li>Added: Range https://w3id.org/iadopt/ont/Constraint</li>
+<li>Added: SubProperty of https://w3id.org/iadopt/ont/hasConstraint</li>
+<li>Added: domain https://w3id.org/gcdfo/salmon#SalmonDataVariable</li>
+</ul>
+</li>
+<li><a href="#variableHasObjectOfInterest">https://w3id.org/gcdfo/salmon#variableHasObjectOfInterest</a>
+<ul>
+<li>Added: Range https://w3id.org/iadopt/ont/Entity</li>
+<li>Added: SubProperty of https://w3id.org/iadopt/ont/hasObjectOfInterest</li>
+<li>Added: domain https://w3id.org/gcdfo/salmon#SalmonDataVariable</li>
+</ul>
+</li>
+<li><a href="#variableHasProperty">https://w3id.org/gcdfo/salmon#variableHasProperty</a>
+<ul>
+<li>Added: Range https://w3id.org/iadopt/ont/Property</li>
+<li>Added: SubProperty of https://w3id.org/iadopt/ont/hasProperty</li>
+<li>Added: domain https://w3id.org/gcdfo/salmon#SalmonDataVariable</li>
+</ul>
+</li>
+<li><a href="#variableHasStatisticalModifier">https://w3id.org/gcdfo/salmon#variableHasStatisticalModifier</a>
+<ul>
+<li>Added: Range https://w3id.org/iadopt/ont/StatisticalModifier</li>
+<li>Added: SubProperty of https://w3id.org/iadopt/ont/hasStatisticalModifier</li>
+<li>Added: domain https://w3id.org/gcdfo/salmon#SalmonDataVariable</li>
+</ul>
+</li>
+<li><a href="#https://w3id.org/iadopt/ont/hasConstraint">https://w3id.org/iadopt/ont/hasConstraint</a>
+</li>
+<li><a href="#https://w3id.org/iadopt/ont/hasObjectOfInterest">https://w3id.org/iadopt/ont/hasObjectOfInterest</a>
+</li>
+<li><a href="#https://w3id.org/iadopt/ont/hasProperty">https://w3id.org/iadopt/ont/hasProperty</a>
+</li>
+<li><a href="#https://w3id.org/iadopt/ont/hasStatisticalModifier">https://w3id.org/iadopt/ont/hasStatisticalModifier</a>
 </li>
 </ul></details></div>
 </div>

@@ -29,6 +29,7 @@ gcdfo:IndicatorRiver skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInteres
 gcdfo:ReferencePoint skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
 gcdfo:LowerBiologicalBenchmark skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
 gcdfo:FisheriesReferencePointLower skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
+gcdfo:SalmonDataVariable skos:closeMatch <https://w3id.org/iadopt/ont/Variable>, <http://www.w3.org/ns/sosa/Property> .
 
 #################################################################
 # Safe property reuse links
@@ -41,6 +42,13 @@ gcdfo:hasConservationUnit rdfs:subPropertyOf ro:0002351 .
 #################################################################
 # Representation-level bridges (annotation only)
 #################################################################
+
+<http://www.w3.org/ns/sosa/hasFeatureOfInterest> rdfs:subPropertyOf prov:used .
+<http://www.w3.org/ns/sosa/hasResult> rdfs:subPropertyOf prov:generated .
+<http://www.w3.org/ns/sosa/isSampleOf> rdfs:subPropertyOf prov:wasDerivedFrom .
+
+<http://www.w3.org/ns/sosa/Property> skos:closeMatch <https://w3id.org/iadopt/ont/Property> .
+<https://w3id.org/iadopt/ont/Variable> skos:closeMatch <http://www.w3.org/ns/sosa/Property> .
 
 <http://www.w3.org/ns/sosa/Sampling> skos:closeMatch dwc:Event .
 <http://www.w3.org/ns/sosa/Sample> skos:closeMatch dwc:MaterialEntity .

@@ -24,7 +24,7 @@ sosa:Sampling rdfs:subClassOf bfo:0000015, prov:Activity .
 sosa:Sample rdfs:subClassOf bfo:0000040, prov:Entity .
 sosa:Result rdfs:subClassOf prov:Entity .
 
-iop:Variable rdfs:subClassOf iao:0000030 .
+iop:Variable rdfs:subClassOf iao:0000030, sosa:Property .
 iop:Constraint rdfs:subClassOf iao:0000030 .
 iop:Property rdfs:subClassOf iao:0000030 .
 
@@ -36,7 +36,7 @@ iop:Property rdfs:subClassOf iao:0000030 .
   rdfs:label "Salmon data observation"@en ;
   rdfs:subClassOf sosa:Observation ,
     [ a owl:Restriction ; owl:onProperty sosa:hasFeatureOfInterest ; owl:someValuesFrom iop:Entity ] ,
-    [ a owl:Restriction ; owl:onProperty sosa:observedProperty ; owl:someValuesFrom iop:Property ] ,
+    [ a owl:Restriction ; owl:onProperty sosa:observedProperty ; owl:someValuesFrom sosa:Property ] ,
     [ a owl:Restriction ; owl:onProperty sosa:hasResult ; owl:someValuesFrom sosa:Result ] ,
     [ a owl:Restriction ; owl:onProperty :hasVariable ; owl:someValuesFrom iop:Variable ] .
 
@@ -99,11 +99,20 @@ iop:Property rdfs:subClassOf iao:0000030 .
   rdfs:range sosa:Sample .
 
 #################################################################
+# Canonical SOSA -> PROV alignment links
+#################################################################
+
+sosa:hasFeatureOfInterest rdfs:subPropertyOf prov:used .
+sosa:hasResult rdfs:subPropertyOf prov:generated .
+sosa:isSampleOf rdfs:subPropertyOf prov:wasDerivedFrom .
+
+#################################################################
 # Conceptual crosswalks (non-logical links)
 #################################################################
 
 sosa:FeatureOfInterest skos:closeMatch iop:Entity .
-sosa:ObservableProperty skos:closeMatch iop:Property .
+sosa:Property skos:closeMatch iop:Property .
+iop:Variable skos:closeMatch sosa:Property .
 
 # DwC / DwC-DP are treated as reference mappings (not strict equivalence axioms)
 sosa:Sampling skos:closeMatch dwc:Event .

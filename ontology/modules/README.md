@@ -59,3 +59,14 @@ Derived from the latest four alignment artifacts shared in chat:
 - These modules are intended to be loaded **alongside** core ontology, not as replacements.
 - Prefer `skos:closeMatch` unless exact equivalence has been confirmed.
 - Validation rules should remain in SHACL where appropriate.
+
+## SDP decomposition workflow (practical split)
+
+For Salmon Data Package work (`term_iri`, `property_iri`, `entity_iri`, optional `constraint_iri`, `method_iri`):
+
+- Keep the **normative salmon metamodel spine** in `ontology/dfo-salmon.ttl` (stable classes/properties contributors must rely on).
+- Keep broader cross-framework and publication-profile mappings in these module files.
+
+Rule of thumb:
+- If contributors need it every day to encode SDP semantics, promote it to core.
+- If it is a crosswalk hypothesis or publication-oriented mapping, keep it in a module.

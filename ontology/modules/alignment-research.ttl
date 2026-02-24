@@ -33,6 +33,10 @@
   rdfs:label "SOSA Feature of Interest"@en ;
   rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> .
 
+<http://www.w3.org/ns/sosa/Property> a owl:Class ;
+  rdfs:label "SOSA Property"@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> .
+
 <http://www.w3.org/ns/sosa/Procedure> a owl:Class ;
   rdfs:label "SOSA Procedure"@en ;
   rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> .
@@ -72,7 +76,7 @@ gcdfo:EscapementSurveyEvent rdfs:subClassOf prov:Activity, <http://www.w3.org/ns
   skos:closeMatch <http://www.w3.org/ns/sosa/Sampling> .
 
 gcdfo:EscapementMeasurement rdfs:subClassOf <http://www.w3.org/ns/sosa/Result> ;
-  skos:closeMatch <http://www.w3.org/ns/sosa/Observation>, <https://w3id.org/iadopt/ont/Variable> .
+  skos:closeMatch <http://www.w3.org/ns/sosa/Result> .
 
 gcdfo:ReportingOrManagementStratum skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest>, <https://w3id.org/iadopt/ont/Entity> .
 gcdfo:Stock skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
@@ -84,6 +88,7 @@ gcdfo:ReferencePoint skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
 gcdfo:LowerBiologicalBenchmark skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
 gcdfo:FisheriesReferencePointLower skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
 gcdfo:WSPRapidStatus skos:closeMatch <https://w3id.org/iadopt/ont/Variable> .
+gcdfo:SalmonDataVariable skos:closeMatch <https://w3id.org/iadopt/ont/Variable>, <http://www.w3.org/ns/sosa/Property> .
 
 #################################################################
 # Candidate bridge properties (exploratory)
@@ -92,7 +97,7 @@ gcdfo:WSPRapidStatus skos:closeMatch <https://w3id.org/iadopt/ont/Variable> .
 gcdfo:hasFeatureOfInterest a owl:ObjectProperty ;
   rdfs:label "has feature of interest"@en ;
   iao:0000115 "Relates a survey or observation event to the reporting/management stratum that is the focus of inference."@en ;
-  rdfs:subPropertyOf <http://www.w3.org/ns/sosa/hasFeatureOfInterest> ;
+  rdfs:subPropertyOf <http://www.w3.org/ns/sosa/hasFeatureOfInterest>, prov:used ;
   rdfs:domain gcdfo:SurveyEvent ;
   rdfs:range gcdfo:ReportingOrManagementStratum ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
@@ -100,7 +105,7 @@ gcdfo:hasFeatureOfInterest a owl:ObjectProperty ;
 gcdfo:hasObservationResult a owl:ObjectProperty ;
   rdfs:label "has observation result"@en ;
   iao:0000115 "Relates a survey event to the measurement datum produced by that event."@en ;
-  rdfs:subPropertyOf <http://www.w3.org/ns/sosa/hasResult> ;
+  rdfs:subPropertyOf <http://www.w3.org/ns/sosa/hasResult>, prov:generated ;
   rdfs:domain gcdfo:SurveyEvent ;
   rdfs:range gcdfo:EscapementMeasurement ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
@@ -109,6 +114,7 @@ gcdfo:usesObservationProcedure a owl:ObjectProperty ;
   rdfs:label "uses observation procedure"@en ;
   iao:0000115 "Relates a survey event to the protocol/procedure used to conduct it."@en ;
   rdfs:subPropertyOf <http://www.w3.org/ns/sosa/usedProcedure> ;
+  skos:closeMatch prov:hadPlan ;
   rdfs:domain gcdfo:SurveyEvent ;
   rdfs:range iao:0000104 ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
@@ -116,10 +122,18 @@ gcdfo:usesObservationProcedure a owl:ObjectProperty ;
 gcdfo:isSampleOfStratum a owl:ObjectProperty ;
   rdfs:label "is sample of stratum"@en ;
   iao:0000115 "Relates a material entity sample to the reporting/management stratum it represents in analysis."@en ;
-  rdfs:subPropertyOf <http://www.w3.org/ns/sosa/isSampleOf> ;
+  rdfs:subPropertyOf <http://www.w3.org/ns/sosa/isSampleOf>, prov:wasDerivedFrom ;
   rdfs:domain dwc:MaterialEntity ;
   rdfs:range gcdfo:ReportingOrManagementStratum ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+#################################################################
+# Canonical SOSA -> PROV alignment links (from SSN alignment)
+#################################################################
+
+<http://www.w3.org/ns/sosa/hasFeatureOfInterest> rdfs:subPropertyOf prov:used .
+<http://www.w3.org/ns/sosa/hasResult> rdfs:subPropertyOf prov:generated .
+<http://www.w3.org/ns/sosa/isSampleOf> rdfs:subPropertyOf prov:wasDerivedFrom .
 
 #################################################################
 # RO + representation-level bridges
@@ -134,4 +148,5 @@ gcdfo:hasConservationUnit rdfs:subPropertyOf ro:0002351 .
 <http://www.w3.org/ns/sosa/Observation> skos:closeMatch dwc:Occurrence .
 <http://www.w3.org/ns/sosa/Procedure> skos:closeMatch <https://rs.tdwg.org/dwc/dp/terms/Protocol> .
 <http://www.w3.org/ns/sosa/FeatureOfInterest> skos:closeMatch <https://w3id.org/iadopt/ont/Entity> .
-<http://www.w3.org/ns/sosa/ObservableProperty> skos:closeMatch <https://w3id.org/iadopt/ont/Property> .
+<http://www.w3.org/ns/sosa/Property> skos:closeMatch <https://w3id.org/iadopt/ont/Property> .
+<https://w3id.org/iadopt/ont/Variable> skos:closeMatch <http://www.w3.org/ns/sosa/Property> .

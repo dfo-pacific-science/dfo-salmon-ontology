@@ -4,6 +4,7 @@
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
 @prefix iao: <http://purl.obolibrary.org/obo/IAO_> .
+@prefix iop: <https://w3id.org/iadopt/ont/> .
 @prefix odo: <http://purl.dataone.org/odo/> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -15,6 +16,7 @@
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix unit: <http://qudt.org/vocab/unit/> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix gcdfo: <https://w3id.org/gcdfo/salmon#> .
@@ -216,6 +218,18 @@ dqv:inDimension rdf:type owl:ObjectProperty ;
                 rdfs:label "in dimension"@en .
 
 
+###  http://www.w3.org/ns/prov#generated
+prov:generated rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/prov#used
+prov:used rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/prov#wasDerivedFrom
+prov:wasDerivedFrom rdf:type owl:ObjectProperty .
+
+
 ###  https://w3id.org/gcdfo/salmon#conservationUnitOf
 gcdfo:conservationUnitOf rdf:type owl:ObjectProperty ;
                          owl:inverseOf gcdfo:hasConservationUnit ;
@@ -262,6 +276,45 @@ gcdfo:hasDeme rdf:type owl:ObjectProperty ;
               rdfs:label "has deme"@en ;
               gcdfo:theme gcdfo:GeneticsStockCompositionTheme ,
                           gcdfo:WildSalmonPolicyTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#hasFeatureOfInterest
+gcdfo:hasFeatureOfInterest rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf prov:used ;
+                           rdfs:domain gcdfo:SurveyEvent ;
+                           rdfs:range gcdfo:ReportingOrManagementStratum ;
+                           <http://purl.obolibrary.org/obo/IAO_0000115> "Relates a survey event to the reporting or management stratum that the event targets for inference or status interpretation."@en ;
+                           rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                           rdfs:label "has feature of interest"@en ;
+                           skos:closeMatch sosa:hasFeatureOfInterest ;
+                           gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                       gcdfo:PolicyGovernanceTheme ,
+                                       gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#hasObservationResult
+gcdfo:hasObservationResult rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf prov:generated ;
+                           rdfs:domain gcdfo:SurveyEvent ;
+                           rdfs:range gcdfo:EscapementMeasurement ;
+                           <http://purl.obolibrary.org/obo/IAO_0000115> "Relates a survey event to a measurement datum/result it produces for salmon assessment workflows."@en ;
+                           rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                           rdfs:label "has observation result"@en ;
+                           skos:closeMatch sosa:hasResult ;
+                           gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                       gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#hasObservedVariable
+gcdfo:hasObservedVariable rdf:type owl:ObjectProperty ;
+                          rdfs:domain gcdfo:SurveyEvent ;
+                          rdfs:range gcdfo:SalmonDataVariable ;
+                          <http://purl.obolibrary.org/obo/IAO_0000115> "Relates a survey event to a salmon data variable specification that defines what was measured or derived."@en ;
+                          rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                          rdfs:label "has observed variable"@en ;
+                          skos:closeMatch sosa:observedProperty ;
+                          gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                      gcdfo:StockAssessmentTheme .
 
 
 ###  https://w3id.org/gcdfo/salmon#hasPopulation
@@ -313,6 +366,20 @@ gcdfo:hasYearBasis rdf:type owl:ObjectProperty ;
                                gcdfo:StockAssessmentTheme .
 
 
+###  https://w3id.org/gcdfo/salmon#isSampleOfStratum
+gcdfo:isSampleOfStratum rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf prov:wasDerivedFrom ;
+                        rdfs:domain dwc:MaterialEntity ;
+                        rdfs:range gcdfo:ReportingOrManagementStratum ;
+                        <http://purl.obolibrary.org/obo/IAO_0000115> "Relates a material sample to the reporting or management stratum it is taken to represent in analysis."@en ;
+                        rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                        rdfs:label "is sample of stratum"@en ;
+                        skos:closeMatch sosa:isSampleOf ;
+                        gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                    gcdfo:PolicyGovernanceTheme ,
+                                    gcdfo:StockAssessmentTheme .
+
+
 ###  https://w3id.org/gcdfo/salmon#isTargetOrLimitForObservedExploitationRate
 gcdfo:isTargetOrLimitForObservedExploitationRate rdf:type owl:ObjectProperty ;
                                                  rdfs:domain gcdfo:TargetOrLimitExploitationRate ;
@@ -334,6 +401,82 @@ gcdfo:populationOf rdf:type owl:ObjectProperty ;
                    rdfs:label "population of"@en ;
                    gcdfo:theme gcdfo:StockAssessmentTheme ,
                                gcdfo:WildSalmonPolicyTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#usesObservationProcedure
+gcdfo:usesObservationProcedure rdf:type owl:ObjectProperty ;
+                               rdfs:domain gcdfo:SurveyEvent ;
+                               rdfs:range <http://purl.obolibrary.org/obo/IAO_0000104> ;
+                               <http://purl.obolibrary.org/obo/IAO_0000115> "Relates a survey event to the procedure/protocol used to execute it."@en ;
+                               rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                               rdfs:label "uses observation procedure"@en ;
+                               skos:closeMatch sosa:usedProcedure ;
+                               gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                           gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#variableHasConstraint
+gcdfo:variableHasConstraint rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf iop:hasConstraint ;
+                            rdfs:domain gcdfo:SalmonDataVariable ;
+                            rdfs:range iop:Constraint ;
+                            <http://purl.obolibrary.org/obo/IAO_0000115> "Relates a salmon data variable to an optional constraint component in I-ADOPT decomposition."@en ;
+                            rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                            rdfs:label "variable has constraint"@en ;
+                            gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                        gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#variableHasObjectOfInterest
+gcdfo:variableHasObjectOfInterest rdf:type owl:ObjectProperty ;
+                                  rdfs:subPropertyOf iop:hasObjectOfInterest ;
+                                  rdfs:domain gcdfo:SalmonDataVariable ;
+                                  rdfs:range iop:Entity ;
+                                  <http://purl.obolibrary.org/obo/IAO_0000115> "Relates a salmon data variable to the entity/object-of-interest component in I-ADOPT decomposition."@en ;
+                                  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                  rdfs:label "variable has object of interest"@en ;
+                                  gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                              gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#variableHasProperty
+gcdfo:variableHasProperty rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf iop:hasProperty ;
+                          rdfs:domain gcdfo:SalmonDataVariable ;
+                          rdfs:range iop:Property ;
+                          <http://purl.obolibrary.org/obo/IAO_0000115> "Relates a salmon data variable to the measured/estimated property component in I-ADOPT decomposition."@en ;
+                          rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                          rdfs:label "variable has property"@en ;
+                          gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                      gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#variableHasStatisticalModifier
+gcdfo:variableHasStatisticalModifier rdf:type owl:ObjectProperty ;
+                                     rdfs:subPropertyOf iop:hasStatisticalModifier ;
+                                     rdfs:domain gcdfo:SalmonDataVariable ;
+                                     rdfs:range iop:StatisticalModifier ;
+                                     <http://purl.obolibrary.org/obo/IAO_0000115> "Relates a salmon data variable to an optional statistical modifier component in I-ADOPT decomposition."@en ;
+                                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                     rdfs:label "variable has statistical modifier"@en ;
+                                     gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                                 gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/iadopt/ont/hasConstraint
+iop:hasConstraint rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/iadopt/ont/hasObjectOfInterest
+iop:hasObjectOfInterest rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/iadopt/ont/hasProperty
+iop:hasProperty rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/iadopt/ont/hasStatisticalModifier
+iop:hasStatisticalModifier rdf:type owl:ObjectProperty .
 
 
 #################################################################
@@ -595,6 +738,10 @@ oa:Annotation rdf:type owl:Class ;
               rdfs:label "Annotation"@en .
 
 
+###  http://www.w3.org/ns/prov#Activity
+prov:Activity rdf:type owl:Class .
+
+
 ###  https://w3id.org/gcdfo/salmon#AbundancePercentileMetric
 gcdfo:AbundancePercentileMetric rdf:type owl:Class ;
                                 rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
@@ -705,6 +852,7 @@ gcdfo:EscapementMeasurement rdf:type owl:Class ;
                             <http://purl.obolibrary.org/obo/IAO_0000115> "A measurement or estimate of escapement tied to a stock and a survey event."@en ;
                             rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                             rdfs:label "Escapement measurement"@en ;
+                            skos:closeMatch sosa:Result ;
                             gcdfo:theme gcdfo:MonitoringFieldWorkTheme ,
                                         gcdfo:StockAssessmentTheme .
 
@@ -715,6 +863,7 @@ gcdfo:EscapementSurveyEvent rdf:type owl:Class ;
                             <http://purl.obolibrary.org/obo/IAO_0000115> "A survey event specifically for estimating escapement."@en ;
                             rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                             rdfs:label "Escapement Survey Event"@en ;
+                            skos:closeMatch sosa:Sampling ;
                             skos:prefLabel "Escapement Survey Event"@en ;
                             gcdfo:theme gcdfo:MonitoringFieldWorkTheme ,
                                         gcdfo:StockAssessmentTheme .
@@ -1122,6 +1271,7 @@ gcdfo:ReportingOrManagementStratum rdf:type owl:Class ;
                                    <http://purl.obolibrary.org/obo/IAO_0000115> "An information-defined grouping of fish populations used for reporting, conservation assessment, or management purposes. Examples include Conservation Units (CUs), Stock Management Units (MUs), and Designatable Units (DUs)."@en ;
                                    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                                    rdfs:label "Reporting or management stratum"@en ;
+                                   skos:closeMatch sosa:FeatureOfInterest ;
                                    gcdfo:theme gcdfo:PolicyGovernanceTheme ,
                                                gcdfo:StockAssessmentTheme .
 
@@ -1137,6 +1287,18 @@ gcdfo:ReturnYear rdf:type owl:Class ;
                  gcdfo:theme gcdfo:FisheriesManagementTheme ,
                              gcdfo:StockAssessmentTheme ,
                              gcdfo:WildSalmonPolicyTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#SalmonDataVariable
+gcdfo:SalmonDataVariable rdf:type owl:Class ;
+                         rdfs:subClassOf <http://purl.obolibrary.org/obo/IAO_0000030> ;
+                         <http://purl.obolibrary.org/obo/IAO_0000115> "A variable specification used to decompose a measured salmon-data quantity into semantic components (object of interest, property, and optional constraints/modifiers), following the I-ADOPT variable pattern for SDP metadata workflows."@en ;
+                         rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                         rdfs:label "Salmon data variable"@en ;
+                         skos:closeMatch sosa:Property ,
+                                         iop:Variable ;
+                         gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                     gcdfo:StockAssessmentTheme .
 
 
 ###  https://w3id.org/gcdfo/salmon#SpawnerAbundance
@@ -1231,12 +1393,14 @@ gcdfo:StockManagementUnit rdf:type owl:Class ;
 
 ###  https://w3id.org/gcdfo/salmon#SurveyEvent
 gcdfo:SurveyEvent rdf:type owl:Class ;
-                  rdfs:subClassOf dwc:Event ;
+                  rdfs:subClassOf dwc:Event ,
+                                  prov:Activity ;
                   <http://purl.obolibrary.org/obo/IAO_0000115> "A field event that collects information about key fish stocks to track their status, and track progress to implement fishery policies and measures for these stocks."@en ;
                   <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. About the Sustainability Survey for Fisheries. https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html."@en ;
                   dcterms:source <https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html> ;
                   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                   rdfs:label "Survey event"@en ;
+                  skos:closeMatch sosa:Sampling ;
                   gcdfo:theme gcdfo:MonitoringFieldWorkTheme ,
                               gcdfo:StockAssessmentTheme .
 
@@ -1363,6 +1527,22 @@ gcdfo:YearBasis rdf:type owl:Class ;
                 rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                 rdfs:label "Year basis"@en ;
                 gcdfo:theme gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/iadopt/ont/Constraint
+iop:Constraint rdf:type owl:Class .
+
+
+###  https://w3id.org/iadopt/ont/Entity
+iop:Entity rdf:type owl:Class .
+
+
+###  https://w3id.org/iadopt/ont/Property
+iop:Property rdf:type owl:Class .
+
+
+###  https://w3id.org/iadopt/ont/StatisticalModifier
+iop:StatisticalModifier rdf:type owl:Class .
 
 
 #################################################################

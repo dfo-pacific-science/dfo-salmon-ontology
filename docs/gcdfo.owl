@@ -6,6 +6,7 @@
      xmlns:dqv="http://www.w3.org/ns/dqv#"
      xmlns:dwc="http://rs.tdwg.org/dwc/terms/"
      xmlns:iao="http://purl.obolibrary.org/obo/IAO_"
+     xmlns:iop="https://w3id.org/iadopt/ont/"
      xmlns:obo="http://purl.obolibrary.org/obo/"
      xmlns:odo="http://purl.dataone.org/odo/"
      xmlns:org="http://www.w3.org/ns/org#"
@@ -18,6 +19,7 @@
      xmlns:qudt="http://qudt.org/schema/qudt/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:sosa="http://www.w3.org/ns/sosa/"
      xmlns:vann="http://purl.org/vocab/vann/"
      xmlns:gcdfo="https://w3id.org/gcdfo/salmon#"
      xmlns:dwciri="http://rs.tdwg.org/dwc/iri/"
@@ -318,6 +320,24 @@
     
 
 
+    <!-- http://www.w3.org/ns/prov#generated -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#generated"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#used -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#used"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#wasDerivedFrom -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#wasDerivedFrom"/>
+    
+
+
     <!-- https://w3id.org/gcdfo/salmon#conservationUnitOf -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#conservationUnitOf">
@@ -374,6 +394,54 @@
         <rdfs:label xml:lang="en">has deme</rdfs:label>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#hasFeatureOfInterest -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#hasFeatureOfInterest">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#used"/>
+        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#SurveyEvent"/>
+        <rdfs:range rdf:resource="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum"/>
+        <obo:IAO_0000115 xml:lang="en">Relates a survey event to the reporting or management stratum that the event targets for inference or status interpretation.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">has feature of interest</rdfs:label>
+        <skos:closeMatch rdf:resource="http://www.w3.org/ns/sosa/hasFeatureOfInterest"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#hasObservationResult -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#hasObservationResult">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#generated"/>
+        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#SurveyEvent"/>
+        <rdfs:range rdf:resource="https://w3id.org/gcdfo/salmon#EscapementMeasurement"/>
+        <obo:IAO_0000115 xml:lang="en">Relates a survey event to a measurement datum/result it produces for salmon assessment workflows.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">has observation result</rdfs:label>
+        <skos:closeMatch rdf:resource="http://www.w3.org/ns/sosa/hasResult"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#hasObservedVariable -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#hasObservedVariable">
+        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#SurveyEvent"/>
+        <rdfs:range rdf:resource="https://w3id.org/gcdfo/salmon#SalmonDataVariable"/>
+        <obo:IAO_0000115 xml:lang="en">Relates a survey event to a salmon data variable specification that defines what was measured or derived.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">has observed variable</rdfs:label>
+        <skos:closeMatch rdf:resource="http://www.w3.org/ns/sosa/observedProperty"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:ObjectProperty>
     
 
@@ -442,6 +510,23 @@
     
 
 
+    <!-- https://w3id.org/gcdfo/salmon#isSampleOfStratum -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#isSampleOfStratum">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#wasDerivedFrom"/>
+        <rdfs:domain rdf:resource="http://rs.tdwg.org/dwc/terms/MaterialEntity"/>
+        <rdfs:range rdf:resource="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum"/>
+        <obo:IAO_0000115 xml:lang="en">Relates a material sample to the reporting or management stratum it is taken to represent in analysis.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">is sample of stratum</rdfs:label>
+        <skos:closeMatch rdf:resource="http://www.w3.org/ns/sosa/isSampleOf"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/gcdfo/salmon#isTargetOrLimitForObservedExploitationRate -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#isTargetOrLimitForObservedExploitationRate">
@@ -468,6 +553,105 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#usesObservationProcedure -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#usesObservationProcedure">
+        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#SurveyEvent"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/IAO_0000104"/>
+        <obo:IAO_0000115 xml:lang="en">Relates a survey event to the procedure/protocol used to execute it.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">uses observation procedure</rdfs:label>
+        <skos:closeMatch rdf:resource="http://www.w3.org/ns/sosa/usedProcedure"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#variableHasConstraint -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#variableHasConstraint">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/iadopt/ont/hasConstraint"/>
+        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#SalmonDataVariable"/>
+        <rdfs:range rdf:resource="https://w3id.org/iadopt/ont/Constraint"/>
+        <obo:IAO_0000115 xml:lang="en">Relates a salmon data variable to an optional constraint component in I-ADOPT decomposition.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">variable has constraint</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#variableHasObjectOfInterest -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#variableHasObjectOfInterest">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/iadopt/ont/hasObjectOfInterest"/>
+        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#SalmonDataVariable"/>
+        <rdfs:range rdf:resource="https://w3id.org/iadopt/ont/Entity"/>
+        <obo:IAO_0000115 xml:lang="en">Relates a salmon data variable to the entity/object-of-interest component in I-ADOPT decomposition.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">variable has object of interest</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#variableHasProperty -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#variableHasProperty">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/iadopt/ont/hasProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#SalmonDataVariable"/>
+        <rdfs:range rdf:resource="https://w3id.org/iadopt/ont/Property"/>
+        <obo:IAO_0000115 xml:lang="en">Relates a salmon data variable to the measured/estimated property component in I-ADOPT decomposition.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">variable has property</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#variableHasStatisticalModifier -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#variableHasStatisticalModifier">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/iadopt/ont/hasStatisticalModifier"/>
+        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#SalmonDataVariable"/>
+        <rdfs:range rdf:resource="https://w3id.org/iadopt/ont/StatisticalModifier"/>
+        <obo:IAO_0000115 xml:lang="en">Relates a salmon data variable to an optional statistical modifier component in I-ADOPT decomposition.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">variable has statistical modifier</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/iadopt/ont/hasConstraint -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/iadopt/ont/hasConstraint"/>
+    
+
+
+    <!-- https://w3id.org/iadopt/ont/hasObjectOfInterest -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/iadopt/ont/hasObjectOfInterest"/>
+    
+
+
+    <!-- https://w3id.org/iadopt/ont/hasProperty -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/iadopt/ont/hasProperty"/>
+    
+
+
+    <!-- https://w3id.org/iadopt/ont/hasStatisticalModifier -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/iadopt/ont/hasStatisticalModifier"/>
     
 
 
@@ -831,6 +1015,12 @@
     
 
 
+    <!-- http://www.w3.org/ns/prov#Activity -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#Activity"/>
+    
+
+
     <!-- https://w3id.org/gcdfo/salmon#AbundancePercentileMetric -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#AbundancePercentileMetric">
@@ -968,6 +1158,7 @@
         <obo:IAO_0000115 xml:lang="en">A measurement or estimate of escapement tied to a stock and a survey event.</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">Escapement measurement</rdfs:label>
+        <skos:closeMatch rdf:resource="http://www.w3.org/ns/sosa/Result"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
@@ -981,6 +1172,7 @@
         <obo:IAO_0000115 xml:lang="en">A survey event specifically for estimating escapement.</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">Escapement Survey Event</rdfs:label>
+        <skos:closeMatch rdf:resource="http://www.w3.org/ns/sosa/Sampling"/>
         <skos:prefLabel xml:lang="en">Escapement Survey Event</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
@@ -1487,6 +1679,7 @@
         <obo:IAO_0000115 xml:lang="en">An information-defined grouping of fish populations used for reporting, conservation assessment, or management purposes. Examples include Conservation Units (CUs), Stock Management Units (MUs), and Designatable Units (DUs).</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">Reporting or management stratum</rdfs:label>
+        <skos:closeMatch rdf:resource="http://www.w3.org/ns/sosa/FeatureOfInterest"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
@@ -1505,6 +1698,21 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#SalmonDataVariable -->
+
+    <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#SalmonDataVariable">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
+        <obo:IAO_0000115 xml:lang="en">A variable specification used to decompose a measured salmon-data quantity into semantic components (object of interest, property, and optional constraints/modifiers), following the I-ADOPT variable pattern for SDP metadata workflows.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Salmon data variable</rdfs:label>
+        <skos:closeMatch rdf:resource="http://www.w3.org/ns/sosa/Property"/>
+        <skos:closeMatch rdf:resource="https://w3id.org/iadopt/ont/Variable"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
     
 
@@ -1624,11 +1832,13 @@
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#SurveyEvent">
         <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/dwc/terms/Event"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
         <obo:IAO_0000115 xml:lang="en">A field event that collects information about key fish stocks to track their status, and track progress to implement fishery policies and measures for these stocks.</obo:IAO_0000115>
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. About the Sustainability Survey for Fisheries. https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">Survey event</rdfs:label>
+        <skos:closeMatch rdf:resource="http://www.w3.org/ns/sosa/Sampling"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
@@ -1788,6 +1998,30 @@
         <rdfs:label xml:lang="en">Year basis</rdfs:label>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
+    
+
+
+    <!-- https://w3id.org/iadopt/ont/Constraint -->
+
+    <owl:Class rdf:about="https://w3id.org/iadopt/ont/Constraint"/>
+    
+
+
+    <!-- https://w3id.org/iadopt/ont/Entity -->
+
+    <owl:Class rdf:about="https://w3id.org/iadopt/ont/Entity"/>
+    
+
+
+    <!-- https://w3id.org/iadopt/ont/Property -->
+
+    <owl:Class rdf:about="https://w3id.org/iadopt/ont/Property"/>
+    
+
+
+    <!-- https://w3id.org/iadopt/ont/StatisticalModifier -->
+
+    <owl:Class rdf:about="https://w3id.org/iadopt/ont/StatisticalModifier"/>
     
 
 
