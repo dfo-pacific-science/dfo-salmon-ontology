@@ -489,29 +489,6 @@ This ontology has the following classes and properties.</span>
       <a href="#usesObservationProcedure"
          title="https://w3id.org/gcdfo/salmon#usesObservationProcedure">uses observation procedure</a>
    </li>
-   <li>
-      <a href="#variableHasConstraint"
-         title="https://w3id.org/gcdfo/salmon#variableHasConstraint">variable has constraint</a>
-   </li>
-   <li>
-      <a href="#variableHasContextObject"
-         title="https://w3id.org/gcdfo/salmon#variableHasContextObject">variable has context object</a>
-   </li>
-   <li>
-      <a href="#variableHasMatrix" title="https://w3id.org/gcdfo/salmon#variableHasMatrix">variable has matrix</a>
-   </li>
-   <li>
-      <a href="#variableHasObjectOfInterest"
-         title="https://w3id.org/gcdfo/salmon#variableHasObjectOfInterest">variable has object of interest</a>
-   </li>
-   <li>
-      <a href="#variableHasProperty"
-         title="https://w3id.org/gcdfo/salmon#variableHasProperty">variable has property</a>
-   </li>
-   <li>
-      <a href="#variableHasStatisticalModifier"
-         title="https://w3id.org/gcdfo/salmon#variableHasStatisticalModifier">variable has statistical modifier</a>
-   </li>
 </ul><iframe src="webvowl/index.html"></iframe> 
 </div>
   
@@ -3707,12 +3684,6 @@ This section provides details for each class and property defined by DFO Salmon 
   <li><a href="#isTargetOrLimitForObservedExploitationRate" title="https://w3id.org/gcdfo/salmon#isTargetOrLimitForObservedExploitationRate">is target or limit for observed exploitation rate</a></li>
   <li><a href="#populationOf" title="https://w3id.org/gcdfo/salmon#populationOf">population of</a></li>
   <li><a href="#usesObservationProcedure" title="https://w3id.org/gcdfo/salmon#usesObservationProcedure">uses observation procedure</a></li>
-  <li><a href="#variableHasConstraint" title="https://w3id.org/gcdfo/salmon#variableHasConstraint">variable has constraint</a></li>
-  <li><a href="#variableHasContextObject" title="https://w3id.org/gcdfo/salmon#variableHasContextObject">variable has context object</a></li>
-  <li><a href="#variableHasMatrix" title="https://w3id.org/gcdfo/salmon#variableHasMatrix">variable has matrix</a></li>
-  <li><a href="#variableHasObjectOfInterest" title="https://w3id.org/gcdfo/salmon#variableHasObjectOfInterest">variable has object of interest</a></li>
-  <li><a href="#variableHasProperty" title="https://w3id.org/gcdfo/salmon#variableHasProperty">variable has property</a></li>
-  <li><a href="#variableHasStatisticalModifier" title="https://w3id.org/gcdfo/salmon#variableHasStatisticalModifier">variable has statistical modifier</a></li>
  </ul>
  <div class="entity" id="conservationUnitOf">
   <h3>Conservation Unit of<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
@@ -3940,7 +3911,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>has observed variable<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#hasObservedVariable</p>
   <div class="comment">
-   <span class="markdown">Relates a survey event to an I-ADOPT variable used as a compound term that defines what was measured or derived (typically represented as a SKOS concept with decomposition annotations in SDP workflows).</span>
+   <span class="markdown">Relates a survey event to a variable compound term represented as a SKOS concept that defines what was measured or derived in SDP workflows.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -3962,7 +3933,7 @@ This section provides details for each class and property defined by DFO Salmon 
      has range
     </dt>
     <dd>
-     <a href="https://w3id.org/iadopt/ont/Variable" target="_blank" title="https://w3id.org/iadopt/ont/Variable">Variable</a> <sup class="type-c" title="class">c</sup>
+     <a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> <sup class="type-c" title="class">c</sup>
     </dd>
    </dl>
   </div>
@@ -4236,228 +4207,6 @@ This section provides details for each class and property defined by DFO Salmon 
     </dt>
     <dd>
      <a href="#http://purl.obolibrary.org/obo/IAO_0000104" title="http://purl.obolibrary.org/obo/IAO_0000104">plan specification</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-   </dl>
-  </div>
- </div>
- <div class="entity" id="variableHasConstraint">
-  <h3>variable has constraint<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#variableHasConstraint</p>
-  <div class="comment">
-   <span class="markdown">Relates an I-ADOPT compound variable term to an optional constraint component in decomposition.</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <div class="description">
-   <dl>
-    <dt>
-     has super-properties
-    </dt>
-    <dd>
-     <a href="https://w3id.org/iadopt/ont/hasConstraint" target="_blank" title="https://w3id.org/iadopt/ont/hasConstraint">has Constraint</a> <sup class="type-op" title="object property">op</sup>
-    </dd>
-    <dt>
-     has domain
-    </dt>
-    <dd>
-     <a href="https://w3id.org/iadopt/ont/Variable" target="_blank" title="https://w3id.org/iadopt/ont/Variable">Variable</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-    <dt>
-     has range
-    </dt>
-    <dd>
-     <a href="https://w3id.org/iadopt/ont/Constraint" target="_blank" title="https://w3id.org/iadopt/ont/Constraint">Constraint</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-   </dl>
-  </div>
- </div>
- <div class="entity" id="variableHasContextObject">
-  <h3>variable has context object<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#variableHasContextObject</p>
-  <div class="comment">
-   <span class="markdown">Relates an I-ADOPT compound variable term to an optional context object/entity component in decomposition.</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <div class="description">
-   <dl>
-    <dt>
-     has super-properties
-    </dt>
-    <dd>
-     <a href="https://w3id.org/iadopt/ont/hasContextObject" target="_blank" title="https://w3id.org/iadopt/ont/hasContextObject">has Context Object</a> <sup class="type-op" title="object property">op</sup>
-    </dd>
-    <dt>
-     has domain
-    </dt>
-    <dd>
-     <a href="https://w3id.org/iadopt/ont/Variable" target="_blank" title="https://w3id.org/iadopt/ont/Variable">Variable</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-    <dt>
-     has range
-    </dt>
-    <dd>
-     <a href="https://w3id.org/iadopt/ont/Entity" target="_blank" title="https://w3id.org/iadopt/ont/Entity">Entity</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-   </dl>
-  </div>
- </div>
- <div class="entity" id="variableHasMatrix">
-  <h3>variable has matrix<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#variableHasMatrix</p>
-  <div class="comment">
-   <span class="markdown">Relates an I-ADOPT compound variable term to an optional matrix/context entity component in decomposition.</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <div class="description">
-   <dl>
-    <dt>
-     has super-properties
-    </dt>
-    <dd>
-     <a href="https://w3id.org/iadopt/ont/hasMatrix" target="_blank" title="https://w3id.org/iadopt/ont/hasMatrix">has Matrix</a> <sup class="type-op" title="object property">op</sup>
-    </dd>
-    <dt>
-     has domain
-    </dt>
-    <dd>
-     <a href="https://w3id.org/iadopt/ont/Variable" target="_blank" title="https://w3id.org/iadopt/ont/Variable">Variable</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-    <dt>
-     has range
-    </dt>
-    <dd>
-     <a href="https://w3id.org/iadopt/ont/Entity" target="_blank" title="https://w3id.org/iadopt/ont/Entity">Entity</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-   </dl>
-  </div>
- </div>
- <div class="entity" id="variableHasObjectOfInterest">
-  <h3>variable has object of interest<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#variableHasObjectOfInterest</p>
-  <div class="comment">
-   <span class="markdown">Relates an I-ADOPT compound variable term to the entity/object-of-interest component in decomposition.</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <div class="description">
-   <dl>
-    <dt>
-     has super-properties
-    </dt>
-    <dd>
-     <a href="https://w3id.org/iadopt/ont/hasObjectOfInterest" target="_blank" title="https://w3id.org/iadopt/ont/hasObjectOfInterest">has Object Of Interest</a> <sup class="type-op" title="object property">op</sup>
-    </dd>
-    <dt>
-     has domain
-    </dt>
-    <dd>
-     <a href="https://w3id.org/iadopt/ont/Variable" target="_blank" title="https://w3id.org/iadopt/ont/Variable">Variable</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-    <dt>
-     has range
-    </dt>
-    <dd>
-     <a href="https://w3id.org/iadopt/ont/Entity" target="_blank" title="https://w3id.org/iadopt/ont/Entity">Entity</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-   </dl>
-  </div>
- </div>
- <div class="entity" id="variableHasProperty">
-  <h3>variable has property<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#variableHasProperty</p>
-  <div class="comment">
-   <span class="markdown">Relates an I-ADOPT compound variable term to the measured/estimated property component in decomposition.</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <div class="description">
-   <dl>
-    <dt>
-     has super-properties
-    </dt>
-    <dd>
-     <a href="https://w3id.org/iadopt/ont/hasProperty" target="_blank" title="https://w3id.org/iadopt/ont/hasProperty">has Property</a> <sup class="type-op" title="object property">op</sup>
-    </dd>
-    <dt>
-     has domain
-    </dt>
-    <dd>
-     <a href="https://w3id.org/iadopt/ont/Variable" target="_blank" title="https://w3id.org/iadopt/ont/Variable">Variable</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-    <dt>
-     has range
-    </dt>
-    <dd>
-     <a href="https://w3id.org/iadopt/ont/Property" target="_blank" title="https://w3id.org/iadopt/ont/Property">Property</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-   </dl>
-  </div>
- </div>
- <div class="entity" id="variableHasStatisticalModifier">
-  <h3>variable has statistical modifier<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#variableHasStatisticalModifier</p>
-  <div class="comment">
-   <span class="markdown">Relates an I-ADOPT compound variable term to an optional statistical modifier component in decomposition.</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <div class="description">
-   <dl>
-    <dt>
-     has super-properties
-    </dt>
-    <dd>
-     <a href="https://w3id.org/iadopt/ont/hasStatisticalModifier" target="_blank" title="https://w3id.org/iadopt/ont/hasStatisticalModifier">has Statistical Modifier</a> <sup class="type-op" title="object property">op</sup>
-    </dd>
-    <dt>
-     has domain
-    </dt>
-    <dd>
-     <a href="https://w3id.org/iadopt/ont/Variable" target="_blank" title="https://w3id.org/iadopt/ont/Variable">Variable</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-    <dt>
-     has range
-    </dt>
-    <dd>
-     <a href="https://w3id.org/iadopt/ont/StatisticalModifier" target="_blank" title="https://w3id.org/iadopt/ont/StatisticalModifier">Statistical Modifier</a> <sup class="type-c" title="class">c</sup>
     </dd>
    </dl>
   </div>
@@ -4901,16 +4650,6 @@ This section provides details for each class and property defined by DFO Salmon 
 <li>Added: SubClass of http://purl.obolibrary.org/obo/IAO_0000030</li>
 </ul>
 </li>
-<li><a href="#https://w3id.org/iadopt/ont/Constraint">https://w3id.org/iadopt/ont/Constraint</a>
-</li>
-<li><a href="#https://w3id.org/iadopt/ont/Entity">https://w3id.org/iadopt/ont/Entity</a>
-</li>
-<li><a href="#https://w3id.org/iadopt/ont/Property">https://w3id.org/iadopt/ont/Property</a>
-</li>
-<li><a href="#https://w3id.org/iadopt/ont/StatisticalModifier">https://w3id.org/iadopt/ont/StatisticalModifier</a>
-</li>
-<li><a href="#https://w3id.org/iadopt/ont/Variable">https://w3id.org/iadopt/ont/Variable</a>
-</li>
 </ul></details><details><summary><u>Deleted classes</u></summary>
 <ul><li><a href="#AlgorithmThreshold">https://w3id.org/gcdfo/salmon#AlgorithmThreshold</a>
 </li>
@@ -4966,7 +4705,7 @@ This section provides details for each class and property defined by DFO Salmon 
 </li>
 <li><a href="#hasObservedVariable">https://w3id.org/gcdfo/salmon#hasObservedVariable</a>
 <ul>
-<li>Added: Range https://w3id.org/iadopt/ont/Variable</li>
+<li>Added: Range http://www.w3.org/2004/02/skos/core#Concept</li>
 <li>Added: domain https://w3id.org/gcdfo/salmon#SurveyEvent</li>
 </ul>
 </li>
@@ -5016,60 +4755,6 @@ This section provides details for each class and property defined by DFO Salmon 
 <li>Added: Range http://purl.obolibrary.org/obo/IAO_0000104</li>
 <li>Added: domain https://w3id.org/gcdfo/salmon#SurveyEvent</li>
 </ul>
-</li>
-<li><a href="#variableHasConstraint">https://w3id.org/gcdfo/salmon#variableHasConstraint</a>
-<ul>
-<li>Added: Range https://w3id.org/iadopt/ont/Constraint</li>
-<li>Added: SubProperty of https://w3id.org/iadopt/ont/hasConstraint</li>
-<li>Added: domain https://w3id.org/iadopt/ont/Variable</li>
-</ul>
-</li>
-<li><a href="#variableHasContextObject">https://w3id.org/gcdfo/salmon#variableHasContextObject</a>
-<ul>
-<li>Added: Range https://w3id.org/iadopt/ont/Entity</li>
-<li>Added: SubProperty of https://w3id.org/iadopt/ont/hasContextObject</li>
-<li>Added: domain https://w3id.org/iadopt/ont/Variable</li>
-</ul>
-</li>
-<li><a href="#variableHasMatrix">https://w3id.org/gcdfo/salmon#variableHasMatrix</a>
-<ul>
-<li>Added: Range https://w3id.org/iadopt/ont/Entity</li>
-<li>Added: SubProperty of https://w3id.org/iadopt/ont/hasMatrix</li>
-<li>Added: domain https://w3id.org/iadopt/ont/Variable</li>
-</ul>
-</li>
-<li><a href="#variableHasObjectOfInterest">https://w3id.org/gcdfo/salmon#variableHasObjectOfInterest</a>
-<ul>
-<li>Added: Range https://w3id.org/iadopt/ont/Entity</li>
-<li>Added: SubProperty of https://w3id.org/iadopt/ont/hasObjectOfInterest</li>
-<li>Added: domain https://w3id.org/iadopt/ont/Variable</li>
-</ul>
-</li>
-<li><a href="#variableHasProperty">https://w3id.org/gcdfo/salmon#variableHasProperty</a>
-<ul>
-<li>Added: Range https://w3id.org/iadopt/ont/Property</li>
-<li>Added: SubProperty of https://w3id.org/iadopt/ont/hasProperty</li>
-<li>Added: domain https://w3id.org/iadopt/ont/Variable</li>
-</ul>
-</li>
-<li><a href="#variableHasStatisticalModifier">https://w3id.org/gcdfo/salmon#variableHasStatisticalModifier</a>
-<ul>
-<li>Added: Range https://w3id.org/iadopt/ont/StatisticalModifier</li>
-<li>Added: SubProperty of https://w3id.org/iadopt/ont/hasStatisticalModifier</li>
-<li>Added: domain https://w3id.org/iadopt/ont/Variable</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/iadopt/ont/hasConstraint">https://w3id.org/iadopt/ont/hasConstraint</a>
-</li>
-<li><a href="#https://w3id.org/iadopt/ont/hasContextObject">https://w3id.org/iadopt/ont/hasContextObject</a>
-</li>
-<li><a href="#https://w3id.org/iadopt/ont/hasMatrix">https://w3id.org/iadopt/ont/hasMatrix</a>
-</li>
-<li><a href="#https://w3id.org/iadopt/ont/hasObjectOfInterest">https://w3id.org/iadopt/ont/hasObjectOfInterest</a>
-</li>
-<li><a href="#https://w3id.org/iadopt/ont/hasProperty">https://w3id.org/iadopt/ont/hasProperty</a>
-</li>
-<li><a href="#https://w3id.org/iadopt/ont/hasStatisticalModifier">https://w3id.org/iadopt/ont/hasStatisticalModifier</a>
 </li>
 </ul></details></div>
 </div>

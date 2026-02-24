@@ -238,6 +238,84 @@
     
 
 
+    <!-- https://w3id.org/gcdfo/salmon#variableHasConstraint -->
+
+    <owl:AnnotationProperty rdf:about="https://w3id.org/gcdfo/salmon#variableHasConstraint">
+        <obo:IAO_0000115 xml:lang="en">Annotation used on a variable compound-term concept to capture an optional constraint component in I-ADOPT decomposition.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">variable has constraint</rdfs:label>
+        <skos:closeMatch rdf:resource="https://w3id.org/iadopt/ont/hasConstraint"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#variableHasContextObject -->
+
+    <owl:AnnotationProperty rdf:about="https://w3id.org/gcdfo/salmon#variableHasContextObject">
+        <obo:IAO_0000115 xml:lang="en">Annotation used on a variable compound-term concept to capture an optional context object/entity component in I-ADOPT decomposition.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">variable has context object</rdfs:label>
+        <skos:closeMatch rdf:resource="https://w3id.org/iadopt/ont/hasContextObject"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#variableHasMatrix -->
+
+    <owl:AnnotationProperty rdf:about="https://w3id.org/gcdfo/salmon#variableHasMatrix">
+        <obo:IAO_0000115 xml:lang="en">Annotation used on a variable compound-term concept to capture an optional matrix/context entity component in I-ADOPT decomposition.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">variable has matrix</rdfs:label>
+        <skos:closeMatch rdf:resource="https://w3id.org/iadopt/ont/hasMatrix"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#variableHasObjectOfInterest -->
+
+    <owl:AnnotationProperty rdf:about="https://w3id.org/gcdfo/salmon#variableHasObjectOfInterest">
+        <obo:IAO_0000115 xml:lang="en">Annotation used on a variable compound-term concept to capture the object-of-interest component in I-ADOPT decomposition.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">variable has object of interest</rdfs:label>
+        <skos:closeMatch rdf:resource="https://w3id.org/iadopt/ont/hasObjectOfInterest"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#variableHasProperty -->
+
+    <owl:AnnotationProperty rdf:about="https://w3id.org/gcdfo/salmon#variableHasProperty">
+        <obo:IAO_0000115 xml:lang="en">Annotation used on a variable compound-term concept to capture the measured/estimated property component in I-ADOPT decomposition.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">variable has property</rdfs:label>
+        <skos:closeMatch rdf:resource="https://w3id.org/iadopt/ont/hasProperty"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#variableHasStatisticalModifier -->
+
+    <owl:AnnotationProperty rdf:about="https://w3id.org/gcdfo/salmon#variableHasStatisticalModifier">
+        <obo:IAO_0000115 xml:lang="en">Annotation used on a variable compound-term concept to capture an optional statistical modifier component in I-ADOPT decomposition.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">variable has statistical modifier</rdfs:label>
+        <skos:closeMatch rdf:resource="https://w3id.org/iadopt/ont/hasStatisticalModifier"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:AnnotationProperty>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -435,8 +513,8 @@
 
     <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#hasObservedVariable">
         <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#SurveyEvent"/>
-        <rdfs:range rdf:resource="https://w3id.org/iadopt/ont/Variable"/>
-        <obo:IAO_0000115 xml:lang="en">Relates a survey event to an I-ADOPT variable used as a compound term that defines what was measured or derived (typically represented as a SKOS concept with decomposition annotations in SDP workflows).</obo:IAO_0000115>
+        <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <obo:IAO_0000115 xml:lang="en">Relates a survey event to a variable compound term represented as a SKOS concept that defines what was measured or derived in SDP workflows.</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">has observed variable</rdfs:label>
         <skos:closeMatch rdf:resource="http://www.w3.org/ns/sosa/observedProperty"/>
@@ -568,132 +646,6 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/gcdfo/salmon#variableHasConstraint -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#variableHasConstraint">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/iadopt/ont/hasConstraint"/>
-        <rdfs:domain rdf:resource="https://w3id.org/iadopt/ont/Variable"/>
-        <rdfs:range rdf:resource="https://w3id.org/iadopt/ont/Constraint"/>
-        <obo:IAO_0000115 xml:lang="en">Relates an I-ADOPT compound variable term to an optional constraint component in decomposition.</obo:IAO_0000115>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <rdfs:label xml:lang="en">variable has constraint</rdfs:label>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/gcdfo/salmon#variableHasContextObject -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#variableHasContextObject">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/iadopt/ont/hasContextObject"/>
-        <rdfs:domain rdf:resource="https://w3id.org/iadopt/ont/Variable"/>
-        <rdfs:range rdf:resource="https://w3id.org/iadopt/ont/Entity"/>
-        <obo:IAO_0000115 xml:lang="en">Relates an I-ADOPT compound variable term to an optional context object/entity component in decomposition.</obo:IAO_0000115>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <rdfs:label xml:lang="en">variable has context object</rdfs:label>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/gcdfo/salmon#variableHasMatrix -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#variableHasMatrix">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/iadopt/ont/hasMatrix"/>
-        <rdfs:domain rdf:resource="https://w3id.org/iadopt/ont/Variable"/>
-        <rdfs:range rdf:resource="https://w3id.org/iadopt/ont/Entity"/>
-        <obo:IAO_0000115 xml:lang="en">Relates an I-ADOPT compound variable term to an optional matrix/context entity component in decomposition.</obo:IAO_0000115>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <rdfs:label xml:lang="en">variable has matrix</rdfs:label>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/gcdfo/salmon#variableHasObjectOfInterest -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#variableHasObjectOfInterest">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/iadopt/ont/hasObjectOfInterest"/>
-        <rdfs:domain rdf:resource="https://w3id.org/iadopt/ont/Variable"/>
-        <rdfs:range rdf:resource="https://w3id.org/iadopt/ont/Entity"/>
-        <obo:IAO_0000115 xml:lang="en">Relates an I-ADOPT compound variable term to the entity/object-of-interest component in decomposition.</obo:IAO_0000115>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <rdfs:label xml:lang="en">variable has object of interest</rdfs:label>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/gcdfo/salmon#variableHasProperty -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#variableHasProperty">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/iadopt/ont/hasProperty"/>
-        <rdfs:domain rdf:resource="https://w3id.org/iadopt/ont/Variable"/>
-        <rdfs:range rdf:resource="https://w3id.org/iadopt/ont/Property"/>
-        <obo:IAO_0000115 xml:lang="en">Relates an I-ADOPT compound variable term to the measured/estimated property component in decomposition.</obo:IAO_0000115>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <rdfs:label xml:lang="en">variable has property</rdfs:label>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/gcdfo/salmon#variableHasStatisticalModifier -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#variableHasStatisticalModifier">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/iadopt/ont/hasStatisticalModifier"/>
-        <rdfs:domain rdf:resource="https://w3id.org/iadopt/ont/Variable"/>
-        <rdfs:range rdf:resource="https://w3id.org/iadopt/ont/StatisticalModifier"/>
-        <obo:IAO_0000115 xml:lang="en">Relates an I-ADOPT compound variable term to an optional statistical modifier component in decomposition.</obo:IAO_0000115>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <rdfs:label xml:lang="en">variable has statistical modifier</rdfs:label>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/iadopt/ont/hasConstraint -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/iadopt/ont/hasConstraint"/>
-    
-
-
-    <!-- https://w3id.org/iadopt/ont/hasContextObject -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/iadopt/ont/hasContextObject"/>
-    
-
-
-    <!-- https://w3id.org/iadopt/ont/hasMatrix -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/iadopt/ont/hasMatrix"/>
-    
-
-
-    <!-- https://w3id.org/iadopt/ont/hasObjectOfInterest -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/iadopt/ont/hasObjectOfInterest"/>
-    
-
-
-    <!-- https://w3id.org/iadopt/ont/hasProperty -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/iadopt/ont/hasProperty"/>
-    
-
-
-    <!-- https://w3id.org/iadopt/ont/hasStatisticalModifier -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/iadopt/ont/hasStatisticalModifier"/>
     
 
 
@@ -2025,36 +1977,6 @@
         <rdfs:label xml:lang="en">Year basis</rdfs:label>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
-    
-
-
-    <!-- https://w3id.org/iadopt/ont/Constraint -->
-
-    <owl:Class rdf:about="https://w3id.org/iadopt/ont/Constraint"/>
-    
-
-
-    <!-- https://w3id.org/iadopt/ont/Entity -->
-
-    <owl:Class rdf:about="https://w3id.org/iadopt/ont/Entity"/>
-    
-
-
-    <!-- https://w3id.org/iadopt/ont/Property -->
-
-    <owl:Class rdf:about="https://w3id.org/iadopt/ont/Property"/>
-    
-
-
-    <!-- https://w3id.org/iadopt/ont/StatisticalModifier -->
-
-    <owl:Class rdf:about="https://w3id.org/iadopt/ont/StatisticalModifier"/>
-    
-
-
-    <!-- https://w3id.org/iadopt/ont/Variable -->
-
-    <owl:Class rdf:about="https://w3id.org/iadopt/ont/Variable"/>
     
 
 

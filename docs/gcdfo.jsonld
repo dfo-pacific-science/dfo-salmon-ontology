@@ -10018,7 +10018,7 @@
     "http://purl.obolibrary.org/obo/IAO_0000115": [
       {
         "@language": "en",
-        "@value": "Relates a survey event to an I-ADOPT variable used as a compound term that defines what was measured or derived (typically represented as a SKOS concept with decomposition annotations in SDP workflows)."
+        "@value": "Relates a survey event to a variable compound term represented as a SKOS concept that defines what was measured or derived in SDP workflows."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
@@ -10039,7 +10039,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "https://w3id.org/iadopt/ont/Variable"
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#closeMatch": [
@@ -10408,17 +10408,12 @@
   {
     "@id": "https://w3id.org/gcdfo/salmon#variableHasConstraint",
     "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
     ],
     "http://purl.obolibrary.org/obo/IAO_0000115": [
       {
         "@language": "en",
-        "@value": "Relates an I-ADOPT compound variable term to an optional constraint component in decomposition."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "https://w3id.org/iadopt/ont/Variable"
+        "@value": "Annotation used on a variable compound-term concept to capture an optional constraint component in I-ADOPT decomposition."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -10432,12 +10427,7 @@
         "@value": "variable has constraint"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://w3id.org/iadopt/ont/Constraint"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+    "http://www.w3.org/2004/02/skos/core#closeMatch": [
       {
         "@id": "https://w3id.org/iadopt/ont/hasConstraint"
       }
@@ -10454,17 +10444,12 @@
   {
     "@id": "https://w3id.org/gcdfo/salmon#variableHasContextObject",
     "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
     ],
     "http://purl.obolibrary.org/obo/IAO_0000115": [
       {
         "@language": "en",
-        "@value": "Relates an I-ADOPT compound variable term to an optional context object/entity component in decomposition."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "https://w3id.org/iadopt/ont/Variable"
+        "@value": "Annotation used on a variable compound-term concept to capture an optional context object/entity component in I-ADOPT decomposition."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -10478,12 +10463,7 @@
         "@value": "variable has context object"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://w3id.org/iadopt/ont/Entity"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+    "http://www.w3.org/2004/02/skos/core#closeMatch": [
       {
         "@id": "https://w3id.org/iadopt/ont/hasContextObject"
       }
@@ -10500,17 +10480,12 @@
   {
     "@id": "https://w3id.org/gcdfo/salmon#variableHasMatrix",
     "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
     ],
     "http://purl.obolibrary.org/obo/IAO_0000115": [
       {
         "@language": "en",
-        "@value": "Relates an I-ADOPT compound variable term to an optional matrix/context entity component in decomposition."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "https://w3id.org/iadopt/ont/Variable"
+        "@value": "Annotation used on a variable compound-term concept to capture an optional matrix/context entity component in I-ADOPT decomposition."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -10524,12 +10499,7 @@
         "@value": "variable has matrix"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://w3id.org/iadopt/ont/Entity"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+    "http://www.w3.org/2004/02/skos/core#closeMatch": [
       {
         "@id": "https://w3id.org/iadopt/ont/hasMatrix"
       }
@@ -10546,17 +10516,12 @@
   {
     "@id": "https://w3id.org/gcdfo/salmon#variableHasObjectOfInterest",
     "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
     ],
     "http://purl.obolibrary.org/obo/IAO_0000115": [
       {
         "@language": "en",
-        "@value": "Relates an I-ADOPT compound variable term to the entity/object-of-interest component in decomposition."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "https://w3id.org/iadopt/ont/Variable"
+        "@value": "Annotation used on a variable compound-term concept to capture the object-of-interest component in I-ADOPT decomposition."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -10570,12 +10535,7 @@
         "@value": "variable has object of interest"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://w3id.org/iadopt/ont/Entity"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+    "http://www.w3.org/2004/02/skos/core#closeMatch": [
       {
         "@id": "https://w3id.org/iadopt/ont/hasObjectOfInterest"
       }
@@ -10592,17 +10552,12 @@
   {
     "@id": "https://w3id.org/gcdfo/salmon#variableHasProperty",
     "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
     ],
     "http://purl.obolibrary.org/obo/IAO_0000115": [
       {
         "@language": "en",
-        "@value": "Relates an I-ADOPT compound variable term to the measured/estimated property component in decomposition."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "https://w3id.org/iadopt/ont/Variable"
+        "@value": "Annotation used on a variable compound-term concept to capture the measured/estimated property component in I-ADOPT decomposition."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -10616,12 +10571,7 @@
         "@value": "variable has property"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://w3id.org/iadopt/ont/Property"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+    "http://www.w3.org/2004/02/skos/core#closeMatch": [
       {
         "@id": "https://w3id.org/iadopt/ont/hasProperty"
       }
@@ -10638,17 +10588,12 @@
   {
     "@id": "https://w3id.org/gcdfo/salmon#variableHasStatisticalModifier",
     "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
     ],
     "http://purl.obolibrary.org/obo/IAO_0000115": [
       {
         "@language": "en",
-        "@value": "Relates an I-ADOPT compound variable term to an optional statistical modifier component in decomposition."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "https://w3id.org/iadopt/ont/Variable"
+        "@value": "Annotation used on a variable compound-term concept to capture an optional statistical modifier component in I-ADOPT decomposition."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -10662,12 +10607,7 @@
         "@value": "variable has statistical modifier"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://w3id.org/iadopt/ont/StatisticalModifier"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+    "http://www.w3.org/2004/02/skos/core#closeMatch": [
       {
         "@id": "https://w3id.org/iadopt/ont/hasStatisticalModifier"
       }

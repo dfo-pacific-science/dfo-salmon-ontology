@@ -1492,64 +1492,52 @@ gcdfo:isSampleOfStratum a owl:ObjectProperty ;
 
 gcdfo:hasObservedVariable a owl:ObjectProperty ;
   rdfs:label "has observed variable"@en ;
-  iao:0000115 "Relates a survey event to an I-ADOPT variable used as a compound term that defines what was measured or derived (typically represented as a SKOS concept with decomposition annotations in SDP workflows)."@en ; # definition
+  iao:0000115 "Relates a survey event to a variable compound term represented as a SKOS concept that defines what was measured or derived in SDP workflows."@en ; # definition
   rdfs:domain gcdfo:SurveyEvent ;
-  rdfs:range iop:Variable ;
+  rdfs:range skos:Concept ;
   skos:closeMatch sosa:observedProperty ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme .
 
-gcdfo:variableHasObjectOfInterest a owl:ObjectProperty ;
+gcdfo:variableHasObjectOfInterest a owl:AnnotationProperty ;
   rdfs:label "variable has object of interest"@en ;
-  iao:0000115 "Relates an I-ADOPT compound variable term to the entity/object-of-interest component in decomposition."@en ; # definition
-  rdfs:domain iop:Variable ;
-  rdfs:range iop:Entity ;
-  rdfs:subPropertyOf iop:hasObjectOfInterest ;
+  iao:0000115 "Annotation used on a variable compound-term concept to capture the object-of-interest component in I-ADOPT decomposition."@en ; # definition
+  skos:closeMatch iop:hasObjectOfInterest ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme .
 
-gcdfo:variableHasProperty a owl:ObjectProperty ;
+gcdfo:variableHasProperty a owl:AnnotationProperty ;
   rdfs:label "variable has property"@en ;
-  iao:0000115 "Relates an I-ADOPT compound variable term to the measured/estimated property component in decomposition."@en ; # definition
-  rdfs:domain iop:Variable ;
-  rdfs:range iop:Property ;
-  rdfs:subPropertyOf iop:hasProperty ;
+  iao:0000115 "Annotation used on a variable compound-term concept to capture the measured/estimated property component in I-ADOPT decomposition."@en ; # definition
+  skos:closeMatch iop:hasProperty ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme .
 
-gcdfo:variableHasMatrix a owl:ObjectProperty ;
+gcdfo:variableHasMatrix a owl:AnnotationProperty ;
   rdfs:label "variable has matrix"@en ;
-  iao:0000115 "Relates an I-ADOPT compound variable term to an optional matrix/context entity component in decomposition."@en ; # definition
-  rdfs:domain iop:Variable ;
-  rdfs:range iop:Entity ;
-  rdfs:subPropertyOf iop:hasMatrix ;
+  iao:0000115 "Annotation used on a variable compound-term concept to capture an optional matrix/context entity component in I-ADOPT decomposition."@en ; # definition
+  skos:closeMatch iop:hasMatrix ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme .
 
-gcdfo:variableHasContextObject a owl:ObjectProperty ;
+gcdfo:variableHasContextObject a owl:AnnotationProperty ;
   rdfs:label "variable has context object"@en ;
-  iao:0000115 "Relates an I-ADOPT compound variable term to an optional context object/entity component in decomposition."@en ; # definition
-  rdfs:domain iop:Variable ;
-  rdfs:range iop:Entity ;
-  rdfs:subPropertyOf iop:hasContextObject ;
+  iao:0000115 "Annotation used on a variable compound-term concept to capture an optional context object/entity component in I-ADOPT decomposition."@en ; # definition
+  skos:closeMatch iop:hasContextObject ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme .
 
-gcdfo:variableHasConstraint a owl:ObjectProperty ;
+gcdfo:variableHasConstraint a owl:AnnotationProperty ;
   rdfs:label "variable has constraint"@en ;
-  iao:0000115 "Relates an I-ADOPT compound variable term to an optional constraint component in decomposition."@en ; # definition
-  rdfs:domain iop:Variable ;
-  rdfs:range iop:Constraint ;
-  rdfs:subPropertyOf iop:hasConstraint ;
+  iao:0000115 "Annotation used on a variable compound-term concept to capture an optional constraint component in I-ADOPT decomposition."@en ; # definition
+  skos:closeMatch iop:hasConstraint ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme .
 
-gcdfo:variableHasStatisticalModifier a owl:ObjectProperty ;
+gcdfo:variableHasStatisticalModifier a owl:AnnotationProperty ;
   rdfs:label "variable has statistical modifier"@en ;
-  iao:0000115 "Relates an I-ADOPT compound variable term to an optional statistical modifier component in decomposition."@en ; # definition
-  rdfs:domain iop:Variable ;
-  rdfs:range iop:StatisticalModifier ;
-  rdfs:subPropertyOf iop:hasStatisticalModifier ;
+  iao:0000115 "Annotation used on a variable compound-term concept to capture an optional statistical modifier component in I-ADOPT decomposition."@en ; # definition
+  skos:closeMatch iop:hasStatisticalModifier ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme .
 
