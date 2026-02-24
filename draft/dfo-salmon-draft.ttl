@@ -1726,8 +1726,8 @@ gcdfo:ChangeLogEntry a owl:Class ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:WSPMetric a owl:Class ;
-  rdfs:label "WSP metric"@en ;
-  iao:0000115 "One of the standard Wild Salmon Policy rapid-status metrics (absolute abundance, relative abundance, long-term trend, or percent change)."@en ; # definition
+  rdfs:label "Rapid-status metric"@en ;
+  iao:0000115 "One of the standard rapid-status metrics (absolute abundance, relative abundance, long-term trend, or percent change)."@en ; # definition
   iao:0000119 "Pestal, G. et al. (2023). State of the Salmon: Rapid Status Assessment Approach for Pacific Salmon under Canada’s Wild Salmon Policy."@en ; # definition source
   dcterms:source <https://publications.gc.ca/site/eng/9.928944/publication.html> ;
   rdfs:subClassOf iao:0000030 ; # Information content entity
@@ -1735,7 +1735,7 @@ gcdfo:WSPMetric a owl:Class ;
 
 gcdfo:MetricBenchmark a owl:Class ;
   rdfs:label "Metric benchmark"@en ;
-  iao:0000115 "Benchmark value for a WSP metric that helps delineate status zones (for example, the limit reference point for absolute abundance)."@en ; # definition
+  iao:0000115 "Benchmark value for a metric that helps delineate status zones (for example, the limit reference point for absolute abundance)."@en ; # definition
   iao:0000119 "Pestal, G. et al. (2023). State of the Salmon: Rapid Status Assessment Approach for Pacific Salmon under Canada’s Wild Salmon Policy."@en ; # definition source
   dcterms:source <https://publications.gc.ca/site/eng/9.928944/publication.html> ;
   rdfs:subClassOf iao:0000030 ; # Information content entity
@@ -1762,14 +1762,14 @@ gcdfo:ConfidenceCategory a skos:Concept ;
 gcdfo:AbsoluteAbundanceMetric a skos:Concept ;
   rdfs:label "Absolute abundance metric"@en ;
   skos:prefLabel "Absolute abundance"@en ;
-  iao:0000115 "Wild Salmon Policy metric comparing generational average spawner abundance to COSEWIC criterion D1 thresholds."@en ; # definition
+  iao:0000115 "Absolute abundance metric comparing generational average spawner abundance to COSEWIC criterion D1 thresholds."@en ; # definition
   skos:inScheme :WSPMetricScheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:RelativeAbundanceMetric a gcdfo:WSPMetric , skos:Concept ;
   rdfs:label "Relative abundance metric"@en ;
   skos:prefLabel "Relative abundance"@en ;
-  iao:0000115 "Wild Salmon Policy metric comparing generational average spawner abundance to CU-specific benchmarks (for example Sgen or 80% SMSY)."@en ; # definition
+  iao:0000115 "Relative abundance metric comparing generational average spawner abundance to CU-specific benchmarks (for example Sgen or 80% SMSY)."@en ; # definition
   skos:inScheme :WSPMetricScheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
@@ -1783,7 +1783,7 @@ gcdfo:LongTermTrendMetric a gcdfo:WSPMetric , skos:Concept ;
 gcdfo:PercentChangeMetric a gcdfo:WSPMetric , skos:Concept ;
   rdfs:label "Percent change metric"@en ;
   skos:prefLabel "Percent change"@en ;
-  iao:0000115 "Wild Salmon Policy metric quantifying linear change in spawner abundance over the most recent three generations."@en ; # definition
+  iao:0000115 "Percent change metric quantifying linear change in spawner abundance over the most recent three generations."@en ; # definition
   skos:inScheme :WSPMetricScheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
@@ -1902,21 +1902,21 @@ gcdfo:requiredBy a owl:ObjectProperty ;
 
 gcdfo:assessesMetric a owl:ObjectProperty ;
   rdfs:label "assesses metric"@en ;
-  iao:0000115 "Links a stock assessment to a Wild Salmon Policy metric that it evaluates."@en ; # definition
+  iao:0000115 "Links a stock assessment to a rapid-status metric that it evaluates."@en ; # definition
   rdfs:domain gcdfo:StockAssessment ;
   rdfs:range gcdfo:WSPMetric ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:hasBenchmark a owl:ObjectProperty ;
   rdfs:label "has benchmark"@en ;
-  iao:0000115 "Associates a WSP metric with one of its benchmark values."@en ; # definition
+  iao:0000115 "Associates a rapid-status metric with one of its benchmark values."@en ; # definition
   rdfs:domain gcdfo:WSPMetric ;
   rdfs:range gcdfo:MetricBenchmark ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:hasAlgorithmThreshold a owl:ObjectProperty ;
   rdfs:label "has algorithm threshold"@en ;
-  iao:0000115 "Associates a WSP metric with a threshold value used by the rapid-status algorithm."@en ; # definition
+  iao:0000115 "Associates a rapid-status metric with a threshold value used by the rapid-status algorithm."@en ; # definition
   rdfs:domain gcdfo:WSPMetric ;
   rdfs:range gcdfo:AlgorithmThreshold ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .

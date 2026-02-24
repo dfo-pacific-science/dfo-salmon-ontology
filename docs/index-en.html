@@ -285,6 +285,10 @@ This ontology has the following classes and properties.</span>
          title="https://w3id.org/gcdfo/salmon#RapidStatusScoreMetric">Rapid status score metric</a>
    </li>
    <li>
+      <a href="#WSPRapidStatusAlgorithmThreshold"
+         title="https://w3id.org/gcdfo/salmon#WSPRapidStatusAlgorithmThreshold">Rapid-status algorithm threshold</a>
+   </li>
+   <li>
       <a href="#ReferencePoint" title="https://w3id.org/gcdfo/salmon#ReferencePoint">Reference point</a>
    </li>
    <li>
@@ -410,10 +414,6 @@ This ontology has the following classes and properties.</span>
       <a href="#WSPRapidStatus" title="https://w3id.org/gcdfo/salmon#WSPRapidStatus">WSP rapid status</a>
    </li>
    <li>
-      <a href="#WSPRapidStatusAlgorithmThreshold"
-         title="https://w3id.org/gcdfo/salmon#WSPRapidStatusAlgorithmThreshold">WSP Rapid Status Algorithm threshold</a>
-   </li>
-   <li>
       <a href="#YearBasis" title="https://w3id.org/gcdfo/salmon#YearBasis">Year basis</a>
    </li>
    <li>
@@ -511,6 +511,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <li><a href="#ProportionHatcheryOriginSpawners" title="https://w3id.org/gcdfo/salmon#ProportionHatcheryOriginSpawners">Proportion of hatchery-origin spawners</a></li>
   <li><a href="#http://www.w3.org/ns/dqv#QualityAnnotation" title="http://www.w3.org/ns/dqv#QualityAnnotation">Quality Annotation</a></li>
   <li><a href="#RapidStatusScoreMetric" title="https://w3id.org/gcdfo/salmon#RapidStatusScoreMetric">Rapid status score metric</a></li>
+  <li><a href="#WSPRapidStatusAlgorithmThreshold" title="https://w3id.org/gcdfo/salmon#WSPRapidStatusAlgorithmThreshold">Rapid-status algorithm threshold</a></li>
   <li><a href="#ReferencePoint" title="https://w3id.org/gcdfo/salmon#ReferencePoint">Reference point</a></li>
   <li><a href="#RelativeHatcherySpawnerAbundance" title="https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundance">Relative hatchery spawner abundance</a></li>
   <li><a href="#RelativeHatcherySpawnerAbundanceChange" title="https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundanceChange">Relative hatchery spawner abundance change</a></li>
@@ -545,7 +546,6 @@ This section provides details for each class and property defined by DFO Salmon 
   <li><a href="#UpperBiologicalBenchmark" title="https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark">Upper biological benchmark</a></li>
   <li><a href="#UpperStockReferencePoint" title="https://w3id.org/gcdfo/salmon#UpperStockReferencePoint">Upper stock reference</a></li>
   <li><a href="#WSPRapidStatus" title="https://w3id.org/gcdfo/salmon#WSPRapidStatus">WSP rapid status</a></li>
-  <li><a href="#WSPRapidStatusAlgorithmThreshold" title="https://w3id.org/gcdfo/salmon#WSPRapidStatusAlgorithmThreshold">WSP Rapid Status Algorithm threshold</a></li>
   <li><a href="#YearBasis" title="https://w3id.org/gcdfo/salmon#YearBasis">Year basis</a></li>
   <li><a href="#http://purl.dataone.org/odo/ECSO_00002050" title="http://purl.dataone.org/odo/ECSO_00002050">year of measurement</a></li>
  </ul>
@@ -553,7 +553,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Abundance percentile metric<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#AbundancePercentileMetric</p>
   <div class="comment">
-   <span class="markdown">A WSP rapid status metric giving the percentile rank of the current generational average spawner abundance relative to a historical reference distribution.</span>
+   <span class="markdown">An abundance percentile metric giving the percentile rank of the current generational average spawner abundance relative to a historical reference distribution.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -647,7 +647,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Benchmark ratio metric<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#BenchmarkRatioMetric</p>
   <div class="comment">
-   <span class="markdown">A WSP rapid status metric equal to the ratio of current generational average spawner abundance to a specified benchmark (lower or upper benchmark), where 1.0 indicates equality to that benchmark.</span>
+   <span class="markdown">A benchmark-ratio metric equal to the ratio of current generational average spawner abundance to a specified benchmark (lower or upper benchmark), where 1.0 indicates equality to that benchmark.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -1331,7 +1331,7 @@ This section provides details for each class and property defined by DFO Salmon 
     has sub-classes
    </dt>
    <dd>
-    <a href="#http://www.w3.org/ns/oa#Annotation" title="http://www.w3.org/ns/oa#Annotation">Annotation</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.dataone.org/odo/SALMON_00000167" title="http://purl.dataone.org/odo/SALMON_00000167">Fish measurement type</a> <sup class="type-c" title="class">c</sup>, <a href="#MetricBenchmark" title="https://w3id.org/gcdfo/salmon#MetricBenchmark">Metric benchmark</a> <sup class="type-c" title="class">c</sup>, <a href="#ReferencePoint" title="https://w3id.org/gcdfo/salmon#ReferencePoint">Reference point</a> <sup class="type-c" title="class">c</sup>, <a href="#ReportingOrManagementStratum" title="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum">Reporting or management stratum</a> <sup class="type-c" title="class">c</sup>, <a href="#WSPRapidStatusAlgorithmThreshold" title="https://w3id.org/gcdfo/salmon#WSPRapidStatusAlgorithmThreshold">WSP Rapid Status Algorithm threshold</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.obolibrary.org/obo/IAO_0000033" title="http://purl.obolibrary.org/obo/IAO_0000033">directive information entity</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.obolibrary.org/obo/IAO_0000310" title="http://purl.obolibrary.org/obo/IAO_0000310">document</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.obolibrary.org/obo/IAO_0000109" title="http://purl.obolibrary.org/obo/IAO_0000109">measurement datum</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.obolibrary.org/obo/IAO_0000104" title="http://purl.obolibrary.org/obo/IAO_0000104">plan specification</a> <sup class="type-c" title="class">c</sup>
+    <a href="#http://www.w3.org/ns/oa#Annotation" title="http://www.w3.org/ns/oa#Annotation">Annotation</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.dataone.org/odo/SALMON_00000167" title="http://purl.dataone.org/odo/SALMON_00000167">Fish measurement type</a> <sup class="type-c" title="class">c</sup>, <a href="#MetricBenchmark" title="https://w3id.org/gcdfo/salmon#MetricBenchmark">Metric benchmark</a> <sup class="type-c" title="class">c</sup>, <a href="#WSPRapidStatusAlgorithmThreshold" title="https://w3id.org/gcdfo/salmon#WSPRapidStatusAlgorithmThreshold">Rapid-status algorithm threshold</a> <sup class="type-c" title="class">c</sup>, <a href="#ReferencePoint" title="https://w3id.org/gcdfo/salmon#ReferencePoint">Reference point</a> <sup class="type-c" title="class">c</sup>, <a href="#ReportingOrManagementStratum" title="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum">Reporting or management stratum</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.obolibrary.org/obo/IAO_0000033" title="http://purl.obolibrary.org/obo/IAO_0000033">directive information entity</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.obolibrary.org/obo/IAO_0000310" title="http://purl.obolibrary.org/obo/IAO_0000310">document</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.obolibrary.org/obo/IAO_0000109" title="http://purl.obolibrary.org/obo/IAO_0000109">measurement datum</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.obolibrary.org/obo/IAO_0000104" title="http://purl.obolibrary.org/obo/IAO_0000104">plan specification</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -1844,7 +1844,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Percent change metric<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#PercentChangeMetric</p>
   <div class="comment">
-   <span class="markdown">A WSP rapid status short-term trend metric quantifying the percent (linear) change in spawner abundance over the most recent three generations.</span>
+   <span class="markdown">A short-term trend metric quantifying the percent (linear) change in spawner abundance over the most recent three generations.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -2081,7 +2081,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Rapid status score metric<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RapidStatusScoreMetric</p>
   <div class="comment">
-   <span class="markdown">A numeric score produced by a WSP rapid status algorithm used to represent an ordered status outcome and/or decision-rule position.</span>
+   <span class="markdown">A numeric score produced by a rapid-status algorithm used to represent an ordered status outcome and/or decision-rule position.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -2108,6 +2108,40 @@ This section provides details for each class and property defined by DFO Salmon 
    </dt>
    <dd>
     <a href="#ObservedRateOrAbundance" title="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance">Observed rate or abundance</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="WSPRapidStatusAlgorithmThreshold">
+  <h3>Rapid-status algorithm threshold<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#WSPRapidStatusAlgorithmThreshold</p>
+  <div class="comment">
+   <span class="markdown">Threshold value used by the rapid-status algorithm that may differ from expert-defined benchmarks to incorporate precautionary buffers.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under Fisheries and Oceans Canada Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Science Response 2024/004.
+   </dd>
+   <dd>
+    <a href="https://www.dfo-mpo.gc.ca/csas-sccs/Publications/ScR-RS/2024/2024_004-eng.html">https://www.dfo-mpo.gc.ca/csas-sccs/Publications/ScR-RS/2024/2024_004-eng.html</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#http://purl.obolibrary.org/obo/IAO_0000030" title="http://purl.obolibrary.org/obo/IAO_0000030">information content entity</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -2155,7 +2189,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Relative hatchery spawner abundance<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundance</p>
   <div class="comment">
-   <span class="markdown">Hatchery-origin spawner abundance expressed as a relative (dimensionless) abundance metric to a defined reference (commonly benchmarks), for within-series comparison; in WSP rapid status contexts, relative abundance is computed using the current generational average (geometric mean) divided by CU-specific lower and/or upper benchmarks.</span>
+   <span class="markdown">Hatchery-origin spawner abundance expressed as a relative (dimensionless) abundance metric to a defined reference (commonly benchmarks), for within-series comparison; in rapid-status workflows, relative abundance is computed using the current generational average (geometric mean) divided by CU-specific lower and/or upper benchmarks.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -2192,7 +2226,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Relative hatchery spawner abundance change<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundanceChange</p>
   <div class="comment">
-   <span class="markdown">A change metric (delta or percent change, as defined by the workflow) computed from relative hatchery-origin spawner abundance values over time; in WSP rapid status contexts, percent change is derived from log-transformed series and quantified over the most recent three generations.</span>
+   <span class="markdown">A change metric (delta or percent change, as defined by the workflow) computed from relative hatchery-origin spawner abundance values over time; in rapid-status workflows, percent change is derived from log-transformed series and quantified over the most recent three generations.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -2260,7 +2294,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Relative hatchery spawner abundance trend<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundanceTrend</p>
   <div class="comment">
-   <span class="markdown">A trend metric computed from relative hatchery-origin spawner abundance using a defined trend method; in WSP rapid status contexts, long-term trend is the ratio of current generational average (geometric mean) abundance to long-term average (geometric mean).</span>
+   <span class="markdown">A trend metric computed from relative hatchery-origin spawner abundance using a defined trend method; in rapid-status workflows, long-term trend is the ratio of current generational average (geometric mean) abundance to long-term average (geometric mean).</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -2294,7 +2328,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Relative spawner abundance<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundance</p>
   <div class="comment">
-   <span class="markdown">Spawner abundance expressed as a relative (dimensionless) abundance metric to a defined reference (commonly benchmarks), for within-series comparison; in WSP rapid status contexts, relative abundance is computed using the current generational average (geometric mean) divided by CU-specific lower and/or upper benchmarks.</span>
+   <span class="markdown">Spawner abundance expressed as a relative (dimensionless) abundance metric to a defined reference (commonly benchmarks), for within-series comparison; in rapid-status workflows, relative abundance is computed using the current generational average (geometric mean) divided by CU-specific lower and/or upper benchmarks.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -2334,7 +2368,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Relative spawner abundance change<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundanceChange</p>
   <div class="comment">
-   <span class="markdown">A change metric (delta or percent change, as defined by the workflow) computed from relative spawner abundance values over time; where WSP percent-change-style approaches are used, it represents change in abundance over the most recent three generations after log transformation (and smoothing where applicable).</span>
+   <span class="markdown">A change metric (delta or percent change, as defined by the workflow) computed from relative spawner abundance values over time; where rapid-status percent-change approaches are used, it represents change in abundance over the most recent three generations after log transformation (and smoothing where applicable).</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -2491,7 +2525,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Relative wild spawner abundance change<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundanceChange</p>
   <div class="comment">
-   <span class="markdown">A change metric (delta or percent change, as defined by the workflow) computed from relative natural-origin spawner abundance values over time; in WSP rapid status contexts, percent change is defined over the most recent three generations using log-transformed abundance series.</span>
+   <span class="markdown">A change metric (delta or percent change, as defined by the workflow) computed from relative natural-origin spawner abundance values over time; in rapid-status workflows, percent change is defined over the most recent three generations using log-transformed abundance series.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -2559,7 +2593,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Relative wild spawner abundance trend<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundanceTrend</p>
   <div class="comment">
-   <span class="markdown">A trend metric computed from relative natural-origin spawner abundance using a defined trend method; in WSP rapid status contexts, long-term trend is the ratio of current generational average (geometric mean) abundance to long-term average (geometric mean).</span>
+   <span class="markdown">A trend metric computed from relative natural-origin spawner abundance using a defined trend method; in rapid-status workflows, long-term trend is the ratio of current generational average (geometric mean) abundance to long-term average (geometric mean).</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -2742,7 +2776,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Spawner abundance change<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#SpawnerAbundanceChange</p>
   <div class="comment">
-   <span class="markdown">A change metric (delta or percent change, as defined by the workflow) computed from spawner abundance values over time; in WSP rapid status contexts, percent change is quantified as a linear change in log-transformed abundance over the most recent three generations.</span>
+   <span class="markdown">A change metric (delta or percent change, as defined by the workflow) computed from spawner abundance values over time; in rapid-status workflows, percent change is quantified as a linear change in log-transformed abundance over the most recent three generations.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -3279,40 +3313,6 @@ This section provides details for each class and property defined by DFO Salmon 
    </dd>
    <dd>
     <a href="https://publications.gc.ca/site/eng/9.928944/publication.html">https://publications.gc.ca/site/eng/9.928944/publication.html</a>
-   </dd>
-  </dl>
- </div>
- <div class="entity" id="WSPRapidStatusAlgorithmThreshold">
-  <h3>WSP Rapid Status Algorithm threshold<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#WSPRapidStatusAlgorithmThreshold</p>
-  <div class="comment">
-   <span class="markdown">Threshold value used by the rapid-status algorithm that may differ from expert-defined benchmarks to incorporate precautionary buffers.</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <dl class="definedBy">
-   <dt>
-    Source
-   </dt>
-   <dd>
-    Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under Fisheries and Oceans Canada Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Science Response 2024/004.
-   </dd>
-   <dd>
-    <a href="https://www.dfo-mpo.gc.ca/csas-sccs/Publications/ScR-RS/2024/2024_004-eng.html">https://www.dfo-mpo.gc.ca/csas-sccs/Publications/ScR-RS/2024/2024_004-eng.html</a>
-   </dd>
-  </dl>
-  <dl class="description">
-   <dt>
-    has super-classes
-   </dt>
-   <dd>
-    <a href="#http://purl.obolibrary.org/obo/IAO_0000030" title="http://purl.obolibrary.org/obo/IAO_0000030">information content entity</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>

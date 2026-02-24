@@ -1635,7 +1635,7 @@ gcdfo:UpperBiologicalBenchmark a owl:Class ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:WSPRapidStatusAlgorithmThreshold a owl:Class ;
-  rdfs:label "WSP Rapid Status Algorithm threshold"@en ;
+  rdfs:label "Rapid-status algorithm threshold"@en ;
   iao:0000115 "Threshold value used by the rapid-status algorithm that may differ from expert-defined benchmarks to incorporate precautionary buffers."@en ; # definition
   iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under Fisheries and Oceans Canada Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Science Response 2024/004."@en ; # definition source
   dcterms:source <https://www.dfo-mpo.gc.ca/csas-sccs/Publications/ScR-RS/2024/2024_004-eng.html> ;
@@ -1651,7 +1651,7 @@ gcdfo:ConfidenceCategory a skos:Concept ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
   gcdfo:RapidStatusConfidenceHigh a gcdfo:ConfidenceCategory , skos:Concept ;
-  rdfs:label "High WSP rapid-status confidence"@en ;
+  rdfs:label "High rapid-status confidence"@en ;
   skos:prefLabel "High confidence"@en ;
   iao:0000115 "Rapid status confidence category indicating that high-quality abundance metrics support the result."@en ; # definition
   skos:inScheme :RapidStatusConfidenceScheme ;
@@ -1707,9 +1707,9 @@ gcdfo:IndicatorRiver a owl:Class ;
 ### AbundanceDataType (SKOS)
 gcdfo:AbundanceDataType a skos:Concept ;
   skos:prefLabel "Abundance data type"@en ;
-  skos:definition "A categorical attribute indicating whether an abundance time series is recorded as absolute abundance or as a relative index (used by WSP rapid status workflows)."@en ;
-  iao:0000115 "A categorical attribute indicating whether an abundance time series is recorded as absolute abundance or as a relative index (used by WSP rapid status workflows)."@en ;
-  skos:scopeNote "In SPSR/WSP workflows, this field distinguishes absolute abundance vs relative index inputs (often abbreviated in code as 'Abs_Abd' and 'RelIdx')."@en ;
+  skos:definition "A categorical attribute indicating whether an abundance time series is recorded as absolute abundance or as a relative index (used by rapid-status workflows)."@en ;
+  iao:0000115 "A categorical attribute indicating whether an abundance time series is recorded as absolute abundance or as a relative index (used by rapid-status workflows)."@en ;
+  skos:scopeNote "In SPSR rapid-status workflows, this field distinguishes absolute abundance vs relative index inputs (often abbreviated in code as 'Abs_Abd' and 'RelIdx')."@en ;
   skos:inScheme :MeasurementContextScheme ;
   skos:broader gcdfo:MeasurementContext ;
   iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."@en ;
@@ -1717,7 +1717,7 @@ gcdfo:AbundanceDataType a skos:Concept ;
   gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
-### WSP rapid status metric terms (OWL)
+### Rapid-status metric terms (OWL)
 
 gcdfo:GenerationalAverageAbundance a owl:Class ;
   rdfs:label "Generational average abundance"@en ;
@@ -1739,8 +1739,8 @@ gcdfo:LongTermTrendMetric a owl:Class ;
 
 gcdfo:PercentChangeMetric a owl:Class ;
   rdfs:label "Percent change metric"@en ;
-  skos:altLabel "WSP percent change metric"@en ;
-  iao:0000115 "A WSP rapid status short-term trend metric quantifying the percent (linear) change in spawner abundance over the most recent three generations."@en ;
+  skos:altLabel "Rapid-status percent change metric"@en ;
+  iao:0000115 "A short-term trend metric quantifying the percent (linear) change in spawner abundance over the most recent three generations."@en ;
   rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
   iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."@en ;
   dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
@@ -1749,7 +1749,7 @@ gcdfo:PercentChangeMetric a owl:Class ;
 
 gcdfo:BenchmarkRatioMetric a owl:Class ;
   rdfs:label "Benchmark ratio metric"@en ;
-  iao:0000115 "A WSP rapid status metric equal to the ratio of current generational average spawner abundance to a specified benchmark (lower or upper benchmark), where 1.0 indicates equality to that benchmark."@en ;
+  iao:0000115 "A benchmark-ratio metric equal to the ratio of current generational average spawner abundance to a specified benchmark (lower or upper benchmark), where 1.0 indicates equality to that benchmark."@en ;
   rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
   iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."@en ;
   dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
@@ -1767,7 +1767,7 @@ gcdfo:ProbabilityDeclineBelowLowerBenchmarkMetric a owl:Class ;
 
 gcdfo:AbundancePercentileMetric a owl:Class ;
   rdfs:label "Abundance percentile metric"@en ;
-  iao:0000115 "A WSP rapid status metric giving the percentile rank of the current generational average spawner abundance relative to a historical reference distribution."@en ;
+  iao:0000115 "An abundance percentile metric giving the percentile rank of the current generational average spawner abundance relative to a historical reference distribution."@en ;
   rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
   iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."@en ;
   dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
@@ -1776,7 +1776,7 @@ gcdfo:AbundancePercentileMetric a owl:Class ;
 
 gcdfo:RapidStatusScoreMetric a owl:Class ;
   rdfs:label "Rapid status score metric"@en ;
-  iao:0000115 "A numeric score produced by a WSP rapid status algorithm used to represent an ordered status outcome and/or decision-rule position."@en ;
+  iao:0000115 "A numeric score produced by a rapid-status algorithm used to represent an ordered status outcome and/or decision-rule position."@en ;
   rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
   iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."@en ;
   dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
@@ -1910,7 +1910,7 @@ gcdfo:SpawnerAbundance a owl:Class ;
 
 gcdfo:RelativeSpawnerAbundance a owl:Class ;
     rdfs:label "Relative spawner abundance"@en ;
-    iao:0000115 "Spawner abundance expressed as a relative (dimensionless) abundance metric to a defined reference (commonly benchmarks), for within-series comparison; in WSP rapid status contexts, relative abundance is computed using the current generational average (geometric mean) divided by CU-specific lower and/or upper benchmarks."@en ;
+    iao:0000115 "Spawner abundance expressed as a relative (dimensionless) abundance metric to a defined reference (commonly benchmarks), for within-series comparison; in rapid-status workflows, relative abundance is computed using the current generational average (geometric mean) divided by CU-specific lower and/or upper benchmarks."@en ;
     rdfs:subClassOf gcdfo:SpawnerAbundance ;
     iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under Fisheries and Oceans Canada Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004 (relative abundance metric definition and computation)."@en ;
     dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
@@ -1929,7 +1929,7 @@ gcdfo:RelativeWildSpawnerAbundance a owl:Class ;
 
 gcdfo:RelativeHatcherySpawnerAbundance a owl:Class ;
     rdfs:label "Relative hatchery spawner abundance"@en ;
-    iao:0000115 "Hatchery-origin spawner abundance expressed as a relative (dimensionless) abundance metric to a defined reference (commonly benchmarks), for within-series comparison; in WSP rapid status contexts, relative abundance is computed using the current generational average (geometric mean) divided by CU-specific lower and/or upper benchmarks."@en ;
+    iao:0000115 "Hatchery-origin spawner abundance expressed as a relative (dimensionless) abundance metric to a defined reference (commonly benchmarks), for within-series comparison; in rapid-status workflows, relative abundance is computed using the current generational average (geometric mean) divided by CU-specific lower and/or upper benchmarks."@en ;
     rdfs:subClassOf gcdfo:RelativeSpawnerAbundance ;
     iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon… CSAS Pacific Region Science Response 2024/004 (relative abundance metric definition and computation). Holt et al. 2009. Indicators of Status and Benchmarks… CSAS Res. Doc. 2009/058 (discusses hatchery/wild considerations for status assessments)."@en ;
     dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf>,
@@ -1939,7 +1939,7 @@ gcdfo:RelativeHatcherySpawnerAbundance a owl:Class ;
 
 gcdfo:SpawnerAbundanceChange a owl:Class ;
     rdfs:label "Spawner abundance change"@en ;
-    iao:0000115 "A change metric (delta or percent change, as defined by the workflow) computed from spawner abundance values over time; in WSP rapid status contexts, percent change is quantified as a linear change in log-transformed abundance over the most recent three generations."@en ;
+    iao:0000115 "A change metric (delta or percent change, as defined by the workflow) computed from spawner abundance values over time; in rapid-status workflows, percent change is quantified as a linear change in log-transformed abundance over the most recent three generations."@en ;
     rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
     iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon… CSAS Pacific Region Science Response 2024/004 (percent change definition and computation notes). COSEWIC. 2017. Sockeye Salmon assessment and status report (log-linear rate-of-change model and percent-change derivation over three generations)."@en ;
     dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf>,
@@ -1949,7 +1949,7 @@ gcdfo:SpawnerAbundanceChange a owl:Class ;
 
 gcdfo:RelativeSpawnerAbundanceChange a owl:Class ;
     rdfs:label "Relative spawner abundance change"@en ;
-    iao:0000115 "A change metric (delta or percent change, as defined by the workflow) computed from relative spawner abundance values over time; where WSP percent-change-style approaches are used, it represents change in abundance over the most recent three generations after log transformation (and smoothing where applicable)."@en ;
+    iao:0000115 "A change metric (delta or percent change, as defined by the workflow) computed from relative spawner abundance values over time; where rapid-status percent-change approaches are used, it represents change in abundance over the most recent three generations after log transformation (and smoothing where applicable)."@en ;
     rdfs:subClassOf gcdfo:SpawnerAbundanceChange ;
     iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon… CSAS Pacific Region Science Response 2024/004 (definition and computation notes for percent change as a short-term trend over three generations)."@en ;
     dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
@@ -1958,7 +1958,7 @@ gcdfo:RelativeSpawnerAbundanceChange a owl:Class ;
 
 gcdfo:RelativeWildSpawnerAbundanceChange a owl:Class ;
     rdfs:label "Relative wild spawner abundance change"@en ;
-    iao:0000115 "A change metric (delta or percent change, as defined by the workflow) computed from relative natural-origin spawner abundance values over time; in WSP rapid status contexts, percent change is defined over the most recent three generations using log-transformed abundance series."@en ;
+    iao:0000115 "A change metric (delta or percent change, as defined by the workflow) computed from relative natural-origin spawner abundance values over time; in rapid-status workflows, percent change is defined over the most recent three generations using log-transformed abundance series."@en ;
     rdfs:subClassOf gcdfo:RelativeSpawnerAbundanceChange ;
     iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon… CSAS Pacific Region Science Response 2024/004 (definition and computation notes for percent change over the most recent three generations)."@en ;
     dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
@@ -1967,7 +1967,7 @@ gcdfo:RelativeWildSpawnerAbundanceChange a owl:Class ;
 
 gcdfo:RelativeHatcherySpawnerAbundanceChange a owl:Class ;
     rdfs:label "Relative hatchery spawner abundance change"@en ;
-    iao:0000115 "A change metric (delta or percent change, as defined by the workflow) computed from relative hatchery-origin spawner abundance values over time; in WSP rapid status contexts, percent change is derived from log-transformed series and quantified over the most recent three generations."@en ;
+    iao:0000115 "A change metric (delta or percent change, as defined by the workflow) computed from relative hatchery-origin spawner abundance values over time; in rapid-status workflows, percent change is derived from log-transformed series and quantified over the most recent three generations."@en ;
     rdfs:subClassOf gcdfo:RelativeSpawnerAbundanceChange ;
     iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon… CSAS Pacific Region Science Response 2024/004 (definition and computation notes for percent change as a short-term trend over three generations)."@en ;
     dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
@@ -1994,7 +1994,7 @@ gcdfo:RelativeSpawnerAbundanceTrend a owl:Class ;
 
 gcdfo:RelativeWildSpawnerAbundanceTrend a owl:Class ;
     rdfs:label "Relative wild spawner abundance trend"@en ;
-    iao:0000115 "A trend metric computed from relative natural-origin spawner abundance using a defined trend method; in WSP rapid status contexts, long-term trend is the ratio of current generational average (geometric mean) abundance to long-term average (geometric mean)."@en ;
+    iao:0000115 "A trend metric computed from relative natural-origin spawner abundance using a defined trend method; in rapid-status workflows, long-term trend is the ratio of current generational average (geometric mean) abundance to long-term average (geometric mean)."@en ;
     rdfs:subClassOf gcdfo:RelativeSpawnerAbundanceTrend ;
     iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon… CSAS Pacific Region Science Response 2024/004 (long-term trend in abundance metric definition)."@en ;
     dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
@@ -2003,7 +2003,7 @@ gcdfo:RelativeWildSpawnerAbundanceTrend a owl:Class ;
 
 gcdfo:RelativeHatcherySpawnerAbundanceTrend a owl:Class ;
     rdfs:label "Relative hatchery spawner abundance trend"@en ;
-    iao:0000115 "A trend metric computed from relative hatchery-origin spawner abundance using a defined trend method; in WSP rapid status contexts, long-term trend is the ratio of current generational average (geometric mean) abundance to long-term average (geometric mean)."@en ;
+    iao:0000115 "A trend metric computed from relative hatchery-origin spawner abundance using a defined trend method; in rapid-status workflows, long-term trend is the ratio of current generational average (geometric mean) abundance to long-term average (geometric mean)."@en ;
     rdfs:subClassOf gcdfo:RelativeSpawnerAbundanceTrend ;
     iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon… CSAS Pacific Region Science Response 2024/004 (long-term trend in abundance metric definition)."@en ;
     dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
