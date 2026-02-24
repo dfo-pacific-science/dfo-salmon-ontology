@@ -14,6 +14,11 @@ These module files provide **optional** upper-level/data-model alignment layers 
   - Includes stronger candidate subclass and property bridge axioms.
   - Not intended for immediate core merge without targeted review + competency-query checks.
 
+- `upper-level-view.ttl`
+  - Standalone upper-level visualization artifact (SOSA / PROV / I-ADOPT / DwC / DwC-DP bridge view).
+  - Deliberately does **not** import `https://w3id.org/gcdfo/salmon` so WebVOWL can show only the upper-level/crosswalk model.
+  - Intended for review discussions and orientation, not normative inference.
+
 ## When to use each
 
 Use **alignment-main** when you want to:
@@ -25,6 +30,11 @@ Use **alignment-research** when you want to:
 - test broader alignment hypotheses,
 - explore SOSA/I-ADOPT bridge patterns,
 - design next-round SHACL + competency query updates.
+
+Use **upper-level-view** when you want to:
+- inspect only the upper-level/crosswalk model in WebVOWL,
+- avoid import-closure noise from the full `gcdfo` ontology,
+- facilitate architecture discussion with contributors/domain experts.
 
 ## Why modules (instead of core-only)
 
