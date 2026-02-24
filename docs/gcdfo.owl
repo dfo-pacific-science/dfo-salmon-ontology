@@ -393,6 +393,37 @@
     
 
 
+    <!-- https://w3id.org/gcdfo/salmon#hasTargetOrLimitExploitationRate -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#hasTargetOrLimitExploitationRate">
+        <owl:inverseOf rdf:resource="https://w3id.org/gcdfo/salmon#isTargetOrLimitForObservedExploitationRate"/>
+        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#ObservedExploitationRate"/>
+        <rdfs:range rdf:resource="https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate"/>
+        <obo:IAO_0000115 xml:lang="en">Relates an observed exploitation-rate estimate to the target, threshold, or limit exploitation-rate value used to evaluate it.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">has target or limit exploitation rate</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#isTargetOrLimitForObservedExploitationRate -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#isTargetOrLimitForObservedExploitationRate">
+        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate"/>
+        <rdfs:range rdf:resource="https://w3id.org/gcdfo/salmon#ObservedExploitationRate"/>
+        <obo:IAO_0000115 xml:lang="en">Relates a target, threshold, or limit exploitation-rate value to the observed exploitation-rate estimate it evaluates.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">is target or limit for observed exploitation rate</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/gcdfo/salmon#populationOf -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#populationOf">
@@ -927,13 +958,29 @@
     <!-- https://w3id.org/gcdfo/salmon#ExploitationRate -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#ExploitationRate">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance"/>
-        <obo:IAO_0000115 xml:lang="en">Expressed as a percentage, the proportion of the total return of adult salmon in a given year that die as a result of fishing activity.</obo:IAO_0000115>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000109"/>
+        <obo:IAO_0000115 xml:lang="en">A fishing mortality rate expressed as the proportion of the total return removed by fishing over a specified assessment period.</obo:IAO_0000115>
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">Exploitation rate</rdfs:label>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#FisheriesReferencePointLower -->
+
+    <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#FisheriesReferencePointLower">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#LimitReferencePoint"/>
+        <obo:IAO_0000115 xml:lang="en">A lower fisheries-management reference point defined for Stock Management Units (SMUs) and related fishery decision frameworks. It may be informed by Conservation Unit (CU) lower biological benchmarks, but is not identical to CU-level lower biological benchmarks used to delineate Wild Salmon Policy biological status zones.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. (2022). Methodologies and Guidelines for Defining Limit Reference Points for Pacific Salmon. DFO Can. Sci. Advis. Sec. Sci. Advis. Rep. 2022/030. (Erratum: December 2022).</obo:IAO_0000119>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Fisheries Reference Point - Lower</rdfs:label>
+        <skos:altLabel xml:lang="en">FRP-L</skos:altLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
     
@@ -1023,8 +1070,8 @@
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark">
         <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#MetricBenchmark"/>
-        <obo:IAO_0000115 xml:lang="en">Lower benchmark value for a metric used to delineate Wild Salmon Policy status zones (typically the boundary between Red and Amber zones).</obo:IAO_0000115>
-        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf.</obo:IAO_0000119>
+        <obo:IAO_0000115 xml:lang="en">Lower benchmark value for a Conservation Unit (CU) metric used to delineate Wild Salmon Policy status zones (typically the boundary between Red and Amber zones). This CU-level biological benchmark is distinct from SMU-level fisheries management lower reference points such as FRP-L.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">Lower biological benchmark</rdfs:label>
@@ -1075,6 +1122,23 @@
         <rdfs:label xml:lang="en">Metric benchmark</rdfs:label>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/gcdfo/salmon#ObservedExploitationRate -->
+
+    <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#ObservedExploitationRate">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#ExploitationRate"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"/>
+        <obo:IAO_0000115 xml:lang="en">An empirically estimated exploitation rate derived from observed or reconstructed catches/removals and returns/escapement for a specified stock and period.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html.</obo:IAO_0000119>
+        <dcterms:source rdf:resource="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Observed exploitation rate</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
     
 
@@ -1538,6 +1602,23 @@
     
 
 
+    <!-- https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate -->
+
+    <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#ExploitationRate"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance"/>
+        <obo:IAO_0000115 xml:lang="en">A policy- or management-defined exploitation-rate value used as a target, threshold, or limit reference in decision rules.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html.</obo:IAO_0000119>
+        <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Target or limit exploitation rate</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance">
@@ -1570,7 +1651,7 @@
     <!-- https://w3id.org/gcdfo/salmon#TotalExploitationRate -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#TotalExploitationRate">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#ExploitationRate"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#ObservedExploitationRate"/>
         <obo:IAO_0000115 xml:lang="en">The overall proportion of the total return of adult salmon removed by all fisheries over a defined period, aggregating across gear or fishery components.</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">Total exploitation rate</rdfs:label>
