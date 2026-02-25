@@ -27,24 +27,6 @@
     ]
   },
   {
-    "@id": "_:b2",
-    "http://www.w3.org/2002/07/owl#unionOf": [
-      {
-        "@list": [
-          {
-            "@id": "https://w3id.org/gcdfo/salmon#BroodYear"
-          },
-          {
-            "@id": "https://w3id.org/gcdfo/salmon#CatchYear"
-          },
-          {
-            "@id": "https://w3id.org/gcdfo/salmon#ReturnYear"
-          }
-        ]
-      }
-    ]
-  },
-  {
     "@id": "http://purl.dataone.org/odo/ECSO_00002050",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
@@ -1338,7 +1320,7 @@
   {
     "@id": "https://w3id.org/gcdfo/salmon#AbundancePercentileMetric",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
+      "http://www.w3.org/2004/02/skos/core#Concept"
     ],
     "http://purl.obolibrary.org/obo/IAO_0000115": [
       {
@@ -1362,15 +1344,41 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#RapidStatusMetric"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "An abundance percentile metric giving the percentile rank of the current generational average spawner abundance relative to a historical reference distribution."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#RapidStatusMetricScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
       {
         "@language": "en",
         "@value": "Abundance percentile metric"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+    "https://w3id.org/gcdfo/salmon#iadoptConstraint": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+        "@id": "https://w3id.org/gcdfo/salmon#WSPRapidStatus"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptEntity": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ConservationUnit"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptProperty": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#SpawnerAbundancePercentile"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
@@ -1382,6 +1390,11 @@
       },
       {
         "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#usedProcedure": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPRapidStatus"
       }
     ]
   },
@@ -2268,7 +2281,7 @@
   {
     "@id": "https://w3id.org/gcdfo/salmon#BenchmarkRatioMetric",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
+      "http://www.w3.org/2004/02/skos/core#Concept"
     ],
     "http://purl.obolibrary.org/obo/IAO_0000115": [
       {
@@ -2292,15 +2305,44 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#RapidStatusMetric"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A benchmark-ratio metric equal to the ratio of current generational average spawner abundance to a specified benchmark (lower or upper benchmark), where 1.0 indicates equality to that benchmark."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#RapidStatusMetricScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
       {
         "@language": "en",
         "@value": "Benchmark ratio metric"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+    "https://w3id.org/gcdfo/salmon#iadoptConstraint": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+        "@id": "https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptEntity": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ConservationUnit"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptProperty": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundance"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
@@ -2312,6 +2354,11 @@
       },
       {
         "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#usedProcedure": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPRapidStatus"
       }
     ]
   },
@@ -2401,7 +2448,7 @@
   {
     "@id": "https://w3id.org/gcdfo/salmon#BroodYear",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
+      "http://www.w3.org/2004/02/skos/core#Concept"
     ],
     "http://purl.obolibrary.org/obo/IAO_0000115": [
       {
@@ -2425,13 +2472,7 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Brood year"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+    "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#YearBasis"
       }
@@ -2441,7 +2482,27 @@
         "@id": "http://purl.dataone.org/odo/SALMON_00000520"
       }
     ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "The parental year for a group of returning salmon, i.e. the calendar year when the majority of parents of these fish spawned."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#YearBasisScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Brood year"
+      }
+    ],
     "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
       {
         "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
       }
@@ -2627,7 +2688,7 @@
   {
     "@id": "https://w3id.org/gcdfo/salmon#CatchYear",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
+      "http://www.w3.org/2004/02/skos/core#Concept"
     ],
     "http://purl.obolibrary.org/obo/IAO_0000115": [
       {
@@ -2640,18 +2701,32 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#YearBasis"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "The calendar year in which returning salmon are caught in fisheries (as opposed to the brood year in which the cohort was spawned)."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#YearBasisScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
       {
         "@language": "en",
         "@value": "Catch year"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#YearBasis"
-      }
-    ],
     "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
       {
         "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
       }
@@ -4171,7 +4246,7 @@
   {
     "@id": "https://w3id.org/gcdfo/salmon#GenerationalAverageAbundance",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
+      "http://www.w3.org/2004/02/skos/core#Concept"
     ],
     "http://purl.obolibrary.org/obo/IAO_0000115": [
       {
@@ -4195,15 +4270,41 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#RapidStatusMetric"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "The generational average of spawner abundance, calculated as a geometric mean across the number of years corresponding to the most common age at return (generation length), optionally after smoothing depending on CU group."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#RapidStatusMetricScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
       {
         "@language": "en",
         "@value": "Generational average abundance"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+    "https://w3id.org/gcdfo/salmon#iadoptConstraint": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+        "@id": "https://w3id.org/gcdfo/salmon#ReturnYear"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptEntity": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ConservationUnit"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptProperty": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#SpawnerAbundance"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
@@ -4215,6 +4316,11 @@
       },
       {
         "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#usedProcedure": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPRapidStatus"
       }
     ]
   },
@@ -4852,7 +4958,7 @@
   {
     "@id": "https://w3id.org/gcdfo/salmon#LongTermTrendMetric",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
+      "http://www.w3.org/2004/02/skos/core#Concept"
     ],
     "http://purl.obolibrary.org/obo/IAO_0000115": [
       {
@@ -4876,15 +4982,41 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#RapidStatusMetric"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A long-term trend metric comparing the current generational average (geometric mean) spawner abundance to the long-term average (geometric mean) spawner abundance for an assessed time series."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#RapidStatusMetricScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
       {
         "@language": "en",
         "@value": "Long-term trend metric"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+    "https://w3id.org/gcdfo/salmon#iadoptConstraint": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+        "@id": "https://w3id.org/gcdfo/salmon#WSPRapidStatus"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptEntity": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ConservationUnit"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptProperty": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#SpawnerAbundanceTrend"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
@@ -4896,6 +5028,11 @@
       },
       {
         "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#usedProcedure": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPRapidStatus"
       }
     ]
   },
@@ -5868,7 +6005,7 @@
   {
     "@id": "https://w3id.org/gcdfo/salmon#PercentChangeMetric",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
+      "http://www.w3.org/2004/02/skos/core#Concept"
     ],
     "http://purl.obolibrary.org/obo/IAO_0000115": [
       {
@@ -5892,21 +6029,47 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
+    "http://www.w3.org/2004/02/skos/core#altLabel": [
+      {
+        "@language": "en",
+        "@value": "Rapid-status percent change metric"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#RapidStatusMetric"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A short-term trend metric quantifying the percent (linear) change in spawner abundance over the most recent three generations."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#RapidStatusMetricScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
       {
         "@language": "en",
         "@value": "Percent change metric"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+    "https://w3id.org/gcdfo/salmon#iadoptConstraint": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+        "@id": "https://w3id.org/gcdfo/salmon#WSPRapidStatus"
       }
     ],
-    "http://www.w3.org/2004/02/skos/core#altLabel": [
+    "https://w3id.org/gcdfo/salmon#iadoptEntity": [
       {
-        "@language": "en",
-        "@value": "Rapid-status percent change metric"
+        "@id": "https://w3id.org/gcdfo/salmon#ConservationUnit"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptProperty": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#SpawnerAbundanceChange"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
@@ -5918,6 +6081,11 @@
       },
       {
         "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#usedProcedure": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPRapidStatus"
       }
     ]
   },
@@ -6171,7 +6339,7 @@
   {
     "@id": "https://w3id.org/gcdfo/salmon#ProbabilityDeclineBelowLowerBenchmarkMetric",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
+      "http://www.w3.org/2004/02/skos/core#Concept"
     ],
     "http://purl.obolibrary.org/obo/IAO_0000115": [
       {
@@ -6195,15 +6363,41 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#RapidStatusMetric"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A probability metric estimating the risk that spawner abundance will be below the lower benchmark, given uncertainty in benchmark estimates and/or abundance estimates, for a defined forecast or assessment horizon."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#RapidStatusMetricScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
       {
         "@language": "en",
         "@value": "Probability of decline below lower benchmark metric"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+    "https://w3id.org/gcdfo/salmon#iadoptConstraint": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+        "@id": "https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptEntity": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ConservationUnit"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptProperty": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#SpawnerAbundance"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
@@ -6215,6 +6409,11 @@
       },
       {
         "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#usedProcedure": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPRapidStatus"
       }
     ]
   },
@@ -6437,9 +6636,97 @@
     ]
   },
   {
+    "@id": "https://w3id.org/gcdfo/salmon#RapidStatusMetric",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A compound variable concept representing a metric used by WSP rapid-status workflows."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#RapidStatusMetricScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Rapid status metric"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptEntity": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ConservationUnit"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#usedProcedure": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPRapidStatus"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#RapidStatusMetricScheme",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Controlled vocabulary for rapid-status compound variable terms used in WSP rapid-status workflows."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#hasTopConcept": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#RapidStatusMetric"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Rapid status metric scheme"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
     "@id": "https://w3id.org/gcdfo/salmon#RapidStatusScoreMetric",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
+      "http://www.w3.org/2004/02/skos/core#Concept"
     ],
     "http://purl.obolibrary.org/obo/IAO_0000115": [
       {
@@ -6463,15 +6750,41 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#RapidStatusMetric"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A numeric score produced by a rapid-status algorithm used to represent an ordered status outcome and/or decision-rule position."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#RapidStatusMetricScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
       {
         "@language": "en",
         "@value": "Rapid status score metric"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+    "https://w3id.org/gcdfo/salmon#iadoptConstraint": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+        "@id": "https://w3id.org/gcdfo/salmon#WSPRapidStatus"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptEntity": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ConservationUnit"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptProperty": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZone"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
@@ -6483,6 +6796,11 @@
       },
       {
         "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#usedProcedure": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPRapidStatus"
       }
     ]
   },
@@ -7377,7 +7695,7 @@
   {
     "@id": "https://w3id.org/gcdfo/salmon#ReturnYear",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
+      "http://www.w3.org/2004/02/skos/core#Concept"
     ],
     "http://purl.obolibrary.org/obo/IAO_0000115": [
       {
@@ -7401,15 +7719,26 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#YearBasis"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "The calendar year in which adult salmon return from the ocean to freshwater systems (a year basis used to contextualize run/return-related measurements)."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#YearBasisScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
       {
         "@language": "en",
         "@value": "Return year"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#YearBasis"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
@@ -9695,7 +10024,7 @@
   {
     "@id": "https://w3id.org/gcdfo/salmon#YearBasis",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
+      "http://www.w3.org/2004/02/skos/core#Concept"
     ],
     "http://purl.obolibrary.org/obo/IAO_0000115": [
       {
@@ -9708,18 +10037,63 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A year-based temporal reference used to contextualize measurements or rates (e.g., brood year, catch year, or return year)."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#YearBasisScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
       {
         "@language": "en",
         "@value": "Year basis"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+    "https://w3id.org/gcdfo/salmon#theme": [
       {
-        "@id": "http://purl.obolibrary.org/obo/IAO_0000030"
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#YearBasisScheme",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Controlled vocabulary for year-basis references used to contextualize salmon measurements and rates (for example, brood year, catch year, return year)."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#hasTopConcept": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#YearBasis"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Year basis scheme"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
       {
         "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
       }
@@ -9940,9 +10314,7 @@
     "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
       {
         "@id": "http://www.w3.org/ns/prov#used"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#closeMatch": [
+      },
       {
         "@id": "http://www.w3.org/ns/sosa/hasFeatureOfInterest"
       }
@@ -9994,9 +10366,7 @@
     "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
       {
         "@id": "http://www.w3.org/ns/prov#generated"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#closeMatch": [
+      },
       {
         "@id": "http://www.w3.org/ns/sosa/hasResult"
       }
@@ -10042,7 +10412,7 @@
         "@id": "http://www.w3.org/2004/02/skos/core#Concept"
       }
     ],
-    "http://www.w3.org/2004/02/skos/core#closeMatch": [
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
       {
         "@id": "http://www.w3.org/ns/sosa/observedProperty"
       }
@@ -10152,6 +10522,12 @@
         "@value": "Links a measurement or rate to the year basis (e.g., brood year, catch year, or return year) it is reported against."
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Expected values are concepts in :YearBasisScheme (for example, gcdfo:BroodYear, gcdfo:CatchYear, and gcdfo:ReturnYear)."
+      }
+    ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
         "@id": "_:b1"
@@ -10170,7 +10546,100 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "_:b2"
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#iadoptConstraint",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "Annotation used on a variable SKOS concept to identify one or more contextual constraint components in the I-ADOPT decomposition."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "I-ADOPT constraint"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#iadoptEntity",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "Annotation used on a variable SKOS concept to identify the entity/object-of-interest component in the I-ADOPT decomposition."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "I-ADOPT entity"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#iadoptProperty",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "Annotation used on a variable SKOS concept to identify the observed/measured property component in the I-ADOPT decomposition."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "I-ADOPT property"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
@@ -10217,9 +10686,7 @@
     "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
       {
         "@id": "http://www.w3.org/ns/prov#wasDerivedFrom"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#closeMatch": [
+      },
       {
         "@id": "http://www.w3.org/ns/sosa/isSampleOf"
       }
@@ -10360,6 +10827,42 @@
     ]
   },
   {
+    "@id": "https://w3id.org/gcdfo/salmon#usedProcedure",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "Annotation used on a variable SKOS concept to identify the procedure, protocol, or computational method used to derive the variable."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "used procedure"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "http://www.w3.org/ns/sosa/usedProcedure"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
     "@id": "https://w3id.org/gcdfo/salmon#usesObservationProcedure",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
@@ -10391,225 +10894,12 @@
         "@id": "http://purl.obolibrary.org/obo/IAO_0000104"
       }
     ],
-    "http://www.w3.org/2004/02/skos/core#closeMatch": [
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "http://www.w3.org/ns/prov#used"
+      },
       {
         "@id": "http://www.w3.org/ns/sosa/usedProcedure"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/gcdfo/salmon#variableHasConstraint",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000115": [
-      {
-        "@language": "en",
-        "@value": "Annotation used on a variable compound-term concept to capture an optional constraint component in I-ADOPT decomposition."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "variable has constraint"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#closeMatch": [
-      {
-        "@id": "https://w3id.org/iadopt/ont/hasConstraint"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/gcdfo/salmon#variableHasContextObject",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000115": [
-      {
-        "@language": "en",
-        "@value": "Annotation used on a variable compound-term concept to capture an optional context object/entity component in I-ADOPT decomposition."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "variable has context object"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#closeMatch": [
-      {
-        "@id": "https://w3id.org/iadopt/ont/hasContextObject"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/gcdfo/salmon#variableHasMatrix",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000115": [
-      {
-        "@language": "en",
-        "@value": "Annotation used on a variable compound-term concept to capture an optional matrix/context entity component in I-ADOPT decomposition."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "variable has matrix"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#closeMatch": [
-      {
-        "@id": "https://w3id.org/iadopt/ont/hasMatrix"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/gcdfo/salmon#variableHasObjectOfInterest",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000115": [
-      {
-        "@language": "en",
-        "@value": "Annotation used on a variable compound-term concept to capture the object-of-interest component in I-ADOPT decomposition."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "variable has object of interest"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#closeMatch": [
-      {
-        "@id": "https://w3id.org/iadopt/ont/hasObjectOfInterest"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/gcdfo/salmon#variableHasProperty",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000115": [
-      {
-        "@language": "en",
-        "@value": "Annotation used on a variable compound-term concept to capture the measured/estimated property component in I-ADOPT decomposition."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "variable has property"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#closeMatch": [
-      {
-        "@id": "https://w3id.org/iadopt/ont/hasProperty"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/gcdfo/salmon#variableHasStatisticalModifier",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000115": [
-      {
-        "@language": "en",
-        "@value": "Annotation used on a variable compound-term concept to capture an optional statistical modifier component in I-ADOPT decomposition."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "variable has statistical modifier"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#closeMatch": [
-      {
-        "@id": "https://w3id.org/iadopt/ont/hasStatisticalModifier"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
