@@ -501,6 +501,13 @@ envo:00000234 a owl:Class ;
   gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
+:RapidStatusMetricScheme a skos:ConceptScheme ;
+  skos:prefLabel "Rapid status metric scheme"@en ;
+  skos:definition "Controlled vocabulary for rapid-status compound variable terms used in WSP rapid-status workflows."@en ;
+  skos:hasTopConcept gcdfo:RapidStatusMetric ;
+  gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
 #################################################################
 # SKOS Facet Vocabularies (Constraints)
 #################################################################
@@ -516,6 +523,13 @@ envo:00000234 a owl:Class ;
   skos:prefLabel "Age basis scheme"@en ;
   skos:definition "Controlled vocabulary for the reference event used by an age value (for example, age at return)."@en ;
   skos:hasTopConcept gcdfo:AgeBasis ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:YearBasisScheme a skos:ConceptScheme ;
+  skos:prefLabel "Year basis scheme"@en ;
+  skos:definition "Controlled vocabulary for year-basis references used to contextualize salmon measurements and rates (for example, brood year, catch year, return year)."@en ;
+  skos:hasTopConcept gcdfo:YearBasis ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
@@ -1447,7 +1461,8 @@ gcdfo:hasYearBasis a owl:ObjectProperty ;
   rdfs:label "has year basis"@en ;
   iao:0000115 "Links a measurement or rate to the year basis (e.g., brood year, catch year, or return year) it is reported against."@en ; # definition
   rdfs:domain [ owl:unionOf ( gcdfo:ExploitationRate gcdfo:ObservedExploitationRate gcdfo:TargetOrLimitExploitationRate gcdfo:TotalExploitationRate gcdfo:SpawnerAbundance gcdfo:EscapementMeasurement ) ] ;
-  rdfs:range [ owl:unionOf ( gcdfo:BroodYear gcdfo:CatchYear gcdfo:ReturnYear ) ] ;
+  rdfs:range skos:Concept ;
+  rdfs:comment "Expected values are concepts in :YearBasisScheme (for example, gcdfo:BroodYear, gcdfo:CatchYear, and gcdfo:ReturnYear)."@en ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme .
 
@@ -1456,8 +1471,7 @@ gcdfo:hasFeatureOfInterest a owl:ObjectProperty ;
   iao:0000115 "Relates a survey event to the reporting or management stratum that the event targets for inference or status interpretation."@en ; # definition
   rdfs:domain gcdfo:SurveyEvent ;
   rdfs:range gcdfo:ReportingOrManagementStratum ;
-  rdfs:subPropertyOf prov:used ;
-  skos:closeMatch sosa:hasFeatureOfInterest ;
+  rdfs:subPropertyOf prov:used, sosa:hasFeatureOfInterest ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme, gcdfo:PolicyGovernanceTheme .
 
@@ -1466,8 +1480,7 @@ gcdfo:hasObservationResult a owl:ObjectProperty ;
   iao:0000115 "Relates a survey event to a measurement datum/result it produces for salmon assessment workflows."@en ; # definition
   rdfs:domain gcdfo:SurveyEvent ;
   rdfs:range gcdfo:EscapementMeasurement ;
-  rdfs:subPropertyOf prov:generated ;
-  skos:closeMatch sosa:hasResult ;
+  rdfs:subPropertyOf prov:generated, sosa:hasResult ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme .
 
@@ -1476,7 +1489,7 @@ gcdfo:usesObservationProcedure a owl:ObjectProperty ;
   iao:0000115 "Relates a survey event to the procedure/protocol used to execute it."@en ; # definition
   rdfs:domain gcdfo:SurveyEvent ;
   rdfs:range iao:0000104 ; # plan specification
-  skos:closeMatch sosa:usedProcedure ;
+  rdfs:subPropertyOf prov:used, sosa:usedProcedure ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme .
 
@@ -1485,8 +1498,7 @@ gcdfo:isSampleOfStratum a owl:ObjectProperty ;
   iao:0000115 "Relates a material sample to the reporting or management stratum it is taken to represent in analysis."@en ; # definition
   rdfs:domain dwc:MaterialEntity ;
   rdfs:range gcdfo:ReportingOrManagementStratum ;
-  rdfs:subPropertyOf prov:wasDerivedFrom ;
-  skos:closeMatch sosa:isSampleOf ;
+  rdfs:subPropertyOf prov:wasDerivedFrom, sosa:isSampleOf ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme, gcdfo:PolicyGovernanceTheme .
 
@@ -1495,49 +1507,32 @@ gcdfo:hasObservedVariable a owl:ObjectProperty ;
   iao:0000115 "Relates a survey event to a variable compound term represented as a SKOS concept that defines what was measured or derived in SDP workflows."@en ; # definition
   rdfs:domain gcdfo:SurveyEvent ;
   rdfs:range skos:Concept ;
-  skos:closeMatch sosa:observedProperty ;
+  rdfs:subPropertyOf sosa:observedProperty ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme .
 
-gcdfo:variableHasObjectOfInterest a owl:AnnotationProperty ;
-  rdfs:label "variable has object of interest"@en ;
-  iao:0000115 "Annotation used on a variable compound-term concept to capture the object-of-interest component in I-ADOPT decomposition."@en ; # definition
-  skos:closeMatch iop:hasObjectOfInterest ;
+gcdfo:iadoptEntity a owl:AnnotationProperty ;
+  rdfs:label "I-ADOPT entity"@en ;
+  iao:0000115 "Annotation used on a variable SKOS concept to identify the entity/object-of-interest component in the I-ADOPT decomposition."@en ; # definition
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme .
 
-gcdfo:variableHasProperty a owl:AnnotationProperty ;
-  rdfs:label "variable has property"@en ;
-  iao:0000115 "Annotation used on a variable compound-term concept to capture the measured/estimated property component in I-ADOPT decomposition."@en ; # definition
-  skos:closeMatch iop:hasProperty ;
+gcdfo:iadoptProperty a owl:AnnotationProperty ;
+  rdfs:label "I-ADOPT property"@en ;
+  iao:0000115 "Annotation used on a variable SKOS concept to identify the observed/measured property component in the I-ADOPT decomposition."@en ; # definition
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme .
 
-gcdfo:variableHasMatrix a owl:AnnotationProperty ;
-  rdfs:label "variable has matrix"@en ;
-  iao:0000115 "Annotation used on a variable compound-term concept to capture an optional matrix/context entity component in I-ADOPT decomposition."@en ; # definition
-  skos:closeMatch iop:hasMatrix ;
+gcdfo:iadoptConstraint a owl:AnnotationProperty ;
+  rdfs:label "I-ADOPT constraint"@en ;
+  iao:0000115 "Annotation used on a variable SKOS concept to identify one or more contextual constraint components in the I-ADOPT decomposition."@en ; # definition
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme .
 
-gcdfo:variableHasContextObject a owl:AnnotationProperty ;
-  rdfs:label "variable has context object"@en ;
-  iao:0000115 "Annotation used on a variable compound-term concept to capture an optional context object/entity component in I-ADOPT decomposition."@en ; # definition
-  skos:closeMatch iop:hasContextObject ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
-  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme .
-
-gcdfo:variableHasConstraint a owl:AnnotationProperty ;
-  rdfs:label "variable has constraint"@en ;
-  iao:0000115 "Annotation used on a variable compound-term concept to capture an optional constraint component in I-ADOPT decomposition."@en ; # definition
-  skos:closeMatch iop:hasConstraint ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
-  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme .
-
-gcdfo:variableHasStatisticalModifier a owl:AnnotationProperty ;
-  rdfs:label "variable has statistical modifier"@en ;
-  iao:0000115 "Annotation used on a variable compound-term concept to capture an optional statistical modifier component in I-ADOPT decomposition."@en ; # definition
-  skos:closeMatch iop:hasStatisticalModifier ;
+gcdfo:usedProcedure a owl:AnnotationProperty ;
+  rdfs:label "used procedure"@en ;
+  iao:0000115 "Annotation used on a variable SKOS concept to identify the procedure, protocol, or computational method used to derive the variable."@en ; # definition
+  rdfs:subPropertyOf sosa:usedProcedure ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme .
 
@@ -1545,28 +1540,33 @@ gcdfo:variableHasStatisticalModifier a owl:AnnotationProperty ;
 # OWL Classes
 #################################################################
 
-gcdfo:YearBasis a owl:Class ;
-  rdfs:label "Year basis"@en ;
+gcdfo:YearBasis a skos:Concept ;
+  skos:prefLabel "Year basis"@en ;
+  skos:definition "A year-based temporal reference used to contextualize measurements or rates (e.g., brood year, catch year, or return year)."@en ;
   iao:0000115 "A year-based temporal reference used to contextualize measurements or rates (e.g., brood year, catch year, or return year)."@en ; # definition
-  rdfs:subClassOf iao:0000030 ; # information content entity
-  gcdfo:theme gcdfo:StockAssessmentTheme ;
+  skos:inScheme :YearBasisScheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
-gcdfo:BroodYear a owl:Class ;
-  rdfs:label "Brood year"@en ;
-  rdfs:subClassOf gcdfo:YearBasis ;
+gcdfo:BroodYear a skos:Concept ;
+  skos:prefLabel "Brood year"@en ;
+  skos:definition "The parental year for a group of returning salmon, i.e. the calendar year when the majority of parents of these fish spawned."@en ;
   iao:0000115 "The parental year for a group of returning salmon, i.e. the calendar year when the majority of parents of these fish spawned."@en ; # definition
+  skos:inScheme :YearBasisScheme ;
+  skos:broader gcdfo:YearBasis ;
   iao:0000119 "Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html."@en ; # definition source
   dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html> ;
   skos:closeMatch odo:SALMON_00000520 ; # "Brood Year" from NCEAS Salmon Ontology (ODO)
-  gcdfo:theme gcdfo:StockAssessmentTheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
-gcdfo:CatchYear a owl:Class ;
-  rdfs:label "Catch year"@en ;
-  rdfs:subClassOf gcdfo:YearBasis ;
+gcdfo:CatchYear a skos:Concept ;
+  skos:prefLabel "Catch year"@en ;
+  skos:definition "The calendar year in which returning salmon are caught in fisheries (as opposed to the brood year in which the cohort was spawned)."@en ;
   iao:0000115 "The calendar year in which returning salmon are caught in fisheries (as opposed to the brood year in which the cohort was spawned)."@en ; # definition
-  gcdfo:theme gcdfo:StockAssessmentTheme ;
+  skos:inScheme :YearBasisScheme ;
+  skos:broader gcdfo:YearBasis ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:Stock a owl:Class ;
@@ -1873,67 +1873,118 @@ gcdfo:AbundanceDataType a skos:Concept ;
   gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
-### Rapid-status metric terms (OWL)
+### Rapid-status metric terms (SKOS compound variables)
 
-gcdfo:GenerationalAverageAbundance a owl:Class ;
-  rdfs:label "Generational average abundance"@en ;
+gcdfo:RapidStatusMetric a skos:Concept ;
+  skos:prefLabel "Rapid status metric"@en ;
+  skos:definition "A compound variable concept representing a metric used by WSP rapid-status workflows."@en ;
+  skos:inScheme :RapidStatusMetricScheme ;
+  gcdfo:iadoptEntity gcdfo:ConservationUnit ;
+  gcdfo:usedProcedure gcdfo:WSPRapidStatus ;
+  gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:GenerationalAverageAbundance a skos:Concept ;
+  skos:prefLabel "Generational average abundance"@en ;
+  skos:definition "The generational average of spawner abundance, calculated as a geometric mean across the number of years corresponding to the most common age at return (generation length), optionally after smoothing depending on CU group."@en ;
   iao:0000115 "The generational average of spawner abundance, calculated as a geometric mean across the number of years corresponding to the most common age at return (generation length), optionally after smoothing depending on CU group."@en ;
-  rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
+  skos:inScheme :RapidStatusMetricScheme ;
+  skos:broader gcdfo:RapidStatusMetric ;
+  gcdfo:iadoptProperty gcdfo:SpawnerAbundance ;
+  gcdfo:iadoptEntity gcdfo:ConservationUnit ;
+  gcdfo:iadoptConstraint gcdfo:ReturnYear ;
+  gcdfo:usedProcedure gcdfo:WSPRapidStatus ;
   iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."@en ;
   dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
   gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
-gcdfo:LongTermTrendMetric a owl:Class ;
-  rdfs:label "Long-term trend metric"@en ;
+gcdfo:LongTermTrendMetric a skos:Concept ;
+  skos:prefLabel "Long-term trend metric"@en ;
+  skos:definition "A long-term trend metric comparing the current generational average (geometric mean) spawner abundance to the long-term average (geometric mean) spawner abundance for an assessed time series."@en ;
   iao:0000115 "A long-term trend metric comparing the current generational average (geometric mean) spawner abundance to the long-term average (geometric mean) spawner abundance for an assessed time series."@en ;
-  rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
+  skos:inScheme :RapidStatusMetricScheme ;
+  skos:broader gcdfo:RapidStatusMetric ;
+  gcdfo:iadoptProperty gcdfo:SpawnerAbundanceTrend ;
+  gcdfo:iadoptEntity gcdfo:ConservationUnit ;
+  gcdfo:iadoptConstraint gcdfo:WSPRapidStatus ;
+  gcdfo:usedProcedure gcdfo:WSPRapidStatus ;
   iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."@en ;
   dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
   gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
-gcdfo:PercentChangeMetric a owl:Class ;
-  rdfs:label "Percent change metric"@en ;
+gcdfo:PercentChangeMetric a skos:Concept ;
+  skos:prefLabel "Percent change metric"@en ;
   skos:altLabel "Rapid-status percent change metric"@en ;
+  skos:definition "A short-term trend metric quantifying the percent (linear) change in spawner abundance over the most recent three generations."@en ;
   iao:0000115 "A short-term trend metric quantifying the percent (linear) change in spawner abundance over the most recent three generations."@en ;
-  rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
+  skos:inScheme :RapidStatusMetricScheme ;
+  skos:broader gcdfo:RapidStatusMetric ;
+  gcdfo:iadoptProperty gcdfo:SpawnerAbundanceChange ;
+  gcdfo:iadoptEntity gcdfo:ConservationUnit ;
+  gcdfo:iadoptConstraint gcdfo:WSPRapidStatus ;
+  gcdfo:usedProcedure gcdfo:WSPRapidStatus ;
   iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."@en ;
   dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
   gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
-gcdfo:BenchmarkRatioMetric a owl:Class ;
-  rdfs:label "Benchmark ratio metric"@en ;
+gcdfo:BenchmarkRatioMetric a skos:Concept ;
+  skos:prefLabel "Benchmark ratio metric"@en ;
+  skos:definition "A benchmark-ratio metric equal to the ratio of current generational average spawner abundance to a specified benchmark (lower or upper benchmark), where 1.0 indicates equality to that benchmark."@en ;
   iao:0000115 "A benchmark-ratio metric equal to the ratio of current generational average spawner abundance to a specified benchmark (lower or upper benchmark), where 1.0 indicates equality to that benchmark."@en ;
-  rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
+  skos:inScheme :RapidStatusMetricScheme ;
+  skos:broader gcdfo:RapidStatusMetric ;
+  gcdfo:iadoptProperty gcdfo:RelativeSpawnerAbundance ;
+  gcdfo:iadoptEntity gcdfo:ConservationUnit ;
+  gcdfo:iadoptConstraint gcdfo:LowerBiologicalBenchmark, gcdfo:UpperBiologicalBenchmark ;
+  gcdfo:usedProcedure gcdfo:WSPRapidStatus ;
   iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."@en ;
   dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
   gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
-gcdfo:ProbabilityDeclineBelowLowerBenchmarkMetric a owl:Class ;
-  rdfs:label "Probability of decline below lower benchmark metric"@en ;
+gcdfo:ProbabilityDeclineBelowLowerBenchmarkMetric a skos:Concept ;
+  skos:prefLabel "Probability of decline below lower benchmark metric"@en ;
+  skos:definition "A probability metric estimating the risk that spawner abundance will be below the lower benchmark, given uncertainty in benchmark estimates and/or abundance estimates, for a defined forecast or assessment horizon."@en ;
   iao:0000115 "A probability metric estimating the risk that spawner abundance will be below the lower benchmark, given uncertainty in benchmark estimates and/or abundance estimates, for a defined forecast or assessment horizon."@en ;
-  rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
+  skos:inScheme :RapidStatusMetricScheme ;
+  skos:broader gcdfo:RapidStatusMetric ;
+  gcdfo:iadoptProperty gcdfo:SpawnerAbundance ;
+  gcdfo:iadoptEntity gcdfo:ConservationUnit ;
+  gcdfo:iadoptConstraint gcdfo:LowerBiologicalBenchmark ;
+  gcdfo:usedProcedure gcdfo:WSPRapidStatus ;
   iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."@en ;
   dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
   gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
-gcdfo:AbundancePercentileMetric a owl:Class ;
-  rdfs:label "Abundance percentile metric"@en ;
+gcdfo:AbundancePercentileMetric a skos:Concept ;
+  skos:prefLabel "Abundance percentile metric"@en ;
+  skos:definition "An abundance percentile metric giving the percentile rank of the current generational average spawner abundance relative to a historical reference distribution."@en ;
   iao:0000115 "An abundance percentile metric giving the percentile rank of the current generational average spawner abundance relative to a historical reference distribution."@en ;
-  rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
+  skos:inScheme :RapidStatusMetricScheme ;
+  skos:broader gcdfo:RapidStatusMetric ;
+  gcdfo:iadoptProperty gcdfo:SpawnerAbundancePercentile ;
+  gcdfo:iadoptEntity gcdfo:ConservationUnit ;
+  gcdfo:iadoptConstraint gcdfo:WSPRapidStatus ;
+  gcdfo:usedProcedure gcdfo:WSPRapidStatus ;
   iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."@en ;
   dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
   gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
-gcdfo:RapidStatusScoreMetric a owl:Class ;
-  rdfs:label "Rapid status score metric"@en ;
+gcdfo:RapidStatusScoreMetric a skos:Concept ;
+  skos:prefLabel "Rapid status score metric"@en ;
+  skos:definition "A numeric score produced by a rapid-status algorithm used to represent an ordered status outcome and/or decision-rule position."@en ;
   iao:0000115 "A numeric score produced by a rapid-status algorithm used to represent an ordered status outcome and/or decision-rule position."@en ;
-  rdfs:subClassOf gcdfo:ObservedRateOrAbundance ;
+  skos:inScheme :RapidStatusMetricScheme ;
+  skos:broader gcdfo:RapidStatusMetric ;
+  gcdfo:iadoptProperty gcdfo:WSPBiologicalStatusZone ;
+  gcdfo:iadoptEntity gcdfo:ConservationUnit ;
+  gcdfo:iadoptConstraint gcdfo:WSPRapidStatus ;
+  gcdfo:usedProcedure gcdfo:WSPRapidStatus ;
   iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."@en ;
   dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
   gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
@@ -1941,10 +1992,12 @@ gcdfo:RapidStatusScoreMetric a owl:Class ;
 
 ### General/legacy term batch from Issue #33 (OWL + SKOS)
 
-gcdfo:ReturnYear a owl:Class ;
-  rdfs:label "Return year"@en ;
-  rdfs:subClassOf gcdfo:YearBasis ;
+gcdfo:ReturnYear a skos:Concept ;
+  skos:prefLabel "Return year"@en ;
+  skos:definition "The calendar year in which adult salmon return from the ocean to freshwater systems (a year basis used to contextualize run/return-related measurements)."@en ;
   iao:0000115 "The calendar year in which adult salmon return from the ocean to freshwater systems (a year basis used to contextualize run/return-related measurements)."@en ;
+  skos:inScheme :YearBasisScheme ;
+  skos:broader gcdfo:YearBasis ;
   iao:0000119 "Fisheries and Oceans Canada. Pacific Salmon Glossary (Pacific Region web page)."@en ;
   dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html> ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme, gcdfo:FisheriesManagementTheme ;
