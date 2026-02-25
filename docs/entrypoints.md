@@ -19,8 +19,8 @@ Purpose: keep one short, reliable map of what starts the system, what is wired i
 
 ## Test
 
-- Test command(s): `devenv shell make test` (runs theme coverage + ELK reasoning) against the canonical `ontology/dfo-salmon.ttl`
-- Fastest smoke test: `devenv shell make theme-coverage`
+- Test command(s): `devenv shell make test` (runs theme coverage + alpha-lint + ELK reasoning) against the canonical `ontology/dfo-salmon.ttl`
+- Fastest smoke test: `devenv shell make theme-coverage` (or `devenv shell make alpha-lint` for alpha migration lint checks)
 
 ## App Entry Points / Wiring
 

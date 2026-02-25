@@ -9,7 +9,7 @@ WIDOCO_JAR := tools/widoco.jar
 WIDOCO_URL := https://github.com/dgarijo/Widoco/releases/download/v$(WIDOCO_VERSION)/widoco-$(WIDOCO_VERSION)-jar-with-dependencies_JDK-17.jar
 DSU_ONTOLOGY_DIR ?= ../data-stewardship-unit/data/ontology
 
-.PHONY: help quality-check reason convert clean install-robot install-widoco publish-clean dsu-sync-term-tables dsu-sync-and-stage theme-coverage test docs-refresh docs-widoco docs-serializations docs-skos docs-postprocess release-snapshot
+.PHONY: help quality-check reason convert clean install-robot install-widoco publish-clean dsu-sync-term-tables dsu-sync-and-stage theme-coverage alpha-lint test docs-refresh docs-widoco docs-serializations docs-skos docs-postprocess release-snapshot
 
 # Default target
 help:
@@ -20,7 +20,8 @@ help:
 	@echo "  reason          Run OWL reasoner (ELK) to check logical consistency"
 	@echo "  reason-all      Run all available reasoners (ELK, HermiT, JFact)"
 	@echo "  theme-coverage  Run gcdfo:theme coverage SPARQL check (writes release/tmp/theme-coverage.tsv)"
-	@echo "  test            Run fast validation bundle: theme-coverage + ELK reasoning"
+	@echo "  alpha-lint      Run alpha migration SPARQL lints (year-basis scheme, variable decomposition, skos:*Match property lint)"
+	@echo "  test            Run fast validation bundle: theme-coverage + alpha-lint + ELK reasoning"
 	@echo ""
 	@echo "Format Conversion:"
 	@echo "  convert-owl     Convert to OWL format"
@@ -92,8 +93,11 @@ theme-coverage: check-robot
 		echo "✅ Theme coverage clean (release/tmp/theme-coverage.tsv is empty)."; \
 	fi
 
-test: theme-coverage reason
-	@echo "✅ Test bundle completed (theme coverage + ELK reasoning)."
+alpha-lint: check-robot
+	@./scripts/run-sparql-lint.sh ontology/dfo-salmon.ttl
+
+test: theme-coverage alpha-lint reason
+	@echo "✅ Test bundle completed (theme coverage + alpha-lint + ELK reasoning)."
 
 ci:
 	@echo "🔁 Running full CI bundle (tests, quality, docs)..."

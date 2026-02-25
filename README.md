@@ -56,7 +56,7 @@ The GC DFO Salmon Ontology is a **data stewardship and operational process ontol
 4. **Use ROBOT** for quality control: `robot reason --input dfo-salmon.ttl --reasoner ELK`
 5. **Discuss changes** in GitHub Issues before creating PRs
 6. **Follow OBO practices**: Use competency questions, design patterns, and quality checklists
-7. **Run validations**: Run `make theme-coverage` (smoke) or `make test` (theme coverage + ELK reasoning); use `make quality-check` for the full ROBOT report. Note: If using `devenv`/`nix` (optional), prefix commands with `devenv shell`.
+7. **Run validations**: Run `make theme-coverage` (smoke), `make alpha-lint` (alpha migration lints), or `make test` (theme coverage + alpha-lint + ELK reasoning); use `make quality-check` for the full ROBOT report. Note: If using `devenv`/`nix` (optional), prefix commands with `devenv shell`.
 8. **Single local+CI entrypoint**: `make ci` (runs tests, ROBOT quality-check, and `make docs-refresh` so that ontology + docs + serializations stay in sync)
 
 ### For Users

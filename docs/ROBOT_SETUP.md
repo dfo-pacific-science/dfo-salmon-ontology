@@ -31,6 +31,25 @@ make theme-coverage
 - Output: theme coverage report (empty = passing; rows list issues). Run `make theme-coverage` to generate.
 - Prereqs: `tools/robot.jar` (run `make install-robot` if missing) and Java. If using `devenv`/`nix` (optional), Java is provided inside the environment.
 
+### Alpha migration SPARQL lints
+
+Run the fast lint bundle used by `make test`:
+
+```bash
+# From the repo root
+make alpha-lint
+# Or if using devenv/nix (optional):
+# devenv shell make alpha-lint
+```
+
+The lint runner (`scripts/run-sparql-lint.sh`) executes:
+
+- `scripts/sparql/missing-year-basis.rq` (checks SKOS `YearBasisScheme` assumptions once present)
+- `scripts/sparql/missing-variable-decomposition.rq` (requires `gcdfo:iadoptEntity` + `gcdfo:iadoptProperty` on variable concepts)
+- `scripts/sparql/skos-match-on-owl-properties.rq` (blocks `skos:*Match` on OWL/RDF properties)
+
+Output files are written to `release/tmp/*.tsv`; non-empty output fails the lint step.
+
 ### CI/CD Configuration
 
 **Problem:** ROBOT fails CI/CD pipelines due to expected violations that aren't actual errors.
