@@ -288,8 +288,11 @@ The `ontology/dfo-salmon.ttl` file must contain **schema elements only** - no in
     dcterms:source <https://doi.org/10.1234/dfo-protocols-2024> .
 ```
 
-**Alignment with Relations Ontology (RO):** When aligning to RO, import and reuse RO properties, or use `owl:equivalentProperty` / `rdfs:subPropertyOf` where appropriate. Use `skos:exactMatch`/`skos:closeMatch` only for concept-level mappings, not for OWL properties. Do not use `rdfs:seeAlso` for property alignment; in OWL 2 it is an annotation property for “additional information” links, not a logical alignment axiom.
-**Alignment with Relations Ontology (RO):** When aligning to RO, import and reuse RO properties, or use `owl:equivalentProperty` / `rdfs:subPropertyOf` where appropriate. Use `skos:exactMatch`/`skos:closeMatch` only for concept-level mappings, not for OWL properties. Do not use `rdfs:seeAlso` for property alignment; in OWL 2 it is an annotation property for “additional information” links, not a logical alignment axiom.
+**Alignment with Relations Ontology (RO):** Use `skos:exactMatch`/`skos:closeMatch` only for concept-level mappings. For OWL terms, use OWL/RDFS axioms only: `rdfs:subPropertyOf` or `owl:equivalentProperty` for properties, and `rdfs:subClassOf` or `owl:equivalentClass` for classes. Apply this confidence ladder:
+1. **Candidate**: record as candidate only (no logical mapping axiom).
+2. **Broadly aligned**: assert `rdfs:subPropertyOf` / `rdfs:subClassOf`.
+3. **Semantically equivalent**: assert `owl:equivalentProperty` / `owl:equivalentClass`.
+Do not use `rdfs:seeAlso` for semantic alignment.
 
 #### 2.3.3 Datatype Properties
 
@@ -387,7 +390,7 @@ ex:DFOEscMethodCode a rdfs:Datatype .
 - Use **OWL classes** when you need property inheritance, logical constraints, class expressions, or when downstream data will type individuals with the term (e.g., `rdf:type gcdfo:StockAssessment`).
 - Do **not** mix the two: a SKOS concept is an individual of `skos:Concept`; it is not a class. If you believe a term must be both, pause and record an ADR before introducing punning.
 - Default posture: SKOS for code lists; OWL for behavioral/logical models. If in doubt, ask “Will this term ever need class-level semantics or property inheritance?” If yes → OWL; if no and hierarchy is purely lexical → SKOS.
-- **Compound variables/metrics (I-ADOPT)**: model them as SKOS concepts in the appropriate scheme (e.g., WSP metrics), not as OWL classes, and hang the I-ADOPT decomposition off the SKOS concept via annotation/object properties (property, entity/object-of-interest, constraints, procedure). Only introduce OWL classes for a metric if you have a competency question that needs reasoning over that class.
+- **Compound variables/metrics (I-ADOPT)**: model them as SKOS concepts in the appropriate scheme (e.g., WSP metrics), not as OWL classes. Capture decomposition on the SKOS concept with annotation properties for property, entity (in the ObjectOfInterest role), constraints, and procedure. Only introduce OWL classes for a metric if a competency question requires class-level reasoning.
 
 ###### 2.3.4.1.1 I-ADOPT + SSN/OMS/OBOE/PROV alignment pattern (variables only)
 
@@ -400,7 +403,7 @@ We adopt a **minimal, annotation-centric pattern** for I-ADOPT that plays nicely
 - **I-ADOPT decomposition as annotations**:
   - We define a small set of **annotation properties** in the DFO Salmon namespace, instead of importing all I-ADOPT object properties into `dfo-salmon.ttl`:
     - `gcdfo:iadoptProperty` – points from a variable concept to the property (e.g., abundance, rate).
-    - `gcdfo:iadoptEntity` – points to the entity/object-of-interest class (e.g., Stock, CU, SpawningPopulation).
+    - `gcdfo:iadoptEntity` – points to the entity term in the ObjectOfInterest role (e.g., Stock, CU, SpawningPopulation).
     - `gcdfo:iadoptConstraint` – points to constraint concepts (life stage, origin, benchmark, spatial subset; multiple allowed).
     - `gcdfo:usedProcedure` – **canonical (replaces `gcdfo:iadoptMethod`)** – an `owl:AnnotationProperty` subproperty of `sosa:usedProcedure` that points from a variable (SKOS) concept to the procedure/method concept or class (aligns to `sosa:Procedure`, `prov:Plan`, or `IAO:0000104` specification; NOT I-ADOPT). In instance data (observations/sampling), use `sosa:usedProcedure` directly.
   - These are declared as `owl:AnnotationProperty` (with `gcdfo:usedProcedure` as an annotation subproperty of `sosa:usedProcedure`) so they do **not** involve SKOS concepts in OWL class axioms (keeps us within our "no SKOS as OWL class in axioms" rule) but remain fully queryable via SPARQL.
@@ -413,7 +416,7 @@ We adopt a **minimal, annotation-centric pattern** for I-ADOPT that plays nicely
 - **MIREOT / imports**:
   - For Phase 0, we **do not import** the full I-ADOPT ontology into `dfo-salmon.ttl`. We only reference I-ADOPT IRIs (e.g., for typing or documentation) where needed.
   - If future needs require stronger alignment (e.g., SHACL validation or interoperability checks), we can:
-    - MIREOT just the few I-ADOPT classes we need (`iop:Variable`, `iop:Property`, `iop:ObjectOfInterest`, `iop:Constraint`) into a small alignment module (e.g., `dfo-salmon-iadopt.ttl`), and
+    - MIREOT just the few I-ADOPT classes we need (`iop:Variable`, `iop:Property`, `iop:Entity`, `iop:Constraint`) into a small alignment module (e.g., `dfo-salmon-iadopt.ttl`)—ObjectOfInterest remains a role expressed via `iop:hasObjectOfInterest`, not a class—and
     - keep that module separate from the core ontology while using our local annotation properties for the decomposition links.
 
 This gives us a **single canonical pattern**:
@@ -424,7 +427,19 @@ This gives us a **single canonical pattern**:
 **Canonical authoring pattern (explicit rule):**
 
 - **Canonical authoring**: Use SKOS variable concepts + local annotation properties (`gcdfo:iadoptProperty`, `gcdfo:iadoptEntity`, `gcdfo:iadoptConstraint`, `gcdfo:usedProcedure`). Keep the core ontology lightweight and avoid importing I-ADOPT object properties.
-- **Interop projection (generated)**: Optionally emit `iop:hasProperty` / `iop:hasObjectOfInterest` / `iop:hasConstraint` triples in a separate alignment/export layer, and type the variable as `iop:Variable`. This projection is for downstream interoperability, not for canonical authoring.
+- **Interop projection (generated)**: Optionally emit `iop:hasProperty` / `iop:hasObjectOfInterest` / `iop:hasConstraint` triples in a separate alignment/export layer, and type the variable as `iop:Variable`. When projecting object-of-interest, point `iop:hasObjectOfInterest` to an `iop:Entity` (ObjectOfInterest is a role, not a class). This projection is for downstream interoperability, not for canonical authoring.
+
+###### 2.3.4.1.2 Extraction frame categories
+
+Use the following extraction frame categories when capturing new terms from source material:
+
+- **Entity**: physical, biological, organizational, or information-bearing thing.
+- **Property**: quality/attribute measured or described for an entity.
+- **Variable**: operationalized measurable concept (often compound) represented as a SKOS variable concept.
+- **Constraint / StatModifier**: qualifiers that narrow interpretation (life stage, origin, benchmark, stratum, statistical condition).
+- **Method / Protocol**: procedure, plan, assay, or survey protocol used to produce evidence.
+- **Event / Observation**: temporally bounded activity where sampling/observation/analysis occurs.
+- **Result / Provenance**: measurement/output artifacts and lineage metadata (source, agent, derivation).
 
 ##### 2.3.4.2 Theme / module annotation for navigation
 
@@ -964,9 +979,9 @@ SOSA/SSN is a joint W3C/OGC standard (W3C Recommendation 19 Oct 2017). A newer "
 
 #### 2.3.12.6 I-ADOPT Alignment
 
-**See sections 2.3.4.1.1–2.3.4.1.3 above** for full I-ADOPT alignment guidance, including:
+**See section 2.3.4.1.1 above** for full I-ADOPT alignment guidance, including:
 - Variables as SKOS concepts
-- I-ADOPT decomposition as annotations (Property, ObjectOfInterest, Constraint)
+- I-ADOPT decomposition as annotations (Property, Entity in ObjectOfInterest role, Constraint)
 - Canonical authoring pattern (local annotation properties)
 - Interop projection (generated alignment layer)
 
@@ -1728,6 +1743,13 @@ SELECT ?method ?stock ?event WHERE {
 - **For SKOS concepts**: Use `skos:exactMatch` or `skos:closeMatch` for concept-level mappings (not for OWL properties)
 - **Do NOT use `rdfs:seeAlso` for alignment**: `rdfs:seeAlso` is for helpful extra links, not semantic alignment
 - **Avoid label conflicts**: OBO Foundry review flags non-RO relations with RO-equivalent labels
+
+**Mapping confidence ladder (required):**
+
+1. **Candidate (no axiom yet):** keep as an editorial candidate (notes/issue only), no logical mapping axiom.
+2. **Hierarchy-level confidence:** use `rdfs:subPropertyOf` (properties) or `rdfs:subClassOf` (classes).
+3. **Equivalence-level confidence:** use `owl:equivalentProperty` (properties) or `owl:equivalentClass` (classes).
+4. **Concept mappings only:** use `skos:exactMatch` / `skos:closeMatch` only for concept-to-concept mappings.
 
 **Example RO Alignment:**
 
