@@ -27,11 +27,6 @@ The conventions here are **practical starting points**, not immutable rules. As 
 This checklist is canonical for “what must be on a term”; other summary sections link here to avoid drift.
 
 **OWL terms (classes + properties):**
-### Essential Elements (Canonical Checklist)
-
-This checklist is canonical for “what must be on a term”; other summary sections link here to avoid drift.
-
-**OWL terms (classes + properties):**
 
 - **Label**: `rdfs:label "Human Name"@en`
 - **Definition**: `iao:0000115 "1–2 sentence definition."@en`
@@ -45,16 +40,7 @@ This checklist is canonical for “what must be on a term”; other summary sect
 - **Definition (recommended)**: `skos:definition "1–2 sentence definition."@en`
 - **Defined by**: `rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon>`
 - **Code (optional)**: `skos:notation "CODE"^^ex:YourCodeSystemDatatype`
-- **Defined by**: `rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon>`
 - **Definition provenance (optional)**: `iao:0000119 "Citation text here."@en` and/or `dcterms:source <https://doi.org/...>`
-
-**SKOS concepts (controlled vocabulary terms):**
-
-- **Preferred label**: `skos:prefLabel "Human Name"@en`
-- **Scheme membership**: `skos:inScheme :SchemeName`
-- **Definition (recommended)**: `skos:definition "1–2 sentence definition."@en`
-- **Defined by**: `rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon>`
-- **Code (optional)**: `skos:notation "CODE"^^ex:YourCodeSystemDatatype`
 
 ### Naming Conventions
 
@@ -64,7 +50,7 @@ This checklist is canonical for “what must be on a term”; other summary sect
 
 ### Core Patterns
 
-- **Hierarchy**: SMU ▶ CU ▶ Population with `hasMember` relationships (use correct OWL 2 transitivity syntax)
+- **Hierarchy**: StockManagementUnit ▶ ConservationUnit ▶ Population using `hasConservationUnit` and `hasPopulation`
 - **Units**: Store QUDT IRIs as literals in `…UnitIRI` properties
 - **Darwin Core**: Use as top-level classes for interoperability
 - **Hybrid Approach**: SKOS for controlled vocab/enumerations/code lists (including methods); OWL for domain entities; SHACL for validation (not inference)
@@ -84,11 +70,6 @@ This checklist is canonical for “what must be on a term”; other summary sect
 ## 📚 Table of Contents
 
 1. [Fundamentals](#1-fundamentals)
-
-   - [1.1 What is Knowledge Modeling?](#11-what-is-knowledge-modeling)
-   - [1.2 Ontology vs Knowledge Graph vs Graph Database](#12-ontology-vs-knowledge-graph-vs-graph-database)
-   - [1.3 Why This Ontology?](#13-why-this-ontology)
-   - [1.4 Modeling Approach](#14-modeling-approach)
 
 2. [Getting Started](#2-getting-started)
 
@@ -117,7 +98,10 @@ This checklist is canonical for “what must be on a term”; other summary sect
 
    - [6.1 Competency Questions](#61-competency-questions)
    - [6.2 Troubleshooting](#62-troubleshooting)
-   - [6.3 External Alignments](#63-external-alignments)
+   - [6.3 Hierarchy and Relationship Conventions](#63-hierarchy-and-relationship-conventions)
+   - [6.4 Membership and Roll-up Pattern](#64-membership-and-roll-up-pattern-smu--cu--population)
+   - [6.5 Measurement and GSI Conventions](#65-measurement-and-gsi-conventions)
+   - [6.6 External Alignments](#66-external-alignments)
 
 7. [Resources](#7-resources)
    - [7.1 Tools and Workflows](#71-tools-and-workflows)
@@ -130,7 +114,6 @@ This checklist is canonical for “what must be on a term”; other summary sect
 
 This introductory material has moved to a dedicated onboarding guide for clarity and easier learning.
 
-- This Conventions guide focuses on "how we do things" (operational guidance, patterns, QA, tools, workflows).
 - This Conventions guide focuses on "how we do things" (operational guidance, patterns, QA, tools, workflows).
 
 ---
@@ -156,7 +139,7 @@ The `ontology/dfo-salmon.ttl` file must contain **schema elements only** - no in
 - **OWL Classes**: `EscapementSurveyEvent`, `Stock`, `Measurement`
 - **OWL Properties**: `usesEnumerationMethod`, `aboutStock`, `hasCountValue`
 - **SKOS Concepts**: `SnorkelSurvey`, `Type2`, `VISITS`
-- **Axioms and Rules**: Class restrictions, equivalence axioms, SHACL shapes
+- **Axioms and Rules**: Class restrictions and equivalence axioms (SHACL shapes are maintained in `ontology/shapes/`)
 - **Metadata**: Labels, definitions, sources, examples
 
 **What Does NOT Go in the Ontology File:**
@@ -181,7 +164,6 @@ The `ontology/dfo-salmon.ttl` file must contain **schema elements only** - no in
     iao:0000115 "A specific survey event with measured parameters"@en ;
     rdfs:subClassOf dwc:Event ;
     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
-    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 :SnorkelSurvey a skos:Concept ;
     skos:prefLabel "Visual Snorkel Count"@en ;
@@ -205,8 +187,8 @@ The `ontology/dfo-salmon.ttl` file must contain **schema elements only** - no in
 
 **SHACL Validation:**
 
-- **Schema Validation**: SHACL shapes in the ontology file validate data structure
-- **Data Validation**: Apply SHACL shapes to instance data files
+- **Schema Validation**: SHACL shapes in `ontology/shapes/` validate data structure
+- **Data Validation**: Apply those SHACL shapes to instance data files
 - **Quality Assurance**: Ensures data conforms to schema requirements
 
 ### 2.3 Core Conventions
@@ -219,7 +201,6 @@ The `ontology/dfo-salmon.ttl` file must contain **schema elements only** - no in
 - **Label:** `rdfs:label "Human Name"@en` - A human-readable name in English (required, one per language)
 - **Definition:** `iao:0000115 "1–2 sentence definition."@en` - A clear explanation of what this class represents (required, one only)
 - **Source attribution:** `rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon>` - Links back to our ontology (required)
-- **Source attribution:** `rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon>` - Links back to our ontology (required)
 
 **Optional elements:**
 
@@ -227,7 +208,6 @@ The `ontology/dfo-salmon.ttl` file must contain **schema elements only** - no in
 - **Definition source (link):** `dcterms:source <https://doi.org/...>` - Resolvable link to authoritative document or resource (optional, 0..*)
 - **Examples:** `iao:0000112 "Concrete example of usage."@en` - Concrete examples of how this class is used (optional, 0..*)
 - **Notes:** `rdfs:comment "Editorial note."@en` - Optional editorial notes (NOT a definition)
-- **Alternative label:** `skos:altLabel "Alternative Label"@en` - Optional secondary label for SKOS consumers (non-normative)
 - **Alternative label:** `skos:altLabel "Alternative Label"@en` - Optional secondary label for SKOS consumers (non-normative)
 - **SKOS mirror label:** When a class also carries `skos:prefLabel`, duplicate the same literal in `rdfs:label` so OWL tooling and SKOS consumers stay in sync.
 
@@ -239,7 +219,6 @@ The `ontology/dfo-salmon.ttl` file must contain **schema elements only** - no in
 :GeneticSample a owl:Class ;
     rdfs:label "Genetic Sample"@en ;
     iao:0000115 "Tissue or material used in genetic stock identification analyses."@en ;
-    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
     iao:0000119 "DFO Molecular Genetics Lab glossary 2024"@en ;
     iao:0000112 "Fin clip sample from Fraser River sockeye collected in 2023."@en ;
@@ -256,7 +235,6 @@ The `ontology/dfo-salmon.ttl` file must contain **schema elements only** - no in
 - **Type declaration:** `a owl:ObjectProperty`
 - **Label:** `rdfs:label "Human Name"@en` - A human-readable name (required, one per language)
 - **Definition:** `iao:0000115 "1–2 sentence definition."@en` - A clear explanation of what this property represents (required, one only)
-- **Source attribution:** `rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon>` - Links back to our ontology (required)
 - **Source attribution:** `rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon>` - Links back to our ontology (required)
 
 **Optional but recommended:**
@@ -279,7 +257,6 @@ The `ontology/dfo-salmon.ttl` file must contain **schema elements only** - no in
 :aboutStock a owl:ObjectProperty ;
     rdfs:label "about stock"@en ;
     iao:0000115 "Links a measurement or observation to the specific stock it describes."@en ;
-    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
     iao:0000119 "DFO stock assessment protocols 2024"@en ;
     iao:0000112 "A sockeye escapement measurement about Fraser River sockeye stock."@en ;
@@ -365,7 +342,7 @@ Do not use `rdfs:seeAlso` for semantic alignment.
 - If multiple code systems apply, include multiple `skos:notation` values (one per datatype)
 - Enforce: per concept per scheme, exactly one `skos:notation` with datatype per code system
 
-**Note on ROBOT Validation:** ROBOT may report missing `rdfs:label` for SKOS concepts that have `skos:prefLabel`. Per W3C SKOS specification, `skos:prefLabel` is a subproperty of `rdfs:label`, so these concepts ARE properly labeled. Either configure ROBOT to accept `skos:prefLabel` without requiring `rdfs:label` on SKOS concepts, or document that SKOS concepts will duplicate `skos:prefLabel → rdfs:label` for ROBOT compatibility.
+**Note on ROBOT Validation:** ROBOT may report missing `rdfs:label` for SKOS concepts that have `skos:prefLabel`. Per W3C SKOS specification, `skos:prefLabel` is a subproperty of `rdfs:label`, so these concepts ARE properly labeled. Either configure ROBOT to accept `skos:prefLabel` without requiring `rdfs:label` on SKOS concepts, or document that SKOS concepts will duplicate `skos:prefLabel → rdfs:label` for ROBOT compatibility. **Project default:** duplicate `skos:prefLabel` into `rdfs:label` for SKOS concepts unless a validator profile explicitly waives it.
 
 **Example:**
 
@@ -659,7 +636,7 @@ In everyday modeling, mint distinct IRIs for OWL classes versus SKOS concepts an
 
 **Implementation:**
 
-#### MIREOT Implementation (BFO/IAO/DQV)
+#### 2.3.11.1 MIREOT Implementation (BFO/IAO/DQV)
 
 **Method:**
 1. Copy the term IRI (e.g., `bfo:0000015`)
@@ -701,7 +678,7 @@ dfo:StatusAssessment a owl:Class ;
 - Improves reasoning: Proper BFO grounding enables better logical inference
 - Doesn't compete with PROV-O: BFO = what things ARE; PROV-O = how things were DERIVED
 
-#### 2.3.6.3 Prefix Declarations Only
+#### 2.3.11.2 Prefix Declarations Only
 
 **Use when:**
 
@@ -728,14 +705,14 @@ dfo:StatusAssessment a owl:Class ;
   prov:wasAttributedTo :StockAssessmentTeam .
 ```
 
-**GCDFOS Salmon Prefix-Only:**
+**DFO Salmon Prefix-Only:**
 
 - **PROV-O** (~6 properties): wasGeneratedBy, wasDerivedFrom, used, wasAttributedTo, etc.
 - **RO** (reuse + alignment): RO:0002351 (has member), RO:0002350 (member of); use `rdfs:subPropertyOf`/`owl:equivalentProperty` when you need a local refinement
 - **SKOS** (extensive): Concept, ConceptScheme, prefLabel, definition, etc.
 - **DwC properties** (extensive): eventDate, samplingProtocol, parentEventID, measurementType, measurementValue, measurementUnit, etc.
 
-#### 2.3.6.4 Decision Matrix
+#### 2.3.11.3 Decision Matrix
 
 | Ontology   | Approach    | Terms Used                 | Rationale                              |
 | ---------- | ----------- | -------------------------- | -------------------------------------- |
@@ -1195,7 +1172,7 @@ Why: Per SKOS and OWL best practices (W3C SKOS Reference) and community guidance
 ### 2.6 Naming Conventions
 
 **Classes:** Use PascalCase (e.g., `EscapementMeasurement`, `GeneticSample`)
-**Properties:** Use lowerCamelCase (e.g., `aboutStock`, `usesMethod`, `hasMember`)
+**Properties:** Use lowerCamelCase (e.g., `aboutStock`, `usesMethod`, `hasConservationUnit`)
 **SKOS Concepts:** Use PascalCase (e.g., `SonarCounting`, `MicrosatelliteAssay`)
 **Instances:** Use PascalCase with descriptive names (e.g., `SkeenaSockeye`, `FraserCoho`)
 
@@ -1210,9 +1187,9 @@ Why: Per SKOS and OWL best practices (W3C SKOS Reference) and community guidance
 **Basic Measurement Pattern:**
 Every measurement must have:
 
-- `dwc:measurementType` - What was measured
+- `dwc:measurementType` / `dwciri:measurementType` - What was measured (text or controlled-vocabulary IRI in RDF)
 - `dwc:measurementValue` - The measured value
-- `dwc:measurementUnit` - The unit of measurement
+- `dwc:measurementUnit` / `dwciri:measurementUnit` - The unit of measurement (text IRI or QUDT unit IRI in RDF)
 - `dfo:aboutStock` - Which stock it describes
 - `dfo:observedDuring` - Which event it was collected during
 - `dfo:usesMethod` - Which method was used
@@ -1221,9 +1198,9 @@ Every measurement must have:
 
 ```turtle
 :EscapementCount2022 a dfo:EscapementMeasurement ;
-    dwc:measurementType "abundance" ;
+    dwciri:measurementType <https://w3id.org/gcdfo/salmon#EscapementCount> ;
     dwc:measurementValue "1250"^^xsd:integer ;
-    dwc:measurementUnit "http://qudt.org/vocab/unit/Each" ;
+    dwciri:measurementUnit <http://qudt.org/vocab/unit/Each> ;
     dfo:aboutStock :SkeenaSockeye ;
     dfo:observedDuring :SkeenaSurvey2022 ;
     dfo:usesMethod :SonarCounting .
@@ -1233,21 +1210,19 @@ Every measurement must have:
 
 **Management Hierarchy Pattern:**
 
-- Management Units contain Conservation Units
-- Conservation Units contain Stocks
-- Use transitive `dfo:hasMember` relationships
-- Create type-specific subproperties for clarity
+- Stock Management Units contain Conservation Units
+- Conservation Units contain Populations
+- Use explicit properties `dfo:hasConservationUnit` and `dfo:hasPopulation`
+- Add inverse properties (`dfo:conservationUnitOf`, `dfo:populationOf`) when bidirectional queries matter
 
 **Example:**
 
 ```turtle
-:BCInteriorMU a dfo:ManagementUnit ;
-    dfo:hasMemberCU :FraserCUCoho .
+:BCInteriorSMU a dfo:StockManagementUnit ;
+    dfo:hasConservationUnit :FraserCUCoho .
 
 :FraserCUCoho a dfo:ConservationUnit ;
-    dfo:hasMemberStock :FraserCohoStock .
-
-# Transitive inference: BCInteriorMU hasMember FraserCohoStock
+    dfo:hasPopulation :FraserCohoPopulation .
 ```
 
 ### 3.3 Event Patterns
@@ -1290,8 +1265,6 @@ Every measurement must have:
 - `dwc:Agent` - People, groups, organizations, machines, or software that can act
 - `dwc:Media` - Digital media (images, videos, sounds, text)
 - `dwc:Protocol` - Methods used during actions
-
-**Note:** Use `dwc:MaterialEntity` for physical samples/materials in this project; we do not use `dwc:MaterialSample` (not part of DwC-CM).
 
 **Note:** Use `dwc:MaterialEntity` for physical samples/materials in this project; we do not use `dwc:MaterialSample` (not part of DwC-CM).
 
@@ -1626,45 +1599,40 @@ SELECT ?method ?stock ?event WHERE {
     owl:disjointWith :Freshwater .
 ```
 
-### 6.4 Membership and Roll-up Pattern (MU ▶ CU ▶ Stock)
+### 6.4 Membership and Roll-up Pattern (SMU ▶ CU ▶ Population)
 
-**What is the membership pattern?** This pattern represents the hierarchical relationship between Management Units, Conservation Units, and Stocks in salmon management.
+**What is the membership pattern?** This pattern represents the hierarchical relationship between Stock Management Units, Conservation Units, and Populations in salmon management.
 
 **The Pattern:**
 
-- Management Units contain Conservation Units
-- Conservation Units contain Stocks
-- Use transitive `hasMember` relationships
-- Create type-specific subproperties for clarity
+- Stock Management Units contain Conservation Units
+- Conservation Units contain Populations
+- Use explicit properties `hasConservationUnit` and `hasPopulation` (instead of a transitive generic `hasMember`)
+- Add inverse properties when needed for query ergonomics (`conservationUnitOf`, `populationOf`)
 
 **Implementation:**
 
 ```turtle
-# Define the base membership property
-:hasMember a owl:ObjectProperty, owl:TransitiveProperty ;
-    rdfs:label "has member"@en ;
-    iao:0000115 "A transitive relationship indicating membership in a group"@en ;
+:hasConservationUnit a owl:ObjectProperty ;
+    rdfs:label "has Conservation Unit"@en ;
+    iao:0000115 "Relates a Stock Management Unit to one of its constituent Conservation Units."@en ;
+    rdfs:domain :StockManagementUnit ;
+    rdfs:range :ConservationUnit ;
     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
-# Define type-specific subproperties
-:hasMemberCU rdfs:subPropertyOf :hasMember ;
-    rdfs:label "has member conservation unit"@en ;
-    rdfs:domain :ManagementUnit ;
-    rdfs:range :ConservationUnit .
-
-:hasMemberStock rdfs:subPropertyOf :hasMember ;
-    rdfs:label "has member stock"@en ;
+:hasPopulation a owl:ObjectProperty ;
+    rdfs:label "has population"@en ;
+    iao:0000115 "Relates a Conservation Unit to one of its constituent populations."@en ;
     rdfs:domain :ConservationUnit ;
-    rdfs:range :Stock .
+    rdfs:range :Population ;
+    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 # Example usage
-:BCInteriorMU a :ManagementUnit ;
-    :hasMemberCU :FraserCUCoho .
+:BCInteriorSMU a :StockManagementUnit ;
+    :hasConservationUnit :FraserCUCoho .
 
 :FraserCUCoho a :ConservationUnit ;
-    :hasMemberStock :FraserCohoStock .
-
-# Transitive inference: BCInteriorMU hasMember FraserCohoStock
+    :hasPopulation :FraserCohoPopulation .
 ```
 
 ### 6.5 Measurement and GSI Conventions
@@ -1784,7 +1752,7 @@ SELECT ?method ?stock ?event WHERE {
 Practical guidance for new relationships:
 
 - Before minting a custom property like `partOfRiver`, prefer the generic OBO relation `<http://purl.obolibrary.org/obo/BFO_0000050>` (part of) and model “river” via the class hierarchy (e.g., `dfo:RiverSegment`).
-- When a domain-specific refinement is needed, define a custom subproperty aligned to RO (e.g., `dfo:hasMemberCU rdfs:subPropertyOf <http://purl.obolibrary.org/obo/RO_0002351>`). This keeps reasoning consistent and improves interoperability.
+- When a domain-specific refinement is needed, define a custom subproperty aligned to RO (e.g., `dfo:hasConservationUnit rdfs:subPropertyOf <http://purl.obolibrary.org/obo/RO_0002351>`). This keeps reasoning consistent and improves interoperability.
 
 **Unit Property Enhancement (Non-breaking):**
 For richer unit semantics, consider adding object properties alongside datatype properties:
@@ -1923,7 +1891,7 @@ BFO → IAO → PROV-O → SOSA/SSN → I-ADOPT → Darwin Core → `gcdfo:` (sa
 **Example:**
 
 ```turtle
-:SkeenaSurvey2023 a eco:Survey ;
+:SkeenaSurvey2023 a dfo:SurveyEvent ;
     dwc:eventDate "2023-08-15"^^xsd:date ;
     dwc:samplingProtocol :SonarCountingProtocol ;
     dwc:recordedBy :DFOFieldTeam .
@@ -1933,9 +1901,9 @@ BFO → IAO → PROV-O → SOSA/SSN → I-ADOPT → Darwin Core → `gcdfo:` (sa
     iao:0000115 "Sockeye salmon from the Skeena River watershed"@en .
 
 :SonarCount2023_08_15 a dfo:EscapementMeasurement ;
-    dwc:measurementType "abundance" ;
+    dwciri:measurementType <https://w3id.org/gcdfo/salmon#EscapementCount> ;
     dwc:measurementValue "1250"^^xsd:integer ;
-    dwc:measurementUnit "http://qudt.org/vocab/unit/Each" ;
+    dwciri:measurementUnit <http://qudt.org/vocab/unit/Each> ;
     dfo:aboutStock :SkeenaSockeye ;
     dfo:observedDuring :SkeenaSurvey2023 ;
     dfo:usesMethod :SonarCounting .
