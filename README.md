@@ -52,8 +52,8 @@ The GC DFO Salmon Ontology is a **data stewardship and operational process ontol
 ### For Contributors
 1. **Read the [Conventions Guide](docs/CONVENTIONS.md)** for detailed modeling guidelines
 2. **Read the [Competency Questions](docs/COMPETENCY_QUESTIONS.md)** to understand scope and goals
-3. **Use Protégé Desktop** to edit `dfo-salmon.ttl` with OntoGraf for visualization
-4. **Use ROBOT** for quality control: `robot reason --input dfo-salmon.ttl --reasoner ELK`
+3. **Use Protégé Desktop** to edit `ontology/dfo-salmon.ttl` with OntoGraf for visualization
+4. **Use project targets for quality control**: `make reason` (or `make quality-check` for the full ROBOT report)
 5. **Discuss changes** in GitHub Issues before creating PRs
 6. **Follow OBO practices**: Use competency questions, design patterns, and quality checklists
 7. **Run validations**: Run `make theme-coverage` (smoke), `make alpha-lint` (alpha migration lints), or `make test` (theme coverage + alpha-lint + ELK reasoning); use `make quality-check` for the full ROBOT report. Note: If using `devenv`/`nix` (optional), prefix commands with `devenv shell`.
@@ -76,7 +76,7 @@ The GC DFO Salmon Ontology is a **data stewardship and operational process ontol
 - **Release paths**: root-level `release/` is for transient local/CI build outputs; canonical published artifacts and immutable version snapshots live under `docs/` and `docs/releases/X.Y.Z/`.
 - **OBO-style workflow**: Use ROBOT for quality control and release management
 - **Pre-commit validation**: Install pre-commit hooks (`pre-commit install`) to validate ontology before commit
-- **CI validation**: Pushes/PRs run ROBOT ELK reasoning + ROBOT report (with custom profile); CI (continuous integration, automated checks on every push) runs `make ci` and fails if it produces uncommitted diffs.
+- **CI validation**: Pull requests to `main` and pushes to `main` run ROBOT ELK reasoning + ROBOT report (with custom profile); CI runs `make ci` and fails if it produces uncommitted diffs.
 - **Windows**: Use WSL2 + `nix`/`direnv` (optional) or Git Bash; `make install-robot` fetches the pinned ROBOT jar used by CI/pre-commit
 - **GitHub-based collaboration**: All changes via Pull Requests with Issues for discussion
 - **Quality first**: Use competency questions and design patterns to guide development
@@ -97,7 +97,7 @@ The GC DFO Salmon Ontology is a **data stewardship and operational process ontol
 
 ## CI + Release Workflow (manual steps)
 
-**CI entrypoint:** `devenv shell make ci` (CI means automated checks that run on every push; this command runs tests, ROBOT quality-check, and `make docs-refresh`, so it will regenerate `docs/` and must be committed before you push).
+**CI entrypoint:** `make ci` (or `devenv shell make ci` if you use nix/devenv). This runs tests, ROBOT quality-check, and `make docs-refresh`, so it regenerates `docs/` artifacts that must be committed before you push.
 
 **Manual release steps (manual means you must do these yourself; CI does not publish releases):**
 
@@ -106,8 +106,8 @@ The GC DFO Salmon Ontology is a **data stewardship and operational process ontol
    - `owl:versionInfo`
    - `owl:versionIRI` (example: `https://w3id.org/gcdfo/salmon/0.0.999`)
    - `owl:priorVersion` (previous version IRI)
-2. Run `devenv shell make ci` and commit regenerated artifacts (`docs/gcdfo.{ttl,owl,jsonld}` and `docs/index.html`).
-3. Run `devenv shell make release-snapshot VERSION=X.Y.Z` to create a release snapshot (a release snapshot is an immutable copy under `docs/releases/X.Y.Z/`).
+2. Run `make ci-sync-artifacts` (or `devenv shell make ci-sync-artifacts`) and commit regenerated artifacts from `docs/` (including `docs/gcdfo.{ttl,owl,jsonld}`, `docs/index.html`, and `docs/index-en.html` when changed).
+3. Run `make release-snapshot VERSION=X.Y.Z` (or `devenv shell make release-snapshot VERSION=X.Y.Z`) to create a release snapshot (an immutable copy under `docs/releases/X.Y.Z/`).
 4. Commit and push `docs/releases/X.Y.Z/` so GitHub Pages serves the versioned files.
 5. Optional: tag the release (a tag is a Git label for a specific commit, e.g., `v0.0.999`).
 

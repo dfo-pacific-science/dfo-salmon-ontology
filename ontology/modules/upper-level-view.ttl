@@ -99,7 +99,7 @@ iop:Property rdfs:subClassOf iao:0000030 .
   rdfs:range sosa:Procedure .
 
 #################################################################
-# Canonical SOSA -> PROV alignment links
+# Reference SOSA -> PROV alignment links (module-only view)
 #################################################################
 
 sosa:hasFeatureOfInterest rdfs:subPropertyOf prov:used .

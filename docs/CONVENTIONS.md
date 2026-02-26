@@ -1719,6 +1719,12 @@ SELECT ?method ?stock ?event WHERE {
 3. **Equivalence-level confidence:** use `owl:equivalentProperty` (properties) or `owl:equivalentClass` (classes).
 4. **Concept mappings only:** use `skos:exactMatch` / `skos:closeMatch` only for concept-to-concept mappings.
 
+**Promotion criteria (minimum evidence):**
+
+- **Candidate -> hierarchy-level:** textual definitions + intended use are directionally compatible, and no known contradiction from competency questions.
+- **Hierarchy-level -> equivalence-level:** reciprocal use in test queries shows substitutability in both directions and no contradictory domain/range intent.
+- **Any promotion decision:** capture rationale in PR/issue notes so future contributors can trace why the axiom strength was chosen.
+
 **Example RO Alignment:**
 
 ```turtle

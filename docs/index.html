@@ -863,9 +863,7 @@ This ontology has the following classes and properties.</span>
       <a href="#http://purl.obolibrary.org/obo/ENVO_00000063" title="http://purl.obolibrary.org/obo/ENVO_00000063">water body</a>
    </li>
    <li>
-      <a href="#WSPRapidStatus" title="https://w3id.org/gcdfo/salmon#WSPRapidStatus">
-         <span>WSP rapid status</span>
-      </a>
+      <a href="#WSPRapidStatus" title="https://w3id.org/gcdfo/salmon#WSPRapidStatus">WSP rapid status</a>
    </li>
    <li>
       <a href="#http://purl.dataone.org/odo/ECSO_00002050" title="http://purl.dataone.org/odo/ECSO_00002050">year of measurement</a>
@@ -1112,7 +1110,7 @@ This ontology has the following classes and properties.</span>
   <h3 id="scheme-escapement-estimate-method-scheme" class="list">Escapement Estimate Method Scheme</h3>
   <p class="markdown">Controlled vocabulary for salmon estimate methods</p>
   <details class="gcdfo-collapsible">
-    <summary>11 concepts (expand)</summary>
+    <summary>12 concepts (expand)</summary>
     <ul>
       <li><a href="#AreaUnderTheCurve">Area Under the Curve</a></li>
       <li><a href="#CalibratedTimeSeries">Calibrated Time Series</a></li>
@@ -1125,6 +1123,7 @@ This ontology has the following classes and properties.</span>
       <li><a href="#PeakCountAnalysis">Peak Count Analysis</a></li>
       <li><a href="#ReddExpansionAnalysis">Redd Expansion Analysis</a></li>
       <li><a href="#TrapModelAnalysis">Trap Model Analysis</a></li>
+      <li><a href="#WSPRapidStatusAssessmentMethod">WSP rapid-status assessment method</a></li>
     </ul>
   </details>
 </div>
@@ -3366,6 +3365,21 @@ This ontology has the following classes and properties.</span>
     <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
   </dl>
 </div>
+<div class="entity" id="WSPRapidStatusAssessmentMethod">
+  <h3>WSP rapid-status assessment method<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#WSPRapidStatusAssessmentMethod</p>
+  <div class="comment">
+    <span class="markdown">The analytical method used to produce rapid-status metrics under the Wild Salmon Policy rapid-status approach.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-escapement-estimate-method-scheme">Escapement Estimate Method Scheme</a></dd>
+  </dl>
+</div>
 <div class="entity" id="YearBasis">
   <h3>Year basis<sup class="type-skos" title="SKOS concept">skos</sup></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#YearBasis</p>
@@ -3479,7 +3493,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <li><a href="#UpperBiologicalBenchmark" title="https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark">Upper biological benchmark</a></li>
   <li><a href="#UpperStockReferencePoint" title="https://w3id.org/gcdfo/salmon#UpperStockReferencePoint">Upper stock reference</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/ENVO_00000063" title="http://purl.obolibrary.org/obo/ENVO_00000063">water body</a></li>
-  <li><a href="#WSPRapidStatus" title="https://w3id.org/gcdfo/salmon#WSPRapidStatus"> <span>WSP rapid status</span> </a></li>
+  <li><a href="#WSPRapidStatus" title="https://w3id.org/gcdfo/salmon#WSPRapidStatus">WSP rapid status</a></li>
   <li><a href="#http://purl.dataone.org/odo/ECSO_00002050" title="http://purl.dataone.org/odo/ECSO_00002050">year of measurement</a></li>
  </ul>
  <div class="entity" id="http://www.w3.org/ns/oa#Annotation">
@@ -3793,7 +3807,7 @@ This section provides details for each class and property defined by DFO Salmon 
     has super-classes
    </dt>
    <dd>
-    <a href="#http://purl.obolibrary.org/obo/IAO_0000109" title="http://purl.obolibrary.org/obo/IAO_0000109">measurement datum</a> <sup class="type-c" title="class">c</sup>
+    <a href="http://www.w3.org/ns/sosa/Result" target="_blank" title="http://www.w3.org/ns/sosa/Result">Result</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.obolibrary.org/obo/IAO_0000109" title="http://purl.obolibrary.org/obo/IAO_0000109">measurement datum</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     is in domain of
@@ -5829,7 +5843,7 @@ This section provides details for each class and property defined by DFO Salmon 
     has super-classes
    </dt>
    <dd>
-    <a href="http://www.w3.org/ns/prov#Activity" target="_blank" title="http://www.w3.org/ns/prov#Activity">Activity</a> <sup class="type-c" title="class">c</sup>, <a href="#http://rs.tdwg.org/dwc/terms/Event" title="http://rs.tdwg.org/dwc/terms/Event">Event</a> <sup class="type-c" title="class">c</sup>
+    <a href="http://www.w3.org/ns/prov#Activity" target="_blank" title="http://www.w3.org/ns/prov#Activity">Activity</a> <sup class="type-c" title="class">c</sup>, <a href="#http://rs.tdwg.org/dwc/terms/Event" title="http://rs.tdwg.org/dwc/terms/Event">Event</a> <sup class="type-c" title="class">c</sup>, <a href="http://www.w3.org/ns/sosa/Sampling" target="_blank" title="http://www.w3.org/ns/sosa/Sampling">Sampling</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     has sub-classes
@@ -6120,18 +6134,34 @@ This section provides details for each class and property defined by DFO Salmon 
  <div class="entity" id="WSPRapidStatus">
   <h3>WSP rapid status<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#WSPRapidStatus</p>
+  <div class="comment">
+   <span class="markdown">The WSP rapid status assessment approach builds on previously completed WSP integrated status assessments. The WSP rapid status approach ensures statuses are scientifically objective, consistent, and comparable across BC/Yukon CUs. This approach is also relatively easy to implement, applicable to data rich and data poor CUs, and can be updated annually.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570.
+   </dd>
+   <dd>
+    <a href="https://publications.gc.ca/site/eng/9.928944/publication.html">https://publications.gc.ca/site/eng/9.928944/publication.html</a>
+   </dd>
+  </dl>
   <dl class="description">
    <dt>
     has super-classes
    </dt>
    <dd>
     <a href="#http://purl.obolibrary.org/obo/IAO_0000030" title="http://purl.obolibrary.org/obo/IAO_0000030">information content entity</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-   <dt>
-    is also defined as
-   </dt>
-   <dd>
-    named individual
    </dd>
   </dl>
  </div>
@@ -6788,19 +6818,15 @@ This section provides details for each class and property defined by DFO Salmon 
 </ul>
 <ul>
 <li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. (2005). Canada's Policy for Conservation of Wild Pacific Salmon. Retrieved from https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf"@en</li>
+<li>Deleted: <http://www.w3.org/2004/02/skos/core#closeMatch> http://purl.dataone.org/odo/SALMON_00000479</li>
 </ul>
 </li>
 <li><a href="#EscapementMeasurement">https://w3id.org/gcdfo/salmon#EscapementMeasurement</a>
 <ul>
-<li>Added: <http://www.w3.org/2004/02/skos/core#closeMatch> http://www.w3.org/ns/sosa/Result</li>
+<li>Added: SubClass of http://www.w3.org/ns/sosa/Result</li>
 </ul>
 <ul>
 <li>Deleted: rdfs:comment "Salmon escapement count"@en</li>
-</ul>
-</li>
-<li><a href="#EscapementSurveyEvent">https://w3id.org/gcdfo/salmon#EscapementSurveyEvent</a>
-<ul>
-<li>Added: <http://www.w3.org/2004/02/skos/core#closeMatch> http://www.w3.org/ns/sosa/Sampling</li>
 </ul>
 </li>
 <li><a href="#ExploitationRate">https://w3id.org/gcdfo/salmon#ExploitationRate</a>
@@ -6853,11 +6879,6 @@ This section provides details for each class and property defined by DFO Salmon 
 <li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000119> "DFO Introduction to Stock Assessment Glossary."@en</li>
 </ul>
 </li>
-<li><a href="#ReportingOrManagementStratum">https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum</a>
-<ul>
-<li>Added: <http://www.w3.org/2004/02/skos/core#closeMatch> http://www.w3.org/ns/sosa/FeatureOfInterest</li>
-</ul>
-</li>
 <li><a href="#Stock">https://w3id.org/gcdfo/salmon#Stock</a>
 <ul>
 <li>Added: <http://purl.obolibrary.org/obo/IAO_0000115> "An operationally-defined grouping of salmon used for assessment and management purposes. A stock is a management unit or reporting stratum, not a biological organism."@en</li>
@@ -6893,8 +6914,8 @@ This section provides details for each class and property defined by DFO Salmon 
 <ul>
 <li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. About the Sustainability Survey for Fisheries. https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html."@en</li>
 <li>Added: <http://purl.org/dc/terms/source> https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html</li>
-<li>Added: <http://www.w3.org/2004/02/skos/core#closeMatch> http://www.w3.org/ns/sosa/Sampling</li>
 <li>Added: SubClass of http://www.w3.org/ns/prov#Activity</li>
+<li>Added: SubClass of http://www.w3.org/ns/sosa/Sampling</li>
 </ul>
 <ul>
 <li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. (2021). About the Sustainability Survey for Fisheries. Available at https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html. [Accessed 09-10-2025]."@en</li>
@@ -6955,6 +6976,10 @@ This section provides details for each class and property defined by DFO Salmon 
 </ul>
 </li>
 <li><a href="#http://www.w3.org/ns/prov#Activity">http://www.w3.org/ns/prov#Activity</a>
+</li>
+<li><a href="#http://www.w3.org/ns/sosa/Result">http://www.w3.org/ns/sosa/Result</a>
+</li>
+<li><a href="#http://www.w3.org/ns/sosa/Sampling">http://www.w3.org/ns/sosa/Sampling</a>
 </li>
 <li><a href="#CWTMarineSurvivalRate">https://w3id.org/gcdfo/salmon#CWTMarineSurvivalRate</a>
 <ul>

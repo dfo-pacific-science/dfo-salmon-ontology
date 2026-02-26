@@ -7,8 +7,8 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 # - gcdfo:iadoptEntity
 # - gcdfo:iadoptProperty
 #
-# Scope: concepts in explicitly named variable schemes, or schemes whose IRI/label
-# indicates "variable" usage.
+# Scope: leaf concepts in explicitly named variable/metric schemes, or schemes
+# whose IRI/label indicates variable usage.
 #
 # The query is intentionally dormant until both gcdfo:iadoptEntity and
 # gcdfo:iadoptProperty are declared in the ontology.
@@ -27,15 +27,20 @@ WHERE {
       gcdfo:ObservedVariableScheme,
       gcdfo:MetricVariableScheme,
       gcdfo:WSPVariableScheme,
-      gcdfo:WSPMetricVariableScheme
+      gcdfo:WSPMetricVariableScheme,
+      gcdfo:RapidStatusMetricScheme
     )
     || CONTAINS(LCASE(STR(?scheme)), "variablescheme")
     || EXISTS {
       ?scheme skos:prefLabel ?schemeLabel .
       FILTER(LANG(?schemeLabel) = "" || LANGMATCHES(LANG(?schemeLabel), "en"))
-      FILTER(CONTAINS(LCASE(STR(?schemeLabel)), "variable"))
+      FILTER(CONTAINS(LCASE(STR(?schemeLabel)), "variable") || CONTAINS(LCASE(STR(?schemeLabel)), "metric"))
     }
   )
+
+  # Treat grouping concepts (those with narrower terms) as optional for
+  # decomposition completeness; enforce on leaf concepts used as variables.
+  FILTER NOT EXISTS { ?narrower skos:broader ?variable . }
 
   {
     FILTER NOT EXISTS { ?variable gcdfo:iadoptEntity ?entity . }

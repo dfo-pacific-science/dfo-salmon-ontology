@@ -34,6 +34,7 @@ checks=(
   "scripts/sparql/missing-variable-decomposition.rq|$OUT_DIR/missing-variable-decomposition.tsv|Variable decomposition minimum"
   "scripts/sparql/no-legacy-variablehas.rq|$OUT_DIR/no-legacy-variablehas.tsv|No legacy variableHas* properties in canonical ontology"
   "scripts/sparql/skos-match-on-owl-properties.rq|$OUT_DIR/skos-match-on-owl-properties.tsv|No skos:*Match on OWL properties"
+  "scripts/sparql/skos-match-on-owl-classes.rq|$OUT_DIR/skos-match-on-owl-classes.tsv|No skos:*Match on OWL classes"
 )
 
 failures=0

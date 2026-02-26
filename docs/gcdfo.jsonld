@@ -1368,7 +1368,7 @@
     ],
     "https://w3id.org/gcdfo/salmon#iadoptConstraint": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#WSPRapidStatus"
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicy"
       }
     ],
     "https://w3id.org/gcdfo/salmon#iadoptEntity": [
@@ -1394,7 +1394,7 @@
     ],
     "https://w3id.org/gcdfo/salmon#usedProcedure": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#WSPRapidStatus"
+        "@id": "https://w3id.org/gcdfo/salmon#WSPRapidStatusAssessmentMethod"
       }
     ]
   },
@@ -2329,10 +2329,10 @@
     ],
     "https://w3id.org/gcdfo/salmon#iadoptConstraint": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark"
+        "@id": "https://w3id.org/gcdfo/salmon#LowerBenchmark"
       },
       {
-        "@id": "https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark"
+        "@id": "https://w3id.org/gcdfo/salmon#UpperBenchmark"
       }
     ],
     "https://w3id.org/gcdfo/salmon#iadoptEntity": [
@@ -2358,7 +2358,7 @@
     ],
     "https://w3id.org/gcdfo/salmon#usedProcedure": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#WSPRapidStatus"
+        "@id": "https://w3id.org/gcdfo/salmon#WSPRapidStatusAssessmentMethod"
       }
     ]
   },
@@ -3492,11 +3492,6 @@
         "@id": "http://purl.obolibrary.org/obo/BFO_0000015"
       }
     ],
-    "http://www.w3.org/2004/02/skos/core#closeMatch": [
-      {
-        "@id": "http://purl.dataone.org/odo/SALMON_00000479"
-      }
-    ],
     "https://w3id.org/gcdfo/salmon#theme": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"
@@ -3531,9 +3526,7 @@
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
         "@id": "http://purl.obolibrary.org/obo/IAO_0000109"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#closeMatch": [
+      },
       {
         "@id": "http://www.w3.org/ns/sosa/Result"
       }
@@ -3572,11 +3565,6 @@
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#SurveyEvent"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#closeMatch": [
-      {
-        "@id": "http://www.w3.org/ns/sosa/Sampling"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#prefLabel": [
@@ -4320,7 +4308,7 @@
     ],
     "https://w3id.org/gcdfo/salmon#usedProcedure": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#WSPRapidStatus"
+        "@id": "https://w3id.org/gcdfo/salmon#WSPRapidStatusAssessmentMethod"
       }
     ]
   },
@@ -5006,7 +4994,7 @@
     ],
     "https://w3id.org/gcdfo/salmon#iadoptConstraint": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#WSPRapidStatus"
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicy"
       }
     ],
     "https://w3id.org/gcdfo/salmon#iadoptEntity": [
@@ -5032,7 +5020,7 @@
     ],
     "https://w3id.org/gcdfo/salmon#usedProcedure": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#WSPRapidStatus"
+        "@id": "https://w3id.org/gcdfo/salmon#WSPRapidStatusAssessmentMethod"
       }
     ]
   },
@@ -6059,7 +6047,7 @@
     ],
     "https://w3id.org/gcdfo/salmon#iadoptConstraint": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#WSPRapidStatus"
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicy"
       }
     ],
     "https://w3id.org/gcdfo/salmon#iadoptEntity": [
@@ -6085,7 +6073,7 @@
     ],
     "https://w3id.org/gcdfo/salmon#usedProcedure": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#WSPRapidStatus"
+        "@id": "https://w3id.org/gcdfo/salmon#WSPRapidStatusAssessmentMethod"
       }
     ]
   },
@@ -6387,7 +6375,7 @@
     ],
     "https://w3id.org/gcdfo/salmon#iadoptConstraint": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark"
+        "@id": "https://w3id.org/gcdfo/salmon#LowerBenchmark"
       }
     ],
     "https://w3id.org/gcdfo/salmon#iadoptEntity": [
@@ -6413,7 +6401,7 @@
     ],
     "https://w3id.org/gcdfo/salmon#usedProcedure": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#WSPRapidStatus"
+        "@id": "https://w3id.org/gcdfo/salmon#WSPRapidStatusAssessmentMethod"
       }
     ]
   },
@@ -6680,7 +6668,7 @@
     ],
     "https://w3id.org/gcdfo/salmon#usedProcedure": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#WSPRapidStatus"
+        "@id": "https://w3id.org/gcdfo/salmon#WSPRapidStatusAssessmentMethod"
       }
     ]
   },
@@ -6774,7 +6762,7 @@
     ],
     "https://w3id.org/gcdfo/salmon#iadoptConstraint": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#WSPRapidStatus"
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicy"
       }
     ],
     "https://w3id.org/gcdfo/salmon#iadoptEntity": [
@@ -6800,7 +6788,7 @@
     ],
     "https://w3id.org/gcdfo/salmon#usedProcedure": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#WSPRapidStatus"
+        "@id": "https://w3id.org/gcdfo/salmon#WSPRapidStatusAssessmentMethod"
       }
     ]
   },
@@ -7678,11 +7666,6 @@
         "@id": "http://purl.obolibrary.org/obo/IAO_0000030"
       }
     ],
-    "http://www.w3.org/2004/02/skos/core#closeMatch": [
-      {
-        "@id": "http://www.w3.org/ns/sosa/FeatureOfInterest"
-      }
-    ],
     "https://w3id.org/gcdfo/salmon#theme": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"
@@ -8035,11 +8018,6 @@
       {
         "@language": "en",
         "@value": "Escapement (count)"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#closeMatch": [
-      {
-        "@id": "http://purl.dataone.org/odo/SALMON_00000479"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
@@ -8544,9 +8522,7 @@
       },
       {
         "@id": "http://www.w3.org/ns/prov#Activity"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#closeMatch": [
+      },
       {
         "@id": "http://www.w3.org/ns/sosa/Sampling"
       }
@@ -9930,6 +9906,67 @@
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#WSPRapidStatusAssessmentMethod",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://publications.gc.ca/site/eng/9.928944/publication.html"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#altLabel": [
+      {
+        "@language": "en",
+        "@value": "WSP rapid status method"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#EstimateMethod"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "The analytical method used to produce rapid-status metrics under the Wild Salmon Policy rapid-status approach."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#EstimateMethodScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "WSP rapid-status assessment method"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
       {
         "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
       },

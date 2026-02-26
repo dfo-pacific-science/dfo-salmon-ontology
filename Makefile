@@ -89,7 +89,8 @@ theme-coverage: check-robot
 		--query scripts/sparql/theme-coverage.rq \
 		release/tmp/theme-coverage.tsv
 	@if [ -s release/tmp/theme-coverage.tsv ]; then \
-		echo "⚠️ Theme coverage found issues. Inspect release/tmp/theme-coverage.tsv."; \
+		echo "❌ Theme coverage found issues. Inspect release/tmp/theme-coverage.tsv."; \
+		exit 1; \
 	else \
 		echo "✅ Theme coverage clean (release/tmp/theme-coverage.tsv is empty)."; \
 	fi
