@@ -116,7 +116,7 @@ install-robot:
 	@echo "📥 Downloading ROBOT..."
 	@mkdir -p tools
 	@if command -v curl >/dev/null 2>&1; then \
-		curl -L $(ROBOT_URL) -o $(ROBOT_JAR); \
+		curl -fL --retry 3 --retry-delay 2 $(ROBOT_URL) -o $(ROBOT_JAR); \
 	elif command -v wget >/dev/null 2>&1; then \
 		wget -O $(ROBOT_JAR) $(ROBOT_URL); \
 	else \
@@ -130,7 +130,7 @@ install-widoco:
 	@echo "📥 Downloading WIDOCO..."
 	@mkdir -p tools
 	@if command -v curl >/dev/null 2>&1; then \
-		curl -L $(WIDOCO_URL) -o $(WIDOCO_JAR); \
+		curl -fL --retry 3 --retry-delay 2 $(WIDOCO_URL) -o $(WIDOCO_JAR); \
 	elif command -v wget >/dev/null 2>&1; then \
 		wget -O $(WIDOCO_JAR) $(WIDOCO_URL); \
 	else \

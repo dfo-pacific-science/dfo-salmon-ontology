@@ -48,7 +48,7 @@ jobs:
         if: steps.cache-robot.outputs.cache-hit != 'true'
         run: |
           mkdir -p "$(dirname "$ROBOT_JAR")"
-          curl -L "$ROBOT_URL" -o "$ROBOT_JAR"
+          curl -fL --retry 3 --retry-delay 2 "$ROBOT_URL" -o "$ROBOT_JAR"
 
       - name: Cache WIDOCO jar
         id: cache-widoco
@@ -61,16 +61,17 @@ jobs:
         if: steps.cache-widoco.outputs.cache-hit != 'true'
         run: |
           mkdir -p "$(dirname "$WIDOCO_JAR")"
-          curl -L "$WIDOCO_URL" -o "$WIDOCO_JAR"
+          curl -fL --retry 3 --retry-delay 2 "$WIDOCO_URL" -o "$WIDOCO_JAR"
 
       - name: Run full CI bundle (make ci)
         run: make ci
 
       - name: Fail if CI bundle produced uncommitted changes
         run: |
-          if ! git diff --quiet -- . ':(exclude)docs/webvowl/data/ontology.json'; then
-            echo "::error::Running 'make ci' produced changes. Please run it locally and commit the updated artifacts (including docs/gcdfo.{ttl,owl,jsonld} and docs/index.html) before pushing."
-            git status
+          CHANGES="$(git status --porcelain --untracked-files=all -- . ':(exclude)docs/webvowl/data/ontology.json')"
+          if [ -n "$CHANGES" ]; then
+            echo "::error::Running 'make ci' produced tracked/untracked changes. Please run it locally and commit regenerated artifacts (including docs/gcdfo.{ttl,owl,jsonld} and docs/index*.html) before pushing."
+            printf '%s\n' "$CHANGES"
             exit 1
           fi
 
