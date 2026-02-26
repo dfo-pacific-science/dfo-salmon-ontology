@@ -46,6 +46,7 @@ The lint runner (`scripts/run-sparql-lint.sh`) executes:
 
 - `scripts/sparql/missing-year-basis.rq` (checks SKOS `YearBasisScheme` assumptions once present)
 - `scripts/sparql/missing-variable-decomposition.rq` (requires `gcdfo:iadoptEntity` + `gcdfo:iadoptProperty` on variable concepts)
+- `scripts/sparql/no-legacy-variablehas.rq` (blocks reintroduction of legacy `gcdfo:variableHas*` properties)
 - `scripts/sparql/skos-match-on-owl-properties.rq` (blocks `skos:*Match` on OWL/RDF properties)
 
 Output files are written to `release/tmp/*.tsv`; non-empty output fails the lint step.

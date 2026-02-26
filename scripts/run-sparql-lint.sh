@@ -32,6 +32,7 @@ mkdir -p "$OUT_DIR"
 checks=(
   "scripts/sparql/missing-year-basis.rq|$OUT_DIR/missing-year-basis.tsv|Year-basis scheme migration"
   "scripts/sparql/missing-variable-decomposition.rq|$OUT_DIR/missing-variable-decomposition.tsv|Variable decomposition minimum"
+  "scripts/sparql/no-legacy-variablehas.rq|$OUT_DIR/no-legacy-variablehas.tsv|No legacy variableHas* properties in canonical ontology"
   "scripts/sparql/skos-match-on-owl-properties.rq|$OUT_DIR/skos-match-on-owl-properties.tsv|No skos:*Match on OWL properties"
 )
 

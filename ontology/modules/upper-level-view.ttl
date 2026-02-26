@@ -13,7 +13,7 @@
 
 <https://w3id.org/gcdfo/salmon/modules/salmon-data-metamodel> a owl:Ontology ;
   rdfs:label "Salmon Data Metamodel (upper-level alignment view)"@en ;
-  rdfs:comment "Standalone OWL alignment view focused on SOSA + I-ADOPT + PROV, with DwC/DwC-DP kept as reference mappings. No import of core gcdfo ontology to keep WebVOWL focused on metamodel structure."@en .
+  rdfs:comment "Standalone OWL alignment view focused on SOSA + I-ADOPT + PROV, with DwC/DwC-DP kept as reference mappings. This module is a visualization/alignment aid and is not the canonical authoring source (canonical source is ontology/dfo-salmon.ttl + docs/CONVENTIONS.md)."@en .
 
 #################################################################
 # Upper-level anchors (optional but explicit)
@@ -36,7 +36,7 @@ iop:Property rdfs:subClassOf iao:0000030 .
   rdfs:label "Salmon data observation"@en ;
   rdfs:subClassOf sosa:Observation ,
     [ a owl:Restriction ; owl:onProperty sosa:hasFeatureOfInterest ; owl:someValuesFrom iop:Entity ] ,
-    [ a owl:Restriction ; owl:onProperty sosa:observedProperty ; owl:someValuesFrom sosa:Property ] ,
+    [ a owl:Restriction ; owl:onProperty sosa:observedProperty ; owl:someValuesFrom iop:Variable ] ,
     [ a owl:Restriction ; owl:onProperty sosa:hasResult ; owl:someValuesFrom sosa:Result ] ,
     [ a owl:Restriction ; owl:onProperty :hasVariable ; owl:someValuesFrom iop:Variable ] .
 
@@ -55,42 +55,6 @@ iop:Property rdfs:subClassOf iao:0000030 .
   rdfs:domain sosa:Observation ;
   rdfs:range iop:Variable ;
   rdfs:comment "Links a SOSA observation to an I-ADOPT variable decomposition used in salmon data workflows. In SDP workflows this is typically represented as a compound term concept with decomposition annotations."@en .
-
-:variableHasEntity a owl:ObjectProperty ;
-  rdfs:label "variable has entity"@en ;
-  rdfs:subPropertyOf iop:hasObjectOfInterest ;
-  rdfs:domain iop:Variable ;
-  rdfs:range iop:Entity .
-
-:variableHasProperty a owl:ObjectProperty ;
-  rdfs:label "variable has property"@en ;
-  rdfs:subPropertyOf iop:hasProperty ;
-  rdfs:domain iop:Variable ;
-  rdfs:range iop:Property .
-
-:variableHasConstraint a owl:ObjectProperty ;
-  rdfs:label "variable has constraint"@en ;
-  rdfs:subPropertyOf iop:hasConstraint ;
-  rdfs:domain iop:Variable ;
-  rdfs:range iop:Constraint .
-
-:variableHasMatrix a owl:ObjectProperty ;
-  rdfs:label "variable has matrix"@en ;
-  rdfs:subPropertyOf iop:hasMatrix ;
-  rdfs:domain iop:Variable ;
-  rdfs:range iop:Entity .
-
-:variableHasContextObject a owl:ObjectProperty ;
-  rdfs:label "variable has context object"@en ;
-  rdfs:subPropertyOf iop:hasContextObject ;
-  rdfs:domain iop:Variable ;
-  rdfs:range iop:Entity .
-
-:variableHasStatisticalModifier a owl:ObjectProperty ;
-  rdfs:label "variable has statistical modifier"@en ;
-  rdfs:subPropertyOf iop:hasStatisticalModifier ;
-  rdfs:domain iop:Variable ;
-  rdfs:range iop:StatisticalModifier .
 
 :constraintConstrains a owl:ObjectProperty ;
   rdfs:label "constraint constrains"@en ;
@@ -126,15 +90,13 @@ iop:Property rdfs:subClassOf iao:0000030 .
   rdfs:label "observation used procedure"@en ;
   rdfs:subPropertyOf sosa:usedProcedure ;
   rdfs:domain sosa:Observation ;
-  rdfs:range sosa:Procedure ;
-  skos:closeMatch prov:hadPlan .
+  rdfs:range sosa:Procedure .
 
 :samplingUsedProcedure a owl:ObjectProperty ;
   rdfs:label "sampling used procedure"@en ;
   rdfs:subPropertyOf sosa:usedProcedure ;
   rdfs:domain sosa:Sampling ;
-  rdfs:range sosa:Procedure ;
-  skos:closeMatch prov:hadPlan .
+  rdfs:range sosa:Procedure .
 
 #################################################################
 # Canonical SOSA -> PROV alignment links

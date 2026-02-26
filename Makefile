@@ -9,7 +9,7 @@ WIDOCO_JAR := tools/widoco.jar
 WIDOCO_URL := https://github.com/dgarijo/Widoco/releases/download/v$(WIDOCO_VERSION)/widoco-$(WIDOCO_VERSION)-jar-with-dependencies_JDK-17.jar
 DSU_ONTOLOGY_DIR ?= ../data-stewardship-unit/data/ontology
 
-.PHONY: help quality-check reason convert clean install-robot install-widoco publish-clean dsu-sync-term-tables dsu-sync-and-stage theme-coverage alpha-lint test docs-refresh docs-widoco docs-serializations docs-skos docs-postprocess release-snapshot
+.PHONY: help quality-check reason convert clean install-robot install-widoco theme-coverage alpha-lint test ci-sync-artifacts docs-refresh docs-widoco docs-serializations docs-skos docs-postprocess release-snapshot
 
 # Default target
 help:
@@ -22,6 +22,7 @@ help:
 	@echo "  theme-coverage  Run gcdfo:theme coverage SPARQL check (writes release/tmp/theme-coverage.tsv)"
 	@echo "  alpha-lint      Run alpha migration SPARQL lints (year-basis scheme, variable decomposition, skos:*Match property lint)"
 	@echo "  test            Run fast validation bundle: theme-coverage + alpha-lint + ELK reasoning"
+	@echo "  ci-sync-artifacts Run make ci, then stage generated docs artifacts for commit"
 	@echo ""
 	@echo "Format Conversion:"
 	@echo "  convert-owl     Convert to OWL format"
@@ -105,6 +106,10 @@ ci:
 	@$(MAKE) quality-check
 	@$(MAKE) docs-refresh
 	@echo "✅ CI bundle completed."
+
+ci-sync-artifacts: ci
+	@git add docs/gcdfo.ttl docs/gcdfo.owl docs/gcdfo.jsonld docs/index.html docs/index-en.html || true
+	@echo "✅ Staged generated docs artifacts after make ci."
 
 # Setup
 install-robot:
