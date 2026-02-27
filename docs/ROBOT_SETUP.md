@@ -7,18 +7,14 @@ This document describes ROBOT configuration for the DFO Salmon Ontology and docu
 ### Basic Quality Checks
 
 ```bash
-# Check logical consistency (canonical)
-make reason
+# Check logical consistency
+robot reason --input ontology/dfo-salmon.ttl --reasoner ELK
 
-# Generate quality report (canonical)
-make quality-check
+# Generate quality report (with custom profile to handle expected violations)
+robot report --input ontology/dfo-salmon.ttl --profile robot-profile.yaml --fail-on ERROR --output release/artifacts/quality-report.html
 
-# If you need raw ROBOT CLI, use the pinned jar from tools/
-java -jar tools/robot.jar report \
-  --input ontology/dfo-salmon.ttl \
-  --profile robot-profile.yaml \
-  --fail-on ERROR \
-  --output release/artifacts/robot-quality-report.html
+# Convert formats
+robot convert --input ontology/dfo-salmon.ttl --output release/artifacts/dfo-salmon.owl
 ```
 
 ### Theme coverage (gcdfo:theme) check
@@ -35,27 +31,6 @@ make theme-coverage
 - Output: theme coverage report (empty = passing; rows list issues). Run `make theme-coverage` to generate.
 - Prereqs: `tools/robot.jar` (run `make install-robot` if missing) and Java. If using `devenv`/`nix` (optional), Java is provided inside the environment.
 
-### Alpha migration SPARQL lints
-
-Run the fast lint bundle used by `make test`:
-
-```bash
-# From the repo root
-make alpha-lint
-# Or if using devenv/nix (optional):
-# devenv shell make alpha-lint
-```
-
-The lint runner (`scripts/run-sparql-lint.sh`) executes:
-
-- `scripts/sparql/missing-year-basis.rq` (checks SKOS `YearBasisScheme` assumptions once present)
-- `scripts/sparql/missing-variable-decomposition.rq` (requires `gcdfo:iadoptEntity` + `gcdfo:iadoptProperty` on variable concepts)
-- `scripts/sparql/no-legacy-variablehas.rq` (blocks reintroduction of legacy `gcdfo:variableHas*` properties)
-- `scripts/sparql/skos-match-on-owl-properties.rq` (blocks `skos:*Match` on OWL/RDF properties)
-- `scripts/sparql/skos-match-on-owl-classes.rq` (blocks `skos:*Match` on OWL/RDFS classes)
-
-Output files are written to `release/tmp/*.tsv`; non-empty output fails the lint step.
-
 ### CI/CD Configuration
 
 **Problem:** ROBOT fails CI/CD pipelines due to expected violations that aren't actual errors.
@@ -71,7 +46,7 @@ java -jar tools/robot.jar report \
   --input ontology/dfo-salmon.ttl \
   --profile robot-profile.yaml \
   --fail-on ERROR \
-  --output release/artifacts/robot-quality-report.html
+  --output release/artifacts/quality-report.html
 ```
 
 **Key Configuration Options:**
@@ -104,15 +79,15 @@ robot reason --input ontology/dfo-salmon.ttl --reasoner JFact --output release/a
 - ✅ SPARQL queries: SKOS-aware applications work correctly
 - ✅ Semantic web tools: SKOS-compliant tools handle correctly
 
-**Project default:** Mirror `skos:prefLabel` into `rdfs:label` for canonical ontology terms unless an explicit exception is documented in conventions.
+**Decision:** Do NOT add redundant `rdfs:label` properties to satisfy ROBOT.
 
-**Baseline note:** Counts can change as ontology content evolves; treat static numbers below as historical context, not an invariant contract.
+**Baseline Expected Errors:** 31 missing labels on SKOS concepts (acceptable)
 
-**Quality check:** Investigate any new missing-label errors and classify as either expected external-term noise or genuine local modeling drift.
+**Quality Check:** New terms should not add to this count - verify any new missing label errors are genuine issues, not SKOS concepts with `skos:prefLabel`.
 
 ### JFact Datatype Warning
 
-**Issue:** JFact may report datatype-related warnings involving `gcdfo:EstimateType` when SKOS concept ranges are interpreted as datatypes by strict datatype checks.
+**Issue:** JFact reports "A known datatype for https://w3id.org/dfo/salmon#EstimateType cannot be found"
 
 **Root Cause:** `EstimateType` is correctly modeled as `skos:Concept` (not a datatype). JFact's datatype checking system is confused by SKOS concept usage as object property ranges.
 
@@ -153,7 +128,7 @@ When running ROBOT report, expect these violations as acceptable:
 1. **Hybrid OWL+SKOS Concepts (7 terms):**
 
    - Use `skos:definition` instead of `rdfs:comment`
-   - Examples: terms modeled with SKOS definition patterns in this ontology
+   - Examples: `dfo:Extinct`, `dfo:Endangered`, `dfo:Threatened`
    - ROBOT expects `rdfs:comment` for OWL classes
 
 2. **BFO MIREOT Terms (3 terms):**
@@ -171,16 +146,42 @@ When running ROBOT report, expect these violations as acceptable:
 
 ## Quality Monitoring
 
+### Regression Detection
+
+When adding new terms:
+
+1. Run ROBOT report before and after changes
+2. Verify ERROR count doesn't increase beyond baseline (39)
+3. Document any new violations and their acceptability
+4. Update this document if new expected violations are identified
+
+### Expected vs Genuine Violations
+
+**Expected (Acceptable):**
+
+- 31 SKOS label "errors" (W3C SKOS compliant)
+- 8 Darwin Core label "errors" (external imports)
+- 3 BFO definition "warnings" (MIREOT approach)
+- 8 Darwin Core definition "warnings" (external imports)
+- 7 hybrid OWL+SKOS definition "warnings" (ROBOT limitation)
+- 129 DFO definition "warnings" (ROBOT limitation)
+
+**To Be Investigated:**
+
+- 52 superclass info violations (see superclass-analysis.md)
+
+## Quality Monitoring
+
 ### Automated Checks
 
-Use canonical project targets (`make quality-check`, `make reason`, `make test`) for consistent quality checking.
+Use the provided `scripts/robot-commands.bat` for consistent quality checking.
 
 ### Regression Detection
 
 When adding new terms:
 
 1. Run ROBOT report before and after changes
-2. Verify ERROR count doesn't increase beyond the accepted baseline in latest CI artifacts
+2. Verify ERROR count doesn't increase beyond baseline (39)
 3. Document any new violations and their acceptability
 4. Update this document if new expected violations are identified
 
@@ -215,5 +216,5 @@ Before submitting changes:
 
 ---
 
-_Last updated: 2026-02-25_
+_Last updated: 2025-01-24_
 _ROBOT version: 1.9.8_

@@ -13,11 +13,11 @@
 <script type="module" src="resources/dark-mode-toggle.mjs"></script><div class="darkmode">
 	<dark-mode-toggle class="slider"></dark-mode-toggle>
 </div>
- <title>DFO Salmon Ontology</title>
+ <title>GC DFO Salmon Ontology</title>
 
 
 <!-- SCHEMA.ORG METADATA -->
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"https://w3id.org/gcdfo/salmon#","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://w3id.org/gcdfo/salmon#","name":"DFO Salmon Ontology", "headline":"Document describing the ontology https://w3id.org/gcdfo/salmon#", "dateReleased":"2025-09-06", "dateModified":"2026-02-24", "version":"0.0.6-alpha (integrated pre-release review branch)", "license":"https://creativecommons.org/licenses/by/4.0/", "codeRepository":"https://github.com/dfo-pacific-science/dfo-salmon-ontology", "author":[{"@type":"Person","name":"Fishery & Assessment Data Section (FADS) Data Stewardship Unit"}], "contributor":[{"@type":"Person","name":"Brett Johnson"},{"@type":"Person","name":"Melissa K. Morrison"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"https://w3id.org/gcdfo/salmon#","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://w3id.org/gcdfo/salmon#","name":"GC DFO Salmon Ontology", "headline":"Document describing the ontology https://w3id.org/gcdfo/salmon#", "dateReleased":"2025-09-06", "dateModified":"2026-01-30", "version":"0.0.999 (expanded enumeration/estimate methods and downgrade criteria)", "license":"https://creativecommons.org/licenses/by/4.0/", "codeRepository":"https://github.com/dfo-pacific-science/dfo-salmon-ontology", "author":[{"@type":"Person","name":"Fishery & Assessment Data Section (FADS) Data Stewardship Unit"}], "contributor":[{"@type":"Person","name":"Brett Johnson"},{"@type":"Person","name":"Melissa K. Morrison"}]}</script>
 
 <script src="resources/jquery.js"></script> 
 <script src="resources/marked.min.js"></script> 
@@ -59,25 +59,24 @@ $(function(){
         return this.clone().find(sel||">*").remove().end();
  }; 
    </script> 
-  <script src="resources/gcdfo-enhancements.js" defer></script>
-</head> 
+  </head> 
 
 <body>
 <div class="container">
 <div class="head">
 <div style="float:right">language <a href="index-en.html"><b>en</b></a> </div>
-<h1>DFO Salmon Ontology</h1>
+<h1>GC DFO Salmon Ontology</h1>
 <h2>Release: 2025-09-06</h2>
 
 
 <dl>
-<dt>Modified on: 2026-02-24</dt>
+<dt>Modified on: 2026-01-30</dt>
 <dt>This version:</dt>
-<dd><a href="https://w3id.org/gcdfo/salmon/0.0.6-alpha">https://w3id.org/gcdfo/salmon/0.0.6-alpha</a></dd>
+<dd><a href="https://w3id.org/gcdfo/salmon/0.0.999">https://w3id.org/gcdfo/salmon/0.0.999</a></dd>
 <dt>Previous version:</dt>
 <dd><a href="https://w3id.org/gcdfo/salmon/0.0.2">https://w3id.org/gcdfo/salmon/0.0.2</a></dd>
 <dt>Revision:</dt>
-<dd>0.0.6-alpha (integrated pre-release review branch)</dd>
+<dd>0.0.999 (expanded enumeration/estimate methods and downgrade criteria)</dd>
 <dt>Authors:</dt>
 <dd>Fishery & Assessment Data Section (FADS) Data Stewardship Unit</dd>
 
@@ -92,7 +91,7 @@ $(function(){
 <dt>Download serialization:</dt><dd><span><a href="ontology.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span><span><a href="ontology.owl" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span><span><a href="ontology.nt" target="_blank"><img src="https://img.shields.io/badge/Format-N_Triples-blue.svg" alt="N-Triples" /></a> </span><span><a href="ontology.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span></dd><dt>License:</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"><img src="https://img.shields.io/badge/License-https://creativecommons.org/licenses/by/4.0/-blue.svg" alt="https://creativecommons.org/licenses/by/4.0/" /></a>
 </dd><dt>Visualization:</dt><dd><a href="webvowl/index.html#" target="_blank"><img src="https://img.shields.io/badge/Visualize_with-WebVowl-blue.svg" alt="Visualize with WebVowl" /></a></dd>
 <!-- <dt>Evaluation:</dt><dd><a href="OOPSevaluation/oopsEval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd> --><dt>Cite as:</dt>
-<dd>Fishery & Assessment Data Section (FADS) Data Stewardship Unit. DFO Salmon Ontology. Revision: 0.0.6-alpha (integrated pre-release review branch). Retrieved from: https://w3id.org/gcdfo/salmon/0.0.6-alpha</dd>
+<dd>Fishery & Assessment Data Section (FADS) Data Stewardship Unit. GC DFO Salmon Ontology. Revision: 0.0.999 (expanded enumeration/estimate methods and downgrade criteria). Retrieved from: https://w3id.org/gcdfo/salmon/0.0.999</dd>
 <dt>Vocabulary maintained at:</dt>
 <dd><a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology">https://github.com/dfo-pacific-science/dfo-salmon-ontology</a></dd>
 </dl>
@@ -101,12 +100,12 @@ $(function(){
 </div>
 <div class="status">
 <div>
-<span>Ontology Specification</span>
+<span>Ontology Specification Draft</span>
 </div>
 </div><div id="toc"></div>  
 
 <!--OVERVIEW SECTION-->
-    <div id="overview"><h2 id="overv" class="list">DFO Salmon Ontology: Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+    <div id="overview"><h2 id="overv" class="list">GC DFO Salmon Ontology: Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 <span class="markdown">
 This ontology has the following classes and properties.</span>
 <h4>Classes</h4>
@@ -120,11 +119,13 @@ This ontology has the following classes and properties.</span>
       <a href="#http://purl.obolibrary.org/obo/ENVO_00000234" title="http://purl.obolibrary.org/obo/ENVO_00000234">bayou</a>
    </li>
    <li>
-      <a href="#ConservationUnit" title="https://w3id.org/gcdfo/salmon#ConservationUnit">Conservation Unit</a>
+      <a href="#BroodYear" title="https://w3id.org/gcdfo/salmon#BroodYear">Brood year</a>
    </li>
    <li>
-      <a href="#CWTMarineSurvivalRate"
-         title="https://w3id.org/gcdfo/salmon#CWTMarineSurvivalRate">CWT marine survival rate</a>
+      <a href="#CatchYear" title="https://w3id.org/gcdfo/salmon#CatchYear">Catch year</a>
+   </li>
+   <li>
+      <a href="#ConservationUnit" title="https://w3id.org/gcdfo/salmon#ConservationUnit">Conservation Unit</a>
    </li>
    <li>
       <a href="#Deme" title="https://w3id.org/gcdfo/salmon#Deme">Deme</a>
@@ -162,10 +163,6 @@ This ontology has the following classes and properties.</span>
       <a href="#http://purl.dataone.org/odo/SALMON_00000639" title="http://purl.dataone.org/odo/SALMON_00000639">Fish stock type</a>
    </li>
    <li>
-      <a href="#FisheriesReferencePointLower"
-         title="https://w3id.org/gcdfo/salmon#FisheriesReferencePointLower">Fisheries Reference Point - Lower</a>
-   </li>
-   <li>
       <a href="#http://purl.dataone.org/odo/SALMON_00000137" title="http://purl.dataone.org/odo/SALMON_00000137">Fishery type</a>
    </li>
    <li>
@@ -173,10 +170,6 @@ This ontology has the following classes and properties.</span>
    </li>
    <li>
       <a href="#http://rs.tdwg.org/dwc/terms/Identification" title="http://rs.tdwg.org/dwc/terms/Identification">Identification</a>
-   </li>
-   <li>
-      <a href="#InRiverMortalityRate"
-         title="https://w3id.org/gcdfo/salmon#InRiverMortalityRate">In-river mortality rate</a>
    </li>
    <li>
       <a href="#IndicatorRiver" title="https://w3id.org/gcdfo/salmon#IndicatorRiver">Indicator river</a>
@@ -202,14 +195,6 @@ This ontology has the following classes and properties.</span>
          title="https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark">Lower biological benchmark</a>
    </li>
    <li>
-      <a href="#MainstemMortalityRate"
-         title="https://w3id.org/gcdfo/salmon#MainstemMortalityRate">Mainstem mortality rate</a>
-   </li>
-   <li>
-      <a href="#MarineSurvivalIndex"
-         title="https://w3id.org/gcdfo/salmon#MarineSurvivalIndex">Marine survival index</a>
-   </li>
-   <li>
       <a href="#http://purl.obolibrary.org/obo/BFO_0000040" title="http://purl.obolibrary.org/obo/BFO_0000040">material entity</a>
    </li>
    <li>
@@ -222,19 +207,11 @@ This ontology has the following classes and properties.</span>
       <a href="#MetricBenchmark" title="https://w3id.org/gcdfo/salmon#MetricBenchmark">Metric benchmark</a>
    </li>
    <li>
-      <a href="#ObservedExploitationRate"
-         title="https://w3id.org/gcdfo/salmon#ObservedExploitationRate">Observed exploitation rate</a>
-   </li>
-   <li>
       <a href="#ObservedRateOrAbundance"
          title="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance">Observed rate or abundance</a>
    </li>
    <li>
       <a href="#http://rs.tdwg.org/dwc/terms/Occurrence" title="http://rs.tdwg.org/dwc/terms/Occurrence">Occurrence</a>
-   </li>
-   <li>
-      <a href="#OceanMortalityRate"
-         title="https://w3id.org/gcdfo/salmon#OceanMortalityRate">Ocean mortality rate</a>
    </li>
    <li>
       <a href="#http://rs.tdwg.org/dwc/terms/Organism" title="http://rs.tdwg.org/dwc/terms/Organism">Organism</a>
@@ -252,66 +229,10 @@ This ontology has the following classes and properties.</span>
       <a href="#http://purl.obolibrary.org/obo/BFO_0000015" title="http://purl.obolibrary.org/obo/BFO_0000015">process</a>
    </li>
    <li>
-      <a href="#ProportionHatcheryOriginSpawners"
-         title="https://w3id.org/gcdfo/salmon#ProportionHatcheryOriginSpawners">Proportion of hatchery-origin spawners</a>
-   </li>
-   <li>
       <a href="#http://www.w3.org/ns/dqv#QualityAnnotation" title="http://www.w3.org/ns/dqv#QualityAnnotation">Quality Annotation</a>
    </li>
    <li>
-      <a href="#WSPRapidStatusAlgorithmThreshold"
-         title="https://w3id.org/gcdfo/salmon#WSPRapidStatusAlgorithmThreshold">Rapid-status algorithm threshold</a>
-   </li>
-   <li>
       <a href="#ReferencePoint" title="https://w3id.org/gcdfo/salmon#ReferencePoint">Reference point</a>
-   </li>
-   <li>
-      <a href="#RelativeHatcherySpawnerAbundance"
-         title="https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundance">Relative hatchery spawner abundance</a>
-   </li>
-   <li>
-      <a href="#RelativeHatcherySpawnerAbundanceChange"
-         title="https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundanceChange">Relative hatchery spawner abundance change</a>
-   </li>
-   <li>
-      <a href="#RelativeHatcherySpawnerAbundancePercentile"
-         title="https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundancePercentile">Relative hatchery spawner abundance percentile</a>
-   </li>
-   <li>
-      <a href="#RelativeHatcherySpawnerAbundanceTrend"
-         title="https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundanceTrend">Relative hatchery spawner abundance trend</a>
-   </li>
-   <li>
-      <a href="#RelativeSpawnerAbundance"
-         title="https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundance">Relative spawner abundance</a>
-   </li>
-   <li>
-      <a href="#RelativeSpawnerAbundanceChange"
-         title="https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundanceChange">Relative spawner abundance change</a>
-   </li>
-   <li>
-      <a href="#RelativeSpawnerAbundancePercentile"
-         title="https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundancePercentile">Relative spawner abundance percentile</a>
-   </li>
-   <li>
-      <a href="#RelativeSpawnerAbundanceTrend"
-         title="https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundanceTrend">Relative spawner abundance trend</a>
-   </li>
-   <li>
-      <a href="#RelativeWildSpawnerAbundance"
-         title="https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundance">Relative wild spawner abundance</a>
-   </li>
-   <li>
-      <a href="#RelativeWildSpawnerAbundanceChange"
-         title="https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundanceChange">Relative wild spawner abundance change</a>
-   </li>
-   <li>
-      <a href="#RelativeWildSpawnerAbundancePercentile"
-         title="https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundancePercentile">Relative wild spawner abundance percentile</a>
-   </li>
-   <li>
-      <a href="#RelativeWildSpawnerAbundanceTrend"
-         title="https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundanceTrend">Relative wild spawner abundance trend</a>
    </li>
    <li>
       <a href="#ReportingOrManagementStratum"
@@ -322,21 +243,6 @@ This ontology has the following classes and properties.</span>
    </li>
    <li>
       <a href="#http://purl.dataone.org/odo/SALMON_00000479" title="http://purl.dataone.org/odo/SALMON_00000479">Salmon escapement count</a>
-   </li>
-   <li>
-      <a href="#SpawnerAbundance" title="https://w3id.org/gcdfo/salmon#SpawnerAbundance">Spawner abundance</a>
-   </li>
-   <li>
-      <a href="#SpawnerAbundanceChange"
-         title="https://w3id.org/gcdfo/salmon#SpawnerAbundanceChange">Spawner abundance change</a>
-   </li>
-   <li>
-      <a href="#SpawnerAbundancePercentile"
-         title="https://w3id.org/gcdfo/salmon#SpawnerAbundancePercentile">Spawner abundance percentile</a>
-   </li>
-   <li>
-      <a href="#SpawnerAbundanceTrend"
-         title="https://w3id.org/gcdfo/salmon#SpawnerAbundanceTrend">Spawner abundance trend</a>
    </li>
    <li>
       <a href="#http://purl.obolibrary.org/obo/BFO_0000020" title="http://purl.obolibrary.org/obo/BFO_0000020">specifically dependent continuant</a>
@@ -358,24 +264,12 @@ This ontology has the following classes and properties.</span>
       <a href="#SurveyEvent" title="https://w3id.org/gcdfo/salmon#SurveyEvent">Survey event</a>
    </li>
    <li>
-      <a href="#TargetOrLimitExploitationRate"
-         title="https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate">Target or limit exploitation rate</a>
-   </li>
-   <li>
       <a href="#TargetOrLimitRateOrAbundance"
          title="https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance">Target or limit rate or abundance</a>
    </li>
    <li>
-      <a href="#TerminalMortalityRate"
-         title="https://w3id.org/gcdfo/salmon#TerminalMortalityRate">Terminal mortality rate</a>
-   </li>
-   <li>
       <a href="#TotalExploitationRate"
          title="https://w3id.org/gcdfo/salmon#TotalExploitationRate">Total exploitation rate</a>
-   </li>
-   <li>
-      <a href="#TotalMortalityRate"
-         title="https://w3id.org/gcdfo/salmon#TotalMortalityRate">Total mortality rate</a>
    </li>
    <li>
       <a href="#UpperBiologicalBenchmark"
@@ -386,10 +280,14 @@ This ontology has the following classes and properties.</span>
          title="https://w3id.org/gcdfo/salmon#UpperStockReferencePoint">Upper stock reference</a>
    </li>
    <li>
-      <a href="#http://purl.obolibrary.org/obo/ENVO_00000063" title="http://purl.obolibrary.org/obo/ENVO_00000063">water body</a>
+      <a href="#WSPRapidStatus" title="https://w3id.org/gcdfo/salmon#WSPRapidStatus">WSP rapid status</a>
    </li>
    <li>
-      <a href="#WSPRapidStatus" title="https://w3id.org/gcdfo/salmon#WSPRapidStatus">WSP rapid status</a>
+      <a href="#WSPRapidStatusAlgorithmThreshold"
+         title="https://w3id.org/gcdfo/salmon#WSPRapidStatusAlgorithmThreshold">WSP Rapid Status Algorithm threshold</a>
+   </li>
+   <li>
+      <a href="#YearBasis" title="https://w3id.org/gcdfo/salmon#YearBasis">Year basis</a>
    </li>
    <li>
       <a href="#http://purl.dataone.org/odo/ECSO_00002050" title="http://purl.dataone.org/odo/ECSO_00002050">year of measurement</a>
@@ -411,69 +309,35 @@ This ontology has the following classes and properties.</span>
       <a href="#hasDeme" title="https://w3id.org/gcdfo/salmon#hasDeme">has deme</a>
    </li>
    <li>
-      <a href="#hasFeatureOfInterest"
-         title="https://w3id.org/gcdfo/salmon#hasFeatureOfInterest">has feature of interest</a>
-   </li>
-   <li>
-      <a href="#hasObservationResult"
-         title="https://w3id.org/gcdfo/salmon#hasObservationResult">has observation result</a>
-   </li>
-   <li>
-      <a href="#hasObservedVariable"
-         title="https://w3id.org/gcdfo/salmon#hasObservedVariable">has observed variable</a>
-   </li>
-   <li>
       <a href="#hasPopulation" title="https://w3id.org/gcdfo/salmon#hasPopulation">has population</a>
-   </li>
-   <li>
-      <a href="#hasTargetOrLimitExploitationRate"
-         title="https://w3id.org/gcdfo/salmon#hasTargetOrLimitExploitationRate">has target or limit exploitation rate</a>
-   </li>
-   <li>
-      <a href="#hasYearBasis" title="https://w3id.org/gcdfo/salmon#hasYearBasis">has year basis</a>
    </li>
    <li>
       <a href="#http://www.w3.org/ns/dqv#inDimension" title="http://www.w3.org/ns/dqv#inDimension">in dimension</a>
    </li>
    <li>
-      <a href="#isSampleOfStratum" title="https://w3id.org/gcdfo/salmon#isSampleOfStratum">is sample of stratum</a>
-   </li>
-   <li>
-      <a href="#isTargetOrLimitForObservedExploitationRate"
-         title="https://w3id.org/gcdfo/salmon#isTargetOrLimitForObservedExploitationRate">is target or limit for observed exploitation rate</a>
-   </li>
-   <li>
       <a href="#populationOf" title="https://w3id.org/gcdfo/salmon#populationOf">population of</a>
-   </li>
-   <li>
-      <a href="#usedProcedure" title="https://w3id.org/gcdfo/salmon#usedProcedure">
-         <span>used procedure</span>
-      </a>
-   </li>
-   <li>
-      <a href="#usesObservationProcedure"
-         title="https://w3id.org/gcdfo/salmon#usesObservationProcedure">uses observation procedure</a>
    </li>
 </ul><iframe src="webvowl/index.html"></iframe> 
 </div>
   
 
 <!--DESCRIPTION SECTION-->
-    <div id="description"><h2 id="desc" class="list">DFO Salmon Ontology: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+    <div id="description"><h2 id="desc" class="list">GC DFO Salmon Ontology: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 
 <span class="markdown">OWL + SKOS ontology for DFO salmon data: stocks/CUs/MUs, survey events, escapement measurements, and GSI constructs; aligns to DwC via rdfs:subClassOf; hybrid approach with SKOS for methods and OWL for events.</span></div>
    
 
 <!--CROSSREF SECTION-->
-   <div id="crossref"><h2 id="crossreference" class="list">Cross-reference for DFO Salmon Ontology classes, object properties and data properties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
-This section provides details for each class and property defined by DFO Salmon Ontology.
+   <div id="crossref"><h2 id="crossreference" class="list">Cross-reference for GC DFO Salmon Ontology classes, object properties and data properties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+This section provides details for each class and property defined by GC DFO Salmon Ontology.
 <div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="classes">
  <h3 id="classes-headline" class="list">Classes</h3>
  <ul class="hlist">
   <li><a href="#http://www.w3.org/ns/oa#Annotation" title="http://www.w3.org/ns/oa#Annotation">Annotation</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/ENVO_00000234" title="http://purl.obolibrary.org/obo/ENVO_00000234">bayou</a></li>
+  <li><a href="#BroodYear" title="https://w3id.org/gcdfo/salmon#BroodYear">Brood year</a></li>
+  <li><a href="#CatchYear" title="https://w3id.org/gcdfo/salmon#CatchYear">Catch year</a></li>
   <li><a href="#ConservationUnit" title="https://w3id.org/gcdfo/salmon#ConservationUnit">Conservation Unit</a></li>
-  <li><a href="#CWTMarineSurvivalRate" title="https://w3id.org/gcdfo/salmon#CWTMarineSurvivalRate">CWT marine survival rate</a></li>
   <li><a href="#Deme" title="https://w3id.org/gcdfo/salmon#Deme">Deme</a></li>
   <li><a href="#http://www.w3.org/ns/dqv#Dimension" title="http://www.w3.org/ns/dqv#Dimension">Dimension</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/IAO_0000033" title="http://purl.obolibrary.org/obo/IAO_0000033">directive information entity</a></li>
@@ -485,11 +349,9 @@ This section provides details for each class and property defined by DFO Salmon 
   <li><a href="#ExploitationRate" title="https://w3id.org/gcdfo/salmon#ExploitationRate">Exploitation rate</a></li>
   <li><a href="#http://purl.dataone.org/odo/SALMON_00000167" title="http://purl.dataone.org/odo/SALMON_00000167">Fish measurement type</a></li>
   <li><a href="#http://purl.dataone.org/odo/SALMON_00000639" title="http://purl.dataone.org/odo/SALMON_00000639">Fish stock type</a></li>
-  <li><a href="#FisheriesReferencePointLower" title="https://w3id.org/gcdfo/salmon#FisheriesReferencePointLower">Fisheries Reference Point - Lower</a></li>
   <li><a href="#http://purl.dataone.org/odo/SALMON_00000137" title="http://purl.dataone.org/odo/SALMON_00000137">Fishery type</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/BFO_0000031" title="http://purl.obolibrary.org/obo/BFO_0000031">generically dependent continuant</a></li>
   <li><a href="#http://rs.tdwg.org/dwc/terms/Identification" title="http://rs.tdwg.org/dwc/terms/Identification">Identification</a></li>
-  <li><a href="#InRiverMortalityRate" title="https://w3id.org/gcdfo/salmon#InRiverMortalityRate">In-river mortality rate</a></li>
   <li><a href="#IndicatorRiver" title="https://w3id.org/gcdfo/salmon#IndicatorRiver">Indicator river</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/IAO_0000030" title="http://purl.obolibrary.org/obo/IAO_0000030">information content entity</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/ENVO_00000020" title="http://purl.obolibrary.org/obo/ENVO_00000020">lake</a></li>
@@ -497,59 +359,35 @@ This section provides details for each class and property defined by DFO Salmon 
   <li><a href="#LimitReferencePoint" title="https://w3id.org/gcdfo/salmon#LimitReferencePoint">Limit reference point</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/ENVO_01000618" title="http://purl.obolibrary.org/obo/ENVO_01000618">lotic water body</a></li>
   <li><a href="#LowerBiologicalBenchmark" title="https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark">Lower biological benchmark</a></li>
-  <li><a href="#MainstemMortalityRate" title="https://w3id.org/gcdfo/salmon#MainstemMortalityRate">Mainstem mortality rate</a></li>
-  <li><a href="#MarineSurvivalIndex" title="https://w3id.org/gcdfo/salmon#MarineSurvivalIndex">Marine survival index</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/BFO_0000040" title="http://purl.obolibrary.org/obo/BFO_0000040">material entity</a></li>
   <li><a href="#http://rs.tdwg.org/dwc/terms/MaterialEntity" title="http://rs.tdwg.org/dwc/terms/MaterialEntity">Material Entity</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/IAO_0000109" title="http://purl.obolibrary.org/obo/IAO_0000109">measurement datum</a></li>
   <li><a href="#MetricBenchmark" title="https://w3id.org/gcdfo/salmon#MetricBenchmark">Metric benchmark</a></li>
-  <li><a href="#ObservedExploitationRate" title="https://w3id.org/gcdfo/salmon#ObservedExploitationRate">Observed exploitation rate</a></li>
   <li><a href="#ObservedRateOrAbundance" title="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance">Observed rate or abundance</a></li>
   <li><a href="#http://rs.tdwg.org/dwc/terms/Occurrence" title="http://rs.tdwg.org/dwc/terms/Occurrence">Occurrence</a></li>
-  <li><a href="#OceanMortalityRate" title="https://w3id.org/gcdfo/salmon#OceanMortalityRate">Ocean mortality rate</a></li>
   <li><a href="#http://rs.tdwg.org/dwc/terms/Organism" title="http://rs.tdwg.org/dwc/terms/Organism">Organism</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/IAO_0000104" title="http://purl.obolibrary.org/obo/IAO_0000104">plan specification</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/ENVO_00000033" title="http://purl.obolibrary.org/obo/ENVO_00000033">pond</a></li>
   <li><a href="#Population" title="https://w3id.org/gcdfo/salmon#Population">Population</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/BFO_0000015" title="http://purl.obolibrary.org/obo/BFO_0000015">process</a></li>
-  <li><a href="#ProportionHatcheryOriginSpawners" title="https://w3id.org/gcdfo/salmon#ProportionHatcheryOriginSpawners">Proportion of hatchery-origin spawners</a></li>
   <li><a href="#http://www.w3.org/ns/dqv#QualityAnnotation" title="http://www.w3.org/ns/dqv#QualityAnnotation">Quality Annotation</a></li>
-  <li><a href="#WSPRapidStatusAlgorithmThreshold" title="https://w3id.org/gcdfo/salmon#WSPRapidStatusAlgorithmThreshold">Rapid-status algorithm threshold</a></li>
   <li><a href="#ReferencePoint" title="https://w3id.org/gcdfo/salmon#ReferencePoint">Reference point</a></li>
-  <li><a href="#RelativeHatcherySpawnerAbundance" title="https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundance">Relative hatchery spawner abundance</a></li>
-  <li><a href="#RelativeHatcherySpawnerAbundanceChange" title="https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundanceChange">Relative hatchery spawner abundance change</a></li>
-  <li><a href="#RelativeHatcherySpawnerAbundancePercentile" title="https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundancePercentile">Relative hatchery spawner abundance percentile</a></li>
-  <li><a href="#RelativeHatcherySpawnerAbundanceTrend" title="https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundanceTrend">Relative hatchery spawner abundance trend</a></li>
-  <li><a href="#RelativeSpawnerAbundance" title="https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundance">Relative spawner abundance</a></li>
-  <li><a href="#RelativeSpawnerAbundanceChange" title="https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundanceChange">Relative spawner abundance change</a></li>
-  <li><a href="#RelativeSpawnerAbundancePercentile" title="https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundancePercentile">Relative spawner abundance percentile</a></li>
-  <li><a href="#RelativeSpawnerAbundanceTrend" title="https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundanceTrend">Relative spawner abundance trend</a></li>
-  <li><a href="#RelativeWildSpawnerAbundance" title="https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundance">Relative wild spawner abundance</a></li>
-  <li><a href="#RelativeWildSpawnerAbundanceChange" title="https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundanceChange">Relative wild spawner abundance change</a></li>
-  <li><a href="#RelativeWildSpawnerAbundancePercentile" title="https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundancePercentile">Relative wild spawner abundance percentile</a></li>
-  <li><a href="#RelativeWildSpawnerAbundanceTrend" title="https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundanceTrend">Relative wild spawner abundance trend</a></li>
   <li><a href="#ReportingOrManagementStratum" title="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum">Reporting or management stratum</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/ENVO_00000022" title="http://purl.obolibrary.org/obo/ENVO_00000022">river</a></li>
   <li><a href="#http://purl.dataone.org/odo/SALMON_00000479" title="http://purl.dataone.org/odo/SALMON_00000479">Salmon escapement count</a></li>
-  <li><a href="#SpawnerAbundance" title="https://w3id.org/gcdfo/salmon#SpawnerAbundance">Spawner abundance</a></li>
-  <li><a href="#SpawnerAbundanceChange" title="https://w3id.org/gcdfo/salmon#SpawnerAbundanceChange">Spawner abundance change</a></li>
-  <li><a href="#SpawnerAbundancePercentile" title="https://w3id.org/gcdfo/salmon#SpawnerAbundancePercentile">Spawner abundance percentile</a></li>
-  <li><a href="#SpawnerAbundanceTrend" title="https://w3id.org/gcdfo/salmon#SpawnerAbundanceTrend">Spawner abundance trend</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/BFO_0000020" title="http://purl.obolibrary.org/obo/BFO_0000020">specifically dependent continuant</a></li>
   <li><a href="#Stock" title="https://w3id.org/gcdfo/salmon#Stock">Stock</a></li>
   <li><a href="#StockAssessment" title="https://w3id.org/gcdfo/salmon#StockAssessment">Stock assessment</a></li>
   <li><a href="#StockManagementUnit" title="https://w3id.org/gcdfo/salmon#StockManagementUnit">Stock Management Unit</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/ENVO_00000023" title="http://purl.obolibrary.org/obo/ENVO_00000023">stream</a></li>
   <li><a href="#SurveyEvent" title="https://w3id.org/gcdfo/salmon#SurveyEvent">Survey event</a></li>
-  <li><a href="#TargetOrLimitExploitationRate" title="https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate">Target or limit exploitation rate</a></li>
   <li><a href="#TargetOrLimitRateOrAbundance" title="https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance">Target or limit rate or abundance</a></li>
-  <li><a href="#TerminalMortalityRate" title="https://w3id.org/gcdfo/salmon#TerminalMortalityRate">Terminal mortality rate</a></li>
   <li><a href="#TotalExploitationRate" title="https://w3id.org/gcdfo/salmon#TotalExploitationRate">Total exploitation rate</a></li>
-  <li><a href="#TotalMortalityRate" title="https://w3id.org/gcdfo/salmon#TotalMortalityRate">Total mortality rate</a></li>
   <li><a href="#UpperBiologicalBenchmark" title="https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark">Upper biological benchmark</a></li>
   <li><a href="#UpperStockReferencePoint" title="https://w3id.org/gcdfo/salmon#UpperStockReferencePoint">Upper stock reference</a></li>
-  <li><a href="#http://purl.obolibrary.org/obo/ENVO_00000063" title="http://purl.obolibrary.org/obo/ENVO_00000063">water body</a></li>
   <li><a href="#WSPRapidStatus" title="https://w3id.org/gcdfo/salmon#WSPRapidStatus">WSP rapid status</a></li>
+  <li><a href="#WSPRapidStatusAlgorithmThreshold" title="https://w3id.org/gcdfo/salmon#WSPRapidStatusAlgorithmThreshold">WSP Rapid Status Algorithm threshold</a></li>
+  <li><a href="#YearBasis" title="https://w3id.org/gcdfo/salmon#YearBasis">Year basis</a></li>
   <li><a href="#http://purl.dataone.org/odo/ECSO_00002050" title="http://purl.dataone.org/odo/ECSO_00002050">year of measurement</a></li>
  </ul>
  <div class="entity" id="http://www.w3.org/ns/oa#Annotation">
@@ -612,6 +450,63 @@ This section provides details for each class and property defined by DFO Salmon 
    </dd>
   </dl>
  </div>
+ <div class="entity" id="BroodYear">
+  <h3>Brood year<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#BroodYear</p>
+  <div class="comment">
+   <span class="markdown">TThe parental year for a group of returning salmon, i.e. the calendar year when the majority of parents of these fish spawned.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Adapted from the Government of Canada Pacific Salmon Glossary
+   </dd>
+   <dd>
+    <a href="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html">https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#YearBasis" title="https://w3id.org/gcdfo/salmon#YearBasis">Year basis</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="CatchYear">
+  <h3>Catch year<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#CatchYear</p>
+  <div class="comment">
+   <span class="markdown">The calendar year in which returning salmon are caught in fisheries (as opposed to the brood year in which the cohort was spawned).</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#YearBasis" title="https://w3id.org/gcdfo/salmon#YearBasis">Year basis</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
  <div class="entity" id="ConservationUnit">
   <h3>Conservation Unit<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#ConservationUnit</p>
@@ -631,13 +526,10 @@ This section provides details for each class and property defined by DFO Salmon 
     Source
    </dt>
    <dd>
-    Fisheries and Oceans Canada. 2005. Canada's Policy for Conservation of Wild Pacific Salmon. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf.
+    Canada's Policy for Conservation of Wild Pacific Salmon Glossary.
    </dd>
    <dd>
-    Fisheries and Oceans Canada. Canada's Policy for Conservation of Wild Pacific Salmon - Glossary. https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/wsp-pss/policy-politique-eng.html#glossary.
-   </dd>
-   <dd>
-    <a href="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf">https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf</a>
+    Fisheries and Oceans Canada. (2005). Canada's Policy for Conservation of Wild Pacific Salmon. Retrieved from https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf.
    </dd>
    <dd>
     <a href="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/wsp-pss/policy-politique-eng.html#glossary">https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/wsp-pss/policy-politique-eng.html#glossary</a>
@@ -661,40 +553,6 @@ This section provides details for each class and property defined by DFO Salmon 
    </dt>
    <dd>
     <a href="#hasConservationUnit" title="https://w3id.org/gcdfo/salmon#hasConservationUnit">has Conservation Unit</a> <sup class="type-op" title="object property">op</sup>, <a href="#populationOf" title="https://w3id.org/gcdfo/salmon#populationOf">population of</a> <sup class="type-op" title="object property">op</sup>
-   </dd>
-  </dl>
- </div>
- <div class="entity" id="CWTMarineSurvivalRate">
-  <h3>CWT marine survival rate<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#CWTMarineSurvivalRate</p>
-  <div class="comment">
-   <span class="markdown">A marine survival proportion estimated for a coded-wire-tag (CWT) release group, defined as the portion of tagged smolts that survive to be caught in marine fisheries or return to freshwater as adults.</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <dl class="definedBy">
-   <dt>
-    Source
-   </dt>
-   <dd>
-    Fisheries and Oceans Canada. 2021. Marine Survival Forecast of Southern British Columbia Coho (defines marine survival as (Catch+Escapement)/Release for coded-wire-tag smolt releases).
-   </dd>
-   <dd>
-    <a href="https://waves-vagues.dfo-mpo.gc.ca/Library/40978680.pdf">https://waves-vagues.dfo-mpo.gc.ca/Library/40978680.pdf</a>
-   </dd>
-  </dl>
-  <dl class="description">
-   <dt>
-    has super-classes
-   </dt>
-   <dd>
-    <a href="#ObservedRateOrAbundance" title="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance">Observed rate or abundance</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -829,7 +687,7 @@ This section provides details for each class and property defined by DFO Salmon 
     Source
    </dt>
    <dd>
-    Fisheries and Oceans Canada. 2005. Canada's Policy for Conservation of Wild Pacific Salmon. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf.
+    Fisheries and Oceans Canada. (2005). Canada's Policy for Conservation of Wild Pacific Salmon. Retrieved from https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf
    </dd>
    <dd>
     <a href="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf">https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf</a>
@@ -863,19 +721,7 @@ This section provides details for each class and property defined by DFO Salmon 
     has super-classes
    </dt>
    <dd>
-    <a href="http://www.w3.org/ns/sosa/Result" target="_blank" title="http://www.w3.org/ns/sosa/Result">Result</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.obolibrary.org/obo/IAO_0000109" title="http://purl.obolibrary.org/obo/IAO_0000109">measurement datum</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-   <dt>
-    is in domain of
-   </dt>
-   <dd>
-    <a href="#hasYearBasis" title="https://w3id.org/gcdfo/salmon#hasYearBasis">has year basis</a> <sup class="type-op" title="object property">op</sup>
-   </dd>
-   <dt>
-    is in range of
-   </dt>
-   <dd>
-    <a href="#hasObservationResult" title="https://w3id.org/gcdfo/salmon#hasObservationResult">has observation result</a> <sup class="type-op" title="object property">op</sup>
+    <a href="#http://purl.obolibrary.org/obo/IAO_0000109" title="http://purl.obolibrary.org/obo/IAO_0000109">measurement datum</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -943,7 +789,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Exploitation rate<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#ExploitationRate</p>
   <div class="comment">
-   <span class="markdown">A fishing mortality rate expressed as the proportion of the total return removed by fishing over a specified assessment period.</span>
+   <span class="markdown">Expressed as a percentage, the proportion of the total return of adult salmon in a given year that die as a result of fishing activity.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -958,10 +804,7 @@ This section provides details for each class and property defined by DFO Salmon 
     Source
    </dt>
    <dd>
-    Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html.
-   </dd>
-   <dd>
-    <a href="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html">https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html</a>
+    Fisheries and Oceans Canada. (2019). Government of Canada. Pacific Salmon - Glossary. https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html. [Accessed 09-10-2025]
    </dd>
   </dl>
   <dl class="description">
@@ -969,19 +812,13 @@ This section provides details for each class and property defined by DFO Salmon 
     has super-classes
    </dt>
    <dd>
-    <a href="#http://purl.obolibrary.org/obo/IAO_0000109" title="http://purl.obolibrary.org/obo/IAO_0000109">measurement datum</a> <sup class="type-c" title="class">c</sup>
+    <a href="#TargetOrLimitRateOrAbundance" title="https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance">Target or limit rate or abundance</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     has sub-classes
    </dt>
    <dd>
-    <a href="#ObservedExploitationRate" title="https://w3id.org/gcdfo/salmon#ObservedExploitationRate">Observed exploitation rate</a> <sup class="type-c" title="class">c</sup>, <a href="#TargetOrLimitExploitationRate" title="https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate">Target or limit exploitation rate</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-   <dt>
-    is in domain of
-   </dt>
-   <dd>
-    <a href="#hasYearBasis" title="https://w3id.org/gcdfo/salmon#hasYearBasis">has year basis</a> <sup class="type-op" title="object property">op</sup>
+    <a href="#TotalExploitationRate" title="https://w3id.org/gcdfo/salmon#TotalExploitationRate">Total exploitation rate</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -1028,37 +865,6 @@ This section provides details for each class and property defined by DFO Salmon 
    </dt>
    <dd>
     <a href="#http://purl.obolibrary.org/obo/BFO_0000040" title="http://purl.obolibrary.org/obo/BFO_0000040">material entity</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-  </dl>
- </div>
- <div class="entity" id="FisheriesReferencePointLower">
-  <h3>Fisheries Reference Point - Lower<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#FisheriesReferencePointLower</p>
-  <div class="comment">
-   <span class="markdown">A lower fisheries-management reference point defined for Stock Management Units (SMUs) and related fishery decision frameworks. It may be informed by Conservation Unit (CU) lower biological benchmarks, but is not identical to CU-level lower biological benchmarks used to delineate Wild Salmon Policy biological status zones.</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <dl class="definedBy">
-   <dt>
-    Source
-   </dt>
-   <dd>
-    Fisheries and Oceans Canada. (2022). Methodologies and Guidelines for Defining Limit Reference Points for Pacific Salmon. DFO Can. Sci. Advis. Sec. Sci. Advis. Rep. 2022/030. (Erratum: December 2022).
-   </dd>
-  </dl>
-  <dl class="description">
-   <dt>
-    has super-classes
-   </dt>
-   <dd>
-    <a href="#LimitReferencePoint" title="https://w3id.org/gcdfo/salmon#LimitReferencePoint">Limit reference point</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -1139,48 +945,11 @@ This section provides details for each class and property defined by DFO Salmon 
    </dd>
   </dl>
  </div>
- <div class="entity" id="InRiverMortalityRate">
-  <h3>In-river mortality rate<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#InRiverMortalityRate</p>
-  <div class="comment">
-   <span class="markdown">The proportion of fish in a defined population/cohort that die during freshwater migration in-river on the way to spawning areas during a specified assessment interval, excluding landed catch (fishery removals) where those are accounted separately.</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <dl class="definedBy">
-   <dt>
-    Source
-   </dt>
-   <dd>
-    Fisheries and Oceans Canada. 2025. Stock-Specific Fraser River Sockeye Salmon Run Size Determination. CSAS Pacific Region Science Advisory Report 2025/021 (en route mortality excluding landed catch). COSEWIC. 2017. Sockeye Salmon (Oncorhynchus nerka) assessment and status report (en-route loss is fish that perished in the river en-route to spawning grounds for reasons other than fishing).
-   </dd>
-   <dd>
-    <a href="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41294622.pdf">https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41294622.pdf</a>
-   </dd>
-   <dd>
-    <a href="https://www.canada.ca/en/environment-climate-change/services/species-risk-public-registry/cosewic-assessments-status-reports/sockeye-salmon-2017.html">https://www.canada.ca/en/environment-climate-change/services/species-risk-public-registry/cosewic-assessments-status-reports/sockeye-salmon-2017.html</a>
-   </dd>
-  </dl>
-  <dl class="description">
-   <dt>
-    has super-classes
-   </dt>
-   <dd>
-    <a href="#ObservedRateOrAbundance" title="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance">Observed rate or abundance</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-  </dl>
- </div>
  <div class="entity" id="IndicatorRiver">
   <h3>Indicator river<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#IndicatorRiver</p>
   <div class="comment">
-   <span class="markdown">A reporting and assessment stratum identifying monitored indicator streams that provide representative indices of spawner abundance for nearby streams.</span>
+   <span class="markdown">Indicator streams are those that have been identified in some Regions as providing more reliable indices of spawner abundance. Indicator streams tend to give relatively accurate annual spawner abundance estimates, given that they use higher quality methodologies and are more intensively/regularly surveyed. Indicator streams are also assumed to be representative of spawner returns to other streams in close geographic proximity.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -1196,14 +965,6 @@ This section provides details for each class and property defined by DFO Salmon 
    </dt>
    <dd>
     <a href="https://www.salmonexplorer.ca/methods/glossary.html">https://www.salmonexplorer.ca/methods/glossary.html</a>
-   </dd>
-  </dl>
-  <dl class="description">
-   <dt>
-    has super-classes
-   </dt>
-   <dd>
-    <a href="#ReportingOrManagementStratum" title="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum">Reporting or management stratum</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -1232,7 +993,7 @@ This section provides details for each class and property defined by DFO Salmon 
     has sub-classes
    </dt>
    <dd>
-    <a href="#http://www.w3.org/ns/oa#Annotation" title="http://www.w3.org/ns/oa#Annotation">Annotation</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.dataone.org/odo/SALMON_00000167" title="http://purl.dataone.org/odo/SALMON_00000167">Fish measurement type</a> <sup class="type-c" title="class">c</sup>, <a href="#MetricBenchmark" title="https://w3id.org/gcdfo/salmon#MetricBenchmark">Metric benchmark</a> <sup class="type-c" title="class">c</sup>, <a href="#WSPRapidStatusAlgorithmThreshold" title="https://w3id.org/gcdfo/salmon#WSPRapidStatusAlgorithmThreshold">Rapid-status algorithm threshold</a> <sup class="type-c" title="class">c</sup>, <a href="#ReferencePoint" title="https://w3id.org/gcdfo/salmon#ReferencePoint">Reference point</a> <sup class="type-c" title="class">c</sup>, <a href="#ReportingOrManagementStratum" title="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum">Reporting or management stratum</a> <sup class="type-c" title="class">c</sup>, <a href="#WSPRapidStatus" title="https://w3id.org/gcdfo/salmon#WSPRapidStatus">WSP rapid status</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.obolibrary.org/obo/IAO_0000033" title="http://purl.obolibrary.org/obo/IAO_0000033">directive information entity</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.obolibrary.org/obo/IAO_0000310" title="http://purl.obolibrary.org/obo/IAO_0000310">document</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.obolibrary.org/obo/IAO_0000109" title="http://purl.obolibrary.org/obo/IAO_0000109">measurement datum</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.obolibrary.org/obo/IAO_0000104" title="http://purl.obolibrary.org/obo/IAO_0000104">plan specification</a> <sup class="type-c" title="class">c</sup>
+    <a href="#http://www.w3.org/ns/oa#Annotation" title="http://www.w3.org/ns/oa#Annotation">Annotation</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.dataone.org/odo/SALMON_00000167" title="http://purl.dataone.org/odo/SALMON_00000167">Fish measurement type</a> <sup class="type-c" title="class">c</sup>, <a href="#MetricBenchmark" title="https://w3id.org/gcdfo/salmon#MetricBenchmark">Metric benchmark</a> <sup class="type-c" title="class">c</sup>, <a href="#ReferencePoint" title="https://w3id.org/gcdfo/salmon#ReferencePoint">Reference point</a> <sup class="type-c" title="class">c</sup>, <a href="#ReportingOrManagementStratum" title="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum">Reporting or management stratum</a> <sup class="type-c" title="class">c</sup>, <a href="#WSPRapidStatusAlgorithmThreshold" title="https://w3id.org/gcdfo/salmon#WSPRapidStatusAlgorithmThreshold">WSP Rapid Status Algorithm threshold</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.obolibrary.org/obo/IAO_0000033" title="http://purl.obolibrary.org/obo/IAO_0000033">directive information entity</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.obolibrary.org/obo/IAO_0000310" title="http://purl.obolibrary.org/obo/IAO_0000310">document</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.obolibrary.org/obo/IAO_0000109" title="http://purl.obolibrary.org/obo/IAO_0000109">measurement datum</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.obolibrary.org/obo/IAO_0000104" title="http://purl.obolibrary.org/obo/IAO_0000104">plan specification</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -1278,7 +1039,7 @@ This section provides details for each class and property defined by DFO Salmon 
     has super-classes
    </dt>
    <dd>
-    <a href="#http://purl.obolibrary.org/obo/ENVO_00000063" title="http://purl.obolibrary.org/obo/ENVO_00000063">water body</a> <sup class="type-c" title="class">c</sup>
+    <a href="#http://purl.obolibrary.org/obo/BFO_0000040" title="http://purl.obolibrary.org/obo/BFO_0000040">material entity</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     has sub-classes
@@ -1307,10 +1068,7 @@ This section provides details for each class and property defined by DFO Salmon 
     Source
    </dt>
    <dd>
-    Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html.
-   </dd>
-   <dd>
-    <a href="https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html">https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html</a>
+    Fisheries and Oceans Canada. (2024). Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html. [Accessed 09-10-2025].
    </dd>
   </dl>
   <dl class="description">
@@ -1319,12 +1077,6 @@ This section provides details for each class and property defined by DFO Salmon 
    </dt>
    <dd>
     <a href="#ReferencePoint" title="https://w3id.org/gcdfo/salmon#ReferencePoint">Reference point</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-   <dt>
-    has sub-classes
-   </dt>
-   <dd>
-    <a href="#FisheriesReferencePointLower" title="https://w3id.org/gcdfo/salmon#FisheriesReferencePointLower">Fisheries Reference Point - Lower</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -1347,7 +1099,7 @@ This section provides details for each class and property defined by DFO Salmon 
     has super-classes
    </dt>
    <dd>
-    <a href="#http://purl.obolibrary.org/obo/ENVO_00000063" title="http://purl.obolibrary.org/obo/ENVO_00000063">water body</a> <sup class="type-c" title="class">c</sup>
+    <a href="#http://purl.obolibrary.org/obo/BFO_0000040" title="http://purl.obolibrary.org/obo/BFO_0000040">material entity</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     has sub-classes
@@ -1361,7 +1113,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <h3>Lower biological benchmark<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark</p>
   <div class="comment">
-   <span class="markdown">Lower benchmark value for a Conservation Unit (CU) metric used to delineate Wild Salmon Policy status zones (typically the boundary between Red and Amber zones). This CU-level biological benchmark is distinct from SMU-level fisheries management lower reference points such as FRP-L.</span>
+   <span class="markdown">Lower benchmark value for a metric used to delineate Wild Salmon Policy status zones (typically the boundary between Red and Amber zones).</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -1391,74 +1143,6 @@ This section provides details for each class and property defined by DFO Salmon 
    </dd>
   </dl>
  </div>
- <div class="entity" id="MainstemMortalityRate">
-  <h3>Mainstem mortality rate<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#MainstemMortalityRate</p>
-  <div class="comment">
-   <span class="markdown">The proportion of fish that die while migrating through the freshwater mainstem portion of a river system (as operationally delimited by the assessment workflow), over a specified interval or between specified mainstem reference points.</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <dl class="definedBy">
-   <dt>
-    Source
-   </dt>
-   <dd>
-    LGL Limited. Migration and Survival of Late-run Fraser Sockeye (radio-telemetry methods; fish detected at Mission are classified as survivors, fishery-related mortalities, or in-river mortalities; fixed-station tracking is conducted at strategic locations including mainstem confluences).
-   </dd>
-   <dd>
-    <a href="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/341440.pdf">https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/341440.pdf</a>
-   </dd>
-  </dl>
-  <dl class="description">
-   <dt>
-    has super-classes
-   </dt>
-   <dd>
-    <a href="#ObservedRateOrAbundance" title="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance">Observed rate or abundance</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-  </dl>
- </div>
- <div class="entity" id="MarineSurvivalIndex">
-  <h3>Marine survival index<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#MarineSurvivalIndex</p>
-  <div class="comment">
-   <span class="markdown">A dimensionless index or covariate representing marine survival conditions or relative marine survival outcomes (not necessarily a survival proportion).</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <dl class="definedBy">
-   <dt>
-    Source
-   </dt>
-   <dd>
-    Fisheries and Oceans Canada. 2021. Marine Survival Forecast of Southern British Columbia Coho (uses climate indicators correlated with marine survival; supports index-like predictors for survival conditions).
-   </dd>
-   <dd>
-    <a href="https://waves-vagues.dfo-mpo.gc.ca/Library/40978680.pdf">https://waves-vagues.dfo-mpo.gc.ca/Library/40978680.pdf</a>
-   </dd>
-  </dl>
-  <dl class="description">
-   <dt>
-    has super-classes
-   </dt>
-   <dd>
-    <a href="#ObservedRateOrAbundance" title="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance">Observed rate or abundance</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-  </dl>
- </div>
  <div class="entity" id="http://purl.obolibrary.org/obo/BFO_0000040">
   <h3>material entity<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> http://purl.obolibrary.org/obo/BFO_0000040</p>
@@ -1478,7 +1162,7 @@ This section provides details for each class and property defined by DFO Salmon 
     has sub-classes
    </dt>
    <dd>
-    <a href="#http://purl.dataone.org/odo/SALMON_00000639" title="http://purl.dataone.org/odo/SALMON_00000639">Fish stock type</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.dataone.org/odo/SALMON_00000137" title="http://purl.dataone.org/odo/SALMON_00000137">Fishery type</a> <sup class="type-c" title="class">c</sup>, <a href="#http://rs.tdwg.org/dwc/terms/MaterialEntity" title="http://rs.tdwg.org/dwc/terms/MaterialEntity">Material Entity</a> <sup class="type-c" title="class">c</sup>, <a href="#http://rs.tdwg.org/dwc/terms/Organism" title="http://rs.tdwg.org/dwc/terms/Organism">Organism</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.obolibrary.org/obo/ENVO_00000063" title="http://purl.obolibrary.org/obo/ENVO_00000063">water body</a> <sup class="type-c" title="class">c</sup>
+    <a href="#http://purl.dataone.org/odo/SALMON_00000639" title="http://purl.dataone.org/odo/SALMON_00000639">Fish stock type</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.dataone.org/odo/SALMON_00000137" title="http://purl.dataone.org/odo/SALMON_00000137">Fishery type</a> <sup class="type-c" title="class">c</sup>, <a href="#http://rs.tdwg.org/dwc/terms/MaterialEntity" title="http://rs.tdwg.org/dwc/terms/MaterialEntity">Material Entity</a> <sup class="type-c" title="class">c</sup>, <a href="#http://rs.tdwg.org/dwc/terms/Organism" title="http://rs.tdwg.org/dwc/terms/Organism">Organism</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.obolibrary.org/obo/ENVO_01000617" title="http://purl.obolibrary.org/obo/ENVO_01000617">lentic water body</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.obolibrary.org/obo/ENVO_01000618" title="http://purl.obolibrary.org/obo/ENVO_01000618">lotic water body</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -1511,12 +1195,6 @@ This section provides details for each class and property defined by DFO Salmon 
    <dd>
     <a href="#http://purl.obolibrary.org/obo/BFO_0000040" title="http://purl.obolibrary.org/obo/BFO_0000040">material entity</a> <sup class="type-c" title="class">c</sup>
    </dd>
-   <dt>
-    is in domain of
-   </dt>
-   <dd>
-    <a href="#isSampleOfStratum" title="https://w3id.org/gcdfo/salmon#isSampleOfStratum">is sample of stratum</a> <sup class="type-op" title="object property">op</sup>
-   </dd>
   </dl>
  </div>
  <div class="entity" id="http://purl.obolibrary.org/obo/IAO_0000109">
@@ -1544,7 +1222,7 @@ This section provides details for each class and property defined by DFO Salmon 
     has sub-classes
    </dt>
    <dd>
-    <a href="#EscapementMeasurement" title="https://w3id.org/gcdfo/salmon#EscapementMeasurement">Escapement measurement</a> <sup class="type-c" title="class">c</sup>, <a href="#ExploitationRate" title="https://w3id.org/gcdfo/salmon#ExploitationRate">Exploitation rate</a> <sup class="type-c" title="class">c</sup>, <a href="#ObservedRateOrAbundance" title="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance">Observed rate or abundance</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.dataone.org/odo/SALMON_00000479" title="http://purl.dataone.org/odo/SALMON_00000479">Salmon escapement count</a> <sup class="type-c" title="class">c</sup>, <a href="#TargetOrLimitRateOrAbundance" title="https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance">Target or limit rate or abundance</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.dataone.org/odo/ECSO_00002050" title="http://purl.dataone.org/odo/ECSO_00002050">year of measurement</a> <sup class="type-c" title="class">c</sup>
+    <a href="#EscapementMeasurement" title="https://w3id.org/gcdfo/salmon#EscapementMeasurement">Escapement measurement</a> <sup class="type-c" title="class">c</sup>, <a href="#ObservedRateOrAbundance" title="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance">Observed rate or abundance</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.dataone.org/odo/SALMON_00000479" title="http://purl.dataone.org/odo/SALMON_00000479">Salmon escapement count</a> <sup class="type-c" title="class">c</sup>, <a href="#TargetOrLimitRateOrAbundance" title="https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance">Target or limit rate or abundance</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.dataone.org/odo/ECSO_00002050" title="http://purl.dataone.org/odo/ECSO_00002050">year of measurement</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -1567,7 +1245,7 @@ This section provides details for each class and property defined by DFO Salmon 
     Source
    </dt>
    <dd>
-    Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570.
+    Pestal, G. et al. (2023). State of the Salmon: Rapid Status Assessment Approach for Pacific Salmon under Canada’s Wild Salmon Policy.
    </dd>
    <dd>
     <a href="https://publications.gc.ca/site/eng/9.928944/publication.html">https://publications.gc.ca/site/eng/9.928944/publication.html</a>
@@ -1585,58 +1263,6 @@ This section provides details for each class and property defined by DFO Salmon 
    </dt>
    <dd>
     <a href="#LowerBiologicalBenchmark" title="https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark">Lower biological benchmark</a> <sup class="type-c" title="class">c</sup>, <a href="#UpperBiologicalBenchmark" title="https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark">Upper biological benchmark</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-  </dl>
- </div>
- <div class="entity" id="ObservedExploitationRate">
-  <h3>Observed exploitation rate<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#ObservedExploitationRate</p>
-  <div class="comment">
-   <span class="markdown">An empirically estimated exploitation rate derived from observed or reconstructed catches/removals and returns/escapement for a specified stock and period.</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <dl class="definedBy">
-   <dt>
-    Source
-   </dt>
-   <dd>
-    Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html.
-   </dd>
-   <dd>
-    <a href="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html">https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html</a>
-   </dd>
-  </dl>
-  <dl class="description">
-   <dt>
-    has super-classes
-   </dt>
-   <dd>
-    <a href="#ExploitationRate" title="https://w3id.org/gcdfo/salmon#ExploitationRate">Exploitation rate</a> <sup class="type-c" title="class">c</sup>, <a href="#ObservedRateOrAbundance" title="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance">Observed rate or abundance</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-   <dt>
-    has sub-classes
-   </dt>
-   <dd>
-    <a href="#TotalExploitationRate" title="https://w3id.org/gcdfo/salmon#TotalExploitationRate">Total exploitation rate</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-   <dt>
-    is in domain of
-   </dt>
-   <dd>
-    <a href="#hasTargetOrLimitExploitationRate" title="https://w3id.org/gcdfo/salmon#hasTargetOrLimitExploitationRate">has target or limit exploitation rate</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasYearBasis" title="https://w3id.org/gcdfo/salmon#hasYearBasis">has year basis</a> <sup class="type-op" title="object property">op</sup>
-   </dd>
-   <dt>
-    is in range of
-   </dt>
-   <dd>
-    <a href="#isTargetOrLimitForObservedExploitationRate" title="https://w3id.org/gcdfo/salmon#isTargetOrLimitForObservedExploitationRate">is target or limit for observed exploitation rate</a> <sup class="type-op" title="object property">op</sup>
    </dd>
   </dl>
  </div>
@@ -1660,12 +1286,6 @@ This section provides details for each class and property defined by DFO Salmon 
    </dt>
    <dd>
     <a href="#http://purl.obolibrary.org/obo/IAO_0000109" title="http://purl.obolibrary.org/obo/IAO_0000109">measurement datum</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-   <dt>
-    has sub-classes
-   </dt>
-   <dd>
-    <a href="#CWTMarineSurvivalRate" title="https://w3id.org/gcdfo/salmon#CWTMarineSurvivalRate">CWT marine survival rate</a> <sup class="type-c" title="class">c</sup>, <a href="#InRiverMortalityRate" title="https://w3id.org/gcdfo/salmon#InRiverMortalityRate">In-river mortality rate</a> <sup class="type-c" title="class">c</sup>, <a href="#MainstemMortalityRate" title="https://w3id.org/gcdfo/salmon#MainstemMortalityRate">Mainstem mortality rate</a> <sup class="type-c" title="class">c</sup>, <a href="#MarineSurvivalIndex" title="https://w3id.org/gcdfo/salmon#MarineSurvivalIndex">Marine survival index</a> <sup class="type-c" title="class">c</sup>, <a href="#ObservedExploitationRate" title="https://w3id.org/gcdfo/salmon#ObservedExploitationRate">Observed exploitation rate</a> <sup class="type-c" title="class">c</sup>, <a href="#OceanMortalityRate" title="https://w3id.org/gcdfo/salmon#OceanMortalityRate">Ocean mortality rate</a> <sup class="type-c" title="class">c</sup>, <a href="#ProportionHatcheryOriginSpawners" title="https://w3id.org/gcdfo/salmon#ProportionHatcheryOriginSpawners">Proportion of hatchery-origin spawners</a> <sup class="type-c" title="class">c</sup>, <a href="#SpawnerAbundance" title="https://w3id.org/gcdfo/salmon#SpawnerAbundance">Spawner abundance</a> <sup class="type-c" title="class">c</sup>, <a href="#SpawnerAbundanceChange" title="https://w3id.org/gcdfo/salmon#SpawnerAbundanceChange">Spawner abundance change</a> <sup class="type-c" title="class">c</sup>, <a href="#SpawnerAbundancePercentile" title="https://w3id.org/gcdfo/salmon#SpawnerAbundancePercentile">Spawner abundance percentile</a> <sup class="type-c" title="class">c</sup>, <a href="#SpawnerAbundanceTrend" title="https://w3id.org/gcdfo/salmon#SpawnerAbundanceTrend">Spawner abundance trend</a> <sup class="type-c" title="class">c</sup>, <a href="#TerminalMortalityRate" title="https://w3id.org/gcdfo/salmon#TerminalMortalityRate">Terminal mortality rate</a> <sup class="type-c" title="class">c</sup>, <a href="#TotalMortalityRate" title="https://w3id.org/gcdfo/salmon#TotalMortalityRate">Total mortality rate</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -1697,40 +1317,6 @@ This section provides details for each class and property defined by DFO Salmon 
    </dt>
    <dd>
     <a href="#http://purl.obolibrary.org/obo/BFO_0000015" title="http://purl.obolibrary.org/obo/BFO_0000015">process</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-  </dl>
- </div>
- <div class="entity" id="OceanMortalityRate">
-  <h3>Ocean mortality rate<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#OceanMortalityRate</p>
-  <div class="comment">
-   <span class="markdown">The proportion of fish that die during the ocean (marine) life-history phase for a defined population/cohort and interval; when a marine survival proportion is available, ocean mortality may be represented as its complement under the assessment’s accounting conventions.</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <dl class="definedBy">
-   <dt>
-    Source
-   </dt>
-   <dd>
-    COSEWIC. 2017. Sockeye Salmon (Oncorhynchus nerka) assessment and status report (marine survival index described and interpreted in a Pacific salmon assessment context).
-   </dd>
-   <dd>
-    <a href="https://www.canada.ca/en/environment-climate-change/services/species-risk-public-registry/cosewic-assessments-status-reports/sockeye-salmon-2017.html">https://www.canada.ca/en/environment-climate-change/services/species-risk-public-registry/cosewic-assessments-status-reports/sockeye-salmon-2017.html</a>
-   </dd>
-  </dl>
-  <dl class="description">
-   <dt>
-    has super-classes
-   </dt>
-   <dd>
-    <a href="#ObservedRateOrAbundance" title="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance">Observed rate or abundance</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -1791,12 +1377,6 @@ This section provides details for each class and property defined by DFO Salmon 
    </dt>
    <dd>
     <a href="#http://purl.obolibrary.org/obo/IAO_0000030" title="http://purl.obolibrary.org/obo/IAO_0000030">information content entity</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-   <dt>
-    is in range of
-   </dt>
-   <dd>
-    <a href="#usesObservationProcedure" title="https://w3id.org/gcdfo/salmon#usesObservationProcedure">uses observation procedure</a> <sup class="type-op" title="object property">op</sup>
    </dd>
   </dl>
  </div>
@@ -1881,40 +1461,6 @@ This section provides details for each class and property defined by DFO Salmon 
    </dd>
   </dl>
  </div>
- <div class="entity" id="ProportionHatcheryOriginSpawners">
-  <h3>Proportion of hatchery-origin spawners<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#ProportionHatcheryOriginSpawners</p>
-  <div class="comment">
-   <span class="markdown">The proportion of spawners in a population-year that are hatchery-origin (hatchery-origin spawners divided by total spawners).</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <dl class="definedBy">
-   <dt>
-    Source
-   </dt>
-   <dd>
-    Derived for SPSR term coverage (Issue #33 term request scope); ‘hatchery-origin’ is defined in the Salmon Origin scheme and operational marking is described in the DFO Coded Wire Tag Program page.
-   </dd>
-   <dd>
-    <a href="https://www.pac.dfo-mpo.gc.ca/pacific-smon-pacifique/science/research-recherche/cwt-mmc-eng.html">https://www.pac.dfo-mpo.gc.ca/pacific-smon-pacifique/science/research-recherche/cwt-mmc-eng.html</a>
-   </dd>
-  </dl>
-  <dl class="description">
-   <dt>
-    has super-classes
-   </dt>
-   <dd>
-    <a href="#ObservedRateOrAbundance" title="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance">Observed rate or abundance</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-  </dl>
- </div>
  <div class="entity" id="http://www.w3.org/ns/dqv#QualityAnnotation">
   <h3>Quality Annotation<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> http://www.w3.org/ns/dqv#QualityAnnotation</p>
@@ -1946,40 +1492,6 @@ This section provides details for each class and property defined by DFO Salmon 
    </dd>
   </dl>
  </div>
- <div class="entity" id="WSPRapidStatusAlgorithmThreshold">
-  <h3>Rapid-status algorithm threshold<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#WSPRapidStatusAlgorithmThreshold</p>
-  <div class="comment">
-   <span class="markdown">Threshold value used by the rapid-status algorithm that may differ from expert-defined benchmarks to incorporate precautionary buffers.</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <dl class="definedBy">
-   <dt>
-    Source
-   </dt>
-   <dd>
-    Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under Fisheries and Oceans Canada Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Science Response 2024/004.
-   </dd>
-   <dd>
-    <a href="https://www.dfo-mpo.gc.ca/csas-sccs/Publications/ScR-RS/2024/2024_004-eng.html">https://www.dfo-mpo.gc.ca/csas-sccs/Publications/ScR-RS/2024/2024_004-eng.html</a>
-   </dd>
-  </dl>
-  <dl class="description">
-   <dt>
-    has super-classes
-   </dt>
-   <dd>
-    <a href="#http://purl.obolibrary.org/obo/IAO_0000030" title="http://purl.obolibrary.org/obo/IAO_0000030">information content entity</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-  </dl>
- </div>
  <div class="entity" id="ReferencePoint">
   <h3>Reference point<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#ReferencePoint</p>
@@ -1999,7 +1511,7 @@ This section provides details for each class and property defined by DFO Salmon 
     Source
    </dt>
    <dd>
-    Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html.
+    DFO Introduction to Stock Assessment Glossary.
    </dd>
    <dd>
     <a href="https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html">https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html</a>
@@ -2017,444 +1529,6 @@ This section provides details for each class and property defined by DFO Salmon 
    </dt>
    <dd>
     <a href="#LimitReferencePoint" title="https://w3id.org/gcdfo/salmon#LimitReferencePoint">Limit reference point</a> <sup class="type-c" title="class">c</sup>, <a href="#UpperStockReferencePoint" title="https://w3id.org/gcdfo/salmon#UpperStockReferencePoint">Upper stock reference</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-  </dl>
- </div>
- <div class="entity" id="RelativeHatcherySpawnerAbundance">
-  <h3>Relative hatchery spawner abundance<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundance</p>
-  <div class="comment">
-   <span class="markdown">Hatchery-origin spawner abundance expressed as a relative (dimensionless) abundance metric to a defined reference (commonly benchmarks), for within-series comparison; in rapid-status workflows, relative abundance is computed using the current generational average (geometric mean) divided by CU-specific lower and/or upper benchmarks.</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <dl class="definedBy">
-   <dt>
-    Source
-   </dt>
-   <dd>
-    Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon… CSAS Pacific Region Science Response 2024/004 (relative abundance metric definition and computation). Holt et al. 2009. Indicators of Status and Benchmarks… CSAS Res. Doc. 2009/058 (discusses hatchery/wild considerations for status assessments).
-   </dd>
-   <dd>
-    <a href="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/339096.pdf">https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/339096.pdf</a>
-   </dd>
-   <dd>
-    <a href="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf">https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf</a>
-   </dd>
-  </dl>
-  <dl class="description">
-   <dt>
-    has super-classes
-   </dt>
-   <dd>
-    <a href="#RelativeSpawnerAbundance" title="https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundance">Relative spawner abundance</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-  </dl>
- </div>
- <div class="entity" id="RelativeHatcherySpawnerAbundanceChange">
-  <h3>Relative hatchery spawner abundance change<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundanceChange</p>
-  <div class="comment">
-   <span class="markdown">A change metric (delta or percent change, as defined by the workflow) computed from relative hatchery-origin spawner abundance values over time; in rapid-status workflows, percent change is derived from log-transformed series and quantified over the most recent three generations.</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <dl class="definedBy">
-   <dt>
-    Source
-   </dt>
-   <dd>
-    Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon… CSAS Pacific Region Science Response 2024/004 (definition and computation notes for percent change as a short-term trend over three generations).
-   </dd>
-   <dd>
-    <a href="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf">https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf</a>
-   </dd>
-  </dl>
-  <dl class="description">
-   <dt>
-    has super-classes
-   </dt>
-   <dd>
-    <a href="#RelativeSpawnerAbundanceChange" title="https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundanceChange">Relative spawner abundance change</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-  </dl>
- </div>
- <div class="entity" id="RelativeHatcherySpawnerAbundancePercentile">
-  <h3>Relative hatchery spawner abundance percentile<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundancePercentile</p>
-  <div class="comment">
-   <span class="markdown">The percentile rank of relative hatchery-origin spawner abundance against a defined historical reference distribution.</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <dl class="definedBy">
-   <dt>
-    Source
-   </dt>
-   <dd>
-    Fisheries and Oceans Canada. 2024. Rapid Status Approximations… CSAS Science Response 2024/004 (percentile benchmarks discussion).
-   </dd>
-   <dd>
-    <a href="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf">https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf</a>
-   </dd>
-  </dl>
-  <dl class="description">
-   <dt>
-    has super-classes
-   </dt>
-   <dd>
-    <a href="#RelativeSpawnerAbundancePercentile" title="https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundancePercentile">Relative spawner abundance percentile</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-  </dl>
- </div>
- <div class="entity" id="RelativeHatcherySpawnerAbundanceTrend">
-  <h3>Relative hatchery spawner abundance trend<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundanceTrend</p>
-  <div class="comment">
-   <span class="markdown">A trend metric computed from relative hatchery-origin spawner abundance using a defined trend method; in rapid-status workflows, long-term trend is the ratio of current generational average (geometric mean) abundance to long-term average (geometric mean).</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <dl class="definedBy">
-   <dt>
-    Source
-   </dt>
-   <dd>
-    Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon… CSAS Pacific Region Science Response 2024/004 (long-term trend in abundance metric definition).
-   </dd>
-   <dd>
-    <a href="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf">https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf</a>
-   </dd>
-  </dl>
-  <dl class="description">
-   <dt>
-    has super-classes
-   </dt>
-   <dd>
-    <a href="#RelativeSpawnerAbundanceTrend" title="https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundanceTrend">Relative spawner abundance trend</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-  </dl>
- </div>
- <div class="entity" id="RelativeSpawnerAbundance">
-  <h3>Relative spawner abundance<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundance</p>
-  <div class="comment">
-   <span class="markdown">Spawner abundance expressed as a relative (dimensionless) abundance metric to a defined reference (commonly benchmarks), for within-series comparison; in rapid-status workflows, relative abundance is computed using the current generational average (geometric mean) divided by CU-specific lower and/or upper benchmarks.</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <dl class="definedBy">
-   <dt>
-    Source
-   </dt>
-   <dd>
-    Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under Fisheries and Oceans Canada Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004 (relative abundance metric definition and computation).
-   </dd>
-   <dd>
-    <a href="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf">https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf</a>
-   </dd>
-  </dl>
-  <dl class="description">
-   <dt>
-    has super-classes
-   </dt>
-   <dd>
-    <a href="#SpawnerAbundance" title="https://w3id.org/gcdfo/salmon#SpawnerAbundance">Spawner abundance</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-   <dt>
-    has sub-classes
-   </dt>
-   <dd>
-    <a href="#RelativeHatcherySpawnerAbundance" title="https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundance">Relative hatchery spawner abundance</a> <sup class="type-c" title="class">c</sup>, <a href="#RelativeWildSpawnerAbundance" title="https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundance">Relative wild spawner abundance</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-  </dl>
- </div>
- <div class="entity" id="RelativeSpawnerAbundanceChange">
-  <h3>Relative spawner abundance change<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundanceChange</p>
-  <div class="comment">
-   <span class="markdown">A change metric (delta or percent change, as defined by the workflow) computed from relative spawner abundance values over time; where rapid-status percent-change approaches are used, it represents change in abundance over the most recent three generations after log transformation (and smoothing where applicable).</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <dl class="definedBy">
-   <dt>
-    Source
-   </dt>
-   <dd>
-    Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon… CSAS Pacific Region Science Response 2024/004 (definition and computation notes for percent change as a short-term trend over three generations).
-   </dd>
-   <dd>
-    <a href="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf">https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf</a>
-   </dd>
-  </dl>
-  <dl class="description">
-   <dt>
-    has super-classes
-   </dt>
-   <dd>
-    <a href="#SpawnerAbundanceChange" title="https://w3id.org/gcdfo/salmon#SpawnerAbundanceChange">Spawner abundance change</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-   <dt>
-    has sub-classes
-   </dt>
-   <dd>
-    <a href="#RelativeHatcherySpawnerAbundanceChange" title="https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundanceChange">Relative hatchery spawner abundance change</a> <sup class="type-c" title="class">c</sup>, <a href="#RelativeWildSpawnerAbundanceChange" title="https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundanceChange">Relative wild spawner abundance change</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-  </dl>
- </div>
- <div class="entity" id="RelativeSpawnerAbundancePercentile">
-  <h3>Relative spawner abundance percentile<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundancePercentile</p>
-  <div class="comment">
-   <span class="markdown">The percentile rank of relative spawner abundance against a defined historical reference distribution.</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <dl class="definedBy">
-   <dt>
-    Source
-   </dt>
-   <dd>
-    Fisheries and Oceans Canada. 2024. Rapid Status Approximations… CSAS Science Response 2024/004 (percentile benchmarks discussion).
-   </dd>
-   <dd>
-    <a href="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf">https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf</a>
-   </dd>
-  </dl>
-  <dl class="description">
-   <dt>
-    has super-classes
-   </dt>
-   <dd>
-    <a href="#SpawnerAbundancePercentile" title="https://w3id.org/gcdfo/salmon#SpawnerAbundancePercentile">Spawner abundance percentile</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-   <dt>
-    has sub-classes
-   </dt>
-   <dd>
-    <a href="#RelativeHatcherySpawnerAbundancePercentile" title="https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundancePercentile">Relative hatchery spawner abundance percentile</a> <sup class="type-c" title="class">c</sup>, <a href="#RelativeWildSpawnerAbundancePercentile" title="https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundancePercentile">Relative wild spawner abundance percentile</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-  </dl>
- </div>
- <div class="entity" id="RelativeSpawnerAbundanceTrend">
-  <h3>Relative spawner abundance trend<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundanceTrend</p>
-  <div class="comment">
-   <span class="markdown">A long-term trend metric expressed as the ratio of the current generational average (geometric mean) spawner abundance to the long-term average (geometric mean), yielding a dimensionless measure of relative abundance through time.</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <dl class="definedBy">
-   <dt>
-    Source
-   </dt>
-   <dd>
-    Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon… CSAS Pacific Region Science Response 2024/004 (long-term trend in abundance defined as ratio of current generational average to long-term average).
-   </dd>
-   <dd>
-    <a href="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf">https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf</a>
-   </dd>
-  </dl>
-  <dl class="description">
-   <dt>
-    has super-classes
-   </dt>
-   <dd>
-    <a href="#SpawnerAbundanceTrend" title="https://w3id.org/gcdfo/salmon#SpawnerAbundanceTrend">Spawner abundance trend</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-   <dt>
-    has sub-classes
-   </dt>
-   <dd>
-    <a href="#RelativeHatcherySpawnerAbundanceTrend" title="https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundanceTrend">Relative hatchery spawner abundance trend</a> <sup class="type-c" title="class">c</sup>, <a href="#RelativeWildSpawnerAbundanceTrend" title="https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundanceTrend">Relative wild spawner abundance trend</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-  </dl>
- </div>
- <div class="entity" id="RelativeWildSpawnerAbundance">
-  <h3>Relative wild spawner abundance<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundance</p>
-  <div class="comment">
-   <span class="markdown">Natural-origin (wild) spawner abundance expressed as a relative (dimensionless) abundance metric to a defined reference (commonly benchmarks), for within-series comparison; where WSP-style relative abundance is used, it is computed using current generational averages (geometric mean) relative to CU-specific benchmarks.</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <dl class="definedBy">
-   <dt>
-    Source
-   </dt>
-   <dd>
-    Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon… CSAS Pacific Region Science Response 2024/004 (relative abundance metric definition). Holt et al. 2009. Indicators of Status and Benchmarks for Conservation Units in Canada's Wild Salmon Policy. CSAS Res. Doc. 2009/058 (wild vs hatchery-origin considerations in spawner series context).
-   </dd>
-   <dd>
-    <a href="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/339096.pdf">https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/339096.pdf</a>
-   </dd>
-   <dd>
-    <a href="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf">https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf</a>
-   </dd>
-  </dl>
-  <dl class="description">
-   <dt>
-    has super-classes
-   </dt>
-   <dd>
-    <a href="#RelativeSpawnerAbundance" title="https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundance">Relative spawner abundance</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-  </dl>
- </div>
- <div class="entity" id="RelativeWildSpawnerAbundanceChange">
-  <h3>Relative wild spawner abundance change<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundanceChange</p>
-  <div class="comment">
-   <span class="markdown">A change metric (delta or percent change, as defined by the workflow) computed from relative natural-origin spawner abundance values over time; in rapid-status workflows, percent change is defined over the most recent three generations using log-transformed abundance series.</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <dl class="definedBy">
-   <dt>
-    Source
-   </dt>
-   <dd>
-    Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon… CSAS Pacific Region Science Response 2024/004 (definition and computation notes for percent change over the most recent three generations).
-   </dd>
-   <dd>
-    <a href="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf">https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf</a>
-   </dd>
-  </dl>
-  <dl class="description">
-   <dt>
-    has super-classes
-   </dt>
-   <dd>
-    <a href="#RelativeSpawnerAbundanceChange" title="https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundanceChange">Relative spawner abundance change</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-  </dl>
- </div>
- <div class="entity" id="RelativeWildSpawnerAbundancePercentile">
-  <h3>Relative wild spawner abundance percentile<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundancePercentile</p>
-  <div class="comment">
-   <span class="markdown">The percentile rank of relative natural-origin spawner abundance against a defined historical reference distribution.</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <dl class="definedBy">
-   <dt>
-    Source
-   </dt>
-   <dd>
-    Fisheries and Oceans Canada. 2024. Rapid Status Approximations… CSAS Science Response 2024/004 (percentile benchmarks discussion).
-   </dd>
-   <dd>
-    <a href="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf">https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf</a>
-   </dd>
-  </dl>
-  <dl class="description">
-   <dt>
-    has super-classes
-   </dt>
-   <dd>
-    <a href="#RelativeSpawnerAbundancePercentile" title="https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundancePercentile">Relative spawner abundance percentile</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-  </dl>
- </div>
- <div class="entity" id="RelativeWildSpawnerAbundanceTrend">
-  <h3>Relative wild spawner abundance trend<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundanceTrend</p>
-  <div class="comment">
-   <span class="markdown">A trend metric computed from relative natural-origin spawner abundance using a defined trend method; in rapid-status workflows, long-term trend is the ratio of current generational average (geometric mean) abundance to long-term average (geometric mean).</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <dl class="definedBy">
-   <dt>
-    Source
-   </dt>
-   <dd>
-    Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon… CSAS Pacific Region Science Response 2024/004 (long-term trend in abundance metric definition).
-   </dd>
-   <dd>
-    <a href="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf">https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf</a>
-   </dd>
-  </dl>
-  <dl class="description">
-   <dt>
-    has super-classes
-   </dt>
-   <dd>
-    <a href="#RelativeSpawnerAbundanceTrend" title="https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundanceTrend">Relative spawner abundance trend</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -2483,13 +1557,7 @@ This section provides details for each class and property defined by DFO Salmon 
     has sub-classes
    </dt>
    <dd>
-    <a href="#ConservationUnit" title="https://w3id.org/gcdfo/salmon#ConservationUnit">Conservation Unit</a> <sup class="type-c" title="class">c</sup>, <a href="#IndicatorRiver" title="https://w3id.org/gcdfo/salmon#IndicatorRiver">Indicator river</a> <sup class="type-c" title="class">c</sup>, <a href="#Stock" title="https://w3id.org/gcdfo/salmon#Stock">Stock</a> <sup class="type-c" title="class">c</sup>, <a href="#StockManagementUnit" title="https://w3id.org/gcdfo/salmon#StockManagementUnit">Stock Management Unit</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-   <dt>
-    is in range of
-   </dt>
-   <dd>
-    <a href="#hasFeatureOfInterest" title="https://w3id.org/gcdfo/salmon#hasFeatureOfInterest">has feature of interest</a> <sup class="type-op" title="object property">op</sup>, <a href="#isSampleOfStratum" title="https://w3id.org/gcdfo/salmon#isSampleOfStratum">is sample of stratum</a> <sup class="type-op" title="object property">op</sup>
+    <a href="#ConservationUnit" title="https://w3id.org/gcdfo/salmon#ConservationUnit">Conservation Unit</a> <sup class="type-c" title="class">c</sup>, <a href="#Stock" title="https://w3id.org/gcdfo/salmon#Stock">Stock</a> <sup class="type-c" title="class">c</sup>, <a href="#StockManagementUnit" title="https://w3id.org/gcdfo/salmon#StockManagementUnit">Stock Management Unit</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -2539,175 +1607,6 @@ This section provides details for each class and property defined by DFO Salmon 
    </dd>
   </dl>
  </div>
- <div class="entity" id="SpawnerAbundance">
-  <h3>Spawner abundance<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#SpawnerAbundance</p>
-  <div class="comment">
-   <span class="markdown">The abundance (count) of adult salmon that reach spawning grounds in a given system and time period (often operationalized as escapement/spawning escapement).</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <dl class="definedBy">
-   <dt>
-    Source
-   </dt>
-   <dd>
-    Fisheries and Oceans Canada. Pacific Salmon Glossary (defines escapement/spawning escapement as the number of salmon returning to the spawning grounds).
-   </dd>
-   <dd>
-    <a href="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html">https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html</a>
-   </dd>
-  </dl>
-  <dl class="description">
-   <dt>
-    has super-classes
-   </dt>
-   <dd>
-    <a href="#ObservedRateOrAbundance" title="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance">Observed rate or abundance</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-   <dt>
-    has sub-classes
-   </dt>
-   <dd>
-    <a href="#RelativeSpawnerAbundance" title="https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundance">Relative spawner abundance</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-   <dt>
-    is in domain of
-   </dt>
-   <dd>
-    <a href="#hasYearBasis" title="https://w3id.org/gcdfo/salmon#hasYearBasis">has year basis</a> <sup class="type-op" title="object property">op</sup>
-   </dd>
-  </dl>
- </div>
- <div class="entity" id="SpawnerAbundanceChange">
-  <h3>Spawner abundance change<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#SpawnerAbundanceChange</p>
-  <div class="comment">
-   <span class="markdown">A change metric (delta or percent change, as defined by the workflow) computed from spawner abundance values over time; in rapid-status workflows, percent change is quantified as a linear change in log-transformed abundance over the most recent three generations.</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <dl class="definedBy">
-   <dt>
-    Source
-   </dt>
-   <dd>
-    Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon… CSAS Pacific Region Science Response 2024/004 (percent change definition and computation notes). COSEWIC. 2017. Sockeye Salmon assessment and status report (log-linear rate-of-change model and percent-change derivation over three generations).
-   </dd>
-   <dd>
-    <a href="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf">https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf</a>
-   </dd>
-   <dd>
-    <a href="https://www.canada.ca/en/environment-climate-change/services/species-risk-public-registry/cosewic-assessments-status-reports/sockeye-salmon-2017.html">https://www.canada.ca/en/environment-climate-change/services/species-risk-public-registry/cosewic-assessments-status-reports/sockeye-salmon-2017.html</a>
-   </dd>
-  </dl>
-  <dl class="description">
-   <dt>
-    has super-classes
-   </dt>
-   <dd>
-    <a href="#ObservedRateOrAbundance" title="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance">Observed rate or abundance</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-   <dt>
-    has sub-classes
-   </dt>
-   <dd>
-    <a href="#RelativeSpawnerAbundanceChange" title="https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundanceChange">Relative spawner abundance change</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-  </dl>
- </div>
- <div class="entity" id="SpawnerAbundancePercentile">
-  <h3>Spawner abundance percentile<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#SpawnerAbundancePercentile</p>
-  <div class="comment">
-   <span class="markdown">The percentile rank of a spawner abundance value (annual or period-specific) against a defined historical reference distribution.</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <dl class="definedBy">
-   <dt>
-    Source
-   </dt>
-   <dd>
-    Fisheries and Oceans Canada. 2024. Rapid Status Approximations… CSAS Science Response 2024/004 (percentile benchmarks discussion).
-   </dd>
-   <dd>
-    <a href="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf">https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf</a>
-   </dd>
-  </dl>
-  <dl class="description">
-   <dt>
-    has super-classes
-   </dt>
-   <dd>
-    <a href="#ObservedRateOrAbundance" title="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance">Observed rate or abundance</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-   <dt>
-    has sub-classes
-   </dt>
-   <dd>
-    <a href="#RelativeSpawnerAbundancePercentile" title="https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundancePercentile">Relative spawner abundance percentile</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-  </dl>
- </div>
- <div class="entity" id="SpawnerAbundanceTrend">
-  <h3>Spawner abundance trend<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#SpawnerAbundanceTrend</p>
-  <div class="comment">
-   <span class="markdown">A trend metric computed from spawner abundance over time using a defined trend method (e.g., slope over a specified window).</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <dl class="definedBy">
-   <dt>
-    Source
-   </dt>
-   <dd>
-    Derived for SPSR term coverage; distinct from gcdfo:LongTermTrendMetric (current generational average vs long-term average) in CSAS Science Response 2024/004.
-   </dd>
-   <dd>
-    <a href="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf">https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf</a>
-   </dd>
-  </dl>
-  <dl class="description">
-   <dt>
-    has super-classes
-   </dt>
-   <dd>
-    <a href="#ObservedRateOrAbundance" title="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance">Observed rate or abundance</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-   <dt>
-    has sub-classes
-   </dt>
-   <dd>
-    <a href="#RelativeSpawnerAbundanceTrend" title="https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundanceTrend">Relative spawner abundance trend</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-  </dl>
- </div>
  <div class="entity" id="http://purl.obolibrary.org/obo/BFO_0000020">
   <h3>specifically dependent continuant<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> http://purl.obolibrary.org/obo/BFO_0000020</p>
@@ -2742,7 +1641,7 @@ This section provides details for each class and property defined by DFO Salmon 
     Source
    </dt>
    <dd>
-    Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html.
+    DFO Introduction to Stock Assessment Glossary; Pacific Salmon Commission Technical Report No. 49.
    </dd>
    <dd>
     <a href="https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html">https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html</a>
@@ -2776,10 +1675,7 @@ This section provides details for each class and property defined by DFO Salmon 
     Source
    </dt>
    <dd>
-    Fisheries and Oceans Canada. Introduction to Stock Assessment. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/module-1/09-eng.html.
-   </dd>
-   <dd>
-    <a href="https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/module-1/09-eng.html">https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/module-1/09-eng.html</a>
+    Fisheries and Oceans Canada. (2024). Introduction to Stock Assessment. Available at https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/module-1/09-eng.html
    </dd>
   </dl>
   <dl class="description">
@@ -2810,7 +1706,10 @@ This section provides details for each class and property defined by DFO Salmon 
     Source
    </dt>
    <dd>
-    Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html.
+    DFO Introduction to Stock Assessment Glossary.
+   </dd>
+   <dd>
+    Fisheries and Oceans Canada. (2024). Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html. [Accessed 09-10-2025].
    </dd>
    <dd>
     <a href="https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html">https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html</a>
@@ -2888,10 +1787,7 @@ This section provides details for each class and property defined by DFO Salmon 
     Source
    </dt>
    <dd>
-    Fisheries and Oceans Canada. About the Sustainability Survey for Fisheries. https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html.
-   </dd>
-   <dd>
-    <a href="https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html">https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html</a>
+    Fisheries and Oceans Canada. (2021). About the Sustainability Survey for Fisheries. Available at https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html. [Accessed 09-10-2025].
    </dd>
   </dl>
   <dl class="description">
@@ -2899,65 +1795,13 @@ This section provides details for each class and property defined by DFO Salmon 
     has super-classes
    </dt>
    <dd>
-    <a href="http://www.w3.org/ns/prov#Activity" target="_blank" title="http://www.w3.org/ns/prov#Activity">Activity</a> <sup class="type-c" title="class">c</sup>, <a href="#http://rs.tdwg.org/dwc/terms/Event" title="http://rs.tdwg.org/dwc/terms/Event">Event</a> <sup class="type-c" title="class">c</sup>, <a href="http://www.w3.org/ns/sosa/Sampling" target="_blank" title="http://www.w3.org/ns/sosa/Sampling">Sampling</a> <sup class="type-c" title="class">c</sup>
+    <a href="#http://rs.tdwg.org/dwc/terms/Event" title="http://rs.tdwg.org/dwc/terms/Event">Event</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     has sub-classes
    </dt>
    <dd>
     <a href="#EscapementSurveyEvent" title="https://w3id.org/gcdfo/salmon#EscapementSurveyEvent">Escapement Survey Event</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-   <dt>
-    is in domain of
-   </dt>
-   <dd>
-    <a href="#hasFeatureOfInterest" title="https://w3id.org/gcdfo/salmon#hasFeatureOfInterest">has feature of interest</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasObservationResult" title="https://w3id.org/gcdfo/salmon#hasObservationResult">has observation result</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasObservedVariable" title="https://w3id.org/gcdfo/salmon#hasObservedVariable">has observed variable</a> <sup class="type-op" title="object property">op</sup>, <a href="#usesObservationProcedure" title="https://w3id.org/gcdfo/salmon#usesObservationProcedure">uses observation procedure</a> <sup class="type-op" title="object property">op</sup>
-   </dd>
-  </dl>
- </div>
- <div class="entity" id="TargetOrLimitExploitationRate">
-  <h3>Target or limit exploitation rate<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate</p>
-  <div class="comment">
-   <span class="markdown">A policy- or management-defined exploitation-rate value used as a target, threshold, or limit reference in decision rules.</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <dl class="definedBy">
-   <dt>
-    Source
-   </dt>
-   <dd>
-    Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html.
-   </dd>
-   <dd>
-    <a href="https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html">https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html</a>
-   </dd>
-  </dl>
-  <dl class="description">
-   <dt>
-    has super-classes
-   </dt>
-   <dd>
-    <a href="#ExploitationRate" title="https://w3id.org/gcdfo/salmon#ExploitationRate">Exploitation rate</a> <sup class="type-c" title="class">c</sup>, <a href="#TargetOrLimitRateOrAbundance" title="https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance">Target or limit rate or abundance</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-   <dt>
-    is in domain of
-   </dt>
-   <dd>
-    <a href="#hasYearBasis" title="https://w3id.org/gcdfo/salmon#hasYearBasis">has year basis</a> <sup class="type-op" title="object property">op</sup>, <a href="#isTargetOrLimitForObservedExploitationRate" title="https://w3id.org/gcdfo/salmon#isTargetOrLimitForObservedExploitationRate">is target or limit for observed exploitation rate</a> <sup class="type-op" title="object property">op</sup>
-   </dd>
-   <dt>
-    is in range of
-   </dt>
-   <dd>
-    <a href="#hasTargetOrLimitExploitationRate" title="https://w3id.org/gcdfo/salmon#hasTargetOrLimitExploitationRate">has target or limit exploitation rate</a> <sup class="type-op" title="object property">op</sup>
    </dd>
   </dl>
  </div>
@@ -2986,44 +1830,7 @@ This section provides details for each class and property defined by DFO Salmon 
     has sub-classes
    </dt>
    <dd>
-    <a href="#TargetOrLimitExploitationRate" title="https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate">Target or limit exploitation rate</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-  </dl>
- </div>
- <div class="entity" id="TerminalMortalityRate">
-  <h3>Terminal mortality rate<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#TerminalMortalityRate</p>
-  <div class="comment">
-   <span class="markdown">The proportion of fish that die after reaching terminal spawning areas (or immediate vicinity) but before successfully spawning, as defined by the assessment workflow (i.e., pre-spawn mortality in terminal areas).</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <dl class="definedBy">
-   <dt>
-    Source
-   </dt>
-   <dd>
-    COSEWIC. 2017. Sockeye Salmon (Oncorhynchus nerka) assessment and status report (pre-spawn mortality includes fish that made it to spawning grounds but did not successfully spawn). LGL Limited. Migration and Survival of Late-run Fraser Sockeye (operational identification of pre-spawn mortalities from spawning-area detections).
-   </dd>
-   <dd>
-    <a href="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/341440.pdf">https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/341440.pdf</a>
-   </dd>
-   <dd>
-    <a href="https://www.canada.ca/en/environment-climate-change/services/species-risk-public-registry/cosewic-assessments-status-reports/sockeye-salmon-2017.html">https://www.canada.ca/en/environment-climate-change/services/species-risk-public-registry/cosewic-assessments-status-reports/sockeye-salmon-2017.html</a>
-   </dd>
-  </dl>
-  <dl class="description">
-   <dt>
-    has super-classes
-   </dt>
-   <dd>
-    <a href="#ObservedRateOrAbundance" title="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance">Observed rate or abundance</a> <sup class="type-c" title="class">c</sup>
+    <a href="#ExploitationRate" title="https://w3id.org/gcdfo/salmon#ExploitationRate">Exploitation rate</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -3046,50 +1853,7 @@ This section provides details for each class and property defined by DFO Salmon 
     has super-classes
    </dt>
    <dd>
-    <a href="#ObservedExploitationRate" title="https://w3id.org/gcdfo/salmon#ObservedExploitationRate">Observed exploitation rate</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-   <dt>
-    is in domain of
-   </dt>
-   <dd>
-    <a href="#hasYearBasis" title="https://w3id.org/gcdfo/salmon#hasYearBasis">has year basis</a> <sup class="type-op" title="object property">op</sup>
-   </dd>
-  </dl>
- </div>
- <div class="entity" id="TotalMortalityRate">
-  <h3>Total mortality rate<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#TotalMortalityRate</p>
-  <div class="comment">
-   <span class="markdown">The overall proportion of fish in a defined cohort that die over the full assessment interval across all included phases and mortality sources, consistent with the workflow’s accounting (e.g., catch vs escapement vs migration losses where relevant).</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <dl class="definedBy">
-   <dt>
-    Source
-   </dt>
-   <dd>
-    Fisheries and Oceans Canada. 2025. Stock-Specific Fraser River Sockeye Salmon Run Size Determination. CSAS Pacific Region Science Advisory Report 2025/021 (run size components include catch, spawning escapement, and en route mortality; other Pacific salmon run sizes typically sum catch + escapement). COSEWIC. 2017. Sockeye Salmon assessment and status report (uses catch, escapement, and en-route loss as distinct accounting components).
-   </dd>
-   <dd>
-    <a href="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41294622.pdf">https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41294622.pdf</a>
-   </dd>
-   <dd>
-    <a href="https://www.canada.ca/en/environment-climate-change/services/species-risk-public-registry/cosewic-assessments-status-reports/sockeye-salmon-2017.html">https://www.canada.ca/en/environment-climate-change/services/species-risk-public-registry/cosewic-assessments-status-reports/sockeye-salmon-2017.html</a>
-   </dd>
-  </dl>
-  <dl class="description">
-   <dt>
-    has super-classes
-   </dt>
-   <dd>
-    <a href="#ObservedRateOrAbundance" title="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance">Observed rate or abundance</a> <sup class="type-c" title="class">c</sup>
+    <a href="#ExploitationRate" title="https://w3id.org/gcdfo/salmon#ExploitationRate">Exploitation rate</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -3112,7 +1876,7 @@ This section provides details for each class and property defined by DFO Salmon 
     Source
    </dt>
    <dd>
-    Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf.
+    Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf.
    </dd>
    <dd>
     <a href="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf">https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf</a>
@@ -3146,10 +1910,7 @@ This section provides details for each class and property defined by DFO Salmon 
     Source
    </dt>
    <dd>
-    Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html.
-   </dd>
-   <dd>
-    <a href="https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html">https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html</a>
+    DFO Introduction to Stock Assessment Glossary.
    </dd>
   </dl>
   <dl class="description">
@@ -3158,32 +1919,6 @@ This section provides details for each class and property defined by DFO Salmon 
    </dt>
    <dd>
     <a href="#ReferencePoint" title="https://w3id.org/gcdfo/salmon#ReferencePoint">Reference point</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-  </dl>
- </div>
- <div class="entity" id="http://purl.obolibrary.org/obo/ENVO_00000063">
-  <h3>water body<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> http://purl.obolibrary.org/obo/ENVO_00000063</p>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="http://purl.obolibrary.org/obo/envo.owl">http://purl.obolibrary.org/obo/envo.owl</a>
-   </dd>
-  </dl>
-  <dl class="description">
-   <dt>
-    has super-classes
-   </dt>
-   <dd>
-    <a href="#http://purl.obolibrary.org/obo/BFO_0000040" title="http://purl.obolibrary.org/obo/BFO_0000040">material entity</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-   <dt>
-    has sub-classes
-   </dt>
-   <dd>
-    <a href="#http://purl.obolibrary.org/obo/ENVO_01000617" title="http://purl.obolibrary.org/obo/ENVO_01000617">lentic water body</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.obolibrary.org/obo/ENVO_01000618" title="http://purl.obolibrary.org/obo/ENVO_01000618">lotic water body</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -3206,10 +1941,33 @@ This section provides details for each class and property defined by DFO Salmon 
     Source
    </dt>
    <dd>
-    Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570.
+    Pestal, G., MacDonald, B. L., Grant, S. C. H., and Holt, C. A. (2023). State of the Salmon: rapid status assessment approach for Pacific salmon under Canada’s Wild Salmon Policy. Can. Tech. Rep. Fish. Aquat. Sci. 3570: xiv + 200 p.
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="WSPRapidStatusAlgorithmThreshold">
+  <h3>WSP Rapid Status Algorithm threshold<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#WSPRapidStatusAlgorithmThreshold</p>
+  <div class="comment">
+   <span class="markdown">Threshold value used by the rapid-status algorithm that may differ from expert-defined benchmarks to incorporate precautionary buffers.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    DFO (2024). Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under Canada’s Wild Salmon Policy. CSAS Science Response 2024/004.
    </dd>
    <dd>
-    <a href="https://publications.gc.ca/site/eng/9.928944/publication.html">https://publications.gc.ca/site/eng/9.928944/publication.html</a>
+    <a href="https://www.dfo-mpo.gc.ca/csas-sccs/Publications/ScR-RS/2024/2024_004-eng.pdf">https://www.dfo-mpo.gc.ca/csas-sccs/Publications/ScR-RS/2024/2024_004-eng.pdf</a>
    </dd>
   </dl>
   <dl class="description">
@@ -3218,6 +1976,29 @@ This section provides details for each class and property defined by DFO Salmon 
    </dt>
    <dd>
     <a href="#http://purl.obolibrary.org/obo/IAO_0000030" title="http://purl.obolibrary.org/obo/IAO_0000030">information content entity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="YearBasis">
+  <h3>Year basis<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#YearBasis</p>
+  <div class="comment">
+   <span class="markdown">A year-based temporal reference used to contextualize measurements or rates (e.g., brood year or catch year).</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#BroodYear" title="https://w3id.org/gcdfo/salmon#BroodYear">Brood year</a> <sup class="type-c" title="class">c</sup>, <a href="#CatchYear" title="https://w3id.org/gcdfo/salmon#CatchYear">Catch year</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -3251,18 +2032,9 @@ This section provides details for each class and property defined by DFO Salmon 
   <li><a href="#demeOf" title="https://w3id.org/gcdfo/salmon#demeOf">deme of</a></li>
   <li><a href="#hasConservationUnit" title="https://w3id.org/gcdfo/salmon#hasConservationUnit">has Conservation Unit</a></li>
   <li><a href="#hasDeme" title="https://w3id.org/gcdfo/salmon#hasDeme">has deme</a></li>
-  <li><a href="#hasFeatureOfInterest" title="https://w3id.org/gcdfo/salmon#hasFeatureOfInterest">has feature of interest</a></li>
-  <li><a href="#hasObservationResult" title="https://w3id.org/gcdfo/salmon#hasObservationResult">has observation result</a></li>
-  <li><a href="#hasObservedVariable" title="https://w3id.org/gcdfo/salmon#hasObservedVariable">has observed variable</a></li>
   <li><a href="#hasPopulation" title="https://w3id.org/gcdfo/salmon#hasPopulation">has population</a></li>
-  <li><a href="#hasTargetOrLimitExploitationRate" title="https://w3id.org/gcdfo/salmon#hasTargetOrLimitExploitationRate">has target or limit exploitation rate</a></li>
-  <li><a href="#hasYearBasis" title="https://w3id.org/gcdfo/salmon#hasYearBasis">has year basis</a></li>
   <li><a href="#http://www.w3.org/ns/dqv#inDimension" title="http://www.w3.org/ns/dqv#inDimension">in dimension</a></li>
-  <li><a href="#isSampleOfStratum" title="https://w3id.org/gcdfo/salmon#isSampleOfStratum">is sample of stratum</a></li>
-  <li><a href="#isTargetOrLimitForObservedExploitationRate" title="https://w3id.org/gcdfo/salmon#isTargetOrLimitForObservedExploitationRate">is target or limit for observed exploitation rate</a></li>
   <li><a href="#populationOf" title="https://w3id.org/gcdfo/salmon#populationOf">population of</a></li>
-  <li><a href="#usedProcedure" title="https://w3id.org/gcdfo/salmon#usedProcedure"> <span>used procedure</span> </a></li>
-  <li><a href="#usesObservationProcedure" title="https://w3id.org/gcdfo/salmon#usesObservationProcedure">uses observation procedure</a></li>
  </ul>
  <div class="entity" id="conservationUnitOf">
   <h3>Conservation Unit of<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
@@ -3412,117 +2184,6 @@ This section provides details for each class and property defined by DFO Salmon 
    </dl>
   </div>
  </div>
- <div class="entity" id="hasFeatureOfInterest">
-  <h3>has feature of interest<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#hasFeatureOfInterest</p>
-  <div class="comment">
-   <span class="markdown">Relates a survey event to the reporting or management stratum that the event targets for inference or status interpretation.</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <div class="description">
-   <dl>
-    <dt>
-     has super-properties
-    </dt>
-    <dd>
-     <a href="http://www.w3.org/ns/sosa/hasFeatureOfInterest" target="_blank" title="http://www.w3.org/ns/sosa/hasFeatureOfInterest">has Feature Of Interest</a> <sup class="type-op" title="object property">op</sup>, <a href="http://www.w3.org/ns/prov#used" target="_blank" title="http://www.w3.org/ns/prov#used">used</a> <sup class="type-op" title="object property">op</sup>
-    </dd>
-    <dt>
-     has domain
-    </dt>
-    <dd>
-     <a href="#SurveyEvent" title="https://w3id.org/gcdfo/salmon#SurveyEvent">Survey event</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-    <dt>
-     has range
-    </dt>
-    <dd>
-     <a href="#ReportingOrManagementStratum" title="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum">Reporting or management stratum</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-   </dl>
-  </div>
- </div>
- <div class="entity" id="hasObservationResult">
-  <h3>has observation result<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#hasObservationResult</p>
-  <div class="comment">
-   <span class="markdown">Relates a survey event to a measurement datum/result it produces for salmon assessment workflows.</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <div class="description">
-   <dl>
-    <dt>
-     has super-properties
-    </dt>
-    <dd>
-     <a href="http://www.w3.org/ns/prov#generated" target="_blank" title="http://www.w3.org/ns/prov#generated">generated</a> <sup class="type-op" title="object property">op</sup>, <a href="http://www.w3.org/ns/sosa/hasResult" target="_blank" title="http://www.w3.org/ns/sosa/hasResult">has Result</a> <sup class="type-op" title="object property">op</sup>
-    </dd>
-    <dt>
-     has domain
-    </dt>
-    <dd>
-     <a href="#SurveyEvent" title="https://w3id.org/gcdfo/salmon#SurveyEvent">Survey event</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-    <dt>
-     has range
-    </dt>
-    <dd>
-     <a href="#EscapementMeasurement" title="https://w3id.org/gcdfo/salmon#EscapementMeasurement">Escapement measurement</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-   </dl>
-  </div>
- </div>
- <div class="entity" id="hasObservedVariable">
-  <h3>has observed variable<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#hasObservedVariable</p>
-  <div class="comment">
-   <span class="markdown">Relates a survey event to a variable compound term represented as a SKOS concept that defines what was measured or derived in SDP workflows.</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <div class="description">
-   <dl>
-    <dt>
-     has super-properties
-    </dt>
-    <dd>
-     <a href="http://www.w3.org/ns/sosa/observedProperty" target="_blank" title="http://www.w3.org/ns/sosa/observedProperty">observed Property</a> <sup class="type-op" title="object property">op</sup>
-    </dd>
-    <dt>
-     has domain
-    </dt>
-    <dd>
-     <a href="#SurveyEvent" title="https://w3id.org/gcdfo/salmon#SurveyEvent">Survey event</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-    <dt>
-     has range
-    </dt>
-    <dd>
-     <a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-   </dl>
-  </div>
- </div>
  <div class="entity" id="hasPopulation">
   <h3>has population<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#hasPopulation</p>
@@ -3560,77 +2221,6 @@ This section provides details for each class and property defined by DFO Salmon 
    </dl>
   </div>
  </div>
- <div class="entity" id="hasTargetOrLimitExploitationRate">
-  <h3>has target or limit exploitation rate<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#hasTargetOrLimitExploitationRate</p>
-  <div class="comment">
-   <span class="markdown">Relates an observed exploitation-rate estimate to the target, threshold, or limit exploitation-rate value used to evaluate it.</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <div class="description">
-   <dl>
-    <dt>
-     has domain
-    </dt>
-    <dd>
-     <a href="#ObservedExploitationRate" title="https://w3id.org/gcdfo/salmon#ObservedExploitationRate">Observed exploitation rate</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-    <dt>
-     has range
-    </dt>
-    <dd>
-     <a href="#TargetOrLimitExploitationRate" title="https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate">Target or limit exploitation rate</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-    <dt>
-     is inverse of
-    </dt>
-    <dd>
-     <a href="#isTargetOrLimitForObservedExploitationRate" title="https://w3id.org/gcdfo/salmon#isTargetOrLimitForObservedExploitationRate">is target or limit for observed exploitation rate</a> <sup class="type-op" title="object property">op</sup>
-    </dd>
-   </dl>
-  </div>
- </div>
- <div class="entity" id="hasYearBasis">
-  <h3>has year basis<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#hasYearBasis</p>
-  <div class="comment">
-   <span class="markdown">Links a measurement or rate to the year basis (e.g., brood year, catch year, or return year) it is reported against.</span>
-  </div>
-  <div class="comment">
-   <span class="markdown">Expected values are concepts in :YearBasisScheme (for example, gcdfo:BroodYear, gcdfo:CatchYear, and gcdfo:ReturnYear).</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <div class="description">
-   <dl>
-    <dt>
-     has domain
-    </dt>
-    <dd>
-     <a href="#EscapementMeasurement" title="https://w3id.org/gcdfo/salmon#EscapementMeasurement">Escapement measurement</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#ExploitationRate" title="https://w3id.org/gcdfo/salmon#ExploitationRate">Exploitation rate</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#ObservedExploitationRate" title="https://w3id.org/gcdfo/salmon#ObservedExploitationRate">Observed exploitation rate</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#SpawnerAbundance" title="https://w3id.org/gcdfo/salmon#SpawnerAbundance">Spawner abundance</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#TargetOrLimitExploitationRate" title="https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate">Target or limit exploitation rate</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#TotalExploitationRate" title="https://w3id.org/gcdfo/salmon#TotalExploitationRate">Total exploitation rate</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-    <dt>
-     has range
-    </dt>
-    <dd>
-     <a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-   </dl>
-  </div>
- </div>
  <div class="entity" id="http://www.w3.org/ns/dqv#inDimension">
   <h3>in dimension<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> http://www.w3.org/ns/dqv#inDimension</p>
@@ -3656,80 +2246,6 @@ This section provides details for each class and property defined by DFO Salmon 
     <a href="https://www.w3.org/TR/vocab-dqv/">https://www.w3.org/TR/vocab-dqv/</a>
    </dd>
   </dl>
- </div>
- <div class="entity" id="isSampleOfStratum">
-  <h3>is sample of stratum<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#isSampleOfStratum</p>
-  <div class="comment">
-   <span class="markdown">Relates a material sample to the reporting or management stratum it is taken to represent in analysis.</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <div class="description">
-   <dl>
-    <dt>
-     has super-properties
-    </dt>
-    <dd>
-     <a href="http://www.w3.org/ns/sosa/isSampleOf" target="_blank" title="http://www.w3.org/ns/sosa/isSampleOf">is Sample Of</a> <sup class="type-op" title="object property">op</sup>, <a href="http://www.w3.org/ns/prov#wasDerivedFrom" target="_blank" title="http://www.w3.org/ns/prov#wasDerivedFrom">was Derived From</a> <sup class="type-op" title="object property">op</sup>
-    </dd>
-    <dt>
-     has domain
-    </dt>
-    <dd>
-     <a href="#http://rs.tdwg.org/dwc/terms/MaterialEntity" title="http://rs.tdwg.org/dwc/terms/MaterialEntity">Material Entity</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-    <dt>
-     has range
-    </dt>
-    <dd>
-     <a href="#ReportingOrManagementStratum" title="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum">Reporting or management stratum</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-   </dl>
-  </div>
- </div>
- <div class="entity" id="isTargetOrLimitForObservedExploitationRate">
-  <h3>is target or limit for observed exploitation rate<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#isTargetOrLimitForObservedExploitationRate</p>
-  <div class="comment">
-   <span class="markdown">Relates a target, threshold, or limit exploitation-rate value to the observed exploitation-rate estimate it evaluates.</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <div class="description">
-   <dl>
-    <dt>
-     has domain
-    </dt>
-    <dd>
-     <a href="#TargetOrLimitExploitationRate" title="https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate">Target or limit exploitation rate</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-    <dt>
-     has range
-    </dt>
-    <dd>
-     <a href="#ObservedExploitationRate" title="https://w3id.org/gcdfo/salmon#ObservedExploitationRate">Observed exploitation rate</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-    <dt>
-     is inverse of
-    </dt>
-    <dd>
-     <a href="#hasTargetOrLimitExploitationRate" title="https://w3id.org/gcdfo/salmon#hasTargetOrLimitExploitationRate">has target or limit exploitation rate</a> <sup class="type-op" title="object property">op</sup>
-    </dd>
-   </dl>
-  </div>
  </div>
  <div class="entity" id="populationOf">
   <h3>population of<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
@@ -3768,63 +2284,6 @@ This section provides details for each class and property defined by DFO Salmon 
    </dl>
   </div>
  </div>
- <div class="entity" id="usedProcedure">
-  <h3>used procedure<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#usedProcedure</p>
-  <div class="description">
-   <dl>
-    <dt>
-     has super-properties
-    </dt>
-    <dd>
-     <a href="http://www.w3.org/ns/sosa/usedProcedure" target="_blank" title="http://www.w3.org/ns/sosa/usedProcedure">used Procedure</a> <sup class="type-op" title="object property">op</sup>
-    </dd>
-    <dt>
-     is also defined as
-    </dt>
-    <dd>
-     annotation property
-    </dd>
-   </dl>
-  </div>
- </div>
- <div class="entity" id="usesObservationProcedure">
-  <h3>uses observation procedure<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#usesObservationProcedure</p>
-  <div class="comment">
-   <span class="markdown">Relates a survey event to the procedure/protocol used to execute it.</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
-   </dd>
-  </dl>
-  <div class="description">
-   <dl>
-    <dt>
-     has super-properties
-    </dt>
-    <dd>
-     <a href="http://www.w3.org/ns/prov#used" target="_blank" title="http://www.w3.org/ns/prov#used">used</a> <sup class="type-op" title="object property">op</sup>, <a href="http://www.w3.org/ns/sosa/usedProcedure" target="_blank" title="http://www.w3.org/ns/sosa/usedProcedure">used Procedure</a> <sup class="type-op" title="object property">op</sup>
-    </dd>
-    <dt>
-     has domain
-    </dt>
-    <dd>
-     <a href="#SurveyEvent" title="https://w3id.org/gcdfo/salmon#SurveyEvent">Survey event</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-    <dt>
-     has range
-    </dt>
-    <dd>
-     <a href="#http://purl.obolibrary.org/obo/IAO_0000104" title="http://purl.obolibrary.org/obo/IAO_0000104">plan specification</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-   </dl>
-  </div>
- </div>
 </div><div id="legend">
 <h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 <div   class="entity">
@@ -3841,140 +2300,37 @@ This section provides details for each class and property defined by DFO Salmon 
 <h2 id="changes" class="list">Changes from last version</h2>
 <h3 id="changeClass" class="list">Classes</h3>
 <details><summary><u>Modified classes</u></summary>
-<ul><li><a href="#http://purl.obolibrary.org/obo/ENVO_01000617">http://purl.obolibrary.org/obo/ENVO_01000617</a>
+<ul><li><a href="#BroodYear">https://w3id.org/gcdfo/salmon#BroodYear</a>
 <ul>
-<li>Added: SubClass of http://purl.obolibrary.org/obo/ENVO_00000063</li>
+<li>Added: <http://purl.obolibrary.org/obo/IAO_0000115> "TThe parental year for a group of returning salmon, i.e. the calendar year when the majority of parents of these fish spawned."@en</li>
 </ul>
 <ul>
-<li>Deleted: SubClass of http://purl.obolibrary.org/obo/BFO_0000040</li>
-</ul>
-</li>
-<li><a href="#http://purl.obolibrary.org/obo/ENVO_01000618">http://purl.obolibrary.org/obo/ENVO_01000618</a>
-<ul>
-<li>Added: SubClass of http://purl.obolibrary.org/obo/ENVO_00000063</li>
-</ul>
-<ul>
-<li>Deleted: SubClass of http://purl.obolibrary.org/obo/BFO_0000040</li>
-</ul>
-</li>
-<li><a href="#ConservationUnit">https://w3id.org/gcdfo/salmon#ConservationUnit</a>
-<ul>
-<li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. 2005. Canada's Policy for Conservation of Wild Pacific Salmon. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf."@en</li>
-<li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Canada's Policy for Conservation of Wild Pacific Salmon - Glossary. https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/wsp-pss/policy-politique-eng.html#glossary."@en</li>
-<li>Added: <http://purl.org/dc/terms/source> https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf</li>
-</ul>
-<ul>
-<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000119> "Canada's Policy for Conservation of Wild Pacific Salmon Glossary."@en</li>
-<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. (2005). Canada's Policy for Conservation of Wild Pacific Salmon. Retrieved from https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf."@en</li>
-</ul>
-</li>
-<li><a href="#Escapement">https://w3id.org/gcdfo/salmon#Escapement</a>
-<ul>
-<li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. 2005. Canada's Policy for Conservation of Wild Pacific Salmon. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf."@en</li>
-</ul>
-<ul>
-<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. (2005). Canada's Policy for Conservation of Wild Pacific Salmon. Retrieved from https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf"@en</li>
-<li>Deleted: <http://www.w3.org/2004/02/skos/core#closeMatch> http://purl.dataone.org/odo/SALMON_00000479</li>
+<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000115> "The year that a cohort of salmon spawns."@en</li>
+<li>Deleted: rdfs:comment "The parental year for a group of returning salmon, i.e. the calendar year when the majority of parents of these fish spawned."@en</li>
 </ul>
 </li>
 <li><a href="#EscapementMeasurement">https://w3id.org/gcdfo/salmon#EscapementMeasurement</a>
 <ul>
-<li>Added: SubClass of http://www.w3.org/ns/sosa/Result</li>
-</ul>
-<ul>
 <li>Deleted: rdfs:comment "Salmon escapement count"@en</li>
-</ul>
-</li>
-<li><a href="#ExploitationRate">https://w3id.org/gcdfo/salmon#ExploitationRate</a>
-<ul>
-<li>Added: <http://purl.obolibrary.org/obo/IAO_0000115> "A fishing mortality rate expressed as the proportion of the total return removed by fishing over a specified assessment period."@en</li>
-<li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html."@en</li>
-<li>Added: <http://purl.org/dc/terms/source> https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html</li>
-<li>Added: SubClass of http://purl.obolibrary.org/obo/IAO_0000109</li>
-</ul>
-<ul>
-<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000115> "Expressed as a percentage, the proportion of the total return of adult salmon in a given year that die as a result of fishing activity."@en</li>
-<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. (2019). Government of Canada. Pacific Salmon - Glossary. https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html. [Accessed 09-10-2025] "@en</li>
-<li>Deleted: SubClass of https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance</li>
-</ul>
-</li>
-<li><a href="#IndicatorRiver">https://w3id.org/gcdfo/salmon#IndicatorRiver</a>
-<ul>
-<li>Added: <http://purl.obolibrary.org/obo/IAO_0000115> "A reporting and assessment stratum identifying monitored indicator streams that provide representative indices of spawner abundance for nearby streams."@en</li>
-<li>Added: <https://w3id.org/gcdfo/salmon#theme> https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme</li>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum</li>
-</ul>
-<ul>
-<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000115> "Indicator streams are those that have been identified in some Regions as providing more reliable indices of spawner abundance. Indicator streams tend to give relatively accurate annual spawner abundance estimates, given that they use higher quality methodologies and are more intensively/regularly surveyed. Indicator streams are also assumed to be representative of spawner returns to other streams in close geographic proximity."@en</li>
-</ul>
-</li>
-<li><a href="#LimitReferencePoint">https://w3id.org/gcdfo/salmon#LimitReferencePoint</a>
-<ul>
-<li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html."@en</li>
-<li>Added: <http://purl.org/dc/terms/source> https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html</li>
-</ul>
-<ul>
-<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. (2024). Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html. [Accessed 09-10-2025]."@en</li>
 </ul>
 </li>
 <li><a href="#MetricBenchmark">https://w3id.org/gcdfo/salmon#MetricBenchmark</a>
 <ul>
 <li>Added: <http://purl.obolibrary.org/obo/IAO_0000115> "Benchmark value for a metric that helps delineate status zones (for example, the limit reference point for absolute abundance)."@en</li>
-<li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570."@en</li>
 </ul>
 <ul>
 <li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000115> "Benchmark value for a WSP metric that helps delineate status zones (for example, the limit reference point for absolute abundance)."@en</li>
-<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000119> "Pestal, G. et al. (2023). State of the Salmon: Rapid Status Assessment Approach for Pacific Salmon under Canada’s Wild Salmon Policy."@en</li>
-</ul>
-</li>
-<li><a href="#ReferencePoint">https://w3id.org/gcdfo/salmon#ReferencePoint</a>
-<ul>
-<li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html."@en</li>
-</ul>
-<ul>
-<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000119> "DFO Introduction to Stock Assessment Glossary."@en</li>
 </ul>
 </li>
 <li><a href="#Stock">https://w3id.org/gcdfo/salmon#Stock</a>
 <ul>
-<li>Added: <http://purl.obolibrary.org/obo/IAO_0000115> "An operationally-defined grouping of salmon used for assessment and management purposes. A stock is a management unit or reporting stratum, not a biological organism."@en</li>
-<li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html."@en</li>
 <li>Added: <https://w3id.org/gcdfo/salmon#theme> https://w3id.org/gcdfo/salmon#FisheriesManagementTheme</li>
+<li>Added: <http://purl.obolibrary.org/obo/IAO_0000115> "An operationally-defined grouping of salmon used for assessment and management purposes. A stock is a management unit or reporting stratum, not a biological organism."@en</li>
 <li>Added: SubClass of https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum</li>
 </ul>
 <ul>
-<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000115> "A biologically meaningful but operationally-focused salmon demographic unit used in assessment and reporting."@en</li>
-<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000119> "DFO Introduction to Stock Assessment Glossary; Pacific Salmon Commission Technical Report No. 49."@en</li>
 <li>Deleted: SubClass of http://rs.tdwg.org/dwc/terms/Organism</li>
-</ul>
-</li>
-<li><a href="#StockAssessment">https://w3id.org/gcdfo/salmon#StockAssessment</a>
-<ul>
-<li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Introduction to Stock Assessment. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/module-1/09-eng.html."@en</li>
-<li>Added: <http://purl.org/dc/terms/source> https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/module-1/09-eng.html</li>
-</ul>
-<ul>
-<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. (2024). Introduction to Stock Assessment. Available at https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/module-1/09-eng.html"@en</li>
-</ul>
-</li>
-<li><a href="#StockManagementUnit">https://w3id.org/gcdfo/salmon#StockManagementUnit</a>
-<ul>
-<li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html."@en</li>
-</ul>
-<ul>
-<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000119> "DFO Introduction to Stock Assessment Glossary."@en</li>
-<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. (2024). Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html. [Accessed 09-10-2025]."@en</li>
-</ul>
-</li>
-<li><a href="#SurveyEvent">https://w3id.org/gcdfo/salmon#SurveyEvent</a>
-<ul>
-<li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. About the Sustainability Survey for Fisheries. https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html."@en</li>
-<li>Added: <http://purl.org/dc/terms/source> https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html</li>
-<li>Added: SubClass of http://www.w3.org/ns/prov#Activity</li>
-<li>Added: SubClass of http://www.w3.org/ns/sosa/Sampling</li>
-</ul>
-<ul>
-<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. (2021). About the Sustainability Survey for Fisheries. Available at https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html. [Accessed 09-10-2025]."@en</li>
+<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000115> "A biologically meaningful but operationally-focused salmon demographic unit used in assessment and reporting."@en</li>
 </ul>
 </li>
 <li><a href="#TargetOrLimitRateOrAbundance">https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance</a>
@@ -3985,76 +2341,26 @@ This section provides details for each class and property defined by DFO Salmon 
 <li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000115> "A value specification representing a policy- or model-defined target or limit, such as TAC, UMSY, or reference points."@en</li>
 </ul>
 </li>
-<li><a href="#TotalExploitationRate">https://w3id.org/gcdfo/salmon#TotalExploitationRate</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#ObservedExploitationRate</li>
-</ul>
-<ul>
-<li>Deleted: SubClass of https://w3id.org/gcdfo/salmon#ExploitationRate</li>
-</ul>
-</li>
-<li><a href="#UpperStockReferencePoint">https://w3id.org/gcdfo/salmon#UpperStockReferencePoint</a>
-<ul>
-<li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html."@en</li>
-<li>Added: <http://purl.org/dc/terms/source> https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html</li>
-</ul>
-<ul>
-<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000119> "DFO Introduction to Stock Assessment Glossary."@en</li>
-</ul>
-</li>
 <li><a href="#WSPBiologicalStatusZone">https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZone</a>
 <ul>
-<li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en</li>
-<li>Added: <http://purl.org/dc/terms/source> https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf</li>
 <li>Added: <http://www.w3.org/2004/02/skos/core#inScheme> https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZoneScheme</li>
 </ul>
 <ul>
-<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en</li>
 <li>Deleted: rdfs:seeAlso https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZoneScheme</li>
 </ul>
 </li>
 <li><a href="#WSPRapidStatus">https://w3id.org/gcdfo/salmon#WSPRapidStatus</a>
 <ul>
 <li>Added: <http://purl.obolibrary.org/obo/IAO_0000115> "The WSP rapid status assessment approach builds on previously completed WSP integrated status assessments. The WSP rapid status approach ensures statuses are scientifically objective, consistent, and comparable across BC/Yukon CUs. This approach is also relatively easy to implement, applicable to data rich and data poor CUs, and can be updated annually."@en</li>
-<li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570."@en</li>
-<li>Added: <http://purl.org/dc/terms/source> https://publications.gc.ca/site/eng/9.928944/publication.html</li>
-<li>Added: SubClass of http://purl.obolibrary.org/obo/IAO_0000030</li>
 </ul>
 <ul>
 <li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000115> "The WSP rapid status assessment approach builds on previously completed WSP integrated status assessments. The detailed WSP integrated assessments are labour intensive, taking 10-40 experts up to three days to complete for each group of CUs. For this reason, assessments have only been completed for ~11% of the 377 current Pacific Salmon CUs, many of which are outdated. The WSP rapid approach can fill gaps by expanding coverage of CU statuses across time, species, and geographic areas. The WSP rapid status approach ensures statuses are scientifically objective, consistent, and comparable across BC/Yukon CUs. This approach is also relatively easy to implement, applicable to data rich and data poor CUs, and can be updated annually."@en</li>
-<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000119> "Pestal, G., MacDonald, B. L., Grant, S. C. H., and Holt, C. A. (2023). State of the Salmon: rapid status assessment approach for Pacific salmon under Canada’s Wild Salmon Policy. Can. Tech. Rep. Fish. Aquat. Sci. 3570: xiv + 200 p."@en</li>
 </ul>
 </li>
 </ul></details><details><summary><u>Added classes</u></summary>
-<ul><li><a href="#http://purl.obolibrary.org/obo/ENVO_00000063">http://purl.obolibrary.org/obo/ENVO_00000063</a>
-<ul>
-<li>Added: SubClass of http://purl.obolibrary.org/obo/BFO_0000040</li>
-</ul>
-</li>
-<li><a href="#http://www.w3.org/ns/prov#Activity">http://www.w3.org/ns/prov#Activity</a>
-</li>
-<li><a href="#http://www.w3.org/ns/sosa/Result">http://www.w3.org/ns/sosa/Result</a>
-</li>
-<li><a href="#http://www.w3.org/ns/sosa/Sampling">http://www.w3.org/ns/sosa/Sampling</a>
-</li>
-<li><a href="#CWTMarineSurvivalRate">https://w3id.org/gcdfo/salmon#CWTMarineSurvivalRate</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance</li>
-</ul>
-</li>
-<li><a href="#Deme">https://w3id.org/gcdfo/salmon#Deme</a>
+<ul><li><a href="#Deme">https://w3id.org/gcdfo/salmon#Deme</a>
 <ul>
 <li>Added: SubClass of http://rs.tdwg.org/dwc/terms/Organism</li>
-</ul>
-</li>
-<li><a href="#FisheriesReferencePointLower">https://w3id.org/gcdfo/salmon#FisheriesReferencePointLower</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#LimitReferencePoint</li>
-</ul>
-</li>
-<li><a href="#InRiverMortalityRate">https://w3id.org/gcdfo/salmon#InRiverMortalityRate</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance</li>
 </ul>
 </li>
 <li><a href="#LowerBiologicalBenchmark">https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark</a>
@@ -4062,131 +2368,9 @@ This section provides details for each class and property defined by DFO Salmon 
 <li>Added: SubClass of https://w3id.org/gcdfo/salmon#MetricBenchmark</li>
 </ul>
 </li>
-<li><a href="#MainstemMortalityRate">https://w3id.org/gcdfo/salmon#MainstemMortalityRate</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance</li>
-</ul>
-</li>
-<li><a href="#MarineSurvivalIndex">https://w3id.org/gcdfo/salmon#MarineSurvivalIndex</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance</li>
-</ul>
-</li>
-<li><a href="#ObservedExploitationRate">https://w3id.org/gcdfo/salmon#ObservedExploitationRate</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#ExploitationRate</li>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance</li>
-</ul>
-</li>
-<li><a href="#OceanMortalityRate">https://w3id.org/gcdfo/salmon#OceanMortalityRate</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance</li>
-</ul>
-</li>
 <li><a href="#Population">https://w3id.org/gcdfo/salmon#Population</a>
 <ul>
 <li>Added: SubClass of http://rs.tdwg.org/dwc/terms/Organism</li>
-</ul>
-</li>
-<li><a href="#ProportionHatcheryOriginSpawners">https://w3id.org/gcdfo/salmon#ProportionHatcheryOriginSpawners</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance</li>
-</ul>
-</li>
-<li><a href="#RelativeHatcherySpawnerAbundance">https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundance</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundance</li>
-</ul>
-</li>
-<li><a href="#RelativeHatcherySpawnerAbundanceChange">https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundanceChange</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundanceChange</li>
-</ul>
-</li>
-<li><a href="#RelativeHatcherySpawnerAbundancePercentile">https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundancePercentile</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundancePercentile</li>
-</ul>
-</li>
-<li><a href="#RelativeHatcherySpawnerAbundanceTrend">https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundanceTrend</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundanceTrend</li>
-</ul>
-</li>
-<li><a href="#RelativeSpawnerAbundance">https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundance</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#SpawnerAbundance</li>
-</ul>
-</li>
-<li><a href="#RelativeSpawnerAbundanceChange">https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundanceChange</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#SpawnerAbundanceChange</li>
-</ul>
-</li>
-<li><a href="#RelativeSpawnerAbundancePercentile">https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundancePercentile</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#SpawnerAbundancePercentile</li>
-</ul>
-</li>
-<li><a href="#RelativeSpawnerAbundanceTrend">https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundanceTrend</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#SpawnerAbundanceTrend</li>
-</ul>
-</li>
-<li><a href="#RelativeWildSpawnerAbundance">https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundance</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundance</li>
-</ul>
-</li>
-<li><a href="#RelativeWildSpawnerAbundanceChange">https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundanceChange</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundanceChange</li>
-</ul>
-</li>
-<li><a href="#RelativeWildSpawnerAbundancePercentile">https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundancePercentile</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundancePercentile</li>
-</ul>
-</li>
-<li><a href="#RelativeWildSpawnerAbundanceTrend">https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundanceTrend</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundanceTrend</li>
-</ul>
-</li>
-<li><a href="#SpawnerAbundance">https://w3id.org/gcdfo/salmon#SpawnerAbundance</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance</li>
-</ul>
-</li>
-<li><a href="#SpawnerAbundanceChange">https://w3id.org/gcdfo/salmon#SpawnerAbundanceChange</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance</li>
-</ul>
-</li>
-<li><a href="#SpawnerAbundancePercentile">https://w3id.org/gcdfo/salmon#SpawnerAbundancePercentile</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance</li>
-</ul>
-</li>
-<li><a href="#SpawnerAbundanceTrend">https://w3id.org/gcdfo/salmon#SpawnerAbundanceTrend</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance</li>
-</ul>
-</li>
-<li><a href="#TargetOrLimitExploitationRate">https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#ExploitationRate</li>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance</li>
-</ul>
-</li>
-<li><a href="#TerminalMortalityRate">https://w3id.org/gcdfo/salmon#TerminalMortalityRate</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance</li>
-</ul>
-</li>
-<li><a href="#TotalMortalityRate">https://w3id.org/gcdfo/salmon#TotalMortalityRate</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance</li>
 </ul>
 </li>
 <li><a href="#UpperBiologicalBenchmark">https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark</a>
@@ -4202,31 +2386,9 @@ This section provides details for each class and property defined by DFO Salmon 
 </ul></details><details><summary><u>Deleted classes</u></summary>
 <ul><li><a href="#AlgorithmThreshold">https://w3id.org/gcdfo/salmon#AlgorithmThreshold</a>
 </li>
-<li><a href="#BroodYear">https://w3id.org/gcdfo/salmon#BroodYear</a>
-</li>
-<li><a href="#CatchYear">https://w3id.org/gcdfo/salmon#CatchYear</a>
-</li>
-<li><a href="#YearBasis">https://w3id.org/gcdfo/salmon#YearBasis</a>
-</li>
 </ul></details><h3 id="changeProp" class="list">Object Properties</h3>
 <details><summary><u>Added object properties</u></summary>
-<ul><li><a href="#http://www.w3.org/ns/prov#generated">http://www.w3.org/ns/prov#generated</a>
-</li>
-<li><a href="#http://www.w3.org/ns/prov#used">http://www.w3.org/ns/prov#used</a>
-</li>
-<li><a href="#http://www.w3.org/ns/prov#wasDerivedFrom">http://www.w3.org/ns/prov#wasDerivedFrom</a>
-</li>
-<li><a href="#http://www.w3.org/ns/sosa/hasFeatureOfInterest">http://www.w3.org/ns/sosa/hasFeatureOfInterest</a>
-</li>
-<li><a href="#http://www.w3.org/ns/sosa/hasResult">http://www.w3.org/ns/sosa/hasResult</a>
-</li>
-<li><a href="#http://www.w3.org/ns/sosa/isSampleOf">http://www.w3.org/ns/sosa/isSampleOf</a>
-</li>
-<li><a href="#http://www.w3.org/ns/sosa/observedProperty">http://www.w3.org/ns/sosa/observedProperty</a>
-</li>
-<li><a href="#http://www.w3.org/ns/sosa/usedProcedure">http://www.w3.org/ns/sosa/usedProcedure</a>
-</li>
-<li><a href="#conservationUnitOf">https://w3id.org/gcdfo/salmon#conservationUnitOf</a>
+<ul><li><a href="#conservationUnitOf">https://w3id.org/gcdfo/salmon#conservationUnitOf</a>
 <ul>
 <li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/gcdfo/salmon#conservationUnitOf&gt; &lt;https://w3id.org/gcdfo/salmon#hasConservationUnit&gt;)</li>
 <li>Added: domain https://w3id.org/gcdfo/salmon#ConservationUnit</li>
@@ -4235,101 +2397,37 @@ This section provides details for each class and property defined by DFO Salmon 
 </li>
 <li><a href="#demeOf">https://w3id.org/gcdfo/salmon#demeOf</a>
 <ul>
-<li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/gcdfo/salmon#demeOf&gt; &lt;https://w3id.org/gcdfo/salmon#hasDeme&gt;)</li>
-<li>Added: Range https://w3id.org/gcdfo/salmon#Population</li>
 <li>Added: domain https://w3id.org/gcdfo/salmon#Deme</li>
+<li>Added: Range https://w3id.org/gcdfo/salmon#Population</li>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/gcdfo/salmon#demeOf&gt; &lt;https://w3id.org/gcdfo/salmon#hasDeme&gt;)</li>
 </ul>
 </li>
 <li><a href="#hasConservationUnit">https://w3id.org/gcdfo/salmon#hasConservationUnit</a>
 <ul>
 <li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/gcdfo/salmon#conservationUnitOf&gt; &lt;https://w3id.org/gcdfo/salmon#hasConservationUnit&gt;)</li>
-<li>Added: Range https://w3id.org/gcdfo/salmon#ConservationUnit</li>
 <li>Added: domain https://w3id.org/gcdfo/salmon#StockManagementUnit</li>
+<li>Added: Range https://w3id.org/gcdfo/salmon#ConservationUnit</li>
 </ul>
 </li>
 <li><a href="#hasDeme">https://w3id.org/gcdfo/salmon#hasDeme</a>
 <ul>
 <li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/gcdfo/salmon#demeOf&gt; &lt;https://w3id.org/gcdfo/salmon#hasDeme&gt;)</li>
-<li>Added: Range https://w3id.org/gcdfo/salmon#Deme</li>
 <li>Added: domain https://w3id.org/gcdfo/salmon#Population</li>
-</ul>
-</li>
-<li><a href="#hasFeatureOfInterest">https://w3id.org/gcdfo/salmon#hasFeatureOfInterest</a>
-<ul>
-<li>Added: Range https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum</li>
-<li>Added: SubProperty of http://www.w3.org/ns/prov#used</li>
-<li>Added: SubProperty of http://www.w3.org/ns/sosa/hasFeatureOfInterest</li>
-<li>Added: domain https://w3id.org/gcdfo/salmon#SurveyEvent</li>
-</ul>
-</li>
-<li><a href="#hasObservationResult">https://w3id.org/gcdfo/salmon#hasObservationResult</a>
-<ul>
-<li>Added: Range https://w3id.org/gcdfo/salmon#EscapementMeasurement</li>
-<li>Added: SubProperty of http://www.w3.org/ns/prov#generated</li>
-<li>Added: SubProperty of http://www.w3.org/ns/sosa/hasResult</li>
-<li>Added: domain https://w3id.org/gcdfo/salmon#SurveyEvent</li>
-</ul>
-</li>
-<li><a href="#hasObservedVariable">https://w3id.org/gcdfo/salmon#hasObservedVariable</a>
-<ul>
-<li>Added: Range http://www.w3.org/2004/02/skos/core#Concept</li>
-<li>Added: SubProperty of http://www.w3.org/ns/sosa/observedProperty</li>
-<li>Added: domain https://w3id.org/gcdfo/salmon#SurveyEvent</li>
+<li>Added: Range https://w3id.org/gcdfo/salmon#Deme</li>
 </ul>
 </li>
 <li><a href="#hasPopulation">https://w3id.org/gcdfo/salmon#hasPopulation</a>
 <ul>
+<li>Added: domain https://w3id.org/gcdfo/salmon#ConservationUnit</li>
 <li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/gcdfo/salmon#populationOf&gt; &lt;https://w3id.org/gcdfo/salmon#hasPopulation&gt;)</li>
 <li>Added: Range https://w3id.org/gcdfo/salmon#Population</li>
-<li>Added: domain https://w3id.org/gcdfo/salmon#ConservationUnit</li>
-</ul>
-</li>
-<li><a href="#hasTargetOrLimitExploitationRate">https://w3id.org/gcdfo/salmon#hasTargetOrLimitExploitationRate</a>
-<ul>
-<li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/gcdfo/salmon#isTargetOrLimitForObservedExploitationRate&gt; &lt;https://w3id.org/gcdfo/salmon#hasTargetOrLimitExploitationRate&gt;)</li>
-<li>Added: Range https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate</li>
-<li>Added: domain https://w3id.org/gcdfo/salmon#ObservedExploitationRate</li>
-</ul>
-</li>
-<li><a href="#hasYearBasis">https://w3id.org/gcdfo/salmon#hasYearBasis</a>
-<ul>
-<li>Added: Range http://www.w3.org/2004/02/skos/core#Concept</li>
-<li>Added: domain Union of (https://w3id.org/gcdfo/salmon#EscapementMeasurement, https://w3id.org/gcdfo/salmon#ExploitationRate, https://w3id.org/gcdfo/salmon#ObservedExploitationRate, https://w3id.org/gcdfo/salmon#SpawnerAbundance, https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate, https://w3id.org/gcdfo/salmon#TotalExploitationRate)</li>
-</ul>
-</li>
-<li><a href="#isSampleOfStratum">https://w3id.org/gcdfo/salmon#isSampleOfStratum</a>
-<ul>
-<li>Added: Range https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum</li>
-<li>Added: SubProperty of http://www.w3.org/ns/prov#wasDerivedFrom</li>
-<li>Added: SubProperty of http://www.w3.org/ns/sosa/isSampleOf</li>
-<li>Added: domain http://rs.tdwg.org/dwc/terms/MaterialEntity</li>
-</ul>
-</li>
-<li><a href="#isTargetOrLimitForObservedExploitationRate">https://w3id.org/gcdfo/salmon#isTargetOrLimitForObservedExploitationRate</a>
-<ul>
-<li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/gcdfo/salmon#isTargetOrLimitForObservedExploitationRate&gt; &lt;https://w3id.org/gcdfo/salmon#hasTargetOrLimitExploitationRate&gt;)</li>
-<li>Added: Range https://w3id.org/gcdfo/salmon#ObservedExploitationRate</li>
-<li>Added: domain https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate</li>
 </ul>
 </li>
 <li><a href="#populationOf">https://w3id.org/gcdfo/salmon#populationOf</a>
 <ul>
-<li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/gcdfo/salmon#populationOf&gt; &lt;https://w3id.org/gcdfo/salmon#hasPopulation&gt;)</li>
-<li>Added: Range https://w3id.org/gcdfo/salmon#ConservationUnit</li>
 <li>Added: domain https://w3id.org/gcdfo/salmon#Population</li>
-</ul>
-</li>
-<li><a href="#usedProcedure">https://w3id.org/gcdfo/salmon#usedProcedure</a>
-<ul>
-<li>Added: SubProperty of http://www.w3.org/ns/sosa/usedProcedure</li>
-</ul>
-</li>
-<li><a href="#usesObservationProcedure">https://w3id.org/gcdfo/salmon#usesObservationProcedure</a>
-<ul>
-<li>Added: Range http://purl.obolibrary.org/obo/IAO_0000104</li>
-<li>Added: SubProperty of http://www.w3.org/ns/prov#used</li>
-<li>Added: SubProperty of http://www.w3.org/ns/sosa/usedProcedure</li>
-<li>Added: domain https://w3id.org/gcdfo/salmon#SurveyEvent</li>
+<li>Added: Range https://w3id.org/gcdfo/salmon#ConservationUnit</li>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/gcdfo/salmon#populationOf&gt; &lt;https://w3id.org/gcdfo/salmon#hasPopulation&gt;)</li>
 </ul>
 </li>
 </ul></details></div>

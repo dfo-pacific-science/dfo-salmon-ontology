@@ -1,9 +1,10 @@
 # WIDOCO in this repo (notes + guardrails)
 
-This file is **repo-specific** guidance for using WIDOCO here. Upstream/reference docs:
+This file is **repo-specific** guidance for using WIDOCO here. Upstream/reference docs live in:
 
-- WIDOCO project docs: <https://dgarijo.github.io/Widoco/doc/tutorial/>
-- WIDOCO source/releases: <https://github.com/dgarijo/Widoco>
+- `docs/context/widoco_README.md` (WIDOCO capabilities and CLI flags)
+- `docs/context/widoc_metadata_guide.md` (what metadata WIDOCO recognizes)
+- `docs/context/widoco_bps.md` (recommended metadata checklist)
 
 ## What WIDOCO is
 
@@ -30,13 +31,13 @@ This file is **repo-specific** guidance for using WIDOCO here. Upstream/referenc
    - `owl:versionIRI` (example: `https://w3id.org/gcdfo/salmon/0.0.999`)
    - `owl:priorVersion` (previous version IRI; previous version means the immediate earlier release)
 2. Regenerate and verify:
-   - `make ci` (or `devenv shell make ci` if using nix/devenv)
+   - `devenv shell make ci`
 3. Create the immutable snapshot for that version (served by GitHub Pages):
-   - `make release-snapshot VERSION=X.Y.Z` (or `devenv shell make release-snapshot VERSION=X.Y.Z`)
+   - `devenv shell make release-snapshot VERSION=X.Y.Z`
 4. Commit and push the updated artifacts under `docs/` (including `docs/releases/X.Y.Z/`).
 5. Optional: create a Git tag (a tag is a Git label for a specific commit) such as `vX.Y.Z`.
 
-**Manual vs automated:** These release steps are manual (manual means you must run them yourself); CI (pull requests to `main` + pushes to `main`) does **not** create release snapshots or tags.
+**Manual vs automated:** These release steps are manual (manual means you must run them yourself); CI (continuous integration, automated checks on every push) does **not** create release snapshots or tags.
 
 ### One-time (W3ID setup)
 
@@ -73,4 +74,4 @@ WIDOCO best-practices docs recommend embedding key metadata in the ontology itse
 - `dcterms:creator` / `dcterms:contributor` / `dcterms:publisher` (attribution)
 - `dcterms:license` (license)
 
-See the WIDOCO tutorial and README links above for the full checklist and accepted metadata properties.
+See `docs/context/widoco_bps.md` and `docs/context/widoc_metadata_guide.md` for the full checklist and accepted properties.

@@ -1,32 +1,18 @@
-PREFIX gcdfo: <https://w3id.org/gcdfo/salmon#>
+PREFIX gcdfo: <https://w3id.org/gcdfo/>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
-# Alpha 0.0.6 migration check:
-# 1) hasYearBasis targets must be SKOS concepts in gcdfo:YearBasisScheme.
-# 2) Legacy class-based year terms should be retired once YearBasisScheme exists.
-#
-# The query is intentionally dormant until gcdfo:YearBasisScheme is present so it
-# can be merged ahead of ontology migration without breaking CI.
-SELECT DISTINCT ?resource ?issue ?detail
+# Instances of key measurement/rate classes that are missing hasYearBasis
+SELECT ?measurement ?class
 WHERE {
-  FILTER EXISTS { gcdfo:YearBasisScheme a skos:ConceptScheme . }
-
-  {
-    ?resource gcdfo:hasYearBasis ?detail .
-    FILTER NOT EXISTS { ?detail skos:inScheme gcdfo:YearBasisScheme }
-    BIND("hasYearBasis target is not in gcdfo:YearBasisScheme" AS ?issue)
+  VALUES ?class {
+    gcdfo:ExploitationRate
+    gcdfo:TotalExploitationRate
+    gcdfo:Catch
+    gcdfo:Recruitment
+    gcdfo:SpawnerAbundance
+    gcdfo:EscapementMeasurement
   }
-  UNION
-  {
-    ?resource a owl:Class .
-    FILTER(
-      ?resource = gcdfo:YearBasis ||
-      EXISTS { ?resource rdfs:subClassOf gcdfo:YearBasis }
-    )
-    BIND("legacy class-based year term remains (migrate to SKOS concept(s) in gcdfo:YearBasisScheme)" AS ?issue)
-    BIND(?resource AS ?detail)
-  }
+  ?measurement a ?class .
+  FILTER NOT EXISTS { ?measurement gcdfo:hasYearBasis ?basis }
 }
-ORDER BY ?issue ?resource ?detail
+ORDER BY ?class ?measurement
