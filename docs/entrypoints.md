@@ -1,60 +1,54 @@
 # Entrypoints (What Is Actually Used?)
 
-Purpose: one short, reliable map of what is canonical vs optional/deprecated.
+Purpose: keep one short, reliable map of what starts the system, what is wired in, and where to edit things.
 
 ## Run (human-facing)
 
-- Start command(s): n/a (ontology repo; no long-running service)
+- Start command(s): n/a (ontology project; no long-running service)
 - Local URL(s): n/a
 - Required environment variables (names only, no secrets): none
 
-## Build / Publish
+## Build
 
-- Canonical docs + artifacts refresh: `make docs-refresh`
-  - regenerates WIDOCO HTML in `docs/`
-  - regenerates `docs/gcdfo.{ttl,owl,jsonld}` from `ontology/dfo-salmon.ttl`
-  - refreshes SKOS sections in `docs/index.html`
-- Full CI-equivalent local run: `make ci`
-- Optional helper to reduce generated-artifact drift after CI: `make ci-sync-artifacts`
-- WIDOCO only: `make docs-widoco`
-- Release snapshot (immutable docs version): `make release-snapshot VERSION=X.Y.Z`
-
-### Deprecated optional utility flow (non-canonical)
-
-- `python scripts/extract-term-tables.py`
-  - local ad hoc utility only
-  - not part of `make ci`
-  - not part of `make docs-refresh`
-  - not used for DSU/FADS sync
+- Build command(s): `devenv shell python scripts/extract-term-tables.py` (generates local term-table artifacts under `release/artifacts/term-tables` plus generated term-table SPARQL files in `scripts/sparql`; these generated artifacts are intentionally not source-controlled)
+- Docs refresh (WIDOCO + serializations + SKOS section): `make docs-refresh` (regenerates the base HTML docs via WIDOCO with `-ignoreIndividuals` so SKOS concepts aren’t duplicated as “Named Individuals” and `-webVowl` so an ontology diagram is published under `docs/webvowl/`, then `docs/gcdfo.{ttl,owl}` via ROBOT and `docs/gcdfo.jsonld` via `scripts/convert_ttl_to_jsonld.py` from `ontology/dfo-salmon.ttl`, then refreshes the SKOS blocks in `docs/index.html` and enforces OWL-before-SKOS display ordering)
+- WIDOCO regeneration only: `make docs-widoco` (runs WIDOCO and copies output into `docs/`)
+- Release snapshot (immutable, GitHub Pages): `make release-snapshot VERSION=X.Y.Z` (creates `docs/releases/VERSION/` with `index.html` + `gcdfo.{ttl,owl,jsonld}`)
+- SKOS-only refresh: `python3 scripts/generate_skos_section.py` (reparses `ontology/dfo-salmon.ttl` and rewrites the SKOS block inside `docs/index.html`)
+- CI entrypoint: `devenv shell make ci` (CI means automated checks run on every push; it runs tests, quality-check, and `make docs-refresh`, so it will create doc diffs that must be committed)
 
 ## Test
 
-- Test command(s): `make test` (theme coverage + alpha-lint + ELK reasoning)
-- Fast smoke: `make theme-coverage` or `make alpha-lint`
+- Test command(s): `devenv shell make test` (runs theme coverage + ELK reasoning) against the canonical `ontology/dfo-salmon.ttl`
+- Fastest smoke test: `devenv shell make theme-coverage`
 
 ## App Entry Points / Wiring
 
-- Canonical ontology source: `ontology/dfo-salmon.ttl`
-- Runtime routes/handlers: none
-- Background jobs: none
+- Main entry file(s): `ontology/dfo-salmon.ttl` (canonical ontology)
+- Routes / handlers / commands: `scripts/extract-term-tables.py` (uses `scripts/config/themes.yml` and writes local generated outputs to `scripts/sparql/*-terms.rq` and `release/artifacts/term-tables/*.csv`)
+- Background jobs (if any): none
 
-## UI Styling (docs site)
+## UI Styling
 
-- Main HTML: `docs/index.html`
-- CSS: `docs/resources/*.css`
-- SKOS section generation/postprocess:
-  - `scripts/generate_skos_section.py`
-  - `scripts/postprocess_widoco_html.py`
+- Canonical styling system (repo-majority): global CSS stylesheets for the static WIDOCO HTML docs
+- Style entry files / patterns: `docs/index.html` + `docs/resources/*.css` (notably `docs/resources/main.css` + `docs/resources/gcdfo-custom.css`)
+- Design tokens / CSS variables live in: Bootstrap CSS variables in `docs/resources/main.css` (e.g., `--bs-*`) and dark-mode-toggle vars in `docs/resources/slider.css`
+- Inline styles policy: avoid adding new inline styles; prefer classes + `docs/resources/*.css`
+- UI behavior wiring: `scripts/generate_skos_section.py` injects the custom JS for TOC/search/permalinks into `docs/index.html`
 
-## Release (manual)
+## Release (manual steps)
 
-1. Update ontology header metadata (`dcterms:modified`, `owl:versionInfo`, `owl:versionIRI`, `owl:priorVersion`)
-2. Run `make ci` (or `make ci-sync-artifacts`) and commit generated docs artifacts
-3. Run `make release-snapshot VERSION=X.Y.Z`
-4. Commit/push `docs/` + `docs/releases/X.Y.Z/`
+- Manual release steps (manual means you must run these yourself; CI does not create releases):
+  1. Update `ontology/dfo-salmon.ttl` header fields: `dcterms:modified`, `owl:versionInfo`, `owl:versionIRI`, and `owl:priorVersion` (previous version IRI).
+  2. Run `devenv shell make ci` and commit the regenerated docs/serializations.
+  3. Run `devenv shell make release-snapshot VERSION=X.Y.Z` to create the release snapshot (a release snapshot is an immutable copy under `docs/releases/X.Y.Z/`).
+  4. Commit and push `docs/` and `docs/releases/X.Y.Z/` so GitHub Pages serves the version.
+  5. Optional: tag the release (a tag is a Git label for a specific commit, e.g., `v0.0.999`).
 
-## Canonical vs Non-canonical Output Paths
+- Canonical publication location: `docs/` + `docs/releases/X.Y.Z/`.
+- Non-canonical build workspace: root `release/` (transient local/CI outputs).
 
-- Canonical published outputs: `docs/`, `docs/releases/X.Y.Z/`
-- Non-canonical transient build outputs: `release/`
-- Deprecated local-only term-table outputs: `release/artifacts/term-tables/`, `scripts/sparql/*-terms.rq`
+## Canonical Implementations (Per Feature)
+
+- Ontology schema → `ontology/dfo-salmon.ttl`
+- Term tables/themes → `scripts/config/themes.yml`; generated local outputs: `scripts/sparql/*-terms.rq` and `release/artifacts/term-tables/*.csv`

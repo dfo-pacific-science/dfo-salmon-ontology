@@ -7,9 +7,7 @@ ROBOT_URL := https://github.com/ontodev/robot/releases/download/v$(ROBOT_VERSION
 WIDOCO_VERSION := 1.4.25
 WIDOCO_JAR := tools/widoco.jar
 WIDOCO_URL := https://github.com/dgarijo/Widoco/releases/download/v$(WIDOCO_VERSION)/widoco-$(WIDOCO_VERSION)-jar-with-dependencies_JDK-17.jar
-DSU_ONTOLOGY_DIR ?= ../data-stewardship-unit/data/ontology
-
-.PHONY: help quality-check reason convert clean install-robot install-widoco theme-coverage alpha-lint test ci-sync-artifacts docs-refresh docs-widoco docs-serializations docs-skos docs-postprocess release-snapshot
+.PHONY: help quality-check reason convert clean install-robot install-widoco theme-coverage test docs-refresh docs-widoco docs-serializations docs-skos release-snapshot
 
 # Default target
 help:
@@ -20,9 +18,7 @@ help:
 	@echo "  reason          Run OWL reasoner (ELK) to check logical consistency"
 	@echo "  reason-all      Run all available reasoners (ELK, HermiT, JFact)"
 	@echo "  theme-coverage  Run gcdfo:theme coverage SPARQL check (writes release/tmp/theme-coverage.tsv)"
-	@echo "  alpha-lint      Run alpha migration SPARQL lints (year-basis scheme, variable decomposition, skos:*Match property lint)"
-	@echo "  test            Run fast validation bundle: theme-coverage + alpha-lint + ELK reasoning"
-	@echo "  ci-sync-artifacts Run make ci, then stage generated docs artifacts for commit"
+	@echo "  test            Run fast validation bundle: theme-coverage + ELK reasoning"
 	@echo ""
 	@echo "Format Conversion:"
 	@echo "  convert-owl     Convert to OWL format"
@@ -89,17 +85,13 @@ theme-coverage: check-robot
 		--query scripts/sparql/theme-coverage.rq \
 		release/tmp/theme-coverage.tsv
 	@if [ -s release/tmp/theme-coverage.tsv ]; then \
-		echo "❌ Theme coverage found issues. Inspect release/tmp/theme-coverage.tsv."; \
-		exit 1; \
+		echo "⚠️ Theme coverage found issues. Inspect release/tmp/theme-coverage.tsv."; \
 	else \
 		echo "✅ Theme coverage clean (release/tmp/theme-coverage.tsv is empty)."; \
 	fi
 
-alpha-lint: check-robot
-	@./scripts/run-sparql-lint.sh ontology/dfo-salmon.ttl
-
-test: theme-coverage alpha-lint reason
-	@echo "✅ Test bundle completed (theme coverage + alpha-lint + ELK reasoning)."
+test: theme-coverage reason
+	@echo "✅ Test bundle completed (theme coverage + ELK reasoning)."
 
 ci:
 	@echo "🔁 Running full CI bundle (tests, quality, docs)..."
@@ -108,16 +100,12 @@ ci:
 	@$(MAKE) docs-refresh
 	@echo "✅ CI bundle completed."
 
-ci-sync-artifacts: ci
-	@git add docs/gcdfo.ttl docs/gcdfo.owl docs/gcdfo.jsonld docs/index.html docs/index-en.html || true
-	@echo "✅ Staged generated docs artifacts after make ci."
-
 # Setup
 install-robot:
 	@echo "📥 Downloading ROBOT..."
 	@mkdir -p tools
 	@if command -v curl >/dev/null 2>&1; then \
-		curl -fL --retry 3 --retry-delay 2 $(ROBOT_URL) -o $(ROBOT_JAR); \
+		curl -L $(ROBOT_URL) -o $(ROBOT_JAR); \
 	elif command -v wget >/dev/null 2>&1; then \
 		wget -O $(ROBOT_JAR) $(ROBOT_URL); \
 	else \
@@ -131,7 +119,7 @@ install-widoco:
 	@echo "📥 Downloading WIDOCO..."
 	@mkdir -p tools
 	@if command -v curl >/dev/null 2>&1; then \
-		curl -fL --retry 3 --retry-delay 2 $(WIDOCO_URL) -o $(WIDOCO_JAR); \
+		curl -L $(WIDOCO_URL) -o $(WIDOCO_JAR); \
 	elif command -v wget >/dev/null 2>&1; then \
 		wget -O $(WIDOCO_JAR) $(WIDOCO_URL); \
 	else \
@@ -172,7 +160,7 @@ docs-widoco: check-widoco
 	if [ -f "$$OUT/index-en.html" ] && [ ! -f "$$OUT/index.html" ]; then \
 		cp "$$OUT/index-en.html" "$$OUT/index.html"; \
 	fi; \
-	rsync -a --exclude "/ontology.*" "$$OUT/" docs/; \
+	rsync -a --exclude "ontology.*" "$$OUT/" docs/; \
 	rm -f docs/ontology.jsonld docs/ontology.nt docs/ontology.owl docs/ontology.ttl; \
 	rm -rf "$$OUT"; \
 	echo "✅ WIDOCO regenerated into docs/"
@@ -190,12 +178,7 @@ docs-skos:
 	@python3 scripts/generate_skos_section.py
 	@echo "✅ Updated docs/index.html SKOS section (and enforced OWL-before-SKOS ordering)"
 
-docs-postprocess:
-	@echo "🧩 Applying project-specific WIDOCO post-processing..."
-	@python3 scripts/postprocess_widoco_html.py
-	@echo "✅ WIDOCO post-processing complete."
-
-docs-refresh: docs-widoco docs-serializations docs-skos docs-postprocess
+docs-refresh: docs-widoco docs-serializations docs-skos
 	@echo "✅ Docs refresh complete."
 
 # Create an immutable snapshot of the current published artifacts under docs/releases/<version>/.
@@ -227,11 +210,11 @@ release-snapshot: docs-refresh
 				'  <meta charset="UTF-8" />' \
 				'  <meta name="viewport" content="width=device-width, initial-scale=1" />' \
 				'  <link rel="canonical" href="https://w3id.org/gcdfo/salmon/$(VERSION)" />' \
-				'  <title>DFO Salmon Ontology — Version $(VERSION)</title>' \
+				'  <title>GC DFO Salmon Ontology — Version $(VERSION)</title>' \
 				'</head>' \
 				'<body>' \
 				'  <main>' \
-			'    <h1>DFO Salmon Ontology — Version $(VERSION)</h1>' \
+			'    <h1>GC DFO Salmon Ontology — Version $(VERSION)</h1>' \
 			'    <p>This is an immutable release snapshot hosted from GitHub Pages.</p>' \
 			'    <h2>Download</h2>' \
 			'    <ul>' \

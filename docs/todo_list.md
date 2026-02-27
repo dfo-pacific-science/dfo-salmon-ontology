@@ -39,14 +39,28 @@
 - [x] Decide and document the decomposition metamodel stack (DwC-CM primary, SOSA overlay, OBOE alignment via annotations) and apply it consistently in mappings.
 
 
-## Term Table Automation (Deprecated)
+## Term Table Automation
 
-**Status (2026-02-25):** Deprecated. This flow is no longer part of the active publication architecture.
+**Owner:** Brett  **Priority:** High  **Scope:** Generate and surface ontology term tables with provenance
 
-- Canonical published documentation is WIDOCO under `docs/` via `make docs-refresh`.
-- Do **not** plan or implement DSU/FADS term-table sync.
-- `scripts/extract-term-tables.py` and generated `scripts/sparql/*-terms.rq` / `release/artifacts/term-tables/*.csv` are optional local ad hoc artifacts only.
-- Historical term-table automation checklist items are retired.
+### Extraction Pipeline
+
+- [ ] GitHub workflow to generate term tables (not present; needs creation)
+- [ ] Create virtual environment and install `scripts/requirements.txt` dependencies (local development)
+- [ ] Run `python scripts/extract-term-tables.py` to publish initial CSV + metadata (blocked until Java/ROBOT available for publish slice)
+- [x] Decide whether to version generated CSVs or rely solely on workflow artifacts (decision: versioned under `release/artifacts/term-tables/`)
+- [x] Expand `scripts/config/themes.yml` to all 9 themes aligned to draft ontology
+- [x] Add Makefile target to chain publish slice + extraction (`make publish-and-extract`)
+- [x] Add Makefile target to clean publish temp artifacts (`make publish-clean`)
+- [x] (Deprecated/removed) DSU sync target path (`make dsu-sync-term-tables`) was retired in favor of the WIDOCO-only publication flow.
+
+### Cross-Repo Automation
+
+- [ ] Provision `REPO_DISPATCH_TOKEN` with `repo` scope for GitHub dispatch events
+- [ ] Coordinate with documentation repo to consume workflow artifacts or submodule updates
+- [ ] Add Widoco build step and update `widoco_base_url` once docs are hosted
+- **GOAL**: Widoco site formally published by end of November 2025
+- **GOAL**: Quarto website pages for exploring controlled vocabulary working within next 2 weeks
 
 ## Theme / Module Annotations (Conventions alignment)
 

@@ -21,7 +21,6 @@ from __future__ import annotations
 import argparse
 import json
 import pathlib
-import re
 import sys
 from typing import Any
 
@@ -63,43 +62,6 @@ def _normalize_json(value: Any, *, preserve_list_order: bool = False) -> Any:
     return value
 
 
-_BNODE_ID = re.compile(r"^_:n[0-9a-fA-F]+b(\d+)$")
-
-
-def _collect_bnode_ids(value: Any, out: set[str]) -> None:
-    if isinstance(value, dict):
-        for key, child in value.items():
-            if key == "@id" and isinstance(child, str) and child.startswith("_:"):
-                out.add(child)
-            _collect_bnode_ids(child, out)
-    elif isinstance(value, list):
-        for item in value:
-            _collect_bnode_ids(item, out)
-
-
-def _bnode_sort_key(bnode_id: str) -> tuple:
-    match = _BNODE_ID.match(bnode_id)
-    if match:
-        return (0, int(match.group(1)))
-    return (1, bnode_id)
-
-
-def _canonicalize_bnode_ids(value: Any, mapping: dict[str, str]) -> Any:
-    if isinstance(value, dict):
-        out: dict[str, Any] = {}
-        for key, child in value.items():
-            if key == "@id" and isinstance(child, str) and child in mapping:
-                out[key] = mapping[child]
-            else:
-                out[key] = _canonicalize_bnode_ids(child, mapping)
-        return out
-    if isinstance(value, list):
-        return [_canonicalize_bnode_ids(item, mapping) for item in value]
-    if isinstance(value, str) and value in mapping:
-        return mapping[value]
-    return value
-
-
 def convert_ttl_to_jsonld(*, input_path: pathlib.Path, output_path: pathlib.Path) -> None:
     if not input_path.exists():
         raise FileNotFoundError(f"Input TTL file not found: {input_path}")
@@ -112,18 +74,7 @@ def convert_ttl_to_jsonld(*, input_path: pathlib.Path, output_path: pathlib.Path
         raw = raw.decode("utf-8")
 
     data = json.loads(raw)
-
-    # rdflib emits run-variant blank-node identifiers (e.g., _:n<uuid>b1).
-    # Canonicalize them first so subsequent sorting is deterministic.
-    bnode_ids: set[str] = set()
-    _collect_bnode_ids(data, bnode_ids)
-    mapping = {
-        bnode_id: f"_:b{idx}"
-        for idx, bnode_id in enumerate(sorted(bnode_ids, key=_bnode_sort_key), start=1)
-    }
-    canonicalized = _canonicalize_bnode_ids(data, mapping)
-
-    normalized = _normalize_json(canonicalized)
+    normalized = _normalize_json(data)
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(
