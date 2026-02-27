@@ -1,0 +1,12 @@
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix sosa:    <http://www.w3.org/ns/sosa/> .
+
+<https://w3id.org/gcdfo/salmon/modules/salmon-data-metamodel-provenance> a owl:Ontology ;
+  rdfs:label "Salmon Data Metamodel — Provenance slice"@en ;
+  rdfs:comment "Provenance slice for lineage/activity links across SOSA entities and activities."@en .
+
+sosa:hasFeatureOfInterest rdfs:subPropertyOf prov:used .
+sosa:hasResult rdfs:subPropertyOf prov:generated .
+sosa:isSampleOf rdfs:subPropertyOf prov:wasDerivedFrom .

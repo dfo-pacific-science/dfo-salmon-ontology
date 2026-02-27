@@ -1,0 +1,36 @@
+@prefix :        <https://w3id.org/gcdfo/salmon/modules/salmon-data-metamodel#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix sosa:    <http://www.w3.org/ns/sosa/> .
+@prefix dwc:     <http://rs.tdwg.org/dwc/terms/> .
+@prefix dwcdp:   <https://rs.tdwg.org/dwc/dp/terms/> .
+@prefix bfo:     <http://purl.obolibrary.org/obo/BFO_> .
+
+<https://w3id.org/gcdfo/salmon/modules/salmon-data-metamodel-result-datum> a owl:Ontology ;
+  rdfs:label "Salmon Data Metamodel — Result/Datum slice"@en ;
+  rdfs:comment "Result-oriented slice for datum/value carriers, sample/result classes, and generated result links."@en .
+
+sosa:Sample rdfs:subClassOf bfo:0000040, prov:Entity .
+sosa:Result rdfs:subClassOf prov:Entity .
+
+:observationGeneratedResult a owl:ObjectProperty ;
+  rdfs:label "observation generated result"@en ;
+  rdfs:subPropertyOf sosa:hasResult , prov:generated ;
+  rdfs:domain sosa:Observation ;
+  rdfs:range sosa:Result .
+
+:samplingGeneratedSample a owl:ObjectProperty ;
+  rdfs:label "sampling generated sample"@en ;
+  rdfs:subPropertyOf sosa:hasResult , prov:generated ;
+  rdfs:domain sosa:Sampling ;
+  rdfs:range sosa:Sample .
+
+sosa:Sample skos:closeMatch dwc:MaterialEntity .
+
+dwcdp:MaterialEntity a owl:Class ;
+  rdfs:subClassOf prov:Entity ;
+  rdfs:label "DwC-DP MaterialEntity"@en .
+
+dwcdp:MaterialEntity :dwcdpEventID dwcdp:Event .

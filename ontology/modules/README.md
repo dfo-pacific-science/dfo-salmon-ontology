@@ -15,8 +15,15 @@ These module files provide **optional** upper-level/data-model alignment layers 
   - Not intended for immediate core merge without targeted review + competency-query checks.
 
 - `upper-level-view.ttl`
-  - Standalone **Salmon Data Metamodel** view (SOSA / PROV / I-ADOPT core with DwC / DwC-DP reference mappings).
-  - Uses explicit OWL classes, object properties, and bridge restrictions for observation/entity/property/constraint/variable/event/sample/sampling structure.
+  - Composition root for the standalone **Salmon Data Metamodel** view.
+  - Imports seven focused decomposition slices for term extraction + ontological mapping:
+    - `upper-level-view-entity.ttl` (entity/object of interest + matrix/context)
+    - `upper-level-view-property.ttl` (measured characteristic/property)
+    - `upper-level-view-variable.ttl` (entity + property + constraints + statistical modifier)
+    - `upper-level-view-method-protocol.ttl` (how generated/measured)
+    - `upper-level-view-event-observation.ttl` (when/where/by whom, survey/sampling context)
+    - `upper-level-view-result-datum.ttl` (result/sample datum carriers)
+    - `upper-level-view-provenance.ttl` (lineage/agent/activity links)
   - Deliberately does **not** import `https://w3id.org/gcdfo/salmon` so WebVOWL can show only the upper-level/metamodel graph.
   - Intended for review discussions and architecture orientation (not normative core inference).
 
@@ -35,7 +42,8 @@ Use **alignment-research** when you want to:
 Use **upper-level-view** when you want to:
 - inspect only the upper-level/crosswalk model in WebVOWL,
 - avoid import-closure noise from the full `gcdfo` ontology,
-- facilitate architecture discussion with contributors/domain experts.
+- facilitate architecture discussion with contributors/domain experts,
+- review the 7-slice decomposition workflow (entity/property/variable/method-event-result-provenance) without editing one monolithic file.
 
 ## Why modules (instead of core-only)
 

@@ -1,0 +1,25 @@
+@prefix :        <https://w3id.org/gcdfo/salmon/modules/salmon-data-metamodel#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix sosa:    <http://www.w3.org/ns/sosa/> .
+@prefix iop:     <https://w3id.org/iadopt/ont/> .
+@prefix dwcdp:   <https://rs.tdwg.org/dwc/dp/terms/> .
+
+<https://w3id.org/gcdfo/salmon/modules/salmon-data-metamodel-entity> a owl:Ontology ;
+  rdfs:label "Salmon Data Metamodel — Entity slice"@en ;
+  rdfs:comment "Entity-centric decomposition slice: object of interest entities and organism linkage context."@en .
+
+sosa:FeatureOfInterest skos:closeMatch iop:Entity .
+
+dwcdp:Organism a owl:Class ;
+  rdfs:subClassOf prov:Entity ;
+  rdfs:label "DwC-DP Organism"@en .
+
+:dwcdpOrganismID a owl:ObjectProperty ;
+  rdfs:label "organismID (of an)"@en ;
+  rdfs:domain dwcdp:Occurrence ;
+  rdfs:range dwcdp:Organism .
+
+dwcdp:Occurrence :dwcdpOrganismID dwcdp:Organism .
