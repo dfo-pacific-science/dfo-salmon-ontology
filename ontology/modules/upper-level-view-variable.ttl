@@ -1,0 +1,28 @@
+@prefix :        <https://w3id.org/gcdfo/salmon/modules/salmon-data-metamodel#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa:    <http://www.w3.org/ns/sosa/> .
+@prefix iop:     <https://w3id.org/iadopt/ont/> .
+@prefix iao:     <http://purl.obolibrary.org/obo/IAO_> .
+
+<https://w3id.org/gcdfo/salmon/modules/salmon-data-metamodel-variable> a owl:Ontology ;
+  rdfs:label "Salmon Data Metamodel — Variable slice"@en ;
+  rdfs:comment "Variable decomposition slice (entity + property + constraints)."@en .
+
+iop:Variable rdfs:subClassOf iao:0000030, sosa:Property .
+iop:Constraint rdfs:subClassOf iao:0000030 .
+
+:hasVariable a owl:ObjectProperty ;
+  rdfs:label "has variable"@en ;
+  rdfs:domain sosa:Observation ;
+  rdfs:range iop:Variable ;
+  rdfs:comment "Links a SOSA observation to an I-ADOPT variable decomposition used in salmon data workflows. In SDP workflows this is typically represented as a compound term concept with decomposition annotations."@en .
+
+:constraintConstrains a owl:ObjectProperty ;
+  rdfs:label "constraint constrains"@en ;
+  rdfs:subPropertyOf iop:constrains ;
+  rdfs:domain iop:Constraint ;
+  rdfs:range owl:Thing .
+
+iop:Variable skos:closeMatch sosa:Property .

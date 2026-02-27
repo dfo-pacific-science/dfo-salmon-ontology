@@ -3,11 +3,12 @@ repos:
     hooks:
       - id: ontology-ci
         name: Run full ontology CI bundle (make ci)
-        entry: devenv shell make ci
+        entry: bash -lc 'if [ -z "${JAVA_HOME:-}" ]; then if [ -d /usr/local/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home ]; then export JAVA_HOME=/usr/local/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home; export PATH="$JAVA_HOME/bin:$PATH"; elif command -v /usr/libexec/java_home >/dev/null 2>&1; then export JAVA_HOME=$(/usr/libexec/java_home -v 17 2>/dev/null || true); [ -n "${JAVA_HOME:-}" ] && export PATH="$JAVA_HOME/bin:$PATH"; fi; fi; if command -v devenv >/dev/null 2>&1; then devenv shell make ci; else make ci; fi; git checkout -- docs/webvowl/data/ontology.json || true'
         language: system
-        files: ^ontology/dfo-salmon\\.ttl$
+        files: ^ontology/dfo-salmon\.ttl$
         pass_filenames: false
         always_run: false
+        stages: [pre-push, manual]
 
 
 
