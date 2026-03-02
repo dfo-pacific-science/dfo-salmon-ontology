@@ -27,7 +27,7 @@
 - **Responsibilities:** Narrative coherence, benchmark justification, proxy rationale, reviewer response integration
 - **Stories:** 
   - Generate submission-ready trace packs with benchmarks, uncertainty notes, proxy decisions, and methods provenance; integrate reviewer feedback.
-  - Start a new submission via a **Metadata Intake wizard**: select SMU/CU/Population/PFMA/Indicator scope + Year, fill required metadata using **controlled‑vocab dropdowns** sourced from SKOS, attach filled in Excel/CSV template data.
+  - Start a new submission via a **Metadata Intake wizard**: select SMU/CU/Population/PFMA/IndicatorRiver scope + Year ("Indicator Stock" UI alias), fill required metadata using **controlled‑vocab dropdowns** sourced from SKOS, attach filled in Excel/CSV template data.
 - **Acceptance:** 
   - Lead Author can generate a "submission-ready" trace pack with benchmarks, uncertainty notes, proxy decisions, data sources and methods provenance.
   - Benchmark derivation method, input dataset(s), time window, uncertainty method, and version/date
@@ -51,7 +51,7 @@
 - **Goal:** Ensure data standards are met (terms, provenance, data quality, uncertainty); fail fast; identify missing metadata or poor data stewardship practices to help support FSAR authors meet best practices. Ship FSARs quickly. Upload draft data to check for compliance, completeness etc.
 - **Stories:**
   - Click **Validate** to run SHACL + R validator; see inline errors (row/column, severity, code, fix‑hint); correct and re‑validate until state = **Ready**.
-  - Save/resume drafts; download a tailored **Excel template** for the selected scope (Population, CU, SMU, Indicator Stock, PFMA) pre‑filled with valid enumerations.
+  - Save/resume drafts; download a tailored **Excel template** for the selected scope (Population, CU, SMU, IndicatorRiver [Indicator Stock alias], PFMA) pre‑filled with valid enumerations.
   - Open **Evidence Drawer** for provenance minimum and submission audit (who/when, validator versions).
 - **Acceptance:**
   - **Validator gating:** "Ready" is blocked unless all required metadata are present: method registry term + version, benchmark derivation record, data coverage window, unit + scale, provenance (PROV-O), and person‑time stamps (who/when).
@@ -183,7 +183,7 @@ This will be an interactive hierarchical tree style graph with progressive discl
 - **Step 2 — Attach files:** Upload `.xlsx` (current accepted format). Parse Metadata tab first; show a preview of parsed metadata fields.
 - **Step 3 — Validate:** Run SHACL + R validator; render inline errors (severity, row/col, code, fix‑hint). Provide "Re‑run validation" and "Download error report".
 - **Step 4 — Ready & Submit:** When no critical errors remain, mark **Ready**. Submissions require human review/approval before ingest to SPSR.
-- **Utilities:** "Download tailored template" endpoint pre‑seeds enumerations and column headers by scope (Population, CU, SMU, Indicator Stock, PFMA); "Save draft" persists current progress.
+- **Utilities:** "Download tailored template" endpoint pre‑seeds enumerations and column headers by scope (Population, CU, SMU, IndicatorRiver [Indicator Stock alias], PFMA); "Save draft" persists current progress.
 
 ## 2c) Usability & Data Input Workflow (Reduce Friction, Increase Trust)
 
