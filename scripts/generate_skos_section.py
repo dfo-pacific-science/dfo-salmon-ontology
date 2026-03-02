@@ -578,10 +578,14 @@ def ensure_custom_ui_enhancements() -> None:
             1,
         )
 
-    # Avoid confusing duplicate TOC labels ("Classes" appears in Crossref and again in the changelog).
+    # Avoid confusing duplicate TOC labels (Crossref labels repeat in the changelog section).
     content = content.replace(
         '<h3 id="changeClass" class="list">Classes</h3>',
         '<h3 id="changeClass" class="list">Classes (changes)</h3>',
+    )
+    content = content.replace(
+        '<h3 id="changeProp" class="list">Object Properties</h3>',
+        '<h3 id="changeProp" class="list">Object Properties (changes)</h3>',
     )
 
     # WebVOWL embed: wrap the generated iframe in a collapsible to keep the Overview compact.
