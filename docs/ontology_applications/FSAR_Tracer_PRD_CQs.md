@@ -184,6 +184,10 @@ This will be an interactive hierarchical tree style graph with progressive discl
 - **Step 3 — Validate:** Run SHACL + R validator; render inline errors (severity, row/col, code, fix‑hint). Provide "Re‑run validation" and "Download error report".
 - **Step 4 — Ready & Submit:** When no critical errors remain, mark **Ready**. Submissions require human review/approval before ingest to SPSR.
 - **Utilities:** "Download tailored template" endpoint pre‑seeds enumerations and column headers by scope (Population, CU, SMU, IndicatorRiver [Indicator Stock alias], PFMA); "Save draft" persists current progress.
+- **Route naming contract (ontology ↔ UI):**
+  - Canonical ontology route terms: `ConservationUnit`, `StockManagementUnit`, `PacificFisheryManagementArea`, `IndicatorRiver`.
+  - UI may display `IndicatorRiver` as **Indicator Stock** for legacy continuity, but persisted/API term mapping remains `IndicatorRiver`.
+  - UI may display `PacificFisheryManagementArea` as **PFMA** shorthand, but persisted/API term mapping remains `PacificFisheryManagementArea`.
 
 ## 2c) Usability & Data Input Workflow (Reduce Friction, Increase Trust)
 

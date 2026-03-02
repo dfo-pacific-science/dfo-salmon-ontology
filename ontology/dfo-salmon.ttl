@@ -1694,6 +1694,16 @@ gcdfo:StockManagementUnit a owl:Class ;
   gcdfo:theme gcdfo:FisheriesManagementTheme, gcdfo:StockAssessmentTheme, gcdfo:PolicyGovernanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
+gcdfo:PacificFisheryManagementArea a owl:Class ;
+  rdfs:label "Pacific fishery management area"@en ;
+  iao:0000115 "A reporting and management stratum representing a prescribed Pacific fishery management area in Canadian fisheries waters of the Pacific Ocean."@en ; # definition
+  skos:altLabel "PFMA"@en ;
+  rdfs:subClassOf gcdfo:ReportingOrManagementStratum ;
+  iao:0000119 "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77): management area means a division of Canadian fisheries waters as enumerated and described in Schedule 2. https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-1.html."@en ; # definition source
+  dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-1.html> ;
+  gcdfo:theme gcdfo:FisheriesManagementTheme, gcdfo:StockAssessmentTheme, gcdfo:PolicyGovernanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
 gcdfo:Escapement a owl:Class ;
   rdfs:label "Escapement"@en ;
   rdfs:subClassOf bfo:0000015 ; # process

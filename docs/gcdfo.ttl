@@ -1053,6 +1053,20 @@ gcdfo:OceanMortalityRate rdf:type owl:Class ;
                          gcdfo:theme gcdfo:StockAssessmentTheme .
 
 
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea
+gcdfo:PacificFisheryManagementArea rdf:type owl:Class ;
+                                   rdfs:subClassOf gcdfo:ReportingOrManagementStratum ;
+                                   <http://purl.obolibrary.org/obo/IAO_0000115> "A reporting and management stratum representing a prescribed Pacific fishery management area in Canadian fisheries waters of the Pacific Ocean."@en ;
+                                   <http://purl.obolibrary.org/obo/IAO_0000119> "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77): management area means a division of Canadian fisheries waters as enumerated and described in Schedule 2. https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-1.html."@en ;
+                                   dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-1.html> ;
+                                   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                   rdfs:label "Pacific fishery management area"@en ;
+                                   skos:altLabel "PFMA"@en ;
+                                   gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                               gcdfo:PolicyGovernanceTheme ,
+                                               gcdfo:StockAssessmentTheme .
+
+
 ###  https://w3id.org/gcdfo/salmon#Population
 gcdfo:Population rdf:type owl:Class ;
                  rdfs:subClassOf dwc:Organism ;

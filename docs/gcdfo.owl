@@ -1420,6 +1420,23 @@
     
 
 
+    <!-- https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea -->
+
+    <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum"/>
+        <obo:IAO_0000115 xml:lang="en">A reporting and management stratum representing a prescribed Pacific fishery management area in Canadian fisheries waters of the Pacific Ocean.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77): management area means a division of Canadian fisheries waters as enumerated and described in Schedule 2. https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-1.html.</obo:IAO_0000119>
+        <dcterms:source rdf:resource="https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-1.html"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Pacific fishery management area</rdfs:label>
+        <skos:altLabel xml:lang="en">PFMA</skos:altLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:Class>
+    
+
+
     <!-- https://w3id.org/gcdfo/salmon#Population -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#Population">

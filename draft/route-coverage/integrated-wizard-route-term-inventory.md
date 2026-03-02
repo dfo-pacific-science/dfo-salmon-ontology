@@ -35,3 +35,14 @@ Kanban anchor: `step-1772475890-9a4b2c`
    - Keep `IndicatorRiver` as ontology term with "Indicator Stock" as UI alias (documented explicitly).
 3. **Defer new relationship properties until evidence is cited**
    - Add relation terms only after confirming operational semantics from source policy/docs.
+
+## Patch Slice Status Update (2026-03-02)
+Applied in follow-up route-coverage patch:
+- Added `gcdfo:PacificFisheryManagementArea` as a minimal class under `gcdfo:ReportingOrManagementStratum` with `skos:altLabel "PFMA"@en` and citation to the Pacific Fishery Management Area Regulations, 2007.
+- Added explicit wizard route naming contract language in `docs/ontology_applications/FSAR_Tracer_PRD_CQs.md`:
+  - canonical ontology terms (`IndicatorRiver`, `PacificFisheryManagementArea`) remain canonical for persistence/API
+  - UI aliases `Indicator Stock` and `PFMA` are display-only mappings
+
+### Remaining Gap Classes After This Slice
+1. **Relationship-model ambiguity (IndicatorRiver/PFMA routes)**
+   - Route-level relation property semantics to CU/SMU/Population are still intentionally deferred pending source-backed policy/operational evidence.
