@@ -45,6 +45,64 @@ SELECT ?variable ?property ?entity ?constraint ?procedure WHERE {
 ORDER BY ?variable ?property ?entity ?constraint ?procedure
 ```
 
+## Process ↔ Assessment Bridge (Issue #40)
+
+- **CQ-Process-1:** Which assessment processes evaluate which stocks/CUs/SMUs/populations?
+
+```sparql
+SELECT ?assessment ?subject WHERE {
+  ?assessment a gcdfo:StockAssessment ;
+              gcdfo:hasAssessmentSubject ?subject .
+}
+ORDER BY ?assessment ?subject
+```
+
+- **CQ-Process-2:** Which measurement/rate data are used by each stock assessment?
+
+```sparql
+SELECT ?assessment ?datum WHERE {
+  ?assessment a gcdfo:StockAssessment ;
+              gcdfo:usesAssessmentDatum ?datum .
+  ?datum a iao:0000109 .
+}
+ORDER BY ?assessment ?datum
+```
+
+- **CQ-Process-3:** Which management reference points are explicitly tied to each stock assessment?
+
+```sparql
+SELECT ?assessment ?referencePoint WHERE {
+  ?assessment a gcdfo:StockAssessment ;
+              gcdfo:hasAssessmentReferencePoint ?referencePoint .
+}
+ORDER BY ?assessment ?referencePoint
+```
+
+- **CQ-Process-4:** Which survey events produce results that flow into stock assessments?
+
+```sparql
+SELECT ?surveyEvent ?datum ?assessment WHERE {
+  ?surveyEvent a gcdfo:SurveyEvent ;
+               gcdfo:hasObservationResult ?datum .
+  ?datum gcdfo:isDatumUsedInAssessment ?assessment .
+}
+ORDER BY ?surveyEvent ?assessment
+```
+
+- **CQ-Process-5:** For each assessment subject, what is the end-to-end path from field process -> datum -> assessment -> reference point?
+
+```sparql
+SELECT ?subject ?surveyEvent ?datum ?assessment ?referencePoint WHERE {
+  ?assessment a gcdfo:StockAssessment ;
+              gcdfo:hasAssessmentSubject ?subject ;
+              gcdfo:hasAssessmentReferencePoint ?referencePoint .
+  ?surveyEvent a gcdfo:SurveyEvent ;
+               gcdfo:hasObservationResult ?datum .
+  ?datum gcdfo:isDatumUsedInAssessment ?assessment .
+}
+ORDER BY ?subject ?assessment ?surveyEvent
+```
+
 ## Genetic Results
 
 ## FSARs

@@ -1599,6 +1599,30 @@ SELECT ?method ?stock ?event WHERE {
     owl:disjointWith :Freshwater .
 ```
 
+#### 6.3.4 Controlled disconnection vs required bridge edges
+
+**Principle:** not every module must be fully connected, but any process-heavy branch that supports stock-assessment or management workflows **must** expose at least one explicit bridge to core assessment concepts.
+
+**Disconnection is acceptable when all are true:**
+
+- The branch is intentionally modular (for example, a staging/alignment-only slice)
+- It has clear scope notes indicating deferred integration
+- No competency question depends on traversal from that branch to assessment/management classes
+
+**Bridge edges are required when any are true:**
+
+- The branch contains process classes (`bfo:0000015` descendants) used in assessment workflows
+- Review/decision use-cases require joining process, measurement, and reference-point context
+- A branch would otherwise be isolated from `gcdfo:StockAssessment` and related assessment concepts
+
+**Minimum bridge expectation (issue #40 closure pattern):**
+
+- process/assessment -> assessed subject (`gcdfo:hasAssessmentSubject`)
+- process/assessment -> measurement datum (`gcdfo:usesAssessmentDatum`)
+- process/assessment -> reference point (`gcdfo:hasAssessmentReferencePoint`)
+
+Use inverse properties where they materially improve query ergonomics.
+
 ### 6.4 Membership and Roll-up Pattern (SMU ▶ CU ▶ Population)
 
 **What is the membership pattern?** This pattern represents the hierarchical relationship between Stock Management Units, Conservation Units, and Populations in salmon management.
