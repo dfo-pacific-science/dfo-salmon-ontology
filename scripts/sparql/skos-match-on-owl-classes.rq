@@ -1,0 +1,39 @@
+PREFIX gcdfo: <https://w3id.org/gcdfo/salmon#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+# Alpha 0.0.6 migration lint:
+# Prevent skos:*Match mappings on OWL/RDFS classes.
+# Class↔class mappings should use class semantics (e.g.,
+# rdfs:subClassOf / owl:equivalentClass), not SKOS mapping predicates.
+SELECT DISTINCT ?term ?termType ?matchPredicate ?matchedTerm ?matchedType
+WHERE {
+  FILTER EXISTS {
+    { gcdfo:iadoptEntity a owl:AnnotationProperty . }
+    UNION
+    { gcdfo:YearBasisScheme a skos:ConceptScheme . }
+  }
+
+  VALUES ?matchPredicate {
+    skos:exactMatch
+    skos:closeMatch
+    skos:broadMatch
+    skos:narrowMatch
+    skos:relatedMatch
+  }
+
+  ?term ?matchPredicate ?matchedTerm .
+
+  OPTIONAL {
+    ?term a ?termType .
+    FILTER(?termType IN (owl:Class, rdfs:Class))
+  }
+  OPTIONAL {
+    ?matchedTerm a ?matchedType .
+    FILTER(?matchedType IN (owl:Class, rdfs:Class))
+  }
+
+  FILTER(BOUND(?termType) || BOUND(?matchedType))
+}
+ORDER BY ?term ?matchPredicate ?matchedTerm
