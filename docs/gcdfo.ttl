@@ -35,7 +35,7 @@
                                  dcterms:creator "Fishery & Assessment Data Section (FADS) Data Stewardship Unit"@en ;
                                  dcterms:description "OWL + SKOS ontology for DFO salmon data: stocks/CUs/MUs, survey events, escapement measurements, and GSI constructs; aligns to DwC via rdfs:subClassOf; hybrid approach with SKOS for methods and OWL for events."@en ;
                                  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
-                                 dcterms:modified "2026-02-24"^^xsd:date ;
+                                 dcterms:modified "2026-03-02"^^xsd:date ;
                                  dcterms:publisher "Fisheries and Oceans Canada (DFO) Pacific Region Science Branch"@en ;
                                  dcterms:title "DFO Salmon Ontology"@en ;
                                  vann:preferredNamespacePrefix "gcdfo" ;
@@ -306,6 +306,37 @@ gcdfo:demeOf rdf:type owl:ObjectProperty ;
                          gcdfo:WildSalmonPolicyTheme .
 
 
+###  https://w3id.org/gcdfo/salmon#hasAssessmentReferencePoint
+gcdfo:hasAssessmentReferencePoint rdf:type owl:ObjectProperty ;
+                                  rdfs:subPropertyOf prov:used ;
+                                  owl:inverseOf gcdfo:isAssessmentReferencePointFor ;
+                                  rdfs:domain gcdfo:StockAssessment ;
+                                  rdfs:range gcdfo:ReferencePoint ;
+                                  <http://purl.obolibrary.org/obo/IAO_0000115> "Relates a stock assessment process to a reference point used to interpret status or management risk."@en ;
+                                  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                  rdfs:label "has assessment reference point"@en ;
+                                  gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                              gcdfo:PolicyGovernanceTheme ,
+                                              gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#hasAssessmentSubject
+gcdfo:hasAssessmentSubject rdf:type owl:ObjectProperty ;
+                           owl:inverseOf gcdfo:isAssessmentSubjectOf ;
+                           rdfs:domain gcdfo:StockAssessment ;
+                           rdfs:range [ rdf:type owl:Class ;
+                                        owl:unionOf ( gcdfo:Population
+                                                      gcdfo:ReportingOrManagementStratum
+                                                    )
+                                      ] ;
+                           <http://purl.obolibrary.org/obo/IAO_0000115> "Relates a stock-assessment process to the reporting/management stratum or biological population it evaluates."@en ;
+                           rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                           rdfs:label "has assessment subject"@en ;
+                           gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                       gcdfo:PolicyGovernanceTheme ,
+                                       gcdfo:StockAssessmentTheme .
+
+
 ###  https://w3id.org/gcdfo/salmon#hasConservationUnit
 gcdfo:hasConservationUnit rdf:type owl:ObjectProperty ;
                           rdfs:domain gcdfo:StockManagementUnit ;
@@ -413,6 +444,46 @@ gcdfo:hasYearBasis rdf:type owl:ObjectProperty ;
                                gcdfo:StockAssessmentTheme .
 
 
+###  https://w3id.org/gcdfo/salmon#isAssessmentReferencePointFor
+gcdfo:isAssessmentReferencePointFor rdf:type owl:ObjectProperty ;
+                                    rdfs:domain gcdfo:ReferencePoint ;
+                                    rdfs:range gcdfo:StockAssessment ;
+                                    <http://purl.obolibrary.org/obo/IAO_0000115> "Relates a reference point to a stock assessment process that uses it for status interpretation or advice."@en ;
+                                    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                    rdfs:label "is assessment reference point for"@en ;
+                                    gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                gcdfo:PolicyGovernanceTheme ,
+                                                gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#isAssessmentSubjectOf
+gcdfo:isAssessmentSubjectOf rdf:type owl:ObjectProperty ;
+                            rdfs:domain [ rdf:type owl:Class ;
+                                          owl:unionOf ( gcdfo:Population
+                                                        gcdfo:ReportingOrManagementStratum
+                                                      )
+                                        ] ;
+                            rdfs:range gcdfo:StockAssessment ;
+                            <http://purl.obolibrary.org/obo/IAO_0000115> "Relates a reporting/management stratum or biological population to a stock assessment that evaluates it."@en ;
+                            rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                            rdfs:label "is assessment subject of"@en ;
+                            gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                        gcdfo:PolicyGovernanceTheme ,
+                                        gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#isDatumUsedInAssessment
+gcdfo:isDatumUsedInAssessment rdf:type owl:ObjectProperty ;
+                              owl:inverseOf gcdfo:usesAssessmentDatum ;
+                              rdfs:domain <http://purl.obolibrary.org/obo/IAO_0000109> ;
+                              rdfs:range gcdfo:StockAssessment ;
+                              <http://purl.obolibrary.org/obo/IAO_0000115> "Relates a measurement datum to a stock assessment process that uses it as evidence."@en ;
+                              rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                              rdfs:label "is datum used in assessment"@en ;
+                              gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                          gcdfo:StockAssessmentTheme .
+
+
 ###  https://w3id.org/gcdfo/salmon#isSampleOfStratum
 gcdfo:isSampleOfStratum rdf:type owl:ObjectProperty ;
                         rdfs:subPropertyOf prov:wasDerivedFrom ,
@@ -453,6 +524,24 @@ gcdfo:populationOf rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/gcdfo/salmon#usedProcedure
 gcdfo:usedProcedure rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf sosa:usedProcedure .
+
+
+###  https://w3id.org/gcdfo/salmon#usesAssessmentDatum
+gcdfo:usesAssessmentDatum rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf prov:used ;
+                          rdfs:domain gcdfo:StockAssessment ;
+                          rdfs:range [ rdf:type owl:Class ;
+                                       owl:unionOf ( <http://purl.obolibrary.org/obo/IAO_0000109>
+                                                     gcdfo:ObservedRateOrAbundance
+                                                     gcdfo:TargetOrLimitRateOrAbundance
+                                                   )
+                                     ] ;
+                          <http://purl.obolibrary.org/obo/IAO_0000115> "Relates a stock assessment to a measurement datum used as assessment input or evidence."@en ;
+                          rdfs:comment "Range explicitly includes measurement datum plus common rate classes used in stock-assessment workflows."@en ;
+                          rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                          rdfs:label "uses assessment datum"@en ;
+                          gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                      gcdfo:StockAssessmentTheme .
 
 
 ###  https://w3id.org/gcdfo/salmon#usesObservationProcedure
