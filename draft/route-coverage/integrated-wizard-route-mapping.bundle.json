@@ -1,0 +1,150 @@
+{
+  "schema": "dfo.integrated_route_mapping_bundle.v1",
+  "generated_at": "2026-03-03T19:36:00Z",
+  "scope": [
+    "CU",
+    "SMU",
+    "PFMA",
+    "IndicatorRiver"
+  ],
+  "sources": {
+    "ontology": "ontology/dfo-salmon.ttl",
+    "route_inventory": "draft/route-coverage/integrated-wizard-route-term-inventory.md",
+    "wizard_route_bindings_reference": "salmon-population-summary-repository demo/wizard_views.py@723527858f11cda8c38e3612c97d5d6ade7d9a37 (ROUTE_TEMPLATE_SELECTION)",
+    "migration_reference": "salmon-domain-ontology/docs/migrations/gcdfo-to-salmon-wave1.csv@f0f4d12284b4620b5077cc978e97f5ab194754b6"
+  },
+  "routes": [
+    {
+      "route_key": "CU",
+      "canonical_entity": {
+        "iri": "https://w3id.org/gcdfo/salmon#ConservationUnit",
+        "label": "ConservationUnit",
+        "status": "present",
+        "evidence": "ontology/dfo-salmon.ttl:1675"
+      },
+      "ui_aliases": [
+        "CU"
+      ],
+      "wizard_template_dictionary_bindings": {
+        "table_ids": [
+          "cu",
+          "cuyear",
+          "cu_metadata"
+        ],
+        "example_files": [
+          "cu_year_example.csv",
+          "cu_metadata_example.csv",
+          "example_cu_year_fsar.csv"
+        ]
+      },
+      "required_relation_bindings": [
+        {
+          "predicate_iri": "https://w3id.org/gcdfo/salmon#hasPopulation",
+          "inverse_predicate_iri": "https://w3id.org/gcdfo/salmon#populationOf",
+          "target_entity_iri": "https://w3id.org/gcdfo/salmon#Population",
+          "status": "present",
+          "evidence": "ontology/dfo-salmon.ttl:1418,1426"
+        }
+      ],
+      "migration_policy": {
+        "shared_layer_status": "deferred_profile",
+        "shared_candidate_iri": "http://w3id.org/salmon/ConservationUnit",
+        "notes": "ConservationUnit remains profile-scoped per phase-2 boundary decision."
+      }
+    },
+    {
+      "route_key": "SMU",
+      "canonical_entity": {
+        "iri": "https://w3id.org/gcdfo/salmon#StockManagementUnit",
+        "label": "StockManagementUnit",
+        "status": "present",
+        "evidence": "ontology/dfo-salmon.ttl:1687"
+      },
+      "ui_aliases": [
+        "SMU"
+      ],
+      "wizard_template_dictionary_bindings": {
+        "table_ids": [
+          "smu",
+          "smu_year",
+          "smu_metadata"
+        ],
+        "example_files": [
+          "smu_year_example.csv",
+          "smu_metadata_example.csv"
+        ]
+      },
+      "required_relation_bindings": [
+        {
+          "predicate_iri": "https://w3id.org/gcdfo/salmon#hasConservationUnit",
+          "inverse_predicate_iri": "https://w3id.org/gcdfo/salmon#conservationUnitOf",
+          "target_entity_iri": "https://w3id.org/gcdfo/salmon#ConservationUnit",
+          "status": "present",
+          "evidence": "ontology/dfo-salmon.ttl:1435,1443"
+        }
+      ],
+      "migration_policy": {
+        "shared_layer_status": "deferred_profile",
+        "shared_candidate_iri": "http://w3id.org/salmon/StockManagementUnit",
+        "notes": "StockManagementUnit remains profile-scoped per phase-2 boundary decision."
+      }
+    },
+    {
+      "route_key": "PFMA",
+      "canonical_entity": {
+        "iri": "https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea",
+        "label": "PacificFisheryManagementArea",
+        "status": "present",
+        "evidence": "ontology/dfo-salmon.ttl:1697"
+      },
+      "ui_aliases": [
+        "PFMA"
+      ],
+      "wizard_template_dictionary_bindings": {
+        "table_ids": [
+          "pfma",
+          "pfma_year",
+          "pfma_metadata"
+        ],
+        "example_files": [
+          "pfma_year_example.csv"
+        ]
+      },
+      "required_relation_bindings": [],
+      "migration_policy": {
+        "shared_layer_status": "not_migrated",
+        "shared_candidate_iri": "http://w3id.org/salmon/PFMA",
+        "notes": "PFMA shared-namespace promotion is not in the current wave-1 migration map; relation semantics remain deferred pending source-backed policy evidence."
+      }
+    },
+    {
+      "route_key": "IndicatorRiver",
+      "canonical_entity": {
+        "iri": "https://w3id.org/gcdfo/salmon#IndicatorRiver",
+        "label": "IndicatorRiver",
+        "status": "present",
+        "evidence": "ontology/dfo-salmon.ttl:1924"
+      },
+      "ui_aliases": [
+        "Indicator Stock",
+        "Indicator"
+      ],
+      "wizard_template_dictionary_bindings": {
+        "table_ids": [
+          "indicator_year",
+          "indicator_metadata",
+          "smu"
+        ],
+        "example_files": [
+          "indicator_year_example.csv"
+        ]
+      },
+      "required_relation_bindings": [],
+      "migration_policy": {
+        "shared_layer_status": "migrated",
+        "shared_candidate_iri": "http://w3id.org/salmon/IndicatorRiver",
+        "notes": "IndicatorRiver is approved in shared `salmon:` layer; route-level relation semantics for upload routing remain deferred pending source-backed policy evidence."
+      }
+    }
+  ]
+}
