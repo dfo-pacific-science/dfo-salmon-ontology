@@ -46,3 +46,18 @@ Applied in follow-up route-coverage patch:
 ### Remaining Gap Classes After This Slice
 1. **Relationship-model ambiguity (IndicatorRiver/PFMA routes)**
    - Route-level relation property semantics to CU/SMU/Population are still intentionally deferred pending source-backed policy/operational evidence.
+
+## Machine-readable Route Mapping Bundle (2026-03-03)
+Published to support wizard template/dictionary generation inputs:
+
+- `draft/route-coverage/integrated-wizard-route-mapping.bundle.json`
+- `draft/route-coverage/integrated-wizard-route-mapping.bundle.csv`
+
+Bundle contents:
+- Canonical route entity IRIs for `CU`, `SMU`, `PFMA`, `IndicatorRiver`
+- Route-level wizard table/example bindings currently used by SPSR route selection
+- Relation-binding status (`present` vs `deferred`) by route
+- Migration policy posture (`migrated`, `deferred_profile`, `not_migrated`) plus shared-layer candidate IRIs
+
+Consumption note:
+- Treat this as an implementation contract snapshot for downstream wizard generation, not as authority to promote deferred-profile terms into shared `salmon:` namespace.
