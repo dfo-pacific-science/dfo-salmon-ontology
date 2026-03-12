@@ -321,7 +321,7 @@ def build_section(
         "  <div id=\"concept-schemes\">",
         "<h2 id=\"skos\" class=\"list\">SKOS (controlled vocabularies)</h2>",
         "<p class=\"markdown\">This section documents SKOS concept schemes and the SKOS concepts defined in the ontology.</p>",
-        "<p class=\"markdown\">Use the in-page search (left sidebar) to find a specific concept quickly.</p>",
+        "<p class=\"markdown\">Use the in-page search in the right-hand navigation to find a specific concept quickly.</p>",
         "<h3 id=\"skos-schemes\" class=\"list\">Concept schemes</h3>",
         "<details class=\"gcdfo-collapsible\">",
         f"<summary>{scheme_count} {scheme_word} (expand)</summary>",
@@ -343,16 +343,26 @@ def build_section(
             lines.append(f'  <p class="markdown">{html.escape(info["description"])}</p>')
         entries = scheme_concepts.get(scheme_id, {})
         if entries:
-            concept_count = len(entries)
-            concept_word = "concept" if concept_count == 1 else "concepts"
-            lines.append('  <details class="gcdfo-collapsible">')
-            lines.append(f"    <summary>{concept_count} {concept_word} (expand)</summary>")
-            lines.append("    <ul>")
-            for subj, lbl in sorted(entries.items(), key=lambda item: item[1].lower()):
+            entries_sorted = sorted(entries.items(), key=lambda item: item[1].lower())
+            lines.append('  <table class="gcdfo-scheme-table">')
+            lines.append('    <thead>')
+            lines.append('      <tr><th scope="col">Term</th><th scope="col">Definition</th></tr>')
+            lines.append('    </thead>')
+            lines.append('    <tbody>')
+            for subj, lbl in entries_sorted:
                 href = html.escape(to_local_anchor(subj))
-                lines.append(f'      <li><a href="{href}">{html.escape(lbl)}</a></li>')
-            lines.append("    </ul>")
-            lines.append("  </details>")
+                definition = concepts.get(subj, {}).get("definition", "")
+                definition_html = (
+                    html.escape(definition)
+                    if definition
+                    else "<em>No definition provided.</em>"
+                )
+                lines.append('      <tr>')
+                lines.append(f'        <td><a href="{href}">{html.escape(lbl)}</a></td>')
+                lines.append(f'        <td>{definition_html}</td>')
+                lines.append('      </tr>')
+            lines.append('    </tbody>')
+            lines.append('  </table>')
         else:
             lines.append("  <p class=\"markdown\"><em>Currently no SKOS concepts are declared under this scheme.</em></p>")
         lines.append("</div>")
@@ -578,10 +588,23 @@ def ensure_custom_ui_enhancements() -> None:
             1,
         )
 
-    # Avoid confusing duplicate TOC labels ("Classes" appears in Crossref and again in the changelog).
+    # Keep the Description intro in biologist-friendly language.
+        content = content.replace(
+        '<span class="markdown">OWL + SKOS ontology for DFO salmon data: stocks/CUs/MUs, survey events, escapement measurements, and GSI constructs; aligns to DwC via rdfs:subClassOf; hybrid approach with SKOS for methods and OWL for events.</span>',
+        """<p>This ontology is the shared starting point for DFO salmon data: it gives biologists a practical way to describe <strong>what</strong> was measured and <strong>how</strong> it was measured.</p>
+<p><strong>Classes</strong> (OWL) define the main entities and relationships in the salmon data domain (stocks, survey events, populations, etc.).</p>
+<p><strong>Concepts</strong> (SKOS) are controlled vocabularies for repeated value lists (age basis, status classes, methods, estimate types).</p>
+<p>Using persistent identifiers from this ontology (like full IRIs under <code>https://w3id.org/gcdfo/salmon#</code>) in Salmon Data Package workflows and <strong>meta salmon</strong> helps teams map definitions clearly and avoid ambiguity from free-text labels.</p>""",
+    )
+
+    # Avoid confusing duplicate TOC labels (Crossref labels repeat in the changelog section).
     content = content.replace(
         '<h3 id="changeClass" class="list">Classes</h3>',
         '<h3 id="changeClass" class="list">Classes (changes)</h3>',
+    )
+    content = content.replace(
+        '<h3 id="changeProp" class="list">Object Properties</h3>',
+        '<h3 id="changeProp" class="list">Object Properties (changes)</h3>',
     )
 
     # WebVOWL embed: wrap the generated iframe in a collapsible to keep the Overview compact.
@@ -637,15 +660,16 @@ def ensure_custom_ui_enhancements() -> None:
         return f'<nav class="toc gcdfo-toc"{label}>'
 
     content = re.sub(r'<nav class="toc"([^>]*)>', _add_toc_class, content, count=1)
+    content = content.replace('<div id="toc">', '<div id="toc" class="toc">', 1)
 
     # Ensure dark mode toggle block exists inside TOC nav.
     if "<dark-mode-toggle" not in content:
         content = content.replace(
-            '<div id="toc">',
+            '<div id="toc" class="toc">',
             '  <div class="darkmode">\n'
             '    <dark-mode-toggle class="slider" aria-label="Toggle dark mode"></dark-mode-toggle>\n'
             "  </div>\n"
-            '  <div id="toc">',
+            '  <div id="toc" class="toc">',
             1,
         )
 
@@ -1002,6 +1026,10 @@ def ensure_custom_ui_enhancements() -> None:
                 "  var toc = document.getElementById(\"toc\");",
                 "  if (!toc) return;",
                 "",
+                "  if (!window.matchMedia(\"(max-width: 900px)\").matches) {",
+                "    return;",
+                "  }",
+                "",
                 "  var panel = document.querySelector(\".gcdfo-toc-panel\");",
                 "  if (!panel) {",
                 "    panel = document.createElement(\"div\");",
@@ -1033,7 +1061,7 @@ def ensure_custom_ui_enhancements() -> None:
                 "    head.insertBefore(toggle, head.firstChild);",
                 "  }",
                 "",
-                "  Array.prototype.slice.call(toc.querySelectorAll('a[href^=\"#\"]')).forEach(function (link) {",
+                "  Array.prototype.slice.call(toc.querySelectorAll(\"a[href^='#']\")).forEach(function (link) {",
                 "    if (link.dataset.gcdfoCloseBound) return;",
                 "    link.dataset.gcdfoCloseBound = \"1\";",
                 "    link.addEventListener(\"click\", function () {",

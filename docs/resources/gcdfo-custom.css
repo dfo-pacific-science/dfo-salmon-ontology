@@ -265,3 +265,72 @@ h3.list:hover .gcdfo-permalink,
   border-radius: 0.5rem;
   background: var(--bs-body-bg);
 }
+
+/* Layout the TOC as a right rail on desktop-like widths. */
+@media (min-width: 901px) {
+  #maincontent {
+    position: relative;
+  }
+
+  .gcdfo-toc-panel {
+    position: static !important;
+    margin-top: 0;
+    width: auto;
+    padding: 0;
+    float: none;
+  }
+
+  #toc {
+    float: right;
+    position: sticky;
+    top: 1rem;
+    width: min(320px, 35%);
+    max-width: 360px;
+    min-width: 220px;
+    margin: 0 0 1.5rem 1.5rem;
+    box-sizing: border-box;
+    background: var(--bs-body-bg);
+    border: 1px solid var(--bs-border-color);
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    z-index: 2;
+  }
+
+  #maincontent > :not(.gcdfo-toc-panel):not(#toc) {
+    margin-right: calc(min(320px, 35%) + 1.5rem);
+    box-sizing: border-box;
+    min-width: 0;
+  }
+}
+
+#maincontent::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.gcdfo-scheme-table {
+  width: 100%;
+  max-width: 100%;
+  margin: 0.65rem 0 1.25rem;
+  border-collapse: collapse;
+}
+
+.gcdfo-scheme-table th,
+.gcdfo-scheme-table td {
+  border: 1px solid var(--bs-border-color);
+  padding: 0.5rem;
+  vertical-align: top;
+}
+
+.gcdfo-scheme-table thead {
+  background: var(--bs-tertiary-bg);
+}
+
+.gcdfo-scheme-table th {
+  text-align: left;
+}
+
+.gcdfo-scheme-table td:last-child {
+  max-width: 70ch;
+}
