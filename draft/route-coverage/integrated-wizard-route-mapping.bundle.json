@@ -48,7 +48,7 @@
       ],
       "migration_policy": {
         "shared_layer_status": "deferred_profile",
-        "shared_candidate_iri": "http://w3id.org/salmon/ConservationUnit",
+        "shared_candidate_iri": "https://w3id.org/smn/ConservationUnit",
         "notes": "ConservationUnit remains profile-scoped per phase-2 boundary decision."
       }
     },
@@ -85,7 +85,7 @@
       ],
       "migration_policy": {
         "shared_layer_status": "deferred_profile",
-        "shared_candidate_iri": "http://w3id.org/salmon/StockManagementUnit",
+        "shared_candidate_iri": "https://w3id.org/smn/StockManagementUnit",
         "notes": "StockManagementUnit remains profile-scoped per phase-2 boundary decision."
       }
     },
@@ -113,7 +113,7 @@
       "required_relation_bindings": [],
       "migration_policy": {
         "shared_layer_status": "not_migrated",
-        "shared_candidate_iri": "http://w3id.org/salmon/PFMA",
+        "shared_candidate_iri": "https://w3id.org/smn/PFMA",
         "notes": "PFMA shared-namespace promotion is not in the current wave-1 migration map; relation semantics remain deferred pending source-backed policy evidence."
       }
     },
@@ -142,8 +142,8 @@
       "required_relation_bindings": [],
       "migration_policy": {
         "shared_layer_status": "migrated",
-        "shared_candidate_iri": "http://w3id.org/salmon/IndicatorRiver",
-        "notes": "IndicatorRiver is approved in shared `salmon:` layer; route-level relation semantics for upload routing remain deferred pending source-backed policy evidence."
+        "shared_candidate_iri": "https://w3id.org/smn/IndicatorRiver",
+        "notes": "IndicatorRiver is approved in shared `smn:` layer; route-level relation semantics for upload routing remain deferred pending source-backed policy evidence."
       }
     }
   ]

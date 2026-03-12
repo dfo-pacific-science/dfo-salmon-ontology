@@ -60,4 +60,4 @@ Bundle contents:
 - Migration policy posture (`migrated`, `deferred_profile`, `not_migrated`) plus shared-layer candidate IRIs
 
 Consumption note:
-- Treat this as an implementation contract snapshot for downstream wizard generation, not as authority to promote deferred-profile terms into shared `salmon:` namespace.
+- Treat this as an implementation contract snapshot for downstream wizard generation, not as authority to promote deferred-profile terms into the shared `smn:` namespace.
