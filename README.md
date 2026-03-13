@@ -49,6 +49,14 @@ The GC DFO Salmon Ontology is a **data stewardship and operational process ontol
 
 ---
 
+## Namespace Boundary and Shared-Layer Preference
+
+- **`gcdfo:` is the DFO-specific layer.** This repo publishes and maintains the GC DFO Salmon Ontology namespace at `https://w3id.org/gcdfo/salmon#`.
+- **`smn:` is the shared cross-organization layer.** When the Salmon Domain Ontology shared namespace is used downstream, prefer `smn:` terms first **where an approved shared term exists**.
+- **Use `gcdfo:` for DFO-specific or deferred-profile semantics.** Terms such as DFO program/policy constructs — and any term intentionally kept out of the shared layer — remain canonical in `gcdfo:`.
+- **Transition note:** some upstream migration artifacts may still show draft shared IRIs under `salmon:` / `http://w3id.org/salmon/`. Treat those as pre-cutover placeholders pending the `smn:` namespace rewrite, not as the preferred long-term shared target.
+- **Practical resolution order for downstream tools:** resolve approved shared terms from `smn:` first, then fall back to `gcdfo:` for DFO-specific/deferred-profile terms and bridge context.
+
 ## Quickstart
 
 ### For Contributors

@@ -1,47 +1,77 @@
 # Tech Debt Log
 
-**This file tracks technical debt with rationale, impact, and remediation notes. Keep it current as debt is identified, addressed, or becomes obsolete.**
+This file tracks active technical debt in the DFO Salmon Ontology repo.
+Keep it short, specific, and tied to real boundary/publishing risks.
 
 ## Active Technical Debt
 
-### [Date: YYYY-MM-DD] — [Brief Title]
+### 2026-03-13 — Deferred same-label boundary cases between `gcdfo:` and `smn:`
 
-**Description**: [Clear description of the technical debt item]
+**Description**
+A conservative shared-layer cleanup aligned the clearly safe overlaps, but several same-label terms still have DFO-local semantics or unresolved modeling drift and therefore remain local to `gcdfo:` for now.
 
-**Rationale**: [Why this debt exists - what trade-off was made, what constraint led to it, or what decision created it]
+Current deferred set:
+- `gcdfo:Population`
+- `gcdfo:hasPopulation` / `gcdfo:populationOf`
+- `gcdfo:ReferencePoint`
+- `gcdfo:MetricBenchmark`
+- `gcdfo:EnumerationMethod` (kept as SKOS concept; only `rdfs:seeAlso smn:EnumerationMethod` for now)
 
-**Impact**: 
-- **Severity**: [High/Medium/Low]
-- **Affected Areas**: [What parts of the system are affected]
-- **User Impact**: [How this affects users or development]
-- **Maintenance Cost**: [Ongoing cost of maintaining this debt]
+**Rationale**
+The shared layer (`smn:`) and DFO layer (`gcdfo:`) are now intentionally split, but a few overlapping labels still carry different scope, policy framing, or modeling form. A bulk namespace swap here would create false equivalence.
 
-**Remediation**:
-- **Effort Estimate**: [Small/Medium/Large or time estimate]
-- **Approach**: [How to fix it when addressed]
-- **Prerequisites**: [What needs to be in place first]
-- **Risk**: [Risks of fixing vs. not fixing]
+**Impact**
+- **Severity**: Medium
+- **Affected Areas**: downstream ontology resolution, migration/cutover docs, future bridge extraction work
+- **User Impact**: consumers need to treat some terms as DFO-local even when a similarly named shared term exists
+- **Maintenance Cost**: repeated boundary-review work until these cases are either reminted, aligned more precisely, or explicitly bridged
 
-**Status**: [Active/Planned/In Progress/Deferred]
+**Remediation**
+- **Effort Estimate**: Medium
+- **Approach**:
+  1. review each deferred term independently,
+  2. decide whether to keep local, remint as explicit DFO variant, or add a stronger bridge/alignment,
+  3. update downstream docs/tests/migration notes with the final rule.
+- **Prerequisites**: stable shared-layer definitions in `smn:` and a concrete downstream consumer need for tighter alignment
+- **Risk**: fixing this too aggressively risks semantic corruption; leaving it forever increases documentation drag
 
-**Related Issues/PRs**: [Links to related work]
+**Status**: Active
 
----
+**Related Issues/PRs**
+- shared-layer boundary cleanup notes in `docs/plans/2026-03-13-smn-boundary-passable.md`
+- conservative alignment branch: `chore/smn-boundary-passable`
+
+### 2026-03-13 — Shared-vs-DFO bridge logic is documented in multiple places
+
+**Description**
+The repo currently explains the `gcdfo:` vs `smn:` split in several docs (`README.md`, `docs/entrypoints.md`, `docs/context/w3id.md`, migration notes, and branch-specific cleanup notes).
+
+**Rationale**
+This was the fastest honest way to stop boundary drift while the shared namespace was stabilizing.
+
+**Impact**
+- **Severity**: Low
+- **Affected Areas**: maintainer docs, onboarding, publication coherence
+- **User Impact**: low direct user pain, but contributors can read stale wording if one doc is updated and another is forgotten
+- **Maintenance Cost**: small but annoying doc-sync tax
+
+**Remediation**
+- **Effort Estimate**: Small
+- **Approach**: consolidate steady-state boundary guidance into one canonical maintainer doc and keep the other docs short/reference-style
+- **Prerequisites**: boundary rules settle enough that we stop rewriting them every other day
+- **Risk**: low
+
+**Status**: Active
+
+**Related Issues/PRs**
+- `README.md`
+- `docs/entrypoints.md`
+- `docs/context/w3id.md`
 
 ## Resolved Technical Debt
 
-### [Date: YYYY-MM-DD] — [Brief Title]
+### 2026-03-13 — Agent/doc scaffold files were being left gitignored in some repos
 
-**Resolved Date**: [YYYY-MM-DD]
-**Resolution**: [How it was fixed]
-**Lessons Learned**: [What was learned from addressing this debt]
-
----
-
-## Notes
-
-- Add new items as they are identified
-- Update status as work progresses
-- Move resolved items to "Resolved Technical Debt" section
-- Review periodically to assess priority and impact changes
-
+**Resolved Date**: 2026-03-13
+**Resolution**: updated the shared `update-agent.sh` cleanup rules and removed the stale ignore entries from this repo.
+**Lessons Learned**: exact-line cleanup is too brittle for repo-template drift; remove the common legacy variants, not just one spelling.

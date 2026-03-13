@@ -93,7 +93,6 @@ coverage/
 .Trashes
 ehthumbs.db
 Thumbs.db
-AGENTS.md
 
 context/*
 MCP_POLICY.md
@@ -112,10 +111,6 @@ docs/examples/
 docs/notes/
 docs/ontology_applications/
 docs/plans/*
-.cursorignore
-docs/adr/0001.md
-docs/tech-debt.md
-docs/todo-list.md
 docs/explainer-for-video.md
 docs/explainer-for-video.pdf
 docs/onboarding.pdf
@@ -125,6 +120,4 @@ docs/onboarding.pdf
 !docs/entrypoints.md
 !docs/plans/
 !docs/plans/2026-01-29-w3id-widoco-roadmap.md
-CLAUDE.md
-docs/plans/
-docs/entrypoints.md
+.local-backup/
