@@ -68,6 +68,37 @@ This was the fastest honest way to stop boundary drift while the shared namespac
 - `docs/entrypoints.md`
 - `docs/context/w3id.md`
 
+### 2026-03-13 — `make ci` can leave nondeterministic generated docs churn
+
+**Description**
+Verification after the conservative `smn` boundary pass showed the ontology and human-authored boundary docs are aligned, but `make ci`/`make docs-refresh` can still rewrite tracked generated artifacts even when the source ontology has not changed.
+
+Observed locally on this branch:
+- `docs/webvowl/data/ontology.json` reorders repeated values between runs
+- `docs/gcdfo.owl` can pick up whitespace-only churn
+
+**Rationale**
+This is a build determinism problem, not an ontology-boundary problem, but it now sits in the critical path because repo guidance says generated docs artifacts should stay commit-clean after `make ci`.
+
+**Impact**
+- **Severity**: Medium
+- **Affected Areas**: local verification, clean-tree CI expectations, reviewability of generated docs commits
+- **User Impact**: maintainers can get noisy diffs that do not represent real ontology changes
+- **Maintenance Cost**: repeated artifact triage and unnecessary review noise
+
+**Remediation**
+- **Effort Estimate**: Small-Medium
+- **Approach**: add a canonicalization/normalization step for generated WebVOWL/OWL outputs, or stop treating nondeterministic artifacts as clean-tree blockers until generation is stabilized
+- **Prerequisites**: decide which generated files are publication-critical vs convenience artifacts
+- **Risk**: low semantic risk, moderate workflow annoyance if left unresolved
+
+**Status**: Active
+
+**Related Issues/PRs**
+- `Makefile`
+- `docs/webvowl/data/ontology.json`
+- `docs/gcdfo.owl`
+
 ## Resolved Technical Debt
 
 ### 2026-03-13 — Agent/doc scaffold files were being left gitignored in some repos
