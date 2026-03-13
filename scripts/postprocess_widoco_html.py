@@ -49,7 +49,6 @@ def patch_html(path: Path) -> None:
     original = content
 
     # Title/name text normalization
-    content = content.replace("GC DFO Salmon Ontology", "DFO Salmon Ontology")
     content = content.replace("Ontology Specification Draft", "Ontology Specification")
 
     # Expand overview sections by default (index.html structure)
@@ -64,14 +63,6 @@ def patch_html(path: Path) -> None:
         r'(<details class="gcdfo-collapsible gcdfo-webvowl")>',
         r'\1 open>',
         content,
-    )
-
-    # Expand concept-scheme list details (the "19 schemes" block)
-    content = re.sub(
-        r'(<h3 id="skos-schemes" class="list">Concept schemes</h3>\s*<details class="gcdfo-collapsible")>',
-        r'<h3 id="skos-schemes" class="list">Concept schemes</h3>\n<details class="gcdfo-collapsible" open>',
-        content,
-        flags=re.S,
     )
 
     # Ensure custom enhancement JS is loaded.

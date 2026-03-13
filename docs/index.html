@@ -571,7 +571,7 @@ $(function(){
 <dt>Download serialization:</dt><dd><span><a href="gcdfo.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span><span><a href="gcdfo.owl" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span><span><a href="gcdfo.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span></dd><dt>License:</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"><img src="https://img.shields.io/badge/License-https://creativecommons.org/licenses/by/4.0/-blue.svg" alt="https://creativecommons.org/licenses/by/4.0/" /></a>
 </dd><dt>Visualization:</dt><dd><a href="webvowl/index.html#" target="_blank"><img src="https://img.shields.io/badge/Visualize_with-WebVowl-blue.svg" alt="Visualize with WebVowl" /></a></dd>
 <!-- <dt>Evaluation:</dt><dd><a href="OOPSevaluation/oopsEval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd> --><dt>Cite as:</dt>
-<dd>Fishery &amp; Assessment Data Section (FADS) Data Stewardship Unit. DFO Salmon Ontology. Revision: 0.0.6-alpha (integrated pre-release review branch). Retrieved from: https://w3id.org/gcdfo/salmon</dd>
+<dd>Fishery &amp; Assessment Data Section (FADS) Data Stewardship Unit. GC DFO Salmon Ontology. Revision: 0.0.6-alpha (integrated pre-release review branch). Retrieved from: https://w3id.org/gcdfo/salmon</dd>
 <dt>Vocabulary maintained at:</dt>
 <dd><a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology">https://github.com/dfo-pacific-science/dfo-salmon-ontology</a></dd>
 </dl>
@@ -977,9 +977,9 @@ This ontology has the following classes and properties.</span>
   <div id="concept-schemes">
 <h2 id="skos" class="list">SKOS (controlled vocabularies)</h2>
 <p class="markdown">This section documents SKOS concept schemes and the SKOS concepts defined in the ontology.</p>
-<p class="markdown">Use the in-page search in the right-hand navigation to find a specific concept quickly.</p>
+<p class="markdown">Use the in-page search (left sidebar) to find a specific concept quickly.</p>
 <h3 id="skos-schemes" class="list">Concept schemes</h3>
-<details class="gcdfo-collapsible" open>
+<details class="gcdfo-collapsible">
 <summary>21 schemes (expand)</summary>
 <ul class="hlist">
   <li><a href="#scheme-age-basis-scheme">Age basis scheme</a></li>
@@ -1008,745 +1008,319 @@ This ontology has the following classes and properties.</span>
 <div class="scheme" id="scheme-age-basis-scheme">
   <h3 id="scheme-age-basis-scheme" class="list">Age basis scheme</h3>
   <p class="markdown">Controlled vocabulary for the reference event used by an age value (for example, age at return).</p>
-  <table class="gcdfo-scheme-table">
-    <thead>
-      <tr><th scope="col">Term</th><th scope="col">Definition</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a href="#AgeAtMaturityBasis">Age at maturity basis</a></td>
-        <td>Age measured at maturity.</td>
-      </tr>
-      <tr>
-        <td><a href="#AgeAtReturnBasis">Age at return basis</a></td>
-        <td>Age measured at return migration (adult return timing).</td>
-      </tr>
-      <tr>
-        <td><a href="#AgeAtSamplingBasis">Age at sampling basis</a></td>
-        <td>Age measured at the time of sampling or observation.</td>
-      </tr>
-      <tr>
-        <td><a href="#AgeBasis">Age basis</a></td>
-        <td>The reference event or life-history point that an age value is measured against.</td>
-      </tr>
-    </tbody>
-  </table>
+  <details class="gcdfo-collapsible">
+    <summary>4 concepts (expand)</summary>
+    <ul>
+      <li><a href="#AgeAtMaturityBasis">Age at maturity basis</a></li>
+      <li><a href="#AgeAtReturnBasis">Age at return basis</a></li>
+      <li><a href="#AgeAtSamplingBasis">Age at sampling basis</a></li>
+      <li><a href="#AgeBasis">Age basis</a></li>
+    </ul>
+  </details>
 </div>
 <div class="scheme" id="scheme-age-class-value-scheme">
   <h3 id="scheme-age-class-value-scheme" class="list">Age class value scheme</h3>
   <p class="markdown">Controlled vocabulary for integer-like age class values used as constraints on salmon measurements.</p>
-  <table class="gcdfo-scheme-table">
-    <thead>
-      <tr><th scope="col">Term</th><th scope="col">Definition</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a href="#Age1YearClass">Age 1 year class</a></td>
-        <td>Age class value 1 year.</td>
-      </tr>
-      <tr>
-        <td><a href="#Age2YearClass">Age 2 year class</a></td>
-        <td>Age class value 2 years.</td>
-      </tr>
-      <tr>
-        <td><a href="#Age3YearClass">Age 3 year class</a></td>
-        <td>Age class value 3 years.</td>
-      </tr>
-      <tr>
-        <td><a href="#Age4YearClass">Age 4 year class</a></td>
-        <td>Age class value 4 years.</td>
-      </tr>
-      <tr>
-        <td><a href="#Age5YearClass">Age 5 year class</a></td>
-        <td>Age class value 5 years.</td>
-      </tr>
-      <tr>
-        <td><a href="#Age6YearClass">Age 6 year class</a></td>
-        <td>Age class value 6 years.</td>
-      </tr>
-      <tr>
-        <td><a href="#Age7YearClass">Age 7 year class</a></td>
-        <td>Age class value 7 years.</td>
-      </tr>
-      <tr>
-        <td><a href="#AgeClassValue">Age class value</a></td>
-        <td>An integer-like age class value used as a compositional constraint in salmon measurements.</td>
-      </tr>
-    </tbody>
-  </table>
+  <details class="gcdfo-collapsible">
+    <summary>8 concepts (expand)</summary>
+    <ul>
+      <li><a href="#Age1YearClass">Age 1 year class</a></li>
+      <li><a href="#Age2YearClass">Age 2 year class</a></li>
+      <li><a href="#Age3YearClass">Age 3 year class</a></li>
+      <li><a href="#Age4YearClass">Age 4 year class</a></li>
+      <li><a href="#Age5YearClass">Age 5 year class</a></li>
+      <li><a href="#Age6YearClass">Age 6 year class</a></li>
+      <li><a href="#Age7YearClass">Age 7 year class</a></li>
+      <li><a href="#AgeClassValue">Age class value</a></li>
+    </ul>
+  </details>
 </div>
 <div class="scheme" id="scheme-age-dimension-scheme">
   <h3 id="scheme-age-dimension-scheme" class="list">Age dimension scheme</h3>
   <p class="markdown">Controlled vocabulary for which age component is represented (total age, freshwater years, or ocean years).</p>
-  <table class="gcdfo-scheme-table">
-    <thead>
-      <tr><th scope="col">Term</th><th scope="col">Definition</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a href="#AgeDimension">Age dimension</a></td>
-        <td>The age component represented by a value (total age, freshwater years, or ocean years).</td>
-      </tr>
-      <tr>
-        <td><a href="#FreshwaterAgeDimension">Freshwater age dimension</a></td>
-        <td>Age value represents years spent in freshwater.</td>
-      </tr>
-      <tr>
-        <td><a href="#OceanAgeDimension">Ocean age dimension</a></td>
-        <td>Age value represents years spent in the marine environment.</td>
-      </tr>
-      <tr>
-        <td><a href="#TotalAgeDimension">Total age dimension</a></td>
-        <td>Age value represents total age in years.</td>
-      </tr>
-    </tbody>
-  </table>
+  <details class="gcdfo-collapsible">
+    <summary>4 concepts (expand)</summary>
+    <ul>
+      <li><a href="#AgeDimension">Age dimension</a></li>
+      <li><a href="#FreshwaterAgeDimension">Freshwater age dimension</a></li>
+      <li><a href="#OceanAgeDimension">Ocean age dimension</a></li>
+      <li><a href="#TotalAgeDimension">Total age dimension</a></li>
+    </ul>
+  </details>
 </div>
 <div class="scheme" id="scheme-age-notation-scheme">
   <h3 id="scheme-age-notation-scheme" class="list">Age notation scheme</h3>
   <p class="markdown">Controlled vocabulary for salmon age notation systems (for example, Gilbert-Rich and European notation).</p>
-  <table class="gcdfo-scheme-table">
-    <thead>
-      <tr><th scope="col">Term</th><th scope="col">Definition</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a href="#AgeNotation">Age notation</a></td>
-        <td>A notation system used to encode salmon age values in stock assessment data.</td>
-      </tr>
-      <tr>
-        <td><a href="#EuropeanAgeNotation">European age notation</a></td>
-        <td>Salmon age notation that records freshwater years followed by ocean years (for example, 1.2).</td>
-      </tr>
-      <tr>
-        <td><a href="#GilbertRichAgeNotation">Gilbert-Rich age notation</a></td>
-        <td>Salmon age notation where total age is annotated with freshwater years as a subscript-like suffix (for example, 4_2 for total age 4 with 2 freshwater years).</td>
-      </tr>
-    </tbody>
-  </table>
+  <details class="gcdfo-collapsible">
+    <summary>3 concepts (expand)</summary>
+    <ul>
+      <li><a href="#AgeNotation">Age notation</a></li>
+      <li><a href="#EuropeanAgeNotation">European age notation</a></li>
+      <li><a href="#GilbertRichAgeNotation">Gilbert-Rich age notation</a></li>
+    </ul>
+  </details>
 </div>
 <div class="scheme" id="scheme-benchmark-level-scheme">
   <h3 id="scheme-benchmark-level-scheme" class="list">Benchmark Level Scheme</h3>
   <p class="markdown">Controlled vocabulary for generic benchmark-level qualifiers usable as I-ADOPT constraint values attached to benchmark variables or values.</p>
-  <table class="gcdfo-scheme-table">
-    <thead>
-      <tr><th scope="col">Term</th><th scope="col">Definition</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a href="#LowerBenchmark">Lower benchmark</a></td>
-        <td>A lower-threshold benchmark value, typically delineating the boundary between Red and Amber status zones.</td>
-      </tr>
-      <tr>
-        <td><a href="#UpperBenchmark">Upper benchmark</a></td>
-        <td>An upper-threshold benchmark value, typically delineating the boundary between Amber and Green status zones.</td>
-      </tr>
-    </tbody>
-  </table>
+  <details class="gcdfo-collapsible">
+    <summary>2 concepts (expand)</summary>
+    <ul>
+      <li><a href="#LowerBenchmark">Lower benchmark</a></li>
+      <li><a href="#UpperBenchmark">Upper benchmark</a></li>
+    </ul>
+  </details>
 </div>
 <div class="scheme" id="scheme-biological-benchmark-and-indicator-scheme">
   <h3 id="scheme-biological-benchmark-and-indicator-scheme" class="list">Biological Benchmark and Indicator Scheme</h3>
   <p class="markdown">Controlled vocabulary for key biological benchmarks, performance indicators, and reference points used in salmon stock assessment and management (e.g., SMSY, Sgen, spawner abundance).</p>
-  <table class="gcdfo-scheme-table">
-    <thead>
-      <tr><th scope="col">Term</th><th scope="col">Definition</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a href="#TargetOrLimitRateOrAbundance">:TargetOrLimitRateOrAbundance</a></td>
-        <td><em>No definition provided.</em></td>
-      </tr>
-    </tbody>
-  </table>
+  <details class="gcdfo-collapsible">
+    <summary>1 concept (expand)</summary>
+    <ul>
+      <li><a href="#TargetOrLimitRateOrAbundance">:TargetOrLimitRateOrAbundance</a></li>
+    </ul>
+  </details>
 </div>
 <div class="scheme" id="scheme-cosewic-status-scheme">
   <h3 id="scheme-cosewic-status-scheme" class="list">COSEWIC Status Scheme</h3>
   <p class="markdown">Controlled vocabulary for COSEWIC statuses</p>
-  <table class="gcdfo-scheme-table">
-    <thead>
-      <tr><th scope="col">Term</th><th scope="col">Definition</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a href="#COSEWICStatusCategory">:COSEWICStatusCategory</a></td>
-        <td><em>No definition provided.</em></td>
-      </tr>
-    </tbody>
-  </table>
+  <details class="gcdfo-collapsible">
+    <summary>1 concept (expand)</summary>
+    <ul>
+      <li><a href="#COSEWICStatusCategory">:COSEWICStatusCategory</a></li>
+    </ul>
+  </details>
 </div>
 <div class="scheme" id="scheme-downgrade-criteria-scheme">
   <h3 id="scheme-downgrade-criteria-scheme" class="list">Downgrade Criteria Scheme</h3>
   <p class="markdown">Controlled vocabulary for estimate type downgrade criteria</p>
-  <table class="gcdfo-scheme-table">
-    <thead>
-      <tr><th scope="col">Term</th><th scope="col">Definition</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a href="#BreachBypass">Bypass/Breach Risk</a></td>
-        <td>Bypass or breach risks not monitored and verified negligible</td>
-      </tr>
-      <tr>
-        <td><a href="#Classification">Classification</a></td>
-        <td>Classification/attribution not documented</td>
-      </tr>
-      <tr>
-        <td><a href="#CrossSectionCoverage">Cross-section Coverage</a></td>
-        <td>Incomplete cross-section coverage</td>
-      </tr>
-      <tr>
-        <td><a href="#Detectability">Detectability</a></td>
-        <td>Detectability factors not validated</td>
-      </tr>
-      <tr>
-        <td><a href="#DeviceConfiguration">Device Configuration</a></td>
-        <td>Device not within operational specifications</td>
-      </tr>
-      <tr>
-        <td><a href="#Documentation">Documentation</a></td>
-        <td>Missing SIL/SEN logs or QA/methods report</td>
-      </tr>
-      <tr>
-        <td><a href="#DowngradeCriteria">Downgrade Criteria</a></td>
-        <td>Criteria that may result in downgrading an escapement estimate type classification</td>
-      </tr>
-      <tr>
-        <td><a href="#EffortStandardization">Effort Standardization</a></td>
-        <td>Effort not standardized</td>
-      </tr>
-      <tr>
-        <td><a href="#EnvironmentalConditions">Environmental Conditions</a></td>
-        <td>Environmental conditions outside specifications</td>
-      </tr>
-      <tr>
-        <td><a href="#InfillMethod">Infill Method</a></td>
-        <td>Interpolation used for missing data; defensibility must be documented</td>
-      </tr>
-      <tr>
-        <td><a href="#MarkRecaptureAssumptions">Mark-Recapture Assumptions</a></td>
-        <td>MR assumptions not evaluated</td>
-      </tr>
-      <tr>
-        <td><a href="#MethodUnknown">Method Unknown/Inconsistent</a></td>
-        <td>Survey/analytical methods not adequately identified/consistent</td>
-      </tr>
-      <tr>
-        <td><a href="#NumberOfVisits">Number of Visits</a></td>
-        <td>Insufficient number of survey visits</td>
-      </tr>
-      <tr>
-        <td><a href="#PrecisionAccuracy">Precision/Accuracy</a></td>
-        <td>Precision/accuracy weaker than expected for type</td>
-      </tr>
-      <tr>
-        <td><a href="#ReachCoverage">Reach Coverage</a></td>
-        <td>Insufficient reach coverage</td>
-      </tr>
-      <tr>
-        <td><a href="#ReviewQA">Review/QA</a></td>
-        <td>Insufficient QA review of automated events</td>
-      </tr>
-      <tr>
-        <td><a href="#RunCoverage">Run Coverage</a></td>
-        <td>Run-window coverage &lt; 95% of season days</td>
-      </tr>
-      <tr>
-        <td><a href="#Timing">Timing</a></td>
-        <td>Poor timing of surveys</td>
-      </tr>
-      <tr>
-        <td><a href="#TrapEfficiency">Trap Efficiency</a></td>
-        <td>Trap efficiency not measured/validated</td>
-      </tr>
-      <tr>
-        <td><a href="#Uptime">Uptime</a></td>
-        <td>Counting/device uptime &lt; 95% (or &lt;90% with interpolation)</td>
-      </tr>
-      <tr>
-        <td><a href="#Visibility">Visibility</a></td>
-        <td>Poor visibility conditions</td>
-      </tr>
-    </tbody>
-  </table>
+  <details class="gcdfo-collapsible">
+    <summary>21 concepts (expand)</summary>
+    <ul>
+      <li><a href="#BreachBypass">Bypass/Breach Risk</a></li>
+      <li><a href="#Classification">Classification</a></li>
+      <li><a href="#CrossSectionCoverage">Cross-section Coverage</a></li>
+      <li><a href="#Detectability">Detectability</a></li>
+      <li><a href="#DeviceConfiguration">Device Configuration</a></li>
+      <li><a href="#Documentation">Documentation</a></li>
+      <li><a href="#DowngradeCriteria">Downgrade Criteria</a></li>
+      <li><a href="#EffortStandardization">Effort Standardization</a></li>
+      <li><a href="#EnvironmentalConditions">Environmental Conditions</a></li>
+      <li><a href="#InfillMethod">Infill Method</a></li>
+      <li><a href="#MarkRecaptureAssumptions">Mark-Recapture Assumptions</a></li>
+      <li><a href="#MethodUnknown">Method Unknown/Inconsistent</a></li>
+      <li><a href="#NumberOfVisits">Number of Visits</a></li>
+      <li><a href="#PrecisionAccuracy">Precision/Accuracy</a></li>
+      <li><a href="#ReachCoverage">Reach Coverage</a></li>
+      <li><a href="#ReviewQA">Review/QA</a></li>
+      <li><a href="#RunCoverage">Run Coverage</a></li>
+      <li><a href="#Timing">Timing</a></li>
+      <li><a href="#TrapEfficiency">Trap Efficiency</a></li>
+      <li><a href="#Uptime">Uptime</a></li>
+      <li><a href="#Visibility">Visibility</a></li>
+    </ul>
+  </details>
 </div>
 <div class="scheme" id="scheme-escapement-enumeration-method-scheme">
   <h3 id="scheme-escapement-enumeration-method-scheme" class="list">Escapement Enumeration Method Scheme</h3>
   <p class="markdown">Controlled vocabulary for salmon enumeration methods</p>
-  <table class="gcdfo-scheme-table">
-    <thead>
-      <tr><th scope="col">Term</th><th scope="col">Definition</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a href="#AerialSurveyCount">Aerial Survey Count</a></td>
-        <td>Overflights (helicopter, fixed wing, or drone) with documented flight lines, coverage, visibility, and sensor settings. Imagery may be reviewed post-flight.</td>
-      </tr>
-      <tr>
-        <td><a href="#ElectrofishingCount">Electrofishing Count</a></td>
-        <td>Effort-standardized electrofishing passes used to generate catch-per-unit-effort (CPUE) indices.</td>
-      </tr>
-      <tr>
-        <td><a href="#EnumerationMethod">Enumeration Method</a></td>
-        <td>A method used to enumerate or count salmon in the field</td>
-      </tr>
-      <tr>
-        <td><a href="#FixedSiteCensusElectronic">Fixed Site Census (Electronic)</a></td>
-        <td>Automated counting at a constrained opening using electronic/optical counters, resistivity counters, or video/camera systems. QA review of automated events, cross-section coverage, and uptime/coverage are documented.</td>
-      </tr>
-      <tr>
-        <td><a href="#FixedSiteCensusManual">Fixed Site Census (Manual)</a></td>
-        <td>Salmon are guided through a controlled opening in a fence/weir where trained observers visually tally each passage event on a continuous or daily schedule. Counting chambers/windows and SIL/SEN daily logs document coverage; bypass routes are monitored and closed where possible.</td>
-      </tr>
-      <tr>
-        <td><a href="#HydroacousticSonarCount">Hydroacoustic Sonar Count</a></td>
-        <td>Sonar detections (ARIS, DIDSON, or other hydroacoustic systems) with documented coverage, visibility/noise conditions, and uptime. Raw detections require processing through a modelling/classification pipeline.</td>
-      </tr>
-      <tr>
-        <td><a href="#MarkRecaptureFieldProgram">Mark-Recapture Field Program</a></td>
-        <td>Field program involving marking and subsequent recapture/recovery of tagged fish with documented assumptions and recovery coverage.</td>
-      </tr>
-      <tr>
-        <td><a href="#ReddCount">Redd Count</a></td>
-        <td>Redd counts with documentation of detectability, timing, and reach coverage. Conversion to spawner estimates requires spawners-per-redd factors handled in analysis.</td>
-      </tr>
-      <tr>
-        <td><a href="#TrapCount">Trap Count</a></td>
-        <td>Trap-based counts from non-spanning traps with documented emptying schedule, efficiency measurements, and coverage information.</td>
-      </tr>
-      <tr>
-        <td><a href="#VisualGroundCount">Visual Ground Count</a></td>
-        <td>Visual surveys conducted by stream/bank walk with documented visit schedule, reach coverage, timing, and visibility conditions.</td>
-      </tr>
-      <tr>
-        <td><a href="#VisualSnorkelCount">Visual Snorkel Count</a></td>
-        <td>Two or more trained snorkelers conduct standardized passes within defined segments, tallying live/dead by species. Field forms capture visibility class, segment boundaries, and repeat-visit schedule; counts are aggregated across observers/passes.</td>
-      </tr>
-    </tbody>
-  </table>
+  <details class="gcdfo-collapsible">
+    <summary>11 concepts (expand)</summary>
+    <ul>
+      <li><a href="#AerialSurveyCount">Aerial Survey Count</a></li>
+      <li><a href="#ElectrofishingCount">Electrofishing Count</a></li>
+      <li><a href="#EnumerationMethod">Enumeration Method</a></li>
+      <li><a href="#FixedSiteCensusElectronic">Fixed Site Census (Electronic)</a></li>
+      <li><a href="#FixedSiteCensusManual">Fixed Site Census (Manual)</a></li>
+      <li><a href="#HydroacousticSonarCount">Hydroacoustic Sonar Count</a></li>
+      <li><a href="#MarkRecaptureFieldProgram">Mark-Recapture Field Program</a></li>
+      <li><a href="#ReddCount">Redd Count</a></li>
+      <li><a href="#TrapCount">Trap Count</a></li>
+      <li><a href="#VisualGroundCount">Visual Ground Count</a></li>
+      <li><a href="#VisualSnorkelCount">Visual Snorkel Count</a></li>
+    </ul>
+  </details>
 </div>
 <div class="scheme" id="scheme-escapement-estimate-method-scheme">
   <h3 id="scheme-escapement-estimate-method-scheme" class="list">Escapement Estimate Method Scheme</h3>
   <p class="markdown">Controlled vocabulary for salmon estimate methods</p>
-  <table class="gcdfo-scheme-table">
-    <thead>
-      <tr><th scope="col">Term</th><th scope="col">Definition</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a href="#AreaUnderTheCurve">Area Under the Curve</a></td>
-        <td>Integrates serial counts over time using a survey-life parameter; may apply observer efficiency.</td>
-      </tr>
-      <tr>
-        <td><a href="#CalibratedTimeSeries">Calibrated Time Series</a></td>
-        <td>Regression/state-space model calibrated to a Type-1/2 series converts a lower-precision index to abundance.</td>
-      </tr>
-      <tr>
-        <td><a href="#EstimateMethod">Estimate Method</a></td>
-        <td>A method used to analyze and estimate salmon abundance from enumeration data</td>
-      </tr>
-      <tr>
-        <td><a href="#ExpansionFactor">Expansion factor</a></td>
-        <td>A multiplicative factor used to expand observed counts or detections from a sampled subset (e.g., indicator sites, PIT detections) to an estimated total abundance or escapement.</td>
-      </tr>
-      <tr>
-        <td><a href="#ExpansionMathematicalOperations">Expansion/Mathematical Operations</a></td>
-        <td>Applies expansion factors or arithmetic transforms to a base count/index.</td>
-      </tr>
-      <tr>
-        <td><a href="#FixedStationTally">Fixed‑Station Tally</a></td>
-        <td>Seasonal total = roll‑up of daily/continuous counts from a fixed (non‑sonar) station; simple arithmetic with documented coverage.</td>
-      </tr>
-      <tr>
-        <td><a href="#HydroacousticModelling">Hydroacoustic Modelling</a></td>
-        <td>Model pipeline converts sonar detections to passage totals; sets range/angle/blind zones; species/size attribution rules documented.</td>
-      </tr>
-      <tr>
-        <td><a href="#MarkRecaptureAnalysis">Mark-Recapture Analysis</a></td>
-        <td>Capture-recapture estimators (Petersen, Jolly-Seber, open/Bayesian models) applied to field marks/recoveries.</td>
-      </tr>
-      <tr>
-        <td><a href="#PeakCountAnalysis">Peak Count Analysis</a></td>
-        <td>Uses the peak survey (live ± dead variants) as the season estimate/index.</td>
-      </tr>
-      <tr>
-        <td><a href="#ReddExpansionAnalysis">Redd Expansion Analysis</a></td>
-        <td>Converts redd counts to spawner estimates using spawners-per-redd expansion factors.</td>
-      </tr>
-      <tr>
-        <td><a href="#TrapModelAnalysis">Trap Model Analysis</a></td>
-        <td>Trap-based counts adjusted with efficiency/coverage models to estimate total passage.</td>
-      </tr>
-      <tr>
-        <td><a href="#WSPRapidStatusAssessmentMethod">WSP rapid-status assessment method</a></td>
-        <td>The analytical method used to produce rapid-status metrics under the Wild Salmon Policy rapid-status approach.</td>
-      </tr>
-    </tbody>
-  </table>
+  <details class="gcdfo-collapsible">
+    <summary>12 concepts (expand)</summary>
+    <ul>
+      <li><a href="#AreaUnderTheCurve">Area Under the Curve</a></li>
+      <li><a href="#CalibratedTimeSeries">Calibrated Time Series</a></li>
+      <li><a href="#EstimateMethod">Estimate Method</a></li>
+      <li><a href="#ExpansionFactor">Expansion factor</a></li>
+      <li><a href="#ExpansionMathematicalOperations">Expansion/Mathematical Operations</a></li>
+      <li><a href="#FixedStationTally">Fixed‑Station Tally</a></li>
+      <li><a href="#HydroacousticModelling">Hydroacoustic Modelling</a></li>
+      <li><a href="#MarkRecaptureAnalysis">Mark-Recapture Analysis</a></li>
+      <li><a href="#PeakCountAnalysis">Peak Count Analysis</a></li>
+      <li><a href="#ReddExpansionAnalysis">Redd Expansion Analysis</a></li>
+      <li><a href="#TrapModelAnalysis">Trap Model Analysis</a></li>
+      <li><a href="#WSPRapidStatusAssessmentMethod">WSP rapid-status assessment method</a></li>
+    </ul>
+  </details>
 </div>
 <div class="scheme" id="scheme-escapement-estimate-type-scheme">
   <h3 id="scheme-escapement-estimate-type-scheme" class="list">Escapement Estimate Type Scheme</h3>
   <p class="markdown">Controlled vocabulary for Hyatt 1997 estimate types</p>
-  <table class="gcdfo-scheme-table">
-    <thead>
-      <tr><th scope="col">Term</th><th scope="col">Definition</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a href="#EstimateType">Estimate Type</a></td>
-        <td>Classification of escapement estimate quality based on Hyatt 1997 framework</td>
-      </tr>
-      <tr>
-        <td><a href="#Type1">Type-1, True Abundance, high resolution</a></td>
-        <td>Total, seasonal counts through fence or fishway; virtually no bypass. Simple, often single step analysis. Reliable resolution of between year differences &gt;10% (in absolute units).</td>
-      </tr>
-      <tr>
-        <td><a href="#Type2">Type-2, True Abundance, medium resolution</a></td>
-        <td>Indirect estimate of total spawner abundance with qualified accuracy and known precision (i.e., a variance estimate—an explicit quantitative measure of uncertainty around the estimate). Derived from high-effort, standardized methods (e.g., mark-recapture, serial counts for area under the curve) with documented analytical conversions (including interpolation/calibration as needed). Reported in absolute units (estimate ± variance). Reliable resolution of between-year differences &gt;25% (in absolute units).</td>
-      </tr>
-      <tr>
-        <td><a href="#Type3">Type-3, Relative Abundance, high resolution</a></td>
-        <td>Relative abundance index (i.e., not an absolute count) derived from moderate to high effort surveys (typically 3 or more site visits) using standardized methods applied consistently between and within years (e.g., equal-effort surveys executed by walk, swim, overflight). Accuracy and precision are not fully quantified (i.e., no explicit variance estimate), but are assumed stable enough for within-series comparisons. Reliable resolution of between-year differences &gt;25% (in relative units).</td>
-      </tr>
-      <tr>
-        <td><a href="#Type4">Type-4, Relative Abundance, medium resolution</a></td>
-        <td>Low to moderate effort (1-4 trips), known survey method. Simple analysis by known methods. Reliable resolution of between year differences &gt;200% (in relative units).</td>
-      </tr>
-      <tr>
-        <td><a href="#Type5">Type-5, Relative Abundance, low resolution</a></td>
-        <td>Low effort (e.g. 1 trip), use of vaguely defined, inconsistent or poorly executed methods. Unknown to ill defined; inconsistent or poorly executed. Uncertain numeric comparisons, but high reliability for presence or absence.</td>
-      </tr>
-      <tr>
-        <td><a href="#Type6">Type-6, Presence or Absence</a></td>
-        <td>Non-numeric, year-specific record of presence/not detected (i.e., present/absent without estimating a count), tied to an explicit time and location, with reliable species identification. Underlying field methods may be highly variable; analysis is not required.</td>
-      </tr>
-      <tr>
-        <td><a href="#UnrankedIndexQuality">Unranked index quality</a></td>
-        <td>A data quality category indicating that no spawner-abundance estimate classification / index quality rating was assigned for the record (i.e., an &#x27;Unknown&#x27; estimate classification with no quality rating).</td>
-      </tr>
-    </tbody>
-  </table>
+  <details class="gcdfo-collapsible">
+    <summary>8 concepts (expand)</summary>
+    <ul>
+      <li><a href="#EstimateType">Estimate Type</a></li>
+      <li><a href="#Type1">Type-1, True Abundance, high resolution</a></li>
+      <li><a href="#Type2">Type-2, True Abundance, medium resolution</a></li>
+      <li><a href="#Type3">Type-3, Relative Abundance, high resolution</a></li>
+      <li><a href="#Type4">Type-4, Relative Abundance, medium resolution</a></li>
+      <li><a href="#Type5">Type-5, Relative Abundance, low resolution</a></li>
+      <li><a href="#Type6">Type-6, Presence or Absence</a></li>
+      <li><a href="#UnrankedIndexQuality">Unranked index quality</a></li>
+    </ul>
+  </details>
 </div>
 <div class="scheme" id="scheme-life-phase-scheme">
   <h3 id="scheme-life-phase-scheme" class="list">Life phase scheme</h3>
   <p class="markdown">Controlled vocabulary for life-phase or fishery/migration segment qualifiers used to stratify measurements (e.g., ocean, terminal, mainstem).</p>
-  <table class="gcdfo-scheme-table">
-    <thead>
-      <tr><th scope="col">Term</th><th scope="col">Definition</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a href="#InRiverPhase">In-river phase</a></td>
-        <td>Freshwater in-river phase (migration and/or residence) outside the marine environment.</td>
-      </tr>
-      <tr>
-        <td><a href="#LifePhase">Life phase</a></td>
-        <td>A phase or segment used to stratify salmon measurements by where or when they apply (e.g., ocean phase, terminal phase).</td>
-      </tr>
-      <tr>
-        <td><a href="#MainstemPhase">Mainstem phase</a></td>
-        <td>Freshwater mainstem migration phase in a river system (often corresponding to mainstem in-river fisheries or monitoring segments).</td>
-      </tr>
-      <tr>
-        <td><a href="#OceanPhase">Ocean phase</a></td>
-        <td>Phase of the salmon life cycle or assessment period occurring in the marine environment.</td>
-      </tr>
-      <tr>
-        <td><a href="#TerminalPhase">Terminal phase</a></td>
-        <td>Phase occurring in terminal areas near river mouths or spawning areas (often including terminal fisheries and local migration to spawning sites).</td>
-      </tr>
-    </tbody>
-  </table>
+  <details class="gcdfo-collapsible">
+    <summary>5 concepts (expand)</summary>
+    <ul>
+      <li><a href="#InRiverPhase">In-river phase</a></li>
+      <li><a href="#LifePhase">Life phase</a></li>
+      <li><a href="#MainstemPhase">Mainstem phase</a></li>
+      <li><a href="#OceanPhase">Ocean phase</a></li>
+      <li><a href="#TerminalPhase">Terminal phase</a></li>
+    </ul>
+  </details>
 </div>
 <div class="scheme" id="scheme-measurement-context-scheme">
   <h3 id="scheme-measurement-context-scheme" class="list">Measurement context scheme</h3>
   <p class="markdown">Controlled vocabulary for compositional measurement context qualifiers (for example, catch context, run context).</p>
-  <table class="gcdfo-scheme-table">
-    <thead>
-      <tr><th scope="col">Term</th><th scope="col">Definition</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a href="####">Abundance data type</a></td>
-        <td>A categorical attribute indicating whether an abundance time series is recorded as absolute abundance or as a relative index (used by rapid-status workflows).</td>
-      </tr>
-      <tr>
-        <td><a href="#CatchContext">Catch context</a></td>
-        <td>Measurement context indicating values refer to fishery catch.</td>
-      </tr>
-      <tr>
-        <td><a href="#DataQualityRatingContext">Data quality rating context</a></td>
-        <td>Measurement context indicating categorical or ordinal quality ratings.</td>
-      </tr>
-      <tr>
-        <td><a href="#ManagementReferenceContext">Management reference context</a></td>
-        <td>Measurement context indicating values are management benchmarks or reference-oriented metrics.</td>
-      </tr>
-      <tr>
-        <td><a href="#MeasurementContext">Measurement context</a></td>
-        <td>A context qualifier used to disambiguate the interpretation of a measurement column.</td>
-      </tr>
-      <tr>
-        <td><a href="#RecruitStageContext">Recruit stage context</a></td>
-        <td>Measurement context indicating values refer to recruits.</td>
-      </tr>
-      <tr>
-        <td><a href="#RunContext">Run context</a></td>
-        <td>Measurement context indicating values refer to run size or returning run composition.</td>
-      </tr>
-      <tr>
-        <td><a href="#SpawnerStageContext">Spawner stage context</a></td>
-        <td>Measurement context indicating values refer to spawners or spawning-stage fish.</td>
-      </tr>
-      <tr>
-        <td><a href="#SurvivalOrMortalityContext">Survival or mortality context</a></td>
-        <td>Measurement context indicating values represent survival, mortality, or related rates.</td>
-      </tr>
-    </tbody>
-  </table>
+  <details class="gcdfo-collapsible">
+    <summary>9 concepts (expand)</summary>
+    <ul>
+      <li><a href="####">Abundance data type</a></li>
+      <li><a href="#CatchContext">Catch context</a></li>
+      <li><a href="#DataQualityRatingContext">Data quality rating context</a></li>
+      <li><a href="#ManagementReferenceContext">Management reference context</a></li>
+      <li><a href="#MeasurementContext">Measurement context</a></li>
+      <li><a href="#RecruitStageContext">Recruit stage context</a></li>
+      <li><a href="#RunContext">Run context</a></li>
+      <li><a href="#SpawnerStageContext">Spawner stage context</a></li>
+      <li><a href="#SurvivalOrMortalityContext">Survival or mortality context</a></li>
+    </ul>
+  </details>
 </div>
 <div class="scheme" id="scheme-policy-framework-scheme">
   <h3 id="scheme-policy-framework-scheme" class="list">Policy framework scheme</h3>
   <p class="markdown">Controlled vocabulary for policy and governance frameworks referenced by salmon assessment metrics and benchmarks (e.g., WSP, PA).</p>
-  <table class="gcdfo-scheme-table">
-    <thead>
-      <tr><th scope="col">Term</th><th scope="col">Definition</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a href="#FishStockProvisions">Fish Stocks Provisions</a></td>
-        <td>Legal provisions in Canada&#x27;s Fisheries Act and regulations related to maintaining and rebuilding fish stocks, including obligations triggered when reference points are breached.</td>
-      </tr>
-      <tr>
-        <td><a href="#PolicyFramework">Policy framework</a></td>
-        <td>A policy, legal, or governance framework that defines how salmon status metrics, benchmarks, or reference points are set and interpreted.</td>
-      </tr>
-      <tr>
-        <td><a href="#PrecautionaryApproach">Precautionary Approach</a></td>
-        <td>DFO policy framework for applying precaution in fisheries decision-making, including use of reference points and stock status zones.</td>
-      </tr>
-      <tr>
-        <td><a href="#WildSalmonPolicy">Wild Salmon Policy</a></td>
-        <td>Canada&#x27;s Wild Salmon Policy framework for conserving and managing wild Pacific salmon, including integrated status assessments and biological benchmarks for Conservation Units.</td>
-      </tr>
-    </tbody>
-  </table>
+  <details class="gcdfo-collapsible">
+    <summary>4 concepts (expand)</summary>
+    <ul>
+      <li><a href="#FishStockProvisions">Fish Stocks Provisions</a></li>
+      <li><a href="#PolicyFramework">Policy framework</a></li>
+      <li><a href="#PrecautionaryApproach">Precautionary Approach</a></li>
+      <li><a href="#WildSalmonPolicy">Wild Salmon Policy</a></li>
+    </ul>
+  </details>
 </div>
 <div class="scheme" id="scheme-rapid-status-confidence-scheme">
   <h3 id="scheme-rapid-status-confidence-scheme" class="list">Rapid status confidence scheme</h3>
   <p class="markdown">Controlled vocabulary for categorical confidence ratings attached to rapid status assessments.</p>
-  <table class="gcdfo-scheme-table">
-    <thead>
-      <tr><th scope="col">Term</th><th scope="col">Definition</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a href="#ConfidenceCategory">Confidence category</a></td>
-        <td>Categorical confidence rating (High, Medium, Low) for stock assessment metrics.</td>
-      </tr>
-      <tr>
-        <td><a href="#RapidStatusConfidenceHigh">High rapid-status confidence</a></td>
-        <td><em>No definition provided.</em></td>
-      </tr>
-      <tr>
-        <td><a href="#RapidStatusConfidenceLow">Low rapid-status confidence</a></td>
-        <td><em>No definition provided.</em></td>
-      </tr>
-      <tr>
-        <td><a href="#RapidStatusConfidenceMedium">Medium rapid-status confidence</a></td>
-        <td><em>No definition provided.</em></td>
-      </tr>
-    </tbody>
-  </table>
+  <details class="gcdfo-collapsible">
+    <summary>4 concepts (expand)</summary>
+    <ul>
+      <li><a href="#ConfidenceCategory">Confidence category</a></li>
+      <li><a href="#RapidStatusConfidenceHigh">High rapid-status confidence</a></li>
+      <li><a href="#RapidStatusConfidenceLow">Low rapid-status confidence</a></li>
+      <li><a href="#RapidStatusConfidenceMedium">Medium rapid-status confidence</a></li>
+    </ul>
+  </details>
 </div>
 <div class="scheme" id="scheme-rapid-status-metric-scheme">
   <h3 id="scheme-rapid-status-metric-scheme" class="list">Rapid status metric scheme</h3>
   <p class="markdown">Controlled vocabulary for rapid-status compound variable terms used in WSP rapid-status workflows.</p>
-  <table class="gcdfo-scheme-table">
-    <thead>
-      <tr><th scope="col">Term</th><th scope="col">Definition</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a href="#AbundancePercentileMetric">Abundance percentile metric</a></td>
-        <td>An abundance percentile metric giving the percentile rank of the current generational average spawner abundance relative to a historical reference distribution.</td>
-      </tr>
-      <tr>
-        <td><a href="#BenchmarkRatioMetric">Benchmark ratio metric</a></td>
-        <td>A benchmark-ratio metric equal to the ratio of current generational average spawner abundance to a specified benchmark (lower or upper benchmark), where 1.0 indicates equality to that benchmark.</td>
-      </tr>
-      <tr>
-        <td><a href="#GenerationalAverageAbundance">Generational average abundance</a></td>
-        <td>The generational average of spawner abundance, calculated as a geometric mean across the number of years corresponding to the most common age at return (generation length), optionally after smoothing depending on CU group.</td>
-      </tr>
-      <tr>
-        <td><a href="#LongTermTrendMetric">Long-term trend metric</a></td>
-        <td>A long-term trend metric comparing the current generational average (geometric mean) spawner abundance to the long-term average (geometric mean) spawner abundance for an assessed time series.</td>
-      </tr>
-      <tr>
-        <td><a href="#PercentChangeMetric">Percent change metric</a></td>
-        <td>A short-term trend metric quantifying the percent (linear) change in spawner abundance over the most recent three generations.</td>
-      </tr>
-      <tr>
-        <td><a href="#ProbabilityDeclineBelowLowerBenchmarkMetric">Probability of decline below lower benchmark metric</a></td>
-        <td>A probability metric estimating the risk that spawner abundance will be below the lower benchmark, given uncertainty in benchmark estimates and/or abundance estimates, for a defined forecast or assessment horizon.</td>
-      </tr>
-      <tr>
-        <td><a href="#RapidStatusMetric">Rapid status metric</a></td>
-        <td>A compound variable concept representing a metric used by WSP rapid-status workflows.</td>
-      </tr>
-      <tr>
-        <td><a href="#RapidStatusScoreMetric">Rapid status score metric</a></td>
-        <td>A numeric score produced by a rapid-status algorithm used to represent an ordered status outcome and/or decision-rule position.</td>
-      </tr>
-    </tbody>
-  </table>
+  <details class="gcdfo-collapsible">
+    <summary>8 concepts (expand)</summary>
+    <ul>
+      <li><a href="#AbundancePercentileMetric">Abundance percentile metric</a></li>
+      <li><a href="#BenchmarkRatioMetric">Benchmark ratio metric</a></li>
+      <li><a href="#GenerationalAverageAbundance">Generational average abundance</a></li>
+      <li><a href="#LongTermTrendMetric">Long-term trend metric</a></li>
+      <li><a href="#PercentChangeMetric">Percent change metric</a></li>
+      <li><a href="#ProbabilityDeclineBelowLowerBenchmarkMetric">Probability of decline below lower benchmark metric</a></li>
+      <li><a href="#RapidStatusMetric">Rapid status metric</a></li>
+      <li><a href="#RapidStatusScoreMetric">Rapid status score metric</a></li>
+    </ul>
+  </details>
 </div>
 <div class="scheme" id="scheme-salmon-origin-scheme">
   <h3 id="scheme-salmon-origin-scheme" class="list">Salmon Origin Scheme</h3>
   <p class="markdown">Controlled vocabulary for describing the origin of individual salmon (e.g., natural-origin, hatchery-origin, mixed-origin).</p>
-  <table class="gcdfo-scheme-table">
-    <thead>
-      <tr><th scope="col">Term</th><th scope="col">Definition</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a href="#HatcheryOrigin">Hatchery-origin</a></td>
-        <td>Individuals that were born or reared in a hatchery facility.</td>
-      </tr>
-      <tr>
-        <td><a href="#NaturalOrigin">Natural-origin</a></td>
-        <td>Individuals that are born and reared in the wild (natural environment).</td>
-      </tr>
-      <tr>
-        <td><a href="#SalmonOrigin">Salmon origin</a></td>
-        <td>Origin category describing whether salmon are naturally produced, hatchery produced, or mixed-origin.</td>
-      </tr>
-    </tbody>
-  </table>
+  <details class="gcdfo-collapsible">
+    <summary>3 concepts (expand)</summary>
+    <ul>
+      <li><a href="#HatcheryOrigin">Hatchery-origin</a></li>
+      <li><a href="#NaturalOrigin">Natural-origin</a></li>
+      <li><a href="#SalmonOrigin">Salmon origin</a></li>
+    </ul>
+  </details>
 </div>
 <div class="scheme" id="scheme-stock-status-zone-scheme-legacy-alias">
   <h3 id="scheme-stock-status-zone-scheme-legacy-alias" class="list">Stock Status Zone Scheme (legacy alias)</h3>
   <p class="markdown">Legacy alias scheme for stock status zones. Use :WSPBiologicalStatusZoneScheme as the canonical scheme for Red/Amber/Green Wild Salmon Policy biological status zones.</p>
-  <table class="gcdfo-scheme-table">
-    <thead>
-      <tr><th scope="col">Term</th><th scope="col">Definition</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a href="#WSPBiologicalStatusZone">Wild Salmon Policy biological status zone</a></td>
-        <td>The biological status of a Conservation Unit (CU) will normally be based on the abundance and distribution of spawners in the unit, or proxies thereof. For each CU, higher and lower benchmarks will be defined that will delimit three status zones: Green, Amber, and Red. As spawner abundance decreases, a CU moves towards the lower status zone, and the extent of management intervention for conservation purposes will increase.</td>
-      </tr>
-    </tbody>
-  </table>
+  <details class="gcdfo-collapsible">
+    <summary>1 concept (expand)</summary>
+    <ul>
+      <li><a href="#WSPBiologicalStatusZone">Wild Salmon Policy biological status zone</a></li>
+    </ul>
+  </details>
 </div>
 <div class="scheme" id="scheme-theme-scheme">
   <h3 id="scheme-theme-scheme" class="list">Theme Scheme</h3>
   <p class="markdown">High-level thematic concept scheme for organizing DFO Salmon Ontology classes and concepts.</p>
-  <table class="gcdfo-scheme-table">
-    <thead>
-      <tr><th scope="col">Term</th><th scope="col">Definition</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a href="#DataModelProvenanceTheme">Data, Models, and Provenance</a></td>
-        <td>Data models, analytical workflows, provenance, quality dimensions, and metadata supporting salmon science.</td>
-      </tr>
-      <tr>
-        <td><a href="#FisheriesManagementTheme">Fisheries Management</a></td>
-        <td>Fishery openings, harvest control rules, catch/effort measures, and exploitation monitoring for salmon fisheries.</td>
-      </tr>
-      <tr>
-        <td><a href="#GeneticsStockCompositionTheme">Genetics and Stock Composition</a></td>
-        <td>Genetic markers, assays, and analyses used to infer stock composition, parentage, and population structure.</td>
-      </tr>
-      <tr>
-        <td><a href="#HabitatEcosystemClimateTheme">Habitat, Ecosystem, and Climate Pressures</a></td>
-        <td>Habitat attributes, ecosystem conditions, and climate or environmental stressors affecting salmon.</td>
-      </tr>
-      <tr>
-        <td><a href="#MonitoringFieldWorkTheme">Monitoring and Field Work</a></td>
-        <td>Field observations, sampling protocols, survey events, gear, and measurement methods used to collect salmon data.</td>
-      </tr>
-      <tr>
-        <td><a href="#PolicyGovernanceTheme">Policy, Governance, and Organizational Structure</a></td>
-        <td>DFO policy frameworks, governance, regulations, and organizational structure relevant to salmon management.</td>
-      </tr>
-      <tr>
-        <td><a href="#SalmonEnhancementHatcheriesTheme">Salmon Enhancement and Hatcheries</a></td>
-        <td>Hatchery production, broodstock management, releases, and enhancement program practices for salmon.</td>
-      </tr>
-      <tr>
-        <td><a href="#SpeciesAtRiskRecoveryTheme">Species at Risk and Recovery</a></td>
-        <td>COSEWIC/SARA recovery planning, critical habitat, threats, and status assessments for species of conservation concern.</td>
-      </tr>
-      <tr>
-        <td><a href="#StockAssessmentTheme">Stock Assessment</a></td>
-        <td>Stock assessment models, benchmarks, status determinations, and performance metrics for salmon units.</td>
-      </tr>
-      <tr>
-        <td><a href="#WildSalmonPolicyTheme">Wild Salmon Policy</a></td>
-        <td>Conservation Unit based stock assessment methods, metrics, and metadata</td>
-      </tr>
-    </tbody>
-  </table>
+  <details class="gcdfo-collapsible">
+    <summary>10 concepts (expand)</summary>
+    <ul>
+      <li><a href="#DataModelProvenanceTheme">Data, Models, and Provenance</a></li>
+      <li><a href="#FisheriesManagementTheme">Fisheries Management</a></li>
+      <li><a href="#GeneticsStockCompositionTheme">Genetics and Stock Composition</a></li>
+      <li><a href="#HabitatEcosystemClimateTheme">Habitat, Ecosystem, and Climate Pressures</a></li>
+      <li><a href="#MonitoringFieldWorkTheme">Monitoring and Field Work</a></li>
+      <li><a href="#PolicyGovernanceTheme">Policy, Governance, and Organizational Structure</a></li>
+      <li><a href="#SalmonEnhancementHatcheriesTheme">Salmon Enhancement and Hatcheries</a></li>
+      <li><a href="#SpeciesAtRiskRecoveryTheme">Species at Risk and Recovery</a></li>
+      <li><a href="#StockAssessmentTheme">Stock Assessment</a></li>
+      <li><a href="#WildSalmonPolicyTheme">Wild Salmon Policy</a></li>
+    </ul>
+  </details>
 </div>
 <div class="scheme" id="scheme-wild-salmon-policy-status-zone">
   <h3 id="scheme-wild-salmon-policy-status-zone" class="list">Wild Salmon Policy Status Zone</h3>
   <p class="markdown">Controlled vocabulary for biological status zones under the Wild Salmon Policy.</p>
-  <table class="gcdfo-scheme-table">
-    <thead>
-      <tr><th scope="col">Term</th><th scope="col">Definition</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a href="#WSPBiologicalStatusZone">:WSPBiologicalStatusZone</a></td>
-        <td><em>No definition provided.</em></td>
-      </tr>
-      <tr>
-        <td><a href="#AmberZone">Amber zone</a></td>
-        <td>Amber status implies caution in the management of the Conservation Unit. While a CU in the Amber zone should be at a low risk of loss, there will be a degree of lost production. Decisions about the conservation of CUs in the Amber zone will involve broader consideration of biological, social, and economic issues. </td>
-      </tr>
-      <tr>
-        <td><a href="#GreenZone">Green zone</a></td>
-        <td>Social and economic considerations will tend to be the primary drivers for the management of Conservation Units in the Green zone, though ecosystem or other non-consumptive use values could also be considered.</td>
-      </tr>
-      <tr>
-        <td><a href="#RedZone">Red zone</a></td>
-        <td>A Conservation Unit in the Red zone is undesirable because of the risk of extirpation, and the loss of ecological benefits and salmon production. Changes in status will trigger management actions that will vary depending on species, geographic regions, and cause of the decline.</td>
-      </tr>
-      <tr>
-        <td><a href="#WSPBiologicalStatusZone">Wild Salmon Policy biological status zone</a></td>
-        <td>The biological status of a Conservation Unit (CU) will normally be based on the abundance and distribution of spawners in the unit, or proxies thereof. For each CU, higher and lower benchmarks will be defined that will delimit three status zones: Green, Amber, and Red. As spawner abundance decreases, a CU moves towards the lower status zone, and the extent of management intervention for conservation purposes will increase.</td>
-      </tr>
-    </tbody>
-  </table>
+  <details class="gcdfo-collapsible">
+    <summary>5 concepts (expand)</summary>
+    <ul>
+      <li><a href="#WSPBiologicalStatusZone">:WSPBiologicalStatusZone</a></li>
+      <li><a href="#AmberZone">Amber zone</a></li>
+      <li><a href="#GreenZone">Green zone</a></li>
+      <li><a href="#RedZone">Red zone</a></li>
+      <li><a href="#WSPBiologicalStatusZone">Wild Salmon Policy biological status zone</a></li>
+    </ul>
+  </details>
 </div>
 <div class="scheme" id="scheme-year-basis-scheme">
   <h3 id="scheme-year-basis-scheme" class="list">Year basis scheme</h3>
   <p class="markdown">Controlled vocabulary for year-basis references used to contextualize salmon measurements and rates (for example, brood year, catch year, return year).</p>
-  <table class="gcdfo-scheme-table">
-    <thead>
-      <tr><th scope="col">Term</th><th scope="col">Definition</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a href="#BroodYear">Brood year</a></td>
-        <td>The parental year for a group of returning salmon, i.e. the calendar year when the majority of parents of these fish spawned.</td>
-      </tr>
-      <tr>
-        <td><a href="#CatchYear">Catch year</a></td>
-        <td>The calendar year in which returning salmon are caught in fisheries (as opposed to the brood year in which the cohort was spawned).</td>
-      </tr>
-      <tr>
-        <td><a href="#ReturnYear">Return year</a></td>
-        <td>The calendar year in which adult salmon return from the ocean to freshwater systems (a year basis used to contextualize run/return-related measurements).</td>
-      </tr>
-      <tr>
-        <td><a href="#YearBasis">Year basis</a></td>
-        <td>A year-based temporal reference used to contextualize measurements or rates (e.g., brood year, catch year, or return year).</td>
-      </tr>
-    </tbody>
-  </table>
+  <details class="gcdfo-collapsible">
+    <summary>4 concepts (expand)</summary>
+    <ul>
+      <li><a href="#BroodYear">Brood year</a></li>
+      <li><a href="#CatchYear">Catch year</a></li>
+      <li><a href="#ReturnYear">Return year</a></li>
+      <li><a href="#YearBasis">Year basis</a></li>
+    </ul>
+  </details>
 </div>
   </div>
 <hr>
