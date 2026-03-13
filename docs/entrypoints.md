@@ -35,8 +35,10 @@ Purpose: one short, reliable map of what is canonical vs optional/deprecated.
 ## App Entry Points / Wiring
 
 - Canonical ontology source: `ontology/dfo-salmon.ttl`
+- Shared-layer import: `ontology/dfo-salmon.ttl` imports `https://w3id.org/smn`
 - DFO namespace boundary: `gcdfo:` terms authored here are the DFO-specific canonical layer for this repo.
 - Shared-layer preference: downstream consumers should resolve approved shared terms from `smn:` first where available, then use `gcdfo:` for DFO-specific or deferred-profile terms.
+- Boundary note: shared-term alignments are conservative in this pass; `Population`, `hasPopulation`/`populationOf`, `ReferencePoint`, `MetricBenchmark`, and SKOS-modeled `EnumerationMethod` remain DFO-local by design.
 - Transition note: if an upstream migration artifact still references draft shared `salmon:` IRIs, treat that as a pre-`smn` placeholder rather than the preferred steady-state target.
 - Runtime routes/handlers: none
 - Background jobs: none

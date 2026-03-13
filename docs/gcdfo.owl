@@ -12,6 +12,7 @@
      xmlns:org="http://www.w3.org/ns/org#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:smn="https://w3id.org/smn/"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:envo="http://purl.obolibrary.org/obo/ENVO_"
@@ -28,6 +29,7 @@
      xmlns:qudtunit="http://qudt.org/vocab/unit/">
     <owl:Ontology rdf:about="https://w3id.org/gcdfo/salmon">
         <owl:versionIRI rdf:resource="https://w3id.org/gcdfo/salmon/0.0.6-alpha"/>
+        <owl:imports rdf:resource="https://w3id.org/smn"/>
         <obo:IAO_0000115 xml:lang="en">Hybrid OWL+SKOS ontology for DFO salmon data. Uses SKOS for controlled vocabularies (methods, criteria) and OWL for formal relationships and events.</obo:IAO_0000115>
         <dcterms:contributor xml:lang="en">Brett Johnson</dcterms:contributor>
         <dcterms:contributor xml:lang="en">Melissa K. Morrison</dcterms:contributor>
@@ -40,15 +42,16 @@
         <dcterms:title xml:lang="en">DFO Salmon Ontology</dcterms:title>
         <vann:preferredNamespacePrefix>gcdfo</vann:preferredNamespacePrefix>
         <vann:preferredNamespaceUri>https://w3id.org/gcdfo/salmon#</vann:preferredNamespaceUri>
+        <rdfs:comment xml:lang="en">Boundary note (2026-03-13): this ontology now imports smn and carries conservative alignment links for clearly shared terms. DFO-local semantics are intentionally retained for Population, hasPopulation, populationOf, ReferencePoint, and MetricBenchmark pending later review.</rdfs:comment>
         <rdfs:seeAlso rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology"/>
         <owl:priorVersion rdf:resource="https://w3id.org/gcdfo/salmon/0.0.2"/>
         <owl:versionInfo>0.0.6-alpha (integrated pre-release review branch)</owl:versionInfo>
         <schema:codeRepository rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology"/>
     </owl:Ontology>
-    
 
 
-    <!-- 
+
+    <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Annotation properties
@@ -56,7 +59,7 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
+
 
 
     <!-- http://purl.obolibrary.org/obo/IAO_0000115 -->
@@ -65,7 +68,7 @@
         <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/iao.owl"/>
         <rdfs:label xml:lang="en">definition</rdfs:label>
     </owl:AnnotationProperty>
-    
+
 
 
     <!-- http://purl.obolibrary.org/obo/IAO_0000119 -->
@@ -74,157 +77,151 @@
         <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/iao.owl"/>
         <rdfs:label xml:lang="en">definition source</rdfs:label>
     </owl:AnnotationProperty>
-    
+
 
 
     <!-- http://purl.org/dc/terms/contributor -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/contributor"/>
-    
+
 
 
     <!-- http://purl.org/dc/terms/created -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/created"/>
-    
+
 
 
     <!-- http://purl.org/dc/terms/creator -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
-    
+
 
 
     <!-- http://purl.org/dc/terms/description -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
-    
+
 
 
     <!-- http://purl.org/dc/terms/identifier -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/identifier"/>
-    
+
 
 
     <!-- http://purl.org/dc/terms/isPartOf -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/isPartOf"/>
-    
+
 
 
     <!-- http://purl.org/dc/terms/isVersionOf -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/isVersionOf"/>
-    
+
 
 
     <!-- http://purl.org/dc/terms/license -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
-    
+
 
 
     <!-- http://purl.org/dc/terms/modified -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/modified"/>
-    
+
 
 
     <!-- http://purl.org/dc/terms/publisher -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/publisher"/>
-    
 
-
-    <!-- http://purl.org/dc/terms/source -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/source"/>
-    
 
 
     <!-- http://purl.org/dc/terms/title -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
-    
+
 
 
     <!-- http://purl.org/vocab/vann/preferredNamespacePrefix -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespacePrefix"/>
-    
+
 
 
     <!-- http://purl.org/vocab/vann/preferredNamespaceUri -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespaceUri"/>
-    
+
 
 
     <!-- http://www.w3.org/2004/02/skos/core#altLabel -->
 
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#altLabel"/>
-    
+
 
 
     <!-- http://www.w3.org/2004/02/skos/core#broader -->
 
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#broader"/>
-    
+
 
 
     <!-- http://www.w3.org/2004/02/skos/core#closeMatch -->
 
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#closeMatch"/>
-    
+
 
 
     <!-- http://www.w3.org/2004/02/skos/core#definition -->
 
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#definition"/>
-    
+
 
 
     <!-- http://www.w3.org/2004/02/skos/core#exactMatch -->
 
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#exactMatch"/>
-    
+
 
 
     <!-- http://www.w3.org/2004/02/skos/core#hasTopConcept -->
 
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#hasTopConcept"/>
-    
+
 
 
     <!-- http://www.w3.org/2004/02/skos/core#inScheme -->
 
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#inScheme"/>
-    
+
 
 
     <!-- http://www.w3.org/2004/02/skos/core#notation -->
 
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#notation"/>
-    
+
 
 
     <!-- http://www.w3.org/2004/02/skos/core#prefLabel -->
 
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#prefLabel"/>
-    
+
 
 
     <!-- http://www.w3.org/2004/02/skos/core#scopeNote -->
 
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#scopeNote"/>
-    
+
 
 
     <!-- https://schema.org/codeRepository -->
 
     <owl:AnnotationProperty rdf:about="https://schema.org/codeRepository"/>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#iadoptConstraint -->
@@ -236,7 +233,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:AnnotationProperty>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#iadoptEntity -->
@@ -248,7 +245,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:AnnotationProperty>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#iadoptProperty -->
@@ -260,7 +257,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:AnnotationProperty>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#theme -->
@@ -271,16 +268,16 @@
         <rdfs:label xml:lang="en">theme</rdfs:label>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
     </owl:AnnotationProperty>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#usedProcedure -->
 
     <owl:AnnotationProperty rdf:about="https://w3id.org/gcdfo/salmon#usedProcedure"/>
-    
 
 
-    <!-- 
+
+    <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Datatypes
@@ -288,58 +285,58 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
+
 
 
     <!-- http://www.w3.org/2001/XMLSchema#anyURI -->
 
     <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#anyURI"/>
-    
+
 
 
     <!-- http://www.w3.org/2001/XMLSchema#boolean -->
 
     <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#boolean"/>
-    
+
 
 
     <!-- http://www.w3.org/2001/XMLSchema#date -->
 
     <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
-    
+
 
 
     <!-- http://www.w3.org/2001/XMLSchema#dateTime -->
 
     <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#dateTime"/>
-    
+
 
 
     <!-- http://www.w3.org/2001/XMLSchema#decimal -->
 
     <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#decimal"/>
-    
+
 
 
     <!-- http://www.w3.org/2001/XMLSchema#gYear -->
 
     <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#gYear"/>
-    
+
 
 
     <!-- http://www.w3.org/2001/XMLSchema#integer -->
 
     <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#integer"/>
-    
+
 
 
     <!-- http://www.w3.org/2001/XMLSchema#string -->
 
     <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
-    
 
 
-    <!-- 
+
+    <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Object Properties
@@ -347,7 +344,7 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
+
 
 
     <!-- http://www.w3.org/ns/dqv#inDimension -->
@@ -359,55 +356,31 @@
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/dqv#"/>
         <rdfs:label xml:lang="en">in dimension</rdfs:label>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://www.w3.org/ns/prov#generated -->
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#generated"/>
-    
+
 
 
     <!-- http://www.w3.org/ns/prov#used -->
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#used"/>
-    
+
 
 
     <!-- http://www.w3.org/ns/prov#wasDerivedFrom -->
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#wasDerivedFrom"/>
-    
 
-
-    <!-- http://www.w3.org/ns/sosa/hasFeatureOfInterest -->
-
-    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/sosa/hasFeatureOfInterest"/>
-    
-
-
-    <!-- http://www.w3.org/ns/sosa/hasResult -->
-
-    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/sosa/hasResult"/>
-    
 
 
     <!-- http://www.w3.org/ns/sosa/isSampleOf -->
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/ns/sosa/isSampleOf"/>
-    
 
-
-    <!-- http://www.w3.org/ns/sosa/observedProperty -->
-
-    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/sosa/observedProperty"/>
-    
-
-
-    <!-- http://www.w3.org/ns/sosa/usedProcedure -->
-
-    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/sosa/usedProcedure"/>
-    
 
 
     <!-- https://w3id.org/gcdfo/salmon#conservationUnitOf -->
@@ -423,12 +396,13 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#demeOf -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#demeOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/smn/demeOf"/>
         <owl:inverseOf rdf:resource="https://w3id.org/gcdfo/salmon#hasDeme"/>
         <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#Deme"/>
         <rdfs:range rdf:resource="https://w3id.org/gcdfo/salmon#Population"/>
@@ -438,7 +412,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#hasAssessmentReferencePoint -->
@@ -455,7 +429,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#hasAssessmentSubject -->
@@ -478,7 +452,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#hasConservationUnit -->
@@ -493,12 +467,13 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#hasDeme -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#hasDeme">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/smn/hasDeme"/>
         <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#Population"/>
         <rdfs:range rdf:resource="https://w3id.org/gcdfo/salmon#Deme"/>
         <obo:IAO_0000115 xml:lang="en">Relates a population to one of its constituent demes.</obo:IAO_0000115>
@@ -507,7 +482,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#hasFeatureOfInterest -->
@@ -515,6 +490,7 @@
     <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#hasFeatureOfInterest">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#used"/>
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/sosa/hasFeatureOfInterest"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/smn/hasFeatureOfInterest"/>
         <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#SurveyEvent"/>
         <rdfs:range rdf:resource="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum"/>
         <obo:IAO_0000115 xml:lang="en">Relates a survey event to the reporting or management stratum that the event targets for inference or status interpretation.</obo:IAO_0000115>
@@ -524,7 +500,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#hasObservationResult -->
@@ -532,6 +508,7 @@
     <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#hasObservationResult">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#generated"/>
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/sosa/hasResult"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/smn/hasObservationResult"/>
         <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#SurveyEvent"/>
         <rdfs:range rdf:resource="https://w3id.org/gcdfo/salmon#EscapementMeasurement"/>
         <obo:IAO_0000115 xml:lang="en">Relates a survey event to a measurement datum/result it produces for salmon assessment workflows.</obo:IAO_0000115>
@@ -540,7 +517,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#hasObservedVariable -->
@@ -555,7 +532,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#hasPopulation -->
@@ -565,12 +542,13 @@
         <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#ConservationUnit"/>
         <rdfs:range rdf:resource="https://w3id.org/gcdfo/salmon#Population"/>
         <obo:IAO_0000115 xml:lang="en">Relates a Conservation Unit to one of its constituent populations.</obo:IAO_0000115>
+        <rdfs:comment xml:lang="en">Boundary note (2026-03-13): intentionally retained as a DFO/CU-scoped property; not auto-aligned to smn:hasPopulation in this pass.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">has population</rdfs:label>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#hasTargetOrLimitExploitationRate -->
@@ -586,7 +564,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#hasYearBasis -->
@@ -612,7 +590,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#isAssessmentReferencePointFor -->
@@ -627,7 +605,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#isAssessmentSubjectOf -->
@@ -649,7 +627,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#isDatumUsedInAssessment -->
@@ -664,7 +642,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#isSampleOfStratum -->
@@ -672,6 +650,7 @@
     <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#isSampleOfStratum">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#wasDerivedFrom"/>
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/sosa/isSampleOf"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/smn/isSampleOfStratum"/>
         <rdfs:domain rdf:resource="http://rs.tdwg.org/dwc/terms/MaterialEntity"/>
         <rdfs:range rdf:resource="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum"/>
         <obo:IAO_0000115 xml:lang="en">Relates a material sample to the reporting or management stratum it is taken to represent in analysis.</obo:IAO_0000115>
@@ -681,7 +660,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#isTargetOrLimitForObservedExploitationRate -->
@@ -696,7 +675,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#populationOf -->
@@ -705,12 +684,13 @@
         <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#Population"/>
         <rdfs:range rdf:resource="https://w3id.org/gcdfo/salmon#ConservationUnit"/>
         <obo:IAO_0000115 xml:lang="en">Relates a population to the Conservation Unit it belongs to.</obo:IAO_0000115>
+        <rdfs:comment xml:lang="en">Boundary note (2026-03-13): intentionally retained as a DFO/CU-scoped property; not auto-aligned to smn:populationOf in this pass.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">population of</rdfs:label>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#usedProcedure -->
@@ -718,7 +698,7 @@
     <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#usedProcedure">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/sosa/usedProcedure"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#usesAssessmentDatum -->
@@ -742,7 +722,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#usesObservationProcedure -->
@@ -750,6 +730,7 @@
     <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#usesObservationProcedure">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#used"/>
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/sosa/usedProcedure"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/smn/usesObservationProcedure"/>
         <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#SurveyEvent"/>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/IAO_0000104"/>
         <obo:IAO_0000115 xml:lang="en">Relates a survey event to the procedure/protocol used to execute it.</obo:IAO_0000115>
@@ -758,10 +739,34 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:ObjectProperty>
-    
 
 
-    <!-- 
+
+    <!-- https://w3id.org/smn/hasFeatureOfInterest -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/smn/hasFeatureOfInterest"/>
+
+
+
+    <!-- https://w3id.org/smn/hasObservationResult -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/smn/hasObservationResult"/>
+
+
+
+    <!-- https://w3id.org/smn/isSampleOfStratum -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/smn/isSampleOfStratum"/>
+
+
+
+    <!-- https://w3id.org/smn/usesObservationProcedure -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/smn/usesObservationProcedure"/>
+
+
+
+    <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Classes
@@ -769,7 +774,7 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
+
 
 
     <!-- http://purl.dataone.org/odo/ECSO_00002050 -->
@@ -780,7 +785,7 @@
         <rdfs:isDefinedBy rdf:resource="http://purl.dataone.org/odo/"/>
         <rdfs:label xml:lang="en">year of measurement</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://purl.dataone.org/odo/SALMON_00000137 -->
@@ -791,7 +796,7 @@
         <rdfs:isDefinedBy rdf:resource="http://purl.dataone.org/odo/"/>
         <rdfs:label xml:lang="en">Fishery type</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://purl.dataone.org/odo/SALMON_00000167 -->
@@ -802,7 +807,7 @@
         <rdfs:isDefinedBy rdf:resource="http://purl.dataone.org/odo/"/>
         <rdfs:label xml:lang="en">Fish measurement type</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://purl.dataone.org/odo/SALMON_00000479 -->
@@ -813,7 +818,7 @@
         <rdfs:isDefinedBy rdf:resource="http://purl.dataone.org/odo/"/>
         <rdfs:label xml:lang="en">Salmon escapement count</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://purl.dataone.org/odo/SALMON_00000639 -->
@@ -824,7 +829,7 @@
         <rdfs:isDefinedBy rdf:resource="http://purl.dataone.org/odo/"/>
         <rdfs:label xml:lang="en">Fish stock type</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://purl.obolibrary.org/obo/BFO_0000015 -->
@@ -834,7 +839,7 @@
         <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/bfo.owl"/>
         <rdfs:label xml:lang="en">process</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://purl.obolibrary.org/obo/BFO_0000020 -->
@@ -844,7 +849,7 @@
         <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/bfo.owl"/>
         <rdfs:label xml:lang="en">specifically dependent continuant</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://purl.obolibrary.org/obo/BFO_0000031 -->
@@ -854,7 +859,7 @@
         <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/bfo.owl"/>
         <rdfs:label xml:lang="en">generically dependent continuant</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://purl.obolibrary.org/obo/BFO_0000040 -->
@@ -864,7 +869,7 @@
         <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/bfo.owl"/>
         <rdfs:label xml:lang="en">material entity</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://purl.obolibrary.org/obo/ENVO_00000020 -->
@@ -875,7 +880,7 @@
         <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/envo.owl"/>
         <rdfs:label xml:lang="en">lake</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://purl.obolibrary.org/obo/ENVO_00000022 -->
@@ -886,7 +891,7 @@
         <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/envo.owl"/>
         <rdfs:label xml:lang="en">river</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://purl.obolibrary.org/obo/ENVO_00000023 -->
@@ -899,7 +904,7 @@
         <rdfs:label xml:lang="en">stream</rdfs:label>
         <skos:altLabel xml:lang="en">creek</skos:altLabel>
     </owl:Class>
-    
+
 
 
     <!-- http://purl.obolibrary.org/obo/ENVO_00000033 -->
@@ -910,7 +915,7 @@
         <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/envo.owl"/>
         <rdfs:label xml:lang="en">pond</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://purl.obolibrary.org/obo/ENVO_00000063 -->
@@ -920,7 +925,7 @@
         <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/envo.owl"/>
         <rdfs:label xml:lang="en">water body</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://purl.obolibrary.org/obo/ENVO_00000234 -->
@@ -933,7 +938,7 @@
         <skos:altLabel xml:lang="en">slough</skos:altLabel>
         <skos:prefLabel xml:lang="en">slough</skos:prefLabel>
     </owl:Class>
-    
+
 
 
     <!-- http://purl.obolibrary.org/obo/ENVO_01000617 -->
@@ -944,7 +949,7 @@
         <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/envo.owl"/>
         <rdfs:label xml:lang="en">lentic water body</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://purl.obolibrary.org/obo/ENVO_01000618 -->
@@ -955,7 +960,7 @@
         <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/envo.owl"/>
         <rdfs:label xml:lang="en">lotic water body</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://purl.obolibrary.org/obo/IAO_0000030 -->
@@ -966,7 +971,7 @@
         <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/iao.owl"/>
         <rdfs:label xml:lang="en">information content entity</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://purl.obolibrary.org/obo/IAO_0000033 -->
@@ -977,7 +982,7 @@
         <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/iao.owl"/>
         <rdfs:label xml:lang="en">directive information entity</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://purl.obolibrary.org/obo/IAO_0000104 -->
@@ -988,7 +993,7 @@
         <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/iao.owl"/>
         <rdfs:label xml:lang="en">plan specification</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://purl.obolibrary.org/obo/IAO_0000109 -->
@@ -999,7 +1004,7 @@
         <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/iao.owl"/>
         <rdfs:label xml:lang="en">measurement datum</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://purl.obolibrary.org/obo/IAO_0000310 -->
@@ -1010,7 +1015,7 @@
         <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/iao.owl"/>
         <rdfs:label xml:lang="en">document</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://rs.tdwg.org/dwc/terms/Event -->
@@ -1022,7 +1027,7 @@
         <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/dwc/terms/"/>
         <rdfs:label xml:lang="en">Event</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://rs.tdwg.org/dwc/terms/Identification -->
@@ -1034,7 +1039,7 @@
         <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/dwc/terms/"/>
         <rdfs:label xml:lang="en">Identification</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://rs.tdwg.org/dwc/terms/MaterialEntity -->
@@ -1046,7 +1051,7 @@
         <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/dwc/terms/"/>
         <rdfs:label xml:lang="en">Material Entity</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://rs.tdwg.org/dwc/terms/Occurrence -->
@@ -1058,7 +1063,7 @@
         <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/dwc/terms/"/>
         <rdfs:label xml:lang="en">Occurrence</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://rs.tdwg.org/dwc/terms/Organism -->
@@ -1070,19 +1075,7 @@
         <rdfs:isDefinedBy rdf:resource="http://rs.tdwg.org/dwc/terms/"/>
         <rdfs:label xml:lang="en">Organism</rdfs:label>
     </owl:Class>
-    
 
-
-    <!-- http://www.w3.org/2004/02/skos/core#Concept -->
-
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
-    
-
-
-    <!-- http://www.w3.org/2004/02/skos/core#ConceptScheme -->
-
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
-    
 
 
     <!-- http://www.w3.org/ns/dqv#Dimension -->
@@ -1094,7 +1087,7 @@
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/dqv#"/>
         <rdfs:label xml:lang="en">Dimension</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://www.w3.org/ns/dqv#QualityAnnotation -->
@@ -1106,7 +1099,7 @@
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/dqv#"/>
         <rdfs:label xml:lang="en">Quality Annotation</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://www.w3.org/ns/oa#Annotation -->
@@ -1118,25 +1111,19 @@
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/oa#"/>
         <rdfs:label xml:lang="en">Annotation</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://www.w3.org/ns/prov#Activity -->
 
     <owl:Class rdf:about="http://www.w3.org/ns/prov#Activity"/>
-    
+
 
 
     <!-- http://www.w3.org/ns/sosa/Result -->
 
     <owl:Class rdf:about="http://www.w3.org/ns/sosa/Result"/>
-    
 
-
-    <!-- http://www.w3.org/ns/sosa/Sampling -->
-
-    <owl:Class rdf:about="http://www.w3.org/ns/sosa/Sampling"/>
-    
 
 
     <!-- https://w3id.org/gcdfo/salmon#CWTMarineSurvivalRate -->
@@ -1152,13 +1139,13 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#ConfidenceCategory -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#ConfidenceCategory"/>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#ConservationUnit -->
@@ -1177,13 +1164,14 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#Deme -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#Deme">
         <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/dwc/terms/Organism"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/Deme"/>
         <obo:IAO_0000115 xml:lang="en">A local interbreeding group of organisms within a species. In salmon, a deme typically corresponds to a spawning population at a specific site. Demes are the finest biological unit and make up populations.</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">Deme</rdfs:label>
@@ -1191,13 +1179,14 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#Escapement -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#Escapement">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/Escapement"/>
         <obo:IAO_0000115 xml:lang="en">The number of mature salmon that pass through (or escape) fisheries and return to fresh water to spawn.</obo:IAO_0000115>
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. 2005. Canada&apos;s Policy for Conservation of Wild Pacific Salmon. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf"/>
@@ -1206,7 +1195,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#EscapementMeasurement -->
@@ -1214,19 +1203,21 @@
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#EscapementMeasurement">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000109"/>
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Result"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/EscapementMeasurement"/>
         <obo:IAO_0000115 xml:lang="en">A measurement or estimate of escapement tied to a stock and a survey event.</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">Escapement measurement</rdfs:label>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#EscapementSurveyEvent -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#EscapementSurveyEvent">
         <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#SurveyEvent"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/EscapementSurveyEvent"/>
         <obo:IAO_0000115 xml:lang="en">A survey event specifically for estimating escapement.</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">Escapement Survey Event</rdfs:label>
@@ -1234,7 +1225,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#ExploitationRate -->
@@ -1249,7 +1240,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#FisheriesReferencePointLower -->
@@ -1265,7 +1256,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#InRiverMortalityRate -->
@@ -1280,7 +1271,7 @@
         <rdfs:label xml:lang="en">In-river mortality rate</rdfs:label>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#IndicatorRiver -->
@@ -1296,7 +1287,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#LimitReferencePoint -->
@@ -1313,7 +1304,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark -->
@@ -1329,7 +1320,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#MainstemMortalityRate -->
@@ -1343,7 +1334,7 @@
         <rdfs:label xml:lang="en">Mainstem mortality rate</rdfs:label>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#MarineSurvivalIndex -->
@@ -1358,7 +1349,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#HabitatEcosystemClimateTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#MetricBenchmark -->
@@ -1368,12 +1359,13 @@
         <obo:IAO_0000115 xml:lang="en">Benchmark value for a metric that helps delineate status zones (for example, the limit reference point for absolute abundance).</obo:IAO_0000115>
         <obo:IAO_0000119 xml:lang="en">Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada&apos;s Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://publications.gc.ca/site/eng/9.928944/publication.html"/>
+        <rdfs:comment xml:lang="en">Boundary note (2026-03-13): intentionally retained as DFO-local in this pass due WSP grounding in definitions and usage.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">Metric benchmark</rdfs:label>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#ObservedExploitationRate -->
@@ -1390,20 +1382,21 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000109"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/ObservedRateOrAbundance"/>
         <obo:IAO_0000115 xml:lang="en">A measurement datum representing an empirically observed rate, count, or abundance derived from monitoring or survey data.</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">Observed rate or abundance</rdfs:label>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#OceanMortalityRate -->
@@ -1417,7 +1410,7 @@
         <rdfs:label xml:lang="en">Ocean mortality rate</rdfs:label>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea -->
@@ -1434,7 +1427,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#Population -->
@@ -1442,13 +1435,14 @@
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#Population">
         <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/dwc/terms/Organism"/>
         <obo:IAO_0000115 xml:lang="en">A group of organisms of the same species occupying a defined area that interbreed and share a gene pool. In salmon, populations are composed of one or more demes and form the biological basis for Conservation Units.</obo:IAO_0000115>
+        <rdfs:comment xml:lang="en">Boundary note (2026-03-13): intentionally retained as a DFO-local class in this pass due CU-specific framing in definitions and usage.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">Population</rdfs:label>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#ProportionHatcheryOriginSpawners -->
@@ -1464,7 +1458,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#ReferencePoint -->
@@ -1474,13 +1468,14 @@
         <obo:IAO_0000115 xml:lang="en">Reference points are used as targets to achieve or as limits to avoid.</obo:IAO_0000115>
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html"/>
+        <rdfs:comment xml:lang="en">Boundary note (2026-03-13): intentionally retained as DFO-local in this pass; do not auto-move to smn.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">Reference point</rdfs:label>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundance -->
@@ -1496,7 +1491,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundanceChange -->
@@ -1511,7 +1506,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundancePercentile -->
@@ -1526,7 +1521,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundanceTrend -->
@@ -1541,7 +1536,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundance -->
@@ -1556,7 +1551,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundanceChange -->
@@ -1571,7 +1566,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundancePercentile -->
@@ -1586,7 +1581,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundanceTrend -->
@@ -1601,7 +1596,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundance -->
@@ -1617,7 +1612,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundanceChange -->
@@ -1632,7 +1627,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundancePercentile -->
@@ -1647,7 +1642,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundanceTrend -->
@@ -1662,20 +1657,21 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/ReportingOrManagementStratum"/>
         <obo:IAO_0000115 xml:lang="en">An information-defined grouping of fish populations used for reporting, conservation assessment, or management purposes. Examples include Conservation Units (CUs), Stock Management Units (MUs), and Designatable Units (DUs).</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">Reporting or management stratum</rdfs:label>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#SpawnerAbundance -->
@@ -1691,7 +1687,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#SpawnerAbundanceChange -->
@@ -1707,7 +1703,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#SpawnerAbundancePercentile -->
@@ -1722,7 +1718,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#SpawnerAbundanceTrend -->
@@ -1737,13 +1733,14 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#Stock -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#Stock">
         <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/Stock"/>
         <obo:IAO_0000115 xml:lang="en">An operationally-defined grouping of salmon used for assessment and management purposes. A stock is a management unit or reporting stratum, not a biological organism.</obo:IAO_0000115>
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html"/>
@@ -1754,13 +1751,14 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#StockAssessment -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#StockAssessment">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/StockAssessment"/>
         <obo:IAO_0000115 xml:lang="en">The scientific process of analyzing data to estimate the abundance and productivity of fish stocks in the past, present, and future. It is the backbone of successful science-based fisheries management</obo:IAO_0000115>
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Introduction to Stock Assessment. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/module-1/09-eng.html.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/module-1/09-eng.html"/>
@@ -1768,7 +1766,7 @@
         <rdfs:label xml:lang="en">Stock assessment</rdfs:label>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#StockManagementUnit -->
@@ -1785,7 +1783,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#SurveyEvent -->
@@ -1794,6 +1792,7 @@
         <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/dwc/terms/Event"/>
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Sampling"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/SurveyEvent"/>
         <obo:IAO_0000115 xml:lang="en">A field event that collects information about key fish stocks to track their status, and track progress to implement fishery policies and measures for these stocks.</obo:IAO_0000115>
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. About the Sustainability Survey for Fisheries. https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html"/>
@@ -1802,7 +1801,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate -->
@@ -1819,13 +1818,14 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000109"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/TargetOrLimitRateOrAbundance"/>
         <obo:IAO_0000115 xml:lang="en">A value specification representing a policy- or model-defined target or limit, such as TAC or UMSY.</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">Target or limit rate or abundance</rdfs:label>
@@ -1833,7 +1833,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#TerminalMortalityRate -->
@@ -1848,7 +1848,7 @@
         <rdfs:label xml:lang="en">Terminal mortality rate</rdfs:label>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#TotalExploitationRate -->
@@ -1861,7 +1861,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#TotalMortalityRate -->
@@ -1876,7 +1876,7 @@
         <rdfs:label xml:lang="en">Total mortality rate</rdfs:label>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark -->
@@ -1892,7 +1892,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#UpperStockReferencePoint -->
@@ -1909,13 +1909,13 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZone -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZone"/>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#WSPRapidStatus -->
@@ -1931,7 +1931,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:Class>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#WSPRapidStatusAlgorithmThreshold -->
@@ -1946,10 +1946,10 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:Class>
-    
 
 
-    <!-- 
+
+    <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Individuals
@@ -1957,7 +1957,7 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#AbundanceDataType -->
@@ -1977,7 +1977,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#AbundancePercentileMetric -->
@@ -2000,7 +2000,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#AerialSurveyCount -->
@@ -2016,7 +2016,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#Age1YearClass -->
@@ -2031,7 +2031,7 @@
         <skos:prefLabel xml:lang="en">Age 1 year class</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#Age2YearClass -->
@@ -2046,7 +2046,7 @@
         <skos:prefLabel xml:lang="en">Age 2 year class</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#Age3YearClass -->
@@ -2061,7 +2061,7 @@
         <skos:prefLabel xml:lang="en">Age 3 year class</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#Age4YearClass -->
@@ -2076,7 +2076,7 @@
         <skos:prefLabel xml:lang="en">Age 4 year class</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#Age5YearClass -->
@@ -2091,7 +2091,7 @@
         <skos:prefLabel xml:lang="en">Age 5 year class</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#Age6YearClass -->
@@ -2106,7 +2106,7 @@
         <skos:prefLabel xml:lang="en">Age 6 year class</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#Age7YearClass -->
@@ -2121,7 +2121,7 @@
         <skos:prefLabel xml:lang="en">Age 7 year class</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#AgeAtMaturityBasis -->
@@ -2136,7 +2136,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#AgeAtReturnBasis -->
@@ -2151,7 +2151,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#AgeAtSamplingBasis -->
@@ -2166,7 +2166,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#AgeBasis -->
@@ -2180,7 +2180,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#AgeBasisScheme -->
@@ -2194,7 +2194,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#AgeClassValue -->
@@ -2207,7 +2207,7 @@
         <skos:prefLabel xml:lang="en">Age class value</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#AgeClassValueScheme -->
@@ -2220,7 +2220,7 @@
         <skos:prefLabel xml:lang="en">Age class value scheme</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#AgeDimension -->
@@ -2233,7 +2233,7 @@
         <skos:prefLabel xml:lang="en">Age dimension</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#AgeDimensionScheme -->
@@ -2246,7 +2246,7 @@
         <skos:prefLabel xml:lang="en">Age dimension scheme</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#AgeNotation -->
@@ -2260,7 +2260,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#AgeNotationScheme -->
@@ -2274,7 +2274,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#AmberZone -->
@@ -2291,7 +2291,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#AreaUnderTheCurve -->
@@ -2307,7 +2307,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#BenchmarkLevelScheme -->
@@ -2320,7 +2320,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#BenchmarkRatioMetric -->
@@ -2344,7 +2344,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#BiologicalBenchmarkAndIndicatorScheme -->
@@ -2358,7 +2358,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#BreachBypass -->
@@ -2374,7 +2374,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#BroodYear -->
@@ -2393,7 +2393,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#COSEWICStatusScheme -->
@@ -2408,7 +2408,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#SpeciesAtRiskRecoveryTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#CalibratedTimeSeries -->
@@ -2424,7 +2424,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#CatchContext -->
@@ -2434,11 +2434,12 @@
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContext"/>
         <skos:definition xml:lang="en">Measurement context indicating values refer to fishery catch.</skos:definition>
+        <skos:exactMatch rdf:resource="https://w3id.org/smn/CatchContext"/>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContextScheme"/>
         <skos:prefLabel xml:lang="en">Catch context</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#CatchYear -->
@@ -2454,7 +2455,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#Classification -->
@@ -2470,7 +2471,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#ConfidenceCategory -->
@@ -2478,7 +2479,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#ConfidenceCategory">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#CrossSectionCoverage -->
@@ -2494,7 +2495,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme -->
@@ -2507,7 +2508,7 @@
         <skos:prefLabel xml:lang="en">Data, Models, and Provenance</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#DataQualityRatingContext -->
@@ -2521,7 +2522,7 @@
         <skos:prefLabel xml:lang="en">Data quality rating context</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#Detectability -->
@@ -2537,7 +2538,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#DeviceConfiguration -->
@@ -2553,7 +2554,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#Documentation -->
@@ -2569,7 +2570,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#DowngradeCriteria -->
@@ -2583,7 +2584,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#DowngradeCriteriaScheme -->
@@ -2596,7 +2597,7 @@
         <skos:prefLabel xml:lang="en">Downgrade Criteria Scheme</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#EffortStandardization -->
@@ -2612,7 +2613,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#ElectrofishingCount -->
@@ -2628,7 +2629,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#EnumerationMethod -->
@@ -2636,13 +2637,15 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#EnumerationMethod">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/smn/EnumerationMethod"/>
         <skos:definition xml:lang="en">A method used to enumerate or count salmon in the field</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EnumerationMethodScheme"/>
         <skos:prefLabel xml:lang="en">Enumeration Method</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">Boundary note (2026-03-13): EnumerationMethod is intentionally modeled as a SKOS concept in gcdfo. Do not treat this as owl:equivalentClass to smn:EnumerationMethod.</skos:scopeNote>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#EnumerationMethodScheme -->
@@ -2655,7 +2658,7 @@
         <skos:prefLabel xml:lang="en">Escapement Enumeration Method Scheme</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#EnvironmentalConditions -->
@@ -2671,7 +2674,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#EstimateMethod -->
@@ -2685,7 +2688,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#EstimateMethodScheme -->
@@ -2698,7 +2701,7 @@
         <skos:prefLabel xml:lang="en">Escapement Estimate Method Scheme</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#EstimateType -->
@@ -2712,7 +2715,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#EstimateTypeScheme -->
@@ -2725,7 +2728,7 @@
         <skos:prefLabel xml:lang="en">Escapement Estimate Type Scheme</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#EuropeanAgeNotation -->
@@ -2742,7 +2745,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#ExpansionFactor -->
@@ -2760,7 +2763,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#ExpansionMathematicalOperations -->
@@ -2776,7 +2779,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#FishStockProvisions -->
@@ -2793,7 +2796,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#FisheriesManagementTheme -->
@@ -2806,7 +2809,7 @@
         <skos:prefLabel xml:lang="en">Fisheries Management</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#FixedSiteCensusElectronic -->
@@ -2822,7 +2825,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#FixedSiteCensusManual -->
@@ -2838,7 +2841,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#FixedStationTally -->
@@ -2853,7 +2856,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#FreshwaterAgeDimension -->
@@ -2867,7 +2870,7 @@
         <skos:prefLabel xml:lang="en">Freshwater age dimension</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#GenerationalAverageAbundance -->
@@ -2890,7 +2893,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme -->
@@ -2903,7 +2906,7 @@
         <skos:prefLabel xml:lang="en">Genetics and Stock Composition</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#GilbertRichAgeNotation -->
@@ -2921,7 +2924,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#GreenZone -->
@@ -2938,7 +2941,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#HabitatEcosystemClimateTheme -->
@@ -2951,7 +2954,7 @@
         <skos:prefLabel xml:lang="en">Habitat, Ecosystem, and Climate Pressures</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#HatcheryOrigin -->
@@ -2963,13 +2966,14 @@
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#SalmonOrigin"/>
         <skos:definition xml:lang="en">Individuals that were born or reared in a hatchery facility.</skos:definition>
+        <skos:exactMatch rdf:resource="https://w3id.org/smn/HatcheryOrigin"/>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#SalmonOriginScheme"/>
         <skos:prefLabel xml:lang="en">Hatchery-origin</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#HydroacousticModelling -->
@@ -2985,7 +2989,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#HydroacousticSonarCount -->
@@ -3001,7 +3005,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#InRiverPhase -->
@@ -3012,11 +3016,12 @@
         <skos:altLabel xml:lang="en">Freshwater phase</skos:altLabel>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#LifePhase"/>
         <skos:definition xml:lang="en">Freshwater in-river phase (migration and/or residence) outside the marine environment.</skos:definition>
+        <skos:exactMatch rdf:resource="https://w3id.org/smn/InRiverPhase"/>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#LifePhaseScheme"/>
         <skos:prefLabel xml:lang="en">In-river phase</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#InfillMethod -->
@@ -3032,7 +3037,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#LifePhase -->
@@ -3041,11 +3046,12 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <skos:definition xml:lang="en">A phase or segment used to stratify salmon measurements by where or when they apply (e.g., ocean phase, terminal phase).</skos:definition>
+        <skos:exactMatch rdf:resource="https://w3id.org/smn/LifePhase"/>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#LifePhaseScheme"/>
         <skos:prefLabel xml:lang="en">Life phase</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#LifePhaseScheme -->
@@ -3058,7 +3064,7 @@
         <skos:prefLabel xml:lang="en">Life phase scheme</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#LongTermTrendMetric -->
@@ -3081,7 +3087,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#LowerBenchmark -->
@@ -3095,7 +3101,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#MainstemPhase -->
@@ -3105,11 +3111,12 @@
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#LifePhase"/>
         <skos:definition xml:lang="en">Freshwater mainstem migration phase in a river system (often corresponding to mainstem in-river fisheries or monitoring segments).</skos:definition>
+        <skos:exactMatch rdf:resource="https://w3id.org/smn/MainstemPhase"/>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#LifePhaseScheme"/>
         <skos:prefLabel xml:lang="en">Mainstem phase</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#ManagementReferenceContext -->
@@ -3124,7 +3131,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#MarkRecaptureAnalysis -->
@@ -3140,7 +3147,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#MarkRecaptureAssumptions -->
@@ -3156,7 +3163,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#MarkRecaptureFieldProgram -->
@@ -3172,7 +3179,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#MeasurementContext -->
@@ -3181,12 +3188,13 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <skos:definition xml:lang="en">A context qualifier used to disambiguate the interpretation of a measurement column.</skos:definition>
+        <skos:exactMatch rdf:resource="https://w3id.org/smn/MeasurementContext"/>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContextScheme"/>
         <skos:prefLabel xml:lang="en">Measurement context</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#MeasurementContextScheme -->
@@ -3200,7 +3208,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#MethodUnknown -->
@@ -3216,7 +3224,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme -->
@@ -3229,7 +3237,7 @@
         <skos:prefLabel xml:lang="en">Monitoring and Field Work</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#NaturalOrigin -->
@@ -3241,13 +3249,14 @@
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#SalmonOrigin"/>
         <skos:definition xml:lang="en">Individuals that are born and reared in the wild (natural environment).</skos:definition>
+        <skos:exactMatch rdf:resource="https://w3id.org/smn/NaturalOrigin"/>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#SalmonOriginScheme"/>
         <skos:prefLabel xml:lang="en">Natural-origin</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#NumberOfVisits -->
@@ -3263,7 +3272,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#OceanAgeDimension -->
@@ -3278,7 +3287,7 @@
         <skos:prefLabel xml:lang="en">Ocean age dimension</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#OceanPhase -->
@@ -3289,11 +3298,12 @@
         <skos:altLabel xml:lang="en">Marine phase</skos:altLabel>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#LifePhase"/>
         <skos:definition xml:lang="en">Phase of the salmon life cycle or assessment period occurring in the marine environment.</skos:definition>
+        <skos:exactMatch rdf:resource="https://w3id.org/smn/OceanPhase"/>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#LifePhaseScheme"/>
         <skos:prefLabel xml:lang="en">Ocean phase</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#PeakCountAnalysis -->
@@ -3309,7 +3319,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#PercentChangeMetric -->
@@ -3333,7 +3343,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#PolicyFramework -->
@@ -3348,7 +3358,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#PolicyFrameworkScheme -->
@@ -3363,7 +3373,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme -->
@@ -3376,7 +3386,7 @@
         <skos:prefLabel xml:lang="en">Policy, Governance, and Organizational Structure</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#PrecautionaryApproach -->
@@ -3393,7 +3403,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#PrecisionAccuracy -->
@@ -3409,7 +3419,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#ProbabilityDeclineBelowLowerBenchmarkMetric -->
@@ -3432,7 +3442,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#RapidStatusConfidenceHigh -->
@@ -3448,7 +3458,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#RapidStatusConfidenceLow -->
@@ -3464,7 +3474,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#RapidStatusConfidenceMedium -->
@@ -3480,7 +3490,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#RapidStatusConfidenceScheme -->
@@ -3494,7 +3504,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#RapidStatusMetric -->
@@ -3511,7 +3521,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#RapidStatusMetricScheme -->
@@ -3526,7 +3536,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#RapidStatusScoreMetric -->
@@ -3549,7 +3559,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#ReachCoverage -->
@@ -3565,7 +3575,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#RecruitStageContext -->
@@ -3579,7 +3589,7 @@
         <skos:prefLabel xml:lang="en">Recruit stage context</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#RedZone -->
@@ -3596,7 +3606,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#ReddCount -->
@@ -3612,7 +3622,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#ReddExpansionAnalysis -->
@@ -3628,7 +3638,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#ReturnYear -->
@@ -3647,7 +3657,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#ReviewQA -->
@@ -3663,7 +3673,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#RunContext -->
@@ -3673,11 +3683,12 @@
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContext"/>
         <skos:definition xml:lang="en">Measurement context indicating values refer to run size or returning run composition.</skos:definition>
+        <skos:exactMatch rdf:resource="https://w3id.org/smn/RunContext"/>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContextScheme"/>
         <skos:prefLabel xml:lang="en">Run context</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#RunCoverage -->
@@ -3693,7 +3704,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme -->
@@ -3706,7 +3717,7 @@
         <skos:prefLabel xml:lang="en">Salmon Enhancement and Hatcheries</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#SalmonOrigin -->
@@ -3715,12 +3726,13 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <skos:definition xml:lang="en">Origin category describing whether salmon are naturally produced, hatchery produced, or mixed-origin.</skos:definition>
+        <skos:exactMatch rdf:resource="https://w3id.org/smn/SalmonOrigin"/>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#SalmonOriginScheme"/>
         <skos:prefLabel xml:lang="en">Salmon origin</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#SalmonOriginScheme -->
@@ -3735,7 +3747,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#SpawnerStageContext -->
@@ -3745,11 +3757,12 @@
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContext"/>
         <skos:definition xml:lang="en">Measurement context indicating values refer to spawners or spawning-stage fish.</skos:definition>
+        <skos:exactMatch rdf:resource="https://w3id.org/smn/SpawnerStageContext"/>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContextScheme"/>
         <skos:prefLabel xml:lang="en">Spawner stage context</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#SpeciesAtRiskRecoveryTheme -->
@@ -3762,7 +3775,7 @@
         <skos:prefLabel xml:lang="en">Species at Risk and Recovery</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#StockAssessmentTheme -->
@@ -3775,7 +3788,7 @@
         <skos:prefLabel xml:lang="en">Stock Assessment</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#StockStatusZoneScheme -->
@@ -3792,7 +3805,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#SurvivalOrMortalityContext -->
@@ -3802,11 +3815,12 @@
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContext"/>
         <skos:definition xml:lang="en">Measurement context indicating values represent survival, mortality, or related rates.</skos:definition>
+        <skos:exactMatch rdf:resource="https://w3id.org/smn/SurvivalOrMortalityContext"/>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContextScheme"/>
         <skos:prefLabel xml:lang="en">Survival or mortality context</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#TerminalPhase -->
@@ -3816,11 +3830,12 @@
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#LifePhase"/>
         <skos:definition xml:lang="en">Phase occurring in terminal areas near river mouths or spawning areas (often including terminal fisheries and local migration to spawning sites).</skos:definition>
+        <skos:exactMatch rdf:resource="https://w3id.org/smn/TerminalPhase"/>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#LifePhaseScheme"/>
         <skos:prefLabel xml:lang="en">Terminal phase</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#ThemeScheme -->
@@ -3832,7 +3847,7 @@
         <skos:prefLabel xml:lang="en">Theme Scheme</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#Timing -->
@@ -3848,7 +3863,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#TotalAgeDimension -->
@@ -3862,7 +3877,7 @@
         <skos:prefLabel xml:lang="en">Total age dimension</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#TrapCount -->
@@ -3878,7 +3893,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#TrapEfficiency -->
@@ -3894,7 +3909,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#TrapModelAnalysis -->
@@ -3910,7 +3925,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#Type1 -->
@@ -3925,7 +3940,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#Type2 -->
@@ -3940,7 +3955,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#Type3 -->
@@ -3955,7 +3970,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#Type4 -->
@@ -3970,7 +3985,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#Type5 -->
@@ -3985,7 +4000,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#Type6 -->
@@ -4001,7 +4016,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#UnrankedIndexQuality -->
@@ -4019,7 +4034,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#UpperBenchmark -->
@@ -4033,7 +4048,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#Uptime -->
@@ -4049,7 +4064,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#Visibility -->
@@ -4065,7 +4080,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#VisualGroundCount -->
@@ -4081,7 +4096,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#VisualSnorkelCount -->
@@ -4097,7 +4112,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZone -->
@@ -4105,7 +4120,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZone">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZoneScheme -->
@@ -4120,7 +4135,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#WSPRapidStatusAssessmentMethod -->
@@ -4139,7 +4154,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#WildSalmonPolicy -->
@@ -4156,7 +4171,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme -->
@@ -4169,7 +4184,7 @@
         <skos:prefLabel xml:lang="en">Wild Salmon Policy</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#YearBasis -->
@@ -4184,7 +4199,7 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- https://w3id.org/gcdfo/salmon#YearBasisScheme -->
@@ -4198,10 +4213,10 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
-    
 
 
-    <!-- 
+
+    <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Annotations

@@ -1272,9 +1272,20 @@
         "@value": "https://w3id.org/gcdfo/salmon#"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Boundary note (2026-03-13): this ontology now imports smn and carries conservative alignment links for clearly shared terms. DFO-local semantics are intentionally retained for Population, hasPopulation, populationOf, ReferencePoint, and MetricBenchmark pending later review."
+      }
+    ],
     "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
       {
         "@id": "https://github.com/dfo-pacific-science/dfo-salmon-ontology"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#imports": [
+      {
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2002/07/owl#priorVersion": [
@@ -2716,6 +2727,11 @@
         "@value": "Measurement context indicating values refer to fishery catch."
       }
     ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://w3id.org/smn/CatchContext"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#MeasurementContextScheme"
@@ -3068,6 +3084,9 @@
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
         "@id": "http://rs.tdwg.org/dwc/terms/Organism"
+      },
+      {
+        "@id": "https://w3id.org/smn/Deme"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
@@ -3396,6 +3415,11 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://w3id.org/smn/EnumerationMethod"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#definition": [
       {
         "@language": "en",
@@ -3411,6 +3435,12 @@
       {
         "@language": "en",
         "@value": "Enumeration Method"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Boundary note (2026-03-13): EnumerationMethod is intentionally modeled as a SKOS concept in gcdfo. Do not treat this as owl:equivalentClass to smn:EnumerationMethod."
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
@@ -3538,6 +3568,9 @@
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
         "@id": "http://purl.obolibrary.org/obo/BFO_0000015"
+      },
+      {
+        "@id": "https://w3id.org/smn/Escapement"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
@@ -3577,6 +3610,9 @@
       },
       {
         "@id": "http://www.w3.org/ns/sosa/Result"
+      },
+      {
+        "@id": "https://w3id.org/smn/EscapementMeasurement"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
@@ -3613,6 +3649,9 @@
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#SurveyEvent"
+      },
+      {
+        "@id": "https://w3id.org/smn/EscapementSurveyEvent"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#prefLabel": [
@@ -4564,6 +4603,11 @@
         "@value": "Individuals that were born or reared in a hatchery facility."
       }
     ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://w3id.org/smn/HatcheryOrigin"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#SalmonOriginScheme"
@@ -4755,6 +4799,11 @@
         "@value": "Freshwater in-river phase (migration and/or residence) outside the marine environment."
       }
     ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://w3id.org/smn/InRiverPhase"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#LifePhaseScheme"
@@ -4883,6 +4932,11 @@
       {
         "@language": "en",
         "@value": "A phase or segment used to stratify salmon measurements by where or when they apply (e.g., ocean phase, terminal phase)."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://w3id.org/smn/LifePhase"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -5223,6 +5277,11 @@
         "@value": "Freshwater mainstem migration phase in a river system (often corresponding to mainstem in-river fisheries or monitoring segments)."
       }
     ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://w3id.org/smn/MainstemPhase"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#LifePhaseScheme"
@@ -5485,6 +5544,11 @@
         "@value": "A context qualifier used to disambiguate the interpretation of a measurement column."
       }
     ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://w3id.org/smn/MeasurementContext"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#MeasurementContextScheme"
@@ -5610,6 +5674,12 @@
         "@id": "https://publications.gc.ca/site/eng/9.928944/publication.html"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Boundary note (2026-03-13): intentionally retained as DFO-local in this pass due WSP grounding in definitions and usage."
+      }
+    ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
@@ -5698,6 +5768,11 @@
       {
         "@language": "en",
         "@value": "Individuals that are born and reared in the wild (natural environment)."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://w3id.org/smn/NaturalOrigin"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -5848,6 +5923,9 @@
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
         "@id": "http://purl.obolibrary.org/obo/IAO_0000109"
+      },
+      {
+        "@id": "https://w3id.org/smn/ObservedRateOrAbundance"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
@@ -5972,6 +6050,11 @@
       {
         "@language": "en",
         "@value": "Phase of the salmon life cycle or assessment period occurring in the marine environment."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://w3id.org/smn/OceanPhase"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -6301,6 +6384,12 @@
       {
         "@language": "en",
         "@value": "A group of organisms of the same species occupying a defined area that interbreed and share a gene pool. In salmon, populations are composed of one or more demes and form the biological basis for Conservation Units."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Boundary note (2026-03-13): intentionally retained as a DFO-local class in this pass due CU-specific framing in definitions and usage."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -7145,6 +7234,12 @@
         "@id": "https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Boundary note (2026-03-13): intentionally retained as DFO-local in this pass; do not auto-move to smn."
+      }
+    ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
@@ -7768,6 +7863,9 @@
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
         "@id": "http://purl.obolibrary.org/obo/IAO_0000030"
+      },
+      {
+        "@id": "https://w3id.org/smn/ReportingOrManagementStratum"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
@@ -7908,6 +8006,11 @@
         "@value": "Measurement context indicating values refer to run size or returning run composition."
       }
     ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://w3id.org/smn/RunContext"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#MeasurementContextScheme"
@@ -8019,6 +8122,11 @@
       {
         "@language": "en",
         "@value": "Origin category describing whether salmon are naturally produced, hatchery produced, or mixed-origin."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://w3id.org/smn/SalmonOrigin"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -8298,6 +8406,11 @@
         "@value": "Measurement context indicating values refer to spawners or spawning-stage fish."
       }
     ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://w3id.org/smn/SpawnerStageContext"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#MeasurementContextScheme"
@@ -8384,6 +8497,9 @@
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum"
+      },
+      {
+        "@id": "https://w3id.org/smn/Stock"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#altLabel": [
@@ -8440,6 +8556,9 @@
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
         "@id": "http://purl.obolibrary.org/obo/BFO_0000015"
+      },
+      {
+        "@id": "https://w3id.org/smn/StockAssessment"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
@@ -8629,6 +8748,9 @@
       },
       {
         "@id": "http://www.w3.org/ns/sosa/Sampling"
+      },
+      {
+        "@id": "https://w3id.org/smn/SurveyEvent"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
@@ -8659,6 +8781,11 @@
       {
         "@language": "en",
         "@value": "Measurement context indicating values represent survival, mortality, or related rates."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://w3id.org/smn/SurvivalOrMortalityContext"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -8756,6 +8883,9 @@
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
         "@id": "http://purl.obolibrary.org/obo/IAO_0000109"
+      },
+      {
+        "@id": "https://w3id.org/smn/TargetOrLimitRateOrAbundance"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
@@ -8836,6 +8966,11 @@
       {
         "@language": "en",
         "@value": "Phase occurring in terminal areas near river mouths or spawning areas (often including terminal fisheries and local migration to spawning sites)."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://w3id.org/smn/TerminalPhase"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -10321,6 +10456,11 @@
         "@id": "https://w3id.org/gcdfo/salmon#Population"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "https://w3id.org/smn/demeOf"
+      }
+    ],
     "http://www.w3.org/2002/07/owl#inverseOf": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#hasDeme"
@@ -10514,6 +10654,11 @@
         "@id": "https://w3id.org/gcdfo/salmon#Deme"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "https://w3id.org/smn/hasDeme"
+      }
+    ],
     "https://w3id.org/gcdfo/salmon#theme": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"
@@ -10561,6 +10706,9 @@
       },
       {
         "@id": "http://www.w3.org/ns/sosa/hasFeatureOfInterest"
+      },
+      {
+        "@id": "https://w3id.org/smn/hasFeatureOfInterest"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
@@ -10613,6 +10761,9 @@
       },
       {
         "@id": "http://www.w3.org/ns/sosa/hasResult"
+      },
+      {
+        "@id": "https://w3id.org/smn/hasObservationResult"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
@@ -10679,6 +10830,12 @@
       {
         "@language": "en",
         "@value": "Relates a Conservation Unit to one of its constituent populations."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Boundary note (2026-03-13): intentionally retained as a DFO/CU-scoped property; not auto-aligned to smn:hasPopulation in this pass."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
@@ -11077,6 +11234,9 @@
       },
       {
         "@id": "http://www.w3.org/ns/sosa/isSampleOf"
+      },
+      {
+        "@id": "https://w3id.org/smn/isSampleOfStratum"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
@@ -11149,6 +11309,12 @@
       {
         "@language": "en",
         "@value": "Relates a population to the Conservation Unit it belongs to."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Boundary note (2026-03-13): intentionally retained as a DFO/CU-scoped property; not auto-aligned to smn:populationOf in this pass."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
@@ -11345,6 +11511,9 @@
       },
       {
         "@id": "http://www.w3.org/ns/sosa/usedProcedure"
+      },
+      {
+        "@id": "https://w3id.org/smn/usesObservationProcedure"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
