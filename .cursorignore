@@ -1,0 +1,31 @@
+# Cursor indexing configuration template
+# These negation patterns keep important agent/docs files indexable even if
+# a repo has broad local ignore rules. If the files are already tracked,
+# these lines are harmless belt-and-suspenders.
+#
+# Copy this file to your project root as `.cursorignore` and customize as needed.
+
+# Useful documentation and agent context
+!docs/adr/0001.md
+!docs/notes/
+!docs/notes/**/*
+!docs/entrypoints.md
+!docs/plans/
+!docs/plans/**/*
+!docs/tech-debt.md
+!docs/todo-list.md
+!docs/context/
+!docs/context/**/*
+!docs/examples/
+!docs/examples/**/*
+!docs/ontology_applications/
+!docs/ontology_applications/**/*
+
+# Agent instructions / context files
+!AGENTS.md
+
+!.cursorignore
+
+# .cursor directory (for cursor-specific configs)
+!.cursor/
+!.cursor/**/*

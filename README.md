@@ -42,12 +42,29 @@ The GC DFO Salmon Ontology is a **data stewardship and operational process ontol
 - **Hybrid approach**: OWL for formal relationships, SKOS for controlled vocabularies
 - **Darwin Core aligned**: Uses DwC classes as top-level framework for interoperability; **implements Darwin Core Conceptual Model (DwC-CM) patterns**
 - **OBO Foundry principles**: Open, interoperable, logically well-formed, scientifically accurate
-- **Pragmatic imports**: MIREOT for BFO/IAO/DQV (~12 terms); prefix-only for PROV-O/RO/SKOS
+- **Pragmatic imports**: imports shared `smn` plus MIREOT for BFO/IAO/DQV (~12 terms); prefix-only for PROV-O/RO/SKOS
 - **Upper ontology**: BFO grounding for process/entity hierarchy
 - **Units**: QUDT/OM IRIs stored as literals (starter convention)
 - **Community-aligned**: builds on NCEAS Salmon Ontology, ENVO, and OBO Foundry vocabularies
 
 ---
+
+## Namespace Boundary and Shared-Layer Preference
+
+- **`gcdfo:` is the DFO-specific layer.** This repo publishes and maintains the GC DFO Salmon Ontology namespace at `https://w3id.org/gcdfo/salmon#`.
+- **`smn:` is the shared cross-organization layer.** When the Salmon Domain Ontology shared namespace is used downstream, prefer `smn:` terms first **where an approved shared term exists**.
+- **Use `gcdfo:` for DFO-specific or deferred-profile semantics.** Terms such as DFO program/policy constructs — and any term intentionally kept out of the shared layer — remain canonical in `gcdfo:`.
+- **Practical resolution order for downstream tools:** resolve approved shared terms from `smn:` first, then fall back to `gcdfo:` for DFO-specific/deferred-profile terms and bridge context.
+- `ontology/dfo-salmon.ttl` now explicitly imports `https://w3id.org/smn`.
+- This pass adds conservative `gcdfo -> smn` alignment links for clearly safe overlaps (for example: `Stock`, `Deme`, `SurveyEvent`, `Escapement`, and selected shared SKOS vocab terms).
+- DFO-local semantics are intentionally retained for:
+  - `Population`
+  - `hasPopulation` / `populationOf`
+  - `ReferencePoint`
+  - `MetricBenchmark`
+- `EnumerationMethod` remains a `skos:Concept` root in `gcdfo` by design in this pass (not an OWL-class equivalence cutover).
+- **Transition note:** some upstream migration artifacts may still show draft shared IRIs under `salmon:` / `http://w3id.org/salmon/`. Treat those as pre-cutover placeholders pending the `smn:` namespace rewrite, not as the preferred long-term shared target.
+- Migration detail and deferred items are tracked in [docs/plans/2026-03-13-smn-boundary-passable.md](docs/plans/2026-03-13-smn-boundary-passable.md).
 
 ## Quickstart
 

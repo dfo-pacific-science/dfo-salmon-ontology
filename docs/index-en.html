@@ -86,6 +86,9 @@ $(function(){
 
 <dt>Publisher:</dt>
 <dd>Fisheries and Oceans Canada (DFO) Pacific Region Science Branch</dd>
+<dt>Imported Ontologies:</dt>
+<dd><a href="https://w3id.org/smn/modules/01-entity-systematics">entity-systematics</a></dd><dd><a href="https://w3id.org/smn/modules/02-observation-measurement">observation-measurement</a></dd><dd><a href="https://w3id.org/smn/modules/03-assessment-benchmarks">assessment-benchmarks</a></dd><dd><a href="https://w3id.org/smn/modules/04-management-governance">management-governance</a></dd><dd><a href="https://w3id.org/smn/modules/05-provenance-quality">provenance-quality</a></dd><dd><a href="https://w3id.org/smn/modules/06-data-interoperability">data-interoperability</a></dd><dd><a href="https://w3id.org/smn/modules/07-controlled-vocabularies">controlled-vocabularies</a></dd><dd><a href="https://w3id.org/smn/modules/alignment-main">alignment-main</a></dd><dd><a href="https://w3id.org/smn">smn</a></dd>
+
 <dt>See also:</dt>
 <dd><a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology">https://github.com/dfo-pacific-science/dfo-salmon-ontology</a></dd>
 
@@ -489,7 +492,7 @@ This ontology has the following classes and properties.</span>
 <!--DESCRIPTION SECTION-->
     <div id="description"><h2 id="desc" class="list">DFO Salmon Ontology: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 
-<span class="markdown">OWL + SKOS ontology for DFO salmon data: stocks/CUs/MUs, survey events, escapement measurements, and GSI constructs; aligns to DwC via rdfs:subClassOf; hybrid approach with SKOS for methods and OWL for events.</span></div>
+<span class="markdown">Boundary note (2026-03-13): this ontology now imports smn and carries conservative alignment links for clearly shared terms. DFO-local semantics are intentionally retained for Population, hasPopulation, populationOf, ReferencePoint, and MetricBenchmark pending later review.</span></div>
    
 
 <!--CROSSREF SECTION-->
@@ -746,7 +749,7 @@ This section provides details for each class and property defined by DFO Salmon 
     has super-classes
    </dt>
    <dd>
-    <a href="#http://rs.tdwg.org/dwc/terms/Organism" title="http://rs.tdwg.org/dwc/terms/Organism">Organism</a> <sup class="type-c" title="class">c</sup>
+    <a href="https://w3id.org/smn/Deme" target="_blank" title="https://w3id.org/smn/Deme">Deme</a> <sup class="type-c" title="class">c</sup>, <a href="#http://rs.tdwg.org/dwc/terms/Organism" title="http://rs.tdwg.org/dwc/terms/Organism">Organism</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     is in domain of
@@ -869,7 +872,7 @@ This section provides details for each class and property defined by DFO Salmon 
     has super-classes
    </dt>
    <dd>
-    <a href="#http://purl.obolibrary.org/obo/BFO_0000015" title="http://purl.obolibrary.org/obo/BFO_0000015">process</a> <sup class="type-c" title="class">c</sup>
+    <a href="https://w3id.org/smn/Escapement" target="_blank" title="https://w3id.org/smn/Escapement">Escapement</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.obolibrary.org/obo/BFO_0000015" title="http://purl.obolibrary.org/obo/BFO_0000015">process</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -892,7 +895,7 @@ This section provides details for each class and property defined by DFO Salmon 
     has super-classes
    </dt>
    <dd>
-    <a href="http://www.w3.org/ns/sosa/Result" target="_blank" title="http://www.w3.org/ns/sosa/Result">Result</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.obolibrary.org/obo/IAO_0000109" title="http://purl.obolibrary.org/obo/IAO_0000109">measurement datum</a> <sup class="type-c" title="class">c</sup>
+    <a href="https://w3id.org/smn/EscapementMeasurement" target="_blank" title="https://w3id.org/smn/EscapementMeasurement">Escapement Measurement</a> <sup class="type-c" title="class">c</sup>, <a href="http://www.w3.org/ns/sosa/Result" target="_blank" title="http://www.w3.org/ns/sosa/Result">Result</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.obolibrary.org/obo/IAO_0000109" title="http://purl.obolibrary.org/obo/IAO_0000109">measurement datum</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     is in domain of
@@ -927,7 +930,7 @@ This section provides details for each class and property defined by DFO Salmon 
     has super-classes
    </dt>
    <dd>
-    <a href="#SurveyEvent" title="https://w3id.org/gcdfo/salmon#SurveyEvent">Survey event</a> <sup class="type-c" title="class">c</sup>
+    <a href="https://w3id.org/smn/EscapementSurveyEvent" target="_blank" title="https://w3id.org/smn/EscapementSurveyEvent">Escapement Survey Event</a> <sup class="type-c" title="class">c</sup>, <a href="#SurveyEvent" title="https://w3id.org/gcdfo/salmon#SurveyEvent">Survey event</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -1595,6 +1598,9 @@ This section provides details for each class and property defined by DFO Salmon 
   <div class="comment">
    <span class="markdown">Benchmark value for a metric that helps delineate status zones (for example, the limit reference point for absolute abundance).</span>
   </div>
+  <div class="comment">
+   <span class="markdown">Boundary note (2026-03-13): intentionally retained as DFO-local in this pass due WSP grounding in definitions and usage.</span>
+  </div>
   <dl class="definedBy">
    <dt>
     Is defined by
@@ -1700,7 +1706,7 @@ This section provides details for each class and property defined by DFO Salmon 
     has super-classes
    </dt>
    <dd>
-    <a href="#http://purl.obolibrary.org/obo/IAO_0000109" title="http://purl.obolibrary.org/obo/IAO_0000109">measurement datum</a> <sup class="type-c" title="class">c</sup>
+    <a href="https://w3id.org/smn/ObservedRateOrAbundance" target="_blank" title="https://w3id.org/smn/ObservedRateOrAbundance">Observed Rate Or Abundance</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.obolibrary.org/obo/IAO_0000109" title="http://purl.obolibrary.org/obo/IAO_0000109">measurement datum</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     has sub-classes
@@ -1910,6 +1916,9 @@ This section provides details for each class and property defined by DFO Salmon 
   <div class="comment">
    <span class="markdown">A group of organisms of the same species occupying a defined area that interbreed and share a gene pool. In salmon, populations are composed of one or more demes and form the biological basis for Conservation Units.</span>
   </div>
+  <div class="comment">
+   <span class="markdown">Boundary note (2026-03-13): intentionally retained as a DFO-local class in this pass due CU-specific framing in definitions and usage.</span>
+  </div>
   <dl class="definedBy">
    <dt>
     Is defined by
@@ -2066,6 +2075,9 @@ This section provides details for each class and property defined by DFO Salmon 
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#ReferencePoint</p>
   <div class="comment">
    <span class="markdown">Reference points are used as targets to achieve or as limits to avoid.</span>
+  </div>
+  <div class="comment">
+   <span class="markdown">Boundary note (2026-03-13): intentionally retained as DFO-local in this pass; do not auto-move to smn.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -2570,7 +2582,7 @@ This section provides details for each class and property defined by DFO Salmon 
     has super-classes
    </dt>
    <dd>
-    <a href="#http://purl.obolibrary.org/obo/IAO_0000030" title="http://purl.obolibrary.org/obo/IAO_0000030">information content entity</a> <sup class="type-c" title="class">c</sup>
+    <a href="https://w3id.org/smn/ReportingOrManagementStratum" target="_blank" title="https://w3id.org/smn/ReportingOrManagementStratum">Reporting Or Management Stratum</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.obolibrary.org/obo/IAO_0000030" title="http://purl.obolibrary.org/obo/IAO_0000030">information content entity</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     has sub-classes
@@ -2852,7 +2864,7 @@ This section provides details for each class and property defined by DFO Salmon 
     has super-classes
    </dt>
    <dd>
-    <a href="#ReportingOrManagementStratum" title="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum">Reporting or management stratum</a> <sup class="type-c" title="class">c</sup>
+    <a href="#ReportingOrManagementStratum" title="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum">Reporting or management stratum</a> <sup class="type-c" title="class">c</sup>, <a href="https://w3id.org/smn/Stock" target="_blank" title="https://w3id.org/smn/Stock">Stock</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -2886,7 +2898,7 @@ This section provides details for each class and property defined by DFO Salmon 
     has super-classes
    </dt>
    <dd>
-    <a href="#http://purl.obolibrary.org/obo/BFO_0000015" title="http://purl.obolibrary.org/obo/BFO_0000015">process</a> <sup class="type-c" title="class">c</sup>
+    <a href="https://w3id.org/smn/StockAssessment" target="_blank" title="https://w3id.org/smn/StockAssessment">Stock Assessment</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.obolibrary.org/obo/BFO_0000015" title="http://purl.obolibrary.org/obo/BFO_0000015">process</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     is in domain of
@@ -3010,7 +3022,7 @@ This section provides details for each class and property defined by DFO Salmon 
     has super-classes
    </dt>
    <dd>
-    <a href="http://www.w3.org/ns/prov#Activity" target="_blank" title="http://www.w3.org/ns/prov#Activity">Activity</a> <sup class="type-c" title="class">c</sup>, <a href="#http://rs.tdwg.org/dwc/terms/Event" title="http://rs.tdwg.org/dwc/terms/Event">Event</a> <sup class="type-c" title="class">c</sup>, <a href="http://www.w3.org/ns/sosa/Sampling" target="_blank" title="http://www.w3.org/ns/sosa/Sampling">Sampling</a> <sup class="type-c" title="class">c</sup>
+    <a href="http://www.w3.org/ns/prov#Activity" target="_blank" title="http://www.w3.org/ns/prov#Activity">Activity</a> <sup class="type-c" title="class">c</sup>, <a href="#http://rs.tdwg.org/dwc/terms/Event" title="http://rs.tdwg.org/dwc/terms/Event">Event</a> <sup class="type-c" title="class">c</sup>, <a href="http://www.w3.org/ns/sosa/Sampling" target="_blank" title="http://www.w3.org/ns/sosa/Sampling">Sampling</a> <sup class="type-c" title="class">c</sup>, <a href="https://w3id.org/smn/SurveyEvent" target="_blank" title="https://w3id.org/smn/SurveyEvent">Survey Event</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     has sub-classes
@@ -3091,7 +3103,7 @@ This section provides details for each class and property defined by DFO Salmon 
     has super-classes
    </dt>
    <dd>
-    <a href="#http://purl.obolibrary.org/obo/IAO_0000109" title="http://purl.obolibrary.org/obo/IAO_0000109">measurement datum</a> <sup class="type-c" title="class">c</sup>
+    <a href="https://w3id.org/smn/TargetOrLimitRateOrAbundance" target="_blank" title="https://w3id.org/smn/TargetOrLimitRateOrAbundance">Target Or Limit Rate Or Abundance</a> <sup class="type-c" title="class">c</sup>, <a href="#http://purl.obolibrary.org/obo/IAO_0000109" title="http://purl.obolibrary.org/obo/IAO_0000109">measurement datum</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     has sub-classes
@@ -3441,6 +3453,12 @@ This section provides details for each class and property defined by DFO Salmon 
   <div class="description">
    <dl>
     <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://w3id.org/smn/demeOf" target="_blank" title="https://w3id.org/smn/demeOf">deme Of</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
      has domain
     </dt>
     <dd>
@@ -3595,6 +3613,12 @@ This section provides details for each class and property defined by DFO Salmon 
   <div class="description">
    <dl>
     <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://w3id.org/smn/hasDeme" target="_blank" title="https://w3id.org/smn/hasDeme">has Deme</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
      has domain
     </dt>
     <dd>
@@ -3635,7 +3659,7 @@ This section provides details for each class and property defined by DFO Salmon 
      has super-properties
     </dt>
     <dd>
-     <a href="http://www.w3.org/ns/sosa/hasFeatureOfInterest" target="_blank" title="http://www.w3.org/ns/sosa/hasFeatureOfInterest">has Feature Of Interest</a> <sup class="type-op" title="object property">op</sup>, <a href="http://www.w3.org/ns/prov#used" target="_blank" title="http://www.w3.org/ns/prov#used">used</a> <sup class="type-op" title="object property">op</sup>
+     <a href="http://www.w3.org/ns/sosa/hasFeatureOfInterest" target="_blank" title="http://www.w3.org/ns/sosa/hasFeatureOfInterest">has Feature Of Interest</a> <sup class="type-op" title="object property">op</sup>, <a href="https://w3id.org/smn/hasFeatureOfInterest" target="_blank" title="https://w3id.org/smn/hasFeatureOfInterest">has Feature Of Interest</a> <sup class="type-op" title="object property">op</sup>, <a href="http://www.w3.org/ns/prov#used" target="_blank" title="http://www.w3.org/ns/prov#used">used</a> <sup class="type-op" title="object property">op</sup>
     </dd>
     <dt>
      has domain
@@ -3672,7 +3696,7 @@ This section provides details for each class and property defined by DFO Salmon 
      has super-properties
     </dt>
     <dd>
-     <a href="http://www.w3.org/ns/prov#generated" target="_blank" title="http://www.w3.org/ns/prov#generated">generated</a> <sup class="type-op" title="object property">op</sup>, <a href="http://www.w3.org/ns/sosa/hasResult" target="_blank" title="http://www.w3.org/ns/sosa/hasResult">has Result</a> <sup class="type-op" title="object property">op</sup>
+     <a href="http://www.w3.org/ns/prov#generated" target="_blank" title="http://www.w3.org/ns/prov#generated">generated</a> <sup class="type-op" title="object property">op</sup>, <a href="https://w3id.org/smn/hasObservationResult" target="_blank" title="https://w3id.org/smn/hasObservationResult">has Observation Result</a> <sup class="type-op" title="object property">op</sup>, <a href="http://www.w3.org/ns/sosa/hasResult" target="_blank" title="http://www.w3.org/ns/sosa/hasResult">has Result</a> <sup class="type-op" title="object property">op</sup>
     </dd>
     <dt>
      has domain
@@ -3731,6 +3755,9 @@ This section provides details for each class and property defined by DFO Salmon 
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#hasPopulation</p>
   <div class="comment">
    <span class="markdown">Relates a Conservation Unit to one of its constituent populations.</span>
+  </div>
+  <div class="comment">
+   <span class="markdown">Boundary note (2026-03-13): intentionally retained as a DFO/CU-scoped property; not auto-aligned to smn:hasPopulation in this pass.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -3991,7 +4018,7 @@ This section provides details for each class and property defined by DFO Salmon 
      has super-properties
     </dt>
     <dd>
-     <a href="http://www.w3.org/ns/sosa/isSampleOf" target="_blank" title="http://www.w3.org/ns/sosa/isSampleOf">is Sample Of</a> <sup class="type-op" title="object property">op</sup>, <a href="http://www.w3.org/ns/prov#wasDerivedFrom" target="_blank" title="http://www.w3.org/ns/prov#wasDerivedFrom">was Derived From</a> <sup class="type-op" title="object property">op</sup>
+     <a href="http://www.w3.org/ns/sosa/isSampleOf" target="_blank" title="http://www.w3.org/ns/sosa/isSampleOf">is Sample Of</a> <sup class="type-op" title="object property">op</sup>, <a href="https://w3id.org/smn/isSampleOfStratum" target="_blank" title="https://w3id.org/smn/isSampleOfStratum">is Sample Of Stratum</a> <sup class="type-op" title="object property">op</sup>, <a href="http://www.w3.org/ns/prov#wasDerivedFrom" target="_blank" title="http://www.w3.org/ns/prov#wasDerivedFrom">was Derived From</a> <sup class="type-op" title="object property">op</sup>
     </dd>
     <dt>
      has domain
@@ -4050,6 +4077,9 @@ This section provides details for each class and property defined by DFO Salmon 
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#populationOf</p>
   <div class="comment">
    <span class="markdown">Relates a population to the Conservation Unit it belongs to.</span>
+  </div>
+  <div class="comment">
+   <span class="markdown">Boundary note (2026-03-13): intentionally retained as a DFO/CU-scoped property; not auto-aligned to smn:populationOf in this pass.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -4168,7 +4198,7 @@ This section provides details for each class and property defined by DFO Salmon 
      has super-properties
     </dt>
     <dd>
-     <a href="http://www.w3.org/ns/prov#used" target="_blank" title="http://www.w3.org/ns/prov#used">used</a> <sup class="type-op" title="object property">op</sup>, <a href="http://www.w3.org/ns/sosa/usedProcedure" target="_blank" title="http://www.w3.org/ns/sosa/usedProcedure">used Procedure</a> <sup class="type-op" title="object property">op</sup>
+     <a href="http://www.w3.org/ns/prov#used" target="_blank" title="http://www.w3.org/ns/prov#used">used</a> <sup class="type-op" title="object property">op</sup>, <a href="http://www.w3.org/ns/sosa/usedProcedure" target="_blank" title="http://www.w3.org/ns/sosa/usedProcedure">used Procedure</a> <sup class="type-op" title="object property">op</sup>, <a href="https://w3id.org/smn/usesObservationProcedure" target="_blank" title="https://w3id.org/smn/usesObservationProcedure">uses Observation Procedure</a> <sup class="type-op" title="object property">op</sup>
     </dd>
     <dt>
      has domain
@@ -4190,6 +4220,7 @@ This section provides details for each class and property defined by DFO Salmon 
 <div   class="entity">
 <sup class="type-c" title="Classes">c</sup>: Classes <br/>
 <sup class="type-op" title="Object Properties">op</sup>: Object Properties <br/>
+<sup class="type-ni" title="Named Individuals">ni</sup>: Named Individuals <br/>
 <sup class="type-ep" title="External Properties">ep</sup>: External Properties
 </div>
 </div>
@@ -4231,6 +4262,7 @@ This section provides details for each class and property defined by DFO Salmon 
 <li><a href="#Escapement">https://w3id.org/gcdfo/salmon#Escapement</a>
 <ul>
 <li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. 2005. Canada's Policy for Conservation of Wild Pacific Salmon. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf."@en</li>
+<li>Added: SubClass of https://w3id.org/smn/Escapement</li>
 </ul>
 <ul>
 <li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. (2005). Canada's Policy for Conservation of Wild Pacific Salmon. Retrieved from https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf"@en</li>
@@ -4240,9 +4272,15 @@ This section provides details for each class and property defined by DFO Salmon 
 <li><a href="#EscapementMeasurement">https://w3id.org/gcdfo/salmon#EscapementMeasurement</a>
 <ul>
 <li>Added: SubClass of http://www.w3.org/ns/sosa/Result</li>
+<li>Added: SubClass of https://w3id.org/smn/EscapementMeasurement</li>
 </ul>
 <ul>
 <li>Deleted: rdfs:comment "Salmon escapement count"@en</li>
+</ul>
+</li>
+<li><a href="#EscapementSurveyEvent">https://w3id.org/gcdfo/salmon#EscapementSurveyEvent</a>
+<ul>
+<li>Added: SubClass of https://w3id.org/smn/EscapementSurveyEvent</li>
 </ul>
 </li>
 <li><a href="#ExploitationRate">https://w3id.org/gcdfo/salmon#ExploitationRate</a>
@@ -4281,18 +4319,30 @@ This section provides details for each class and property defined by DFO Salmon 
 <ul>
 <li>Added: <http://purl.obolibrary.org/obo/IAO_0000115> "Benchmark value for a metric that helps delineate status zones (for example, the limit reference point for absolute abundance)."@en</li>
 <li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570."@en</li>
+<li>Added: rdfs:comment "Boundary note (2026-03-13): intentionally retained as DFO-local in this pass due WSP grounding in definitions and usage."@en</li>
 </ul>
 <ul>
 <li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000115> "Benchmark value for a WSP metric that helps delineate status zones (for example, the limit reference point for absolute abundance)."@en</li>
 <li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000119> "Pestal, G. et al. (2023). State of the Salmon: Rapid Status Assessment Approach for Pacific Salmon under Canada’s Wild Salmon Policy."@en</li>
 </ul>
 </li>
+<li><a href="#ObservedRateOrAbundance">https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance</a>
+<ul>
+<li>Added: SubClass of https://w3id.org/smn/ObservedRateOrAbundance</li>
+</ul>
+</li>
 <li><a href="#ReferencePoint">https://w3id.org/gcdfo/salmon#ReferencePoint</a>
 <ul>
 <li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html."@en</li>
+<li>Added: rdfs:comment "Boundary note (2026-03-13): intentionally retained as DFO-local in this pass; do not auto-move to smn."@en</li>
 </ul>
 <ul>
 <li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000119> "DFO Introduction to Stock Assessment Glossary."@en</li>
+</ul>
+</li>
+<li><a href="#ReportingOrManagementStratum">https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum</a>
+<ul>
+<li>Added: SubClass of https://w3id.org/smn/ReportingOrManagementStratum</li>
 </ul>
 </li>
 <li><a href="#Stock">https://w3id.org/gcdfo/salmon#Stock</a>
@@ -4301,6 +4351,7 @@ This section provides details for each class and property defined by DFO Salmon 
 <li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html."@en</li>
 <li>Added: <https://w3id.org/gcdfo/salmon#theme> https://w3id.org/gcdfo/salmon#FisheriesManagementTheme</li>
 <li>Added: SubClass of https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum</li>
+<li>Added: SubClass of https://w3id.org/smn/Stock</li>
 </ul>
 <ul>
 <li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000115> "A biologically meaningful but operationally-focused salmon demographic unit used in assessment and reporting."@en</li>
@@ -4312,6 +4363,7 @@ This section provides details for each class and property defined by DFO Salmon 
 <ul>
 <li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Introduction to Stock Assessment. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/module-1/09-eng.html."@en</li>
 <li>Added: <http://purl.org/dc/terms/source> https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/module-1/09-eng.html</li>
+<li>Added: SubClass of https://w3id.org/smn/StockAssessment</li>
 </ul>
 <ul>
 <li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. (2024). Introduction to Stock Assessment. Available at https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/module-1/09-eng.html"@en</li>
@@ -4332,6 +4384,7 @@ This section provides details for each class and property defined by DFO Salmon 
 <li>Added: <http://purl.org/dc/terms/source> https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html</li>
 <li>Added: SubClass of http://www.w3.org/ns/prov#Activity</li>
 <li>Added: SubClass of http://www.w3.org/ns/sosa/Sampling</li>
+<li>Added: SubClass of https://w3id.org/smn/SurveyEvent</li>
 </ul>
 <ul>
 <li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. (2021). About the Sustainability Survey for Fisheries. Available at https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html. [Accessed 09-10-2025]."@en</li>
@@ -4340,6 +4393,7 @@ This section provides details for each class and property defined by DFO Salmon 
 <li><a href="#TargetOrLimitRateOrAbundance">https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance</a>
 <ul>
 <li>Added: <http://purl.obolibrary.org/obo/IAO_0000115> "A value specification representing a policy- or model-defined target or limit, such as TAC or UMSY."@en</li>
+<li>Added: SubClass of https://w3id.org/smn/TargetOrLimitRateOrAbundance</li>
 </ul>
 <ul>
 <li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000115> "A value specification representing a policy- or model-defined target or limit, such as TAC, UMSY, or reference points."@en</li>
@@ -4405,6 +4459,7 @@ This section provides details for each class and property defined by DFO Salmon 
 <li><a href="#Deme">https://w3id.org/gcdfo/salmon#Deme</a>
 <ul>
 <li>Added: SubClass of http://rs.tdwg.org/dwc/terms/Organism</li>
+<li>Added: SubClass of https://w3id.org/smn/Deme</li>
 </ul>
 </li>
 <li><a href="#FisheriesReferencePointLower">https://w3id.org/gcdfo/salmon#FisheriesReferencePointLower</a>
@@ -4564,6 +4619,26 @@ This section provides details for each class and property defined by DFO Salmon 
 <li>Added: SubClass of http://purl.obolibrary.org/obo/IAO_0000030</li>
 </ul>
 </li>
+<li><a href="#https://w3id.org/smn/Deme">https://w3id.org/smn/Deme</a>
+</li>
+<li><a href="#https://w3id.org/smn/Escapement">https://w3id.org/smn/Escapement</a>
+</li>
+<li><a href="#https://w3id.org/smn/EscapementMeasurement">https://w3id.org/smn/EscapementMeasurement</a>
+</li>
+<li><a href="#https://w3id.org/smn/EscapementSurveyEvent">https://w3id.org/smn/EscapementSurveyEvent</a>
+</li>
+<li><a href="#https://w3id.org/smn/ObservedRateOrAbundance">https://w3id.org/smn/ObservedRateOrAbundance</a>
+</li>
+<li><a href="#https://w3id.org/smn/ReportingOrManagementStratum">https://w3id.org/smn/ReportingOrManagementStratum</a>
+</li>
+<li><a href="#https://w3id.org/smn/Stock">https://w3id.org/smn/Stock</a>
+</li>
+<li><a href="#https://w3id.org/smn/StockAssessment">https://w3id.org/smn/StockAssessment</a>
+</li>
+<li><a href="#https://w3id.org/smn/SurveyEvent">https://w3id.org/smn/SurveyEvent</a>
+</li>
+<li><a href="#https://w3id.org/smn/TargetOrLimitRateOrAbundance">https://w3id.org/smn/TargetOrLimitRateOrAbundance</a>
+</li>
 </ul></details><details><summary><u>Deleted classes</u></summary>
 <ul><li><a href="#AlgorithmThreshold">https://w3id.org/gcdfo/salmon#AlgorithmThreshold</a>
 </li>
@@ -4602,6 +4677,7 @@ This section provides details for each class and property defined by DFO Salmon 
 <ul>
 <li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/gcdfo/salmon#demeOf&gt; &lt;https://w3id.org/gcdfo/salmon#hasDeme&gt;)</li>
 <li>Added: Range https://w3id.org/gcdfo/salmon#Population</li>
+<li>Added: SubProperty of https://w3id.org/smn/demeOf</li>
 <li>Added: domain https://w3id.org/gcdfo/salmon#Deme</li>
 </ul>
 </li>
@@ -4631,6 +4707,7 @@ This section provides details for each class and property defined by DFO Salmon 
 <ul>
 <li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/gcdfo/salmon#demeOf&gt; &lt;https://w3id.org/gcdfo/salmon#hasDeme&gt;)</li>
 <li>Added: Range https://w3id.org/gcdfo/salmon#Deme</li>
+<li>Added: SubProperty of https://w3id.org/smn/hasDeme</li>
 <li>Added: domain https://w3id.org/gcdfo/salmon#Population</li>
 </ul>
 </li>
@@ -4639,6 +4716,7 @@ This section provides details for each class and property defined by DFO Salmon 
 <li>Added: Range https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum</li>
 <li>Added: SubProperty of http://www.w3.org/ns/prov#used</li>
 <li>Added: SubProperty of http://www.w3.org/ns/sosa/hasFeatureOfInterest</li>
+<li>Added: SubProperty of https://w3id.org/smn/hasFeatureOfInterest</li>
 <li>Added: domain https://w3id.org/gcdfo/salmon#SurveyEvent</li>
 </ul>
 </li>
@@ -4647,6 +4725,7 @@ This section provides details for each class and property defined by DFO Salmon 
 <li>Added: Range https://w3id.org/gcdfo/salmon#EscapementMeasurement</li>
 <li>Added: SubProperty of http://www.w3.org/ns/prov#generated</li>
 <li>Added: SubProperty of http://www.w3.org/ns/sosa/hasResult</li>
+<li>Added: SubProperty of https://w3id.org/smn/hasObservationResult</li>
 <li>Added: domain https://w3id.org/gcdfo/salmon#SurveyEvent</li>
 </ul>
 </li>
@@ -4703,6 +4782,7 @@ This section provides details for each class and property defined by DFO Salmon 
 <li>Added: Range https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum</li>
 <li>Added: SubProperty of http://www.w3.org/ns/prov#wasDerivedFrom</li>
 <li>Added: SubProperty of http://www.w3.org/ns/sosa/isSampleOf</li>
+<li>Added: SubProperty of https://w3id.org/smn/isSampleOfStratum</li>
 <li>Added: domain http://rs.tdwg.org/dwc/terms/MaterialEntity</li>
 </ul>
 </li>
@@ -4738,8 +4818,21 @@ This section provides details for each class and property defined by DFO Salmon 
 <li>Added: Range http://purl.obolibrary.org/obo/IAO_0000104</li>
 <li>Added: SubProperty of http://www.w3.org/ns/prov#used</li>
 <li>Added: SubProperty of http://www.w3.org/ns/sosa/usedProcedure</li>
+<li>Added: SubProperty of https://w3id.org/smn/usesObservationProcedure</li>
 <li>Added: domain https://w3id.org/gcdfo/salmon#SurveyEvent</li>
 </ul>
+</li>
+<li><a href="#https://w3id.org/smn/demeOf">https://w3id.org/smn/demeOf</a>
+</li>
+<li><a href="#https://w3id.org/smn/hasDeme">https://w3id.org/smn/hasDeme</a>
+</li>
+<li><a href="#https://w3id.org/smn/hasFeatureOfInterest">https://w3id.org/smn/hasFeatureOfInterest</a>
+</li>
+<li><a href="#https://w3id.org/smn/hasObservationResult">https://w3id.org/smn/hasObservationResult</a>
+</li>
+<li><a href="#https://w3id.org/smn/isSampleOfStratum">https://w3id.org/smn/isSampleOfStratum</a>
+</li>
+<li><a href="#https://w3id.org/smn/usesObservationProcedure">https://w3id.org/smn/usesObservationProcedure</a>
 </li>
 </ul></details></div>
 </div>

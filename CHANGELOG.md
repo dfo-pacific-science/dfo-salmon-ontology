@@ -1,5 +1,12 @@
 # DFO Salmon Ontology - Changelog
 
+## [Unreleased]
+
+### Changed
+- Added explicit `owl:imports` linkage to shared `smn` and conservative boundary alignment axioms for safe overlap terms.
+- Kept `Population`, `hasPopulation`/`populationOf`, `ReferencePoint`, and `MetricBenchmark` as intentional DFO-local semantics in the boundary pass.
+- Documented `EnumerationMethod` as an intentionally SKOS-modeled concept root (no OWL-class equivalence cutover in this pass).
+
 ## [0.0.999] - 2026-01-30
 
 ### Changed
