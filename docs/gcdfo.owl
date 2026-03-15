@@ -37,12 +37,12 @@
         <dcterms:creator xml:lang="en">Fishery &amp; Assessment Data Section (FADS) Data Stewardship Unit</dcterms:creator>
         <dcterms:description xml:lang="en">OWL + SKOS ontology for DFO salmon data: stocks/CUs/MUs, survey events, escapement measurements, and GSI constructs; aligns to DwC via rdfs:subClassOf; hybrid approach with SKOS for methods and OWL for events.</dcterms:description>
         <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
-        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-03-02</dcterms:modified>
+        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-03-15</dcterms:modified>
         <dcterms:publisher xml:lang="en">Fisheries and Oceans Canada (DFO) Pacific Region Science Branch</dcterms:publisher>
         <dcterms:title xml:lang="en">DFO Salmon Ontology</dcterms:title>
         <vann:preferredNamespacePrefix>gcdfo</vann:preferredNamespacePrefix>
         <vann:preferredNamespaceUri>https://w3id.org/gcdfo/salmon#</vann:preferredNamespaceUri>
-        <rdfs:comment xml:lang="en">Boundary note (2026-03-13): this ontology now imports smn and carries conservative alignment links for clearly shared terms. DFO-local semantics are intentionally retained for Population, hasPopulation, populationOf, ReferencePoint, and MetricBenchmark pending later review.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Migration note (2026-03-15): overlapping shared terms now use `smn:` IRIs directly in this ontology; DFO-specific semantics remain only where no shared replacement exists.</rdfs:comment>
         <rdfs:seeAlso rdf:resource="https://github.com/dfo-pacific-science/dfo-salmon-ontology"/>
         <owl:priorVersion rdf:resource="https://w3id.org/gcdfo/salmon/0.0.2"/>
         <owl:versionInfo>0.0.6-alpha (integrated pre-release review branch)</owl:versionInfo>
@@ -399,29 +399,13 @@
     
 
 
-    <!-- https://w3id.org/gcdfo/salmon#demeOf -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#demeOf">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/smn/demeOf"/>
-        <owl:inverseOf rdf:resource="https://w3id.org/gcdfo/salmon#hasDeme"/>
-        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#Deme"/>
-        <rdfs:range rdf:resource="https://w3id.org/gcdfo/salmon#Population"/>
-        <obo:IAO_0000115 xml:lang="en">Relates a deme to the population it belongs to.</obo:IAO_0000115>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <rdfs:label xml:lang="en">deme of</rdfs:label>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- https://w3id.org/gcdfo/salmon#hasAssessmentReferencePoint -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#hasAssessmentReferencePoint">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#used"/>
         <owl:inverseOf rdf:resource="https://w3id.org/gcdfo/salmon#isAssessmentReferencePointFor"/>
-        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessment"/>
-        <rdfs:range rdf:resource="https://w3id.org/gcdfo/salmon#ReferencePoint"/>
+        <rdfs:domain rdf:resource="https://w3id.org/smn/StockAssessment"/>
+        <rdfs:range rdf:resource="https://w3id.org/smn/ReferencePoint"/>
         <obo:IAO_0000115 xml:lang="en">Relates a stock assessment process to a reference point used to interpret status or management risk.</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">has assessment reference point</rdfs:label>
@@ -436,12 +420,12 @@
 
     <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#hasAssessmentSubject">
         <owl:inverseOf rdf:resource="https://w3id.org/gcdfo/salmon#isAssessmentSubjectOf"/>
-        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessment"/>
+        <rdfs:domain rdf:resource="https://w3id.org/smn/StockAssessment"/>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/gcdfo/salmon#Population"/>
-                    <rdf:Description rdf:about="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum"/>
+                    <rdf:Description rdf:about="https://w3id.org/smn/Population"/>
+                    <rdf:Description rdf:about="https://w3id.org/smn/ReportingOrManagementStratum"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
@@ -470,29 +454,14 @@
     
 
 
-    <!-- https://w3id.org/gcdfo/salmon#hasDeme -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#hasDeme">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/smn/hasDeme"/>
-        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#Population"/>
-        <rdfs:range rdf:resource="https://w3id.org/gcdfo/salmon#Deme"/>
-        <obo:IAO_0000115 xml:lang="en">Relates a population to one of its constituent demes.</obo:IAO_0000115>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <rdfs:label xml:lang="en">has deme</rdfs:label>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- https://w3id.org/gcdfo/salmon#hasFeatureOfInterest -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#hasFeatureOfInterest">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#used"/>
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/sosa/hasFeatureOfInterest"/>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/smn/hasFeatureOfInterest"/>
-        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#SurveyEvent"/>
-        <rdfs:range rdf:resource="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum"/>
+        <rdfs:domain rdf:resource="https://w3id.org/smn/SurveyEvent"/>
+        <rdfs:range rdf:resource="https://w3id.org/smn/ReportingOrManagementStratum"/>
         <obo:IAO_0000115 xml:lang="en">Relates a survey event to the reporting or management stratum that the event targets for inference or status interpretation.</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">has feature of interest</rdfs:label>
@@ -509,8 +478,8 @@
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#generated"/>
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/sosa/hasResult"/>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/smn/hasObservationResult"/>
-        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#SurveyEvent"/>
-        <rdfs:range rdf:resource="https://w3id.org/gcdfo/salmon#EscapementMeasurement"/>
+        <rdfs:domain rdf:resource="https://w3id.org/smn/SurveyEvent"/>
+        <rdfs:range rdf:resource="https://w3id.org/smn/EscapementMeasurement"/>
         <obo:IAO_0000115 xml:lang="en">Relates a survey event to a measurement datum/result it produces for salmon assessment workflows.</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">has observation result</rdfs:label>
@@ -524,29 +493,13 @@
 
     <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#hasObservedVariable">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/sosa/observedProperty"/>
-        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#SurveyEvent"/>
+        <rdfs:domain rdf:resource="https://w3id.org/smn/SurveyEvent"/>
         <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <obo:IAO_0000115 xml:lang="en">Relates a survey event to a variable compound term represented as a SKOS concept that defines what was measured or derived in SDP workflows.</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">has observed variable</rdfs:label>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/gcdfo/salmon#hasPopulation -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#hasPopulation">
-        <owl:inverseOf rdf:resource="https://w3id.org/gcdfo/salmon#populationOf"/>
-        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#ConservationUnit"/>
-        <rdfs:range rdf:resource="https://w3id.org/gcdfo/salmon#Population"/>
-        <obo:IAO_0000115 xml:lang="en">Relates a Conservation Unit to one of its constituent populations.</obo:IAO_0000115>
-        <rdfs:comment xml:lang="en">Boundary note (2026-03-13): intentionally retained as a DFO/CU-scoped property; not auto-aligned to smn:hasPopulation in this pass.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <rdfs:label xml:lang="en">has population</rdfs:label>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:ObjectProperty>
     
 
@@ -573,12 +526,12 @@
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/gcdfo/salmon#EscapementMeasurement"/>
-                    <rdf:Description rdf:about="https://w3id.org/gcdfo/salmon#ExploitationRate"/>
                     <rdf:Description rdf:about="https://w3id.org/gcdfo/salmon#ObservedExploitationRate"/>
                     <rdf:Description rdf:about="https://w3id.org/gcdfo/salmon#SpawnerAbundance"/>
                     <rdf:Description rdf:about="https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate"/>
-                    <rdf:Description rdf:about="https://w3id.org/gcdfo/salmon#TotalExploitationRate"/>
+                    <rdf:Description rdf:about="https://w3id.org/smn/EscapementMeasurement"/>
+                    <rdf:Description rdf:about="https://w3id.org/smn/ExploitationRate"/>
+                    <rdf:Description rdf:about="https://w3id.org/smn/TotalExploitationRate"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
@@ -596,8 +549,8 @@
     <!-- https://w3id.org/gcdfo/salmon#isAssessmentReferencePointFor -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#isAssessmentReferencePointFor">
-        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#ReferencePoint"/>
-        <rdfs:range rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessment"/>
+        <rdfs:domain rdf:resource="https://w3id.org/smn/ReferencePoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/smn/StockAssessment"/>
         <obo:IAO_0000115 xml:lang="en">Relates a reference point to a stock assessment process that uses it for status interpretation or advice.</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">is assessment reference point for</rdfs:label>
@@ -614,12 +567,12 @@
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/gcdfo/salmon#Population"/>
-                    <rdf:Description rdf:about="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum"/>
+                    <rdf:Description rdf:about="https://w3id.org/smn/Population"/>
+                    <rdf:Description rdf:about="https://w3id.org/smn/ReportingOrManagementStratum"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
-        <rdfs:range rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessment"/>
+        <rdfs:range rdf:resource="https://w3id.org/smn/StockAssessment"/>
         <obo:IAO_0000115 xml:lang="en">Relates a reporting/management stratum or biological population to a stock assessment that evaluates it.</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">is assessment subject of</rdfs:label>
@@ -635,7 +588,7 @@
     <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#isDatumUsedInAssessment">
         <owl:inverseOf rdf:resource="https://w3id.org/gcdfo/salmon#usesAssessmentDatum"/>
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/IAO_0000109"/>
-        <rdfs:range rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessment"/>
+        <rdfs:range rdf:resource="https://w3id.org/smn/StockAssessment"/>
         <obo:IAO_0000115 xml:lang="en">Relates a measurement datum to a stock assessment process that uses it as evidence.</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">is datum used in assessment</rdfs:label>
@@ -652,7 +605,7 @@
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/sosa/isSampleOf"/>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/smn/isSampleOfStratum"/>
         <rdfs:domain rdf:resource="http://rs.tdwg.org/dwc/terms/MaterialEntity"/>
-        <rdfs:range rdf:resource="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum"/>
+        <rdfs:range rdf:resource="https://w3id.org/smn/ReportingOrManagementStratum"/>
         <obo:IAO_0000115 xml:lang="en">Relates a material sample to the reporting or management stratum it is taken to represent in analysis.</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">is sample of stratum</rdfs:label>
@@ -678,21 +631,6 @@
     
 
 
-    <!-- https://w3id.org/gcdfo/salmon#populationOf -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#populationOf">
-        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#Population"/>
-        <rdfs:range rdf:resource="https://w3id.org/gcdfo/salmon#ConservationUnit"/>
-        <obo:IAO_0000115 xml:lang="en">Relates a population to the Conservation Unit it belongs to.</obo:IAO_0000115>
-        <rdfs:comment xml:lang="en">Boundary note (2026-03-13): intentionally retained as a DFO/CU-scoped property; not auto-aligned to smn:populationOf in this pass.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <rdfs:label xml:lang="en">population of</rdfs:label>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- https://w3id.org/gcdfo/salmon#usedProcedure -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#usedProcedure">
@@ -705,13 +643,13 @@
 
     <owl:ObjectProperty rdf:about="https://w3id.org/gcdfo/salmon#usesAssessmentDatum">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#used"/>
-        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessment"/>
+        <rdfs:domain rdf:resource="https://w3id.org/smn/StockAssessment"/>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0000109"/>
-                    <rdf:Description rdf:about="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"/>
-                    <rdf:Description rdf:about="https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance"/>
+                    <rdf:Description rdf:about="https://w3id.org/smn/ObservedRateOrAbundance"/>
+                    <rdf:Description rdf:about="https://w3id.org/smn/TargetOrLimitRateOrAbundance"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
@@ -731,13 +669,42 @@
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#used"/>
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/sosa/usedProcedure"/>
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/smn/usesObservationProcedure"/>
-        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#SurveyEvent"/>
+        <rdfs:domain rdf:resource="https://w3id.org/smn/SurveyEvent"/>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/IAO_0000104"/>
         <obo:IAO_0000115 xml:lang="en">Relates a survey event to the procedure/protocol used to execute it.</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">uses observation procedure</rdfs:label>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/smn/demeOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/smn/demeOf">
+        <owl:inverseOf rdf:resource="https://w3id.org/smn/hasDeme"/>
+        <rdfs:domain rdf:resource="https://w3id.org/smn/Deme"/>
+        <rdfs:range rdf:resource="https://w3id.org/smn/Population"/>
+        <obo:IAO_0000115 xml:lang="en">Relates a deme to the population it belongs to.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">deme of</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/smn/hasDeme -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/smn/hasDeme">
+        <rdfs:domain rdf:resource="https://w3id.org/smn/Population"/>
+        <rdfs:range rdf:resource="https://w3id.org/smn/Deme"/>
+        <obo:IAO_0000115 xml:lang="en">Relates a population to one of its constituent demes.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">has deme</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
     </owl:ObjectProperty>
     
 
@@ -754,9 +721,40 @@
     
 
 
+    <!-- https://w3id.org/smn/hasPopulation -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/smn/hasPopulation">
+        <owl:inverseOf rdf:resource="https://w3id.org/smn/populationOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/gcdfo/salmon#ConservationUnit"/>
+        <rdfs:range rdf:resource="https://w3id.org/smn/Population"/>
+        <obo:IAO_0000115 xml:lang="en">Relates a Conservation Unit to one of its constituent populations.</obo:IAO_0000115>
+        <rdfs:comment xml:lang="en">DFO profile note: within this ontology, `smn:hasPopulation` is primarily used for ConservationUnit-to-Population composition.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">has population</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/smn/isSampleOfStratum -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/smn/isSampleOfStratum"/>
+    
+
+
+    <!-- https://w3id.org/smn/populationOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/smn/populationOf">
+        <rdfs:domain rdf:resource="https://w3id.org/smn/Population"/>
+        <rdfs:range rdf:resource="https://w3id.org/gcdfo/salmon#ConservationUnit"/>
+        <obo:IAO_0000115 xml:lang="en">Relates a population to the Conservation Unit it belongs to.</obo:IAO_0000115>
+        <rdfs:comment xml:lang="en">DFO profile note: within this ontology, `smn:populationOf` is primarily used for Population-to-ConservationUnit composition.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">population of</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
+    </owl:ObjectProperty>
     
 
 
@@ -1129,7 +1127,7 @@
     <!-- https://w3id.org/gcdfo/salmon#CWTMarineSurvivalRate -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#CWTMarineSurvivalRate">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/ObservedRateOrAbundance"/>
         <obo:IAO_0000115 xml:lang="en">A marine survival proportion estimated for a coded-wire-tag (CWT) release group, defined as the portion of tagged smolts that survive to be caught in marine fisheries or return to freshwater as adults.</obo:IAO_0000115>
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. 2021. Marine Survival Forecast of Southern British Columbia Coho (defines marine survival as (Catch+Escapement)/Release for coded-wire-tag smolt releases).</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://waves-vagues.dfo-mpo.gc.ca/Library/40978680.pdf"/>
@@ -1151,7 +1149,7 @@
     <!-- https://w3id.org/gcdfo/salmon#ConservationUnit -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#ConservationUnit">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/ReportingOrManagementStratum"/>
         <obo:IAO_0000115 xml:lang="en">A group of fish sufficiently isolated from other groups that, if extirpated, is very unlikely to recolonize naturally within an acceptable timeframe.</obo:IAO_0000115>
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. 2005. Canada&apos;s Policy for Conservation of Wild Pacific Salmon. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf.</obo:IAO_0000119>
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Canada&apos;s Policy for Conservation of Wild Pacific Salmon - Glossary. https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/wsp-pss/policy-politique-eng.html#glossary.</obo:IAO_0000119>
@@ -1167,102 +1165,10 @@
     
 
 
-    <!-- https://w3id.org/gcdfo/salmon#Deme -->
-
-    <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#Deme">
-        <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/dwc/terms/Organism"/>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/Deme"/>
-        <obo:IAO_0000115 xml:lang="en">A local interbreeding group of organisms within a species. In salmon, a deme typically corresponds to a spawning population at a specific site. Demes are the finest biological unit and make up populations.</obo:IAO_0000115>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <rdfs:label xml:lang="en">Deme</rdfs:label>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/gcdfo/salmon#Escapement -->
-
-    <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#Escapement">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/Escapement"/>
-        <obo:IAO_0000115 xml:lang="en">The number of mature salmon that pass through (or escape) fisheries and return to fresh water to spawn.</obo:IAO_0000115>
-        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. 2005. Canada&apos;s Policy for Conservation of Wild Pacific Salmon. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf.</obo:IAO_0000119>
-        <dcterms:source rdf:resource="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf"/>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <rdfs:label xml:lang="en">Escapement</rdfs:label>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/gcdfo/salmon#EscapementMeasurement -->
-
-    <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#EscapementMeasurement">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000109"/>
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Result"/>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/EscapementMeasurement"/>
-        <obo:IAO_0000115 xml:lang="en">A measurement or estimate of escapement tied to a stock and a survey event.</obo:IAO_0000115>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <rdfs:label xml:lang="en">Escapement measurement</rdfs:label>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/gcdfo/salmon#EscapementSurveyEvent -->
-
-    <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#EscapementSurveyEvent">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#SurveyEvent"/>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/EscapementSurveyEvent"/>
-        <obo:IAO_0000115 xml:lang="en">A survey event specifically for estimating escapement.</obo:IAO_0000115>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <rdfs:label xml:lang="en">Escapement Survey Event</rdfs:label>
-        <skos:prefLabel xml:lang="en">Escapement Survey Event</skos:prefLabel>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/gcdfo/salmon#ExploitationRate -->
-
-    <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#ExploitationRate">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000109"/>
-        <obo:IAO_0000115 xml:lang="en">A fishing mortality rate expressed as the proportion of the total return removed by fishing over a specified assessment period.</obo:IAO_0000115>
-        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html.</obo:IAO_0000119>
-        <dcterms:source rdf:resource="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html"/>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <rdfs:label xml:lang="en">Exploitation rate</rdfs:label>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/gcdfo/salmon#FisheriesReferencePointLower -->
-
-    <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#FisheriesReferencePointLower">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#LimitReferencePoint"/>
-        <obo:IAO_0000115 xml:lang="en">A lower fisheries-management reference point defined for Stock Management Units (SMUs) and related fishery decision frameworks. It may be informed by Conservation Unit (CU) lower biological benchmarks, but is not identical to CU-level lower biological benchmarks used to delineate Wild Salmon Policy biological status zones.</obo:IAO_0000115>
-        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. (2022). Methodologies and Guidelines for Defining Limit Reference Points for Pacific Salmon. DFO Can. Sci. Advis. Sec. Sci. Advis. Rep. 2022/030. (Erratum: December 2022).</obo:IAO_0000119>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <rdfs:label xml:lang="en">Fisheries Reference Point - Lower</rdfs:label>
-        <skos:altLabel xml:lang="en">FRP-L</skos:altLabel>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-    </owl:Class>
-    
-
-
     <!-- https://w3id.org/gcdfo/salmon#InRiverMortalityRate -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#InRiverMortalityRate">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/ObservedRateOrAbundance"/>
         <obo:IAO_0000115 xml:lang="en">The proportion of fish in a defined population/cohort that die during freshwater migration in-river on the way to spawning areas during a specified assessment interval, excluding landed catch (fishery removals) where those are accounted separately.</obo:IAO_0000115>
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. 2025. Stock-Specific Fraser River Sockeye Salmon Run Size Determination. CSAS Pacific Region Science Advisory Report 2025/021 (en route mortality excluding landed catch). COSEWIC. 2017. Sockeye Salmon (Oncorhynchus nerka) assessment and status report (en-route loss is fish that perished in the river en-route to spawning grounds for reasons other than fishing).</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41294622.pdf"/>
@@ -1274,59 +1180,10 @@
     
 
 
-    <!-- https://w3id.org/gcdfo/salmon#IndicatorRiver -->
-
-    <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#IndicatorRiver">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum"/>
-        <obo:IAO_0000115 xml:lang="en">A reporting and assessment stratum identifying monitored indicator streams that provide representative indices of spawner abundance for nearby streams.</obo:IAO_0000115>
-        <dcterms:source rdf:resource="https://www.salmonexplorer.ca/methods/glossary.html"/>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <rdfs:label xml:lang="en">Indicator river</rdfs:label>
-        <skos:altLabel xml:lang="en">Indicator stream</skos:altLabel>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/gcdfo/salmon#LimitReferencePoint -->
-
-    <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#LimitReferencePoint">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#ReferencePoint"/>
-        <obo:IAO_0000115 xml:lang="en">A fish stock experiencing serious harm may be depleted to the point where it has impaired productivity or reproductive capacity. As a result, the stock would be less resilient to fishing and could not easily rebuild. Serious harm may be irreversible, or only slowly reversible over the long-term, and can be due to fishing, other human-induced impacts, or natural causes. Under the Precautionary Approach policy and the Fish Stocks Provisions (FSPs), breaching the LRP is a trigger for a rebuilding plan.</obo:IAO_0000115>
-        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html.</obo:IAO_0000119>
-        <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html"/>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <rdfs:label xml:lang="en">Limit reference point</rdfs:label>
-        <skos:altLabel xml:lang="en">LRP</skos:altLabel>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark -->
-
-    <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#MetricBenchmark"/>
-        <obo:IAO_0000115 xml:lang="en">Lower benchmark value for a Conservation Unit (CU) metric used to delineate Wild Salmon Policy status zones (typically the boundary between Red and Amber zones). This CU-level biological benchmark is distinct from SMU-level fisheries management lower reference points such as FRP-L.</obo:IAO_0000115>
-        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf.</obo:IAO_0000119>
-        <dcterms:source rdf:resource="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf"/>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <rdfs:label xml:lang="en">Lower biological benchmark</rdfs:label>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
-    </owl:Class>
-    
-
-
     <!-- https://w3id.org/gcdfo/salmon#MainstemMortalityRate -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#MainstemMortalityRate">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/ObservedRateOrAbundance"/>
         <obo:IAO_0000115 xml:lang="en">The proportion of fish that die while migrating through the freshwater mainstem portion of a river system (as operationally delimited by the assessment workflow), over a specified interval or between specified mainstem reference points.</obo:IAO_0000115>
         <obo:IAO_0000119 xml:lang="en">LGL Limited. Migration and Survival of Late-run Fraser Sockeye (radio-telemetry methods; fish detected at Mission are classified as survivors, fishery-related mortalities, or in-river mortalities; fixed-station tracking is conducted at strategic locations including mainstem confluences).</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/341440.pdf"/>
@@ -1340,7 +1197,7 @@
     <!-- https://w3id.org/gcdfo/salmon#MarineSurvivalIndex -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#MarineSurvivalIndex">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/ObservedRateOrAbundance"/>
         <obo:IAO_0000115 xml:lang="en">A dimensionless index or covariate representing marine survival conditions or relative marine survival outcomes (not necessarily a survival proportion).</obo:IAO_0000115>
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. 2021. Marine Survival Forecast of Southern British Columbia Coho (uses climate indicators correlated with marine survival; supports index-like predictors for survival conditions).</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://waves-vagues.dfo-mpo.gc.ca/Library/40978680.pdf"/>
@@ -1352,27 +1209,11 @@
     
 
 
-    <!-- https://w3id.org/gcdfo/salmon#MetricBenchmark -->
-
-    <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#MetricBenchmark">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
-        <obo:IAO_0000115 xml:lang="en">Benchmark value for a metric that helps delineate status zones (for example, the limit reference point for absolute abundance).</obo:IAO_0000115>
-        <obo:IAO_0000119 xml:lang="en">Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada&apos;s Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570.</obo:IAO_0000119>
-        <dcterms:source rdf:resource="https://publications.gc.ca/site/eng/9.928944/publication.html"/>
-        <rdfs:comment xml:lang="en">Boundary note (2026-03-13): intentionally retained as DFO-local in this pass due WSP grounding in definitions and usage.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <rdfs:label xml:lang="en">Metric benchmark</rdfs:label>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
-    </owl:Class>
-    
-
-
     <!-- https://w3id.org/gcdfo/salmon#ObservedExploitationRate -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#ObservedExploitationRate">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#ExploitationRate"/>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/ExploitationRate"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/ObservedRateOrAbundance"/>
         <obo:IAO_0000115 xml:lang="en">An empirically estimated exploitation rate derived from observed or reconstructed catches/removals and returns/escapement for a specified stock and period.</obo:IAO_0000115>
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html"/>
@@ -1385,24 +1226,10 @@
     
 
 
-    <!-- https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance -->
-
-    <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000109"/>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/ObservedRateOrAbundance"/>
-        <obo:IAO_0000115 xml:lang="en">A measurement datum representing an empirically observed rate, count, or abundance derived from monitoring or survey data.</obo:IAO_0000115>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <rdfs:label xml:lang="en">Observed rate or abundance</rdfs:label>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-    </owl:Class>
-    
-
-
     <!-- https://w3id.org/gcdfo/salmon#OceanMortalityRate -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#OceanMortalityRate">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/ObservedRateOrAbundance"/>
         <obo:IAO_0000115 xml:lang="en">The proportion of fish that die during the ocean (marine) life-history phase for a defined population/cohort and interval; when a marine survival proportion is available, ocean mortality may be represented as its complement under the assessment’s accounting conventions.</obo:IAO_0000115>
         <obo:IAO_0000119 xml:lang="en">COSEWIC. 2017. Sockeye Salmon (Oncorhynchus nerka) assessment and status report (marine survival index described and interpreted in a Pacific salmon assessment context).</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.canada.ca/en/environment-climate-change/services/species-risk-public-registry/cosewic-assessments-status-reports/sockeye-salmon-2017.html"/>
@@ -1416,7 +1243,7 @@
     <!-- https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/ReportingOrManagementStratum"/>
         <obo:IAO_0000115 xml:lang="en">A reporting and management stratum representing a prescribed Pacific fishery management area in Canadian fisheries waters of the Pacific Ocean.</obo:IAO_0000115>
         <obo:IAO_0000119 xml:lang="en">Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77): management area means a division of Canadian fisheries waters as enumerated and described in Schedule 2. https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-1.html.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-1.html"/>
@@ -1430,25 +1257,10 @@
     
 
 
-    <!-- https://w3id.org/gcdfo/salmon#Population -->
-
-    <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#Population">
-        <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/dwc/terms/Organism"/>
-        <obo:IAO_0000115 xml:lang="en">A group of organisms of the same species occupying a defined area that interbreed and share a gene pool. In salmon, populations are composed of one or more demes and form the biological basis for Conservation Units.</obo:IAO_0000115>
-        <rdfs:comment xml:lang="en">Boundary note (2026-03-13): intentionally retained as a DFO-local class in this pass due CU-specific framing in definitions and usage.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <rdfs:label xml:lang="en">Population</rdfs:label>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
-    </owl:Class>
-    
-
-
     <!-- https://w3id.org/gcdfo/salmon#ProportionHatcheryOriginSpawners -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#ProportionHatcheryOriginSpawners">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/ObservedRateOrAbundance"/>
         <obo:IAO_0000115 xml:lang="en">The proportion of spawners in a population-year that are hatchery-origin (hatchery-origin spawners divided by total spawners).</obo:IAO_0000115>
         <obo:IAO_0000119 xml:lang="en">Derived for SPSR term coverage (Issue #33 term request scope); ‘hatchery-origin’ is defined in the Salmon Origin scheme and operational marking is described in the DFO Coded Wire Tag Program page.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.pac.dfo-mpo.gc.ca/pacific-smon-pacifique/science/research-recherche/cwt-mmc-eng.html"/>
@@ -1456,23 +1268,6 @@
         <rdfs:label xml:lang="en">Proportion of hatchery-origin spawners</rdfs:label>
         <skos:altLabel xml:lang="en">pHOS</skos:altLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/gcdfo/salmon#ReferencePoint -->
-
-    <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#ReferencePoint">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
-        <obo:IAO_0000115 xml:lang="en">Reference points are used as targets to achieve or as limits to avoid.</obo:IAO_0000115>
-        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html.</obo:IAO_0000119>
-        <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html"/>
-        <rdfs:comment xml:lang="en">Boundary note (2026-03-13): intentionally retained as DFO-local in this pass; do not auto-move to smn.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <rdfs:label xml:lang="en">Reference point</rdfs:label>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:Class>
     
@@ -1660,24 +1455,10 @@
     
 
 
-    <!-- https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum -->
-
-    <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/ReportingOrManagementStratum"/>
-        <obo:IAO_0000115 xml:lang="en">An information-defined grouping of fish populations used for reporting, conservation assessment, or management purposes. Examples include Conservation Units (CUs), Stock Management Units (MUs), and Designatable Units (DUs).</obo:IAO_0000115>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <rdfs:label xml:lang="en">Reporting or management stratum</rdfs:label>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-    </owl:Class>
-    
-
-
     <!-- https://w3id.org/gcdfo/salmon#SpawnerAbundance -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#SpawnerAbundance">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/ObservedRateOrAbundance"/>
         <obo:IAO_0000115 xml:lang="en">The abundance (count) of adult salmon that reach spawning grounds in a given system and time period (often operationalized as escapement/spawning escapement).</obo:IAO_0000115>
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Pacific Salmon Glossary (defines escapement/spawning escapement as the number of salmon returning to the spawning grounds).</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html"/>
@@ -1693,7 +1474,7 @@
     <!-- https://w3id.org/gcdfo/salmon#SpawnerAbundanceChange -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#SpawnerAbundanceChange">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/ObservedRateOrAbundance"/>
         <obo:IAO_0000115 xml:lang="en">A change metric (delta or percent change, as defined by the workflow) computed from spawner abundance values over time; in rapid-status workflows, percent change is quantified as a linear change in log-transformed abundance over the most recent three generations.</obo:IAO_0000115>
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon… CSAS Pacific Region Science Response 2024/004 (percent change definition and computation notes). COSEWIC. 2017. Sockeye Salmon assessment and status report (log-linear rate-of-change model and percent-change derivation over three generations).</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf"/>
@@ -1709,7 +1490,7 @@
     <!-- https://w3id.org/gcdfo/salmon#SpawnerAbundancePercentile -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#SpawnerAbundancePercentile">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/ObservedRateOrAbundance"/>
         <obo:IAO_0000115 xml:lang="en">The percentile rank of a spawner abundance value (annual or period-specific) against a defined historical reference distribution.</obo:IAO_0000115>
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. 2024. Rapid Status Approximations… CSAS Science Response 2024/004 (percentile benchmarks discussion).</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf"/>
@@ -1724,7 +1505,7 @@
     <!-- https://w3id.org/gcdfo/salmon#SpawnerAbundanceTrend -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#SpawnerAbundanceTrend">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/ObservedRateOrAbundance"/>
         <obo:IAO_0000115 xml:lang="en">A trend metric computed from spawner abundance over time using a defined trend method (e.g., slope over a specified window).</obo:IAO_0000115>
         <obo:IAO_0000119 xml:lang="en">Derived for SPSR term coverage; distinct from gcdfo:LongTermTrendMetric (current generational average vs long-term average) in CSAS Science Response 2024/004.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf"/>
@@ -1736,43 +1517,10 @@
     
 
 
-    <!-- https://w3id.org/gcdfo/salmon#Stock -->
-
-    <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#Stock">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum"/>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/Stock"/>
-        <obo:IAO_0000115 xml:lang="en">An operationally-defined grouping of salmon used for assessment and management purposes. A stock is a management unit or reporting stratum, not a biological organism.</obo:IAO_0000115>
-        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html.</obo:IAO_0000119>
-        <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html"/>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <rdfs:label xml:lang="en">Stock</rdfs:label>
-        <skos:altLabel xml:lang="en">Fish stock</skos:altLabel>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-    </owl:Class>
-    
-
-
-    <!-- https://w3id.org/gcdfo/salmon#StockAssessment -->
-
-    <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#StockAssessment">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/StockAssessment"/>
-        <obo:IAO_0000115 xml:lang="en">The scientific process of analyzing data to estimate the abundance and productivity of fish stocks in the past, present, and future. It is the backbone of successful science-based fisheries management</obo:IAO_0000115>
-        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Introduction to Stock Assessment. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/module-1/09-eng.html.</obo:IAO_0000119>
-        <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/module-1/09-eng.html"/>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <rdfs:label xml:lang="en">Stock assessment</rdfs:label>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-    </owl:Class>
-    
-
-
     <!-- https://w3id.org/gcdfo/salmon#StockManagementUnit -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#StockManagementUnit">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/ReportingOrManagementStratum"/>
         <obo:IAO_0000115 xml:lang="en">A collection of stocks that are managed together with a joint stock status.</obo:IAO_0000115>
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html"/>
@@ -1786,29 +1534,11 @@
     
 
 
-    <!-- https://w3id.org/gcdfo/salmon#SurveyEvent -->
-
-    <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#SurveyEvent">
-        <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/dwc/terms/Event"/>
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Sampling"/>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/SurveyEvent"/>
-        <obo:IAO_0000115 xml:lang="en">A field event that collects information about key fish stocks to track their status, and track progress to implement fishery policies and measures for these stocks.</obo:IAO_0000115>
-        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. About the Sustainability Survey for Fisheries. https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html.</obo:IAO_0000119>
-        <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html"/>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <rdfs:label xml:lang="en">Survey event</rdfs:label>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-    </owl:Class>
-    
-
-
     <!-- https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#ExploitationRate"/>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/ExploitationRate"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/TargetOrLimitRateOrAbundance"/>
         <obo:IAO_0000115 xml:lang="en">A policy- or management-defined exploitation-rate value used as a target, threshold, or limit reference in decision rules.</obo:IAO_0000115>
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html"/>
@@ -1821,25 +1551,10 @@
     
 
 
-    <!-- https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance -->
-
-    <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000109"/>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/TargetOrLimitRateOrAbundance"/>
-        <obo:IAO_0000115 xml:lang="en">A value specification representing a policy- or model-defined target or limit, such as TAC or UMSY.</obo:IAO_0000115>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <rdfs:label xml:lang="en">Target or limit rate or abundance</rdfs:label>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-    </owl:Class>
-    
-
-
     <!-- https://w3id.org/gcdfo/salmon#TerminalMortalityRate -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#TerminalMortalityRate">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/ObservedRateOrAbundance"/>
         <obo:IAO_0000115 xml:lang="en">The proportion of fish that die after reaching terminal spawning areas (or immediate vicinity) but before successfully spawning, as defined by the assessment workflow (i.e., pre-spawn mortality in terminal areas).</obo:IAO_0000115>
         <obo:IAO_0000119 xml:lang="en">COSEWIC. 2017. Sockeye Salmon (Oncorhynchus nerka) assessment and status report (pre-spawn mortality includes fish that made it to spawning grounds but did not successfully spawn). LGL Limited. Migration and Survival of Late-run Fraser Sockeye (operational identification of pre-spawn mortalities from spawning-area detections).</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/341440.pdf"/>
@@ -1851,23 +1566,10 @@
     
 
 
-    <!-- https://w3id.org/gcdfo/salmon#TotalExploitationRate -->
-
-    <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#TotalExploitationRate">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#ObservedExploitationRate"/>
-        <obo:IAO_0000115 xml:lang="en">The overall proportion of the total return of adult salmon removed by all fisheries over a defined period, aggregating across gear or fishery components.</obo:IAO_0000115>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <rdfs:label xml:lang="en">Total exploitation rate</rdfs:label>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-    </owl:Class>
-    
-
-
     <!-- https://w3id.org/gcdfo/salmon#TotalMortalityRate -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#TotalMortalityRate">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/ObservedRateOrAbundance"/>
         <obo:IAO_0000115 xml:lang="en">The overall proportion of fish in a defined cohort that die over the full assessment interval across all included phases and mortality sources, consistent with the workflow’s accounting (e.g., catch vs escapement vs migration losses where relevant).</obo:IAO_0000115>
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. 2025. Stock-Specific Fraser River Sockeye Salmon Run Size Determination. CSAS Pacific Region Science Advisory Report 2025/021 (run size components include catch, spawning escapement, and en route mortality; other Pacific salmon run sizes typically sum catch + escapement). COSEWIC. 2017. Sockeye Salmon assessment and status report (uses catch, escapement, and en-route loss as distinct accounting components).</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41294622.pdf"/>
@@ -1879,26 +1581,10 @@
     
 
 
-    <!-- https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark -->
-
-    <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#MetricBenchmark"/>
-        <obo:IAO_0000115 xml:lang="en">Upper benchmark value for a metric used to delineate Wild Salmon Policy status zones (typically the boundary between Amber and Green zones).</obo:IAO_0000115>
-        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf.</obo:IAO_0000119>
-        <dcterms:source rdf:resource="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf"/>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <rdfs:label xml:lang="en">Upper biological benchmark</rdfs:label>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
-    </owl:Class>
-    
-
-
     <!-- https://w3id.org/gcdfo/salmon#UpperStockReferencePoint -->
 
     <owl:Class rdf:about="https://w3id.org/gcdfo/salmon#UpperStockReferencePoint">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#ReferencePoint"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/ReferencePoint"/>
         <obo:IAO_0000115 xml:lang="en">A threshold below which fishing must be reduced to avoid reaching the LRP. The USR must be set at an appropriate distance above the LRP to provide sufficient opportunity for managers to recognize a declining stock status and sufficient time for management actions to take effect. </obo:IAO_0000115>
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html"/>
@@ -1949,6 +1635,308 @@
     
 
 
+    <!-- https://w3id.org/smn/Deme -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/Deme">
+        <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/dwc/terms/Organism"/>
+        <obo:IAO_0000115 xml:lang="en">A local interbreeding group of organisms within a species. In salmon, a deme typically corresponds to a spawning population at a specific site. Demes are the finest biological unit and make up populations.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Deme</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/Escapement -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/Escapement">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+        <obo:IAO_0000115 xml:lang="en">The number of mature salmon that pass through (or escape) fisheries and return to fresh water to spawn.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. 2005. Canada&apos;s Policy for Conservation of Wild Pacific Salmon. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf.</obo:IAO_0000119>
+        <dcterms:source rdf:resource="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Escapement</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/EscapementMeasurement -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/EscapementMeasurement">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000109"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Result"/>
+        <obo:IAO_0000115 xml:lang="en">A measurement or estimate of escapement tied to a stock and a survey event.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Escapement measurement</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/EscapementSurveyEvent -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/EscapementSurveyEvent">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/SurveyEvent"/>
+        <obo:IAO_0000115 xml:lang="en">A survey event specifically for estimating escapement.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Escapement Survey Event</rdfs:label>
+        <skos:prefLabel xml:lang="en">Escapement Survey Event</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/ExploitationRate -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/ExploitationRate">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000109"/>
+        <obo:IAO_0000115 xml:lang="en">A fishing mortality rate expressed as the proportion of the total return removed by fishing over a specified assessment period.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html.</obo:IAO_0000119>
+        <dcterms:source rdf:resource="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Exploitation rate</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/FisheriesReferencePointLower -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/FisheriesReferencePointLower">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/LimitReferencePoint"/>
+        <obo:IAO_0000115 xml:lang="en">A lower fisheries-management reference point defined for Stock Management Units (SMUs) and related fishery decision frameworks. It may be informed by Conservation Unit (CU) lower biological benchmarks, but is not identical to CU-level lower biological benchmarks used to delineate Wild Salmon Policy biological status zones.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. (2022). Methodologies and Guidelines for Defining Limit Reference Points for Pacific Salmon. DFO Can. Sci. Advis. Sec. Sci. Advis. Rep. 2022/030. (Erratum: December 2022).</obo:IAO_0000119>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Fisheries Reference Point - Lower</rdfs:label>
+        <skos:altLabel xml:lang="en">FRP-L</skos:altLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/IndicatorRiver -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/IndicatorRiver">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/ReportingOrManagementStratum"/>
+        <obo:IAO_0000115 xml:lang="en">A reporting and assessment stratum identifying monitored indicator streams that provide representative indices of spawner abundance for nearby streams.</obo:IAO_0000115>
+        <dcterms:source rdf:resource="https://www.salmonexplorer.ca/methods/glossary.html"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Indicator river</rdfs:label>
+        <skos:altLabel xml:lang="en">Indicator stream</skos:altLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/LimitReferencePoint -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/LimitReferencePoint">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/ReferencePoint"/>
+        <obo:IAO_0000115 xml:lang="en">A fish stock experiencing serious harm may be depleted to the point where it has impaired productivity or reproductive capacity. As a result, the stock would be less resilient to fishing and could not easily rebuild. Serious harm may be irreversible, or only slowly reversible over the long-term, and can be due to fishing, other human-induced impacts, or natural causes. Under the Precautionary Approach policy and the Fish Stocks Provisions (FSPs), breaching the LRP is a trigger for a rebuilding plan.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html.</obo:IAO_0000119>
+        <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Limit reference point</rdfs:label>
+        <skos:altLabel xml:lang="en">LRP</skos:altLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/LowerBiologicalBenchmark -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/LowerBiologicalBenchmark">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/MetricBenchmark"/>
+        <obo:IAO_0000115 xml:lang="en">Lower benchmark value for a Conservation Unit (CU) metric used to delineate Wild Salmon Policy status zones (typically the boundary between Red and Amber zones). This CU-level biological benchmark is distinct from SMU-level fisheries management lower reference points such as FRP-L.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf.</obo:IAO_0000119>
+        <dcterms:source rdf:resource="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Lower biological benchmark</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/MetricBenchmark -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/MetricBenchmark">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
+        <obo:IAO_0000115 xml:lang="en">Benchmark value for a metric that helps delineate status zones (for example, the limit reference point for absolute abundance).</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada&apos;s Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570.</obo:IAO_0000119>
+        <dcterms:source rdf:resource="https://publications.gc.ca/site/eng/9.928944/publication.html"/>
+        <rdfs:comment xml:lang="en">DFO profile note: this ontology applies `smn:MetricBenchmark` in Wild Salmon Policy status-zone workflows.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Metric benchmark</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/ObservedRateOrAbundance -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/ObservedRateOrAbundance">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000109"/>
+        <obo:IAO_0000115 xml:lang="en">A measurement datum representing an empirically observed rate, count, or abundance derived from monitoring or survey data.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Observed rate or abundance</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/Population -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/Population">
+        <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/dwc/terms/Organism"/>
+        <obo:IAO_0000115 xml:lang="en">A group of organisms of the same species occupying a defined area that interbreed and share a gene pool. In salmon, populations are composed of one or more demes and form the biological basis for Conservation Units.</obo:IAO_0000115>
+        <rdfs:comment xml:lang="en">DFO profile note: this ontology applies `smn:Population` in Wild Salmon Policy / Conservation Unit contexts.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Population</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/ReferencePoint -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/ReferencePoint">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
+        <obo:IAO_0000115 xml:lang="en">Reference points are used as targets to achieve or as limits to avoid.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html.</obo:IAO_0000119>
+        <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html"/>
+        <rdfs:comment xml:lang="en">DFO profile note: this ontology applies `smn:ReferencePoint` in DFO fisheries-management and assessment workflows.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Reference point</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/ReportingOrManagementStratum -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/ReportingOrManagementStratum">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
+        <obo:IAO_0000115 xml:lang="en">An information-defined grouping of fish populations used for reporting, conservation assessment, or management purposes. Examples include Conservation Units (CUs), Stock Management Units (MUs), and Designatable Units (DUs).</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Reporting or management stratum</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/Stock -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/Stock">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/ReportingOrManagementStratum"/>
+        <obo:IAO_0000115 xml:lang="en">An operationally-defined grouping of salmon used for assessment and management purposes. A stock is a management unit or reporting stratum, not a biological organism.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html.</obo:IAO_0000119>
+        <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Stock</rdfs:label>
+        <skos:altLabel xml:lang="en">Fish stock</skos:altLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/StockAssessment -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/StockAssessment">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+        <obo:IAO_0000115 xml:lang="en">The scientific process of analyzing data to estimate the abundance and productivity of fish stocks in the past, present, and future. It is the backbone of successful science-based fisheries management</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Introduction to Stock Assessment. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/module-1/09-eng.html.</obo:IAO_0000119>
+        <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/module-1/09-eng.html"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Stock assessment</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/SurveyEvent -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/SurveyEvent">
+        <rdfs:subClassOf rdf:resource="http://rs.tdwg.org/dwc/terms/Event"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Sampling"/>
+        <obo:IAO_0000115 xml:lang="en">A field event that collects information about key fish stocks to track their status, and track progress to implement fishery policies and measures for these stocks.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. About the Sustainability Survey for Fisheries. https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html.</obo:IAO_0000119>
+        <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Survey event</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/TargetOrLimitRateOrAbundance -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/TargetOrLimitRateOrAbundance">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000109"/>
+        <obo:IAO_0000115 xml:lang="en">A value specification representing a policy- or model-defined target or limit, such as TAC or UMSY.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Target or limit rate or abundance</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/TotalExploitationRate -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/TotalExploitationRate">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/gcdfo/salmon#ObservedExploitationRate"/>
+        <obo:IAO_0000115 xml:lang="en">The overall proportion of the total return of adult salmon removed by all fisheries over a defined period, aggregating across gear or fishery components.</obo:IAO_0000115>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Total exploitation rate</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/smn/UpperBiologicalBenchmark -->
+
+    <owl:Class rdf:about="https://w3id.org/smn/UpperBiologicalBenchmark">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/smn/MetricBenchmark"/>
+        <obo:IAO_0000115 xml:lang="en">Upper benchmark value for a metric used to delineate Wild Salmon Policy status zones (typically the boundary between Amber and Green zones).</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf.</obo:IAO_0000119>
+        <dcterms:source rdf:resource="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Upper biological benchmark</rdfs:label>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
+    </owl:Class>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -1968,9 +1956,9 @@
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContext"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/MeasurementContext"/>
         <skos:definition xml:lang="en">A categorical attribute indicating whether an abundance time series is recorded as absolute abundance or as a relative index (used by rapid-status workflows).</skos:definition>
-        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContextScheme"/>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/MeasurementContextScheme"/>
         <skos:prefLabel xml:lang="en">Abundance data type</skos:prefLabel>
         <skos:scopeNote xml:lang="en">In SPSR rapid-status workflows, this field distinguishes absolute abundance vs relative index inputs (often abbreviated in code as &apos;Abs_Abd&apos; and &apos;RelIdx&apos;).</skos:scopeNote>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
@@ -2009,7 +1997,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Legacy methods: Helicopter, Fixed Wing Aircraft, Aerial, Drone, UAS, UAV</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#EnumerationMethod"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/EnumerationMethod"/>
         <skos:definition xml:lang="en">Overflights (helicopter, fixed wing, or drone) with documented flight lines, coverage, visibility, and sensor settings. Imagery may be reviewed post-flight.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EnumerationMethodScheme"/>
         <skos:prefLabel xml:lang="en">Aerial Survey Count</skos:prefLabel>
@@ -2353,7 +2341,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <skos:definition xml:lang="en">Controlled vocabulary for key biological benchmarks, performance indicators, and reference points used in salmon stock assessment and management (e.g., SMSY, Sgen, spawner abundance).</skos:definition>
-        <skos:hasTopConcept rdf:resource="https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance"/>
+        <skos:hasTopConcept rdf:resource="https://w3id.org/smn/TargetOrLimitRateOrAbundance"/>
         <skos:prefLabel xml:lang="en">Biological Benchmark and Indicator Scheme</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
@@ -2422,21 +2410,6 @@
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EstimateMethodScheme"/>
         <skos:prefLabel xml:lang="en">Calibrated Time Series</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://w3id.org/gcdfo/salmon#CatchContext -->
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#CatchContext">
-        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContext"/>
-        <skos:definition xml:lang="en">Measurement context indicating values refer to fishery catch.</skos:definition>
-        <skos:exactMatch rdf:resource="https://w3id.org/smn/CatchContext"/>
-        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContextScheme"/>
-        <skos:prefLabel xml:lang="en">Catch context</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
     
@@ -2516,9 +2489,9 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#DataQualityRatingContext">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContext"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/MeasurementContext"/>
         <skos:definition xml:lang="en">Measurement context indicating categorical or ordinal quality ratings.</skos:definition>
-        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContextScheme"/>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/MeasurementContextScheme"/>
         <skos:prefLabel xml:lang="en">Data quality rating context</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
     </owl:NamedIndividual>
@@ -2622,26 +2595,10 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Legacy methods: Electrofishing, Electroshocking</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#EnumerationMethod"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/EnumerationMethod"/>
         <skos:definition xml:lang="en">Effort-standardized electrofishing passes used to generate catch-per-unit-effort (CPUE) indices.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EnumerationMethodScheme"/>
         <skos:prefLabel xml:lang="en">Electrofishing Count</skos:prefLabel>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://w3id.org/gcdfo/salmon#EnumerationMethod -->
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#EnumerationMethod">
-        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <rdfs:seeAlso rdf:resource="https://w3id.org/smn/EnumerationMethod"/>
-        <skos:definition xml:lang="en">A method used to enumerate or count salmon in the field</skos:definition>
-        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EnumerationMethodScheme"/>
-        <skos:prefLabel xml:lang="en">Enumeration Method</skos:prefLabel>
-        <skos:scopeNote xml:lang="en">Boundary note (2026-03-13): EnumerationMethod is intentionally modeled as a SKOS concept in gcdfo. Do not treat this as owl:equivalentClass to smn:EnumerationMethod.</skos:scopeNote>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
@@ -2654,7 +2611,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <skos:definition xml:lang="en">Controlled vocabulary for salmon enumeration methods</skos:definition>
-        <skos:hasTopConcept rdf:resource="https://w3id.org/gcdfo/salmon#EnumerationMethod"/>
+        <skos:hasTopConcept rdf:resource="https://w3id.org/smn/EnumerationMethod"/>
         <skos:prefLabel xml:lang="en">Escapement Enumeration Method Scheme</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
@@ -2818,7 +2775,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Legacy methods: Electronic/Optical counter, Resistivity Counter, Video/Camera counter</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#EnumerationMethod"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/EnumerationMethod"/>
         <skos:definition xml:lang="en">Automated counting at a constrained opening using electronic/optical counters, resistivity counters, or video/camera systems. QA review of automated events, cross-section coverage, and uptime/coverage are documented.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EnumerationMethodScheme"/>
         <skos:prefLabel xml:lang="en">Fixed Site Census (Electronic)</skos:prefLabel>
@@ -2834,7 +2791,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Legacy methods: Fence, Weir, Fixed Site Census (manual)</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#EnumerationMethod"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/EnumerationMethod"/>
         <skos:definition xml:lang="en">Salmon are guided through a controlled opening in a fence/weir where trained observers visually tally each passage event on a continuous or daily schedule. Counting chambers/windows and SIL/SEN daily logs document coverage; bypass routes are monitored and closed where possible.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EnumerationMethodScheme"/>
         <skos:prefLabel xml:lang="en">Fixed Site Census (Manual)</skos:prefLabel>
@@ -2957,25 +2914,6 @@
     
 
 
-    <!-- https://w3id.org/gcdfo/salmon#HatcheryOrigin -->
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#HatcheryOrigin">
-        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. 2018. Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Canadian Science Advisory Secretariat Science Advisory Report 2018/001 (Erratum: October 2023).</obo:IAO_0000119>
-        <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/csas-sccs/Publications/SAR-AS/2018/2018_001-eng.html"/>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#SalmonOrigin"/>
-        <skos:definition xml:lang="en">Individuals that were born or reared in a hatchery facility.</skos:definition>
-        <skos:exactMatch rdf:resource="https://w3id.org/smn/HatcheryOrigin"/>
-        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#SalmonOriginScheme"/>
-        <skos:prefLabel xml:lang="en">Hatchery-origin</skos:prefLabel>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- https://w3id.org/gcdfo/salmon#HydroacousticModelling -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#HydroacousticModelling">
@@ -2998,27 +2936,11 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Legacy methods: Sonar-ARIS, Sonar-DIDSON, Hydroacoustic</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#EnumerationMethod"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/EnumerationMethod"/>
         <skos:definition xml:lang="en">Sonar detections (ARIS, DIDSON, or other hydroacoustic systems) with documented coverage, visibility/noise conditions, and uptime. Raw detections require processing through a modelling/classification pipeline.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EnumerationMethodScheme"/>
         <skos:prefLabel xml:lang="en">Hydroacoustic Sonar Count</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://w3id.org/gcdfo/salmon#InRiverPhase -->
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#InRiverPhase">
-        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <skos:altLabel xml:lang="en">Freshwater phase</skos:altLabel>
-        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#LifePhase"/>
-        <skos:definition xml:lang="en">Freshwater in-river phase (migration and/or residence) outside the marine environment.</skos:definition>
-        <skos:exactMatch rdf:resource="https://w3id.org/smn/InRiverPhase"/>
-        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#LifePhaseScheme"/>
-        <skos:prefLabel xml:lang="en">In-river phase</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
     
@@ -3035,33 +2957,6 @@
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteriaScheme"/>
         <skos:prefLabel xml:lang="en">Infill Method</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://w3id.org/gcdfo/salmon#LifePhase -->
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#LifePhase">
-        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <skos:definition xml:lang="en">A phase or segment used to stratify salmon measurements by where or when they apply (e.g., ocean phase, terminal phase).</skos:definition>
-        <skos:exactMatch rdf:resource="https://w3id.org/smn/LifePhase"/>
-        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#LifePhaseScheme"/>
-        <skos:prefLabel xml:lang="en">Life phase</skos:prefLabel>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://w3id.org/gcdfo/salmon#LifePhaseScheme -->
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#LifePhaseScheme">
-        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <skos:definition xml:lang="en">Controlled vocabulary for life-phase or fishery/migration segment qualifiers used to stratify measurements (e.g., ocean, terminal, mainstem).</skos:definition>
-        <skos:hasTopConcept rdf:resource="https://w3id.org/gcdfo/salmon#LifePhase"/>
-        <skos:prefLabel xml:lang="en">Life phase scheme</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
     
@@ -3104,29 +2999,14 @@
     
 
 
-    <!-- https://w3id.org/gcdfo/salmon#MainstemPhase -->
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#MainstemPhase">
-        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#LifePhase"/>
-        <skos:definition xml:lang="en">Freshwater mainstem migration phase in a river system (often corresponding to mainstem in-river fisheries or monitoring segments).</skos:definition>
-        <skos:exactMatch rdf:resource="https://w3id.org/smn/MainstemPhase"/>
-        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#LifePhaseScheme"/>
-        <skos:prefLabel xml:lang="en">Mainstem phase</skos:prefLabel>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- https://w3id.org/gcdfo/salmon#ManagementReferenceContext -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#ManagementReferenceContext">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContext"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/MeasurementContext"/>
         <skos:definition xml:lang="en">Measurement context indicating values are management benchmarks or reference-oriented metrics.</skos:definition>
-        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContextScheme"/>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/MeasurementContextScheme"/>
         <skos:prefLabel xml:lang="en">Management reference context</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
@@ -3172,40 +3052,11 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Legacy methods: Tag Recovery</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#EnumerationMethod"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/EnumerationMethod"/>
         <skos:definition xml:lang="en">Field program involving marking and subsequent recapture/recovery of tagged fish with documented assumptions and recovery coverage.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EnumerationMethodScheme"/>
         <skos:prefLabel xml:lang="en">Mark-Recapture Field Program</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://w3id.org/gcdfo/salmon#MeasurementContext -->
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#MeasurementContext">
-        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <skos:definition xml:lang="en">A context qualifier used to disambiguate the interpretation of a measurement column.</skos:definition>
-        <skos:exactMatch rdf:resource="https://w3id.org/smn/MeasurementContext"/>
-        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContextScheme"/>
-        <skos:prefLabel xml:lang="en">Measurement context</skos:prefLabel>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://w3id.org/gcdfo/salmon#MeasurementContextScheme -->
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#MeasurementContextScheme">
-        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <skos:definition xml:lang="en">Controlled vocabulary for compositional measurement context qualifiers (for example, catch context, run context).</skos:definition>
-        <skos:hasTopConcept rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContext"/>
-        <skos:prefLabel xml:lang="en">Measurement context scheme</skos:prefLabel>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
     
@@ -3240,25 +3091,6 @@
     
 
 
-    <!-- https://w3id.org/gcdfo/salmon#NaturalOrigin -->
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#NaturalOrigin">
-        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. 2018. Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Canadian Science Advisory Secretariat Science Advisory Report 2018/001 (Erratum: October 2023).</obo:IAO_0000119>
-        <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/csas-sccs/Publications/SAR-AS/2018/2018_001-eng.html"/>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#SalmonOrigin"/>
-        <skos:definition xml:lang="en">Individuals that are born and reared in the wild (natural environment).</skos:definition>
-        <skos:exactMatch rdf:resource="https://w3id.org/smn/NaturalOrigin"/>
-        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#SalmonOriginScheme"/>
-        <skos:prefLabel xml:lang="en">Natural-origin</skos:prefLabel>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- https://w3id.org/gcdfo/salmon#NumberOfVisits -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#NumberOfVisits">
@@ -3285,22 +3117,6 @@
         <skos:definition xml:lang="en">Age value represents years spent in the marine environment.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#AgeDimensionScheme"/>
         <skos:prefLabel xml:lang="en">Ocean age dimension</skos:prefLabel>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://w3id.org/gcdfo/salmon#OceanPhase -->
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#OceanPhase">
-        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <skos:altLabel xml:lang="en">Marine phase</skos:altLabel>
-        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#LifePhase"/>
-        <skos:definition xml:lang="en">Phase of the salmon life cycle or assessment period occurring in the marine environment.</skos:definition>
-        <skos:exactMatch rdf:resource="https://w3id.org/smn/OceanPhase"/>
-        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#LifePhaseScheme"/>
-        <skos:prefLabel xml:lang="en">Ocean phase</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
     
@@ -3583,9 +3399,9 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#RecruitStageContext">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContext"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/MeasurementContext"/>
         <skos:definition xml:lang="en">Measurement context indicating values refer to recruits.</skos:definition>
-        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContextScheme"/>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/MeasurementContextScheme"/>
         <skos:prefLabel xml:lang="en">Recruit stage context</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
@@ -3615,7 +3431,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Legacy methods: Redd Counts</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#EnumerationMethod"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/EnumerationMethod"/>
         <skos:definition xml:lang="en">Redd counts with documentation of detectability, timing, and reach coverage. Conversion to spawner estimates requires spawners-per-redd factors handled in analysis.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EnumerationMethodScheme"/>
         <skos:prefLabel xml:lang="en">Redd Count</skos:prefLabel>
@@ -3676,21 +3492,6 @@
     
 
 
-    <!-- https://w3id.org/gcdfo/salmon#RunContext -->
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#RunContext">
-        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContext"/>
-        <skos:definition xml:lang="en">Measurement context indicating values refer to run size or returning run composition.</skos:definition>
-        <skos:exactMatch rdf:resource="https://w3id.org/smn/RunContext"/>
-        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContextScheme"/>
-        <skos:prefLabel xml:lang="en">Run context</skos:prefLabel>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- https://w3id.org/gcdfo/salmon#RunCoverage -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#RunCoverage">
@@ -3716,51 +3517,6 @@
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#ThemeScheme"/>
         <skos:prefLabel xml:lang="en">Salmon Enhancement and Hatcheries</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://w3id.org/gcdfo/salmon#SalmonOrigin -->
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#SalmonOrigin">
-        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <skos:definition xml:lang="en">Origin category describing whether salmon are naturally produced, hatchery produced, or mixed-origin.</skos:definition>
-        <skos:exactMatch rdf:resource="https://w3id.org/smn/SalmonOrigin"/>
-        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#SalmonOriginScheme"/>
-        <skos:prefLabel xml:lang="en">Salmon origin</skos:prefLabel>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://w3id.org/gcdfo/salmon#SalmonOriginScheme -->
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#SalmonOriginScheme">
-        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <skos:definition xml:lang="en">Controlled vocabulary for describing the origin of individual salmon (e.g., natural-origin, hatchery-origin, mixed-origin).</skos:definition>
-        <skos:hasTopConcept rdf:resource="https://w3id.org/gcdfo/salmon#SalmonOrigin"/>
-        <skos:prefLabel xml:lang="en">Salmon Origin Scheme</skos:prefLabel>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme"/>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://w3id.org/gcdfo/salmon#SpawnerStageContext -->
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#SpawnerStageContext">
-        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContext"/>
-        <skos:definition xml:lang="en">Measurement context indicating values refer to spawners or spawning-stage fish.</skos:definition>
-        <skos:exactMatch rdf:resource="https://w3id.org/smn/SpawnerStageContext"/>
-        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContextScheme"/>
-        <skos:prefLabel xml:lang="en">Spawner stage context</skos:prefLabel>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
     
 
@@ -3804,36 +3560,6 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://w3id.org/gcdfo/salmon#SurvivalOrMortalityContext -->
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#SurvivalOrMortalityContext">
-        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContext"/>
-        <skos:definition xml:lang="en">Measurement context indicating values represent survival, mortality, or related rates.</skos:definition>
-        <skos:exactMatch rdf:resource="https://w3id.org/smn/SurvivalOrMortalityContext"/>
-        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#MeasurementContextScheme"/>
-        <skos:prefLabel xml:lang="en">Survival or mortality context</skos:prefLabel>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://w3id.org/gcdfo/salmon#TerminalPhase -->
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#TerminalPhase">
-        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#LifePhase"/>
-        <skos:definition xml:lang="en">Phase occurring in terminal areas near river mouths or spawning areas (often including terminal fisheries and local migration to spawning sites).</skos:definition>
-        <skos:exactMatch rdf:resource="https://w3id.org/smn/TerminalPhase"/>
-        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#LifePhaseScheme"/>
-        <skos:prefLabel xml:lang="en">Terminal phase</skos:prefLabel>
-        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
     
 
@@ -3886,7 +3612,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Legacy methods: Trap, Hatchery Passage Counting</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#EnumerationMethod"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/EnumerationMethod"/>
         <skos:definition xml:lang="en">Trap-based counts from non-spanning traps with documented emptying schedule, efficiency measurements, and coverage information.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EnumerationMethodScheme"/>
         <skos:prefLabel xml:lang="en">Trap Count</skos:prefLabel>
@@ -4089,7 +3815,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Legacy methods: Stream Walk, Ground count, Bank Walk</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#EnumerationMethod"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/EnumerationMethod"/>
         <skos:definition xml:lang="en">Visual surveys conducted by stream/bank walk with documented visit schedule, reach coverage, timing, and visibility conditions.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EnumerationMethodScheme"/>
         <skos:prefLabel xml:lang="en">Visual Ground Count</skos:prefLabel>
@@ -4105,7 +3831,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Legacy methods: Snorkel, Snorkel Swim</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#EnumerationMethod"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/EnumerationMethod"/>
         <skos:definition xml:lang="en">Two or more trained snorkelers conduct standardized passes within defined segments, tallying live/dead by species. Field forms capture visibility class, segment boundaries, and repeat-visit schedule; counts are aggregated across observers/passes.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EnumerationMethodScheme"/>
         <skos:prefLabel xml:lang="en">Visual Snorkel Count</skos:prefLabel>
@@ -4213,6 +3939,254 @@
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
     </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/smn/CatchContext -->
+
+    <rdf:Description rdf:about="https://w3id.org/smn/CatchContext">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/MeasurementContext"/>
+        <skos:definition xml:lang="en">Measurement context indicating values refer to fishery catch.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/MeasurementContextScheme"/>
+        <skos:prefLabel xml:lang="en">Catch context</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://w3id.org/smn/EnumerationMethod -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/smn/EnumerationMethod">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:definition xml:lang="en">A method used to enumerate or count salmon in the field</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EnumerationMethodScheme"/>
+        <skos:prefLabel xml:lang="en">Enumeration Method</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">DFO profile note: this ontology uses the shared `smn:EnumerationMethod` concept directly and constrains local narrower methods beneath it.</skos:scopeNote>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/smn/HatcheryOrigin -->
+
+    <rdf:Description rdf:about="https://w3id.org/smn/HatcheryOrigin">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. 2018. Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Canadian Science Advisory Secretariat Science Advisory Report 2018/001 (Erratum: October 2023).</obo:IAO_0000119>
+        <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/csas-sccs/Publications/SAR-AS/2018/2018_001-eng.html"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/SalmonOrigin"/>
+        <skos:definition xml:lang="en">Individuals that were born or reared in a hatchery facility.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/SalmonOriginScheme"/>
+        <skos:prefLabel xml:lang="en">Hatchery-origin</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://w3id.org/smn/InRiverPhase -->
+
+    <rdf:Description rdf:about="https://w3id.org/smn/InRiverPhase">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:altLabel xml:lang="en">Freshwater phase</skos:altLabel>
+        <skos:broader rdf:resource="https://w3id.org/smn/LifePhase"/>
+        <skos:definition xml:lang="en">Freshwater in-river phase (migration and/or residence) outside the marine environment.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/LifePhaseScheme"/>
+        <skos:prefLabel xml:lang="en">In-river phase</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://w3id.org/smn/LifePhase -->
+
+    <rdf:Description rdf:about="https://w3id.org/smn/LifePhase">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:definition xml:lang="en">A phase or segment used to stratify salmon measurements by where or when they apply (e.g., ocean phase, terminal phase).</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/LifePhaseScheme"/>
+        <skos:prefLabel xml:lang="en">Life phase</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://w3id.org/smn/LifePhaseScheme -->
+
+    <rdf:Description rdf:about="https://w3id.org/smn/LifePhaseScheme">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:definition xml:lang="en">Controlled vocabulary for life-phase or fishery/migration segment qualifiers used to stratify measurements (e.g., ocean, terminal, mainstem).</skos:definition>
+        <skos:hasTopConcept rdf:resource="https://w3id.org/smn/LifePhase"/>
+        <skos:prefLabel xml:lang="en">Life phase scheme</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://w3id.org/smn/MainstemPhase -->
+
+    <rdf:Description rdf:about="https://w3id.org/smn/MainstemPhase">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/LifePhase"/>
+        <skos:definition xml:lang="en">Freshwater mainstem migration phase in a river system (often corresponding to mainstem in-river fisheries or monitoring segments).</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/LifePhaseScheme"/>
+        <skos:prefLabel xml:lang="en">Mainstem phase</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://w3id.org/smn/MeasurementContext -->
+
+    <rdf:Description rdf:about="https://w3id.org/smn/MeasurementContext">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:definition xml:lang="en">A context qualifier used to disambiguate the interpretation of a measurement column.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/MeasurementContextScheme"/>
+        <skos:prefLabel xml:lang="en">Measurement context</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://w3id.org/smn/MeasurementContextScheme -->
+
+    <rdf:Description rdf:about="https://w3id.org/smn/MeasurementContextScheme">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:definition xml:lang="en">Controlled vocabulary for compositional measurement context qualifiers (for example, catch context, run context).</skos:definition>
+        <skos:hasTopConcept rdf:resource="https://w3id.org/smn/MeasurementContext"/>
+        <skos:prefLabel xml:lang="en">Measurement context scheme</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://w3id.org/smn/NaturalOrigin -->
+
+    <rdf:Description rdf:about="https://w3id.org/smn/NaturalOrigin">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. 2018. Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Canadian Science Advisory Secretariat Science Advisory Report 2018/001 (Erratum: October 2023).</obo:IAO_0000119>
+        <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/csas-sccs/Publications/SAR-AS/2018/2018_001-eng.html"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/SalmonOrigin"/>
+        <skos:definition xml:lang="en">Individuals that are born and reared in the wild (natural environment).</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/SalmonOriginScheme"/>
+        <skos:prefLabel xml:lang="en">Natural-origin</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://w3id.org/smn/OceanPhase -->
+
+    <rdf:Description rdf:about="https://w3id.org/smn/OceanPhase">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:altLabel xml:lang="en">Marine phase</skos:altLabel>
+        <skos:broader rdf:resource="https://w3id.org/smn/LifePhase"/>
+        <skos:definition xml:lang="en">Phase of the salmon life cycle or assessment period occurring in the marine environment.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/LifePhaseScheme"/>
+        <skos:prefLabel xml:lang="en">Ocean phase</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://w3id.org/smn/RunContext -->
+
+    <rdf:Description rdf:about="https://w3id.org/smn/RunContext">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/MeasurementContext"/>
+        <skos:definition xml:lang="en">Measurement context indicating values refer to run size or returning run composition.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/MeasurementContextScheme"/>
+        <skos:prefLabel xml:lang="en">Run context</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://w3id.org/smn/SalmonOrigin -->
+
+    <rdf:Description rdf:about="https://w3id.org/smn/SalmonOrigin">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:definition xml:lang="en">Origin category describing whether salmon are naturally produced, hatchery produced, or mixed-origin.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/SalmonOriginScheme"/>
+        <skos:prefLabel xml:lang="en">Salmon origin</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://w3id.org/smn/SalmonOriginScheme -->
+
+    <rdf:Description rdf:about="https://w3id.org/smn/SalmonOriginScheme">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:definition xml:lang="en">Controlled vocabulary for describing the origin of individual salmon (e.g., natural-origin, hatchery-origin, mixed-origin).</skos:definition>
+        <skos:hasTopConcept rdf:resource="https://w3id.org/smn/SalmonOrigin"/>
+        <skos:prefLabel xml:lang="en">Salmon Origin Scheme</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme"/>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://w3id.org/smn/SpawnerStageContext -->
+
+    <rdf:Description rdf:about="https://w3id.org/smn/SpawnerStageContext">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/MeasurementContext"/>
+        <skos:definition xml:lang="en">Measurement context indicating values refer to spawners or spawning-stage fish.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/MeasurementContextScheme"/>
+        <skos:prefLabel xml:lang="en">Spawner stage context</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://w3id.org/smn/SurvivalOrMortalityContext -->
+
+    <rdf:Description rdf:about="https://w3id.org/smn/SurvivalOrMortalityContext">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/MeasurementContext"/>
+        <skos:definition xml:lang="en">Measurement context indicating values represent survival, mortality, or related rates.</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/MeasurementContextScheme"/>
+        <skos:prefLabel xml:lang="en">Survival or mortality context</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://w3id.org/smn/TerminalPhase -->
+
+    <rdf:Description rdf:about="https://w3id.org/smn/TerminalPhase">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <skos:broader rdf:resource="https://w3id.org/smn/LifePhase"/>
+        <skos:definition xml:lang="en">Phase occurring in terminal areas near river mouths or spawning areas (often including terminal fisheries and local migration to spawning sites).</skos:definition>
+        <skos:inScheme rdf:resource="https://w3id.org/smn/LifePhaseScheme"/>
+        <skos:prefLabel xml:lang="en">Terminal phase</skos:prefLabel>
+        <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
+    </rdf:Description>
     
 
 

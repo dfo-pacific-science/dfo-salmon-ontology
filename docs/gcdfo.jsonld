@@ -5,7 +5,7 @@
       {
         "@list": [
           {
-            "@id": "https://w3id.org/gcdfo/salmon#ExploitationRate"
+            "@id": "https://w3id.org/smn/ExploitationRate"
           },
           {
             "@id": "https://w3id.org/gcdfo/salmon#ObservedExploitationRate"
@@ -14,13 +14,13 @@
             "@id": "https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate"
           },
           {
-            "@id": "https://w3id.org/gcdfo/salmon#TotalExploitationRate"
+            "@id": "https://w3id.org/smn/TotalExploitationRate"
           },
           {
             "@id": "https://w3id.org/gcdfo/salmon#SpawnerAbundance"
           },
           {
-            "@id": "https://w3id.org/gcdfo/salmon#EscapementMeasurement"
+            "@id": "https://w3id.org/smn/EscapementMeasurement"
           }
         ]
       }
@@ -32,10 +32,10 @@
       {
         "@list": [
           {
-            "@id": "https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum"
+            "@id": "https://w3id.org/smn/ReportingOrManagementStratum"
           },
           {
-            "@id": "https://w3id.org/gcdfo/salmon#Population"
+            "@id": "https://w3id.org/smn/Population"
           }
         ]
       }
@@ -47,10 +47,10 @@
       {
         "@list": [
           {
-            "@id": "https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum"
+            "@id": "https://w3id.org/smn/ReportingOrManagementStratum"
           },
           {
-            "@id": "https://w3id.org/gcdfo/salmon#Population"
+            "@id": "https://w3id.org/smn/Population"
           }
         ]
       }
@@ -65,10 +65,10 @@
             "@id": "http://purl.obolibrary.org/obo/IAO_0000109"
           },
           {
-            "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+            "@id": "https://w3id.org/smn/ObservedRateOrAbundance"
           },
           {
-            "@id": "https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance"
+            "@id": "https://w3id.org/smn/TargetOrLimitRateOrAbundance"
           }
         ]
       }
@@ -1247,7 +1247,7 @@
     "http://purl.org/dc/terms/modified": [
       {
         "@type": "http://www.w3.org/2001/XMLSchema#date",
-        "@value": "2026-03-02"
+        "@value": "2026-03-15"
       }
     ],
     "http://purl.org/dc/terms/publisher": [
@@ -1275,7 +1275,7 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "Boundary note (2026-03-13): this ontology now imports smn and carries conservative alignment links for clearly shared terms. DFO-local semantics are intentionally retained for Population, hasPopulation, populationOf, ReferencePoint, and MetricBenchmark pending later review."
+        "@value": "Migration note (2026-03-15): overlapping shared terms now use `smn:` IRIs directly in this ontology; DFO-specific semantics remain only where no shared replacement exists."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
@@ -1338,7 +1338,7 @@
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#MeasurementContext"
+        "@id": "https://w3id.org/smn/MeasurementContext"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -1349,7 +1349,7 @@
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#MeasurementContextScheme"
+        "@id": "https://w3id.org/smn/MeasurementContextScheme"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#prefLabel": [
@@ -1475,7 +1475,7 @@
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#EnumerationMethod"
+        "@id": "https://w3id.org/smn/EnumerationMethod"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -2439,7 +2439,7 @@
     ],
     "http://www.w3.org/2004/02/skos/core#hasTopConcept": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance"
+        "@id": "https://w3id.org/smn/TargetOrLimitRateOrAbundance"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#prefLabel": [
@@ -2641,7 +2641,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+        "@id": "https://w3id.org/smn/ObservedRateOrAbundance"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#altLabel": [
@@ -2701,49 +2701,6 @@
       {
         "@id": "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"
       },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/gcdfo/salmon#CatchContext",
-    "@type": [
-      "http://www.w3.org/2004/02/skos/core#Concept"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#broader": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#MeasurementContext"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#definition": [
-      {
-        "@language": "en",
-        "@value": "Measurement context indicating values refer to fishery catch."
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://w3id.org/smn/CatchContext"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#inScheme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#MeasurementContextScheme"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#prefLabel": [
-      {
-        "@language": "en",
-        "@value": "Catch context"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
       }
@@ -2926,7 +2883,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum"
+        "@id": "https://w3id.org/smn/ReportingOrManagementStratum"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
@@ -3033,7 +2990,7 @@
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#MeasurementContext"
+        "@id": "https://w3id.org/smn/MeasurementContext"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -3044,7 +3001,7 @@
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#MeasurementContextScheme"
+        "@id": "https://w3id.org/smn/MeasurementContextScheme"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#prefLabel": [
@@ -3056,48 +3013,6 @@
     "https://w3id.org/gcdfo/salmon#theme": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/gcdfo/salmon#Deme",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000115": [
-      {
-        "@language": "en",
-        "@value": "A local interbreeding group of organisms within a species. In salmon, a deme typically corresponds to a spawning population at a specific site. Demes are the finest biological unit and make up populations."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Deme"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://rs.tdwg.org/dwc/terms/Organism"
-      },
-      {
-        "@id": "https://w3id.org/smn/Deme"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
       }
     ]
   },
@@ -3376,7 +3291,7 @@
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#EnumerationMethod"
+        "@id": "https://w3id.org/smn/EnumerationMethod"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -3406,53 +3321,6 @@
     ]
   },
   {
-    "@id": "https://w3id.org/gcdfo/salmon#EnumerationMethod",
-    "@type": [
-      "http://www.w3.org/2004/02/skos/core#Concept"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
-      {
-        "@id": "https://w3id.org/smn/EnumerationMethod"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#definition": [
-      {
-        "@language": "en",
-        "@value": "A method used to enumerate or count salmon in the field"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#inScheme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#EnumerationMethodScheme"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#prefLabel": [
-      {
-        "@language": "en",
-        "@value": "Enumeration Method"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#scopeNote": [
-      {
-        "@language": "en",
-        "@value": "Boundary note (2026-03-13): EnumerationMethod is intentionally modeled as a SKOS concept in gcdfo. Do not treat this as owl:equivalentClass to smn:EnumerationMethod."
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
     "@id": "https://w3id.org/gcdfo/salmon#EnumerationMethodScheme",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#ConceptScheme"
@@ -3470,7 +3338,7 @@
     ],
     "http://www.w3.org/2004/02/skos/core#hasTopConcept": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#EnumerationMethod"
+        "@id": "https://w3id.org/smn/EnumerationMethod"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#prefLabel": [
@@ -3526,143 +3394,6 @@
     "https://w3id.org/gcdfo/salmon#theme": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/gcdfo/salmon#Escapement",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000115": [
-      {
-        "@language": "en",
-        "@value": "The number of mature salmon that pass through (or escape) fisheries and return to fresh water to spawn."
-      }
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000119": [
-      {
-        "@language": "en",
-        "@value": "Fisheries and Oceans Canada. 2005. Canada's Policy for Conservation of Wild Pacific Salmon. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf."
-      }
-    ],
-    "http://purl.org/dc/terms/source": [
-      {
-        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Escapement"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://purl.obolibrary.org/obo/BFO_0000015"
-      },
-      {
-        "@id": "https://w3id.org/smn/Escapement"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/gcdfo/salmon#EscapementMeasurement",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000115": [
-      {
-        "@language": "en",
-        "@value": "A measurement or estimate of escapement tied to a stock and a survey event."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Escapement measurement"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://purl.obolibrary.org/obo/IAO_0000109"
-      },
-      {
-        "@id": "http://www.w3.org/ns/sosa/Result"
-      },
-      {
-        "@id": "https://w3id.org/smn/EscapementMeasurement"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/gcdfo/salmon#EscapementSurveyEvent",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000115": [
-      {
-        "@language": "en",
-        "@value": "A survey event specifically for estimating escapement."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Escapement Survey Event"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#SurveyEvent"
-      },
-      {
-        "@id": "https://w3id.org/smn/EscapementSurveyEvent"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#prefLabel": [
-      {
-        "@language": "en",
-        "@value": "Escapement Survey Event"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"
       },
       {
         "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
@@ -3965,53 +3696,6 @@
     ]
   },
   {
-    "@id": "https://w3id.org/gcdfo/salmon#ExploitationRate",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000115": [
-      {
-        "@language": "en",
-        "@value": "A fishing mortality rate expressed as the proportion of the total return removed by fishing over a specified assessment period."
-      }
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000119": [
-      {
-        "@language": "en",
-        "@value": "Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html."
-      }
-    ],
-    "http://purl.org/dc/terms/source": [
-      {
-        "@id": "https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Exploitation rate"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://purl.obolibrary.org/obo/IAO_0000109"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
     "@id": "https://w3id.org/gcdfo/salmon#FishStockProvisions",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
@@ -4095,57 +3779,6 @@
     ]
   },
   {
-    "@id": "https://w3id.org/gcdfo/salmon#FisheriesReferencePointLower",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000115": [
-      {
-        "@language": "en",
-        "@value": "A lower fisheries-management reference point defined for Stock Management Units (SMUs) and related fishery decision frameworks. It may be informed by Conservation Unit (CU) lower biological benchmarks, but is not identical to CU-level lower biological benchmarks used to delineate Wild Salmon Policy biological status zones."
-      }
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000119": [
-      {
-        "@language": "en",
-        "@value": "Fisheries and Oceans Canada. (2022). Methodologies and Guidelines for Defining Limit Reference Points for Pacific Salmon. DFO Can. Sci. Advis. Sec. Sci. Advis. Rep. 2022/030. (Erratum: December 2022)."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Fisheries Reference Point - Lower"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#LimitReferencePoint"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#altLabel": [
-      {
-        "@language": "en",
-        "@value": "FRP-L"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
     "@id": "https://w3id.org/gcdfo/salmon#FixedSiteCensusElectronic",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
@@ -4163,7 +3796,7 @@
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#EnumerationMethod"
+        "@id": "https://w3id.org/smn/EnumerationMethod"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -4210,7 +3843,7 @@
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#EnumerationMethod"
+        "@id": "https://w3id.org/smn/EnumerationMethod"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -4572,66 +4205,6 @@
     ]
   },
   {
-    "@id": "https://w3id.org/gcdfo/salmon#HatcheryOrigin",
-    "@type": [
-      "http://www.w3.org/2004/02/skos/core#Concept"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000119": [
-      {
-        "@language": "en",
-        "@value": "Fisheries and Oceans Canada. 2018. Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Canadian Science Advisory Secretariat Science Advisory Report 2018/001 (Erratum: October 2023)."
-      }
-    ],
-    "http://purl.org/dc/terms/source": [
-      {
-        "@id": "https://www.dfo-mpo.gc.ca/csas-sccs/Publications/SAR-AS/2018/2018_001-eng.html"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#broader": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#SalmonOrigin"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#definition": [
-      {
-        "@language": "en",
-        "@value": "Individuals that were born or reared in a hatchery facility."
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://w3id.org/smn/HatcheryOrigin"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#inScheme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#SalmonOriginScheme"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#prefLabel": [
-      {
-        "@language": "en",
-        "@value": "Hatchery-origin"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
     "@id": "https://w3id.org/gcdfo/salmon#HydroacousticModelling",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
@@ -4696,7 +4269,7 @@
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#EnumerationMethod"
+        "@id": "https://w3id.org/smn/EnumerationMethod"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -4763,109 +4336,10 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+        "@id": "https://w3id.org/smn/ObservedRateOrAbundance"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/gcdfo/salmon#InRiverPhase",
-    "@type": [
-      "http://www.w3.org/2004/02/skos/core#Concept"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#altLabel": [
-      {
-        "@language": "en",
-        "@value": "Freshwater phase"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#broader": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#LifePhase"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#definition": [
-      {
-        "@language": "en",
-        "@value": "Freshwater in-river phase (migration and/or residence) outside the marine environment."
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://w3id.org/smn/InRiverPhase"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#inScheme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#LifePhaseScheme"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#prefLabel": [
-      {
-        "@language": "en",
-        "@value": "In-river phase"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/gcdfo/salmon#IndicatorRiver",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000115": [
-      {
-        "@language": "en",
-        "@value": "A reporting and assessment stratum identifying monitored indicator streams that provide representative indices of spawner abundance for nearby streams."
-      }
-    ],
-    "http://purl.org/dc/terms/source": [
-      {
-        "@id": "https://www.salmonexplorer.ca/methods/glossary.html"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Indicator river"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#altLabel": [
-      {
-        "@language": "en",
-        "@value": "Indicator stream"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"
-      },
       {
         "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
       }
@@ -4912,133 +4386,6 @@
     "https://w3id.org/gcdfo/salmon#theme": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/gcdfo/salmon#LifePhase",
-    "@type": [
-      "http://www.w3.org/2004/02/skos/core#Concept"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#definition": [
-      {
-        "@language": "en",
-        "@value": "A phase or segment used to stratify salmon measurements by where or when they apply (e.g., ocean phase, terminal phase)."
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://w3id.org/smn/LifePhase"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#inScheme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#LifePhaseScheme"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#prefLabel": [
-      {
-        "@language": "en",
-        "@value": "Life phase"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/gcdfo/salmon#LifePhaseScheme",
-    "@type": [
-      "http://www.w3.org/2004/02/skos/core#ConceptScheme"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#definition": [
-      {
-        "@language": "en",
-        "@value": "Controlled vocabulary for life-phase or fishery/migration segment qualifiers used to stratify measurements (e.g., ocean, terminal, mainstem)."
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#hasTopConcept": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#LifePhase"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#prefLabel": [
-      {
-        "@language": "en",
-        "@value": "Life phase scheme"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/gcdfo/salmon#LimitReferencePoint",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000115": [
-      {
-        "@language": "en",
-        "@value": "A fish stock experiencing serious harm may be depleted to the point where it has impaired productivity or reproductive capacity. As a result, the stock would be less resilient to fishing and could not easily rebuild. Serious harm may be irreversible, or only slowly reversible over the long-term, and can be due to fishing, other human-induced impacts, or natural causes. Under the Precautionary Approach policy and the Fish Stocks Provisions (FSPs), breaching the LRP is a trigger for a rebuilding plan."
-      }
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000119": [
-      {
-        "@language": "en",
-        "@value": "Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html."
-      }
-    ],
-    "http://purl.org/dc/terms/source": [
-      {
-        "@id": "https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Limit reference point"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#ReferencePoint"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#altLabel": [
-      {
-        "@language": "en",
-        "@value": "LRP"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"
       },
       {
         "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
@@ -5163,56 +4510,6 @@
     ]
   },
   {
-    "@id": "https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000115": [
-      {
-        "@language": "en",
-        "@value": "Lower benchmark value for a Conservation Unit (CU) metric used to delineate Wild Salmon Policy status zones (typically the boundary between Red and Amber zones). This CU-level biological benchmark is distinct from SMU-level fisheries management lower reference points such as FRP-L."
-      }
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000119": [
-      {
-        "@language": "en",
-        "@value": "Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."
-      }
-    ],
-    "http://purl.org/dc/terms/source": [
-      {
-        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Lower biological benchmark"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#MetricBenchmark"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
-      }
-    ]
-  },
-  {
     "@id": "https://w3id.org/gcdfo/salmon#MainstemMortalityRate",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
@@ -5247,50 +4544,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/gcdfo/salmon#MainstemPhase",
-    "@type": [
-      "http://www.w3.org/2004/02/skos/core#Concept"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#broader": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#LifePhase"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#definition": [
-      {
-        "@language": "en",
-        "@value": "Freshwater mainstem migration phase in a river system (often corresponding to mainstem in-river fisheries or monitoring segments)."
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://w3id.org/smn/MainstemPhase"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#inScheme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#LifePhaseScheme"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#prefLabel": [
-      {
-        "@language": "en",
-        "@value": "Mainstem phase"
+        "@id": "https://w3id.org/smn/ObservedRateOrAbundance"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
@@ -5311,7 +4565,7 @@
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#MeasurementContext"
+        "@id": "https://w3id.org/smn/MeasurementContext"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -5322,7 +4576,7 @@
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#MeasurementContextScheme"
+        "@id": "https://w3id.org/smn/MeasurementContextScheme"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#prefLabel": [
@@ -5375,7 +4629,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+        "@id": "https://w3id.org/smn/ObservedRateOrAbundance"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
@@ -5499,7 +4753,7 @@
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#EnumerationMethod"
+        "@id": "https://w3id.org/smn/EnumerationMethod"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -5522,83 +4776,6 @@
     "https://w3id.org/gcdfo/salmon#theme": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/gcdfo/salmon#MeasurementContext",
-    "@type": [
-      "http://www.w3.org/2004/02/skos/core#Concept"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#definition": [
-      {
-        "@language": "en",
-        "@value": "A context qualifier used to disambiguate the interpretation of a measurement column."
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://w3id.org/smn/MeasurementContext"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#inScheme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#MeasurementContextScheme"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#prefLabel": [
-      {
-        "@language": "en",
-        "@value": "Measurement context"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/gcdfo/salmon#MeasurementContextScheme",
-    "@type": [
-      "http://www.w3.org/2004/02/skos/core#ConceptScheme"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#definition": [
-      {
-        "@language": "en",
-        "@value": "Controlled vocabulary for compositional measurement context qualifiers (for example, catch context, run context)."
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#hasTopConcept": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#MeasurementContext"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#prefLabel": [
-      {
-        "@language": "en",
-        "@value": "Measurement context scheme"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
       },
       {
         "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
@@ -5653,59 +4830,6 @@
     ]
   },
   {
-    "@id": "https://w3id.org/gcdfo/salmon#MetricBenchmark",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000115": [
-      {
-        "@language": "en",
-        "@value": "Benchmark value for a metric that helps delineate status zones (for example, the limit reference point for absolute abundance)."
-      }
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000119": [
-      {
-        "@language": "en",
-        "@value": "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570."
-      }
-    ],
-    "http://purl.org/dc/terms/source": [
-      {
-        "@id": "https://publications.gc.ca/site/eng/9.928944/publication.html"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Boundary note (2026-03-13): intentionally retained as DFO-local in this pass due WSP grounding in definitions and usage."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Metric benchmark"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://purl.obolibrary.org/obo/IAO_0000030"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
-      }
-    ]
-  },
-  {
     "@id": "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
@@ -5735,66 +4859,6 @@
     "https://w3id.org/gcdfo/salmon#theme": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/gcdfo/salmon#NaturalOrigin",
-    "@type": [
-      "http://www.w3.org/2004/02/skos/core#Concept"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000119": [
-      {
-        "@language": "en",
-        "@value": "Fisheries and Oceans Canada. 2018. Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Canadian Science Advisory Secretariat Science Advisory Report 2018/001 (Erratum: October 2023)."
-      }
-    ],
-    "http://purl.org/dc/terms/source": [
-      {
-        "@id": "https://www.dfo-mpo.gc.ca/csas-sccs/Publications/SAR-AS/2018/2018_001-eng.html"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#broader": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#SalmonOrigin"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#definition": [
-      {
-        "@language": "en",
-        "@value": "Individuals that are born and reared in the wild (natural environment)."
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://w3id.org/smn/NaturalOrigin"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#inScheme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#SalmonOriginScheme"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#prefLabel": [
-      {
-        "@language": "en",
-        "@value": "Natural-origin"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
       }
     ]
   },
@@ -5880,49 +4944,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#ExploitationRate"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000115": [
-      {
-        "@language": "en",
-        "@value": "A measurement datum representing an empirically observed rate, count, or abundance derived from monitoring or survey data."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Observed rate or abundance"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://purl.obolibrary.org/obo/IAO_0000109"
+        "@id": "https://w3id.org/smn/ExploitationRate"
       },
       {
         "@id": "https://w3id.org/smn/ObservedRateOrAbundance"
@@ -5931,6 +4953,9 @@
     "https://w3id.org/gcdfo/salmon#theme": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"
       },
       {
         "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
@@ -6016,56 +5041,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/gcdfo/salmon#OceanPhase",
-    "@type": [
-      "http://www.w3.org/2004/02/skos/core#Concept"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#altLabel": [
-      {
-        "@language": "en",
-        "@value": "Marine phase"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#broader": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#LifePhase"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#definition": [
-      {
-        "@language": "en",
-        "@value": "Phase of the salmon life cycle or assessment period occurring in the marine environment."
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://w3id.org/smn/OceanPhase"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#inScheme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#LifePhaseScheme"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#prefLabel": [
-      {
-        "@language": "en",
-        "@value": "Ocean phase"
+        "@id": "https://w3id.org/smn/ObservedRateOrAbundance"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
@@ -6109,7 +5085,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum"
+        "@id": "https://w3id.org/smn/ReportingOrManagementStratum"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#altLabel": [
@@ -6376,51 +5352,6 @@
     ]
   },
   {
-    "@id": "https://w3id.org/gcdfo/salmon#Population",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000115": [
-      {
-        "@language": "en",
-        "@value": "A group of organisms of the same species occupying a defined area that interbreed and share a gene pool. In salmon, populations are composed of one or more demes and form the biological basis for Conservation Units."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Boundary note (2026-03-13): intentionally retained as a DFO-local class in this pass due CU-specific framing in definitions and usage."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Population"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://rs.tdwg.org/dwc/terms/Organism"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
-      }
-    ]
-  },
-  {
     "@id": "https://w3id.org/gcdfo/salmon#PrecautionaryApproach",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
@@ -6633,7 +5564,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+        "@id": "https://w3id.org/smn/ObservedRateOrAbundance"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#altLabel": [
@@ -7044,7 +5975,7 @@
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#MeasurementContext"
+        "@id": "https://w3id.org/smn/MeasurementContext"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -7055,7 +5986,7 @@
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#MeasurementContextScheme"
+        "@id": "https://w3id.org/smn/MeasurementContextScheme"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#prefLabel": [
@@ -7136,7 +6067,7 @@
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#EnumerationMethod"
+        "@id": "https://w3id.org/smn/EnumerationMethod"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -7206,62 +6137,6 @@
     "https://w3id.org/gcdfo/salmon#theme": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/gcdfo/salmon#ReferencePoint",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000115": [
-      {
-        "@language": "en",
-        "@value": "Reference points are used as targets to achieve or as limits to avoid."
-      }
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000119": [
-      {
-        "@language": "en",
-        "@value": "Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html."
-      }
-    ],
-    "http://purl.org/dc/terms/source": [
-      {
-        "@id": "https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Boundary note (2026-03-13): intentionally retained as DFO-local in this pass; do not auto-move to smn."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Reference point"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://purl.obolibrary.org/obo/IAO_0000030"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"
       },
       {
         "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
@@ -7839,45 +6714,6 @@
     ]
   },
   {
-    "@id": "https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000115": [
-      {
-        "@language": "en",
-        "@value": "An information-defined grouping of fish populations used for reporting, conservation assessment, or management purposes. Examples include Conservation Units (CUs), Stock Management Units (MUs), and Designatable Units (DUs)."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Reporting or management stratum"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://purl.obolibrary.org/obo/IAO_0000030"
-      },
-      {
-        "@id": "https://w3id.org/smn/ReportingOrManagementStratum"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
     "@id": "https://w3id.org/gcdfo/salmon#ReturnYear",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
@@ -7986,49 +6822,6 @@
     ]
   },
   {
-    "@id": "https://w3id.org/gcdfo/salmon#RunContext",
-    "@type": [
-      "http://www.w3.org/2004/02/skos/core#Concept"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#broader": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#MeasurementContext"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#definition": [
-      {
-        "@language": "en",
-        "@value": "Measurement context indicating values refer to run size or returning run composition."
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://w3id.org/smn/RunContext"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#inScheme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#MeasurementContextScheme"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#prefLabel": [
-      {
-        "@language": "en",
-        "@value": "Run context"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
     "@id": "https://w3id.org/gcdfo/salmon#RunCoverage",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
@@ -8109,86 +6902,6 @@
     ]
   },
   {
-    "@id": "https://w3id.org/gcdfo/salmon#SalmonOrigin",
-    "@type": [
-      "http://www.w3.org/2004/02/skos/core#Concept"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#definition": [
-      {
-        "@language": "en",
-        "@value": "Origin category describing whether salmon are naturally produced, hatchery produced, or mixed-origin."
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://w3id.org/smn/SalmonOrigin"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#inScheme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#SalmonOriginScheme"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#prefLabel": [
-      {
-        "@language": "en",
-        "@value": "Salmon origin"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/gcdfo/salmon#SalmonOriginScheme",
-    "@type": [
-      "http://www.w3.org/2004/02/skos/core#ConceptScheme"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#definition": [
-      {
-        "@language": "en",
-        "@value": "Controlled vocabulary for describing the origin of individual salmon (e.g., natural-origin, hatchery-origin, mixed-origin)."
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#hasTopConcept": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#SalmonOrigin"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#prefLabel": [
-      {
-        "@language": "en",
-        "@value": "Salmon Origin Scheme"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
     "@id": "https://w3id.org/gcdfo/salmon#SpawnerAbundance",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
@@ -8223,7 +6936,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+        "@id": "https://w3id.org/smn/ObservedRateOrAbundance"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#altLabel": [
@@ -8279,7 +6992,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+        "@id": "https://w3id.org/smn/ObservedRateOrAbundance"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
@@ -8326,7 +7039,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+        "@id": "https://w3id.org/smn/ObservedRateOrAbundance"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
@@ -8373,7 +7086,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+        "@id": "https://w3id.org/smn/ObservedRateOrAbundance"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
@@ -8382,49 +7095,6 @@
       },
       {
         "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/gcdfo/salmon#SpawnerStageContext",
-    "@type": [
-      "http://www.w3.org/2004/02/skos/core#Concept"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#broader": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#MeasurementContext"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#definition": [
-      {
-        "@language": "en",
-        "@value": "Measurement context indicating values refer to spawners or spawning-stage fish."
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://w3id.org/smn/SpawnerStageContext"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#inScheme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#MeasurementContextScheme"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#prefLabel": [
-      {
-        "@language": "en",
-        "@value": "Spawner stage context"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
       }
     ]
   },
@@ -8458,112 +7128,6 @@
     "https://w3id.org/gcdfo/salmon#theme": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/gcdfo/salmon#Stock",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000115": [
-      {
-        "@language": "en",
-        "@value": "An operationally-defined grouping of salmon used for assessment and management purposes. A stock is a management unit or reporting stratum, not a biological organism."
-      }
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000119": [
-      {
-        "@language": "en",
-        "@value": "Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html."
-      }
-    ],
-    "http://purl.org/dc/terms/source": [
-      {
-        "@id": "https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Stock"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum"
-      },
-      {
-        "@id": "https://w3id.org/smn/Stock"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#altLabel": [
-      {
-        "@language": "en",
-        "@value": "Fish stock"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/gcdfo/salmon#StockAssessment",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000115": [
-      {
-        "@language": "en",
-        "@value": "The scientific process of analyzing data to estimate the abundance and productivity of fish stocks in the past, present, and future. It is the backbone of successful science-based fisheries management"
-      }
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000119": [
-      {
-        "@language": "en",
-        "@value": "Fisheries and Oceans Canada. Introduction to Stock Assessment. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/module-1/09-eng.html."
-      }
-    ],
-    "http://purl.org/dc/terms/source": [
-      {
-        "@id": "https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/module-1/09-eng.html"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Stock assessment"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://purl.obolibrary.org/obo/BFO_0000015"
-      },
-      {
-        "@id": "https://w3id.org/smn/StockAssessment"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
       }
     ]
   },
@@ -8635,7 +7199,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum"
+        "@id": "https://w3id.org/smn/ReportingOrManagementStratum"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#altLabel": [
@@ -8707,105 +7271,6 @@
     ]
   },
   {
-    "@id": "https://w3id.org/gcdfo/salmon#SurveyEvent",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000115": [
-      {
-        "@language": "en",
-        "@value": "A field event that collects information about key fish stocks to track their status, and track progress to implement fishery policies and measures for these stocks."
-      }
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000119": [
-      {
-        "@language": "en",
-        "@value": "Fisheries and Oceans Canada. About the Sustainability Survey for Fisheries. https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html."
-      }
-    ],
-    "http://purl.org/dc/terms/source": [
-      {
-        "@id": "https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Survey event"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://rs.tdwg.org/dwc/terms/Event"
-      },
-      {
-        "@id": "http://www.w3.org/ns/prov#Activity"
-      },
-      {
-        "@id": "http://www.w3.org/ns/sosa/Sampling"
-      },
-      {
-        "@id": "https://w3id.org/smn/SurveyEvent"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/gcdfo/salmon#SurvivalOrMortalityContext",
-    "@type": [
-      "http://www.w3.org/2004/02/skos/core#Concept"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#broader": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#MeasurementContext"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#definition": [
-      {
-        "@language": "en",
-        "@value": "Measurement context indicating values represent survival, mortality, or related rates."
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://w3id.org/smn/SurvivalOrMortalityContext"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#inScheme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#MeasurementContextScheme"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#prefLabel": [
-      {
-        "@language": "en",
-        "@value": "Survival or mortality context"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
     "@id": "https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
@@ -8840,49 +7305,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#ExploitationRate"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000115": [
-      {
-        "@language": "en",
-        "@value": "A value specification representing a policy- or model-defined target or limit, such as TAC or UMSY."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Target or limit rate or abundance"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://purl.obolibrary.org/obo/IAO_0000109"
+        "@id": "https://w3id.org/smn/ExploitationRate"
       },
       {
         "@id": "https://w3id.org/smn/TargetOrLimitRateOrAbundance"
@@ -8890,7 +7313,7 @@
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+        "@id": "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"
       },
       {
         "@id": "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"
@@ -8938,50 +7361,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/gcdfo/salmon#TerminalPhase",
-    "@type": [
-      "http://www.w3.org/2004/02/skos/core#Concept"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#broader": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#LifePhase"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#definition": [
-      {
-        "@language": "en",
-        "@value": "Phase occurring in terminal areas near river mouths or spawning areas (often including terminal fisheries and local migration to spawning sites)."
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://w3id.org/smn/TerminalPhase"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#inScheme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#LifePhaseScheme"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#prefLabel": [
-      {
-        "@language": "en",
-        "@value": "Terminal phase"
+        "@id": "https://w3id.org/smn/ObservedRateOrAbundance"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
@@ -9104,42 +7484,6 @@
     ]
   },
   {
-    "@id": "https://w3id.org/gcdfo/salmon#TotalExploitationRate",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000115": [
-      {
-        "@language": "en",
-        "@value": "The overall proportion of the total return of adult salmon removed by all fisheries over a defined period, aggregating across gear or fishery components."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Total exploitation rate"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#ObservedExploitationRate"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
     "@id": "https://w3id.org/gcdfo/salmon#TotalMortalityRate",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
@@ -9177,7 +7521,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance"
+        "@id": "https://w3id.org/smn/ObservedRateOrAbundance"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
@@ -9204,7 +7548,7 @@
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#EnumerationMethod"
+        "@id": "https://w3id.org/smn/EnumerationMethod"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -9674,56 +8018,6 @@
     ]
   },
   {
-    "@id": "https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000115": [
-      {
-        "@language": "en",
-        "@value": "Upper benchmark value for a metric used to delineate Wild Salmon Policy status zones (typically the boundary between Amber and Green zones)."
-      }
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000119": [
-      {
-        "@language": "en",
-        "@value": "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."
-      }
-    ],
-    "http://purl.org/dc/terms/source": [
-      {
-        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Upper biological benchmark"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#MetricBenchmark"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
-      }
-    ]
-  },
-  {
     "@id": "https://w3id.org/gcdfo/salmon#UpperStockReferencePoint",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
@@ -9758,7 +8052,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#ReferencePoint"
+        "@id": "https://w3id.org/smn/ReferencePoint"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#altLabel": [
@@ -9891,7 +8185,7 @@
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#EnumerationMethod"
+        "@id": "https://w3id.org/smn/EnumerationMethod"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -9938,7 +8232,7 @@
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#EnumerationMethod"
+        "@id": "https://w3id.org/smn/EnumerationMethod"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -10425,57 +8719,6 @@
     ]
   },
   {
-    "@id": "https://w3id.org/gcdfo/salmon#demeOf",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000115": [
-      {
-        "@language": "en",
-        "@value": "Relates a deme to the population it belongs to."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#Deme"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "deme of"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#Population"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
-      {
-        "@id": "https://w3id.org/smn/demeOf"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#inverseOf": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#hasDeme"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
-      }
-    ]
-  },
-  {
     "@id": "https://w3id.org/gcdfo/salmon#hasAssessmentReferencePoint",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
@@ -10488,7 +8731,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessment"
+        "@id": "https://w3id.org/smn/StockAssessment"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -10504,7 +8747,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#ReferencePoint"
+        "@id": "https://w3id.org/smn/ReferencePoint"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
@@ -10542,7 +8785,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessment"
+        "@id": "https://w3id.org/smn/StockAssessment"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -10623,52 +8866,6 @@
     ]
   },
   {
-    "@id": "https://w3id.org/gcdfo/salmon#hasDeme",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000115": [
-      {
-        "@language": "en",
-        "@value": "Relates a population to one of its constituent demes."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#Population"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "has deme"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#Deme"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
-      {
-        "@id": "https://w3id.org/smn/hasDeme"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
-      }
-    ]
-  },
-  {
     "@id": "https://w3id.org/gcdfo/salmon#hasFeatureOfInterest",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
@@ -10681,7 +8878,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#SurveyEvent"
+        "@id": "https://w3id.org/smn/SurveyEvent"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -10697,7 +8894,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum"
+        "@id": "https://w3id.org/smn/ReportingOrManagementStratum"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
@@ -10736,7 +8933,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#SurveyEvent"
+        "@id": "https://w3id.org/smn/SurveyEvent"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -10752,7 +8949,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#EscapementMeasurement"
+        "@id": "https://w3id.org/smn/EscapementMeasurement"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
@@ -10788,7 +8985,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#SurveyEvent"
+        "@id": "https://w3id.org/smn/SurveyEvent"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -10818,53 +9015,6 @@
       },
       {
         "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/gcdfo/salmon#hasPopulation",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000115": [
-      {
-        "@language": "en",
-        "@value": "Relates a Conservation Unit to one of its constituent populations."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Boundary note (2026-03-13): intentionally retained as a DFO/CU-scoped property; not auto-aligned to smn:hasPopulation in this pass."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#ConservationUnit"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "has population"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#Population"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
       }
     ]
   },
@@ -11065,7 +9215,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#ReferencePoint"
+        "@id": "https://w3id.org/smn/ReferencePoint"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -11081,7 +9231,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessment"
+        "@id": "https://w3id.org/smn/StockAssessment"
       }
     ],
     "http://www.w3.org/2002/07/owl#inverseOf": [
@@ -11130,7 +9280,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessment"
+        "@id": "https://w3id.org/smn/StockAssessment"
       }
     ],
     "http://www.w3.org/2002/07/owl#inverseOf": [
@@ -11179,7 +9329,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessment"
+        "@id": "https://w3id.org/smn/StockAssessment"
       }
     ],
     "http://www.w3.org/2002/07/owl#inverseOf": [
@@ -11225,7 +9375,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum"
+        "@id": "https://w3id.org/smn/ReportingOrManagementStratum"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
@@ -11297,58 +9447,6 @@
       },
       {
         "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/gcdfo/salmon#populationOf",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000115": [
-      {
-        "@language": "en",
-        "@value": "Relates a population to the Conservation Unit it belongs to."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Boundary note (2026-03-13): intentionally retained as a DFO/CU-scoped property; not auto-aligned to smn:populationOf in this pass."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#Population"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "population of"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#ConservationUnit"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#inverseOf": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#hasPopulation"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
       }
     ]
   },
@@ -11435,7 +9533,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessment"
+        "@id": "https://w3id.org/smn/StockAssessment"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -11486,7 +9584,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#SurveyEvent"
+        "@id": "https://w3id.org/smn/SurveyEvent"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -11522,6 +9620,1798 @@
       },
       {
         "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/CatchContext",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/smn/MeasurementContext"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Measurement context indicating values refer to fishery catch."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/smn/MeasurementContextScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Catch context"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/Deme",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "A local interbreeding group of organisms within a species. In salmon, a deme typically corresponds to a spawning population at a specific site. Demes are the finest biological unit and make up populations."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Deme"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://rs.tdwg.org/dwc/terms/Organism"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/EnumerationMethod",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A method used to enumerate or count salmon in the field"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#EnumerationMethodScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Enumeration Method"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "en",
+        "@value": "DFO profile note: this ontology uses the shared `smn:EnumerationMethod` concept directly and constrains local narrower methods beneath it."
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/Escapement",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "The number of mature salmon that pass through (or escape) fisheries and return to fresh water to spawn."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. 2005. Canada's Policy for Conservation of Wild Pacific Salmon. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Escapement"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://purl.obolibrary.org/obo/BFO_0000015"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/EscapementMeasurement",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "A measurement or estimate of escapement tied to a stock and a survey event."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Escapement measurement"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://purl.obolibrary.org/obo/IAO_0000109"
+      },
+      {
+        "@id": "http://www.w3.org/ns/sosa/Result"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/EscapementSurveyEvent",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "A survey event specifically for estimating escapement."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Escapement Survey Event"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/smn/SurveyEvent"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Escapement Survey Event"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/ExploitationRate",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "A fishing mortality rate expressed as the proportion of the total return removed by fishing over a specified assessment period."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Exploitation rate"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://purl.obolibrary.org/obo/IAO_0000109"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/FisheriesReferencePointLower",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "A lower fisheries-management reference point defined for Stock Management Units (SMUs) and related fishery decision frameworks. It may be informed by Conservation Unit (CU) lower biological benchmarks, but is not identical to CU-level lower biological benchmarks used to delineate Wild Salmon Policy biological status zones."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. (2022). Methodologies and Guidelines for Defining Limit Reference Points for Pacific Salmon. DFO Can. Sci. Advis. Sec. Sci. Advis. Rep. 2022/030. (Erratum: December 2022)."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Fisheries Reference Point - Lower"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/smn/LimitReferencePoint"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#altLabel": [
+      {
+        "@language": "en",
+        "@value": "FRP-L"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/HatcheryOrigin",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. 2018. Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Canadian Science Advisory Secretariat Science Advisory Report 2018/001 (Erratum: October 2023)."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://www.dfo-mpo.gc.ca/csas-sccs/Publications/SAR-AS/2018/2018_001-eng.html"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/smn/SalmonOrigin"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Individuals that were born or reared in a hatchery facility."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/smn/SalmonOriginScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Hatchery-origin"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/InRiverPhase",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#altLabel": [
+      {
+        "@language": "en",
+        "@value": "Freshwater phase"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/smn/LifePhase"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Freshwater in-river phase (migration and/or residence) outside the marine environment."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/smn/LifePhaseScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "In-river phase"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/IndicatorRiver",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "A reporting and assessment stratum identifying monitored indicator streams that provide representative indices of spawner abundance for nearby streams."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://www.salmonexplorer.ca/methods/glossary.html"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Indicator river"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/smn/ReportingOrManagementStratum"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#altLabel": [
+      {
+        "@language": "en",
+        "@value": "Indicator stream"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/LifePhase",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A phase or segment used to stratify salmon measurements by where or when they apply (e.g., ocean phase, terminal phase)."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/smn/LifePhaseScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Life phase"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/LifePhaseScheme",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Controlled vocabulary for life-phase or fishery/migration segment qualifiers used to stratify measurements (e.g., ocean, terminal, mainstem)."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#hasTopConcept": [
+      {
+        "@id": "https://w3id.org/smn/LifePhase"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Life phase scheme"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/LimitReferencePoint",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "A fish stock experiencing serious harm may be depleted to the point where it has impaired productivity or reproductive capacity. As a result, the stock would be less resilient to fishing and could not easily rebuild. Serious harm may be irreversible, or only slowly reversible over the long-term, and can be due to fishing, other human-induced impacts, or natural causes. Under the Precautionary Approach policy and the Fish Stocks Provisions (FSPs), breaching the LRP is a trigger for a rebuilding plan."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Limit reference point"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/smn/ReferencePoint"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#altLabel": [
+      {
+        "@language": "en",
+        "@value": "LRP"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/LowerBiologicalBenchmark",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "Lower benchmark value for a Conservation Unit (CU) metric used to delineate Wild Salmon Policy status zones (typically the boundary between Red and Amber zones). This CU-level biological benchmark is distinct from SMU-level fisheries management lower reference points such as FRP-L."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Lower biological benchmark"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/smn/MetricBenchmark"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/MainstemPhase",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/smn/LifePhase"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Freshwater mainstem migration phase in a river system (often corresponding to mainstem in-river fisheries or monitoring segments)."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/smn/LifePhaseScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Mainstem phase"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/MeasurementContext",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A context qualifier used to disambiguate the interpretation of a measurement column."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/smn/MeasurementContextScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Measurement context"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/MeasurementContextScheme",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Controlled vocabulary for compositional measurement context qualifiers (for example, catch context, run context)."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#hasTopConcept": [
+      {
+        "@id": "https://w3id.org/smn/MeasurementContext"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Measurement context scheme"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/MetricBenchmark",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "Benchmark value for a metric that helps delineate status zones (for example, the limit reference point for absolute abundance)."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://publications.gc.ca/site/eng/9.928944/publication.html"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "DFO profile note: this ontology applies `smn:MetricBenchmark` in Wild Salmon Policy status-zone workflows."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Metric benchmark"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://purl.obolibrary.org/obo/IAO_0000030"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/NaturalOrigin",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. 2018. Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Canadian Science Advisory Secretariat Science Advisory Report 2018/001 (Erratum: October 2023)."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://www.dfo-mpo.gc.ca/csas-sccs/Publications/SAR-AS/2018/2018_001-eng.html"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/smn/SalmonOrigin"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Individuals that are born and reared in the wild (natural environment)."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/smn/SalmonOriginScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Natural-origin"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/ObservedRateOrAbundance",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "A measurement datum representing an empirically observed rate, count, or abundance derived from monitoring or survey data."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Observed rate or abundance"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://purl.obolibrary.org/obo/IAO_0000109"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/OceanPhase",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#altLabel": [
+      {
+        "@language": "en",
+        "@value": "Marine phase"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/smn/LifePhase"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Phase of the salmon life cycle or assessment period occurring in the marine environment."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/smn/LifePhaseScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Ocean phase"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/Population",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "A group of organisms of the same species occupying a defined area that interbreed and share a gene pool. In salmon, populations are composed of one or more demes and form the biological basis for Conservation Units."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "DFO profile note: this ontology applies `smn:Population` in Wild Salmon Policy / Conservation Unit contexts."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Population"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://rs.tdwg.org/dwc/terms/Organism"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/ReferencePoint",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "Reference points are used as targets to achieve or as limits to avoid."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "DFO profile note: this ontology applies `smn:ReferencePoint` in DFO fisheries-management and assessment workflows."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Reference point"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://purl.obolibrary.org/obo/IAO_0000030"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/ReportingOrManagementStratum",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "An information-defined grouping of fish populations used for reporting, conservation assessment, or management purposes. Examples include Conservation Units (CUs), Stock Management Units (MUs), and Designatable Units (DUs)."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Reporting or management stratum"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://purl.obolibrary.org/obo/IAO_0000030"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/RunContext",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/smn/MeasurementContext"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Measurement context indicating values refer to run size or returning run composition."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/smn/MeasurementContextScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Run context"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/SalmonOrigin",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Origin category describing whether salmon are naturally produced, hatchery produced, or mixed-origin."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/smn/SalmonOriginScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Salmon origin"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/SalmonOriginScheme",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Controlled vocabulary for describing the origin of individual salmon (e.g., natural-origin, hatchery-origin, mixed-origin)."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#hasTopConcept": [
+      {
+        "@id": "https://w3id.org/smn/SalmonOrigin"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Salmon Origin Scheme"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/SpawnerStageContext",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/smn/MeasurementContext"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Measurement context indicating values refer to spawners or spawning-stage fish."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/smn/MeasurementContextScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Spawner stage context"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/Stock",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "An operationally-defined grouping of salmon used for assessment and management purposes. A stock is a management unit or reporting stratum, not a biological organism."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Stock"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/smn/ReportingOrManagementStratum"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#altLabel": [
+      {
+        "@language": "en",
+        "@value": "Fish stock"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/StockAssessment",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "The scientific process of analyzing data to estimate the abundance and productivity of fish stocks in the past, present, and future. It is the backbone of successful science-based fisheries management"
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. Introduction to Stock Assessment. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/module-1/09-eng.html."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/module-1/09-eng.html"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Stock assessment"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://purl.obolibrary.org/obo/BFO_0000015"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/SurveyEvent",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "A field event that collects information about key fish stocks to track their status, and track progress to implement fishery policies and measures for these stocks."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. About the Sustainability Survey for Fisheries. https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Survey event"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://rs.tdwg.org/dwc/terms/Event"
+      },
+      {
+        "@id": "http://www.w3.org/ns/prov#Activity"
+      },
+      {
+        "@id": "http://www.w3.org/ns/sosa/Sampling"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/SurvivalOrMortalityContext",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/smn/MeasurementContext"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Measurement context indicating values represent survival, mortality, or related rates."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/smn/MeasurementContextScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Survival or mortality context"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/TargetOrLimitRateOrAbundance",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "A value specification representing a policy- or model-defined target or limit, such as TAC or UMSY."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Target or limit rate or abundance"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://purl.obolibrary.org/obo/IAO_0000109"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/TerminalPhase",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/smn/LifePhase"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Phase occurring in terminal areas near river mouths or spawning areas (often including terminal fisheries and local migration to spawning sites)."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/smn/LifePhaseScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Terminal phase"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/TotalExploitationRate",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "The overall proportion of the total return of adult salmon removed by all fisheries over a defined period, aggregating across gear or fishery components."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Total exploitation rate"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ObservedExploitationRate"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/UpperBiologicalBenchmark",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "Upper benchmark value for a metric used to delineate Wild Salmon Policy status zones (typically the boundary between Amber and Green zones)."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Upper biological benchmark"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/smn/MetricBenchmark"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/demeOf",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "Relates a deme to the population it belongs to."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/smn/Deme"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "deme of"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/smn/Population"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+        "@id": "https://w3id.org/smn/hasDeme"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/hasDeme",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "Relates a population to one of its constituent demes."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/smn/Population"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has deme"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/smn/Deme"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/hasPopulation",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "Relates a Conservation Unit to one of its constituent populations."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "DFO profile note: within this ontology, `smn:hasPopulation` is primarily used for ConservationUnit-to-Population composition."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ConservationUnit"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has population"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/smn/Population"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/populationOf",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "Relates a population to the Conservation Unit it belongs to."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "DFO profile note: within this ontology, `smn:populationOf` is primarily used for Population-to-ConservationUnit composition."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/smn/Population"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "population of"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ConservationUnit"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+        "@id": "https://w3id.org/smn/hasPopulation"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
       }
     ]
   }

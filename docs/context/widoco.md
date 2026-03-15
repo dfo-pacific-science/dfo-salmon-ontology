@@ -16,6 +16,8 @@ This file is **repo-specific** guidance for using WIDOCO here. Upstream/referenc
 - Immutable version snapshots (per release): `docs/releases/<version>/` (GitHub Pages serves from `/docs`)
 - `make docs-refresh` regenerates:
   - `docs/` HTML via WIDOCO (`make docs-widoco`, uses `tools/widoco.jar`; runs with `-ignoreIndividuals` so SKOS concepts are not duplicated as “Named Individuals”, and `-webVowl` so a WebVOWL diagram is published under `docs/webvowl/`)
+    - `make docs-widoco` first builds `release/tmp/dfo-salmon-docs-input.ttl` via ROBOT `merge --collapse-import-closure true`
+    - import resolution is driven by `release/tmp/robot-catalog.xml`, which maps `https://w3id.org/smn` to `SMN_FLAT_TTL` (default: `../salmon-domain-ontology/salmon-domain-ontology.ttl`) when present
   - `docs/gcdfo.ttl` + `docs/gcdfo.owl` (ROBOT convert)
   - `docs/gcdfo.jsonld` (Python `rdflib` conversion)
   - SKOS blocks inside `docs/index.html` (via `scripts/generate_skos_section.py`)

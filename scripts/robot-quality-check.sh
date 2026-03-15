@@ -9,6 +9,7 @@ ONTOLOGY_FILE="ontology/dfo-salmon.ttl"
 PROFILE_FILE="robot-profile.yaml"
 REPORT_FILE="release/artifacts/robot-quality-report.html"
 LOG_FILE="release/artifacts/robot-quality-check.log"
+ROBOT_CATALOG="${ROBOT_CATALOG:-}"
 
 # Colors for output
 RED='\033[0;31m'
@@ -48,6 +49,12 @@ mkdir -p "$(dirname "$LOG_FILE")"
 
 echo "🚀 Starting ROBOT report..."
 
+CATALOG_ARGS=()
+if [ -n "$ROBOT_CATALOG" ] && [ -f "$ROBOT_CATALOG" ]; then
+    CATALOG_ARGS=(--catalog "$ROBOT_CATALOG")
+    echo "📚 Using ROBOT catalog for import resolution: $ROBOT_CATALOG"
+fi
+
 # Run ROBOT with custom profile and fail-on ERROR
 # This means:
 # - The custom profile downgrades expected violations to INFO level
@@ -57,6 +64,7 @@ echo "🚀 Starting ROBOT report..."
 if [ -f "$PROFILE_FILE" ]; then
     echo "📋 Using custom profile: $PROFILE_FILE"
     java -jar tools/robot.jar report \
+        "${CATALOG_ARGS[@]}" \
         --input "$ONTOLOGY_FILE" \
         --profile "$PROFILE_FILE" \
         --fail-on ERROR \
@@ -65,6 +73,7 @@ if [ -f "$PROFILE_FILE" ]; then
 else
     echo "⚠️  Custom profile not found, using default settings"
     java -jar tools/robot.jar report \
+        "${CATALOG_ARGS[@]}" \
         --input "$ONTOLOGY_FILE" \
         --fail-on ERROR \
         --output "$REPORT_FILE" \

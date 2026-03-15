@@ -43,6 +43,7 @@ The GC DFO Salmon Ontology is a **data stewardship and operational process ontol
 - **Darwin Core aligned**: Uses DwC classes as top-level framework for interoperability; **implements Darwin Core Conceptual Model (DwC-CM) patterns**
 - **OBO Foundry principles**: Open, interoperable, logically well-formed, scientifically accurate
 - **Pragmatic imports**: imports shared `smn` plus MIREOT for BFO/IAO/DQV (~12 terms); prefix-only for PROV-O/RO/SKOS
+  - local build/docs default resolves `https://w3id.org/smn` to the flat root file `../salmon-domain-ontology/salmon-domain-ontology.ttl` (via ROBOT catalog) when available
 - **Upper ontology**: BFO grounding for process/entity hierarchy
 - **Units**: QUDT/OM IRIs stored as literals (starter convention)
 - **Community-aligned**: builds on NCEAS Salmon Ontology, ENVO, and OBO Foundry vocabularies
@@ -54,17 +55,12 @@ The GC DFO Salmon Ontology is a **data stewardship and operational process ontol
 - **`gcdfo:` is the DFO-specific layer.** This repo publishes and maintains the GC DFO Salmon Ontology namespace at `https://w3id.org/gcdfo/salmon#`.
 - **`smn:` is the shared cross-organization layer.** When the Salmon Domain Ontology shared namespace is used downstream, prefer `smn:` terms first **where an approved shared term exists**.
 - **Use `gcdfo:` for DFO-specific or deferred-profile semantics.** Terms such as DFO program/policy constructs — and any term intentionally kept out of the shared layer — remain canonical in `gcdfo:`.
-- **Practical resolution order for downstream tools:** resolve approved shared terms from `smn:` first, then fall back to `gcdfo:` for DFO-specific/deferred-profile terms and bridge context.
-- `ontology/dfo-salmon.ttl` now explicitly imports `https://w3id.org/smn`.
-- This pass adds conservative `gcdfo -> smn` alignment links for clearly safe overlaps (for example: `Stock`, `Deme`, `SurveyEvent`, `Escapement`, and selected shared SKOS vocab terms).
-- DFO-local semantics are intentionally retained for:
-  - `Population`
-  - `hasPopulation` / `populationOf`
-  - `ReferencePoint`
-  - `MetricBenchmark`
-- `EnumerationMethod` remains a `skos:Concept` root in `gcdfo` by design in this pass (not an OWL-class equivalence cutover).
-- **Transition note:** some upstream migration artifacts may still show draft shared IRIs under `salmon:` / `http://w3id.org/salmon/`. Treat those as pre-cutover placeholders pending the `smn:` namespace rewrite, not as the preferred long-term shared target.
-- Migration detail and deferred items are tracked in [docs/plans/2026-03-13-smn-boundary-passable.md](docs/plans/2026-03-13-smn-boundary-passable.md).
+- **Practical resolution order for downstream tools:** use `smn:` wherever a shared term exists in the Salmon Domain Ontology; use `gcdfo:` only for DFO-specific terms with no shared replacement.
+- `ontology/dfo-salmon.ttl` explicitly imports `https://w3id.org/smn`.
+- Local build/docs pipeline resolves that import to flat root `../salmon-domain-ontology/salmon-domain-ontology.ttl` (settable via `SMN_FLAT_TTL`) when present; otherwise it falls back to remote `https://w3id.org/smn` resolution.
+- This repo now uses the hard-migrated shared identifiers directly for overlapping shared terms (for example: `Stock`, `Deme`, `Population`, `SurveyEvent`, `Escapement`, `ReferencePoint`, `MetricBenchmark`, `EnumerationMethod`, and related shared SKOS schemes/concepts/properties).
+- **Transition note:** some upstream migration artifacts may still show draft shared IRIs under `salmon:` / `http://w3id.org/salmon/`. Treat those as pre-`smn` placeholders rather than the preferred steady-state target.
+- Historical conservative-boundary notes remain in `docs/plans/2026-03-13-smn-boundary-passable.md` as change history, not current policy.
 
 ## Quickstart
 
@@ -92,6 +88,7 @@ The GC DFO Salmon Ontology is a **data stewardship and operational process ontol
 - **Theme navigation**: Tag every term with 1–3 `gcdfo:theme` values from `gcdfo:ThemeScheme` directly in the canonical file; `gcdfo:ThemeScheme` and its member theme concepts are excluded from the missing-theme check.
 - **Deprecated term-table extraction flow**: generated term tables and generated term-table SPARQL queries from `scripts/extract-term-tables.py` are local ad hoc artifacts only; they are not canonical docs artifacts and are not used for DSU/FADS sync.
 - **Docs publishing**: `make docs-refresh` regenerates `docs/gcdfo.{ttl,owl}` via ROBOT and `docs/gcdfo.jsonld` via `rdflib` (JSON-LD is a JSON-based RDF serialization) from `ontology/dfo-salmon.ttl`, then refreshes the SKOS sections inside `docs/index.html` (it also enforces OWL Classes appearing before the SKOS sections on the rendered page).
+  - `make docs-widoco` now builds `release/tmp/dfo-salmon-docs-input.ttl` with collapsed import closure first, so WIDOCO consumes the flat SMN root file instead of traversing modular imports when `SMN_FLAT_TTL` is available.
 - **Release paths**: root-level `release/` is for transient local/CI build outputs; canonical published artifacts and immutable version snapshots live under `docs/` and `docs/releases/X.Y.Z/`.
 - **OBO-style workflow**: Use ROBOT for quality control and release management
 - **Pre-commit validation**: Install pre-commit hooks (`pre-commit install`) to validate ontology before commit

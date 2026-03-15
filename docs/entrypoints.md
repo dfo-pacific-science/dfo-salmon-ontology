@@ -17,6 +17,7 @@ Purpose: one short, reliable map of what is canonical vs optional/deprecated.
 - Full CI-equivalent local run: `make ci`
 - Optional helper to reduce generated-artifact drift after CI: `make ci-sync-artifacts`
 - WIDOCO only: `make docs-widoco`
+  - internally builds `release/tmp/dfo-salmon-docs-input.ttl` via `make docs-widoco-input` (collapsed import closure for deterministic docs rendering)
 - Release snapshot (immutable docs version): `make release-snapshot VERSION=X.Y.Z`
 
 ### Deprecated optional utility flow (non-canonical)
@@ -35,10 +36,12 @@ Purpose: one short, reliable map of what is canonical vs optional/deprecated.
 ## App Entry Points / Wiring
 
 - Canonical ontology source: `ontology/dfo-salmon.ttl`
-- Shared-layer import: `ontology/dfo-salmon.ttl` imports `https://w3id.org/smn`
+- Shared-layer ontology IRI import: `ontology/dfo-salmon.ttl` imports `https://w3id.org/smn`
+- Shared-layer build resolution (default local): `make prepare-import-catalog` maps `https://w3id.org/smn` to `../salmon-domain-ontology/salmon-domain-ontology.ttl` (flat, import-free root artifact) when present.
+- Shared-layer fallback resolution: if `SMN_FLAT_TTL` is missing, ROBOT/WIDOCO flows fall back to remote import resolution via `https://w3id.org/smn`.
 - DFO namespace boundary: `gcdfo:` terms authored here are the DFO-specific canonical layer for this repo.
-- Shared-layer preference: downstream consumers should resolve approved shared terms from `smn:` first where available, then use `gcdfo:` for DFO-specific or deferred-profile terms.
-- Boundary note: shared-term alignments are conservative in this pass; `Population`, `hasPopulation`/`populationOf`, `ReferencePoint`, `MetricBenchmark`, and SKOS-modeled `EnumerationMethod` remain DFO-local by design.
+- Shared-layer preference: downstream consumers should use `smn:` wherever a shared term exists in the imported Salmon Domain Ontology, then use `gcdfo:` only for DFO-specific terms with no shared replacement.
+- Migration state: overlapping shared identifiers have been hard-migrated to `smn:` in `ontology/dfo-salmon.ttl`; remaining `gcdfo:` terms are intended to be DFO-specific.
 - Transition note: if an upstream migration artifact still references draft shared `salmon:` IRIs, treat that as a pre-`smn` placeholder rather than the preferred steady-state target.
 - Runtime routes/handlers: none
 - Background jobs: none

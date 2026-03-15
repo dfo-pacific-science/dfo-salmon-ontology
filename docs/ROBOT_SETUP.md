@@ -15,11 +15,14 @@ make quality-check
 
 # If you need raw ROBOT CLI, use the pinned jar from tools/
 java -jar tools/robot.jar report \
+  --catalog release/tmp/robot-catalog.xml \
   --input ontology/dfo-salmon.ttl \
   --profile robot-profile.yaml \
   --fail-on ERROR \
   --output release/artifacts/robot-quality-report.html
 ```
+
+**Import-resolution note:** local make targets call `make prepare-import-catalog` first, which writes `release/tmp/robot-catalog.xml` and maps `https://w3id.org/smn` to the flat root file `../salmon-domain-ontology/salmon-domain-ontology.ttl` when present.
 
 ### Theme coverage (gcdfo:theme) check
 
@@ -68,6 +71,7 @@ Output files are written to `release/tmp/*.tsv`; non-empty output fails the lint
 
 # Or run ROBOT directly with appropriate settings
 java -jar tools/robot.jar report \
+  --catalog release/tmp/robot-catalog.xml \
   --input ontology/dfo-salmon.ttl \
   --profile robot-profile.yaml \
   --fail-on ERROR \

@@ -5,41 +5,16 @@ Keep it short, specific, and tied to real boundary/publishing risks.
 
 ## Active Technical Debt
 
-### 2026-03-13 — Deferred same-label boundary cases between `gcdfo:` and `smn:`
+### 2026-03-15 — Shared-term overlap cleanup completed
 
 **Description**
-A conservative shared-layer cleanup aligned the clearly safe overlaps, but several same-label terms still have DFO-local semantics or unresolved modeling drift and therefore remain local to `gcdfo:` for now.
+The DFO ontology now uses shared `smn:` IRIs directly for overlapping shared terms instead of maintaining parallel `gcdfo:` duplicates.
 
-Current deferred set:
-- `gcdfo:Population`
-- `gcdfo:hasPopulation` / `gcdfo:populationOf`
-- `gcdfo:ReferencePoint`
-- `gcdfo:MetricBenchmark`
-- `gcdfo:EnumerationMethod` (kept as SKOS concept; only `rdfs:seeAlso smn:EnumerationMethod` for now)
+**Status**: Resolved
 
-**Rationale**
-The shared layer (`smn:`) and DFO layer (`gcdfo:`) are now intentionally split, but a few overlapping labels still carry different scope, policy framing, or modeling form. A bulk namespace swap here would create false equivalence.
-
-**Impact**
-- **Severity**: Medium
-- **Affected Areas**: downstream ontology resolution, migration/cutover docs, future bridge extraction work
-- **User Impact**: consumers need to treat some terms as DFO-local even when a similarly named shared term exists
-- **Maintenance Cost**: repeated boundary-review work until these cases are either reminted, aligned more precisely, or explicitly bridged
-
-**Remediation**
-- **Effort Estimate**: Medium
-- **Approach**:
-  1. review each deferred term independently,
-  2. decide whether to keep local, remint as explicit DFO variant, or add a stronger bridge/alignment,
-  3. update downstream docs/tests/migration notes with the final rule.
-- **Prerequisites**: stable shared-layer definitions in `smn:` and a concrete downstream consumer need for tighter alignment
-- **Risk**: fixing this too aggressively risks semantic corruption; leaving it forever increases documentation drag
-
-**Status**: Active
-
-**Related Issues/PRs**
-- shared-layer boundary cleanup notes in `docs/plans/2026-03-13-smn-boundary-passable.md`
-- conservative alignment branch: `chore/smn-boundary-passable`
+**Notes**
+- Remaining `gcdfo:` identifiers are intended to be DFO-specific.
+- Historical conservative-boundary notes remain in `docs/plans/2026-03-13-smn-boundary-passable.md` as history only.
 
 ### 2026-03-13 — Shared-vs-DFO bridge logic is documented in multiple places
 

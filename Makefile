@@ -8,8 +8,11 @@ WIDOCO_VERSION := 1.4.25
 WIDOCO_JAR := tools/widoco.jar
 WIDOCO_URL := https://github.com/dgarijo/Widoco/releases/download/v$(WIDOCO_VERSION)/widoco-$(WIDOCO_VERSION)-jar-with-dependencies_JDK-17.jar
 DSU_ONTOLOGY_DIR ?= ../data-stewardship-unit/data/ontology
+SMN_FLAT_TTL ?= ../salmon-domain-ontology/salmon-domain-ontology.ttl
+ROBOT_CATALOG := release/tmp/robot-catalog.xml
+WIDOCO_ONTOLOGY_INPUT := release/tmp/dfo-salmon-docs-input.ttl
 
-.PHONY: help quality-check reason convert clean install-robot install-widoco theme-coverage alpha-lint test ci-sync-artifacts docs-refresh docs-widoco docs-serializations docs-skos docs-postprocess release-snapshot
+.PHONY: help quality-check reason convert clean install-robot install-widoco theme-coverage alpha-lint test ci-sync-artifacts docs-refresh docs-widoco docs-widoco-input docs-serializations docs-skos docs-postprocess prepare-import-catalog release-snapshot
 
 # Default target
 help:
@@ -36,18 +39,44 @@ help:
 	@echo "Documentation:"
 	@echo "  docs           Open documentation in browser"
 	@echo "  docs-widoco    Regenerate WIDOCO HTML docs into docs/"
+	@echo "  docs-widoco-input  Build merged WIDOCO input with collapsed import closure"
 	@echo "  release-snapshot VERSION=X.Y.Z  Create an immutable docs snapshot under docs/releases/VERSION/"
 
+prepare-import-catalog:
+	@mkdir -p release/tmp
+	@SMN_FILE="$(SMN_FLAT_TTL)"; \
+	if [ -f "$$SMN_FILE" ]; then \
+		SMN_URI=$$(python3 -c 'import pathlib,sys; print(pathlib.Path(sys.argv[1]).resolve().as_uri())' "$$SMN_FILE"); \
+		printf '%s\n' \
+			'<?xml version="1.0" encoding="UTF-8"?>' \
+			'<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">' \
+			"  <uri name=\"https://w3id.org/smn\" uri=\"$$SMN_URI\"/>" \
+			"  <uri name=\"https://w3id.org/smn/\" uri=\"$$SMN_URI\"/>" \
+			"  <uri name=\"https://w3id.org/smn/smn.ttl\" uri=\"$$SMN_URI\"/>" \
+			"  <uri name=\"https://w3id.org/smn/salmon-domain-ontology.ttl\" uri=\"$$SMN_URI\"/>" \
+			'</catalog>' \
+			> "$(ROBOT_CATALOG)"; \
+		echo "✅ ROBOT catalog maps smn import to flat root file: $(SMN_FLAT_TTL)"; \
+	else \
+		printf '%s\n' \
+			'<?xml version="1.0" encoding="UTF-8"?>' \
+			'<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">' \
+			'</catalog>' \
+			> "$(ROBOT_CATALOG)"; \
+		echo "⚠️  Flat SMN file not found at $(SMN_FLAT_TTL); using remote import resolution."; \
+	fi
+
 # Quality checking with proper ROBOT configuration
-quality-check:
+quality-check: prepare-import-catalog
 	@echo "🔍 Running ROBOT quality check..."
-	@./scripts/robot-quality-check.sh
+	@ROBOT_CATALOG=$(ROBOT_CATALOG) ./scripts/robot-quality-check.sh
 
 # OWL reasoning
-reason:
+reason: prepare-import-catalog
 	@echo "🧠 Running OWL reasoner (ELK)..."
 	@mkdir -p release/artifacts
 	@java -jar $(ROBOT_JAR) reason \
+		--catalog $(ROBOT_CATALOG) \
 		--input ontology/dfo-salmon.ttl \
 		--reasoner ELK \
 		--output release/artifacts/elk-inferred.ttl
@@ -56,21 +85,24 @@ reason:
 reason-all: reason
 	@echo "🧠 Running HermiT reasoner..."
 	@java -jar $(ROBOT_JAR) reason \
+		--catalog $(ROBOT_CATALOG) \
 		--input ontology/dfo-salmon.ttl \
 		--reasoner HermiT \
 		--output release/artifacts/hermit-inferred.ttl
 	@echo "🧠 Running JFact reasoner..."
 	@java -jar $(ROBOT_JAR) reason \
+		--catalog $(ROBOT_CATALOG) \
 		--input ontology/dfo-salmon.ttl \
 		--reasoner JFact \
 		--output release/artifacts/jfact-inferred.ttl
 	@echo "✅ All reasoners completed."
 
 # Format conversion
-convert-owl:
+convert-owl: prepare-import-catalog
 	@echo "🔄 Converting to OWL format..."
 	@mkdir -p release/artifacts
 	@java -jar $(ROBOT_JAR) convert \
+		--catalog $(ROBOT_CATALOG) \
 		--input ontology/dfo-salmon.ttl \
 		--output release/artifacts/dfo-salmon.owl
 	@echo "✅ OWL conversion completed."
@@ -81,10 +113,11 @@ convert-json:
 	@python3 scripts/convert_ttl_to_jsonld.py ontology/dfo-salmon.ttl release/artifacts/dfo-salmon.jsonld
 	@echo "✅ JSON-LD conversion completed."
 
-theme-coverage: check-robot
+theme-coverage: check-robot prepare-import-catalog
 	@echo "🔎 Running theme coverage check..."
 	@mkdir -p release/tmp
 	@java -jar $(ROBOT_JAR) query \
+		--catalog $(ROBOT_CATALOG) \
 		--input ontology/dfo-salmon.ttl \
 		--query scripts/sparql/theme-coverage.rq \
 		release/tmp/theme-coverage.tsv
@@ -95,8 +128,8 @@ theme-coverage: check-robot
 		echo "✅ Theme coverage clean (release/tmp/theme-coverage.tsv is empty)."; \
 	fi
 
-alpha-lint: check-robot
-	@./scripts/run-sparql-lint.sh ontology/dfo-salmon.ttl
+alpha-lint: check-robot prepare-import-catalog
+	@ROBOT_CATALOG=$(ROBOT_CATALOG) ./scripts/run-sparql-lint.sh ontology/dfo-salmon.ttl
 
 test: theme-coverage alpha-lint reason
 	@echo "✅ Test bundle completed (theme coverage + alpha-lint + ELK reasoning)."
@@ -156,13 +189,23 @@ docs:
 	@open docs/CONVENTIONS.md || xdg-open docs/CONVENTIONS.md || echo "Please open docs/CONVENTIONS.md manually"
 
 # Refresh docs artifacts (serializations + index.html SKOS section)
-docs-widoco: check-widoco
+docs-widoco-input: check-robot prepare-import-catalog
+	@echo "📦 Building WIDOCO input with collapsed import closure..."
+	@mkdir -p release/tmp
+	@java -jar $(ROBOT_JAR) merge \
+		--catalog $(ROBOT_CATALOG) \
+		--input ontology/dfo-salmon.ttl \
+		--collapse-import-closure true \
+		--output $(WIDOCO_ONTOLOGY_INPUT)
+	@echo "✅ Wrote $(WIDOCO_ONTOLOGY_INPUT)"
+
+docs-widoco: check-widoco docs-widoco-input
 	@echo "🧙 Regenerating WIDOCO docs..."
 	@OUT="release/tmp/widoco"; \
 	rm -rf "$$OUT"; \
 	mkdir -p "$$OUT"; \
 		java -jar $(WIDOCO_JAR) \
-			-ontFile ontology/dfo-salmon.ttl \
+			-ontFile $(WIDOCO_ONTOLOGY_INPUT) \
 			-outFolder "$$OUT" \
 			-ignoreIndividuals \
 			-uniteSections \
@@ -177,11 +220,11 @@ docs-widoco: check-widoco
 	rm -rf "$$OUT"; \
 	echo "✅ WIDOCO regenerated into docs/"
 
-docs-serializations: check-robot
+docs-serializations: check-robot prepare-import-catalog
 	@echo "🔄 Regenerating docs/ downloadable serializations..."
 	@mkdir -p docs
-	@java -jar $(ROBOT_JAR) convert --input ontology/dfo-salmon.ttl --output docs/gcdfo.ttl
-	@java -jar $(ROBOT_JAR) convert --input ontology/dfo-salmon.ttl --output docs/gcdfo.owl
+	@java -jar $(ROBOT_JAR) convert --catalog $(ROBOT_CATALOG) --input ontology/dfo-salmon.ttl --output docs/gcdfo.ttl
+	@java -jar $(ROBOT_JAR) convert --catalog $(ROBOT_CATALOG) --input ontology/dfo-salmon.ttl --output docs/gcdfo.owl
 	@python3 scripts/convert_ttl_to_jsonld.py ontology/dfo-salmon.ttl docs/gcdfo.jsonld
 	@echo "✅ Wrote docs/gcdfo.ttl, docs/gcdfo.owl, docs/gcdfo.jsonld"
 

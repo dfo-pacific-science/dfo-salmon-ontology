@@ -5,6 +5,7 @@ set -euo pipefail
 
 ONTOLOGY_FILE="${1:-ontology/dfo-salmon.ttl}"
 ROBOT_JAR="${ROBOT_JAR:-tools/robot.jar}"
+ROBOT_CATALOG="${ROBOT_CATALOG:-}"
 OUT_DIR="release/tmp"
 
 if ! command -v java >/dev/null 2>&1; then
@@ -29,6 +30,12 @@ fi
 
 mkdir -p "$OUT_DIR"
 
+ROBOT_CATALOG_ARGS=()
+if [ -n "$ROBOT_CATALOG" ] && [ -f "$ROBOT_CATALOG" ]; then
+  ROBOT_CATALOG_ARGS=(--catalog "$ROBOT_CATALOG")
+  echo "📚 Using ROBOT catalog for import resolution: $ROBOT_CATALOG"
+fi
+
 checks=(
   "scripts/sparql/missing-year-basis.rq|$OUT_DIR/missing-year-basis.tsv|Year-basis scheme migration"
   "scripts/sparql/missing-variable-decomposition.rq|$OUT_DIR/missing-variable-decomposition.tsv|Variable decomposition minimum"
@@ -50,6 +57,7 @@ for check in "${checks[@]}"; do
   fi
 
   java -jar "$ROBOT_JAR" query \
+    "${ROBOT_CATALOG_ARGS[@]}" \
     --input "$ONTOLOGY_FILE" \
     --query "$query" "$out"
 
