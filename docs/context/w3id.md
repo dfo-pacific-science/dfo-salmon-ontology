@@ -174,12 +174,11 @@ This section is project-specific to the GC DFO Salmon Ontology.
 - Make version IRIs resolve at `https://w3id.org/gcdfo/salmon/<version>`
 - Add **content negotiation** (content negotiation means serving HTML vs RDF based on the HTTP `Accept` header) so tools can fetch Turtle / RDF/XML / JSON-LD directly from the ontology IRI.
 
-### Boundary note
+### Scope note
 
 - This W3ID configuration governs the **DFO-specific `gcdfo:` namespace only**.
 - It does **not** define the shared Salmon Domain Ontology namespace.
-- For downstream cutover/adoption, treat approved shared terms as belonging to `smn:` and use `gcdfo:` for DFO-specific or deferred-profile terms.
-- If older migration notes mention shared `salmon:` IRIs, read them as draft/pre-`smn` placeholders rather than the intended long-term shared namespace.
+- Canonical shared-vs-DFO boundary guidance lives in [`README.md` — "Namespace Boundary and Shared-Layer Preference"](../../README.md#namespace-boundary-and-shared-layer-preference); this file should only describe redirect scope and hosting targets.
 
 ### Where the redirects should point (current hosting)
 
