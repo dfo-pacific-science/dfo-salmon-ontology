@@ -18,7 +18,7 @@ This file is **repo-specific** guidance for using WIDOCO here. Upstream/referenc
   - `docs/` HTML via WIDOCO (`make docs-widoco`, uses `tools/widoco.jar`; runs with `-ignoreIndividuals` so SKOS concepts are not duplicated as “Named Individuals”, and `-webVowl` so a WebVOWL diagram is published under `docs/webvowl/`)
     - `make docs-widoco` first builds `release/tmp/dfo-salmon-docs-input.ttl` via ROBOT `merge --collapse-import-closure true`
     - import resolution is driven by `release/tmp/robot-catalog.xml`, which maps `https://w3id.org/smn` to `SMN_FLAT_TTL` (default: `../salmon-domain-ontology/salmon-domain-ontology.ttl`) when present
-    - if that merged input hash and the pinned WIDOCO version are unchanged, the pipeline restores the pre-run `docs/webvowl/data/ontology.json` bytes instead of committing OWL2VOWL's nondeterministic id/order churn
+    - after export, the pipeline compares `docs/webvowl/data/ontology.json` against the prior tracked baseline semantically; if nothing meaningful changed it restores the exact baseline bytes, otherwise it normalizes ids/order to keep the diff deterministic and reviewer-friendly
   - `docs/gcdfo.ttl` + `docs/gcdfo.owl` (ROBOT convert)
   - `docs/gcdfo.jsonld` (Python `rdflib` conversion)
   - SKOS blocks inside `docs/index.html` (via `scripts/generate_skos_section.py`)

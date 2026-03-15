@@ -18,8 +18,8 @@ Keep it short, specific, and tied to real boundary/publishing risks.
 ### 2026-03-15 — `make ci` / `make docs-refresh` WebVOWL churn stabilized
 
 **Resolved Date**: 2026-03-15
-**Resolution**: `make docs-widoco` now fingerprints the deterministic merged ontology input plus pinned WIDOCO version, and restores the pre-run `docs/webvowl/data/ontology.json` bytes whenever that fingerprint is unchanged. This keeps repeated no-op doc refreshes from committing OWL2VOWL's nondeterministic id/order churn without changing ontology semantics.
-**Lessons Learned**: when a generator is semantically stable but serialization-noisy, treat unchanged input as the contract and preserve prior tracked bytes instead of over-normalizing the artifact.
+**Resolution**: `make docs-widoco` now compares the generated `docs/webvowl/data/ontology.json` against the prior tracked baseline semantically, restores the exact baseline bytes for no-op refreshes, and normalizes ids/order when the graph meaning changes. That keeps repeated doc refreshes readable without changing ontology semantics.
+**Lessons Learned**: when a generator is semantically stable but serialization-noisy, compare meaning first; preserve prior bytes for true no-op runs and normalize deterministically when real changes land.
 
 ### 2026-03-15 — Shared-term overlap cleanup completed
 
