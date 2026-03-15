@@ -39,10 +39,8 @@ Purpose: one short, reliable map of what is canonical vs optional/deprecated.
 - Shared-layer ontology IRI import: `ontology/dfo-salmon.ttl` imports `https://w3id.org/smn`
 - Shared-layer build resolution (default local): `make prepare-import-catalog` maps `https://w3id.org/smn` to `../salmon-domain-ontology/salmon-domain-ontology.ttl` (flat, import-free root artifact) when present.
 - Shared-layer fallback resolution: if `SMN_FLAT_TTL` is missing, ROBOT/WIDOCO flows fall back to remote import resolution via `https://w3id.org/smn`.
-- DFO namespace boundary: `gcdfo:` terms authored here are the DFO-specific canonical layer for this repo.
-- Shared-layer preference: downstream consumers should use `smn:` wherever a shared term exists in the imported Salmon Domain Ontology, then use `gcdfo:` only for DFO-specific terms with no shared replacement.
-- Migration state: overlapping shared identifiers have been hard-migrated to `smn:` in `ontology/dfo-salmon.ttl`; remaining `gcdfo:` terms are intended to be DFO-specific.
-- Transition note: if an upstream migration artifact still references draft shared `salmon:` IRIs, treat that as a pre-`smn` placeholder rather than the preferred steady-state target.
+- Namespace boundary policy (canonical): see [`README.md` — "Namespace Boundary and Shared-Layer Preference"](../README.md#namespace-boundary-and-shared-layer-preference).
+- Boundary detail here is intentionally minimized; this file only records the import/wiring mechanics above.
 - Runtime routes/handlers: none
 - Background jobs: none
 

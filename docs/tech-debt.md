@@ -5,33 +5,6 @@ Keep it short, specific, and tied to real boundary/publishing risks.
 
 ## Active Technical Debt
 
-### 2026-03-15 — Shared-vs-DFO bridge guidance is spread across multiple docs
-
-**Description**
-Boundary guidance for `gcdfo:` vs `smn:` is documented in several places (`README.md`, `docs/entrypoints.md`, `docs/context/w3id.md`, and migration artifacts).
-
-**Rationale**
-This reduces duplication of source-of-truth questions while the namespace migration is still in active review, but it increases drift risk.
-
-**Impact**
-- **Severity**: Low
-- **Affected Areas**: maintainer docs, onboarding, publication boundaries
-- **User Impact**: contributors can land in stale guidance if they only read one doc
-- **Maintenance Cost**: moderate doc-sync tax when a migration assumption changes
-
-**Remediation**
-- **Effort Estimate**: Small
-- **Approach**: consolidate boundary policy into one canonical doc and move older notes to historical references only
-- **Prerequisites**: migration contract stays stable for a few days
-- **Risk**: low
-
-**Status**: Active
-
-**Related Issues/PRs**
-- `README.md`
-- `docs/entrypoints.md`
-- `docs/context/w3id.md`
-
 ### 2026-03-15 — `make ci` / `make docs-refresh` still emits nondeterministic WebVOWL artifact churn
 
 **Description**
@@ -59,6 +32,12 @@ The current pipeline remains useful, but non-deterministic generated files are n
 - `docs/webvowl/data/ontology.json`
 
 ## Resolved Technical Debt
+
+### 2026-03-15 — Shared-vs-DFO bridge guidance canonicalized
+
+**Resolved Date**: 2026-03-15
+**Resolution**: kept `README.md#namespace-boundary-and-shared-layer-preference` as the canonical boundary policy, and reduced `docs/entrypoints.md` plus `docs/context/w3id.md` to scope/reference notes that link back to it.
+**Lessons Learned**: keep namespace policy in one high-visibility maintainer doc; contextual docs should point at it rather than paraphrasing it.
 
 ### 2026-03-15 — Shared-term overlap cleanup completed
 
