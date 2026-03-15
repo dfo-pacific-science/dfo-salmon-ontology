@@ -5,35 +5,24 @@ Keep it short, specific, and tied to real boundary/publishing risks.
 
 ## Active Technical Debt
 
-### 2026-03-15 — Shared-term overlap cleanup completed
+### 2026-03-15 — Shared-vs-DFO bridge guidance is spread across multiple docs
 
 **Description**
-The DFO ontology now uses shared `smn:` IRIs directly for overlapping shared terms instead of maintaining parallel `gcdfo:` duplicates.
-
-**Status**: Resolved
-
-**Notes**
-- Remaining `gcdfo:` identifiers are intended to be DFO-specific.
-- Historical conservative-boundary notes remain in `docs/plans/2026-03-13-smn-boundary-passable.md` as history only.
-
-### 2026-03-13 — Shared-vs-DFO bridge logic is documented in multiple places
-
-**Description**
-The repo currently explains the `gcdfo:` vs `smn:` split in several docs (`README.md`, `docs/entrypoints.md`, `docs/context/w3id.md`, migration notes, and branch-specific cleanup notes).
+Boundary guidance for `gcdfo:` vs `smn:` is documented in several places (`README.md`, `docs/entrypoints.md`, `docs/context/w3id.md`, and migration artifacts).
 
 **Rationale**
-This was the fastest honest way to stop boundary drift while the shared namespace was stabilizing.
+This reduces duplication of source-of-truth questions while the namespace migration is still in active review, but it increases drift risk.
 
 **Impact**
 - **Severity**: Low
-- **Affected Areas**: maintainer docs, onboarding, publication coherence
-- **User Impact**: low direct user pain, but contributors can read stale wording if one doc is updated and another is forgotten
-- **Maintenance Cost**: small but annoying doc-sync tax
+- **Affected Areas**: maintainer docs, onboarding, publication boundaries
+- **User Impact**: contributors can land in stale guidance if they only read one doc
+- **Maintenance Cost**: moderate doc-sync tax when a migration assumption changes
 
 **Remediation**
 - **Effort Estimate**: Small
-- **Approach**: consolidate steady-state boundary guidance into one canonical maintainer doc and keep the other docs short/reference-style
-- **Prerequisites**: boundary rules settle enough that we stop rewriting them every other day
+- **Approach**: consolidate boundary policy into one canonical doc and move older notes to historical references only
+- **Prerequisites**: migration contract stays stable for a few days
 - **Risk**: low
 
 **Status**: Active
@@ -43,41 +32,42 @@ This was the fastest honest way to stop boundary drift while the shared namespac
 - `docs/entrypoints.md`
 - `docs/context/w3id.md`
 
-### 2026-03-13 — `make ci` can leave nondeterministic generated docs churn
+### 2026-03-15 — `make ci` / `make docs-refresh` still emits nondeterministic WebVOWL artifact churn
 
 **Description**
-Verification after the conservative `smn` boundary pass showed the ontology and human-authored boundary docs are aligned, but `make ci`/`make docs-refresh` can still rewrite tracked generated artifacts even when the source ontology has not changed.
-
-Observed locally on this branch:
-- `docs/webvowl/data/ontology.json` reorders repeated values between runs
-- `docs/gcdfo.owl` can pick up whitespace-only churn
+`docs/webvowl/data/ontology.json` can be reordered across repeated doc-generation runs even when `ontology/dfo-salmon.ttl` is unchanged.
 
 **Rationale**
-This is a build determinism problem, not an ontology-boundary problem, but it now sits in the critical path because repo guidance says generated docs artifacts should stay commit-clean after `make ci`.
+The current pipeline remains useful, but non-deterministic generated files are noisy for reviewers and make clean-tree checks difficult.
 
 **Impact**
 - **Severity**: Medium
-- **Affected Areas**: local verification, clean-tree CI expectations, reviewability of generated docs commits
-- **User Impact**: maintainers can get noisy diffs that do not represent real ontology changes
-- **Maintenance Cost**: repeated artifact triage and unnecessary review noise
+- **Affected Areas**: local verification, review quality, CI artifact checks
+- **User Impact**: low direct product risk, higher maintainer friction
+- **Maintenance Cost**: repeated artifact triage and noisy diffs
 
 **Remediation**
 - **Effort Estimate**: Small-Medium
-- **Approach**: add a canonicalization/normalization step for generated WebVOWL/OWL outputs, or stop treating nondeterministic artifacts as clean-tree blockers until generation is stabilized
-- **Prerequisites**: decide which generated files are publication-critical vs convenience artifacts
-- **Risk**: low semantic risk, moderate workflow annoyance if left unresolved
+- **Approach**: add deterministic JSON serialization normalization after WebVOWL export (or formalize `webvowl/data/ontology.json` as non-gated output in CI)
+- **Prerequisites**: decision on whether WebVOWL is canonical or convenience output
+- **Risk**: low semantic risk, moderate workflow churn if we alter gating behavior
 
 **Status**: Active
 
 **Related Issues/PRs**
 - `Makefile`
 - `docs/webvowl/data/ontology.json`
-- `docs/gcdfo.owl`
 
 ## Resolved Technical Debt
+
+### 2026-03-15 — Shared-term overlap cleanup completed
+
+**Resolved Date**: 2026-03-15
+**Resolution**: overlapping shared terms in `ontology/dfo-salmon.ttl` now use `smn:` directly, eliminating duplicated local `gcdfo:` subjects for those shared identifiers.
+**Lessons Learned**: use explicit boundary exceptions instead of broad textual substitution, and run overlap/self-loop checks immediately after migration.
 
 ### 2026-03-13 — Agent/doc scaffold files were being left gitignored in some repos
 
 **Resolved Date**: 2026-03-13
-**Resolution**: updated the shared `update-agent.sh` cleanup rules and removed the stale ignore entries from this repo.
-**Lessons Learned**: exact-line cleanup is too brittle for repo-template drift; remove the common legacy variants, not just one spelling.
+**Resolution**: updated the shared `update-agent.sh` cleanup rules and removed stale ignore entries from this repo.
+**Lessons Learned**: exact-line cleanup is too brittle for repo-template drift; remove common legacy variants, not just one spelling.
