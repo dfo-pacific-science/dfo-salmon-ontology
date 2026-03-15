@@ -1,6 +1,8 @@
 # Alignment Modules (SOSA / I-ADOPT / DwC)
 
-These module files provide **optional** upper-level/data-model alignment layers for the DFO Salmon Ontology.
+These module files provide **optional** alignment overlays for the DFO Salmon Ontology.
+
+The non-normative salmon metamodel view previously housed here now lives in the shared SMN repo under `ontology/views/`.
 
 ## Files
 
@@ -14,19 +16,6 @@ These module files provide **optional** upper-level/data-model alignment layers 
   - Includes stronger candidate subclass and property bridge axioms.
   - Not intended for immediate core merge without targeted review + competency-query checks.
 
-- `upper-level-view.ttl`
-  - Composition root for the standalone **Salmon Data Metamodel** view.
-  - Imports seven focused decomposition slices for term extraction + ontological mapping:
-    - `upper-level-view-entity.ttl` (entity/object of interest + matrix/context)
-    - `upper-level-view-property.ttl` (measured characteristic/property)
-    - `upper-level-view-variable.ttl` (entity + property + constraints + statistical modifier)
-    - `upper-level-view-method-protocol.ttl` (how generated/measured)
-    - `upper-level-view-event-observation.ttl` (when/where/by whom, survey/sampling context)
-    - `upper-level-view-result-datum.ttl` (result/sample datum carriers)
-    - `upper-level-view-provenance.ttl` (lineage/agent/activity links)
-  - Deliberately does **not** import `https://w3id.org/gcdfo/salmon` so WebVOWL can show only the upper-level/metamodel graph.
-  - Intended for review discussions and architecture orientation (not normative core inference).
-
 ## When to use each
 
 Use **alignment-main** when you want to:
@@ -39,11 +28,10 @@ Use **alignment-research** when you want to:
 - explore SOSA/I-ADOPT bridge patterns,
 - design next-round SHACL + competency query updates.
 
-Use **upper-level-view** when you want to:
-- inspect only the upper-level/crosswalk model in WebVOWL,
-- avoid import-closure noise from the full `gcdfo` ontology,
+Use the **SMN metamodel view** (in the shared SMN repo under `ontology/views/`) when you want to:
+- inspect only the shared upper-level/crosswalk model,
 - facilitate architecture discussion with contributors/domain experts,
-- review the 7-slice decomposition workflow (entity/property/variable/method-event-result-provenance) without editing one monolithic file.
+- review the entity/property/variable/method-event-result-provenance decomposition without making it DFO-owned content.
 
 ## Why modules (instead of core-only)
 
@@ -72,7 +60,7 @@ Derived from the latest four alignment artifacts shared in chat:
 
 For Salmon Data Package work (`term_iri`, `property_iri`, `entity_iri`, optional `constraint_iri`, `method_iri`):
 
-- Keep the **normative salmon metamodel spine** in `ontology/dfo-salmon.ttl` (stable classes/properties contributors must rely on).
+- Keep the **normative DFO schema spine** in `ontology/dfo-salmon.ttl` (stable classes/properties contributors must rely on).
 - Keep broader cross-framework and publication-profile mappings in these module files.
 - Treat I-ADOPT Variables as **compound terms** in day-to-day data packaging (typically represented as SKOS concepts with decomposition annotations), while maintaining OWL-level bridge semantics for metamodel interoperability.
 
