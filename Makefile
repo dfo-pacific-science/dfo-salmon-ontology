@@ -202,8 +202,11 @@ docs-widoco-input: check-robot prepare-import-catalog
 docs-widoco: check-widoco docs-widoco-input
 	@echo "🧙 Regenerating WIDOCO docs..."
 	@OUT="release/tmp/widoco"; \
+	BASELINE="release/tmp/webvowl-baseline.json"; \
+	STAMP="docs/webvowl/data/ontology.stamp"; \
 	rm -rf "$$OUT"; \
 	mkdir -p "$$OUT"; \
+	if [ -f docs/webvowl/data/ontology.json ]; then cp docs/webvowl/data/ontology.json "$$BASELINE"; else rm -f "$$BASELINE"; fi; \
 		java -jar $(WIDOCO_JAR) \
 			-ontFile $(WIDOCO_ONTOLOGY_INPUT) \
 			-outFolder "$$OUT" \
@@ -216,7 +219,9 @@ docs-widoco: check-widoco docs-widoco-input
 		cp "$$OUT/index-en.html" "$$OUT/index.html"; \
 	fi; \
 	rsync -a --exclude "/ontology.*" "$$OUT/" docs/; \
+	python3 scripts/stabilize_webvowl_output.py docs/webvowl/data/ontology.json --baseline "$$BASELINE" --source $(WIDOCO_ONTOLOGY_INPUT) --stamp "$$STAMP" --generator widoco-$(WIDOCO_VERSION); \
 	rm -f docs/ontology.jsonld docs/ontology.nt docs/ontology.owl docs/ontology.ttl; \
+	rm -f "$$BASELINE"; \
 	rm -rf "$$OUT"; \
 	echo "✅ WIDOCO regenerated into docs/"
 
