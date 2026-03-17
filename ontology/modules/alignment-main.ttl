@@ -1,4 +1,5 @@
 @prefix gcdfo:    <https://w3id.org/gcdfo/salmon#> .
+@prefix smn:      <https://w3id.org/smn/> .
 @prefix owl:      <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
@@ -21,7 +22,7 @@ gcdfo:EscapementSurveyEvent skos:closeMatch <http://www.w3.org/ns/sosa/Sampling>
 gcdfo:EscapementMeasurement skos:closeMatch <http://www.w3.org/ns/sosa/Result> .
 
 gcdfo:ReportingOrManagementStratum skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
-gcdfo:Stock skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
+smn:Stock skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
 gcdfo:ConservationUnit skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
 gcdfo:StockManagementUnit skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
 gcdfo:IndicatorRiver skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
