@@ -40,6 +40,7 @@ Purpose: one short, reliable map of what is canonical vs optional/deprecated.
 - Shared-layer build resolution (default local): `make prepare-import-catalog` maps `https://w3id.org/smn` to `../salmon-domain-ontology/salmon-domain-ontology.ttl` (flat, import-free root artifact) when present.
 - Shared-layer fallback resolution: if `SMN_FLAT_TTL` is missing, ROBOT/WIDOCO flows fall back to remote import resolution via `https://w3id.org/smn`.
 - Namespace boundary policy (canonical): see [`README.md` — "Namespace Boundary and Shared-Layer Preference"](../README.md#namespace-boundary-and-shared-layer-preference).
+- Optional metamodel/upper-level views are no longer owned here; use the shared SMN `ontology/views/` layer for that perspective.
 - Boundary detail here is intentionally minimized; this file only records the import/wiring mechanics above.
 - Runtime routes/handlers: none
 - Background jobs: none

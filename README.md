@@ -44,7 +44,7 @@ The GC DFO Salmon Ontology is a **data stewardship and operational process ontol
 - **OBO Foundry principles**: Open, interoperable, logically well-formed, scientifically accurate
 - **Pragmatic imports**: imports shared `smn` plus MIREOT for BFO/IAO/DQV (~12 terms); prefix-only for PROV-O/RO/SKOS
   - local build/docs default resolves `https://w3id.org/smn` to the flat root file `../salmon-domain-ontology/salmon-domain-ontology.ttl` (via ROBOT catalog) when available
-- **Upper ontology**: BFO grounding for process/entity hierarchy
+- **Upper-level/metamodel views**: maintained upstream in `smn` under `ontology/views/` as optional non-normative material; this repo keeps DFO core + optional overlays
 - **Units**: QUDT/OM IRIs stored as literals (starter convention)
 - **Community-aligned**: builds on NCEAS Salmon Ontology, ENVO, and OBO Foundry vocabularies
 
@@ -63,6 +63,7 @@ The GC DFO Salmon Ontology is a **data stewardship and operational process ontol
 - This repo now uses the hard-migrated shared identifiers directly for overlapping shared terms (for example: `Stock`, `Deme`, `Population`, `SurveyEvent`, `Escapement`, `ReferencePoint`, `MetricBenchmark`, `EnumerationMethod`, and related shared SKOS schemes/concepts/properties).
 - **Transition note:** some upstream migration artifacts may still show draft shared IRIs under `salmon:` / `http://w3id.org/salmon/`. Treat those as pre-`smn` placeholders rather than the preferred steady-state target.
 - Historical conservative-boundary notes remain in `docs/plans/2026-03-13-smn-boundary-passable.md` as change history, not current policy.
+- Optional salmon metamodel views now live in the shared `smn` repo (`ontology/views/`) rather than being owned here.
 
 ## Quickstart
 
