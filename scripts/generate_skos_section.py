@@ -47,6 +47,38 @@ VERSION_IRI_RE = re.compile(r"owl:versionIRI\s+<([^>]+)>\s*;")
 CODE_REPO_RE = re.compile(r"schema:codeRepository\s+<([^>]+)>\s*;")
 
 DOCS_LATEST_URL = "https://w3id.org/gcdfo/salmon"
+TERM_REQUEST_ISSUE_URL = (
+    "https://github.com/dfo-pacific-science/dfo-salmon-ontology/issues/new"
+    "?template=new-term-request.md"
+    "&title=New%20term%20request%3A%20%5BTerm%20label%5D"
+)
+
+PREFIX_IRI_MAP = {
+    "": "https://w3id.org/gcdfo/salmon#",
+    "gcdfo": "https://w3id.org/gcdfo/salmon#",
+    "smn": "https://w3id.org/smn/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "dqv": "http://www.w3.org/ns/dqv#",
+    "dwc": "http://rs.tdwg.org/dwc/terms/",
+    "dwciri": "http://rs.tdwg.org/dwc/iri/",
+    "envo": "http://purl.obolibrary.org/obo/ENVO_",
+    "iao": "http://purl.obolibrary.org/obo/IAO_",
+    "iop": "https://w3id.org/iadopt/ont/",
+    "oa": "http://www.w3.org/ns/oa#",
+    "odo": "http://purl.dataone.org/odo/",
+    "org": "http://www.w3.org/ns/org#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "qudtunit": "http://qudt.org/vocab/unit/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "sosa": "http://www.w3.org/ns/sosa/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "vann": "http://purl.org/vocab/vann/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+}
 
 
 @dataclass(frozen=True)
@@ -207,15 +239,31 @@ def clean_list(source: str) -> List[str]:
     return [token.strip() for token in source.split() if token.strip()]
 
 
+def expand_symbol_iri(symbol: str) -> str:
+    """Expand prefixed symbols (e.g., smn:LifePhase) to full IRIs."""
+    value = symbol.strip()
+    if value.startswith("<") and value.endswith(">"):
+        return value[1:-1]
+    if value.startswith("http://") or value.startswith("https://"):
+        return value
+    if ":" not in value:
+        return f"{PREFIX_IRI_MAP['gcdfo']}{value}"
+
+    prefix, local = value.split(":", 1)
+    base = PREFIX_IRI_MAP.get(prefix)
+    if base:
+        return f"{base}{local}"
+    return value
+
+
 def to_local_anchor(symbol: str) -> str:
-    """Convert a symbol to a local anchor (e.g., ':Foo' or 'gcdfo:Foo' -> '#Foo')."""
+    """Convert a symbol to a local anchor when possible, else a resolvable IRI."""
     if ":" not in symbol:
         return f"#{symbol}"
     prefix, local = symbol.split(":", 1)
     if prefix in ("", "gcdfo"):
         return f"#{local}"
-    # External prefix - fall back to full IRI (won't have local anchor)
-    return symbol
+    return expand_symbol_iri(symbol)
 
 
 def slugify(value: str) -> str:
@@ -225,12 +273,7 @@ def slugify(value: str) -> str:
 
 def to_iri(symbol: str) -> str:
     """Convert a symbol to a full IRI."""
-    if ":" not in symbol:
-        return f"https://w3id.org/gcdfo/salmon#{symbol}"
-    prefix, local = symbol.split(":", 1)
-    if prefix in ("", "gcdfo"):
-        return f"https://w3id.org/gcdfo/salmon#{local}"
-    return symbol
+    return expand_symbol_iri(symbol)
 
 
 def to_local_name(symbol: str) -> str:
@@ -588,14 +631,32 @@ def ensure_custom_ui_enhancements() -> None:
             1,
         )
 
-    # Keep the Description intro in biologist-friendly language.
-        content = content.replace(
-        '<span class="markdown">OWL + SKOS ontology for DFO salmon data: stocks/CUs/MUs, survey events, escapement measurements, and GSI constructs; aligns to DwC via rdfs:subClassOf; hybrid approach with SKOS for methods and OWL for events.</span>',
-        """<p>This ontology is the shared starting point for DFO salmon data: it gives biologists a practical way to describe <strong>what</strong> was measured and <strong>how</strong> it was measured.</p>
-<p><strong>Classes</strong> (OWL) define the main entities and relationships in the salmon data domain (stocks, survey events, populations, etc.).</p>
-<p><strong>Concepts</strong> (SKOS) are controlled vocabularies for repeated value lists (age basis, status classes, methods, estimate types).</p>
-<p>Using persistent identifiers from this ontology (like full IRIs under <code>https://w3id.org/gcdfo/salmon#</code>) in Salmon Data Package workflows and <strong>meta salmon</strong> helps teams map definitions clearly and avoid ambiguity from free-text labels.</p>""",
+    # Keep the Description section publication-ready and biologist-friendly.
+    description_html = "\n".join(
+        [
+            "<p>This ontology is the reference vocabulary for DFO salmon data work.</p>",
+            "<p>For Salmon Data Package dictionaries and <strong>meta salmon</strong> workflows, treat the <strong>IRI</strong> as the authoritative definition of each term.</p>",
+            "<ul>",
+            "  <li>Keep your local column labels in whatever format helps your team (for example <code>Spawner_Abundance</code>, <code>spawner abundance</code>, or <code>SpawnerAbundance</code>).</li>",
+            "  <li>Map each field to ontology IRIs in <code>column_dictionary.csv</code> (for example <code>term_iri</code>, and when needed <code>property_iri</code>, <code>entity_iri</code>, <code>constraint_iri</code>, <code>method_iri</code>).</li>",
+            "  <li>Prioritize semantic match (definition + scope) over formatting match (capitalization, underscores, or minor wording differences).</li>",
+            f'  <li>If a needed term is missing, <a href="{TERM_REQUEST_ISSUE_URL}">open a new-term issue in dfo-salmon-ontology</a>.</li>',
+            "</ul>",
+            "<p>Bottom line: local labels can vary, but the mapped IRI is the contract that keeps meaning consistent across data dictionaries, teams, and tooling.</p>",
+        ]
     )
+
+    description_pattern = re.compile(
+        r'(<div id="description"><h2 id="desc" class="list">DFO Salmon Ontology: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>\s*)(.*?)(</div>)',
+        re.DOTALL,
+    )
+    content, description_subs = description_pattern.subn(
+        rf"\1\n{description_html}\n\3",
+        content,
+        count=1,
+    )
+    if description_subs == 0:
+        raise RuntimeError("Could not rewrite Description section in docs/index.html")
 
     # Avoid confusing duplicate TOC labels (Crossref labels repeat in the changelog section).
     content = content.replace(
@@ -681,8 +742,12 @@ def ensure_custom_ui_enhancements() -> None:
         )
         content = pattern.sub("", content)
 
-    # Ensure UI enhancement snippet exists.
-    has_ui_snippet = UI_MARKER_BEGIN in content and UI_MARKER_END in content
+    # Normalize UI enhancement snippet: remove any existing marker block so we can
+    # re-insert the latest canonical snippet idempotently.
+    ui_pattern = re.compile(
+        rf"{re.escape(UI_MARKER_BEGIN)}.*?{re.escape(UI_MARKER_END)}\n?",
+        re.DOTALL,
+    )
 
     loadhash_start = content.find("function loadHash()")
     if loadhash_start == -1:
@@ -695,6 +760,9 @@ def ensure_custom_ui_enhancements() -> None:
     pre = content[:loadhash_start]
     mid = content[loadhash_start:loadtoc_start]
     post = content[loadtoc_start:]
+
+    # Remove any previously injected UI snippet block before rebuilding it.
+    mid = ui_pattern.sub("", mid)
 
     # Ensure gcdfo enhancements are called inside loadHash().
     if "gcdfoEnhanceTOC();" not in mid:
@@ -720,9 +788,8 @@ def ensure_custom_ui_enhancements() -> None:
             1,
         )
 
-    if not has_ui_snippet:
-        ui_snippet = "\n".join(
-            [
+    ui_snippet = "\n".join(
+        [
                 UI_MARKER_BEGIN,
                 "function gcdfoCopyText(text) {",
                 "  if (!text) return Promise.reject(new Error(\"No text to copy\"));",
@@ -1026,10 +1093,6 @@ def ensure_custom_ui_enhancements() -> None:
                 "  var toc = document.getElementById(\"toc\");",
                 "  if (!toc) return;",
                 "",
-                "  if (!window.matchMedia(\"(max-width: 900px)\").matches) {",
-                "    return;",
-                "  }",
-                "",
                 "  var panel = document.querySelector(\".gcdfo-toc-panel\");",
                 "  if (!panel) {",
                 "    panel = document.createElement(\"div\");",
@@ -1038,27 +1101,37 @@ def ensure_custom_ui_enhancements() -> None:
                 "    panel.appendChild(toc);",
                 "  }",
                 "",
-                "  if (!document.querySelector(\".gcdfo-toc-overlay\")) {",
-                "    var overlay = document.createElement(\"div\");",
-                "    overlay.className = \"gcdfo-toc-overlay\";",
-                "    overlay.addEventListener(\"click\", function () {",
-                "      document.body.classList.remove(\"gcdfo-toc-open\");",
-                "    });",
-                "    document.body.appendChild(overlay);",
-                "  }",
+                "  var isMobile = window.matchMedia(\"(max-width: 900px)\").matches;",
                 "",
-                "  if (!document.querySelector(\".gcdfo-toc-toggle\")) {",
-                "    var toggle = document.createElement(\"button\");",
-                "    toggle.type = \"button\";",
-                "    toggle.className = \"gcdfo-toc-toggle\";",
-                "    toggle.textContent = \"Sections\";",
-                "    toggle.setAttribute(\"aria-expanded\", \"false\");",
-                "    toggle.addEventListener(\"click\", function () {",
-                "      var open = document.body.classList.toggle(\"gcdfo-toc-open\");",
-                "      toggle.setAttribute(\"aria-expanded\", open ? \"true\" : \"false\");",
-                "    });",
-                "    var head = document.querySelector(\".head\") || document.body;",
-                "    head.insertBefore(toggle, head.firstChild);",
+                "  if (isMobile) {",
+                "    if (!document.querySelector(\".gcdfo-toc-overlay\")) {",
+                "      var overlay = document.createElement(\"div\");",
+                "      overlay.className = \"gcdfo-toc-overlay\";",
+                "      overlay.addEventListener(\"click\", function () {",
+                "        document.body.classList.remove(\"gcdfo-toc-open\");",
+                "        var t = document.querySelector(\".gcdfo-toc-toggle\");",
+                "        if (t) t.setAttribute(\"aria-expanded\", \"false\");",
+                "      });",
+                "      document.body.appendChild(overlay);",
+                "    }",
+                "",
+                "    if (!document.querySelector(\".gcdfo-toc-toggle\")) {",
+                "      var toggle = document.createElement(\"button\");",
+                "      toggle.type = \"button\";",
+                "      toggle.className = \"gcdfo-toc-toggle\";",
+                "      toggle.textContent = \"Sections\";",
+                "      toggle.setAttribute(\"aria-expanded\", \"false\");",
+                "      toggle.addEventListener(\"click\", function () {",
+                "        var open = document.body.classList.toggle(\"gcdfo-toc-open\");",
+                "        toggle.setAttribute(\"aria-expanded\", open ? \"true\" : \"false\");",
+                "      });",
+                "      var head = document.querySelector(\".head\") || document.body;",
+                "      head.insertBefore(toggle, head.firstChild);",
+                "    }",
+                "  } else {",
+                "    document.body.classList.remove(\"gcdfo-toc-open\");",
+                "    var desktopToggle = document.querySelector(\".gcdfo-toc-toggle\");",
+                "    if (desktopToggle) desktopToggle.setAttribute(\"aria-expanded\", \"false\");",
                 "  }",
                 "",
                 "  Array.prototype.slice.call(toc.querySelectorAll(\"a[href^='#']\")).forEach(function (link) {",
@@ -1070,6 +1143,13 @@ def ensure_custom_ui_enhancements() -> None:
                 "      if (toggle) toggle.setAttribute(\"aria-expanded\", \"false\");",
                 "    });",
                 "  });",
+                "",
+                "  if (!window.gcdfoTocResponsiveBound) {",
+                "    window.gcdfoTocResponsiveBound = true;",
+                "    window.addEventListener(\"resize\", function () {",
+                "      window.requestAnimationFrame(gcdfoEnhanceMobileTOC);",
+                "    });",
+                "  }",
                 "}",
                 "",
                 "function gcdfoEnhancePermalinks() {",
@@ -1174,9 +1254,7 @@ def ensure_custom_ui_enhancements() -> None:
                 "",
             ]
         )
-        content = pre + mid + ui_snippet + post
-    else:
-        content = pre + mid + post
+    content = pre + mid + ui_snippet + post
 
     INDEX_PATH.write_text(content, encoding="utf-8")
 

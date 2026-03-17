@@ -354,10 +354,6 @@ function gcdfoEnhanceMobileTOC() {
   var toc = document.getElementById("toc");
   if (!toc) return;
 
-  if (!window.matchMedia("(max-width: 900px)").matches) {
-    return;
-  }
-
   var panel = document.querySelector(".gcdfo-toc-panel");
   if (!panel) {
     panel = document.createElement("div");
@@ -366,27 +362,37 @@ function gcdfoEnhanceMobileTOC() {
     panel.appendChild(toc);
   }
 
-  if (!document.querySelector(".gcdfo-toc-overlay")) {
-    var overlay = document.createElement("div");
-    overlay.className = "gcdfo-toc-overlay";
-    overlay.addEventListener("click", function () {
-      document.body.classList.remove("gcdfo-toc-open");
-    });
-    document.body.appendChild(overlay);
-  }
+  var isMobile = window.matchMedia("(max-width: 900px)").matches;
 
-  if (!document.querySelector(".gcdfo-toc-toggle")) {
-    var toggle = document.createElement("button");
-    toggle.type = "button";
-    toggle.className = "gcdfo-toc-toggle";
-    toggle.textContent = "Sections";
-    toggle.setAttribute("aria-expanded", "false");
-    toggle.addEventListener("click", function () {
-      var open = document.body.classList.toggle("gcdfo-toc-open");
-      toggle.setAttribute("aria-expanded", open ? "true" : "false");
-    });
-    var head = document.querySelector(".head") || document.body;
-    head.insertBefore(toggle, head.firstChild);
+  if (isMobile) {
+    if (!document.querySelector(".gcdfo-toc-overlay")) {
+      var overlay = document.createElement("div");
+      overlay.className = "gcdfo-toc-overlay";
+      overlay.addEventListener("click", function () {
+        document.body.classList.remove("gcdfo-toc-open");
+        var t = document.querySelector(".gcdfo-toc-toggle");
+        if (t) t.setAttribute("aria-expanded", "false");
+      });
+      document.body.appendChild(overlay);
+    }
+
+    if (!document.querySelector(".gcdfo-toc-toggle")) {
+      var toggle = document.createElement("button");
+      toggle.type = "button";
+      toggle.className = "gcdfo-toc-toggle";
+      toggle.textContent = "Sections";
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.addEventListener("click", function () {
+        var open = document.body.classList.toggle("gcdfo-toc-open");
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+      var head = document.querySelector(".head") || document.body;
+      head.insertBefore(toggle, head.firstChild);
+    }
+  } else {
+    document.body.classList.remove("gcdfo-toc-open");
+    var desktopToggle = document.querySelector(".gcdfo-toc-toggle");
+    if (desktopToggle) desktopToggle.setAttribute("aria-expanded", "false");
   }
 
   Array.prototype.slice.call(toc.querySelectorAll("a[href^='#']")).forEach(function (link) {
@@ -398,6 +404,13 @@ function gcdfoEnhanceMobileTOC() {
       if (toggle) toggle.setAttribute("aria-expanded", "false");
     });
   });
+
+  if (!window.gcdfoTocResponsiveBound) {
+    window.gcdfoTocResponsiveBound = true;
+    window.addEventListener("resize", function () {
+      window.requestAnimationFrame(gcdfoEnhanceMobileTOC);
+    });
+  }
 }
 
 function gcdfoEnhancePermalinks() {
@@ -1160,7 +1173,17 @@ This ontology has the following classes and properties.</span>
 <!--DESCRIPTION SECTION-->
     <div id="description"><h2 id="desc" class="list">DFO Salmon Ontology: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 
-<span class="markdown">Migration note (2026-03-15): overlapping shared terms now use `smn:` IRIs directly in this ontology; DFO-specific semantics remain only where no shared replacement exists.</span></div>
+
+<p>This ontology is the reference vocabulary for DFO salmon data work.</p>
+<p>For Salmon Data Package dictionaries and <strong>meta salmon</strong> workflows, treat the <strong>IRI</strong> as the authoritative definition of each term.</p>
+<ul>
+  <li>Keep your local column labels in whatever format helps your team (for example <code>Spawner_Abundance</code>, <code>spawner abundance</code>, or <code>SpawnerAbundance</code>).</li>
+  <li>Map each field to ontology IRIs in <code>column_dictionary.csv</code> (for example <code>term_iri</code>, and when needed <code>property_iri</code>, <code>entity_iri</code>, <code>constraint_iri</code>, <code>method_iri</code>).</li>
+  <li>Prioritize semantic match (definition + scope) over formatting match (capitalization, underscores, or minor wording differences).</li>
+  <li>If a needed term is missing, <a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology/issues/new?template=new-term-request.md&title=New%20term%20request%3A%20%5BTerm%20label%5D">open a new-term issue in dfo-salmon-ontology</a>.</li>
+</ul>
+<p>Bottom line: local labels can vary, but the mapped IRI is the contract that keeps meaning consistent across data dictionaries, teams, and tooling.</p>
+</div>
    
 
 <!--SKOS CONCEPT SCHEMES-->
@@ -1343,7 +1366,7 @@ This ontology has the following classes and properties.</span>
     </thead>
     <tbody>
       <tr>
-        <td><a href="smn:TargetOrLimitRateOrAbundance">smn:TargetOrLimitRateOrAbundance</a></td>
+        <td><a href="https://w3id.org/smn/TargetOrLimitRateOrAbundance">smn:TargetOrLimitRateOrAbundance</a></td>
         <td><em>No definition provided.</em></td>
       </tr>
     </tbody>
@@ -1476,7 +1499,7 @@ This ontology has the following classes and properties.</span>
         <td>Effort-standardized electrofishing passes used to generate catch-per-unit-effort (CPUE) indices.</td>
       </tr>
       <tr>
-        <td><a href="smn:EnumerationMethod">Enumeration Method</a></td>
+        <td><a href="https://w3id.org/smn/EnumerationMethod">Enumeration Method</a></td>
         <td>A method used to enumerate or count salmon in the field</td>
       </tr>
       <tr>
@@ -1625,23 +1648,23 @@ This ontology has the following classes and properties.</span>
     </thead>
     <tbody>
       <tr>
-        <td><a href="smn:InRiverPhase">In-river phase</a></td>
+        <td><a href="https://w3id.org/smn/InRiverPhase">In-river phase</a></td>
         <td>Freshwater in-river phase (migration and/or residence) outside the marine environment.</td>
       </tr>
       <tr>
-        <td><a href="smn:LifePhase">Life phase</a></td>
+        <td><a href="https://w3id.org/smn/LifePhase">Life phase</a></td>
         <td>A phase or segment used to stratify salmon measurements by where or when they apply (e.g., ocean phase, terminal phase).</td>
       </tr>
       <tr>
-        <td><a href="smn:MainstemPhase">Mainstem phase</a></td>
+        <td><a href="https://w3id.org/smn/MainstemPhase">Mainstem phase</a></td>
         <td>Freshwater mainstem migration phase in a river system (often corresponding to mainstem in-river fisheries or monitoring segments).</td>
       </tr>
       <tr>
-        <td><a href="smn:OceanPhase">Ocean phase</a></td>
+        <td><a href="https://w3id.org/smn/OceanPhase">Ocean phase</a></td>
         <td>Phase of the salmon life cycle or assessment period occurring in the marine environment.</td>
       </tr>
       <tr>
-        <td><a href="smn:TerminalPhase">Terminal phase</a></td>
+        <td><a href="https://w3id.org/smn/TerminalPhase">Terminal phase</a></td>
         <td>Phase occurring in terminal areas near river mouths or spawning areas (often including terminal fisheries and local migration to spawning sites).</td>
       </tr>
     </tbody>
@@ -1660,7 +1683,7 @@ This ontology has the following classes and properties.</span>
         <td>A categorical attribute indicating whether an abundance time series is recorded as absolute abundance or as a relative index (used by rapid-status workflows).</td>
       </tr>
       <tr>
-        <td><a href="smn:CatchContext">Catch context</a></td>
+        <td><a href="https://w3id.org/smn/CatchContext">Catch context</a></td>
         <td>Measurement context indicating values refer to fishery catch.</td>
       </tr>
       <tr>
@@ -1672,7 +1695,7 @@ This ontology has the following classes and properties.</span>
         <td>Measurement context indicating values are management benchmarks or reference-oriented metrics.</td>
       </tr>
       <tr>
-        <td><a href="smn:MeasurementContext">Measurement context</a></td>
+        <td><a href="https://w3id.org/smn/MeasurementContext">Measurement context</a></td>
         <td>A context qualifier used to disambiguate the interpretation of a measurement column.</td>
       </tr>
       <tr>
@@ -1680,15 +1703,15 @@ This ontology has the following classes and properties.</span>
         <td>Measurement context indicating values refer to recruits.</td>
       </tr>
       <tr>
-        <td><a href="smn:RunContext">Run context</a></td>
+        <td><a href="https://w3id.org/smn/RunContext">Run context</a></td>
         <td>Measurement context indicating values refer to run size or returning run composition.</td>
       </tr>
       <tr>
-        <td><a href="smn:SpawnerStageContext">Spawner stage context</a></td>
+        <td><a href="https://w3id.org/smn/SpawnerStageContext">Spawner stage context</a></td>
         <td>Measurement context indicating values refer to spawners or spawning-stage fish.</td>
       </tr>
       <tr>
-        <td><a href="smn:SurvivalOrMortalityContext">Survival or mortality context</a></td>
+        <td><a href="https://w3id.org/smn/SurvivalOrMortalityContext">Survival or mortality context</a></td>
         <td>Measurement context indicating values represent survival, mortality, or related rates.</td>
       </tr>
     </tbody>
@@ -1800,15 +1823,15 @@ This ontology has the following classes and properties.</span>
     </thead>
     <tbody>
       <tr>
-        <td><a href="smn:HatcheryOrigin">Hatchery-origin</a></td>
+        <td><a href="https://w3id.org/smn/HatcheryOrigin">Hatchery-origin</a></td>
         <td>Individuals that were born or reared in a hatchery facility.</td>
       </tr>
       <tr>
-        <td><a href="smn:NaturalOrigin">Natural-origin</a></td>
+        <td><a href="https://w3id.org/smn/NaturalOrigin">Natural-origin</a></td>
         <td>Individuals that are born and reared in the wild (natural environment).</td>
       </tr>
       <tr>
-        <td><a href="smn:SalmonOrigin">Salmon origin</a></td>
+        <td><a href="https://w3id.org/smn/SalmonOrigin">Salmon origin</a></td>
         <td>Origin category describing whether salmon are naturally produced, hatchery produced, or mixed-origin.</td>
       </tr>
     </tbody>
@@ -2356,7 +2379,7 @@ This ontology has the following classes and properties.</span>
 </div>
 <div class="entity" id="CatchContext">
   <h3>Catch context<sup class="type-skos" title="SKOS concept">skos</sup></h3>
-  <p><strong>IRI:</strong> smn:CatchContext</p>
+  <p><strong>IRI:</strong> https://w3id.org/smn/CatchContext</p>
   <div class="comment">
     <span class="markdown">Measurement context indicating values refer to fishery catch.</span>
   </div>
@@ -2502,7 +2525,7 @@ This ontology has the following classes and properties.</span>
 </div>
 <div class="entity" id="Dimension">
   <h3>Dimension<sup class="type-skos" title="SKOS concept">skos</sup></h3>
-  <p><strong>IRI:</strong> dqv:Dimension</p>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/dqv#Dimension</p>
   <dl class="definedBy">
     <dt>Is defined by</dt>
     <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
@@ -2581,7 +2604,7 @@ This ontology has the following classes and properties.</span>
 </div>
 <div class="entity" id="EnumerationMethod">
   <h3>Enumeration Method<sup class="type-skos" title="SKOS concept">skos</sup></h3>
-  <p><strong>IRI:</strong> smn:EnumerationMethod</p>
+  <p><strong>IRI:</strong> https://w3id.org/smn/EnumerationMethod</p>
   <div class="comment">
     <span class="markdown">A method used to enumerate or count salmon in the field</span>
   </div>
@@ -2900,7 +2923,7 @@ This ontology has the following classes and properties.</span>
 </div>
 <div class="entity" id="HatcheryOrigin">
   <h3>Hatchery-origin<sup class="type-skos" title="SKOS concept">skos</sup></h3>
-  <p><strong>IRI:</strong> smn:HatcheryOrigin</p>
+  <p><strong>IRI:</strong> https://w3id.org/smn/HatcheryOrigin</p>
   <div class="comment">
     <span class="markdown">Individuals that were born or reared in a hatchery facility.</span>
   </div>
@@ -2957,7 +2980,7 @@ This ontology has the following classes and properties.</span>
 </div>
 <div class="entity" id="InRiverPhase">
   <h3>In-river phase<sup class="type-skos" title="SKOS concept">skos</sup></h3>
-  <p><strong>IRI:</strong> smn:InRiverPhase</p>
+  <p><strong>IRI:</strong> https://w3id.org/smn/InRiverPhase</p>
   <div class="comment">
     <span class="markdown">Freshwater in-river phase (migration and/or residence) outside the marine environment.</span>
   </div>
@@ -2987,7 +3010,7 @@ This ontology has the following classes and properties.</span>
 </div>
 <div class="entity" id="LifePhase">
   <h3>Life phase<sup class="type-skos" title="SKOS concept">skos</sup></h3>
-  <p><strong>IRI:</strong> smn:LifePhase</p>
+  <p><strong>IRI:</strong> https://w3id.org/smn/LifePhase</p>
   <div class="comment">
     <span class="markdown">A phase or segment used to stratify salmon measurements by where or when they apply (e.g., ocean phase, terminal phase).</span>
   </div>
@@ -3002,7 +3025,7 @@ This ontology has the following classes and properties.</span>
 </div>
 <div class="entity" id="LifePhaseScheme">
   <h3>Life phase scheme<sup class="type-skos" title="SKOS concept">skos</sup></h3>
-  <p><strong>IRI:</strong> smn:LifePhaseScheme</p>
+  <p><strong>IRI:</strong> https://w3id.org/smn/LifePhaseScheme</p>
   <div class="comment">
     <span class="markdown">Controlled vocabulary for life-phase or fishery/migration segment qualifiers used to stratify measurements (e.g., ocean, terminal, mainstem).</span>
   </div>
@@ -3055,7 +3078,7 @@ This ontology has the following classes and properties.</span>
 </div>
 <div class="entity" id="MainstemPhase">
   <h3>Mainstem phase<sup class="type-skos" title="SKOS concept">skos</sup></h3>
-  <p><strong>IRI:</strong> smn:MainstemPhase</p>
+  <p><strong>IRI:</strong> https://w3id.org/smn/MainstemPhase</p>
   <div class="comment">
     <span class="markdown">Freshwater mainstem migration phase in a river system (often corresponding to mainstem in-river fisheries or monitoring segments).</span>
   </div>
@@ -3130,7 +3153,7 @@ This ontology has the following classes and properties.</span>
 </div>
 <div class="entity" id="MeasurementContext">
   <h3>Measurement context<sup class="type-skos" title="SKOS concept">skos</sup></h3>
-  <p><strong>IRI:</strong> smn:MeasurementContext</p>
+  <p><strong>IRI:</strong> https://w3id.org/smn/MeasurementContext</p>
   <div class="comment">
     <span class="markdown">A context qualifier used to disambiguate the interpretation of a measurement column.</span>
   </div>
@@ -3145,7 +3168,7 @@ This ontology has the following classes and properties.</span>
 </div>
 <div class="entity" id="MeasurementContextScheme">
   <h3>Measurement context scheme<sup class="type-skos" title="SKOS concept">skos</sup></h3>
-  <p><strong>IRI:</strong> smn:MeasurementContextScheme</p>
+  <p><strong>IRI:</strong> https://w3id.org/smn/MeasurementContextScheme</p>
   <div class="comment">
     <span class="markdown">Controlled vocabulary for compositional measurement context qualifiers (for example, catch context, run context).</span>
   </div>
@@ -3198,7 +3221,7 @@ This ontology has the following classes and properties.</span>
 </div>
 <div class="entity" id="NaturalOrigin">
   <h3>Natural-origin<sup class="type-skos" title="SKOS concept">skos</sup></h3>
-  <p><strong>IRI:</strong> smn:NaturalOrigin</p>
+  <p><strong>IRI:</strong> https://w3id.org/smn/NaturalOrigin</p>
   <div class="comment">
     <span class="markdown">Individuals that are born and reared in the wild (natural environment).</span>
   </div>
@@ -3243,7 +3266,7 @@ This ontology has the following classes and properties.</span>
 </div>
 <div class="entity" id="OceanPhase">
   <h3>Ocean phase<sup class="type-skos" title="SKOS concept">skos</sup></h3>
-  <p><strong>IRI:</strong> smn:OceanPhase</p>
+  <p><strong>IRI:</strong> https://w3id.org/smn/OceanPhase</p>
   <div class="comment">
     <span class="markdown">Phase of the salmon life cycle or assessment period occurring in the marine environment.</span>
   </div>
@@ -3374,7 +3397,7 @@ This ontology has the following classes and properties.</span>
 </div>
 <div class="entity" id="QualityAnnotation">
   <h3>Quality Annotation<sup class="type-skos" title="SKOS concept">skos</sup></h3>
-  <p><strong>IRI:</strong> dqv:QualityAnnotation</p>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/dqv#QualityAnnotation</p>
   <dl class="definedBy">
     <dt>Is defined by</dt>
     <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
@@ -3539,7 +3562,7 @@ This ontology has the following classes and properties.</span>
 </div>
 <div class="entity" id="RunContext">
   <h3>Run context<sup class="type-skos" title="SKOS concept">skos</sup></h3>
-  <p><strong>IRI:</strong> smn:RunContext</p>
+  <p><strong>IRI:</strong> https://w3id.org/smn/RunContext</p>
   <div class="comment">
     <span class="markdown">Measurement context indicating values refer to run size or returning run composition.</span>
   </div>
@@ -3584,7 +3607,7 @@ This ontology has the following classes and properties.</span>
 </div>
 <div class="entity" id="SalmonOrigin">
   <h3>Salmon origin<sup class="type-skos" title="SKOS concept">skos</sup></h3>
-  <p><strong>IRI:</strong> smn:SalmonOrigin</p>
+  <p><strong>IRI:</strong> https://w3id.org/smn/SalmonOrigin</p>
   <div class="comment">
     <span class="markdown">Origin category describing whether salmon are naturally produced, hatchery produced, or mixed-origin.</span>
   </div>
@@ -3599,7 +3622,7 @@ This ontology has the following classes and properties.</span>
 </div>
 <div class="entity" id="SalmonOriginScheme">
   <h3>Salmon Origin Scheme<sup class="type-skos" title="SKOS concept">skos</sup></h3>
-  <p><strong>IRI:</strong> smn:SalmonOriginScheme</p>
+  <p><strong>IRI:</strong> https://w3id.org/smn/SalmonOriginScheme</p>
   <div class="comment">
     <span class="markdown">Controlled vocabulary for describing the origin of individual salmon (e.g., natural-origin, hatchery-origin, mixed-origin).</span>
   </div>
@@ -3610,7 +3633,7 @@ This ontology has the following classes and properties.</span>
 </div>
 <div class="entity" id="SpawnerStageContext">
   <h3>Spawner stage context<sup class="type-skos" title="SKOS concept">skos</sup></h3>
-  <p><strong>IRI:</strong> smn:SpawnerStageContext</p>
+  <p><strong>IRI:</strong> https://w3id.org/smn/SpawnerStageContext</p>
   <div class="comment">
     <span class="markdown">Measurement context indicating values refer to spawners or spawning-stage fish.</span>
   </div>
@@ -3666,7 +3689,7 @@ This ontology has the following classes and properties.</span>
 </div>
 <div class="entity" id="SurvivalOrMortalityContext">
   <h3>Survival or mortality context<sup class="type-skos" title="SKOS concept">skos</sup></h3>
-  <p><strong>IRI:</strong> smn:SurvivalOrMortalityContext</p>
+  <p><strong>IRI:</strong> https://w3id.org/smn/SurvivalOrMortalityContext</p>
   <div class="comment">
     <span class="markdown">Measurement context indicating values represent survival, mortality, or related rates.</span>
   </div>
@@ -3681,7 +3704,7 @@ This ontology has the following classes and properties.</span>
 </div>
 <div class="entity" id="TerminalPhase">
   <h3>Terminal phase<sup class="type-skos" title="SKOS concept">skos</sup></h3>
-  <p><strong>IRI:</strong> smn:TerminalPhase</p>
+  <p><strong>IRI:</strong> https://w3id.org/smn/TerminalPhase</p>
   <div class="comment">
     <span class="markdown">Phase occurring in terminal areas near river mouths or spawning areas (often including terminal fisheries and local migration to spawning sites).</span>
   </div>
