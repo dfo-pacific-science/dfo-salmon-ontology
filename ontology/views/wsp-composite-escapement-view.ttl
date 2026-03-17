@@ -37,10 +37,6 @@
 # View-local classes and mapping properties
 #################################################################
 
-wspview:SourceVariable a owl:Class ;
-  rdfs:label "WSP source variable"@en ;
-  rdfs:comment "A variable name from the canonical Approved-WSP-Statuses output CSV files."@en .
-
 wspview:mappedTerm a owl:ObjectProperty .
 wspview:mappedProperty a owl:ObjectProperty .
 wspview:mappedEntity a owl:ObjectProperty .
@@ -152,7 +148,7 @@ wspview:ModeledCanonicalWSPOutputTerms a skos:Collection ;
 # Canonical source CSV variables and their current semantic mappings
 #################################################################
 
-wspview:var_CU_ID a wspview:SourceVariable ;
+wspview:var_CU_ID
   rdfs:label "CU_ID"@en ;
   dcterms:description "Unique and standardized identifier for each Pacific salmon Conservation Unit (CU)"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
@@ -160,7 +156,7 @@ wspview:var_CU_ID a wspview:SourceVariable ;
   wspview:mappingStatus "unmapped-in-current-wsp_column_dictionary" ;
   wspview:notes "No explicit ontology mapping is currently asserted for this source variable in data_demo/SDP_Templates/wsp_column_dictionary.csv."@en .
 
-wspview:var_Species a wspview:SourceVariable ;
+wspview:var_Species
   rdfs:label "Species"@en ;
   dcterms:description "Species of salmon"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
@@ -168,7 +164,7 @@ wspview:var_Species a wspview:SourceVariable ;
   wspview:mappedTerm gcdfo:Species ;
   wspview:mappingStatus "mapped" .
 
-wspview:var_Stock a wspview:SourceVariable ;
+wspview:var_Stock
   rdfs:label "Stock"@en ;
   dcterms:description "Full CU name"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
@@ -176,7 +172,7 @@ wspview:var_Stock a wspview:SourceVariable ;
   wspview:mappedTerm gcdfo:ConservationUnitName ;
   wspview:mappingStatus "mapped" .
 
-wspview:var_DataType a wspview:SourceVariable ;
+wspview:var_DataType
   rdfs:label "DataType"@en ;
   dcterms:description "Data type, either Absolute Abundance (AbsAbd) or Relative Index (RelIdx)"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
@@ -185,7 +181,7 @@ wspview:var_DataType a wspview:SourceVariable ;
   wspview:mappedEntity gcdfo:ConservationUnit ;
   wspview:mappingStatus "mapped" .
 
-wspview:var_Year a wspview:SourceVariable ;
+wspview:var_Year
   rdfs:label "Year"@en ;
   dcterms:description "Escapement year"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
@@ -193,7 +189,7 @@ wspview:var_Year a wspview:SourceVariable ;
   wspview:mappingStatus "unmapped-in-current-wsp_column_dictionary" ;
   wspview:notes "No explicit ontology mapping is currently asserted for this source variable in data_demo/SDP_Templates/wsp_column_dictionary.csv."@en .
 
-wspview:var_SpnForAbd_Wild a wspview:SourceVariable ;
+wspview:var_SpnForAbd_Wild
   rdfs:label "SpnForAbd_Wild"@en ;
   dcterms:description "Wild spawner abundance that can be used to calculate abundance-based WSP metrics (relative abundance and absolute abundance)"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
@@ -206,7 +202,7 @@ wspview:var_SpnForAbd_Wild a wspview:SourceVariable ;
   wspview:legacyIri "https://w3id.org/gcdfo/salmon#NaturalOrigin" ;
   wspview:mappingStatus "mapped" .
 
-wspview:var_SpnForTrend_Wild a wspview:SourceVariable ;
+wspview:var_SpnForTrend_Wild
   rdfs:label "SpnForTrend_Wild"@en ;
   dcterms:description "Wild spawner abundance that can be used to calculate trend-based WSP metrics (long-term trend and percent change)"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
@@ -219,7 +215,7 @@ wspview:var_SpnForTrend_Wild a wspview:SourceVariable ;
   wspview:legacyIri "https://w3id.org/gcdfo/salmon#NaturalOrigin" ;
   wspview:mappingStatus "mapped" .
 
-wspview:var_RelLBM a wspview:SourceVariable ;
+wspview:var_RelLBM
   rdfs:label "RelLBM"@en ;
   dcterms:description "Ratio of the recent average spawner abundance to the relative abundance metric lower benchmark (where available)"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
@@ -232,7 +228,7 @@ wspview:var_RelLBM a wspview:SourceVariable ;
   wspview:legacyIri "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance" ;
   wspview:mappingStatus "mapped" .
 
-wspview:var_AbsLBM a wspview:SourceVariable ;
+wspview:var_AbsLBM
   rdfs:label "AbsLBM"@en ;
   dcterms:description "Ratio of the recent average spawner abundance to the absolute abundance metric lower benchmark"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
@@ -245,7 +241,7 @@ wspview:var_AbsLBM a wspview:SourceVariable ;
   wspview:legacyIri "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance" ;
   wspview:mappingStatus "mapped" .
 
-wspview:var_LongTrend a wspview:SourceVariable ;
+wspview:var_LongTrend
   rdfs:label "LongTrend"@en ;
   dcterms:description "Longer term trend metric value"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
@@ -257,7 +253,7 @@ wspview:var_LongTrend a wspview:SourceVariable ;
   wspview:legacyIri "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance" ;
   wspview:mappingStatus "mapped" .
 
-wspview:var_PercChange a wspview:SourceVariable ;
+wspview:var_PercChange
   rdfs:label "PercChange"@en ;
   dcterms:description "Percent change metric value"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
@@ -269,7 +265,7 @@ wspview:var_PercChange a wspview:SourceVariable ;
   wspview:legacyIri "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance" ;
   wspview:mappingStatus "mapped" .
 
-wspview:var_ProbDeclBelowLBM a wspview:SourceVariable ;
+wspview:var_ProbDeclBelowLBM
   rdfs:label "ProbDeclBelowLBM"@en ;
   dcterms:description "Not currently in use"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
@@ -281,7 +277,7 @@ wspview:var_ProbDeclBelowLBM a wspview:SourceVariable ;
   wspview:legacyIri "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance" ;
   wspview:mappingStatus "mapped" .
 
-wspview:var_Percentile a wspview:SourceVariable ;
+wspview:var_Percentile
   rdfs:label "Percentile"@en ;
   dcterms:description "Not used (NA)"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
@@ -293,7 +289,7 @@ wspview:var_Percentile a wspview:SourceVariable ;
   wspview:legacyIri "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance" ;
   wspview:mappingStatus "mapped" .
 
-wspview:var_RelUBM a wspview:SourceVariable ;
+wspview:var_RelUBM
   rdfs:label "RelUBM"@en ;
   dcterms:description "Ratio of the recent average spawner abundance to the relative abundance metric upper benchmark (where available)"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
@@ -306,7 +302,7 @@ wspview:var_RelUBM a wspview:SourceVariable ;
   wspview:legacyIri "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance" ;
   wspview:mappingStatus "mapped" .
 
-wspview:var_AbsUBM a wspview:SourceVariable ;
+wspview:var_AbsUBM
   rdfs:label "AbsUBM"@en ;
   dcterms:description "Ratio of the recent average spawner abundance to the absolute abundance metric upper benchmark"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
@@ -319,7 +315,7 @@ wspview:var_AbsUBM a wspview:SourceVariable ;
   wspview:legacyIri "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance" ;
   wspview:mappingStatus "mapped" .
 
-wspview:var_GenAvgSpnForAbd a wspview:SourceVariable ;
+wspview:var_GenAvgSpnForAbd
   rdfs:label "GenAvgSpnForAbd"@en ;
   dcterms:description "Generational average"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
@@ -332,7 +328,7 @@ wspview:var_GenAvgSpnForAbd a wspview:SourceVariable ;
   wspview:legacyIri "https://w3id.org/gcdfo/salmon#NaturalOrigin" ;
   wspview:mappingStatus "mapped" .
 
-wspview:var_IntStatusRaw a wspview:SourceVariable ;
+wspview:var_IntStatusRaw
   rdfs:label "IntStatusRaw"@en ;
   dcterms:description "Integrated Status"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
@@ -340,7 +336,7 @@ wspview:var_IntStatusRaw a wspview:SourceVariable ;
   wspview:mappedTerm gcdfo:IntegratedStatusRaw ;
   wspview:mappingStatus "mapped" .
 
-wspview:var_IntStatusRaw_Short a wspview:SourceVariable ;
+wspview:var_IntStatusRaw_Short
   rdfs:label "IntStatusRaw_Short"@en ;
   dcterms:description "NA"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
@@ -348,7 +344,7 @@ wspview:var_IntStatusRaw_Short a wspview:SourceVariable ;
   wspview:mappedTerm gcdfo:IntegratedStatusRawCode ;
   wspview:mappingStatus "mapped" .
 
-wspview:var_IntStatus_Short a wspview:SourceVariable ;
+wspview:var_IntStatus_Short
   rdfs:label "IntStatus_Short"@en ;
   dcterms:description "NA"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
@@ -356,7 +352,7 @@ wspview:var_IntStatus_Short a wspview:SourceVariable ;
   wspview:mappedTerm gcdfo:IntegratedStatusCollapsedCode ;
   wspview:mappingStatus "mapped" .
 
-wspview:var_RapidStatus a wspview:SourceVariable ;
+wspview:var_RapidStatus
   rdfs:label "RapidStatus"@en ;
   dcterms:description "WSP rapid status"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
@@ -365,7 +361,7 @@ wspview:var_RapidStatus a wspview:SourceVariable ;
   wspview:mappedEntity gcdfo:ConservationUnit ;
   wspview:mappingStatus "mapped" .
 
-wspview:var_BinLabel a wspview:SourceVariable ;
+wspview:var_BinLabel
   rdfs:label "BinLabel"@en ;
   dcterms:description "End node of the WSP rapid status decision tree that determined the rapid status"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
@@ -373,7 +369,7 @@ wspview:var_BinLabel a wspview:SourceVariable ;
   wspview:mappedTerm gcdfo:WSPRapidStatus ;
   wspview:mappingStatus "mapped" .
 
-wspview:var_BinPath a wspview:SourceVariable ;
+wspview:var_BinPath
   rdfs:label "BinPath"@en ;
   dcterms:description "WSP decision tree pathway that led to the end node (BinLabel) and rapid status"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
@@ -381,7 +377,7 @@ wspview:var_BinPath a wspview:SourceVariable ;
   wspview:mappedTerm gcdfo:WSPRapidStatus ;
   wspview:mappingStatus "mapped" .
 
-wspview:var_RapidScore a wspview:SourceVariable ;
+wspview:var_RapidScore
   rdfs:label "RapidScore"@en ;
   dcterms:description "NA"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
@@ -393,7 +389,7 @@ wspview:var_RapidScore a wspview:SourceVariable ;
   wspview:legacyIri "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance" ;
   wspview:mappingStatus "mapped" .
 
-wspview:var_LongTrendCat a wspview:SourceVariable ;
+wspview:var_LongTrendCat
   rdfs:label "LongTrendCat"@en ;
   dcterms:description "Long term trend metric status"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
@@ -401,7 +397,7 @@ wspview:var_LongTrendCat a wspview:SourceVariable ;
   wspview:mappedTerm gcdfo:LongTermTrendMetricStatus ;
   wspview:mappingStatus "mapped" .
 
-wspview:var_PercChangeCat a wspview:SourceVariable ;
+wspview:var_PercChangeCat
   rdfs:label "PercChangeCat"@en ;
   dcterms:description "Percent change metric status"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
@@ -409,7 +405,7 @@ wspview:var_PercChangeCat a wspview:SourceVariable ;
   wspview:mappedTerm gcdfo:PercentChangeMetricStatus ;
   wspview:mappingStatus "mapped" .
 
-wspview:var_ProbDeclBelowLBMCat a wspview:SourceVariable ;
+wspview:var_ProbDeclBelowLBMCat
   rdfs:label "ProbDeclBelowLBMCat"@en ;
   dcterms:description "NA"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
@@ -417,7 +413,7 @@ wspview:var_ProbDeclBelowLBMCat a wspview:SourceVariable ;
   wspview:mappedTerm gcdfo:ProbabilityDeclineBelowLowerBenchmarkMetricStatus ;
   wspview:mappingStatus "mapped" .
 
-wspview:var_PercentileCat a wspview:SourceVariable ;
+wspview:var_PercentileCat
   rdfs:label "PercentileCat"@en ;
   dcterms:description "NA"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
@@ -425,7 +421,7 @@ wspview:var_PercentileCat a wspview:SourceVariable ;
   wspview:mappedTerm gcdfo:AbundancePercentileMetricStatus ;
   wspview:mappingStatus "mapped" .
 
-wspview:var_RelAbdCat a wspview:SourceVariable ;
+wspview:var_RelAbdCat
   rdfs:label "RelAbdCat"@en ;
   dcterms:description "Relative abundance metric status"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
@@ -433,7 +429,7 @@ wspview:var_RelAbdCat a wspview:SourceVariable ;
   wspview:mappedTerm gcdfo:RelativeAbundanceMetricStatus ;
   wspview:mappingStatus "mapped" .
 
-wspview:var_AbsAbdCat a wspview:SourceVariable ;
+wspview:var_AbsAbdCat
   rdfs:label "AbsAbdCat"@en ;
   dcterms:description "Absolute abundance metric status"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
@@ -441,7 +437,7 @@ wspview:var_AbsAbdCat a wspview:SourceVariable ;
   wspview:mappedTerm gcdfo:AbsoluteAbundanceMetricStatus ;
   wspview:mappingStatus "mapped" .
 
-wspview:var_RelAbd_LBM a wspview:SourceVariable ;
+wspview:var_RelAbd_LBM
   rdfs:label "RelAbd_LBM"@en ;
   dcterms:description "Relative abundance metric lower benchmark"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
@@ -453,7 +449,7 @@ wspview:var_RelAbd_LBM a wspview:SourceVariable ;
   wspview:mappedConstraint gcdfo:LowerBenchmark ;
   wspview:mappingStatus "mapped" .
 
-wspview:var_RelAbd_UBM a wspview:SourceVariable ;
+wspview:var_RelAbd_UBM
   rdfs:label "RelAbd_UBM"@en ;
   dcterms:description "Relative abundance metric lower benchmark"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
@@ -465,7 +461,7 @@ wspview:var_RelAbd_UBM a wspview:SourceVariable ;
   wspview:mappedConstraint gcdfo:UpperBenchmark ;
   wspview:mappingStatus "mapped" .
 
-wspview:var_SpnForAbd_Total a wspview:SourceVariable ;
+wspview:var_SpnForAbd_Total
   rdfs:label "SpnForAbd_Total"@en ;
   dcterms:description "Total spawner abundance that can be used to calculate abundance-based WSP metrics (relative abundance and absolute abundance)"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
@@ -476,7 +472,7 @@ wspview:var_SpnForAbd_Total a wspview:SourceVariable ;
   wspview:mappedUnit unit:NUM ;
   wspview:mappingStatus "mapped" .
 
-wspview:var_SpnForTrend_Total a wspview:SourceVariable ;
+wspview:var_SpnForTrend_Total
   rdfs:label "SpnForTrend_Total"@en ;
   dcterms:description "Total spawner abundance that can be used to calculate trend-based WSP metrics (long-term trend and percent change)"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
@@ -487,7 +483,7 @@ wspview:var_SpnForTrend_Total a wspview:SourceVariable ;
   wspview:mappedUnit unit:NUM ;
   wspview:mappingStatus "mapped" .
 
-wspview:var_ConfidenceRating a wspview:SourceVariable ;
+wspview:var_ConfidenceRating
   rdfs:label "ConfidenceRating"@en ;
   dcterms:description "Status confidence rating"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
@@ -496,7 +492,7 @@ wspview:var_ConfidenceRating a wspview:SourceVariable ;
   wspview:mappedEntity gcdfo:ConservationUnit ;
   wspview:mappingStatus "mapped" .
 
-wspview:var_IntStatus5 a wspview:SourceVariable ;
+wspview:var_IntStatus5
   rdfs:label "IntStatus5"@en ;
   dcterms:description "to be removed"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
@@ -504,7 +500,7 @@ wspview:var_IntStatus5 a wspview:SourceVariable ;
   wspview:mappedTerm gcdfo:IntegratedStatusFiveCategoryAlias ;
   wspview:mappingStatus "mapped" .
 
-wspview:var_IntStatus3 a wspview:SourceVariable ;
+wspview:var_IntStatus3
   rdfs:label "IntStatus3"@en ;
   dcterms:description "to be removed"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
@@ -512,7 +508,7 @@ wspview:var_IntStatus3 a wspview:SourceVariable ;
   wspview:mappedTerm gcdfo:IntegratedStatusThreeCategory ;
   wspview:mappingStatus "mapped" .
 
-wspview:var_IntStatus2 a wspview:SourceVariable ;
+wspview:var_IntStatus2
   rdfs:label "IntStatus2"@en ;
   dcterms:description "to be removed"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
@@ -589,24 +585,27 @@ gcdfo:WSPBiologicalStatusZone
   dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf> .
 
 gcdfo:RedZone 
-  a gcdfo:WSPBiologicalStatusZone, skos:Concept ;
+  a gcdfo:WSPBiologicalStatusZone, gcdfo:IntegratedStatusOutcome, skos:Concept ;
   skos:prefLabel "Red zone"@en ;
+  skos:notation "R"^^xsd:string ;
   skos:definition "A Conservation Unit in the Red zone is undesirable because of the risk of extirpation, and the loss of ecological benefits and salmon production. Changes in status will trigger management actions that will vary depending on species, geographic regions, and cause of the decline."@en ;
-  skos:inScheme :WSPBiologicalStatusZoneScheme ;
+  skos:inScheme :WSPBiologicalStatusZoneScheme, :IntegratedStatusOutcomeScheme ;
   dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf> .
 
 gcdfo:AmberZone 
-  a gcdfo:WSPBiologicalStatusZone, skos:Concept ;
+  a gcdfo:WSPBiologicalStatusZone, gcdfo:IntegratedStatusOutcome, skos:Concept ;
   skos:prefLabel "Amber zone"@en ;
+  skos:notation "A"^^xsd:string ;
   skos:definition "Amber status implies caution in the management of the Conservation Unit. While a CU in the Amber zone should be at a low risk of loss, there will be a degree of lost production. Decisions about the conservation of CUs in the Amber zone will involve broader consideration of biological, social, and economic issues. "@en ;
-  skos:inScheme :WSPBiologicalStatusZoneScheme ;
+  skos:inScheme :WSPBiologicalStatusZoneScheme, :IntegratedStatusOutcomeScheme ;
   dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf> .
 
 gcdfo:GreenZone 
-  a gcdfo:WSPBiologicalStatusZone, skos:Concept ;
+  a gcdfo:WSPBiologicalStatusZone, gcdfo:IntegratedStatusOutcome, skos:Concept ;
   skos:prefLabel "Green zone"@en ;
+  skos:notation "G"^^xsd:string ;
   skos:definition "Social and economic considerations will tend to be the primary drivers for the management of Conservation Units in the Green zone, though ecosystem or other non-consumptive use values could also be considered."@en ;
-  skos:inScheme :WSPBiologicalStatusZoneScheme ;
+  skos:inScheme :WSPBiologicalStatusZoneScheme, :IntegratedStatusOutcomeScheme ;
   dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf> .
 
 gcdfo:ConfidenceCategory 
@@ -747,7 +746,7 @@ gcdfo:IntegratedStatusOutcome
 gcdfo:IntegratedStatusRedAmber 
   a gcdfo:IntegratedStatusOutcome, skos:Concept ;
   skos:prefLabel "Red/Amber integrated status"@en ;
-  skos:notation "RA"@en ;
+  skos:notation "RA"^^xsd:string ;
   skos:definition "Blended integrated status outcome between Red and Amber used when expert evidence supports an intermediate boundary outcome."@en ;
   skos:inScheme :IntegratedStatusOutcomeScheme ;
   skos:related gcdfo:RedZone, gcdfo:AmberZone ;
@@ -756,7 +755,7 @@ gcdfo:IntegratedStatusRedAmber
 gcdfo:IntegratedStatusAmberGreen 
   a gcdfo:IntegratedStatusOutcome, skos:Concept ;
   skos:prefLabel "Amber/Green integrated status"@en ;
-  skos:notation "AG"@en ;
+  skos:notation "AG"^^xsd:string ;
   skos:definition "Blended integrated status outcome between Amber and Green used when expert evidence supports an intermediate boundary outcome."@en ;
   skos:inScheme :IntegratedStatusOutcomeScheme ;
   skos:related gcdfo:AmberZone, gcdfo:GreenZone ;
@@ -765,8 +764,7 @@ gcdfo:IntegratedStatusAmberGreen
 gcdfo:IntegratedStatusDataDeficient 
   a gcdfo:IntegratedStatusOutcome, skos:Concept ;
   skos:prefLabel "Data deficient integrated status"@en ;
-  skos:altLabel "DD"@en ;
-  skos:notation "DD"@en ;
+  skos:notation "DD"^^xsd:string ;
   skos:definition "Integrated status outcome indicating insufficient information to assign a biological zone outcome."@en ;
   skos:inScheme :IntegratedStatusOutcomeScheme ;
   dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> .
@@ -774,8 +772,8 @@ gcdfo:IntegratedStatusDataDeficient
 gcdfo:IntegratedStatusUndetermined 
   a gcdfo:IntegratedStatusOutcome, skos:Concept ;
   skos:prefLabel "Undetermined integrated status"@en ;
-  skos:altLabel "to be determined"@en, "UD"@en ;
-  skos:notation "UD"@en ;
+  skos:altLabel "to be determined"@en ;
+  skos:notation "UD"^^xsd:string ;
   skos:definition "Integrated status outcome used when an assessment is unresolved or pending completion."@en ;
   skos:inScheme :IntegratedStatusOutcomeScheme ;
   dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> .
@@ -783,8 +781,7 @@ gcdfo:IntegratedStatusUndetermined
 gcdfo:IntegratedStatusNotRed 
   a gcdfo:IntegratedStatusOutcome, skos:Concept ;
   skos:prefLabel "Not-red integrated status"@en ;
-  skos:altLabel "NotRed"@en ;
-  skos:notation "NotRed"@en ;
+  skos:notation "NotRed"^^xsd:string ;
   skos:definition "Binary integrated-status outcome indicating the Conservation Unit is not in Red status after binary collapse of integrated outcomes."@en ;
   skos:inScheme :IntegratedStatusOutcomeScheme ;
   dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> .
@@ -832,7 +829,7 @@ gcdfo:IntegratedStatusRawCode
   skos:inScheme :WSPOutputVariableScheme ;
   skos:broader gcdfo:WSPOutputVariable ;
   gcdfo:iadoptEntity gcdfo:ConservationUnit ;
-  gcdfo:iadoptProperty gcdfo:IntegratedStatusRaw ;
+  gcdfo:iadoptProperty gcdfo:IntegratedStatusOutcome ;
   dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> .
 
 gcdfo:IntegratedStatusCollapsedCode 
@@ -844,7 +841,7 @@ gcdfo:IntegratedStatusCollapsedCode
   skos:inScheme :WSPOutputVariableScheme ;
   skos:broader gcdfo:WSPOutputVariable ;
   gcdfo:iadoptEntity gcdfo:ConservationUnit ;
-  gcdfo:iadoptProperty gcdfo:IntegratedStatusThreeCategory ;
+  gcdfo:iadoptProperty gcdfo:IntegratedStatusOutcome ;
   dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> .
 
 gcdfo:IntegratedStatusFiveCategoryAlias 
@@ -855,7 +852,7 @@ gcdfo:IntegratedStatusFiveCategoryAlias
   skos:scopeNote "Canonical variable descriptions mark this field as to be removed."@en ;
   skos:inScheme :WSPOutputVariableScheme ;
   skos:broader gcdfo:WSPOutputVariable ;
-  dcterms:isVersionOf gcdfo:IntegratedStatusRaw ;
+  skos:exactMatch gcdfo:IntegratedStatusRaw ;
   owl:deprecated "true"^^xsd:boolean ;
   dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv> .
 
@@ -869,7 +866,6 @@ gcdfo:IntegratedStatusThreeCategory
   gcdfo:iadoptEntity gcdfo:ConservationUnit ;
   gcdfo:iadoptProperty gcdfo:IntegratedStatusOutcome ;
   gcdfo:iadoptConstraint gcdfo:WildSalmonPolicy ;
-  dcterms:isVersionOf gcdfo:IntegratedStatusRaw ;
   owl:deprecated "true"^^xsd:boolean ;
   dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> .
 
@@ -883,7 +879,6 @@ gcdfo:IntegratedStatusBinary
   gcdfo:iadoptEntity gcdfo:ConservationUnit ;
   gcdfo:iadoptProperty gcdfo:IntegratedStatusOutcome ;
   gcdfo:iadoptConstraint gcdfo:WildSalmonPolicy ;
-  dcterms:isVersionOf gcdfo:IntegratedStatusRaw ;
   owl:deprecated "true"^^xsd:boolean ;
   dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> .
 
@@ -896,7 +891,7 @@ gcdfo:LongTermTrendMetricStatus
   skos:inScheme :WSPOutputVariableScheme ;
   skos:broader gcdfo:WSPOutputVariable ;
   gcdfo:iadoptEntity gcdfo:ConservationUnit ;
-  gcdfo:iadoptProperty gcdfo:LongTermTrendMetric ;
+  gcdfo:iadoptProperty gcdfo:WSPBiologicalStatusZone ;
   gcdfo:iadoptConstraint gcdfo:WSPBiologicalStatusZone ;
   dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv> .
 
@@ -909,7 +904,7 @@ gcdfo:PercentChangeMetricStatus
   skos:inScheme :WSPOutputVariableScheme ;
   skos:broader gcdfo:WSPOutputVariable ;
   gcdfo:iadoptEntity gcdfo:ConservationUnit ;
-  gcdfo:iadoptProperty gcdfo:PercentChangeMetric ;
+  gcdfo:iadoptProperty gcdfo:WSPBiologicalStatusZone ;
   gcdfo:iadoptConstraint gcdfo:WSPBiologicalStatusZone ;
   dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv> .
 
@@ -922,7 +917,7 @@ gcdfo:ProbabilityDeclineBelowLowerBenchmarkMetricStatus
   skos:inScheme :WSPOutputVariableScheme ;
   skos:broader gcdfo:WSPOutputVariable ;
   gcdfo:iadoptEntity gcdfo:ConservationUnit ;
-  gcdfo:iadoptProperty gcdfo:ProbabilityDeclineBelowLowerBenchmarkMetric ;
+  gcdfo:iadoptProperty gcdfo:WSPBiologicalStatusZone ;
   gcdfo:iadoptConstraint gcdfo:LowerBiologicalBenchmark ;
   dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv> .
 
@@ -935,7 +930,7 @@ gcdfo:AbundancePercentileMetricStatus
   skos:inScheme :WSPOutputVariableScheme ;
   skos:broader gcdfo:WSPOutputVariable ;
   gcdfo:iadoptEntity gcdfo:ConservationUnit ;
-  gcdfo:iadoptProperty gcdfo:AbundancePercentileMetric ;
+  gcdfo:iadoptProperty gcdfo:WSPBiologicalStatusZone ;
   gcdfo:iadoptConstraint gcdfo:WSPBiologicalStatusZone ;
   dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> .
 
@@ -947,7 +942,7 @@ gcdfo:RelativeAbundanceMetricStatus
   skos:inScheme :WSPOutputVariableScheme ;
   skos:broader gcdfo:WSPOutputVariable ;
   gcdfo:iadoptEntity gcdfo:ConservationUnit ;
-  gcdfo:iadoptProperty gcdfo:BenchmarkRatioMetric ;
+  gcdfo:iadoptProperty gcdfo:WSPBiologicalStatusZone ;
   gcdfo:iadoptConstraint gcdfo:LowerBiologicalBenchmark, gcdfo:UpperBiologicalBenchmark ;
   dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv> .
 
@@ -960,6 +955,6 @@ gcdfo:AbsoluteAbundanceMetricStatus
   skos:inScheme :WSPOutputVariableScheme ;
   skos:broader gcdfo:WSPOutputVariable ;
   gcdfo:iadoptEntity gcdfo:ConservationUnit ;
-  gcdfo:iadoptProperty gcdfo:BenchmarkRatioMetric ;
+  gcdfo:iadoptProperty gcdfo:WSPBiologicalStatusZone ;
   gcdfo:iadoptConstraint gcdfo:LowerBiologicalBenchmark, gcdfo:UpperBiologicalBenchmark ;
   dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv> .

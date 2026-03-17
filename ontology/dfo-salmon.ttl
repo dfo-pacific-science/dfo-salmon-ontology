@@ -1792,28 +1792,31 @@ gcdfo:WSPBiologicalStatusZone a skos:Concept ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:PolicyGovernanceTheme, gcdfo:WildSalmonPolicyTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
-gcdfo:GreenZone a gcdfo:WSPBiologicalStatusZone , skos:Concept ;
+gcdfo:GreenZone a gcdfo:WSPBiologicalStatusZone , gcdfo:IntegratedStatusOutcome , skos:Concept ;
   skos:prefLabel "Green zone"@en ;
+  skos:notation "G"^^xsd:string ;
   skos:definition "Social and economic considerations will tend to be the primary drivers for the management of Conservation Units in the Green zone, though ecosystem or other non-consumptive use values could also be considered."@en ;
-  skos:inScheme gcdfo:WSPBiologicalStatusZoneScheme ;
+  skos:inScheme gcdfo:WSPBiologicalStatusZoneScheme, :IntegratedStatusOutcomeScheme ;
   iao:0000119 "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en ; # definition source
   dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf> ;
   gcdfo:theme gcdfo:PolicyGovernanceTheme, gcdfo:WildSalmonPolicyTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
-gcdfo:AmberZone a gcdfo:WSPBiologicalStatusZone , skos:Concept ;
+gcdfo:AmberZone a gcdfo:WSPBiologicalStatusZone , gcdfo:IntegratedStatusOutcome , skos:Concept ;
   skos:prefLabel "Amber zone"@en ;
+  skos:notation "A"^^xsd:string ;
   skos:definition "Amber status implies caution in the management of the Conservation Unit. While a CU in the Amber zone should be at a low risk of loss, there will be a degree of lost production. Decisions about the conservation of CUs in the Amber zone will involve broader consideration of biological, social, and economic issues. "@en ;
-  skos:inScheme gcdfo:WSPBiologicalStatusZoneScheme ;
+  skos:inScheme gcdfo:WSPBiologicalStatusZoneScheme, :IntegratedStatusOutcomeScheme ;
   iao:0000119 "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en ; # definition source
   dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf> ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
-gcdfo:RedZone a gcdfo:WSPBiologicalStatusZone , skos:Concept ;
+gcdfo:RedZone a gcdfo:WSPBiologicalStatusZone , gcdfo:IntegratedStatusOutcome , skos:Concept ;
   skos:prefLabel "Red zone"@en ;
+  skos:notation "R"^^xsd:string ;
   skos:definition "A Conservation Unit in the Red zone is undesirable because of the risk of extirpation, and the loss of ecological benefits and salmon production. Changes in status will trigger management actions that will vary depending on species, geographic regions, and cause of the decline."@en ;
-  skos:inScheme gcdfo:WSPBiologicalStatusZoneScheme ;
+  skos:inScheme gcdfo:WSPBiologicalStatusZoneScheme, :IntegratedStatusOutcomeScheme ;
   iao:0000119 "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en ; # definition source
   dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf> ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
@@ -2100,7 +2103,7 @@ gcdfo:IntegratedStatusOutcome a skos:Concept ;
 
 gcdfo:IntegratedStatusRedAmber a gcdfo:IntegratedStatusOutcome , skos:Concept ;
   skos:prefLabel "Red/Amber integrated status"@en ;
-  skos:notation "RA"@en ;
+  skos:notation "RA"^^xsd:string ;
   skos:definition "Blended integrated status outcome between Red and Amber used when expert evidence supports an intermediate boundary outcome."@en ;
   skos:inScheme :IntegratedStatusOutcomeScheme ;
   skos:related gcdfo:RedZone, gcdfo:AmberZone ;
@@ -2111,7 +2114,7 @@ gcdfo:IntegratedStatusRedAmber a gcdfo:IntegratedStatusOutcome , skos:Concept ;
 
 gcdfo:IntegratedStatusAmberGreen a gcdfo:IntegratedStatusOutcome , skos:Concept ;
   skos:prefLabel "Amber/Green integrated status"@en ;
-  skos:notation "AG"@en ;
+  skos:notation "AG"^^xsd:string ;
   skos:definition "Blended integrated status outcome between Amber and Green used when expert evidence supports an intermediate boundary outcome."@en ;
   skos:inScheme :IntegratedStatusOutcomeScheme ;
   skos:related gcdfo:AmberZone, gcdfo:GreenZone ;
@@ -2122,8 +2125,7 @@ gcdfo:IntegratedStatusAmberGreen a gcdfo:IntegratedStatusOutcome , skos:Concept 
 
 gcdfo:IntegratedStatusDataDeficient a gcdfo:IntegratedStatusOutcome , skos:Concept ;
   skos:prefLabel "Data deficient integrated status"@en ;
-  skos:altLabel "DD"@en ;
-  skos:notation "DD"@en ;
+  skos:notation "DD"^^xsd:string ;
   skos:definition "Integrated status outcome indicating insufficient information to assign a biological zone outcome."@en ;
   skos:inScheme :IntegratedStatusOutcomeScheme ;
   iao:0000119 "WSP integrated-status documentation defines data deficient outcomes where status cannot be assigned because information is insufficient."@en ;
@@ -2134,8 +2136,7 @@ gcdfo:IntegratedStatusDataDeficient a gcdfo:IntegratedStatusOutcome , skos:Conce
 gcdfo:IntegratedStatusUndetermined a gcdfo:IntegratedStatusOutcome , skos:Concept ;
   skos:prefLabel "Undetermined integrated status"@en ;
   skos:altLabel "to be determined"@en ;
-  skos:altLabel "UD"@en ;
-  skos:notation "UD"@en ;
+  skos:notation "UD"^^xsd:string ;
   skos:definition "Integrated status outcome used when an assessment is unresolved or pending completion."@en ;
   skos:inScheme :IntegratedStatusOutcomeScheme ;
   iao:0000119 "Approved WSP statuses output uses UD for undetermined integrated-status outcomes."@en ;
@@ -2145,8 +2146,7 @@ gcdfo:IntegratedStatusUndetermined a gcdfo:IntegratedStatusOutcome , skos:Concep
 
 gcdfo:IntegratedStatusNotRed a gcdfo:IntegratedStatusOutcome , skos:Concept ;
   skos:prefLabel "Not-red integrated status"@en ;
-  skos:altLabel "NotRed"@en ;
-  skos:notation "NotRed"@en ;
+  skos:notation "NotRed"^^xsd:string ;
   skos:definition "Binary integrated-status outcome indicating the Conservation Unit is not in Red status after binary collapse of integrated outcomes."@en ;
   skos:inScheme :IntegratedStatusOutcomeScheme ;
   dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
@@ -2167,7 +2167,6 @@ gcdfo:Species a skos:Concept ;
   skos:inScheme :WSPOutputVariableScheme ;
   skos:broader gcdfo:WSPOutputVariable ;
   gcdfo:iadoptEntity gcdfo:ConservationUnit ;
-  gcdfo:iadoptProperty dwc:Taxon ;
   dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv> ;
   gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
@@ -2206,7 +2205,7 @@ gcdfo:IntegratedStatusRawCode a skos:Concept ;
   skos:inScheme :WSPOutputVariableScheme ;
   skos:broader gcdfo:WSPOutputVariable ;
   gcdfo:iadoptEntity gcdfo:ConservationUnit ;
-  gcdfo:iadoptProperty gcdfo:IntegratedStatusRaw ;
+  gcdfo:iadoptProperty gcdfo:IntegratedStatusOutcome ;
   dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
   gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
@@ -2219,7 +2218,7 @@ gcdfo:IntegratedStatusCollapsedCode a skos:Concept ;
   skos:inScheme :WSPOutputVariableScheme ;
   skos:broader gcdfo:WSPOutputVariable ;
   gcdfo:iadoptEntity gcdfo:ConservationUnit ;
-  gcdfo:iadoptProperty gcdfo:IntegratedStatusThreeCategory ;
+  gcdfo:iadoptProperty gcdfo:IntegratedStatusOutcome ;
   dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
   gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
@@ -2231,7 +2230,7 @@ gcdfo:IntegratedStatusFiveCategoryAlias a skos:Concept ;
   skos:scopeNote "Canonical variable descriptions mark this field as to be removed."@en ;
   skos:inScheme :WSPOutputVariableScheme ;
   skos:broader gcdfo:WSPOutputVariable ;
-  dcterms:isVersionOf gcdfo:IntegratedStatusRaw ;
+  skos:exactMatch gcdfo:IntegratedStatusRaw ;
   owl:deprecated "true"^^xsd:boolean ;
   dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv> ;
   gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
@@ -2246,7 +2245,6 @@ gcdfo:IntegratedStatusThreeCategory a skos:Concept ;
   gcdfo:iadoptEntity gcdfo:ConservationUnit ;
   gcdfo:iadoptProperty gcdfo:IntegratedStatusOutcome ;
   gcdfo:iadoptConstraint gcdfo:WildSalmonPolicy ;
-  dcterms:isVersionOf gcdfo:IntegratedStatusRaw ;
   owl:deprecated "true"^^xsd:boolean ;
   dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
   gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
@@ -2261,7 +2259,6 @@ gcdfo:IntegratedStatusBinary a skos:Concept ;
   gcdfo:iadoptEntity gcdfo:ConservationUnit ;
   gcdfo:iadoptProperty gcdfo:IntegratedStatusOutcome ;
   gcdfo:iadoptConstraint gcdfo:WildSalmonPolicy ;
-  dcterms:isVersionOf gcdfo:IntegratedStatusRaw ;
   owl:deprecated "true"^^xsd:boolean ;
   dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
   gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
@@ -2275,7 +2272,7 @@ gcdfo:LongTermTrendMetricStatus a skos:Concept ;
   skos:inScheme :WSPOutputVariableScheme ;
   skos:broader gcdfo:WSPOutputVariable ;
   gcdfo:iadoptEntity gcdfo:ConservationUnit ;
-  gcdfo:iadoptProperty gcdfo:LongTermTrendMetric ;
+  gcdfo:iadoptProperty gcdfo:WSPBiologicalStatusZone ;
   gcdfo:iadoptConstraint gcdfo:WSPBiologicalStatusZone ;
   dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv> ;
   gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
@@ -2289,7 +2286,7 @@ gcdfo:PercentChangeMetricStatus a skos:Concept ;
   skos:inScheme :WSPOutputVariableScheme ;
   skos:broader gcdfo:WSPOutputVariable ;
   gcdfo:iadoptEntity gcdfo:ConservationUnit ;
-  gcdfo:iadoptProperty gcdfo:PercentChangeMetric ;
+  gcdfo:iadoptProperty gcdfo:WSPBiologicalStatusZone ;
   gcdfo:iadoptConstraint gcdfo:WSPBiologicalStatusZone ;
   dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv> ;
   gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
@@ -2303,7 +2300,7 @@ gcdfo:ProbabilityDeclineBelowLowerBenchmarkMetricStatus a skos:Concept ;
   skos:inScheme :WSPOutputVariableScheme ;
   skos:broader gcdfo:WSPOutputVariable ;
   gcdfo:iadoptEntity gcdfo:ConservationUnit ;
-  gcdfo:iadoptProperty gcdfo:ProbabilityDeclineBelowLowerBenchmarkMetric ;
+  gcdfo:iadoptProperty gcdfo:WSPBiologicalStatusZone ;
   gcdfo:iadoptConstraint gcdfo:LowerBiologicalBenchmark ;
   dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv> ;
   gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
@@ -2317,7 +2314,7 @@ gcdfo:AbundancePercentileMetricStatus a skos:Concept ;
   skos:inScheme :WSPOutputVariableScheme ;
   skos:broader gcdfo:WSPOutputVariable ;
   gcdfo:iadoptEntity gcdfo:ConservationUnit ;
-  gcdfo:iadoptProperty gcdfo:AbundancePercentileMetric ;
+  gcdfo:iadoptProperty gcdfo:WSPBiologicalStatusZone ;
   gcdfo:iadoptConstraint gcdfo:WSPBiologicalStatusZone ;
   dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
   gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
@@ -2330,7 +2327,7 @@ gcdfo:RelativeAbundanceMetricStatus a skos:Concept ;
   skos:inScheme :WSPOutputVariableScheme ;
   skos:broader gcdfo:WSPOutputVariable ;
   gcdfo:iadoptEntity gcdfo:ConservationUnit ;
-  gcdfo:iadoptProperty gcdfo:BenchmarkRatioMetric ;
+  gcdfo:iadoptProperty gcdfo:WSPBiologicalStatusZone ;
   gcdfo:iadoptConstraint gcdfo:LowerBiologicalBenchmark, gcdfo:UpperBiologicalBenchmark ;
   dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv> ;
   gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
@@ -2344,7 +2341,7 @@ gcdfo:AbsoluteAbundanceMetricStatus a skos:Concept ;
   skos:inScheme :WSPOutputVariableScheme ;
   skos:broader gcdfo:WSPOutputVariable ;
   gcdfo:iadoptEntity gcdfo:ConservationUnit ;
-  gcdfo:iadoptProperty gcdfo:BenchmarkRatioMetric ;
+  gcdfo:iadoptProperty gcdfo:WSPBiologicalStatusZone ;
   gcdfo:iadoptConstraint gcdfo:LowerBiologicalBenchmark, gcdfo:UpperBiologicalBenchmark ;
   dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv> ;
   gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
