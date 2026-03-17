@@ -1,0 +1,1071 @@
+@prefix gcdfo:    <https://w3id.org/gcdfo/salmon#> .
+@prefix bfo:     <http://purl.obolibrary.org/obo/BFO_> .
+@prefix iao:     <http://purl.obolibrary.org/obo/IAO_> .
+@prefix odo:     <http://purl.dataone.org/odo/> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dqv:     <http://www.w3.org/ns/dqv#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix sosa:    <http://www.w3.org/ns/sosa/> .
+@prefix iop:     <https://w3id.org/iadopt/ont/> .
+@prefix schema:  <https://schema.org/> .
+@prefix vann:    <http://purl.org/vocab/vann/> .
+@prefix dwc:     <http://rs.tdwg.org/dwc/terms/> .
+@prefix dwciri:  <http://rs.tdwg.org/dwc/iri/> .
+@prefix unit:    <http://qudt.org/vocab/unit/> .
+@prefix qudt:    <http://qudt.org/schema/qudt/> .
+@prefix qudtunit: <http://qudt.org/vocab/unit/> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix smn:     <https://w3id.org/smn/> .
+@prefix oa:      <http://www.w3.org/ns/oa#> .
+@prefix envo:    <http://purl.obolibrary.org/obo/ENVO_> .
+@prefix org:     <http://www.w3.org/ns/org#> .
+@prefix :        <https://w3id.org/gcdfo/salmon#> .
+@prefix quantitykind: <http://qudt.org/vocab/quantitykind/> .
+@prefix wspview: <https://w3id.org/gcdfo/salmon/views/wsp-composite-escapement#> .
+
+<https://w3id.org/gcdfo/salmon/views/wsp-composite-escapement> a owl:Ontology ;
+  dcterms:title "DFO WSP composite-escapement metamodel view"@en ;
+  dcterms:description "Non-normative view that links canonical WSP output CSV variables to ontology terms and gathers WildSalmonPolicyTheme terms for colleague review."@en ;
+  rdfs:comment "Authoritative term definitions remain in https://w3id.org/gcdfo/salmon. This file is a publication/support view derived from Issue #180 source links and current SPSR semantic dictionary artifacts."@en ;
+  dcterms:created "2026-03-17"^^xsd:date ;
+  dcterms:modified "2026-03-17"^^xsd:date ;
+  owl:imports <https://w3id.org/gcdfo/salmon> ;
+  dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository/issues/180#issuecomment-3862405022>, <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv>, <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv>, <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
+  prov:wasDerivedFrom <https://github.com/dfo-pacific-science/salmon-population-summary-repository/issues/180> .
+
+#################################################################
+# View-local classes and mapping properties
+#################################################################
+
+wspview:SourceVariable a owl:Class ;
+  rdfs:label "WSP source variable"@en ;
+  rdfs:comment "A variable name from the canonical Approved-WSP-Statuses output CSV files."@en .
+
+wspview:mappedTerm a owl:ObjectProperty .
+wspview:mappedProperty a owl:ObjectProperty .
+wspview:mappedEntity a owl:ObjectProperty .
+wspview:mappedUnit a owl:ObjectProperty .
+wspview:mappedConstraint a owl:ObjectProperty .
+wspview:mappedMethod a owl:ObjectProperty .
+
+wspview:sourceCsv a owl:AnnotationProperty .
+wspview:mappingSource a owl:AnnotationProperty .
+wspview:mappingStatus a owl:AnnotationProperty .
+wspview:legacyIri a owl:AnnotationProperty .
+wspview:notes a owl:AnnotationProperty .
+
+#################################################################
+# Collections: WSP theme terms + CSV-aligned ontology terms
+#################################################################
+
+wspview:WildSalmonPolicyThemeTerms a skos:Collection ;
+  skos:prefLabel "Terms marked with gcdfo:WildSalmonPolicyTheme"@en ;
+  skos:member :BenchmarkLevelScheme,
+    :BiologicalBenchmarkAndIndicatorScheme,
+    :PolicyFrameworkScheme,
+    :RapidStatusConfidenceScheme,
+    :RapidStatusMetricScheme,
+    :StockStatusZoneScheme,
+    :WSPBiologicalStatusZoneScheme,
+    gcdfo:AbundanceDataType,
+    gcdfo:AbundancePercentileMetric,
+    gcdfo:AmberZone,
+    gcdfo:BenchmarkRatioMetric,
+    gcdfo:ConfidenceCategory,
+    gcdfo:ConservationUnit,
+    gcdfo:GenerationalAverageAbundance,
+    gcdfo:GreenZone,
+    gcdfo:LongTermTrendMetric,
+    gcdfo:LowerBenchmark,
+    gcdfo:PercentChangeMetric,
+    gcdfo:PolicyFramework,
+    gcdfo:ProbabilityDeclineBelowLowerBenchmarkMetric,
+    gcdfo:RapidStatusConfidenceHigh,
+    gcdfo:RapidStatusConfidenceLow,
+    gcdfo:RapidStatusConfidenceMedium,
+    gcdfo:RapidStatusMetric,
+    gcdfo:RapidStatusScoreMetric,
+    gcdfo:RedZone,
+    gcdfo:RelativeSpawnerAbundance,
+    gcdfo:RelativeSpawnerAbundanceChange,
+    gcdfo:RelativeSpawnerAbundancePercentile,
+    gcdfo:RelativeSpawnerAbundanceTrend,
+    gcdfo:RelativeWildSpawnerAbundance,
+    gcdfo:RelativeWildSpawnerAbundanceChange,
+    gcdfo:RelativeWildSpawnerAbundancePercentile,
+    gcdfo:RelativeWildSpawnerAbundanceTrend,
+    gcdfo:ReturnYear,
+    gcdfo:SpawnerAbundance,
+    gcdfo:SpawnerAbundanceChange,
+    gcdfo:SpawnerAbundancePercentile,
+    gcdfo:SpawnerAbundanceTrend,
+    gcdfo:UpperBenchmark,
+    gcdfo:WSPBiologicalStatusZone,
+    gcdfo:WSPRapidStatus,
+    gcdfo:WSPRapidStatusAlgorithmThreshold,
+    gcdfo:WSPRapidStatusAssessmentMethod,
+    gcdfo:WildSalmonPolicy,
+    gcdfo:WildSalmonPolicyTheme,
+    gcdfo:conservationUnitOf,
+    gcdfo:hasConservationUnit,
+    smn:Deme,
+    smn:LowerBiologicalBenchmark,
+    smn:MetricBenchmark,
+    smn:NaturalOrigin,
+    smn:Population,
+    smn:UpperBiologicalBenchmark,
+    smn:demeOf,
+    smn:hasDeme,
+    smn:hasPopulation,
+    smn:populationOf .
+
+wspview:CsvAlignedOntologyTerms a skos:Collection ;
+  skos:prefLabel "Ontology terms explicitly referenced by WSP CSV semantic mappings"@en ;
+  skos:member gcdfo:ConfidenceCategory,
+    gcdfo:ConservationUnit,
+    gcdfo:LowerBenchmark,
+    gcdfo:UpperBenchmark,
+    gcdfo:WSPRapidStatus,
+    smn:LowerBiologicalBenchmark,
+    smn:NaturalOrigin,
+    smn:ObservedRateOrAbundance,
+    smn:UpperBiologicalBenchmark .
+
+#################################################################
+# Canonical source CSV variables and their current semantic mappings
+#################################################################
+
+wspview:var_CU_ID a wspview:SourceVariable ;
+  rdfs:label "CU_ID"@en ;
+  dcterms:description "Unique and standardized identifier for each Pacific salmon Conservation Unit (CU)"@en ;
+  wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+  wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
+  wspview:mappingStatus "unmapped-in-current-wsp_column_dictionary" ;
+  wspview:notes "No explicit ontology mapping is currently asserted for this source variable in data_demo/SDP_Templates/wsp_column_dictionary.csv."@en .
+
+wspview:var_Species a wspview:SourceVariable ;
+  rdfs:label "Species"@en ;
+  dcterms:description "Species of salmon"@en ;
+  wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+  wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
+  wspview:mappingStatus "unmapped-in-current-wsp_column_dictionary" ;
+  wspview:notes "No explicit ontology mapping is currently asserted for this source variable in data_demo/SDP_Templates/wsp_column_dictionary.csv."@en .
+
+wspview:var_Stock a wspview:SourceVariable ;
+  rdfs:label "Stock"@en ;
+  dcterms:description "Full CU name"@en ;
+  wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+  wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
+  wspview:mappingStatus "unmapped-in-current-wsp_column_dictionary" ;
+  wspview:notes "No explicit ontology mapping is currently asserted for this source variable in data_demo/SDP_Templates/wsp_column_dictionary.csv."@en .
+
+wspview:var_DataType a wspview:SourceVariable ;
+  rdfs:label "DataType"@en ;
+  dcterms:description "Data type, either Absolute Abundance (AbsAbd) or Relative Index (RelIdx)"@en ;
+  wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+  wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
+  wspview:mappedTerm skos:Concept ;
+  wspview:mappedEntity gcdfo:ConservationUnit ;
+  wspview:mappingStatus "mapped" .
+
+wspview:var_Year a wspview:SourceVariable ;
+  rdfs:label "Year"@en ;
+  dcterms:description "Escapement year"@en ;
+  wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+  wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
+  wspview:mappingStatus "unmapped-in-current-wsp_column_dictionary" ;
+  wspview:notes "No explicit ontology mapping is currently asserted for this source variable in data_demo/SDP_Templates/wsp_column_dictionary.csv."@en .
+
+wspview:var_SpnForAbd_Wild a wspview:SourceVariable ;
+  rdfs:label "SpnForAbd_Wild"@en ;
+  dcterms:description "Wild spawner abundance that can be used to calculate abundance-based WSP metrics (relative abundance and absolute abundance)"@en ;
+  wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+  wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
+  wspview:mappedTerm dwc:individualCount ;
+  wspview:mappedProperty quantitykind:Count ;
+  wspview:mappedEntity gcdfo:ConservationUnit ;
+  wspview:mappedUnit unit:NUM ;
+  wspview:mappedConstraint smn:NaturalOrigin ;
+  wspview:legacyIri "https://w3id.org/gcdfo/salmon#NaturalOrigin" ;
+  wspview:mappingStatus "mapped" .
+
+wspview:var_SpnForTrend_Wild a wspview:SourceVariable ;
+  rdfs:label "SpnForTrend_Wild"@en ;
+  dcterms:description "Wild spawner abundance that can be used to calculate trend-based WSP metrics (long-term trend and percent change)"@en ;
+  wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+  wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
+  wspview:mappedTerm dwc:individualCount ;
+  wspview:mappedProperty quantitykind:Count ;
+  wspview:mappedEntity gcdfo:ConservationUnit ;
+  wspview:mappedUnit unit:NUM ;
+  wspview:mappedConstraint smn:NaturalOrigin ;
+  wspview:legacyIri "https://w3id.org/gcdfo/salmon#NaturalOrigin" ;
+  wspview:mappingStatus "mapped" .
+
+wspview:var_RelLBM a wspview:SourceVariable ;
+  rdfs:label "RelLBM"@en ;
+  dcterms:description "Ratio of the recent average spawner abundance to the relative abundance metric lower benchmark (where available)"@en ;
+  wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+  wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
+  wspview:mappedTerm smn:ObservedRateOrAbundance ;
+  wspview:mappedProperty quantitykind:DimensionlessRatio ;
+  wspview:mappedEntity gcdfo:ConservationUnit ;
+  wspview:mappedUnit unit:UNITLESS ;
+  wspview:mappedConstraint gcdfo:LowerBenchmark ;
+  wspview:legacyIri "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance" ;
+  wspview:mappingStatus "mapped" .
+
+wspview:var_AbsLBM a wspview:SourceVariable ;
+  rdfs:label "AbsLBM"@en ;
+  dcterms:description "Ratio of the recent average spawner abundance to the absolute abundance metric lower benchmark"@en ;
+  wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+  wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
+  wspview:mappedTerm smn:ObservedRateOrAbundance ;
+  wspview:mappedProperty quantitykind:DimensionlessRatio ;
+  wspview:mappedEntity gcdfo:ConservationUnit ;
+  wspview:mappedUnit unit:UNITLESS ;
+  wspview:mappedConstraint gcdfo:LowerBenchmark ;
+  wspview:legacyIri "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance" ;
+  wspview:mappingStatus "mapped" .
+
+wspview:var_LongTrend a wspview:SourceVariable ;
+  rdfs:label "LongTrend"@en ;
+  dcterms:description "Longer term trend metric value"@en ;
+  wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+  wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
+  wspview:mappedTerm smn:ObservedRateOrAbundance ;
+  wspview:mappedProperty quantitykind:DimensionlessRatio ;
+  wspview:mappedEntity gcdfo:ConservationUnit ;
+  wspview:mappedUnit unit:UNITLESS ;
+  wspview:legacyIri "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance" ;
+  wspview:mappingStatus "mapped" .
+
+wspview:var_PercChange a wspview:SourceVariable ;
+  rdfs:label "PercChange"@en ;
+  dcterms:description "Percent change metric value"@en ;
+  wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+  wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
+  wspview:mappedTerm smn:ObservedRateOrAbundance ;
+  wspview:mappedProperty quantitykind:DimensionlessRatio ;
+  wspview:mappedEntity gcdfo:ConservationUnit ;
+  wspview:mappedUnit unit:PERCENT ;
+  wspview:legacyIri "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance" ;
+  wspview:mappingStatus "mapped" .
+
+wspview:var_ProbDeclBelowLBM a wspview:SourceVariable ;
+  rdfs:label "ProbDeclBelowLBM"@en ;
+  dcterms:description "Not currently in use"@en ;
+  wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+  wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
+  wspview:mappedTerm smn:ObservedRateOrAbundance ;
+  wspview:mappedProperty quantitykind:DimensionlessRatio ;
+  wspview:mappedEntity gcdfo:ConservationUnit ;
+  wspview:mappedUnit unit:UNITLESS ;
+  wspview:legacyIri "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance" ;
+  wspview:mappingStatus "mapped" .
+
+wspview:var_Percentile a wspview:SourceVariable ;
+  rdfs:label "Percentile"@en ;
+  dcterms:description "Not used (NA)"@en ;
+  wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+  wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
+  wspview:mappedTerm smn:ObservedRateOrAbundance ;
+  wspview:mappedProperty quantitykind:DimensionlessRatio ;
+  wspview:mappedEntity gcdfo:ConservationUnit ;
+  wspview:mappedUnit unit:UNITLESS ;
+  wspview:legacyIri "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance" ;
+  wspview:mappingStatus "mapped" .
+
+wspview:var_RelUBM a wspview:SourceVariable ;
+  rdfs:label "RelUBM"@en ;
+  dcterms:description "Ratio of the recent average spawner abundance to the relative abundance metric upper benchmark (where available)"@en ;
+  wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+  wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
+  wspview:mappedTerm smn:ObservedRateOrAbundance ;
+  wspview:mappedProperty quantitykind:DimensionlessRatio ;
+  wspview:mappedEntity gcdfo:ConservationUnit ;
+  wspview:mappedUnit unit:UNITLESS ;
+  wspview:mappedConstraint gcdfo:UpperBenchmark ;
+  wspview:legacyIri "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance" ;
+  wspview:mappingStatus "mapped" .
+
+wspview:var_AbsUBM a wspview:SourceVariable ;
+  rdfs:label "AbsUBM"@en ;
+  dcterms:description "Ratio of the recent average spawner abundance to the absolute abundance metric upper benchmark"@en ;
+  wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+  wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
+  wspview:mappedTerm smn:ObservedRateOrAbundance ;
+  wspview:mappedProperty quantitykind:DimensionlessRatio ;
+  wspview:mappedEntity gcdfo:ConservationUnit ;
+  wspview:mappedUnit unit:UNITLESS ;
+  wspview:mappedConstraint gcdfo:UpperBenchmark ;
+  wspview:legacyIri "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance" ;
+  wspview:mappingStatus "mapped" .
+
+wspview:var_GenAvgSpnForAbd a wspview:SourceVariable ;
+  rdfs:label "GenAvgSpnForAbd"@en ;
+  dcterms:description "Generational average"@en ;
+  wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+  wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
+  wspview:mappedTerm dwc:individualCount ;
+  wspview:mappedProperty quantitykind:Count ;
+  wspview:mappedEntity gcdfo:ConservationUnit ;
+  wspview:mappedUnit unit:NUM ;
+  wspview:mappedConstraint smn:NaturalOrigin ;
+  wspview:legacyIri "https://w3id.org/gcdfo/salmon#NaturalOrigin" ;
+  wspview:mappingStatus "mapped" .
+
+wspview:var_IntStatusRaw a wspview:SourceVariable ;
+  rdfs:label "IntStatusRaw"@en ;
+  dcterms:description "Integrated Status"@en ;
+  wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+  wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
+  wspview:mappingStatus "unmapped-in-current-wsp_column_dictionary" ;
+  wspview:notes "No explicit ontology mapping is currently asserted for this source variable in data_demo/SDP_Templates/wsp_column_dictionary.csv."@en .
+
+wspview:var_IntStatusRaw_Short a wspview:SourceVariable ;
+  rdfs:label "IntStatusRaw_Short"@en ;
+  dcterms:description "NA"@en ;
+  wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+  wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
+  wspview:mappingStatus "unmapped-in-current-wsp_column_dictionary" ;
+  wspview:notes "No explicit ontology mapping is currently asserted for this source variable in data_demo/SDP_Templates/wsp_column_dictionary.csv."@en .
+
+wspview:var_IntStatus_Short a wspview:SourceVariable ;
+  rdfs:label "IntStatus_Short"@en ;
+  dcterms:description "NA"@en ;
+  wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+  wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
+  wspview:mappingStatus "unmapped-in-current-wsp_column_dictionary" ;
+  wspview:notes "No explicit ontology mapping is currently asserted for this source variable in data_demo/SDP_Templates/wsp_column_dictionary.csv."@en .
+
+wspview:var_RapidStatus a wspview:SourceVariable ;
+  rdfs:label "RapidStatus"@en ;
+  dcterms:description "WSP rapid status"@en ;
+  wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+  wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
+  wspview:mappedTerm gcdfo:WSPRapidStatus ;
+  wspview:mappedEntity gcdfo:ConservationUnit ;
+  wspview:mappingStatus "mapped" .
+
+wspview:var_BinLabel a wspview:SourceVariable ;
+  rdfs:label "BinLabel"@en ;
+  dcterms:description "End node of the WSP rapid status decision tree that determined the rapid status"@en ;
+  wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+  wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
+  wspview:mappedTerm gcdfo:WSPRapidStatus ;
+  wspview:mappingStatus "mapped" .
+
+wspview:var_BinPath a wspview:SourceVariable ;
+  rdfs:label "BinPath"@en ;
+  dcterms:description "WSP decision tree pathway that led to the end node (BinLabel) and rapid status"@en ;
+  wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+  wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
+  wspview:mappedTerm gcdfo:WSPRapidStatus ;
+  wspview:mappingStatus "mapped" .
+
+wspview:var_RapidScore a wspview:SourceVariable ;
+  rdfs:label "RapidScore"@en ;
+  dcterms:description "NA"@en ;
+  wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+  wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
+  wspview:mappedTerm smn:ObservedRateOrAbundance ;
+  wspview:mappedProperty quantitykind:DimensionlessRatio ;
+  wspview:mappedEntity gcdfo:ConservationUnit ;
+  wspview:mappedUnit unit:UNITLESS ;
+  wspview:legacyIri "https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance" ;
+  wspview:mappingStatus "mapped" .
+
+wspview:var_LongTrendCat a wspview:SourceVariable ;
+  rdfs:label "LongTrendCat"@en ;
+  dcterms:description "Long term trend metric status"@en ;
+  wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+  wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
+  wspview:mappingStatus "unmapped-in-current-wsp_column_dictionary" ;
+  wspview:notes "No explicit ontology mapping is currently asserted for this source variable in data_demo/SDP_Templates/wsp_column_dictionary.csv."@en .
+
+wspview:var_PercChangeCat a wspview:SourceVariable ;
+  rdfs:label "PercChangeCat"@en ;
+  dcterms:description "Percent change metric status"@en ;
+  wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+  wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
+  wspview:mappingStatus "unmapped-in-current-wsp_column_dictionary" ;
+  wspview:notes "No explicit ontology mapping is currently asserted for this source variable in data_demo/SDP_Templates/wsp_column_dictionary.csv."@en .
+
+wspview:var_ProbDeclBelowLBMCat a wspview:SourceVariable ;
+  rdfs:label "ProbDeclBelowLBMCat"@en ;
+  dcterms:description "NA"@en ;
+  wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+  wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
+  wspview:mappingStatus "unmapped-in-current-wsp_column_dictionary" ;
+  wspview:notes "No explicit ontology mapping is currently asserted for this source variable in data_demo/SDP_Templates/wsp_column_dictionary.csv."@en .
+
+wspview:var_PercentileCat a wspview:SourceVariable ;
+  rdfs:label "PercentileCat"@en ;
+  dcterms:description "NA"@en ;
+  wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+  wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
+  wspview:mappingStatus "unmapped-in-current-wsp_column_dictionary" ;
+  wspview:notes "No explicit ontology mapping is currently asserted for this source variable in data_demo/SDP_Templates/wsp_column_dictionary.csv."@en .
+
+wspview:var_RelAbdCat a wspview:SourceVariable ;
+  rdfs:label "RelAbdCat"@en ;
+  dcterms:description "Relative abundance metric status"@en ;
+  wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+  wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
+  wspview:mappingStatus "unmapped-in-current-wsp_column_dictionary" ;
+  wspview:notes "No explicit ontology mapping is currently asserted for this source variable in data_demo/SDP_Templates/wsp_column_dictionary.csv."@en .
+
+wspview:var_AbsAbdCat a wspview:SourceVariable ;
+  rdfs:label "AbsAbdCat"@en ;
+  dcterms:description "Absolute abundance metric status"@en ;
+  wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+  wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
+  wspview:mappingStatus "unmapped-in-current-wsp_column_dictionary" ;
+  wspview:notes "No explicit ontology mapping is currently asserted for this source variable in data_demo/SDP_Templates/wsp_column_dictionary.csv."@en .
+
+wspview:var_RelAbd_LBM a wspview:SourceVariable ;
+  rdfs:label "RelAbd_LBM"@en ;
+  dcterms:description "Relative abundance metric lower benchmark"@en ;
+  wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+  wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
+  wspview:mappedTerm smn:LowerBiologicalBenchmark ;
+  wspview:mappedProperty quantitykind:Count ;
+  wspview:mappedEntity gcdfo:ConservationUnit ;
+  wspview:mappedUnit unit:NUM ;
+  wspview:mappedConstraint gcdfo:LowerBenchmark ;
+  wspview:legacyIri "https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark" ;
+  wspview:mappingStatus "mapped" .
+
+wspview:var_RelAbd_UBM a wspview:SourceVariable ;
+  rdfs:label "RelAbd_UBM"@en ;
+  dcterms:description "Relative abundance metric lower benchmark"@en ;
+  wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+  wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
+  wspview:mappedTerm smn:UpperBiologicalBenchmark ;
+  wspview:mappedProperty quantitykind:Count ;
+  wspview:mappedEntity gcdfo:ConservationUnit ;
+  wspview:mappedUnit unit:NUM ;
+  wspview:mappedConstraint gcdfo:UpperBenchmark ;
+  wspview:legacyIri "https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark" ;
+  wspview:mappingStatus "mapped" .
+
+wspview:var_SpnForAbd_Total a wspview:SourceVariable ;
+  rdfs:label "SpnForAbd_Total"@en ;
+  dcterms:description "Total spawner abundance that can be used to calculate abundance-based WSP metrics (relative abundance and absolute abundance)"@en ;
+  wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+  wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
+  wspview:mappedTerm dwc:individualCount ;
+  wspview:mappedProperty quantitykind:Count ;
+  wspview:mappedEntity gcdfo:ConservationUnit ;
+  wspview:mappedUnit unit:NUM ;
+  wspview:mappingStatus "mapped" .
+
+wspview:var_SpnForTrend_Total a wspview:SourceVariable ;
+  rdfs:label "SpnForTrend_Total"@en ;
+  dcterms:description "Total spawner abundance that can be used to calculate trend-based WSP metrics (long-term trend and percent change)"@en ;
+  wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+  wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
+  wspview:mappedTerm dwc:individualCount ;
+  wspview:mappedProperty quantitykind:Count ;
+  wspview:mappedEntity gcdfo:ConservationUnit ;
+  wspview:mappedUnit unit:NUM ;
+  wspview:mappingStatus "mapped" .
+
+wspview:var_ConfidenceRating a wspview:SourceVariable ;
+  rdfs:label "ConfidenceRating"@en ;
+  dcterms:description "Status confidence rating"@en ;
+  wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+  wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
+  wspview:mappedTerm gcdfo:ConfidenceCategory ;
+  wspview:mappedEntity gcdfo:ConservationUnit ;
+  wspview:mappingStatus "mapped" .
+
+wspview:var_IntStatus5 a wspview:SourceVariable ;
+  rdfs:label "IntStatus5"@en ;
+  dcterms:description "to be removed"@en ;
+  wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+  wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
+  wspview:mappingStatus "unmapped-in-current-wsp_column_dictionary" ;
+  wspview:notes "No explicit ontology mapping is currently asserted for this source variable in data_demo/SDP_Templates/wsp_column_dictionary.csv."@en .
+
+wspview:var_IntStatus3 a wspview:SourceVariable ;
+  rdfs:label "IntStatus3"@en ;
+  dcterms:description "to be removed"@en ;
+  wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+  wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
+  wspview:mappingStatus "unmapped-in-current-wsp_column_dictionary" ;
+  wspview:notes "No explicit ontology mapping is currently asserted for this source variable in data_demo/SDP_Templates/wsp_column_dictionary.csv."@en .
+
+wspview:var_IntStatus2 a wspview:SourceVariable ;
+  rdfs:label "IntStatus2"@en ;
+  dcterms:description "to be removed"@en ;
+  wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+  wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
+  wspview:mappingStatus "unmapped-in-current-wsp_column_dictionary" ;
+  wspview:notes "No explicit ontology mapping is currently asserted for this source variable in data_demo/SDP_Templates/wsp_column_dictionary.csv."@en .
+
+#################################################################
+# Extracted ontology term snippets (for standalone colleague review)
+#################################################################
+
+:BenchmarkLevelScheme a skos:ConceptScheme ;
+  skos:prefLabel "Benchmark Level Scheme"@en ;
+  skos:definition "Controlled vocabulary for generic benchmark-level qualifiers usable as I-ADOPT constraint values attached to benchmark variables or values."@en ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:BiologicalBenchmarkAndIndicatorScheme a skos:ConceptScheme ;
+  skos:prefLabel "Biological Benchmark and Indicator Scheme"@en ;
+  skos:hasTopConcept smn:TargetOrLimitRateOrAbundance ;
+  skos:definition "Controlled vocabulary for key biological benchmarks, performance indicators, and reference points used in salmon stock assessment and management (e.g., SMSY, Sgen, spawner abundance)."@en ;
+  gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:PolicyFrameworkScheme a skos:ConceptScheme ;
+  skos:prefLabel "Policy framework scheme"@en ;
+  skos:definition "Controlled vocabulary for policy and governance frameworks referenced by salmon assessment metrics and benchmarks (e.g., WSP, PA)."@en ;
+  skos:hasTopConcept gcdfo:PolicyFramework ;
+  gcdfo:theme gcdfo:PolicyGovernanceTheme, gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:RapidStatusConfidenceScheme a skos:ConceptScheme ;
+  skos:prefLabel "Rapid status confidence scheme"@en ;
+  skos:definition "Controlled vocabulary for categorical confidence ratings attached to rapid status assessments."@en ;
+  skos:hasTopConcept gcdfo:ConfidenceCategory ;
+  gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:RapidStatusMetricScheme a skos:ConceptScheme ;
+  skos:prefLabel "Rapid status metric scheme"@en ;
+  skos:definition "Controlled vocabulary for rapid-status compound variable terms used in WSP rapid-status workflows."@en ;
+  skos:hasTopConcept gcdfo:RapidStatusMetric ;
+  gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:StockStatusZoneScheme a skos:ConceptScheme ;
+  skos:prefLabel "Stock Status Zone Scheme (legacy alias)"@en ;
+  skos:altLabel "Stock Status Zone Scheme"@en ;
+  skos:hasTopConcept gcdfo:WSPBiologicalStatusZone ;
+  skos:definition "Legacy alias scheme for stock status zones. Use :WSPBiologicalStatusZoneScheme as the canonical scheme for Red/Amber/Green Wild Salmon Policy biological status zones."@en ;
+  skos:exactMatch :WSPBiologicalStatusZoneScheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:FisheriesManagementTheme, gcdfo:WildSalmonPolicyTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+:WSPBiologicalStatusZoneScheme a skos:ConceptScheme ;
+  skos:prefLabel "Wild Salmon Policy Status Zone"@en ;
+  skos:hasTopConcept :WSPBiologicalStatusZone ;
+  skos:definition "Controlled vocabulary for biological status zones under the Wild Salmon Policy."@en ;
+  gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:PolicyGovernanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+### AbundanceDataType (SKOS)
+gcdfo:AbundanceDataType a skos:Concept ;
+  skos:prefLabel "Abundance data type"@en ;
+  skos:definition "A categorical attribute indicating whether an abundance time series is recorded as absolute abundance or as a relative index (used by rapid-status workflows)."@en ;
+  iao:0000115 "A categorical attribute indicating whether an abundance time series is recorded as absolute abundance or as a relative index (used by rapid-status workflows)."@en ;
+  skos:scopeNote "In SPSR rapid-status workflows, this field distinguishes absolute abundance vs relative index inputs (often abbreviated in code as 'Abs_Abd' and 'RelIdx')."@en ;
+  skos:inScheme smn:MeasurementContextScheme ;
+  skos:broader smn:MeasurementContext ;
+  iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."@en ;
+  dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
+  gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:AbundancePercentileMetric a skos:Concept ;
+  skos:prefLabel "Abundance percentile metric"@en ;
+  skos:definition "An abundance percentile metric giving the percentile rank of the current generational average spawner abundance relative to a historical reference distribution."@en ;
+  iao:0000115 "An abundance percentile metric giving the percentile rank of the current generational average spawner abundance relative to a historical reference distribution."@en ;
+  skos:inScheme :RapidStatusMetricScheme ;
+  skos:broader gcdfo:RapidStatusMetric ;
+  gcdfo:iadoptProperty gcdfo:SpawnerAbundancePercentile ;
+  gcdfo:iadoptEntity gcdfo:ConservationUnit ;
+  gcdfo:iadoptConstraint gcdfo:WildSalmonPolicy ;
+  gcdfo:usedProcedure gcdfo:WSPRapidStatusAssessmentMethod ;
+  iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."@en ;
+  dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
+  gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:AmberZone a gcdfo:WSPBiologicalStatusZone , skos:Concept ;
+  skos:prefLabel "Amber zone"@en ;
+  skos:definition "Amber status implies caution in the management of the Conservation Unit. While a CU in the Amber zone should be at a low risk of loss, there will be a degree of lost production. Decisions about the conservation of CUs in the Amber zone will involve broader consideration of biological, social, and economic issues. "@en ;
+  skos:inScheme gcdfo:WSPBiologicalStatusZoneScheme ;
+  iao:0000119 "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en ; # definition source
+  dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf> ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:BenchmarkRatioMetric a skos:Concept ;
+  skos:prefLabel "Benchmark ratio metric"@en ;
+  skos:definition "A benchmark-ratio metric equal to the ratio of current generational average spawner abundance to a specified benchmark (lower or upper benchmark), where 1.0 indicates equality to that benchmark."@en ;
+  iao:0000115 "A benchmark-ratio metric equal to the ratio of current generational average spawner abundance to a specified benchmark (lower or upper benchmark), where 1.0 indicates equality to that benchmark."@en ;
+  skos:inScheme :RapidStatusMetricScheme ;
+  skos:broader gcdfo:RapidStatusMetric ;
+  gcdfo:iadoptProperty gcdfo:RelativeSpawnerAbundance ;
+  gcdfo:iadoptEntity gcdfo:ConservationUnit ;
+  gcdfo:iadoptConstraint gcdfo:LowerBenchmark, gcdfo:UpperBenchmark ;
+  gcdfo:usedProcedure gcdfo:WSPRapidStatusAssessmentMethod ;
+  iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."@en ;
+  dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
+  gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:ConfidenceCategory a skos:Concept ;
+  skos:prefLabel "Confidence category"@en ;
+  skos:definition "Categorical confidence rating (High, Medium, Low) for stock assessment metrics."@en ; # definition
+  skos:inScheme :RapidStatusConfidenceScheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:ConservationUnit a owl:Class ;
+  rdfs:label "Conservation Unit"@en ;
+  iao:0000115 "A group of fish sufficiently isolated from other groups that, if extirpated, is very unlikely to recolonize naturally within an acceptable timeframe."@en ; # definition
+  iao:0000119 "Fisheries and Oceans Canada. Canada's Policy for Conservation of Wild Pacific Salmon - Glossary. https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/wsp-pss/policy-politique-eng.html#glossary."@en ; # definition source
+  iao:0000119 "Fisheries and Oceans Canada. 2005. Canada's Policy for Conservation of Wild Pacific Salmon. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf."@en ; # definition source
+  dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/wsp-pss/policy-politique-eng.html#glossary>,
+    <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf> ;
+  rdfs:subClassOf smn:ReportingOrManagementStratum ;
+  dcterms:isPartOf <urn:ISBN:0662405382> ;
+  gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:SalmonEnhancementHatcheriesTheme, gcdfo:PolicyGovernanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:GenerationalAverageAbundance a skos:Concept ;
+  skos:prefLabel "Generational average abundance"@en ;
+  skos:definition "The generational average of spawner abundance, calculated as a geometric mean across the number of years corresponding to the most common age at return (generation length), optionally after smoothing depending on CU group."@en ;
+  iao:0000115 "The generational average of spawner abundance, calculated as a geometric mean across the number of years corresponding to the most common age at return (generation length), optionally after smoothing depending on CU group."@en ;
+  skos:inScheme :RapidStatusMetricScheme ;
+  skos:broader gcdfo:RapidStatusMetric ;
+  gcdfo:iadoptProperty gcdfo:SpawnerAbundance ;
+  gcdfo:iadoptEntity gcdfo:ConservationUnit ;
+  gcdfo:iadoptConstraint gcdfo:ReturnYear ;
+  gcdfo:usedProcedure gcdfo:WSPRapidStatusAssessmentMethod ;
+  iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."@en ;
+  dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
+  gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:GreenZone a gcdfo:WSPBiologicalStatusZone , skos:Concept ;
+  skos:prefLabel "Green zone"@en ;
+  skos:definition "Social and economic considerations will tend to be the primary drivers for the management of Conservation Units in the Green zone, though ecosystem or other non-consumptive use values could also be considered."@en ;
+  skos:inScheme gcdfo:WSPBiologicalStatusZoneScheme ;
+  iao:0000119 "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en ; # definition source
+  dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf> ;
+  gcdfo:theme gcdfo:PolicyGovernanceTheme, gcdfo:WildSalmonPolicyTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:LongTermTrendMetric a skos:Concept ;
+  skos:prefLabel "Long-term trend metric"@en ;
+  skos:definition "A long-term trend metric comparing the current generational average (geometric mean) spawner abundance to the long-term average (geometric mean) spawner abundance for an assessed time series."@en ;
+  iao:0000115 "A long-term trend metric comparing the current generational average (geometric mean) spawner abundance to the long-term average (geometric mean) spawner abundance for an assessed time series."@en ;
+  skos:inScheme :RapidStatusMetricScheme ;
+  skos:broader gcdfo:RapidStatusMetric ;
+  gcdfo:iadoptProperty gcdfo:SpawnerAbundanceTrend ;
+  gcdfo:iadoptEntity gcdfo:ConservationUnit ;
+  gcdfo:iadoptConstraint gcdfo:WildSalmonPolicy ;
+  gcdfo:usedProcedure gcdfo:WSPRapidStatusAssessmentMethod ;
+  iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."@en ;
+  dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
+  gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:LowerBenchmark a skos:Concept ;
+  skos:prefLabel "Lower benchmark"@en ;
+  skos:definition "A lower-threshold benchmark value, typically delineating the boundary between Red and Amber status zones."@en ;
+  skos:inScheme :BenchmarkLevelScheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:PercentChangeMetric a skos:Concept ;
+  skos:prefLabel "Percent change metric"@en ;
+  skos:altLabel "Rapid-status percent change metric"@en ;
+  skos:definition "A short-term trend metric quantifying the percent (linear) change in spawner abundance over the most recent three generations."@en ;
+  iao:0000115 "A short-term trend metric quantifying the percent (linear) change in spawner abundance over the most recent three generations."@en ;
+  skos:inScheme :RapidStatusMetricScheme ;
+  skos:broader gcdfo:RapidStatusMetric ;
+  gcdfo:iadoptProperty gcdfo:SpawnerAbundanceChange ;
+  gcdfo:iadoptEntity gcdfo:ConservationUnit ;
+  gcdfo:iadoptConstraint gcdfo:WildSalmonPolicy ;
+  gcdfo:usedProcedure gcdfo:WSPRapidStatusAssessmentMethod ;
+  iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."@en ;
+  dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
+  gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:PolicyFramework a skos:Concept ;
+  skos:prefLabel "Policy framework"@en ;
+  skos:definition "A policy, legal, or governance framework that defines how salmon status metrics, benchmarks, or reference points are set and interpreted."@en ;
+  skos:inScheme :PolicyFrameworkScheme ;
+  gcdfo:theme gcdfo:PolicyGovernanceTheme, gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:ProbabilityDeclineBelowLowerBenchmarkMetric a skos:Concept ;
+  skos:prefLabel "Probability of decline below lower benchmark metric"@en ;
+  skos:definition "A probability metric estimating the risk that spawner abundance will be below the lower benchmark, given uncertainty in benchmark estimates and/or abundance estimates, for a defined forecast or assessment horizon."@en ;
+  iao:0000115 "A probability metric estimating the risk that spawner abundance will be below the lower benchmark, given uncertainty in benchmark estimates and/or abundance estimates, for a defined forecast or assessment horizon."@en ;
+  skos:inScheme :RapidStatusMetricScheme ;
+  skos:broader gcdfo:RapidStatusMetric ;
+  gcdfo:iadoptProperty gcdfo:SpawnerAbundance ;
+  gcdfo:iadoptEntity gcdfo:ConservationUnit ;
+  gcdfo:iadoptConstraint gcdfo:LowerBenchmark ;
+  gcdfo:usedProcedure gcdfo:WSPRapidStatusAssessmentMethod ;
+  iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."@en ;
+  dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
+  gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:RapidStatusConfidenceHigh a gcdfo:ConfidenceCategory , skos:Concept ;
+  rdfs:label "High rapid-status confidence"@en ;
+  skos:prefLabel "High confidence"@en ;
+  iao:0000115 "Rapid status confidence category indicating that high-quality abundance metrics support the result."@en ; # definition
+  skos:inScheme :RapidStatusConfidenceScheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:RapidStatusConfidenceLow a gcdfo:ConfidenceCategory , skos:Concept ;
+  rdfs:label "Low rapid-status confidence"@en ;
+  skos:prefLabel "Low confidence"@en ;
+  iao:0000115 "Rapid status confidence category indicating limited supporting data (for example, derived from trend metrics alone)."@en ; # definition
+  skos:inScheme :RapidStatusConfidenceScheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:RapidStatusConfidenceMedium a gcdfo:ConfidenceCategory , skos:Concept ;
+  rdfs:label "Medium rapid-status confidence"@en ;
+  skos:prefLabel "Medium confidence"@en ;
+  iao:0000115 "Rapid status confidence category indicating mixed evidence or reliance on trend metrics supplemented by some abundance information."@en ; # definition
+  skos:inScheme :RapidStatusConfidenceScheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:RapidStatusMetric a skos:Concept ;
+  skos:prefLabel "Rapid status metric"@en ;
+  skos:definition "A compound variable concept representing a metric used by WSP rapid-status workflows."@en ;
+  skos:inScheme :RapidStatusMetricScheme ;
+  gcdfo:iadoptEntity gcdfo:ConservationUnit ;
+  gcdfo:usedProcedure gcdfo:WSPRapidStatusAssessmentMethod ;
+  gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:RapidStatusScoreMetric a skos:Concept ;
+  skos:prefLabel "Rapid status score metric"@en ;
+  skos:definition "A numeric score produced by a rapid-status algorithm used to represent an ordered status outcome and/or decision-rule position."@en ;
+  iao:0000115 "A numeric score produced by a rapid-status algorithm used to represent an ordered status outcome and/or decision-rule position."@en ;
+  skos:inScheme :RapidStatusMetricScheme ;
+  skos:broader gcdfo:RapidStatusMetric ;
+  gcdfo:iadoptProperty gcdfo:WSPBiologicalStatusZone ;
+  gcdfo:iadoptEntity gcdfo:ConservationUnit ;
+  gcdfo:iadoptConstraint gcdfo:WildSalmonPolicy ;
+  gcdfo:usedProcedure gcdfo:WSPRapidStatusAssessmentMethod ;
+  iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."@en ;
+  dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
+  gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:RedZone a gcdfo:WSPBiologicalStatusZone , skos:Concept ;
+  skos:prefLabel "Red zone"@en ;
+  skos:definition "A Conservation Unit in the Red zone is undesirable because of the risk of extirpation, and the loss of ecological benefits and salmon production. Changes in status will trigger management actions that will vary depending on species, geographic regions, and cause of the decline."@en ;
+  skos:inScheme gcdfo:WSPBiologicalStatusZoneScheme ;
+  iao:0000119 "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en ; # definition source
+  dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf> ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:RelativeSpawnerAbundance a owl:Class ;
+    rdfs:label "Relative spawner abundance"@en ;
+    iao:0000115 "Spawner abundance expressed as a relative (dimensionless) abundance metric to a defined reference (commonly benchmarks), for within-series comparison; in rapid-status workflows, relative abundance is computed using the current generational average (geometric mean) divided by CU-specific lower and/or upper benchmarks."@en ;
+    rdfs:subClassOf gcdfo:SpawnerAbundance ;
+    iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under Fisheries and Oceans Canada Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004 (relative abundance metric definition and computation)."@en ;
+    dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
+    gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
+    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:RelativeSpawnerAbundanceChange a owl:Class ;
+    rdfs:label "Relative spawner abundance change"@en ;
+    iao:0000115 "A change metric (delta or percent change, as defined by the workflow) computed from relative spawner abundance values over time; where rapid-status percent-change approaches are used, it represents change in abundance over the most recent three generations after log transformation (and smoothing where applicable)."@en ;
+    rdfs:subClassOf gcdfo:SpawnerAbundanceChange ;
+    iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon… CSAS Pacific Region Science Response 2024/004 (definition and computation notes for percent change as a short-term trend over three generations)."@en ;
+    dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
+    gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
+    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:RelativeSpawnerAbundancePercentile a owl:Class ;
+  rdfs:label "Relative spawner abundance percentile"@en ;
+  iao:0000115 "The percentile rank of relative spawner abundance against a defined historical reference distribution."@en ;
+  rdfs:subClassOf gcdfo:SpawnerAbundancePercentile ;
+  iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations… CSAS Science Response 2024/004 (percentile benchmarks discussion)."@en ;
+  dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:RelativeSpawnerAbundanceTrend a owl:Class ;
+    rdfs:label "Relative spawner abundance trend"@en ;
+    iao:0000115 "A long-term trend metric expressed as the ratio of the current generational average (geometric mean) spawner abundance to the long-term average (geometric mean), yielding a dimensionless measure of relative abundance through time."@en ;
+    rdfs:subClassOf gcdfo:SpawnerAbundanceTrend ;
+    iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon… CSAS Pacific Region Science Response 2024/004 (long-term trend in abundance defined as ratio of current generational average to long-term average)."@en ;
+    dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
+    gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
+    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:RelativeWildSpawnerAbundance a owl:Class ;
+    rdfs:label "Relative wild spawner abundance"@en ;
+    iao:0000115 "Natural-origin (wild) spawner abundance expressed as a relative (dimensionless) abundance metric to a defined reference (commonly benchmarks), for within-series comparison; where WSP-style relative abundance is used, it is computed using current generational averages (geometric mean) relative to CU-specific benchmarks."@en ;
+    rdfs:subClassOf gcdfo:RelativeSpawnerAbundance ;
+    iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon… CSAS Pacific Region Science Response 2024/004 (relative abundance metric definition). Holt et al. 2009. Indicators of Status and Benchmarks for Conservation Units in Canada's Wild Salmon Policy. CSAS Res. Doc. 2009/058 (wild vs hatchery-origin considerations in spawner series context)."@en ;
+    dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf>,
+                  <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/339096.pdf> ;
+    gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
+    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:RelativeWildSpawnerAbundanceChange a owl:Class ;
+    rdfs:label "Relative wild spawner abundance change"@en ;
+    iao:0000115 "A change metric (delta or percent change, as defined by the workflow) computed from relative natural-origin spawner abundance values over time; in rapid-status workflows, percent change is defined over the most recent three generations using log-transformed abundance series."@en ;
+    rdfs:subClassOf gcdfo:RelativeSpawnerAbundanceChange ;
+    iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon… CSAS Pacific Region Science Response 2024/004 (definition and computation notes for percent change over the most recent three generations)."@en ;
+    dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
+    gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
+    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:RelativeWildSpawnerAbundancePercentile a owl:Class ;
+  rdfs:label "Relative wild spawner abundance percentile"@en ;
+  iao:0000115 "The percentile rank of relative natural-origin spawner abundance against a defined historical reference distribution."@en ;
+  rdfs:subClassOf gcdfo:RelativeSpawnerAbundancePercentile ;
+  iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations… CSAS Science Response 2024/004 (percentile benchmarks discussion)."@en ;
+  dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:RelativeWildSpawnerAbundanceTrend a owl:Class ;
+    rdfs:label "Relative wild spawner abundance trend"@en ;
+    iao:0000115 "A trend metric computed from relative natural-origin spawner abundance using a defined trend method; in rapid-status workflows, long-term trend is the ratio of current generational average (geometric mean) abundance to long-term average (geometric mean)."@en ;
+    rdfs:subClassOf gcdfo:RelativeSpawnerAbundanceTrend ;
+    iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon… CSAS Pacific Region Science Response 2024/004 (long-term trend in abundance metric definition)."@en ;
+    dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
+    gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
+    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:ReturnYear a skos:Concept ;
+  skos:prefLabel "Return year"@en ;
+  skos:definition "The calendar year in which adult salmon return from the ocean to freshwater systems (a year basis used to contextualize run/return-related measurements)."@en ;
+  iao:0000115 "The calendar year in which adult salmon return from the ocean to freshwater systems (a year basis used to contextualize run/return-related measurements)."@en ;
+  skos:inScheme :YearBasisScheme ;
+  skos:broader gcdfo:YearBasis ;
+  iao:0000119 "Fisheries and Oceans Canada. Pacific Salmon Glossary (Pacific Region web page)."@en ;
+  dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html> ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme, gcdfo:FisheriesManagementTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:SpawnerAbundance a owl:Class ;
+  rdfs:label "Spawner abundance"@en ;
+  skos:altLabel "Escapement (count)"@en ;
+  iao:0000115 "The abundance (count) of adult salmon that reach spawning grounds in a given system and time period (often operationalized as escapement/spawning escapement)."@en ;
+  rdfs:subClassOf smn:ObservedRateOrAbundance ;
+  iao:0000119 "Fisheries and Oceans Canada. Pacific Salmon Glossary (defines escapement/spawning escapement as the number of salmon returning to the spawning grounds)."@en ;
+  dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html> ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:SpawnerAbundanceChange a owl:Class ;
+    rdfs:label "Spawner abundance change"@en ;
+    iao:0000115 "A change metric (delta or percent change, as defined by the workflow) computed from spawner abundance values over time; in rapid-status workflows, percent change is quantified as a linear change in log-transformed abundance over the most recent three generations."@en ;
+    rdfs:subClassOf smn:ObservedRateOrAbundance ;
+    iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon… CSAS Pacific Region Science Response 2024/004 (percent change definition and computation notes). COSEWIC. 2017. Sockeye Salmon assessment and status report (log-linear rate-of-change model and percent-change derivation over three generations)."@en ;
+    dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf>,
+                  <https://www.canada.ca/en/environment-climate-change/services/species-risk-public-registry/cosewic-assessments-status-reports/sockeye-salmon-2017.html> ;
+    gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
+    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:SpawnerAbundancePercentile a owl:Class ;
+  rdfs:label "Spawner abundance percentile"@en ;
+  iao:0000115 "The percentile rank of a spawner abundance value (annual or period-specific) against a defined historical reference distribution."@en ;
+  rdfs:subClassOf smn:ObservedRateOrAbundance ;
+  iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations… CSAS Science Response 2024/004 (percentile benchmarks discussion)."@en ;
+  dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:SpawnerAbundanceTrend a owl:Class ;
+  rdfs:label "Spawner abundance trend"@en ;
+  iao:0000115 "A trend metric computed from spawner abundance over time using a defined trend method (e.g., slope over a specified window)."@en ;
+  rdfs:subClassOf smn:ObservedRateOrAbundance ;
+  iao:0000119 "Derived for SPSR term coverage; distinct from gcdfo:LongTermTrendMetric (current generational average vs long-term average) in CSAS Science Response 2024/004."@en ;
+  dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:UpperBenchmark a skos:Concept ;
+  skos:prefLabel "Upper benchmark"@en ;
+  skos:definition "An upper-threshold benchmark value, typically delineating the boundary between Amber and Green status zones."@en ;
+  skos:inScheme :BenchmarkLevelScheme ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:WSPBiologicalStatusZone a skos:Concept ;
+  skos:prefLabel "Wild Salmon Policy biological status zone"@en ;
+  skos:definition "The biological status of a Conservation Unit (CU) will normally be based on the abundance and distribution of spawners in the unit, or proxies thereof. For each CU, higher and lower benchmarks will be defined that will delimit three status zones: Green, Amber, and Red. As spawner abundance decreases, a CU moves towards the lower status zone, and the extent of management intervention for conservation purposes will increase."@en ;
+  skos:inScheme gcdfo:WSPBiologicalStatusZoneScheme ;
+  iao:0000119 "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en ; # definition source
+  dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf> ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:PolicyGovernanceTheme, gcdfo:WildSalmonPolicyTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:WSPRapidStatus a owl:Class;
+  rdfs:label "WSP rapid status"@en ;
+  rdfs:subClassOf iao:0000030 ; # information content entity
+  iao:0000115 "The WSP rapid status assessment approach builds on previously completed WSP integrated status assessments. The WSP rapid status approach ensures statuses are scientifically objective, consistent, and comparable across BC/Yukon CUs. This approach is also relatively easy to implement, applicable to data rich and data poor CUs, and can be updated annually."@en ;
+  iao:0000119 "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570."@en ; # definition source
+  dcterms:source <https://publications.gc.ca/site/eng/9.928944/publication.html> ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme, gcdfo:PolicyGovernanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:WSPRapidStatusAlgorithmThreshold a owl:Class ;
+  rdfs:label "Rapid-status algorithm threshold"@en ;
+  iao:0000115 "Threshold value used by the rapid-status algorithm that may differ from expert-defined benchmarks to incorporate precautionary buffers."@en ; # definition
+  iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under Fisheries and Oceans Canada Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Science Response 2024/004."@en ; # definition source
+  dcterms:source <https://www.dfo-mpo.gc.ca/csas-sccs/Publications/ScR-RS/2024/2024_004-eng.html> ;
+  rdfs:subClassOf iao:0000030 ; # Information content entity
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:WSPRapidStatusAssessmentMethod a skos:Concept ;
+  skos:prefLabel "WSP rapid-status assessment method"@en ;
+  skos:altLabel "WSP rapid status method"@en ;
+  skos:definition "The analytical method used to produce rapid-status metrics under the Wild Salmon Policy rapid-status approach."@en ;
+  skos:inScheme :EstimateMethodScheme ;
+  skos:broader :EstimateMethod ;
+  iao:0000119 "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570."@en ;
+  dcterms:source <https://publications.gc.ca/site/eng/9.928944/publication.html> ;
+  gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:WildSalmonPolicy a skos:Concept ;
+  skos:prefLabel "Wild Salmon Policy"@en ;
+  skos:altLabel "WSP"@en ;
+  skos:definition "Canada's Wild Salmon Policy framework for conserving and managing wild Pacific salmon, including integrated status assessments and biological benchmarks for Conservation Units."@en ;
+  skos:inScheme :PolicyFrameworkScheme ;
+  skos:broader gcdfo:PolicyFramework ;
+  gcdfo:theme gcdfo:PolicyGovernanceTheme, gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:WildSalmonPolicyTheme a skos:Concept ;
+  skos:prefLabel "Wild Salmon Policy"@en ;
+  skos:inScheme gcdfo:ThemeScheme ;
+  skos:definition "Conservation Unit based stock assessment methods, metrics, and metadata"@en ;
+  gcdfo:theme gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:conservationUnitOf a owl:ObjectProperty ;
+  rdfs:label "Conservation Unit of"@en ;
+  iao:0000115 "Relates a Conservation Unit to the Stock Management Unit it belongs to."@en ; # definition
+  owl:inverseOf gcdfo:hasConservationUnit ;
+  rdfs:domain gcdfo:ConservationUnit ;
+  rdfs:range gcdfo:StockManagementUnit ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+  gcdfo:theme gcdfo:FisheriesManagementTheme, gcdfo:WildSalmonPolicyTheme, gcdfo:PolicyGovernanceTheme .
+
+gcdfo:hasConservationUnit a owl:ObjectProperty ;
+  rdfs:label "has Conservation Unit"@en ;
+  iao:0000115 "Relates a Stock Management Unit to one of its constituent Conservation Units."@en ; # definition
+  rdfs:domain gcdfo:StockManagementUnit ;
+  rdfs:range gcdfo:ConservationUnit ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+  gcdfo:theme gcdfo:FisheriesManagementTheme, gcdfo:WildSalmonPolicyTheme, gcdfo:PolicyGovernanceTheme .
+
+smn:Deme a owl:Class ;
+  rdfs:label "Deme"@en ;
+  iao:0000115 "A local interbreeding group of organisms within a species. In salmon, a deme typically corresponds to a spawning population at a specific site. Demes are the finest biological unit and make up populations."@en ; # definition
+  rdfs:subClassOf dwc:Organism ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+  gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:GeneticsStockCompositionTheme, gcdfo:StockAssessmentTheme .
+
+smn:LowerBiologicalBenchmark a owl:Class ;
+  rdfs:label "Lower biological benchmark"@en ;
+  iao:0000115 "Lower benchmark value for a Conservation Unit (CU) metric used to delineate Wild Salmon Policy status zones (typically the boundary between Red and Amber zones). This CU-level biological benchmark is distinct from SMU-level fisheries management lower reference points such as FRP-L."@en ; # definition
+  iao:0000119 "Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en ; # definition source
+  dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf> ;
+  rdfs:subClassOf smn:MetricBenchmark ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme, gcdfo:PolicyGovernanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+smn:MetricBenchmark a owl:Class ;
+  rdfs:label "Metric benchmark"@en ;
+  iao:0000115 "Benchmark value for a metric that helps delineate status zones (for example, the limit reference point for absolute abundance)."@en ; # definition
+  rdfs:comment "DFO profile note: this ontology applies `smn:MetricBenchmark` in Wild Salmon Policy status-zone workflows."@en ;
+  iao:0000119 "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570."@en ; # definition source
+  dcterms:source <https://publications.gc.ca/site/eng/9.928944/publication.html> ;
+  rdfs:subClassOf iao:0000030 ; # Information content entity
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+smn:NaturalOrigin a skos:Concept ;
+  skos:prefLabel "Natural-origin"@en ;
+  skos:definition "Individuals that are born and reared in the wild (natural environment)."@en ;
+  skos:inScheme smn:SalmonOriginScheme ;
+  skos:broader smn:SalmonOrigin ;
+  iao:0000119 "Fisheries and Oceans Canada. 2018. Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Canadian Science Advisory Secretariat Science Advisory Report 2018/001 (Erratum: October 2023)."@en ; # definition source
+  dcterms:source <https://www.dfo-mpo.gc.ca/csas-sccs/Publications/SAR-AS/2018/2018_001-eng.html> ;
+  gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:GeneticsStockCompositionTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+smn:ObservedRateOrAbundance a owl:Class ;
+  rdfs:label "Observed rate or abundance"@en ;
+  iao:0000115 "A measurement datum representing an empirically observed rate, count, or abundance derived from monitoring or survey data."@en ; # definition
+  rdfs:subClassOf iao:0000109 ; # measurement datum
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+smn:Population a owl:Class ;
+  rdfs:label "Population"@en ;
+  iao:0000115 "A group of organisms of the same species occupying a defined area that interbreed and share a gene pool. In salmon, populations are composed of one or more demes and form the biological basis for Conservation Units."@en ; # definition
+  rdfs:comment "DFO profile note: this ontology applies `smn:Population` in Wild Salmon Policy / Conservation Unit contexts."@en ;
+  rdfs:subClassOf dwc:Organism ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+  gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:GeneticsStockCompositionTheme, gcdfo:StockAssessmentTheme .
+
+smn:UpperBiologicalBenchmark a owl:Class ;
+  rdfs:label "Upper biological benchmark"@en ;
+  iao:0000115 "Upper benchmark value for a metric used to delineate Wild Salmon Policy status zones (typically the boundary between Amber and Green zones)."@en ; # definition
+  iao:0000119 "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en ; # definition source
+  dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf> ;
+  rdfs:subClassOf smn:MetricBenchmark ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme, gcdfo:PolicyGovernanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+smn:demeOf a owl:ObjectProperty ;
+  rdfs:label "deme of"@en ;
+  iao:0000115 "Relates a deme to the population it belongs to."@en ; # definition
+  owl:inverseOf smn:hasDeme ;
+  rdfs:domain smn:Deme ;
+  rdfs:range smn:Population ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+  gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:GeneticsStockCompositionTheme .
+
+smn:hasDeme a owl:ObjectProperty ;
+  rdfs:label "has deme"@en ;
+  iao:0000115 "Relates a population to one of its constituent demes."@en ; # definition
+  rdfs:domain smn:Population ;
+  rdfs:range smn:Deme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+  gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:GeneticsStockCompositionTheme .
+
+smn:hasPopulation a owl:ObjectProperty ;
+  rdfs:label "has population"@en ;
+  iao:0000115 "Relates a Conservation Unit to one of its constituent populations."@en ; # definition
+  rdfs:comment "DFO profile note: within this ontology, `smn:hasPopulation` is primarily used for ConservationUnit-to-Population composition."@en ;
+  rdfs:domain gcdfo:ConservationUnit ;
+  rdfs:range smn:Population ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+  gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme .
+
+smn:populationOf a owl:ObjectProperty ;
+  rdfs:label "population of"@en ;
+  iao:0000115 "Relates a population to the Conservation Unit it belongs to."@en ; # definition
+  rdfs:comment "DFO profile note: within this ontology, `smn:populationOf` is primarily used for Population-to-ConservationUnit composition."@en ;
+  owl:inverseOf smn:hasPopulation ;
+  rdfs:domain smn:Population ;
+  rdfs:range gcdfo:ConservationUnit ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+  gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme .
