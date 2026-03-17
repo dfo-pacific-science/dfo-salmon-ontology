@@ -58,7 +58,7 @@ wspview:legacyIri a owl:AnnotationProperty .
 wspview:notes a owl:AnnotationProperty .
 
 #################################################################
-# Collections: WSP theme terms + CSV-aligned ontology terms
+# Collections: WSP theme terms + modeled canonical terms + CSV-aligned ontology terms
 #################################################################
 
 wspview:WildSalmonPolicyThemeTerms a skos:Collection ;
@@ -157,6 +157,30 @@ wspview:CsvAlignedOntologyTerms a skos:Collection ;
     smn:NaturalOrigin,
     smn:ObservedRateOrAbundance .
 
+wspview:ModeledCanonicalWSPOutputTerms a skos:Collection ;
+  skos:prefLabel "Modeled canonical WSP output and integrated-status outcome terms"@en ;
+  skos:member gcdfo:AbsoluteAbundanceMetricStatus,
+    gcdfo:AbundancePercentileMetricStatus,
+    gcdfo:ConservationUnitName,
+    gcdfo:IntegratedStatusAmberGreen,
+    gcdfo:IntegratedStatusBinary,
+    gcdfo:IntegratedStatusCollapsedCode,
+    gcdfo:IntegratedStatusDataDeficient,
+    gcdfo:IntegratedStatusFiveCategoryAlias,
+    gcdfo:IntegratedStatusNotRed,
+    gcdfo:IntegratedStatusOutcome,
+    gcdfo:IntegratedStatusRaw,
+    gcdfo:IntegratedStatusRawCode,
+    gcdfo:IntegratedStatusRedAmber,
+    gcdfo:IntegratedStatusThreeCategory,
+    gcdfo:IntegratedStatusUndetermined,
+    gcdfo:LongTermTrendMetricStatus,
+    gcdfo:PercentChangeMetricStatus,
+    gcdfo:ProbabilityDeclineBelowLowerBenchmarkMetricStatus,
+    gcdfo:RelativeAbundanceMetricStatus,
+    gcdfo:Species,
+    gcdfo:WSPOutputVariable .
+
 #################################################################
 # Canonical source CSV variables and their current semantic mappings
 #################################################################
@@ -174,16 +198,16 @@ wspview:var_Species a wspview:SourceVariable ;
   dcterms:description "Species of salmon"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
   wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
-  wspview:mappingStatus "unmapped-in-current-wsp_column_dictionary" ;
-  wspview:notes "No explicit ontology mapping is currently asserted for this source variable in data_demo/SDP_Templates/wsp_column_dictionary.csv."@en .
+  wspview:mappedTerm gcdfo:Species ;
+  wspview:mappingStatus "mapped" .
 
 wspview:var_Stock a wspview:SourceVariable ;
   rdfs:label "Stock"@en ;
   dcterms:description "Full CU name"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
   wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
-  wspview:mappingStatus "unmapped-in-current-wsp_column_dictionary" ;
-  wspview:notes "No explicit ontology mapping is currently asserted for this source variable in data_demo/SDP_Templates/wsp_column_dictionary.csv."@en .
+  wspview:mappedTerm gcdfo:ConservationUnitName ;
+  wspview:mappingStatus "mapped" .
 
 wspview:var_DataType a wspview:SourceVariable ;
   rdfs:label "DataType"@en ;
@@ -346,24 +370,24 @@ wspview:var_IntStatusRaw a wspview:SourceVariable ;
   dcterms:description "Integrated Status"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
   wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
-  wspview:mappingStatus "unmapped-in-current-wsp_column_dictionary" ;
-  wspview:notes "No explicit ontology mapping is currently asserted for this source variable in data_demo/SDP_Templates/wsp_column_dictionary.csv."@en .
+  wspview:mappedTerm gcdfo:IntegratedStatusRaw ;
+  wspview:mappingStatus "mapped" .
 
 wspview:var_IntStatusRaw_Short a wspview:SourceVariable ;
   rdfs:label "IntStatusRaw_Short"@en ;
   dcterms:description "NA"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
   wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
-  wspview:mappingStatus "unmapped-in-current-wsp_column_dictionary" ;
-  wspview:notes "No explicit ontology mapping is currently asserted for this source variable in data_demo/SDP_Templates/wsp_column_dictionary.csv."@en .
+  wspview:mappedTerm gcdfo:IntegratedStatusRawCode ;
+  wspview:mappingStatus "mapped" .
 
 wspview:var_IntStatus_Short a wspview:SourceVariable ;
   rdfs:label "IntStatus_Short"@en ;
   dcterms:description "NA"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
   wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
-  wspview:mappingStatus "unmapped-in-current-wsp_column_dictionary" ;
-  wspview:notes "No explicit ontology mapping is currently asserted for this source variable in data_demo/SDP_Templates/wsp_column_dictionary.csv."@en .
+  wspview:mappedTerm gcdfo:IntegratedStatusCollapsedCode ;
+  wspview:mappingStatus "mapped" .
 
 wspview:var_RapidStatus a wspview:SourceVariable ;
   rdfs:label "RapidStatus"@en ;
@@ -407,48 +431,48 @@ wspview:var_LongTrendCat a wspview:SourceVariable ;
   dcterms:description "Long term trend metric status"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
   wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
-  wspview:mappingStatus "unmapped-in-current-wsp_column_dictionary" ;
-  wspview:notes "No explicit ontology mapping is currently asserted for this source variable in data_demo/SDP_Templates/wsp_column_dictionary.csv."@en .
+  wspview:mappedTerm gcdfo:LongTermTrendMetricStatus ;
+  wspview:mappingStatus "mapped" .
 
 wspview:var_PercChangeCat a wspview:SourceVariable ;
   rdfs:label "PercChangeCat"@en ;
   dcterms:description "Percent change metric status"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
   wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
-  wspview:mappingStatus "unmapped-in-current-wsp_column_dictionary" ;
-  wspview:notes "No explicit ontology mapping is currently asserted for this source variable in data_demo/SDP_Templates/wsp_column_dictionary.csv."@en .
+  wspview:mappedTerm gcdfo:PercentChangeMetricStatus ;
+  wspview:mappingStatus "mapped" .
 
 wspview:var_ProbDeclBelowLBMCat a wspview:SourceVariable ;
   rdfs:label "ProbDeclBelowLBMCat"@en ;
   dcterms:description "NA"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
   wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
-  wspview:mappingStatus "unmapped-in-current-wsp_column_dictionary" ;
-  wspview:notes "No explicit ontology mapping is currently asserted for this source variable in data_demo/SDP_Templates/wsp_column_dictionary.csv."@en .
+  wspview:mappedTerm gcdfo:ProbabilityDeclineBelowLowerBenchmarkMetricStatus ;
+  wspview:mappingStatus "mapped" .
 
 wspview:var_PercentileCat a wspview:SourceVariable ;
   rdfs:label "PercentileCat"@en ;
   dcterms:description "NA"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
   wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
-  wspview:mappingStatus "unmapped-in-current-wsp_column_dictionary" ;
-  wspview:notes "No explicit ontology mapping is currently asserted for this source variable in data_demo/SDP_Templates/wsp_column_dictionary.csv."@en .
+  wspview:mappedTerm gcdfo:AbundancePercentileMetricStatus ;
+  wspview:mappingStatus "mapped" .
 
 wspview:var_RelAbdCat a wspview:SourceVariable ;
   rdfs:label "RelAbdCat"@en ;
   dcterms:description "Relative abundance metric status"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
   wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
-  wspview:mappingStatus "unmapped-in-current-wsp_column_dictionary" ;
-  wspview:notes "No explicit ontology mapping is currently asserted for this source variable in data_demo/SDP_Templates/wsp_column_dictionary.csv."@en .
+  wspview:mappedTerm gcdfo:RelativeAbundanceMetricStatus ;
+  wspview:mappingStatus "mapped" .
 
 wspview:var_AbsAbdCat a wspview:SourceVariable ;
   rdfs:label "AbsAbdCat"@en ;
   dcterms:description "Absolute abundance metric status"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
   wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
-  wspview:mappingStatus "unmapped-in-current-wsp_column_dictionary" ;
-  wspview:notes "No explicit ontology mapping is currently asserted for this source variable in data_demo/SDP_Templates/wsp_column_dictionary.csv."@en .
+  wspview:mappedTerm gcdfo:AbsoluteAbundanceMetricStatus ;
+  wspview:mappingStatus "mapped" .
 
 wspview:var_RelAbd_LBM a wspview:SourceVariable ;
   rdfs:label "RelAbd_LBM"@en ;
@@ -510,24 +534,24 @@ wspview:var_IntStatus5 a wspview:SourceVariable ;
   dcterms:description "to be removed"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
   wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
-  wspview:mappingStatus "unmapped-in-current-wsp_column_dictionary" ;
-  wspview:notes "No explicit ontology mapping is currently asserted for this source variable in data_demo/SDP_Templates/wsp_column_dictionary.csv."@en .
+  wspview:mappedTerm gcdfo:IntegratedStatusFiveCategoryAlias ;
+  wspview:mappingStatus "mapped" .
 
 wspview:var_IntStatus3 a wspview:SourceVariable ;
   rdfs:label "IntStatus3"@en ;
   dcterms:description "to be removed"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
   wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
-  wspview:mappingStatus "unmapped-in-current-wsp_column_dictionary" ;
-  wspview:notes "No explicit ontology mapping is currently asserted for this source variable in data_demo/SDP_Templates/wsp_column_dictionary.csv."@en .
+  wspview:mappedTerm gcdfo:IntegratedStatusThreeCategory ;
+  wspview:mappingStatus "mapped" .
 
 wspview:var_IntStatus2 a wspview:SourceVariable ;
   rdfs:label "IntStatus2"@en ;
   dcterms:description "to be removed"@en ;
   wspview:sourceCsv <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
   wspview:mappingSource <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
-  wspview:mappingStatus "unmapped-in-current-wsp_column_dictionary" ;
-  wspview:notes "No explicit ontology mapping is currently asserted for this source variable in data_demo/SDP_Templates/wsp_column_dictionary.csv."@en .
+  wspview:mappedTerm gcdfo:IntegratedStatusBinary ;
+  wspview:mappingStatus "mapped" .
 
 #################################################################
 # Extracted ontology term snippets (for standalone colleague review)
