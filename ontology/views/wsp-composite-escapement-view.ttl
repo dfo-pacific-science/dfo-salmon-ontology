@@ -30,7 +30,6 @@
   rdfs:comment "Authoritative term definitions remain in https://w3id.org/gcdfo/salmon. This review view intentionally omits BFO/IAO and other generic upper-level terms so colleagues can focus on Wild Salmon Policy modeling choices and canonical WSP output mappings."@en ;
   dcterms:created "2026-03-17"^^xsd:date ;
   dcterms:modified "2026-03-17"^^xsd:date ;
-  owl:imports <https://w3id.org/gcdfo/salmon> ;
   dcterms:source <https://github.com/dfo-pacific-science/salmon-population-summary-repository/issues/180#issuecomment-3862405022>, <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv>, <https://raw.githubusercontent.com/sos-program/Approved-WSP-Statuses/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv>, <https://github.com/dfo-pacific-science/salmon-population-summary-repository/blob/master/data_demo/SDP_Templates/wsp_column_dictionary.csv> ;
   prov:wasDerivedFrom <https://github.com/dfo-pacific-science/salmon-population-summary-repository/issues/180> .
 
@@ -56,92 +55,62 @@ wspview:legacyIri a owl:AnnotationProperty .
 wspview:notes a owl:AnnotationProperty .
 
 #################################################################
-# Collections: WSP theme terms + modeled canonical terms + CSV-aligned ontology terms
+# Collections: curated WSP review terms + modeled canonical terms + CSV-aligned ontology terms
 #################################################################
 
-wspview:WildSalmonPolicyThemeTerms a skos:Collection ;
-  skos:prefLabel "Terms marked with gcdfo:WildSalmonPolicyTheme"@en ;
-  skos:member :BenchmarkLevelScheme,
+wspview:CuratedWSPReviewTerms a skos:Collection ;
+  skos:prefLabel "Curated WSP review terms"@en ;
+  skos:definition "Curated review subset of Wild Salmon Policy terms and newly modeled canonical WSP output terms, with only the immediate local context needed for review."@en ;
+  skos:member :PolicyFrameworkScheme,
     :BiologicalBenchmarkAndIndicatorScheme,
     :IntegratedStatusOutcomeScheme,
-    :PolicyFrameworkScheme,
     :RapidStatusConfidenceScheme,
     :RapidStatusMetricScheme,
-    :StockStatusZoneScheme,
     :WSPBiologicalStatusZoneScheme,
     :WSPOutputVariableScheme,
-    gcdfo:AbsoluteAbundanceMetricStatus,
-    gcdfo:AbundanceDataType,
-    gcdfo:AbundancePercentileMetric,
-    gcdfo:AbundancePercentileMetricStatus,
-    gcdfo:AmberZone,
-    gcdfo:BenchmarkRatioMetric,
-    gcdfo:ConfidenceCategory,
+    gcdfo:WildSalmonPolicy,
     gcdfo:ConservationUnit,
-    gcdfo:ConservationUnitName,
-    gcdfo:GenerationalAverageAbundance,
+    gcdfo:WSPBiologicalStatusZone,
+    gcdfo:RedZone,
+    gcdfo:AmberZone,
     gcdfo:GreenZone,
-    gcdfo:IntegratedStatusAmberGreen,
-    gcdfo:IntegratedStatusBinary,
-    gcdfo:IntegratedStatusCollapsedCode,
-    gcdfo:IntegratedStatusDataDeficient,
-    gcdfo:IntegratedStatusFiveCategoryAlias,
-    gcdfo:IntegratedStatusNotRed,
+    gcdfo:ConfidenceCategory,
+    gcdfo:RapidStatusConfidenceHigh,
+    gcdfo:RapidStatusConfidenceMedium,
+    gcdfo:RapidStatusConfidenceLow,
+    gcdfo:RapidStatusMetric,
+    gcdfo:LongTermTrendMetric,
+    gcdfo:PercentChangeMetric,
+    gcdfo:ProbabilityDeclineBelowLowerBenchmarkMetric,
+    gcdfo:AbundancePercentileMetric,
+    gcdfo:BenchmarkRatioMetric,
+    gcdfo:LowerBenchmark,
+    gcdfo:UpperBenchmark,
+    gcdfo:LowerBiologicalBenchmark,
+    gcdfo:UpperBiologicalBenchmark,
+    gcdfo:WSPRapidStatus,
+    gcdfo:WSPRapidStatusAssessmentMethod,
+    gcdfo:WSPOutputVariable,
     gcdfo:IntegratedStatusOutcome,
+    gcdfo:IntegratedStatusRedAmber,
+    gcdfo:IntegratedStatusAmberGreen,
+    gcdfo:IntegratedStatusDataDeficient,
+    gcdfo:IntegratedStatusUndetermined,
+    gcdfo:IntegratedStatusNotRed,
+    gcdfo:Species,
+    gcdfo:ConservationUnitName,
     gcdfo:IntegratedStatusRaw,
     gcdfo:IntegratedStatusRawCode,
-    gcdfo:IntegratedStatusRedAmber,
+    gcdfo:IntegratedStatusCollapsedCode,
+    gcdfo:IntegratedStatusFiveCategoryAlias,
     gcdfo:IntegratedStatusThreeCategory,
-    gcdfo:IntegratedStatusUndetermined,
-    gcdfo:LongTermTrendMetric,
+    gcdfo:IntegratedStatusBinary,
     gcdfo:LongTermTrendMetricStatus,
-    gcdfo:LowerBenchmark,
-    gcdfo:LowerBiologicalBenchmark,
-    gcdfo:PercentChangeMetric,
     gcdfo:PercentChangeMetricStatus,
-    gcdfo:PolicyFramework,
-    gcdfo:ProbabilityDeclineBelowLowerBenchmarkMetric,
     gcdfo:ProbabilityDeclineBelowLowerBenchmarkMetricStatus,
-    gcdfo:RapidStatusConfidenceHigh,
-    gcdfo:RapidStatusConfidenceLow,
-    gcdfo:RapidStatusConfidenceMedium,
-    gcdfo:RapidStatusMetric,
-    gcdfo:RapidStatusScoreMetric,
-    gcdfo:RedZone,
+    gcdfo:AbundancePercentileMetricStatus,
     gcdfo:RelativeAbundanceMetricStatus,
-    gcdfo:RelativeSpawnerAbundance,
-    gcdfo:RelativeSpawnerAbundanceChange,
-    gcdfo:RelativeSpawnerAbundancePercentile,
-    gcdfo:RelativeSpawnerAbundanceTrend,
-    gcdfo:RelativeWildSpawnerAbundance,
-    gcdfo:RelativeWildSpawnerAbundanceChange,
-    gcdfo:RelativeWildSpawnerAbundancePercentile,
-    gcdfo:RelativeWildSpawnerAbundanceTrend,
-    gcdfo:ReturnYear,
-    gcdfo:SpawnerAbundance,
-    gcdfo:SpawnerAbundanceChange,
-    gcdfo:SpawnerAbundancePercentile,
-    gcdfo:SpawnerAbundanceTrend,
-    gcdfo:Species,
-    gcdfo:UpperBenchmark,
-    gcdfo:UpperBiologicalBenchmark,
-    gcdfo:WSPBiologicalStatusZone,
-    gcdfo:WSPOutputVariable,
-    gcdfo:WSPRapidStatus,
-    gcdfo:WSPRapidStatusAlgorithmThreshold,
-    gcdfo:WSPRapidStatusAssessmentMethod,
-    gcdfo:WildSalmonPolicy,
-    gcdfo:WildSalmonPolicyTheme,
-    gcdfo:conservationUnitOf,
-    gcdfo:hasConservationUnit,
-    smn:Deme,
-    smn:MetricBenchmark,
-    smn:NaturalOrigin,
-    smn:Population,
-    smn:demeOf,
-    smn:hasDeme,
-    smn:hasPopulation,
-    smn:populationOf .
+    gcdfo:AbsoluteAbundanceMetricStatus .
 
 wspview:CsvAlignedOntologyTerms a skos:Collection ;
   skos:prefLabel "Ontology terms explicitly referenced by WSP CSV semantic mappings"@en ;
@@ -552,24 +521,22 @@ wspview:var_IntStatus2 a wspview:SourceVariable ;
   wspview:mappingStatus "mapped" .
 
 #################################################################
-# Curated review term snippets (upper-level BFO/IAO omitted on purpose)
+# Curated review term snippets (import-free, upper-level terms omitted)
 #################################################################
 
-# This section keeps the review surface focused on Wild Salmon Policy modeling
-# decisions, canonical WSP output-field terms, and only the immediate local
-# context needed to understand those choices.
+# This section intentionally keeps only the local WSP review surface.
+# Relationships to non-curated upper-level or external terms are omitted
+# so graph visualizers stay focused on the review model.
 
 :PolicyFrameworkScheme 
   a skos:ConceptScheme ;
   skos:prefLabel "Policy framework scheme"@en ;
-  skos:definition "Controlled vocabulary for policy and governance frameworks referenced by salmon assessment metrics and benchmarks (e.g., WSP, PA)."@en ;
-  skos:hasTopConcept gcdfo:PolicyFramework .
+  skos:definition "Controlled vocabulary for policy and governance frameworks referenced by salmon assessment metrics and benchmarks (e.g., WSP, PA)."@en .
 
 :BiologicalBenchmarkAndIndicatorScheme 
   a skos:ConceptScheme ;
   skos:prefLabel "Biological Benchmark and Indicator Scheme"@en ;
-  skos:definition "Controlled vocabulary for key biological benchmarks, performance indicators, and reference points used in salmon stock assessment and management (e.g., SMSY, Sgen, spawner abundance)."@en ;
-  skos:hasTopConcept smn:TargetOrLimitRateOrAbundance .
+  skos:definition "Controlled vocabulary for key biological benchmarks, performance indicators, and reference points used in salmon stock assessment and management (e.g., SMSY, Sgen, spawner abundance)."@en .
 
 :IntegratedStatusOutcomeScheme 
   a skos:ConceptScheme ;
@@ -606,8 +573,7 @@ gcdfo:WildSalmonPolicy
   skos:prefLabel "Wild Salmon Policy"@en ;
   skos:altLabel "WSP"@en ;
   skos:definition "Canada's Wild Salmon Policy framework for conserving and managing wild Pacific salmon, including integrated status assessments and biological benchmarks for Conservation Units."@en ;
-  skos:inScheme :PolicyFrameworkScheme ;
-  skos:broader gcdfo:PolicyFramework .
+  skos:inScheme :PolicyFrameworkScheme .
 
 gcdfo:ConservationUnit 
   a owl:Class ;
@@ -682,7 +648,6 @@ gcdfo:LongTermTrendMetric
   skos:inScheme :RapidStatusMetricScheme ;
   skos:broader gcdfo:RapidStatusMetric ;
   gcdfo:iadoptEntity gcdfo:ConservationUnit ;
-  gcdfo:iadoptProperty gcdfo:SpawnerAbundanceTrend ;
   gcdfo:iadoptConstraint gcdfo:WildSalmonPolicy ;
   gcdfo:usedProcedure gcdfo:WSPRapidStatusAssessmentMethod ;
   dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> .
@@ -695,7 +660,6 @@ gcdfo:PercentChangeMetric
   skos:inScheme :RapidStatusMetricScheme ;
   skos:broader gcdfo:RapidStatusMetric ;
   gcdfo:iadoptEntity gcdfo:ConservationUnit ;
-  gcdfo:iadoptProperty gcdfo:SpawnerAbundanceChange ;
   gcdfo:iadoptConstraint gcdfo:WildSalmonPolicy ;
   gcdfo:usedProcedure gcdfo:WSPRapidStatusAssessmentMethod ;
   dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> .
@@ -707,7 +671,6 @@ gcdfo:ProbabilityDeclineBelowLowerBenchmarkMetric
   skos:inScheme :RapidStatusMetricScheme ;
   skos:broader gcdfo:RapidStatusMetric ;
   gcdfo:iadoptEntity gcdfo:ConservationUnit ;
-  gcdfo:iadoptProperty gcdfo:SpawnerAbundance ;
   gcdfo:iadoptConstraint gcdfo:LowerBenchmark ;
   gcdfo:usedProcedure gcdfo:WSPRapidStatusAssessmentMethod ;
   dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> .
@@ -719,7 +682,6 @@ gcdfo:AbundancePercentileMetric
   skos:inScheme :RapidStatusMetricScheme ;
   skos:broader gcdfo:RapidStatusMetric ;
   gcdfo:iadoptEntity gcdfo:ConservationUnit ;
-  gcdfo:iadoptProperty gcdfo:SpawnerAbundancePercentile ;
   gcdfo:iadoptConstraint gcdfo:WildSalmonPolicy ;
   gcdfo:usedProcedure gcdfo:WSPRapidStatusAssessmentMethod ;
   dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> .
@@ -731,7 +693,6 @@ gcdfo:BenchmarkRatioMetric
   skos:inScheme :RapidStatusMetricScheme ;
   skos:broader gcdfo:RapidStatusMetric ;
   gcdfo:iadoptEntity gcdfo:ConservationUnit ;
-  gcdfo:iadoptProperty gcdfo:RelativeSpawnerAbundance ;
   gcdfo:iadoptConstraint gcdfo:LowerBenchmark, gcdfo:UpperBenchmark ;
   gcdfo:usedProcedure gcdfo:WSPRapidStatusAssessmentMethod ;
   dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> .
@@ -739,14 +700,12 @@ gcdfo:BenchmarkRatioMetric
 gcdfo:LowerBenchmark 
   a skos:Concept ;
   skos:prefLabel "Lower benchmark"@en ;
-  skos:definition "A lower-threshold benchmark value, typically delineating the boundary between Red and Amber status zones."@en ;
-  skos:inScheme :BenchmarkLevelScheme .
+  skos:definition "A lower-threshold benchmark value, typically delineating the boundary between Red and Amber status zones."@en .
 
 gcdfo:UpperBenchmark 
   a skos:Concept ;
   skos:prefLabel "Upper benchmark"@en ;
-  skos:definition "An upper-threshold benchmark value, typically delineating the boundary between Amber and Green status zones."@en ;
-  skos:inScheme :BenchmarkLevelScheme .
+  skos:definition "An upper-threshold benchmark value, typically delineating the boundary between Amber and Green status zones."@en .
 
 gcdfo:LowerBiologicalBenchmark 
   a owl:Class ;
@@ -771,8 +730,6 @@ gcdfo:WSPRapidStatusAssessmentMethod
   skos:prefLabel "WSP rapid-status assessment method"@en ;
   skos:altLabel "WSP rapid status method"@en ;
   skos:definition "The analytical method used to produce rapid-status metrics under the Wild Salmon Policy rapid-status approach."@en ;
-  skos:inScheme :EstimateMethodScheme ;
-  skos:broader gcdfo:EstimateMethod ;
   dcterms:source <https://publications.gc.ca/site/eng/9.928944/publication.html> .
 
 gcdfo:WSPOutputVariable 
@@ -840,7 +797,6 @@ gcdfo:Species
   skos:inScheme :WSPOutputVariableScheme ;
   skos:broader gcdfo:WSPOutputVariable ;
   gcdfo:iadoptEntity gcdfo:ConservationUnit ;
-  gcdfo:iadoptProperty dwc:Taxon ;
   dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv> .
 
 gcdfo:ConservationUnitName 
