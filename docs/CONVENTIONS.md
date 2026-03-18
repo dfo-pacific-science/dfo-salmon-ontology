@@ -632,7 +632,7 @@ In everyday modeling, mint distinct IRIs for OWL classes versus SKOS concepts an
 
 ### 2.3.11 Ontology Import Strategy
 
-**Decision:** We use a pragmatic three-tier approach for external vocabulary integration. See [ADR-005: External Vocabulary Integration Strategy](../adr/005-external-vocabulary-integration.md) for the complete rationale and alternatives considered.
+**Decision:** We use a pragmatic three-tier approach for external vocabulary integration. See [ADR-005: External Vocabulary Integration Strategy](adr/005-external-vocabulary-integration.md) for the complete rationale and alternatives considered.
 
 **Implementation:**
 
@@ -1020,7 +1020,7 @@ gcdfo:TissueSample rdfs:subClassOf dwc:MaterialEntity .
 
 ### 2.4 Hybrid Modeling Approach for Automated Classification
 
-**Decision:** We use a hybrid approach combining OWL and SKOS for classification. Automated approaches are deferred; see [ADR-001: Hybrid OWL+SKOS Modeling Approach](../adr/001-hybrid-owl-skos-modeling.md) for the complete rationale and alternatives considered.
+**Decision:** We use a hybrid approach combining OWL and SKOS for classification. Automated approaches are deferred; see [ADR-001: Hybrid OWL+SKOS Modeling Approach](adr/001-hybrid-owl-skos-modeling.md) for the complete rationale and alternatives considered.
 
 **Implementation:**
 
@@ -1818,7 +1818,7 @@ For richer unit semantics, consider adding object properties alongside datatype 
 
 ### 6.7 IRI and Versioning Policy
 
-**Decision:** We use W3ID-based IRIs with semantic versioning. See [ADR-003: IRI and Versioning Policy](../adr/003-iri-versioning-policy.md) for the complete rationale and alternatives considered.
+**Decision:** We use W3ID-based IRIs with semantic versioning. See [ADR-003: IRI and Versioning Policy](adr/003-iri-versioning-policy.md) for the complete rationale and alternatives considered.
 
 #### 6.7.1 IRI Structure
 
@@ -2144,5 +2144,5 @@ robot annotate --input dfo-salmon.ttl --ontology-iri "https://w3id.org/gcdfo/sal
 
 ---
 
-_Maintainer: Data Stewardship Unit, DFO Pacific Science_  
+_Maintainer / governance details: see [GOVERNANCE.md](../GOVERNANCE.md)_
 _License: CC-BY 4.0_

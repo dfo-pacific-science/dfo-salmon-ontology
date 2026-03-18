@@ -1,26 +1,38 @@
+# How to submit ontology requests
 
-# How to submit requests for ontology and annotations
+This page is the lightweight **how to open a GitHub issue** note.
 
-GC DFO Salmon uses [GitHub](https://github.com/) as a mechanism for tracking ontology and annotation issues.
+The canonical request requirements now live in [../CONTRIBUTING.md](../CONTRIBUTING.md). Use that file for:
 
-The [GCDFO Salmon ontology tracker](https://github.com/dfo-pacific-science/dfo-salmon-ontology/issues) captures suggestions for changes to the ontology, inclusing suggestions for new terms, changes to definitions or term position in the hierarchy, to addition of new subsets. The tracker is also used to report incorrect annotations or to make suggestions for new annotations.
+- what information to include in a term request
+- how to frame relationship or boundary changes
+- when a request may belong in shared `smn:` instead of DFO `gcdfo:`
+- where governance and maintainer information now live
+
+## Using GitHub for requests
+
+GC DFO Salmon uses [GitHub](https://github.com/) to track ontology and annotation requests.
+
+The [DFO Salmon Ontology issue tracker](https://github.com/dfo-pacific-science/dfo-salmon-ontology/issues) is the preferred place to suggest:
+
+- new terms
+- definition changes
+- relationship changes
+- annotation fixes
+- boundary questions (`smn:` vs `gcdfo:`)
 
 ## Creating a GitHub account
 
-On the [GitHub website](https://github.com/), press the ‘Sign up for GitHub’ button at the top-right corner and follow the instructions. Once registered, sign in using the button in the upper right-hand corner.
+On the [GitHub website](https://github.com/), press **Sign up** and follow the instructions.
 
-By signing up for a GitHub account, you can track your submissions online and via email. This tracker is visible to anyone, but only people with GitHub accounts can add issues and comments.
-    
-Note that the volume of messages on these repositories is significant; we recommend that you set your notifications to ‘Not watching’ using the button with the ‘eye’ icon, found at the upper right corner of the page, so that you only get notified of tickets you have created or in which you have been mentioned. If you choose to ‘Watch’ a repository, an email will be sent every time comments are added to the issue, or when its status changes.
+Once registered, sign in and use the repository issue tracker above. If you do not want a firehose of notifications, set the repo to **Not watching** and rely on notifications for issues you create or are mentioned in.
 
-## Submitting a new ticket to GCDFO via GitHub
+## Opening a new issue
 
-- Visit the [GCDFO Salmon ontology tracker](https://github.com/dfo-pacific-science/dfo-salmon-ontology/issues).
-- Click on the green ‘New Issue’ button.
-- Enter the subject of your request in the ‘Title’ field, which will be your queue to find the issue from the list of requests.
-- Enter details of your request in the ‘Leave a Comment’ box.
-- Press the ‘Submit new issue’ button at the bottom of the box. More details about contributing to the ontology are available in the [GitHub Guidelines for Contributing Ontology tickets](https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/main/CONTRIBUTING.md).
+1. Visit the [DFO Salmon Ontology issue tracker](https://github.com/dfo-pacific-science/dfo-salmon-ontology/issues).
+2. Click **New issue**.
+3. Give the request a clear title.
+4. Paste the details of the request.
+5. Submit the issue.
 
-## Keeping track of your requests
-
-To find your request again in the GCDFO tracker, use the ‘Filters’ box and drop-down menu to restrict the types of request you may display.
+For the actual content to include in the request, go back to [../CONTRIBUTING.md](../CONTRIBUTING.md).

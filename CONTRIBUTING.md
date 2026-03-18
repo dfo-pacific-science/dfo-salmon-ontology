@@ -1,42 +1,81 @@
 # Contributing to GC DFO Salmon Ontology
 
-Thank you for your interest in contributing to the GC DFO Salmon Ontology! This document provides guidelines for contributing to the project.
+This file covers how to propose terms, changes, and pull requests for the GC DFO Salmon Ontology.
+
+- For the repo build/publish runbook, see [README.md](README.md).
+- For current maintainers and placeholder decision rules, see [GOVERNANCE.md](GOVERNANCE.md).
 
 ## Contribution Workflow
 
-### 1. Check whether the term already exists
+### 1. Check the boundary first: does this belong in `gcdfo:` or `smn:`?
 
-Before submitting suggestions for new ontology terms, check whether the term already exists, either as a primary term or a synonym. To do this, search the ontology within the [published WIDOCO site](https://dfo-pacific-science.github.io/dfo-salmon-ontology/) or browse the [ontology file](https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/main/ontology/dfo-salmon.ttl) directly. If you feel a synonym is missing, or the textual definition of a term needs clarification, please submit a ticket for that.
+Before requesting a new DFO term, check whether the concept is actually:
 
-### 2. Gather as much necessary information as possible
+- **DFO-specific, policy-program-specific, or intentionally profile-scoped** → it likely belongs in this repo (`gcdfo:`)
+- **Cross-organization, policy-neutral, and reusable** → it may belong in the shared Salmon Domain Ontology (`smn:`)
 
-**For new term requests:** Please always provide suggestions for a **name (required)**, **definition (required)**, **definition source (required)**, position in hierarchy, and synonyms, if applicable. The ontology editors can more easily process term requests when all of this information is provided. 
+Useful references:
+- DFO namespace docs: <https://dfo-pacific-science.github.io/dfo-salmon-ontology/>
+- Shared Salmon Domain namespace: <https://w3id.org/smn>
+- Shared Salmon Domain repo: <https://github.com/salmon-data-mobilization/salmon-domain-ontology>
+- Canonical boundary policy for this repo: [README.md#namespace-boundary-and-shared-layer-preference](README.md#namespace-boundary-and-shared-layer-preference)
 
-**For updates to relationships:** Provide details of the current relationships, why you think they are wrong or insufficient, and exactly what should be added or removed.
+If you are unsure, open an issue and flag it as a **boundary question** rather than guessing.
 
-**Please add a label to your ticket:** A label will pre-populate with the chosen template, but you can add additional labels from the labels menu at the bottom of the editing boxes when adding a new issue in GitHub.
+### 2. Check whether the term already exists
 
-#### Other helpful reminders:
+Before submitting a new term request, check whether the term already exists, either as a primary term or a synonym.
 
-1. Write a detailed request: Please be specific in your request and include as many details as necessary, providing background information, and if possible, suggesting a solution. The editors will be better equipped to address your suggestions if you offer details regarding 'what is wrong', 'why', and 'how to fix it'.
+For DFO terms, search the ontology within the [published WIDOCO site](https://dfo-pacific-science.github.io/dfo-salmon-ontology/) or browse the [canonical ontology file](https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/main/ontology/dfo-salmon.ttl) directly.
 
-2. Provide examples and references: Please always include references for new term requests and, for other term-related requests, include also screenshots, or URLs illustrating the current ontology structure. This will be very helpful to the ontology editors.
+If you think the concept may be shared, also check the Salmon Domain Ontology (`smn:`) before proposing a new `gcdfo:` term.
 
-3. Tickets with insufficient detail will be marked with a 'More info needed' label to alert the submitter. The ontology editors can process requests more rapidly when all the required information is provided.
+If a synonym is missing, or the textual definition of a term needs clarification, please submit a ticket for that instead of minting a duplicate term.
 
-### 3. Communicate with the GCDFO Salmon ontology editors
+### 3. Gather the information needed to review the request
 
-1. The preferred way is to create a ticket using the [DFO Salmon Ontology tracking system](https://github.com/dfo-pacific-science/dfo-salmon-ontology/issues). This allows you to monitor the progress on work on the issue, and participate in the discussion among the GC DFO Salmon ontology team members. Detailed instructions about how to create a free account and use the GitHub repository can be found [here](./docs/SUBMIT_REQUESTS_README.md).
+**For new term requests, please include:**
+- proposed **name/label**
+- **definition**
+- **definition source**
+- expected **position in hierarchy** or concept scheme
+- expected **relationships** to other terms
+- synonyms or alternate labels, if applicable
+- one or two short **usage examples**, if helpful
 
-2. Alternatively, contact the DFO Pacific Fishery & Assessment Data Section [Data Stewardship Unit](FADSDataStewardship-GestiondesdonneesSFDA@dfo-mpo.gc.ca) for your requests. Note that these requests may have a longer response time. 
+**For updates to relationships, please include:**
+- the current term IRI(s)
+- what is wrong or insufficient today
+- exactly what should be added, removed, or changed
+- why the change is needed
+- any likely downstream impact, if known
 
-3. You can also explore our [draft terms](./draft/dfo-salmon-draft.ttl) to see what is currently under review. 
+**For boundary questions, please include:**
+- why the term might belong in shared `smn:` instead of DFO `gcdfo:` (or vice versa)
+- whether the meaning depends on a DFO policy or program context
+- any known cross-organization reuse case
+
+### 4. Open an issue or PR through the normal repo workflow
+
+1. **Preferred path:** create an issue in the [DFO Salmon Ontology issue tracker](https://github.com/dfo-pacific-science/dfo-salmon-ontology/issues). This gives maintainers and contributors one place to discuss scope, boundary, and implementation.
+2. **If you plan to open a PR:** discuss the change in an issue first unless it is a very small fix (for example: typo, broken link, or obvious doc correction).
+3. **If you are making ontology edits:** the canonical source is `ontology/dfo-salmon.ttl`. The draft file is an idea bank, not the source of truth for tests or published docs.
+4. **If your PR changes ontology or publication artifacts:** run the appropriate repo checks (`make test`, `make docs-refresh`, or `make ci`, depending on scope) before asking for review.
+5. **If you need non-GitHub contact:** you can contact the DFO Pacific Fishery & Assessment Data Section [Data Stewardship Unit](mailto:FADSDataStewardship-GestiondesdonneesSFDA@dfo-mpo.gc.ca), but GitHub issues are preferred because they preserve review history.
+
+### 5. Helpful reminders
+
+1. **Be specific.** Include enough detail that a maintainer can understand the problem, assess the boundary, and implement the change without re-deriving the context.
+2. **Provide references.** For new terms especially, include source documents, papers, standards, screenshots, or URLs that show the intended meaning.
+3. **Do not assume same-label means same-meaning.** A shared `smn:` term and a DFO term can look similar while carrying meaningfully different semantics.
+4. **Incomplete requests may be parked for follow-up.** If the repo does not have enough information to review the request safely, maintainers may ask for more detail before proceeding.
 
 ## Getting Help
 
-- **Issues**: Use GitHub issues for questions and discussions
-- **Documentation**: Check existing docs in the `docs/` directory
-- **Community**: Engage with the DFO data stewardship community through issues/discussions in this repository and the published ontology docs at <https://dfo-pacific-science.github.io/dfo-salmon-ontology/>.
+- **Issues:** use GitHub issues for questions and discussions
+- **Documentation:** check existing docs in the `docs/` directory
+- **Governance / maintainer questions:** see [GOVERNANCE.md](GOVERNANCE.md)
+- **Published ontology docs:** <https://dfo-pacific-science.github.io/dfo-salmon-ontology/>
 
 ## Code of Conduct
 
@@ -44,4 +83,4 @@ This project follows the [Contributor Covenant Code of Conduct](https://www.cont
 
 ## License
 
-By contributing, you agree that your contributions will be licensed under the same [CC-BY 4.0 license](../LICENSE) as the project.
+By contributing, you agree that your contributions will be licensed under the same [CC-BY 4.0 license](LICENSE) as the project.

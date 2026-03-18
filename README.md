@@ -4,6 +4,11 @@
 **License:** CC-BY 4.0  
 **Status:** Version 0.0.999 (pre-1.0 “beta”)
 
+This README is the **technical runbook** for maintaining, building, and publishing the DFO-specific ontology repo.
+
+- If you want to **propose a change or new term**, start with [CONTRIBUTING.md](CONTRIBUTING.md).
+- If you want to know **who maintains the repo and how maintainership will expand**, see [GOVERNANCE.md](GOVERNANCE.md).
+
 The GC DFO Salmon Ontology is a **data stewardship and operational process ontology** designed to provide a semantic framework for managing, integrating, and stewarding Pacific salmon data across Fisheries and Oceans Canada (DFO).
 
 **Goal:** Make salmon data interoperable, discoverable, and analyzable with minimal friction for scientists, data stewards, and managers.
@@ -16,29 +21,45 @@ The GC DFO Salmon Ontology is a **data stewardship and operational process ontol
 
 ## Table of Contents
 
+- [Documentation and Governance](#documentation-and-governance)
+- [Related Repositories and Namespaces](#related-repositories-and-namespaces)
+- [Technical Overview](#technical-overview)
+- [Namespace Boundary and Shared-Layer Preference](#namespace-boundary-and-shared-layer-preference)
 - [Quickstart](#quickstart)
-- [Current Scope](#ontology-scope-current)
 - [Development Workflow](#development-workflow)
-- [Documentation](#documentation)
-- [Roadmap](#roadmap)
-- [Acknowledgments](#acknowledgments)
+- [CI + Release Workflow](#ci--release-workflow-manual-steps)
+- [IRI & Versioning Policy](#iri--versioning-policy)
 
-## Documentation
+## Documentation and Governance
 
-**For Contributors:**
-- [Competency Questions](docs/COMPETENCY_QUESTIONS.md) - Specific questions the ontology must answer
-- [Conventions Guide](docs/CONVENTIONS.md) - Detailed modeling conventions and patterns
-- [Contributing Guide](CONTRIBUTING.md) - Contribution workflow and guidelines
+**Start here:**
+- [Contributing Guide](CONTRIBUTING.md) - how to propose changes, terms, and PRs
+- [Governance](GOVERNANCE.md) - current maintainers and placeholder governance process
+- [Competency Questions](docs/COMPETENCY_QUESTIONS.md) - specific questions the ontology must answer
+- [Conventions Guide](docs/CONVENTIONS.md) - detailed modeling conventions and patterns
 
-**Technical References:**
-- [Architecture Decision Records](docs/ADR.md) - Key architectural decisions
-- [ROBOT Setup Guide](docs/ROBOT_SETUP.md) - Tool setup and usage
+**Technical references:**
+- [Architecture Decision Records](docs/ADR.md) - key architectural decisions
+- [Entrypoints](docs/entrypoints.md) - canonical build/publish/test entrypoints
+- [ROBOT Setup Guide](docs/ROBOT_SETUP.md) - tool setup and usage
+- Published ontology docs: <https://dfo-pacific-science.github.io/dfo-salmon-ontology/>
+
+---
+
+## Related Repositories and Namespaces
+
+- **DFO-specific namespace (`gcdfo:`):** <https://w3id.org/gcdfo/salmon#>
+- **Shared Salmon Domain namespace (`smn:`):** <https://w3id.org/smn>
+- **Shared Salmon Domain repo:** <https://github.com/salmon-data-mobilization/salmon-domain-ontology>
+- **Local sibling checkout expected by default build tooling:** `../salmon-domain-ontology/`
+
+If a term is clearly **cross-organization, policy-neutral, and reusable**, it probably belongs in the shared Salmon Domain Ontology rather than here. If it is **DFO-specific, policy-program-specific, or intentionally profile-scoped**, it belongs in `gcdfo:`.
 
 ---
 
 ## Technical Overview
 
-- **One file**: `dfo-salmon.ttl` (OWL/Turtle)
+- **One file**: `ontology/dfo-salmon.ttl` (OWL/Turtle)
 - **Hybrid approach**: OWL for formal relationships, SKOS for controlled vocabularies
 - **Darwin Core aligned**: Uses DwC classes as top-level framework for interoperability; **implements Darwin Core Conceptual Model (DwC-CM) patterns**
 - **OBO Foundry principles**: Open, interoperable, logically well-formed, scientifically accurate
@@ -68,49 +89,45 @@ The GC DFO Salmon Ontology is a **data stewardship and operational process ontol
 ## Quickstart
 
 ### For Contributors
-1. **Read the [Conventions Guide](docs/CONVENTIONS.md)** for detailed modeling guidelines
-2. **Read the [Competency Questions](docs/COMPETENCY_QUESTIONS.md)** to understand scope and goals
-3. **Use Protégé Desktop** to edit `ontology/dfo-salmon.ttl` with OntoGraf for visualization
-4. **Use project targets for quality control**: `make reason` (or `make quality-check` for the full ROBOT report)
-5. **Discuss changes** in GitHub Issues before creating PRs
-6. **Follow OBO practices**: Use competency questions, design patterns, and quality checklists
-7. **Run validations**: Run `make theme-coverage` (smoke), `make alpha-lint` (alpha migration lints), or `make test` (theme coverage + alpha-lint + ELK reasoning); use `make quality-check` for the full ROBOT report. Note: If using `devenv`/`nix` (optional), prefix commands with `devenv shell`.
-8. **Single local+CI entrypoint**: `make ci` (runs tests, ROBOT quality-check, and `make docs-refresh` so that ontology + docs + serializations stay in sync)
+1. **Read the [Contributing Guide](CONTRIBUTING.md)** and [Governance file](GOVERNANCE.md) first.
+2. **Read the [Conventions Guide](docs/CONVENTIONS.md)** for detailed modeling guidelines.
+3. **Read the [Competency Questions](docs/COMPETENCY_QUESTIONS.md)** to understand scope and goals.
+4. **Check the boundary policy above** before minting a new `gcdfo:` term.
+5. **Use Protégé Desktop** to edit `ontology/dfo-salmon.ttl` with OntoGraf for visualization.
+6. **Use project targets for quality control**: `make reason` (or `make quality-check` for the full ROBOT report).
+7. **Discuss changes** in GitHub Issues before creating PRs.
+8. **Run validations**: run `make theme-coverage` (smoke), `make alpha-lint` (alpha migration lints), or `make test` (theme coverage + alpha-lint + ELK reasoning); use `make quality-check` for the full ROBOT report. Note: if using `devenv`/`nix` (optional), prefix commands with `devenv shell`.
+9. **Single local+CI entrypoint**: `make ci` (runs tests, ROBOT quality-check, and `make docs-refresh` so that ontology + docs + serializations stay in sync).
 
 ### For Users
-1. **Browse terms** using Protégé or online ontology browsers
-2. **Query data** using SPARQL with the ontology as a schema
-3. **Integrate** with Darwin Core-compatible systems for interoperability
+1. **Browse terms** using Protégé or online ontology browsers.
+2. **Query data** using SPARQL with the ontology as a schema.
+3. **Integrate** with Darwin Core-compatible systems for interoperability.
 
 ---
 
 ## Development Workflow
 
-- **Single source of truth**: Edit and review `ontology/dfo-salmon.ttl` on a development branch; the draft file is only an idea bank and is not read by tests or canonical docs publishing.
+- **Single source of truth**: edit and review `ontology/dfo-salmon.ttl` on a development branch; the draft file is only an idea bank and is not read by tests or canonical docs publishing.
 - **SPSR mapping source boundary**: canonical SPSR assessment/mapping artifacts live in `Br-Johnson/smn-data-gpt/assessments/spsr`; this repo's `work/` folder is an integration snapshot/working cache for ontology work (see `work/README.md`).
-- **Theme navigation**: Tag every term with 1–3 `gcdfo:theme` values from `gcdfo:ThemeScheme` directly in the canonical file; `gcdfo:ThemeScheme` and its member theme concepts are excluded from the missing-theme check.
+- **Theme navigation**: tag every term with 1–3 `gcdfo:theme` values from `gcdfo:ThemeScheme` directly in the canonical file; `gcdfo:ThemeScheme` and its member theme concepts are excluded from the missing-theme check.
 - **Deprecated term-table extraction flow**: generated term tables and generated term-table SPARQL queries from `scripts/extract-term-tables.py` are local ad hoc artifacts only; they are not canonical docs artifacts and are not used for DSU/FADS sync.
 - **Docs publishing**: `make docs-refresh` regenerates `docs/gcdfo.{ttl,owl}` via ROBOT and `docs/gcdfo.jsonld` via `rdflib` (JSON-LD is a JSON-based RDF serialization) from `ontology/dfo-salmon.ttl`, then refreshes the SKOS sections inside `docs/index.html` (it also enforces OWL Classes appearing before the SKOS sections on the rendered page).
   - `make docs-widoco` now builds `release/tmp/dfo-salmon-docs-input.ttl` with collapsed import closure first, so WIDOCO consumes the flat SMN root file instead of traversing modular imports when `SMN_FLAT_TTL` is available.
 - **Release paths**: root-level `release/` is for transient local/CI build outputs; canonical published artifacts and immutable version snapshots live under `docs/` and `docs/releases/X.Y.Z/`.
-- **OBO-style workflow**: Use ROBOT for quality control and release management
-- **Pre-commit validation**: Install pre-commit hooks (`pre-commit install`) to validate ontology before commit
-- **CI validation**: Pull requests to `main` and pushes to `main` run ROBOT ELK reasoning + ROBOT report (with custom profile); CI runs `make ci` and fails if it produces uncommitted diffs.
-- **Windows**: Use WSL2 + `nix`/`direnv` (optional) or Git Bash; `make install-robot` fetches the pinned ROBOT jar used by CI/pre-commit
-- **GitHub-based collaboration**: All changes via Pull Requests with Issues for discussion
-- **Quality first**: Use competency questions and design patterns to guide development
-- **Before creating terms**: Search existing terms and check competency questions
-- **Document everything**: Always include `rdfs:comment` and `dcterms:source`
-- **Test with data**: Validate terms with sample data and SPARQL queries
+- **OBO-style workflow**: use ROBOT for quality control and release management.
+- **Pre-commit validation**: install pre-commit hooks (`pre-commit install`) to validate ontology before commit.
+- **CI validation**: pull requests to `main` and pushes to `main` run ROBOT ELK reasoning + ROBOT report (with custom profile); CI runs `make ci` and fails if it produces uncommitted diffs.
+- **Windows**: use WSL2 + `nix`/`direnv` (optional) or Git Bash; `make install-robot` fetches the pinned ROBOT jar used by CI/pre-commit.
+- **GitHub-based collaboration**: all changes via Pull Requests with Issues for discussion.
+- **Quality first**: use competency questions and design patterns to guide development.
+- **Before creating terms**: search existing terms and check competency questions.
+- **Document everything**: always include `rdfs:comment` and `dcterms:source`.
+- **Test with data**: validate terms with sample data and SPARQL queries.
 
 **For detailed modeling conventions, see [GC DFO Salmon Ontology Conventions Guide](docs/CONVENTIONS.md).**
 
 **For Darwin Core Conceptual Model (DwC-CM) implementation guidance, see [Conventions Guide - DwC-CM Section](docs/CONVENTIONS.md#44-darwin-core-conceptual-model-dwc-cm-alignment).**
-
-
-
----
-
 
 ---
 
@@ -138,9 +155,9 @@ The GC DFO Salmon Ontology is a **data stewardship and operational process ontol
 
 - **Base IRI**: `https://w3id.org/gcdfo/salmon#`
 - **Instances**: mint under same base (e.g., `…#Stock/SkeenaSockeye`)
-- **Versioning**: Tag GitHub releases, maintain version info in ontology header
-- **Version IRI (recommended)**: `https://w3id.org/gcdfo/salmon/<version>` (resolves via w3id redirects)
+- **Versioning**: tag GitHub releases and maintain version info in ontology header
+- **Version IRI (recommended)**: `https://w3id.org/gcdfo/salmon/<version>` (resolves via W3ID redirects)
 - **Version artifacts (hosted)**: `https://dfo-pacific-science.github.io/dfo-salmon-ontology/releases/<version>/` (immutable snapshot served by GitHub Pages)
-- **For detailed conventions**: See [DFO Salmon Ontology Conventions Guide](docs/CONVENTIONS.md)
+- **For detailed conventions**: see [DFO Salmon Ontology Conventions Guide](docs/CONVENTIONS.md)
 
 ---
