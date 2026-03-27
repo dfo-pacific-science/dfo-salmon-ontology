@@ -461,6 +461,13 @@ summary:focus-visible {
     min-width: 260px;
     max-width: 760px;
     overflow: auto;
+    padding-right: 0.65rem;
+    box-sizing: border-box;
+    scrollbar-gutter: stable both-edges;
+  }
+
+  .gcdfo-toc-panel #toc {
+    padding-right: 0.35rem;
   }
 
   #maincontent {

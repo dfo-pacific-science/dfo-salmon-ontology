@@ -57,7 +57,7 @@ INTRO_HTML = f"""
       </ul>
     </section>
   </div>
-  <p class=\"gcdfo-start-here-note\"><strong>Why this matters:</strong> this is the contract that helps biological meaning survive when data move between field programs, stock assessments, genetics workflows, dashboards, and reporting products.</p>
+  <p class=\"gcdfo-start-here-note\"><strong>Bigger picture:</strong> an authoritative set of definitions becomes much more useful when those terms travel into data dictionaries and databases via their persistent identifiers. That gives you a semantic contract between what your columns mean and how other people or downstream tools will reinterpret and reuse the data later, which makes integration across field programs, assessments, dashboards, and reporting products far less brittle.</p>
 </section>
 {INTRO_MARKER_END}
 """.strip()
