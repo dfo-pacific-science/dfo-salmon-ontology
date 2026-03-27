@@ -179,12 +179,12 @@ xsd:anyURI   a rdfs:Datatype .
   vann:preferredNamespaceUri "https://w3id.org/gcdfo/salmon#" ;
   vann:preferredNamespacePrefix "gcdfo" ;
   dcterms:created "2025-09-06"^^xsd:date ;
-  dcterms:modified "2026-03-15"^^xsd:date ;
+  dcterms:modified "2026-03-27"^^xsd:date ;
   dcterms:description "OWL + SKOS ontology for DFO salmon data: stocks/CUs/MUs, survey events, escapement measurements, and GSI constructs; aligns to DwC via rdfs:subClassOf; hybrid approach with SKOS for methods and OWL for events."@en ;
   schema:codeRepository <https://github.com/dfo-pacific-science/dfo-salmon-ontology> ;
   rdfs:seeAlso <https://github.com/dfo-pacific-science/dfo-salmon-ontology> ;
-  owl:versionInfo "0.0.6-alpha (integrated pre-release review branch)" ;
-  owl:versionIRI <https://w3id.org/gcdfo/salmon/0.0.6-alpha> ;
+  owl:versionInfo "0.0.7" ;
+  owl:versionIRI <https://w3id.org/gcdfo/salmon/0.0.7> ;
   owl:priorVersion <https://w3id.org/gcdfo/salmon/0.0.2> ;
   owl:imports <https://w3id.org/smn> ;
   rdfs:comment "Migration note (2026-03-15): overlapping shared terms now use `smn:` IRIs directly in this ontology; DFO-specific semantics remain only where no shared replacement exists."@en ;

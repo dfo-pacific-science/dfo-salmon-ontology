@@ -22,7 +22,7 @@
     ],
     "title" : { "en" : "DFO Salmon Ontology" },
     "iri" : "https://w3id.org/gcdfo/salmon",
-    "version" : "0.0.6-alpha (integrated pre-release review branch)",
+    "version" : "0.0.7",
     "author" : [ "Fishery & Assessment Data Section (FADS) Data Stewardship Unit" ],
     "description" : {
       "en" : "OWL + SKOS ontology for DFO salmon data: stocks/CUs/MUs, survey events, escapement measurements, and GSI constructs; aligns to DwC via rdfs:subClassOf; hybrid approach with SKOS for methods and OWL for events."
@@ -41,9 +41,7 @@
         }
       ],
       "created" : [ { "identifier" : "created", "language" : "undefined", "value" : "2025-09-06", "type" : "label" } ],
-      "versionInfo" : [
-        { "identifier" : "versionInfo", "language" : "undefined", "value" : "0.0.6-alpha (integrated pre-release review branch)", "type" : "label" }
-      ],
+      "versionInfo" : [ { "identifier" : "versionInfo", "language" : "undefined", "value" : "0.0.7", "type" : "label" } ],
       "title" : [ { "identifier" : "title", "language" : "en", "value" : "DFO Salmon Ontology", "type" : "label" } ],
       "seeAlso" : [
         {
@@ -67,7 +65,7 @@
         }
       ],
       "preferredNamespacePrefix" : [ { "identifier" : "preferredNamespacePrefix", "language" : "undefined", "value" : "gcdfo", "type" : "label" } ],
-      "modified" : [ { "identifier" : "modified", "language" : "undefined", "value" : "2026-03-15", "type" : "label" } ],
+      "modified" : [ { "identifier" : "modified", "language" : "undefined", "value" : "2026-03-27", "type" : "label" } ],
       "publisher" : [
         {
           "identifier" : "publisher",
@@ -9821,8 +9819,8 @@
       "attributes" : [ "external", "object" ],
       "id" : "232"
     },
-    { "domain" : "142", "range" : "222", "id" : "234", "label" : { "IRI-based" : "16", "undefined" : "is a" } },
-    { "domain" : "142", "range" : "236", "id" : "235", "label" : { "IRI-based" : "15", "undefined" : "is a" } },
+    { "domain" : "142", "range" : "222", "id" : "234", "label" : { "IRI-based" : "15", "undefined" : "is a" } },
+    { "domain" : "142", "range" : "236", "id" : "235", "label" : { "IRI-based" : "16", "undefined" : "is a" } },
     {
       "iri" : "https://w3id.org/gcdfo/salmon#hasAssessmentReferencePoint",
       "inverse" : "238",
@@ -9876,7 +9874,7 @@
       "id" : "238",
       "inverse" : "237"
     },
-    { "domain" : "142", "range" : "24", "id" : "240", "label" : { "IRI-based" : "14", "undefined" : "is a" } },
+    { "domain" : "142", "range" : "24", "id" : "240", "label" : { "IRI-based" : "13", "undefined" : "is a" } },
     {
       "iri" : "https://w3id.org/gcdfo/salmon#hasObservedVariable",
       "baseIri" : "https://w3id.org/gcdfo/salmon",
@@ -10142,7 +10140,7 @@
     { "range" : "43", "domain" : "1", "attributes" : [ "anonymous", "object" ], "id" : "334" },
     { "range" : "43", "domain" : "248", "attributes" : [ "anonymous", "object" ], "id" : "335" },
     { "range" : "43", "domain" : "116", "attributes" : [ "anonymous", "object" ], "id" : "336" },
-    { "domain" : "142", "range" : "339", "id" : "342", "label" : { "IRI-based" : "13", "undefined" : "is a" } },
+    { "domain" : "142", "range" : "339", "id" : "342", "label" : { "IRI-based" : "14", "undefined" : "is a" } },
     { "range" : "99", "domain" : "340", "attributes" : [ "anonymous", "object" ], "id" : "343" },
     { "range" : "99", "domain" : "341", "attributes" : [ "anonymous", "object" ], "id" : "344" }
   ]
