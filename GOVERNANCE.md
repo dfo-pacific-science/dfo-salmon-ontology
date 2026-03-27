@@ -1,9 +1,5 @@
 # Governance
 
-**Status:** bootstrap placeholder.
-
-This file exists so the repo can name its current maintainership now, without pretending the governance model is already mature.
-
 ## Purpose
 
 This repository publishes and maintains the DFO-specific salmon ontology namespace:
@@ -15,10 +11,10 @@ This governance file is the human-maintainer companion to the technical runbook 
 
 ## Current Maintainers
 
-### Acting maintainer
+### Maintainer
 
-- **Brett Johnson**
-  - current acting maintainer for the repo
+- **Tom Bird**
+  - current maintainer for the repo
   - coordinates review/merge decisions
   - coordinates releases and publication-facing changes
   - is actively recruiting additional maintainers
@@ -28,8 +24,6 @@ This governance file is the human-maintainer companion to the technical runbook 
 - **Fishery & Assessment Data Section (FADS) Data Stewardship Unit, DFO Pacific Science**
   - organizational stewardship home for the ontology work
   - contact route: <mailto:FADSDataStewardship-GestiondesdonneesSFDA@dfo-mpo.gc.ca>
-
-Organizational stewardship and named maintainer status are related, but not identical. This section is here so the repo can acknowledge its institutional home without overstating the current named maintainer roster.
 
 ## Interested in helping maintain this repo?
 
@@ -47,11 +41,9 @@ You do **not** need to do all of those to be useful. A narrow, reliable maintain
 
 ### How to express interest
 
-For now, the process is intentionally lightweight:
-
 1. Open a GitHub issue in this repo and say you are interested in maintainership, or raise it in an existing coordination thread.
 2. State the kind of role you want to help with (for example: domain review, ontology modeling, contributor support, or release support).
-3. The acting maintainer follows up and, if it makes sense, this file gets updated.
+3. The maintainers follow up and, if it makes sense, this file gets updated.
 
 ## Additional Maintainers
 
@@ -63,9 +55,10 @@ For now, the process is intentionally lightweight:
 
 Maintainers are expected to:
 
-- protect the namespace and publication contract for `https://w3id.org/gcdfo/salmon#`
+- build consesus on authoritative term definitions and their relationships
+- support on-boarding and use of the ontology
 - review or route issues and pull requests
-- guard the boundary between DFO-specific `gcdfo:` terms and shared `smn:` terms
+- guard the boundary between DFO-specific `gcdfo:` terms and shared `smn:` (salmon domain ontology) terms
 - coordinate release/publishing steps when docs or ontology artifacts change
 - keep contributor guidance usable and current
 
