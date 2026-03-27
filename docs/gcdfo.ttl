@@ -152,6 +152,10 @@ skos:notation rdf:type owl:AnnotationProperty .
 skos:prefLabel rdf:type owl:AnnotationProperty .
 
 
+###  http://www.w3.org/2004/02/skos/core#related
+skos:related rdf:type owl:AnnotationProperty .
+
+
 ###  http://www.w3.org/2004/02/skos/core#scopeNote
 skos:scopeNote rdf:type owl:AnnotationProperty .
 
@@ -866,6 +870,23 @@ gcdfo:InRiverMortalityRate rdf:type owl:Class ;
                            gcdfo:theme gcdfo:StockAssessmentTheme .
 
 
+###  https://w3id.org/gcdfo/salmon#IntegratedStatusOutcome
+gcdfo:IntegratedStatusOutcome rdf:type owl:Class .
+
+
+###  https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark
+gcdfo:LowerBiologicalBenchmark rdf:type owl:Class ;
+                               rdfs:subClassOf smn:MetricBenchmark ;
+                               <http://purl.obolibrary.org/obo/IAO_0000115> "Lower benchmark value for a Conservation Unit (CU) metric used to delineate Wild Salmon Policy status zones (typically the boundary between Red and Amber zones). This CU-level biological benchmark is distinct from SMU-level fisheries management lower reference points such as FRP-L."@en ;
+                               <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en ;
+                               dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf> ;
+                               rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                               rdfs:label "Lower biological benchmark"@en ;
+                               gcdfo:theme gcdfo:PolicyGovernanceTheme ,
+                                           gcdfo:StockAssessmentTheme ,
+                                           gcdfo:WildSalmonPolicyTheme .
+
+
 ###  https://w3id.org/gcdfo/salmon#MainstemMortalityRate
 gcdfo:MainstemMortalityRate rdf:type owl:Class ;
                             rdfs:subClassOf smn:ObservedRateOrAbundance ;
@@ -1189,6 +1210,19 @@ gcdfo:TotalMortalityRate rdf:type owl:Class ;
                          gcdfo:theme gcdfo:StockAssessmentTheme .
 
 
+###  https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark
+gcdfo:UpperBiologicalBenchmark rdf:type owl:Class ;
+                               rdfs:subClassOf smn:MetricBenchmark ;
+                               <http://purl.obolibrary.org/obo/IAO_0000115> "Upper benchmark value for a metric used to delineate Wild Salmon Policy status zones (typically the boundary between Amber and Green zones)."@en ;
+                               <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en ;
+                               dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf> ;
+                               rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                               rdfs:label "Upper biological benchmark"@en ;
+                               gcdfo:theme gcdfo:PolicyGovernanceTheme ,
+                                           gcdfo:StockAssessmentTheme ,
+                                           gcdfo:WildSalmonPolicyTheme .
+
+
 ###  https://w3id.org/gcdfo/salmon#UpperStockReferencePoint
 gcdfo:UpperStockReferencePoint rdf:type owl:Class ;
                                rdfs:subClassOf smn:ReferencePoint ;
@@ -1329,19 +1363,6 @@ smn:LimitReferencePoint rdf:type owl:Class ;
                                     gcdfo:StockAssessmentTheme .
 
 
-###  https://w3id.org/smn/LowerBiologicalBenchmark
-smn:LowerBiologicalBenchmark rdf:type owl:Class ;
-                             rdfs:subClassOf smn:MetricBenchmark ;
-                             <http://purl.obolibrary.org/obo/IAO_0000115> "Lower benchmark value for a Conservation Unit (CU) metric used to delineate Wild Salmon Policy status zones (typically the boundary between Red and Amber zones). This CU-level biological benchmark is distinct from SMU-level fisheries management lower reference points such as FRP-L."@en ;
-                             <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en ;
-                             dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf> ;
-                             rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
-                             rdfs:label "Lower biological benchmark"@en ;
-                             gcdfo:theme gcdfo:PolicyGovernanceTheme ,
-                                         gcdfo:StockAssessmentTheme ,
-                                         gcdfo:WildSalmonPolicyTheme .
-
-
 ###  https://w3id.org/smn/MetricBenchmark
 smn:MetricBenchmark rdf:type owl:Class ;
                     rdfs:subClassOf <http://purl.obolibrary.org/obo/IAO_0000030> ;
@@ -1461,22 +1482,29 @@ smn:TotalExploitationRate rdf:type owl:Class ;
                                       gcdfo:StockAssessmentTheme .
 
 
-###  https://w3id.org/smn/UpperBiologicalBenchmark
-smn:UpperBiologicalBenchmark rdf:type owl:Class ;
-                             rdfs:subClassOf smn:MetricBenchmark ;
-                             <http://purl.obolibrary.org/obo/IAO_0000115> "Upper benchmark value for a metric used to delineate Wild Salmon Policy status zones (typically the boundary between Amber and Green zones)."@en ;
-                             <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en ;
-                             dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf> ;
-                             rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
-                             rdfs:label "Upper biological benchmark"@en ;
-                             gcdfo:theme gcdfo:PolicyGovernanceTheme ,
-                                         gcdfo:StockAssessmentTheme ,
-                                         gcdfo:WildSalmonPolicyTheme .
-
-
 #################################################################
 #    Individuals
 #################################################################
+
+###  https://w3id.org/gcdfo/salmon#AbsoluteAbundanceMetricStatus
+gcdfo:AbsoluteAbundanceMetricStatus rdf:type owl:NamedIndividual ,
+                                             skos:Concept ;
+                                    dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv> ;
+                                    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                    skos:altLabel "AbsAbdCat"@en ;
+                                    skos:broader gcdfo:WSPOutputVariable ;
+                                    skos:definition "Categorical status derived from the absolute abundance metric benchmark ratio."@en ;
+                                    skos:inScheme gcdfo:WSPOutputVariableScheme ;
+                                    skos:prefLabel "Absolute abundance metric status"@en ;
+                                    skos:scopeNote "Absolute abundance status uses 1,000 and 10,000 spawner thresholds under current WSP guidance."@en ;
+                                    gcdfo:iadoptConstraint gcdfo:LowerBiologicalBenchmark ,
+                                                           gcdfo:UpperBiologicalBenchmark ;
+                                    gcdfo:iadoptEntity gcdfo:ConservationUnit ;
+                                    gcdfo:iadoptProperty gcdfo:WSPBiologicalStatusZone ;
+                                    gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                                gcdfo:StockAssessmentTheme ,
+                                                gcdfo:WildSalmonPolicyTheme .
+
 
 ###  https://w3id.org/gcdfo/salmon#AbundanceDataType
 gcdfo:AbundanceDataType rdf:type owl:NamedIndividual ,
@@ -1513,6 +1541,25 @@ gcdfo:AbundancePercentileMetric rdf:type owl:NamedIndividual ,
                                 gcdfo:theme gcdfo:DataModelProvenanceTheme ,
                                             gcdfo:StockAssessmentTheme ,
                                             gcdfo:WildSalmonPolicyTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#AbundancePercentileMetricStatus
+gcdfo:AbundancePercentileMetricStatus rdf:type owl:NamedIndividual ,
+                                               skos:Concept ;
+                                      dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+                                      rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                      skos:altLabel "PercentileCat"@en ;
+                                      skos:broader gcdfo:WSPOutputVariable ;
+                                      skos:definition "Categorical status derived from abundance percentile metric values."@en ;
+                                      skos:inScheme gcdfo:WSPOutputVariableScheme ;
+                                      skos:prefLabel "Abundance percentile metric status"@en ;
+                                      skos:scopeNote "Canonical approved outputs contain non-NA values despite stale variable-description text indicating NA."@en ;
+                                      gcdfo:iadoptConstraint gcdfo:WSPBiologicalStatusZone ;
+                                      gcdfo:iadoptEntity gcdfo:ConservationUnit ;
+                                      gcdfo:iadoptProperty gcdfo:WSPBiologicalStatusZone ;
+                                      gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                                  gcdfo:StockAssessmentTheme ,
+                                                  gcdfo:WildSalmonPolicyTheme .
 
 
 ###  https://w3id.org/gcdfo/salmon#AerialSurveyCount
@@ -1735,12 +1782,15 @@ gcdfo:AgeNotationScheme rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/gcdfo/salmon#AmberZone
 gcdfo:AmberZone rdf:type owl:NamedIndividual ,
                          skos:Concept ,
+                         gcdfo:IntegratedStatusOutcome ,
                          gcdfo:WSPBiologicalStatusZone ;
                 <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en ;
                 dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf> ;
                 rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                 skos:definition "Amber status implies caution in the management of the Conservation Unit. While a CU in the Amber zone should be at a low risk of loss, there will be a degree of lost production. Decisions about the conservation of CUs in the Amber zone will involve broader consideration of biological, social, and economic issues. "@en ;
-                skos:inScheme gcdfo:WSPBiologicalStatusZoneScheme ;
+                skos:inScheme gcdfo:IntegratedStatusOutcomeScheme ,
+                              gcdfo:WSPBiologicalStatusZoneScheme ;
+                skos:notation "A" ;
                 skos:prefLabel "Amber zone"@en ;
                 gcdfo:theme gcdfo:StockAssessmentTheme ,
                             gcdfo:WildSalmonPolicyTheme .
@@ -1884,6 +1934,23 @@ gcdfo:Classification rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/gcdfo/salmon#ConfidenceCategory
 gcdfo:ConfidenceCategory rdf:type owl:NamedIndividual ,
                                   skos:Concept .
+
+
+###  https://w3id.org/gcdfo/salmon#ConservationUnitName
+gcdfo:ConservationUnitName rdf:type owl:NamedIndividual ,
+                                    skos:Concept ;
+                           dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv> ;
+                           rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                           skos:altLabel "Stock (canonical WSP output column label)"@en ;
+                           skos:broader gcdfo:WSPOutputVariable ;
+                           skos:definition "Full Conservation Unit name field used in canonical WSP outputs."@en ;
+                           skos:inScheme gcdfo:WSPOutputVariableScheme ;
+                           skos:prefLabel "Conservation Unit name"@en ;
+                           skos:scopeNote "The canonical WSP output column is labelled Stock but currently carries CU names. Entity-level stock semantics are represented with smn:Stock."@en ;
+                           gcdfo:iadoptEntity gcdfo:ConservationUnit ;
+                           gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                       gcdfo:StockAssessmentTheme ,
+                                       gcdfo:WildSalmonPolicyTheme .
 
 
 ###  https://w3id.org/gcdfo/salmon#CrossSectionCoverage
@@ -2234,12 +2301,15 @@ gcdfo:GilbertRichAgeNotation rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/gcdfo/salmon#GreenZone
 gcdfo:GreenZone rdf:type owl:NamedIndividual ,
                          skos:Concept ,
+                         gcdfo:IntegratedStatusOutcome ,
                          gcdfo:WSPBiologicalStatusZone ;
                 <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en ;
                 dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf> ;
                 rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                 skos:definition "Social and economic considerations will tend to be the primary drivers for the management of Conservation Units in the Green zone, though ecosystem or other non-consumptive use values could also be considered."@en ;
-                skos:inScheme gcdfo:WSPBiologicalStatusZoneScheme ;
+                skos:inScheme gcdfo:IntegratedStatusOutcomeScheme ,
+                              gcdfo:WSPBiologicalStatusZoneScheme ;
+                skos:notation "G" ;
                 skos:prefLabel "Green zone"@en ;
                 gcdfo:theme gcdfo:PolicyGovernanceTheme ,
                             gcdfo:WildSalmonPolicyTheme .
@@ -2294,6 +2364,218 @@ gcdfo:InfillMethod rdf:type owl:NamedIndividual ,
                                gcdfo:StockAssessmentTheme .
 
 
+###  https://w3id.org/gcdfo/salmon#IntegratedStatusAmberGreen
+gcdfo:IntegratedStatusAmberGreen rdf:type owl:NamedIndividual ,
+                                          skos:Concept ,
+                                          gcdfo:IntegratedStatusOutcome ;
+                                 <http://purl.obolibrary.org/obo/IAO_0000119> "Approved WSP statuses output uses IntStatusRaw value AmberGreen and IntStatusRaw_Short code AG."@en ;
+                                 dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+                                 rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                 skos:definition "Blended integrated status outcome between Amber and Green used when expert evidence supports an intermediate boundary outcome."@en ;
+                                 skos:inScheme gcdfo:IntegratedStatusOutcomeScheme ;
+                                 skos:notation "AG" ;
+                                 skos:prefLabel "Amber/Green integrated status"@en ;
+                                 skos:related gcdfo:AmberZone ,
+                                              gcdfo:GreenZone ;
+                                 gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                             gcdfo:StockAssessmentTheme ,
+                                             gcdfo:WildSalmonPolicyTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#IntegratedStatusBinary
+gcdfo:IntegratedStatusBinary rdf:type owl:NamedIndividual ,
+                                      skos:Concept ;
+                             dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+                             rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                             owl:deprecated "true"^^xsd:boolean ;
+                             skos:altLabel "IntStatus2"@en ;
+                             skos:broader gcdfo:WSPOutputVariable ;
+                             skos:definition "Derived integrated-status field collapsed to Red, NotRed, DD, or UD categories."@en ;
+                             skos:inScheme gcdfo:WSPOutputVariableScheme ;
+                             skos:prefLabel "Integrated status (binary red/not-red)"@en ;
+                             gcdfo:iadoptConstraint gcdfo:WildSalmonPolicy ;
+                             gcdfo:iadoptEntity gcdfo:ConservationUnit ;
+                             gcdfo:iadoptProperty gcdfo:IntegratedStatusOutcome ;
+                             gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                         gcdfo:StockAssessmentTheme ,
+                                         gcdfo:WildSalmonPolicyTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#IntegratedStatusCollapsedCode
+gcdfo:IntegratedStatusCollapsedCode rdf:type owl:NamedIndividual ,
+                                             skos:Concept ;
+                                    dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+                                    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                    skos:altLabel "IntStatus_Short"@en ;
+                                    skos:broader gcdfo:WSPOutputVariable ;
+                                    skos:definition "Short code representation of the three-category collapsed integrated status field."@en ;
+                                    skos:inScheme gcdfo:WSPOutputVariableScheme ;
+                                    skos:prefLabel "Collapsed integrated status code"@en ;
+                                    skos:scopeNote "Observed canonical codes include R, A, G, DD, and UD."@en ;
+                                    gcdfo:iadoptEntity gcdfo:ConservationUnit ;
+                                    gcdfo:iadoptProperty gcdfo:IntegratedStatusOutcome ;
+                                    gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                                gcdfo:StockAssessmentTheme ,
+                                                gcdfo:WildSalmonPolicyTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#IntegratedStatusDataDeficient
+gcdfo:IntegratedStatusDataDeficient rdf:type owl:NamedIndividual ,
+                                             skos:Concept ,
+                                             gcdfo:IntegratedStatusOutcome ;
+                                    <http://purl.obolibrary.org/obo/IAO_0000119> "WSP integrated-status documentation defines data deficient outcomes where status cannot be assigned because information is insufficient."@en ;
+                                    dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+                                    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                    skos:definition "Integrated status outcome indicating insufficient information to assign a biological zone outcome."@en ;
+                                    skos:inScheme gcdfo:IntegratedStatusOutcomeScheme ;
+                                    skos:notation "DD" ;
+                                    skos:prefLabel "Data deficient integrated status"@en ;
+                                    gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                                gcdfo:StockAssessmentTheme ,
+                                                gcdfo:WildSalmonPolicyTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#IntegratedStatusFiveCategoryAlias
+gcdfo:IntegratedStatusFiveCategoryAlias rdf:type owl:NamedIndividual ,
+                                                 skos:Concept ;
+                                        dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv> ;
+                                        rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                        owl:deprecated "true"^^xsd:boolean ;
+                                        skos:altLabel "IntStatus5"@en ;
+                                        skos:broader gcdfo:WSPOutputVariable ;
+                                        skos:definition "Legacy alias field that duplicates IntStatusRaw in canonical WSP outputs."@en ;
+                                        skos:exactMatch gcdfo:IntegratedStatusRaw ;
+                                        skos:inScheme gcdfo:WSPOutputVariableScheme ;
+                                        skos:prefLabel "Integrated status (5-category legacy alias)"@en ;
+                                        skos:scopeNote "Canonical variable descriptions mark this field as to be removed."@en ;
+                                        gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                                    gcdfo:StockAssessmentTheme ,
+                                                    gcdfo:WildSalmonPolicyTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#IntegratedStatusNotRed
+gcdfo:IntegratedStatusNotRed rdf:type owl:NamedIndividual ,
+                                      skos:Concept ,
+                                      gcdfo:IntegratedStatusOutcome ;
+                             dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+                             rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                             skos:definition "Binary integrated-status outcome indicating the Conservation Unit is not in Red status after binary collapse of integrated outcomes."@en ;
+                             skos:inScheme gcdfo:IntegratedStatusOutcomeScheme ;
+                             skos:notation "NotRed" ;
+                             skos:prefLabel "Not-red integrated status"@en ;
+                             gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                         gcdfo:StockAssessmentTheme ,
+                                         gcdfo:WildSalmonPolicyTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#IntegratedStatusOutcome
+gcdfo:IntegratedStatusOutcome rdf:type owl:NamedIndividual ,
+                                       skos:Concept .
+
+
+###  https://w3id.org/gcdfo/salmon#IntegratedStatusOutcomeScheme
+gcdfo:IntegratedStatusOutcomeScheme rdf:type owl:NamedIndividual ,
+                                             skos:ConceptScheme ;
+                                    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                    skos:definition "Controlled vocabulary for integrated-status outcomes used in canonical Wild Salmon Policy output tables (including blended and non-zonal outcomes)."@en ;
+                                    skos:hasTopConcept gcdfo:IntegratedStatusOutcome ;
+                                    skos:prefLabel "Integrated status outcome scheme"@en ;
+                                    gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                                gcdfo:StockAssessmentTheme ,
+                                                gcdfo:WildSalmonPolicyTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#IntegratedStatusRaw
+gcdfo:IntegratedStatusRaw rdf:type owl:NamedIndividual ,
+                                   skos:Concept ;
+                          dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv> ;
+                          rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                          skos:altLabel "IntStatusRaw"@en ;
+                          skos:broader gcdfo:WSPOutputVariable ;
+                          skos:definition "Expert-assigned integrated WSP status outcome prior to collapsed-category derivations."@en ;
+                          skos:inScheme gcdfo:WSPOutputVariableScheme ;
+                          skos:prefLabel "Integrated status (raw)"@en ;
+                          skos:scopeNote "Observed canonical values include Red, Amber, Green, RedAmber, AmberGreen, DD, and UD."@en ;
+                          gcdfo:iadoptConstraint gcdfo:WildSalmonPolicy ;
+                          gcdfo:iadoptEntity gcdfo:ConservationUnit ;
+                          gcdfo:iadoptProperty gcdfo:IntegratedStatusOutcome ;
+                          gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                      gcdfo:StockAssessmentTheme ,
+                                      gcdfo:WildSalmonPolicyTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#IntegratedStatusRawCode
+gcdfo:IntegratedStatusRawCode rdf:type owl:NamedIndividual ,
+                                       skos:Concept ;
+                              dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+                              rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                              skos:altLabel "IntStatusRaw_Short"@en ;
+                              skos:broader gcdfo:WSPOutputVariable ;
+                              skos:definition "Short code representation of IntegratedStatusRaw values."@en ;
+                              skos:inScheme gcdfo:WSPOutputVariableScheme ;
+                              skos:prefLabel "Raw integrated status code"@en ;
+                              skos:scopeNote "Observed canonical codes include R, RA, A, AG, G, DD, and UD."@en ;
+                              gcdfo:iadoptEntity gcdfo:ConservationUnit ;
+                              gcdfo:iadoptProperty gcdfo:IntegratedStatusOutcome ;
+                              gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                          gcdfo:StockAssessmentTheme ,
+                                          gcdfo:WildSalmonPolicyTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#IntegratedStatusRedAmber
+gcdfo:IntegratedStatusRedAmber rdf:type owl:NamedIndividual ,
+                                        skos:Concept ,
+                                        gcdfo:IntegratedStatusOutcome ;
+                               <http://purl.obolibrary.org/obo/IAO_0000119> "Approved WSP statuses output uses IntStatusRaw value RedAmber and IntStatusRaw_Short code RA."@en ;
+                               dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+                               rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                               skos:definition "Blended integrated status outcome between Red and Amber used when expert evidence supports an intermediate boundary outcome."@en ;
+                               skos:inScheme gcdfo:IntegratedStatusOutcomeScheme ;
+                               skos:notation "RA" ;
+                               skos:prefLabel "Red/Amber integrated status"@en ;
+                               skos:related gcdfo:AmberZone ,
+                                            gcdfo:RedZone ;
+                               gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                           gcdfo:StockAssessmentTheme ,
+                                           gcdfo:WildSalmonPolicyTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#IntegratedStatusThreeCategory
+gcdfo:IntegratedStatusThreeCategory rdf:type owl:NamedIndividual ,
+                                             skos:Concept ;
+                                    dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+                                    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                    owl:deprecated "true"^^xsd:boolean ;
+                                    skos:altLabel "IntStatus3"@en ;
+                                    skos:broader gcdfo:WSPOutputVariable ;
+                                    skos:definition "Derived integrated-status field where RedAmber collapses to Red, AmberGreen collapses to Amber, and DD/UD are preserved."@en ;
+                                    skos:inScheme gcdfo:WSPOutputVariableScheme ;
+                                    skos:prefLabel "Integrated status (3-category collapsed)"@en ;
+                                    gcdfo:iadoptConstraint gcdfo:WildSalmonPolicy ;
+                                    gcdfo:iadoptEntity gcdfo:ConservationUnit ;
+                                    gcdfo:iadoptProperty gcdfo:IntegratedStatusOutcome ;
+                                    gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                                gcdfo:StockAssessmentTheme ,
+                                                gcdfo:WildSalmonPolicyTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#IntegratedStatusUndetermined
+gcdfo:IntegratedStatusUndetermined rdf:type owl:NamedIndividual ,
+                                            skos:Concept ,
+                                            gcdfo:IntegratedStatusOutcome ;
+                                   <http://purl.obolibrary.org/obo/IAO_0000119> "Approved WSP statuses output uses UD for undetermined integrated-status outcomes."@en ;
+                                   dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
+                                   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                   skos:altLabel "to be determined"@en ;
+                                   skos:definition "Integrated status outcome used when an assessment is unresolved or pending completion."@en ;
+                                   skos:inScheme gcdfo:IntegratedStatusOutcomeScheme ;
+                                   skos:notation "UD" ;
+                                   skos:prefLabel "Undetermined integrated status"@en ;
+                                   gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                               gcdfo:StockAssessmentTheme ,
+                                               gcdfo:WildSalmonPolicyTheme .
+
+
 ###  https://w3id.org/gcdfo/salmon#LongTermTrendMetric
 gcdfo:LongTermTrendMetric rdf:type owl:NamedIndividual ,
                                    skos:Concept ;
@@ -2312,6 +2594,25 @@ gcdfo:LongTermTrendMetric rdf:type owl:NamedIndividual ,
                           gcdfo:theme gcdfo:DataModelProvenanceTheme ,
                                       gcdfo:StockAssessmentTheme ,
                                       gcdfo:WildSalmonPolicyTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#LongTermTrendMetricStatus
+gcdfo:LongTermTrendMetricStatus rdf:type owl:NamedIndividual ,
+                                         skos:Concept ;
+                                dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv> ;
+                                rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                skos:altLabel "LongTrendCat"@en ;
+                                skos:broader gcdfo:WSPOutputVariable ;
+                                skos:definition "Categorical status derived from the long-term trend metric using WSP status-zone thresholds."@en ;
+                                skos:inScheme gcdfo:WSPOutputVariableScheme ;
+                                skos:prefLabel "Long-term trend metric status"@en ;
+                                skos:scopeNote "Operational thresholds are typically 0.50 (lower) and 0.75 (upper) of long-term average abundance."@en ;
+                                gcdfo:iadoptConstraint gcdfo:WSPBiologicalStatusZone ;
+                                gcdfo:iadoptEntity gcdfo:ConservationUnit ;
+                                gcdfo:iadoptProperty gcdfo:WSPBiologicalStatusZone ;
+                                gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                            gcdfo:StockAssessmentTheme ,
+                                            gcdfo:WildSalmonPolicyTheme .
 
 
 ###  https://w3id.org/gcdfo/salmon#LowerBenchmark
@@ -2458,6 +2759,25 @@ gcdfo:PercentChangeMetric rdf:type owl:NamedIndividual ,
                                       gcdfo:WildSalmonPolicyTheme .
 
 
+###  https://w3id.org/gcdfo/salmon#PercentChangeMetricStatus
+gcdfo:PercentChangeMetricStatus rdf:type owl:NamedIndividual ,
+                                         skos:Concept ;
+                                dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv> ;
+                                rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                skos:altLabel "PercChangeCat"@en ;
+                                skos:broader gcdfo:WSPOutputVariable ;
+                                skos:definition "Categorical status derived from the percent-change metric using WSP status-zone thresholds."@en ;
+                                skos:inScheme gcdfo:WSPOutputVariableScheme ;
+                                skos:prefLabel "Percent change metric status"@en ;
+                                skos:scopeNote "Operational thresholds in current rapid-status implementations commonly use -25% and -15% boundaries."@en ;
+                                gcdfo:iadoptConstraint gcdfo:WSPBiologicalStatusZone ;
+                                gcdfo:iadoptEntity gcdfo:ConservationUnit ;
+                                gcdfo:iadoptProperty gcdfo:WSPBiologicalStatusZone ;
+                                gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                            gcdfo:StockAssessmentTheme ,
+                                            gcdfo:WildSalmonPolicyTheme .
+
+
 ###  https://w3id.org/gcdfo/salmon#PolicyFramework
 gcdfo:PolicyFramework rdf:type owl:NamedIndividual ,
                                skos:Concept ;
@@ -2537,6 +2857,25 @@ gcdfo:ProbabilityDeclineBelowLowerBenchmarkMetric rdf:type owl:NamedIndividual ,
                                                   gcdfo:theme gcdfo:DataModelProvenanceTheme ,
                                                               gcdfo:StockAssessmentTheme ,
                                                               gcdfo:WildSalmonPolicyTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#ProbabilityDeclineBelowLowerBenchmarkMetricStatus
+gcdfo:ProbabilityDeclineBelowLowerBenchmarkMetricStatus rdf:type owl:NamedIndividual ,
+                                                                 skos:Concept ;
+                                                        dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv> ;
+                                                        rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                                        skos:altLabel "ProbDeclBelowLBMCat"@en ;
+                                                        skos:broader gcdfo:WSPOutputVariable ;
+                                                        skos:definition "Categorical status derived from the probability-of-decline-below-lower-benchmark metric."@en ;
+                                                        skos:inScheme gcdfo:WSPOutputVariableScheme ;
+                                                        skos:prefLabel "Probability-of-decline-below-lower-benchmark metric status"@en ;
+                                                        skos:scopeNote "Canonical approved output currently records this field as NA and variable metadata labels it as not currently in use."@en ;
+                                                        gcdfo:iadoptConstraint gcdfo:LowerBiologicalBenchmark ;
+                                                        gcdfo:iadoptEntity gcdfo:ConservationUnit ;
+                                                        gcdfo:iadoptProperty gcdfo:WSPBiologicalStatusZone ;
+                                                        gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                                                    gcdfo:StockAssessmentTheme ,
+                                                                    gcdfo:WildSalmonPolicyTheme .
 
 
 ###  https://w3id.org/gcdfo/salmon#RapidStatusConfidenceHigh
@@ -2662,12 +3001,15 @@ gcdfo:RecruitStageContext rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/gcdfo/salmon#RedZone
 gcdfo:RedZone rdf:type owl:NamedIndividual ,
                        skos:Concept ,
+                       gcdfo:IntegratedStatusOutcome ,
                        gcdfo:WSPBiologicalStatusZone ;
               <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en ;
               dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf> ;
               rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
               skos:definition "A Conservation Unit in the Red zone is undesirable because of the risk of extirpation, and the loss of ecological benefits and salmon production. Changes in status will trigger management actions that will vary depending on species, geographic regions, and cause of the decline."@en ;
-              skos:inScheme gcdfo:WSPBiologicalStatusZoneScheme ;
+              skos:inScheme gcdfo:IntegratedStatusOutcomeScheme ,
+                            gcdfo:WSPBiologicalStatusZoneScheme ;
+              skos:notation "R" ;
               skos:prefLabel "Red zone"@en ;
               gcdfo:theme gcdfo:StockAssessmentTheme ,
                           gcdfo:WildSalmonPolicyTheme .
@@ -2697,6 +3039,25 @@ gcdfo:ReddExpansionAnalysis rdf:type owl:NamedIndividual ,
                             skos:prefLabel "Redd Expansion Analysis"@en ;
                             gcdfo:theme gcdfo:MonitoringFieldWorkTheme ,
                                         gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#RelativeAbundanceMetricStatus
+gcdfo:RelativeAbundanceMetricStatus rdf:type owl:NamedIndividual ,
+                                             skos:Concept ;
+                                    dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv> ;
+                                    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                    skos:altLabel "RelAbdCat"@en ;
+                                    skos:broader gcdfo:WSPOutputVariable ;
+                                    skos:definition "Categorical status derived from the relative abundance metric benchmark ratio."@en ;
+                                    skos:inScheme gcdfo:WSPOutputVariableScheme ;
+                                    skos:prefLabel "Relative abundance metric status"@en ;
+                                    gcdfo:iadoptConstraint gcdfo:LowerBiologicalBenchmark ,
+                                                           gcdfo:UpperBiologicalBenchmark ;
+                                    gcdfo:iadoptEntity gcdfo:ConservationUnit ;
+                                    gcdfo:iadoptProperty gcdfo:WSPBiologicalStatusZone ;
+                                    gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                                gcdfo:StockAssessmentTheme ,
+                                                gcdfo:WildSalmonPolicyTheme .
 
 
 ###  https://w3id.org/gcdfo/salmon#ReturnYear
@@ -2749,6 +3110,22 @@ gcdfo:SalmonEnhancementHatcheriesTheme rdf:type owl:NamedIndividual ,
                                        skos:inScheme gcdfo:ThemeScheme ;
                                        skos:prefLabel "Salmon Enhancement and Hatcheries"@en ;
                                        gcdfo:theme gcdfo:DataModelProvenanceTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#Species
+gcdfo:Species rdf:type owl:NamedIndividual ,
+                       skos:Concept ;
+              dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv> ;
+              rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+              skos:broader gcdfo:WSPOutputVariable ;
+              skos:definition "Species identity field used in canonical WSP outputs."@en ;
+              skos:inScheme gcdfo:WSPOutputVariableScheme ;
+              skos:prefLabel "Species"@en ;
+              skos:scopeNote "Use taxonomic IRIs (for example DwC/GBIF/ITIS) where available; canonical approved outputs currently use common-name strings such as Chinook, Sockeye, Coho, Chum, and Pink."@en ;
+              gcdfo:iadoptEntity gcdfo:ConservationUnit ;
+              gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                          gcdfo:StockAssessmentTheme ,
+                          gcdfo:WildSalmonPolicyTheme .
 
 
 ###  https://w3id.org/gcdfo/salmon#SpeciesAtRiskRecoveryTheme
@@ -3025,6 +3402,30 @@ gcdfo:WSPBiologicalStatusZoneScheme rdf:type owl:NamedIndividual ,
                                                 gcdfo:WildSalmonPolicyTheme .
 
 
+###  https://w3id.org/gcdfo/salmon#WSPOutputVariable
+gcdfo:WSPOutputVariable rdf:type owl:NamedIndividual ,
+                                 skos:Concept ;
+                        rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                        skos:definition "A canonical variable field used in approved Wild Salmon Policy output tables."@en ;
+                        skos:inScheme gcdfo:WSPOutputVariableScheme ;
+                        skos:prefLabel "WSP output variable"@en ;
+                        gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                    gcdfo:StockAssessmentTheme ,
+                                    gcdfo:WildSalmonPolicyTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#WSPOutputVariableScheme
+gcdfo:WSPOutputVariableScheme rdf:type owl:NamedIndividual ,
+                                       skos:ConceptScheme ;
+                              rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                              skos:definition "Controlled vocabulary for canonical WSP output variables used in rapid-status and integrated-status exports."@en ;
+                              skos:hasTopConcept gcdfo:WSPOutputVariable ;
+                              skos:prefLabel "WSP output variable scheme"@en ;
+                              gcdfo:theme gcdfo:DataModelProvenanceTheme ,
+                                          gcdfo:StockAssessmentTheme ,
+                                          gcdfo:WildSalmonPolicyTheme .
+
+
 ###  https://w3id.org/gcdfo/salmon#WSPRapidStatusAssessmentMethod
 gcdfo:WSPRapidStatusAssessmentMethod rdf:type owl:NamedIndividual ,
                                               skos:Concept ;
@@ -3279,6 +3680,14 @@ gcdfo:ConfidenceCategory rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                          skos:prefLabel "Confidence category"@en ;
                          gcdfo:theme gcdfo:StockAssessmentTheme ,
                                      gcdfo:WildSalmonPolicyTheme .
+
+
+gcdfo:IntegratedStatusOutcome rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                              skos:definition "Outcome category assigned by integrated WSP status workflows for a Conservation Unit."@en ;
+                              skos:inScheme gcdfo:IntegratedStatusOutcomeScheme ;
+                              skos:prefLabel "Integrated status outcome"@en ;
+                              gcdfo:theme gcdfo:StockAssessmentTheme ,
+                                          gcdfo:WildSalmonPolicyTheme .
 
 
 gcdfo:WSPBiologicalStatusZone <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en ;

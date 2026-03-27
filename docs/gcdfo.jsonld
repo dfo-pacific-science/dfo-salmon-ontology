@@ -1310,6 +1310,85 @@
     ]
   },
   {
+    "@id": "https://w3id.org/gcdfo/salmon#AbsoluteAbundanceMetricStatus",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#altLabel": [
+      {
+        "@language": "en",
+        "@value": "AbsAbdCat"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPOutputVariable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Categorical status derived from the absolute abundance metric benchmark ratio."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPOutputVariableScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Absolute abundance metric status"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Absolute abundance status uses 1,000 and 10,000 spawner thresholds under current WSP guidance."
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptConstraint": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptEntity": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ConservationUnit"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptProperty": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZone"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
     "@id": "https://w3id.org/gcdfo/salmon#AbundanceDataType",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
@@ -1454,6 +1533,82 @@
     "https://w3id.org/gcdfo/salmon#usedProcedure": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#WSPRapidStatusAssessmentMethod"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#AbundancePercentileMetricStatus",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#altLabel": [
+      {
+        "@language": "en",
+        "@value": "PercentileCat"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPOutputVariable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Categorical status derived from abundance percentile metric values."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPOutputVariableScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Abundance percentile metric status"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Canonical approved outputs contain non-NA values despite stale variable-description text indicating NA."
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptConstraint": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZone"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptEntity": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ConservationUnit"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptProperty": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZone"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
       }
     ]
   },
@@ -2215,6 +2370,7 @@
     "@id": "https://w3id.org/gcdfo/salmon#AmberZone",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept",
+      "https://w3id.org/gcdfo/salmon#IntegratedStatusOutcome",
       "https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZone"
     ],
     "http://purl.obolibrary.org/obo/IAO_0000119": [
@@ -2241,7 +2397,16 @@
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
+        "@id": "https://w3id.org/gcdfo/salmon#IntegratedStatusOutcomeScheme"
+      },
+      {
         "@id": "https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZoneScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "A"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#prefLabel": [
@@ -2892,6 +3057,72 @@
       },
       {
         "@id": "https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#ConservationUnitName",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#altLabel": [
+      {
+        "@language": "en",
+        "@value": "Stock (canonical WSP output column label)"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPOutputVariable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Full Conservation Unit name field used in canonical WSP outputs."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPOutputVariableScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Conservation Unit name"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "en",
+        "@value": "The canonical WSP output column is labelled Stock but currently carries CU names. Entity-level stock semantics are represented with smn:Stock."
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptEntity": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ConservationUnit"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
       },
       {
         "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
@@ -4127,6 +4358,7 @@
     "@id": "https://w3id.org/gcdfo/salmon#GreenZone",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept",
+      "https://w3id.org/gcdfo/salmon#IntegratedStatusOutcome",
       "https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZone"
     ],
     "http://purl.obolibrary.org/obo/IAO_0000119": [
@@ -4153,7 +4385,16 @@
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
+        "@id": "https://w3id.org/gcdfo/salmon#IntegratedStatusOutcomeScheme"
+      },
+      {
         "@id": "https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZoneScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "G"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#prefLabel": [
@@ -4393,6 +4634,824 @@
     ]
   },
   {
+    "@id": "https://w3id.org/gcdfo/salmon#IntegratedStatusAmberGreen",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept",
+      "https://w3id.org/gcdfo/salmon#IntegratedStatusOutcome"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Approved WSP statuses output uses IntStatusRaw value AmberGreen and IntStatusRaw_Short code AG."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Blended integrated status outcome between Amber and Green used when expert evidence supports an intermediate boundary outcome."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#IntegratedStatusOutcomeScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "AG"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Amber/Green integrated status"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#AmberZone"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#GreenZone"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#IntegratedStatusBinary",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#deprecated": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+        "@value": true
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#altLabel": [
+      {
+        "@language": "en",
+        "@value": "IntStatus2"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPOutputVariable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Derived integrated-status field collapsed to Red, NotRed, DD, or UD categories."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPOutputVariableScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Integrated status (binary red/not-red)"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptConstraint": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicy"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptEntity": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ConservationUnit"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptProperty": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#IntegratedStatusOutcome"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#IntegratedStatusCollapsedCode",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#altLabel": [
+      {
+        "@language": "en",
+        "@value": "IntStatus_Short"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPOutputVariable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Short code representation of the three-category collapsed integrated status field."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPOutputVariableScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Collapsed integrated status code"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Observed canonical codes include R, A, G, DD, and UD."
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptEntity": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ConservationUnit"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptProperty": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#IntegratedStatusOutcome"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#IntegratedStatusDataDeficient",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept",
+      "https://w3id.org/gcdfo/salmon#IntegratedStatusOutcome"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "WSP integrated-status documentation defines data deficient outcomes where status cannot be assigned because information is insufficient."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Integrated status outcome indicating insufficient information to assign a biological zone outcome."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#IntegratedStatusOutcomeScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "DD"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Data deficient integrated status"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#IntegratedStatusFiveCategoryAlias",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#deprecated": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+        "@value": true
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#altLabel": [
+      {
+        "@language": "en",
+        "@value": "IntStatus5"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPOutputVariable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Legacy alias field that duplicates IntStatusRaw in canonical WSP outputs."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#IntegratedStatusRaw"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPOutputVariableScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Integrated status (5-category legacy alias)"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Canonical variable descriptions mark this field as to be removed."
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#IntegratedStatusNotRed",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept",
+      "https://w3id.org/gcdfo/salmon#IntegratedStatusOutcome"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Binary integrated-status outcome indicating the Conservation Unit is not in Red status after binary collapse of integrated outcomes."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#IntegratedStatusOutcomeScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "NotRed"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Not-red integrated status"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#IntegratedStatusOutcome",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Outcome category assigned by integrated WSP status workflows for a Conservation Unit."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#IntegratedStatusOutcomeScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Integrated status outcome"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#IntegratedStatusOutcomeScheme",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Controlled vocabulary for integrated-status outcomes used in canonical Wild Salmon Policy output tables (including blended and non-zonal outcomes)."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#hasTopConcept": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#IntegratedStatusOutcome"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Integrated status outcome scheme"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#IntegratedStatusRaw",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#altLabel": [
+      {
+        "@language": "en",
+        "@value": "IntStatusRaw"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPOutputVariable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Expert-assigned integrated WSP status outcome prior to collapsed-category derivations."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPOutputVariableScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Integrated status (raw)"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Observed canonical values include Red, Amber, Green, RedAmber, AmberGreen, DD, and UD."
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptConstraint": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicy"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptEntity": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ConservationUnit"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptProperty": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#IntegratedStatusOutcome"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#IntegratedStatusRawCode",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#altLabel": [
+      {
+        "@language": "en",
+        "@value": "IntStatusRaw_Short"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPOutputVariable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Short code representation of IntegratedStatusRaw values."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPOutputVariableScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Raw integrated status code"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Observed canonical codes include R, RA, A, AG, G, DD, and UD."
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptEntity": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ConservationUnit"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptProperty": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#IntegratedStatusOutcome"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#IntegratedStatusRedAmber",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept",
+      "https://w3id.org/gcdfo/salmon#IntegratedStatusOutcome"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Approved WSP statuses output uses IntStatusRaw value RedAmber and IntStatusRaw_Short code RA."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Blended integrated status outcome between Red and Amber used when expert evidence supports an intermediate boundary outcome."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#IntegratedStatusOutcomeScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "RA"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Red/Amber integrated status"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#related": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#AmberZone"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#RedZone"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#IntegratedStatusThreeCategory",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#deprecated": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+        "@value": true
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#altLabel": [
+      {
+        "@language": "en",
+        "@value": "IntStatus3"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPOutputVariable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Derived integrated-status field where RedAmber collapses to Red, AmberGreen collapses to Amber, and DD/UD are preserved."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPOutputVariableScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Integrated status (3-category collapsed)"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptConstraint": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicy"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptEntity": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ConservationUnit"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptProperty": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#IntegratedStatusOutcome"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#IntegratedStatusUndetermined",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept",
+      "https://w3id.org/gcdfo/salmon#IntegratedStatusOutcome"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Approved WSP statuses output uses UD for undetermined integrated-status outcomes."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#altLabel": [
+      {
+        "@language": "en",
+        "@value": "to be determined"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Integrated status outcome used when an assessment is unresolved or pending completion."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#IntegratedStatusOutcomeScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "UD"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Undetermined integrated status"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
     "@id": "https://w3id.org/gcdfo/salmon#LongTermTrendMetric",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
@@ -4474,6 +5533,82 @@
     ]
   },
   {
+    "@id": "https://w3id.org/gcdfo/salmon#LongTermTrendMetricStatus",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#altLabel": [
+      {
+        "@language": "en",
+        "@value": "LongTrendCat"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPOutputVariable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Categorical status derived from the long-term trend metric using WSP status-zone thresholds."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPOutputVariableScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Long-term trend metric status"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Operational thresholds are typically 0.50 (lower) and 0.75 (upper) of long-term average abundance."
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptConstraint": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZone"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptEntity": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ConservationUnit"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptProperty": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZone"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
     "@id": "https://w3id.org/gcdfo/salmon#LowerBenchmark",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
@@ -4501,6 +5636,56 @@
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "Lower benchmark value for a Conservation Unit (CU) metric used to delineate Wild Salmon Policy status zones (typically the boundary between Red and Amber zones). This CU-level biological benchmark is distinct from SMU-level fisheries management lower reference points such as FRP-L."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Lower biological benchmark"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/smn/MetricBenchmark"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"
+      },
       {
         "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
       },
@@ -5241,6 +6426,82 @@
     ]
   },
   {
+    "@id": "https://w3id.org/gcdfo/salmon#PercentChangeMetricStatus",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#altLabel": [
+      {
+        "@language": "en",
+        "@value": "PercChangeCat"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPOutputVariable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Categorical status derived from the percent-change metric using WSP status-zone thresholds."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPOutputVariableScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Percent change metric status"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Operational thresholds in current rapid-status implementations commonly use -25% and -15% boundaries."
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptConstraint": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZone"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptEntity": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ConservationUnit"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptProperty": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZone"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
     "@id": "https://w3id.org/gcdfo/salmon#PolicyFramework",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
@@ -5526,6 +6787,82 @@
     "https://w3id.org/gcdfo/salmon#usedProcedure": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#WSPRapidStatusAssessmentMethod"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#ProbabilityDeclineBelowLowerBenchmarkMetricStatus",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#altLabel": [
+      {
+        "@language": "en",
+        "@value": "ProbDeclBelowLBMCat"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPOutputVariable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Categorical status derived from the probability-of-decline-below-lower-benchmark metric."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPOutputVariableScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Probability-of-decline-below-lower-benchmark metric status"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Canonical approved output currently records this field as NA and variable metadata labels it as not currently in use."
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptConstraint": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptEntity": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ConservationUnit"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptProperty": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZone"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
       }
     ]
   },
@@ -6005,6 +7342,7 @@
     "@id": "https://w3id.org/gcdfo/salmon#RedZone",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept",
+      "https://w3id.org/gcdfo/salmon#IntegratedStatusOutcome",
       "https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZone"
     ],
     "http://purl.obolibrary.org/obo/IAO_0000119": [
@@ -6031,7 +7369,16 @@
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
+        "@id": "https://w3id.org/gcdfo/salmon#IntegratedStatusOutcomeScheme"
+      },
+      {
         "@id": "https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZoneScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "R"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#prefLabel": [
@@ -6140,6 +7487,79 @@
       },
       {
         "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#RelativeAbundanceMetricStatus",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#altLabel": [
+      {
+        "@language": "en",
+        "@value": "RelAbdCat"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPOutputVariable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Categorical status derived from the relative abundance metric benchmark ratio."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPOutputVariableScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Relative abundance metric status"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptConstraint": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptEntity": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ConservationUnit"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptProperty": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZone"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
       }
     ]
   },
@@ -7099,6 +8519,66 @@
     ]
   },
   {
+    "@id": "https://w3id.org/gcdfo/salmon#Species",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPOutputVariable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Species identity field used in canonical WSP outputs."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPOutputVariableScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Species"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Use taxonomic IRIs (for example DwC/GBIF/ITIS) where available; canonical approved outputs currently use common-name strings such as Chinook, Sockeye, Coho, Chum, and Pink."
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#iadoptEntity": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#ConservationUnit"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
     "@id": "https://w3id.org/gcdfo/salmon#SpeciesAtRiskRecoveryTheme",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
@@ -8018,6 +9498,56 @@
     ]
   },
   {
+    "@id": "https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "Upper benchmark value for a metric used to delineate Wild Salmon Policy status zones (typically the boundary between Amber and Green zones)."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Upper biological benchmark"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/smn/MetricBenchmark"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
     "@id": "https://w3id.org/gcdfo/salmon#UpperStockReferencePoint",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
@@ -8341,6 +9871,84 @@
     "https://w3id.org/gcdfo/salmon#theme": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#WSPOutputVariable",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A canonical variable field used in approved Wild Salmon Policy output tables."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPOutputVariableScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "WSP output variable"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#WSPOutputVariableScheme",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Controlled vocabulary for canonical WSP output variables used in rapid-status and integrated-status exports."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#hasTopConcept": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#WSPOutputVariable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "WSP output variable scheme"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
       },
       {
         "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
@@ -10240,56 +11848,6 @@
     ]
   },
   {
-    "@id": "https://w3id.org/smn/LowerBiologicalBenchmark",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000115": [
-      {
-        "@language": "en",
-        "@value": "Lower benchmark value for a Conservation Unit (CU) metric used to delineate Wild Salmon Policy status zones (typically the boundary between Red and Amber zones). This CU-level biological benchmark is distinct from SMU-level fisheries management lower reference points such as FRP-L."
-      }
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000119": [
-      {
-        "@language": "en",
-        "@value": "Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."
-      }
-    ],
-    "http://purl.org/dc/terms/source": [
-      {
-        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Lower biological benchmark"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://w3id.org/smn/MetricBenchmark"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
-      }
-    ]
-  },
-  {
     "@id": "https://w3id.org/smn/MainstemPhase",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
@@ -11176,56 +12734,6 @@
       },
       {
         "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/smn/UpperBiologicalBenchmark",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000115": [
-      {
-        "@language": "en",
-        "@value": "Upper benchmark value for a metric used to delineate Wild Salmon Policy status zones (typically the boundary between Amber and Green zones)."
-      }
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000119": [
-      {
-        "@language": "en",
-        "@value": "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."
-      }
-    ],
-    "http://purl.org/dc/terms/source": [
-      {
-        "@id": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Upper biological benchmark"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://w3id.org/smn/MetricBenchmark"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme"
       }
     ]
   },

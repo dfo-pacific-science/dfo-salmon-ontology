@@ -820,7 +820,8 @@ This section lists the formal classes, properties, and controlled vocabularies t
       <a href="#http://purl.obolibrary.org/obo/ENVO_01000618" title="http://purl.obolibrary.org/obo/ENVO_01000618">lotic water body</a>
    </li>
    <li>
-      <a href="#https://w3id.org/smn/LowerBiologicalBenchmark" title="https://w3id.org/smn/LowerBiologicalBenchmark">Lower biological benchmark</a>
+      <a href="#LowerBiologicalBenchmark"
+         title="https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark">Lower biological benchmark</a>
    </li>
    <li>
       <a href="#MainstemMortalityRate"
@@ -1094,7 +1095,8 @@ This section lists the formal classes, properties, and controlled vocabularies t
          title="https://w3id.org/gcdfo/salmon#TotalMortalityRate">Total mortality rate</a>
    </li>
    <li>
-      <a href="#https://w3id.org/smn/UpperBiologicalBenchmark" title="https://w3id.org/smn/UpperBiologicalBenchmark">Upper biological benchmark</a>
+      <a href="#UpperBiologicalBenchmark"
+         title="https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark">Upper biological benchmark</a>
    </li>
    <li>
       <a href="#UpperStockReferencePoint"
@@ -1238,7 +1240,7 @@ This section lists the formal classes, properties, and controlled vocabularies t
 <p class="markdown">Use the in-page search in the right-hand navigation to find a specific concept quickly.</p>
 <h3 id="skos-schemes" class="list">Concept schemes</h3>
 <details class="gcdfo-collapsible" open>
-<summary>21 schemes (expand)</summary>
+<summary>23 schemes (expand)</summary>
 <ul class="hlist">
   <li><a href="#scheme-age-basis-scheme">Age basis scheme</a></li>
   <li><a href="#scheme-age-class-value-scheme">Age class value scheme</a></li>
@@ -1251,6 +1253,7 @@ This section lists the formal classes, properties, and controlled vocabularies t
   <li><a href="#scheme-escapement-enumeration-method-scheme">Escapement Enumeration Method Scheme</a></li>
   <li><a href="#scheme-escapement-estimate-method-scheme">Escapement Estimate Method Scheme</a></li>
   <li><a href="#scheme-escapement-estimate-type-scheme">Escapement Estimate Type Scheme</a></li>
+  <li><a href="#scheme-integrated-status-outcome-scheme">Integrated status outcome scheme</a></li>
   <li><a href="#scheme-life-phase-scheme">Life phase scheme</a></li>
   <li><a href="#scheme-measurement-context-scheme">Measurement context scheme</a></li>
   <li><a href="#scheme-policy-framework-scheme">Policy framework scheme</a></li>
@@ -1260,6 +1263,7 @@ This section lists the formal classes, properties, and controlled vocabularies t
   <li><a href="#scheme-stock-status-zone-scheme-legacy-alias">Stock Status Zone Scheme (legacy alias)</a></li>
   <li><a href="#scheme-theme-scheme">Theme Scheme</a></li>
   <li><a href="#scheme-wild-salmon-policy-status-zone">Wild Salmon Policy Status Zone</a></li>
+  <li><a href="#scheme-wsp-output-variable-scheme">WSP output variable scheme</a></li>
   <li><a href="#scheme-year-basis-scheme">Year basis scheme</a></li>
 </ul>
 </details>
@@ -1684,6 +1688,53 @@ This section lists the formal classes, properties, and controlled vocabularies t
     </tbody>
   </table>
 </div>
+<div class="scheme" id="scheme-integrated-status-outcome-scheme">
+  <h3 id="scheme-integrated-status-outcome-scheme" class="list">Integrated status outcome scheme</h3>
+  <p class="markdown">Controlled vocabulary for integrated-status outcomes used in canonical Wild Salmon Policy output tables (including blended and non-zonal outcomes).</p>
+  <table class="gcdfo-scheme-table">
+    <thead>
+      <tr><th scope="col">Term</th><th scope="col">Definition</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="#AmberZone">Amber zone</a></td>
+        <td>Amber status implies caution in the management of the Conservation Unit. While a CU in the Amber zone should be at a low risk of loss, there will be a degree of lost production. Decisions about the conservation of CUs in the Amber zone will involve broader consideration of biological, social, and economic issues. </td>
+      </tr>
+      <tr>
+        <td><a href="#IntegratedStatusAmberGreen">Amber/Green integrated status</a></td>
+        <td>Blended integrated status outcome between Amber and Green used when expert evidence supports an intermediate boundary outcome.</td>
+      </tr>
+      <tr>
+        <td><a href="#IntegratedStatusDataDeficient">Data deficient integrated status</a></td>
+        <td>Integrated status outcome indicating insufficient information to assign a biological zone outcome.</td>
+      </tr>
+      <tr>
+        <td><a href="#GreenZone">Green zone</a></td>
+        <td>Social and economic considerations will tend to be the primary drivers for the management of Conservation Units in the Green zone, though ecosystem or other non-consumptive use values could also be considered.</td>
+      </tr>
+      <tr>
+        <td><a href="#IntegratedStatusOutcome">Integrated status outcome</a></td>
+        <td>Outcome category assigned by integrated WSP status workflows for a Conservation Unit.</td>
+      </tr>
+      <tr>
+        <td><a href="#IntegratedStatusNotRed">Not-red integrated status</a></td>
+        <td>Binary integrated-status outcome indicating the Conservation Unit is not in Red status after binary collapse of integrated outcomes.</td>
+      </tr>
+      <tr>
+        <td><a href="#RedZone">Red zone</a></td>
+        <td>A Conservation Unit in the Red zone is undesirable because of the risk of extirpation, and the loss of ecological benefits and salmon production. Changes in status will trigger management actions that will vary depending on species, geographic regions, and cause of the decline.</td>
+      </tr>
+      <tr>
+        <td><a href="#IntegratedStatusRedAmber">Red/Amber integrated status</a></td>
+        <td>Blended integrated status outcome between Red and Amber used when expert evidence supports an intermediate boundary outcome.</td>
+      </tr>
+      <tr>
+        <td><a href="#IntegratedStatusUndetermined">Undetermined integrated status</a></td>
+        <td>Integrated status outcome used when an assessment is unresolved or pending completion.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 <div class="scheme" id="scheme-life-phase-scheme">
   <h3 id="scheme-life-phase-scheme" class="list">Life phase scheme</h3>
   <p class="markdown">Controlled vocabulary for life-phase or fishery/migration segment qualifiers used to stratify measurements (e.g., ocean, terminal, mainstem).</p>
@@ -1979,6 +2030,77 @@ This section lists the formal classes, properties, and controlled vocabularies t
     </tbody>
   </table>
 </div>
+<div class="scheme" id="scheme-wsp-output-variable-scheme">
+  <h3 id="scheme-wsp-output-variable-scheme" class="list">WSP output variable scheme</h3>
+  <p class="markdown">Controlled vocabulary for canonical WSP output variables used in rapid-status and integrated-status exports.</p>
+  <table class="gcdfo-scheme-table">
+    <thead>
+      <tr><th scope="col">Term</th><th scope="col">Definition</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="#AbsoluteAbundanceMetricStatus">Absolute abundance metric status</a></td>
+        <td>Categorical status derived from the absolute abundance metric benchmark ratio.</td>
+      </tr>
+      <tr>
+        <td><a href="#AbundancePercentileMetricStatus">Abundance percentile metric status</a></td>
+        <td>Categorical status derived from abundance percentile metric values.</td>
+      </tr>
+      <tr>
+        <td><a href="#IntegratedStatusCollapsedCode">Collapsed integrated status code</a></td>
+        <td>Short code representation of the three-category collapsed integrated status field.</td>
+      </tr>
+      <tr>
+        <td><a href="#ConservationUnitName">Conservation Unit name</a></td>
+        <td>Full Conservation Unit name field used in canonical WSP outputs.</td>
+      </tr>
+      <tr>
+        <td><a href="#IntegratedStatusThreeCategory">Integrated status (3-category collapsed)</a></td>
+        <td>Derived integrated-status field where RedAmber collapses to Red, AmberGreen collapses to Amber, and DD/UD are preserved.</td>
+      </tr>
+      <tr>
+        <td><a href="#IntegratedStatusFiveCategoryAlias">Integrated status (5-category legacy alias)</a></td>
+        <td>Legacy alias field that duplicates IntStatusRaw in canonical WSP outputs.</td>
+      </tr>
+      <tr>
+        <td><a href="#IntegratedStatusBinary">Integrated status (binary red/not-red)</a></td>
+        <td>Derived integrated-status field collapsed to Red, NotRed, DD, or UD categories.</td>
+      </tr>
+      <tr>
+        <td><a href="#IntegratedStatusRaw">Integrated status (raw)</a></td>
+        <td>Expert-assigned integrated WSP status outcome prior to collapsed-category derivations.</td>
+      </tr>
+      <tr>
+        <td><a href="#LongTermTrendMetricStatus">Long-term trend metric status</a></td>
+        <td>Categorical status derived from the long-term trend metric using WSP status-zone thresholds.</td>
+      </tr>
+      <tr>
+        <td><a href="#PercentChangeMetricStatus">Percent change metric status</a></td>
+        <td>Categorical status derived from the percent-change metric using WSP status-zone thresholds.</td>
+      </tr>
+      <tr>
+        <td><a href="#ProbabilityDeclineBelowLowerBenchmarkMetricStatus">Probability-of-decline-below-lower-benchmark metric status</a></td>
+        <td>Categorical status derived from the probability-of-decline-below-lower-benchmark metric.</td>
+      </tr>
+      <tr>
+        <td><a href="#IntegratedStatusRawCode">Raw integrated status code</a></td>
+        <td>Short code representation of IntegratedStatusRaw values.</td>
+      </tr>
+      <tr>
+        <td><a href="#RelativeAbundanceMetricStatus">Relative abundance metric status</a></td>
+        <td>Categorical status derived from the relative abundance metric benchmark ratio.</td>
+      </tr>
+      <tr>
+        <td><a href="#Species">Species</a></td>
+        <td>Species identity field used in canonical WSP outputs.</td>
+      </tr>
+      <tr>
+        <td><a href="#WSPOutputVariable">WSP output variable</a></td>
+        <td>A canonical variable field used in approved Wild Salmon Policy output tables.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 <div class="scheme" id="scheme-year-basis-scheme">
   <h3 id="scheme-year-basis-scheme" class="list">Year basis scheme</h3>
   <p class="markdown">Controlled vocabulary for year-basis references used to contextualize salmon measurements and rates (for example, brood year, catch year, return year).</p>
@@ -2011,6 +2133,21 @@ This section lists the formal classes, properties, and controlled vocabularies t
 <div id="skos-concepts">
 <h3 id="skos-concepts-header" class="list">Concepts</h3>
 <p>This section provides details for each SKOS concept defined in the ontology.</p>
+<div class="entity" id="AbsoluteAbundanceMetricStatus">
+  <h3>Absolute abundance metric status<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#AbsoluteAbundanceMetricStatus</p>
+  <div class="comment">
+    <span class="markdown">Categorical status derived from the absolute abundance metric benchmark ratio.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-wsp-output-variable-scheme">WSP output variable scheme</a></dd>
+  </dl>
+</div>
 <div class="entity" id="###">
   <h3>Abundance data type<sup class="type-skos" title="SKOS concept">skos</sup></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon####</p>
@@ -2039,6 +2176,21 @@ This section lists the formal classes, properties, and controlled vocabularies t
   <dl class="description">
     <dt>In scheme</dt>
     <dd><a href="#scheme-rapid-status-metric-scheme">Rapid status metric scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="AbundancePercentileMetricStatus">
+  <h3>Abundance percentile metric status<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#AbundancePercentileMetricStatus</p>
+  <div class="comment">
+    <span class="markdown">Categorical status derived from abundance percentile metric values.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-wsp-output-variable-scheme">WSP output variable scheme</a></dd>
   </dl>
 </div>
 <div class="entity" id="AerialSurveyCount">
@@ -2323,6 +2475,22 @@ This section lists the formal classes, properties, and controlled vocabularies t
   <dl class="description">
     <dt>In scheme</dt>
     <dd><a href="#scheme-wild-salmon-policy-status-zone">Wild Salmon Policy Status Zone</a></dd>
+    <dd><a href="#scheme-integrated-status-outcome-scheme">Integrated status outcome scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="IntegratedStatusAmberGreen">
+  <h3>Amber/Green integrated status<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#IntegratedStatusAmberGreen</p>
+  <div class="comment">
+    <span class="markdown">Blended integrated status outcome between Amber and Green used when expert evidence supports an intermediate boundary outcome.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-integrated-status-outcome-scheme">Integrated status outcome scheme</a></dd>
   </dl>
 </div>
 <div class="entity" id="AreaUnderTheCurve">
@@ -2467,6 +2635,21 @@ This section lists the formal classes, properties, and controlled vocabularies t
     <dd><a href="#scheme-downgrade-criteria-scheme">Downgrade Criteria Scheme</a></dd>
   </dl>
 </div>
+<div class="entity" id="IntegratedStatusCollapsedCode">
+  <h3>Collapsed integrated status code<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#IntegratedStatusCollapsedCode</p>
+  <div class="comment">
+    <span class="markdown">Short code representation of the three-category collapsed integrated status field.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-wsp-output-variable-scheme">WSP output variable scheme</a></dd>
+  </dl>
+</div>
 <div class="entity" id="ConfidenceCategory">
   <h3>Confidence category<sup class="type-skos" title="SKOS concept">skos</sup></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#ConfidenceCategory</p>
@@ -2480,6 +2663,21 @@ This section lists the formal classes, properties, and controlled vocabularies t
   <dl class="description">
     <dt>In scheme</dt>
     <dd><a href="#scheme-rapid-status-confidence-scheme">Rapid status confidence scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="ConservationUnitName">
+  <h3>Conservation Unit name<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#ConservationUnitName</p>
+  <div class="comment">
+    <span class="markdown">Full Conservation Unit name field used in canonical WSP outputs.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-wsp-output-variable-scheme">WSP output variable scheme</a></dd>
   </dl>
 </div>
 <div class="entity" id="COSEWICStatusScheme">
@@ -2506,6 +2704,21 @@ This section lists the formal classes, properties, and controlled vocabularies t
   <dl class="description">
     <dt>In scheme</dt>
     <dd><a href="#scheme-downgrade-criteria-scheme">Downgrade Criteria Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="IntegratedStatusDataDeficient">
+  <h3>Data deficient integrated status<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#IntegratedStatusDataDeficient</p>
+  <div class="comment">
+    <span class="markdown">Integrated status outcome indicating insufficient information to assign a biological zone outcome.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-integrated-status-outcome-scheme">Integrated status outcome scheme</a></dd>
   </dl>
 </div>
 <div class="entity" id="DataQualityRatingContext">
@@ -2933,6 +3146,7 @@ This section lists the formal classes, properties, and controlled vocabularies t
   <dl class="description">
     <dt>In scheme</dt>
     <dd><a href="#scheme-wild-salmon-policy-status-zone">Wild Salmon Policy Status Zone</a></dd>
+    <dd><a href="#scheme-integrated-status-outcome-scheme">Integrated status outcome scheme</a></dd>
   </dl>
 </div>
 <div class="entity" id="HabitatEcosystemClimateTheme">
@@ -3053,6 +3267,92 @@ This section lists the formal classes, properties, and controlled vocabularies t
     <dd><a href="#scheme-downgrade-criteria-scheme">Downgrade Criteria Scheme</a></dd>
   </dl>
 </div>
+<div class="entity" id="IntegratedStatusThreeCategory">
+  <h3>Integrated status (3-category collapsed)<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#IntegratedStatusThreeCategory</p>
+  <div class="comment">
+    <span class="markdown">Derived integrated-status field where RedAmber collapses to Red, AmberGreen collapses to Amber, and DD/UD are preserved.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-wsp-output-variable-scheme">WSP output variable scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="IntegratedStatusFiveCategoryAlias">
+  <h3>Integrated status (5-category legacy alias)<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#IntegratedStatusFiveCategoryAlias</p>
+  <div class="comment">
+    <span class="markdown">Legacy alias field that duplicates IntStatusRaw in canonical WSP outputs.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-wsp-output-variable-scheme">WSP output variable scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="IntegratedStatusBinary">
+  <h3>Integrated status (binary red/not-red)<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#IntegratedStatusBinary</p>
+  <div class="comment">
+    <span class="markdown">Derived integrated-status field collapsed to Red, NotRed, DD, or UD categories.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-wsp-output-variable-scheme">WSP output variable scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="IntegratedStatusRaw">
+  <h3>Integrated status (raw)<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#IntegratedStatusRaw</p>
+  <div class="comment">
+    <span class="markdown">Expert-assigned integrated WSP status outcome prior to collapsed-category derivations.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-wsp-output-variable-scheme">WSP output variable scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="IntegratedStatusOutcome">
+  <h3>Integrated status outcome<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#IntegratedStatusOutcome</p>
+  <div class="comment">
+    <span class="markdown">Outcome category assigned by integrated WSP status workflows for a Conservation Unit.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-integrated-status-outcome-scheme">Integrated status outcome scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="IntegratedStatusOutcomeScheme">
+  <h3>Integrated status outcome scheme<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#IntegratedStatusOutcomeScheme</p>
+  <div class="comment">
+    <span class="markdown">Controlled vocabulary for integrated-status outcomes used in canonical Wild Salmon Policy output tables (including blended and non-zonal outcomes).</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+</div>
 <div class="entity" id="LifePhase">
   <h3>Life phase<sup class="type-skos" title="SKOS concept">skos</sup></h3>
   <p><strong>IRI:</strong> https://w3id.org/smn/LifePhase</p>
@@ -3092,6 +3392,21 @@ This section lists the formal classes, properties, and controlled vocabularies t
   <dl class="description">
     <dt>In scheme</dt>
     <dd><a href="#scheme-rapid-status-metric-scheme">Rapid status metric scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="LongTermTrendMetricStatus">
+  <h3>Long-term trend metric status<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#LongTermTrendMetricStatus</p>
+  <div class="comment">
+    <span class="markdown">Categorical status derived from the long-term trend metric using WSP status-zone thresholds.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-wsp-output-variable-scheme">WSP output variable scheme</a></dd>
   </dl>
 </div>
 <div class="entity" id="RapidStatusConfidenceLow">
@@ -3279,6 +3594,21 @@ This section lists the formal classes, properties, and controlled vocabularies t
     <dd><a href="#scheme-salmon-origin-scheme">Salmon Origin Scheme</a></dd>
   </dl>
 </div>
+<div class="entity" id="IntegratedStatusNotRed">
+  <h3>Not-red integrated status<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#IntegratedStatusNotRed</p>
+  <div class="comment">
+    <span class="markdown">Binary integrated-status outcome indicating the Conservation Unit is not in Red status after binary collapse of integrated outcomes.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-integrated-status-outcome-scheme">Integrated status outcome scheme</a></dd>
+  </dl>
+</div>
 <div class="entity" id="NumberOfVisits">
   <h3>Number of Visits<sup class="type-skos" title="SKOS concept">skos</sup></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#NumberOfVisits</p>
@@ -3352,6 +3682,21 @@ This section lists the formal classes, properties, and controlled vocabularies t
   <dl class="description">
     <dt>In scheme</dt>
     <dd><a href="#scheme-rapid-status-metric-scheme">Rapid status metric scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="PercentChangeMetricStatus">
+  <h3>Percent change metric status<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#PercentChangeMetricStatus</p>
+  <div class="comment">
+    <span class="markdown">Categorical status derived from the percent-change metric using WSP status-zone thresholds.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-wsp-output-variable-scheme">WSP output variable scheme</a></dd>
   </dl>
 </div>
 <div class="entity" id="PolicyFramework">
@@ -3440,6 +3785,21 @@ This section lists the formal classes, properties, and controlled vocabularies t
     <dd><a href="#scheme-rapid-status-metric-scheme">Rapid status metric scheme</a></dd>
   </dl>
 </div>
+<div class="entity" id="ProbabilityDeclineBelowLowerBenchmarkMetricStatus">
+  <h3>Probability-of-decline-below-lower-benchmark metric status<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#ProbabilityDeclineBelowLowerBenchmarkMetricStatus</p>
+  <div class="comment">
+    <span class="markdown">Categorical status derived from the probability-of-decline-below-lower-benchmark metric.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-wsp-output-variable-scheme">WSP output variable scheme</a></dd>
+  </dl>
+</div>
 <div class="entity" id="QualityAnnotation">
   <h3>Quality Annotation<sup class="type-skos" title="SKOS concept">skos</sup></h3>
   <p><strong>IRI:</strong> http://www.w3.org/ns/dqv#QualityAnnotation</p>
@@ -3500,6 +3860,21 @@ This section lists the formal classes, properties, and controlled vocabularies t
     <dd><a href="#scheme-rapid-status-metric-scheme">Rapid status metric scheme</a></dd>
   </dl>
 </div>
+<div class="entity" id="IntegratedStatusRawCode">
+  <h3>Raw integrated status code<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#IntegratedStatusRawCode</p>
+  <div class="comment">
+    <span class="markdown">Short code representation of IntegratedStatusRaw values.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-wsp-output-variable-scheme">WSP output variable scheme</a></dd>
+  </dl>
+</div>
 <div class="entity" id="ReachCoverage">
   <h3>Reach Coverage<sup class="type-skos" title="SKOS concept">skos</sup></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#ReachCoverage</p>
@@ -3543,6 +3918,22 @@ This section lists the formal classes, properties, and controlled vocabularies t
   <dl class="description">
     <dt>In scheme</dt>
     <dd><a href="#scheme-wild-salmon-policy-status-zone">Wild Salmon Policy Status Zone</a></dd>
+    <dd><a href="#scheme-integrated-status-outcome-scheme">Integrated status outcome scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="IntegratedStatusRedAmber">
+  <h3>Red/Amber integrated status<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#IntegratedStatusRedAmber</p>
+  <div class="comment">
+    <span class="markdown">Blended integrated status outcome between Red and Amber used when expert evidence supports an intermediate boundary outcome.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-integrated-status-outcome-scheme">Integrated status outcome scheme</a></dd>
   </dl>
 </div>
 <div class="entity" id="ReddCount">
@@ -3573,6 +3964,21 @@ This section lists the formal classes, properties, and controlled vocabularies t
   <dl class="description">
     <dt>In scheme</dt>
     <dd><a href="#scheme-escapement-estimate-method-scheme">Escapement Estimate Method Scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="RelativeAbundanceMetricStatus">
+  <h3>Relative abundance metric status<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RelativeAbundanceMetricStatus</p>
+  <div class="comment">
+    <span class="markdown">Categorical status derived from the relative abundance metric benchmark ratio.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-wsp-output-variable-scheme">WSP output variable scheme</a></dd>
   </dl>
 </div>
 <div class="entity" id="ReturnYear">
@@ -3689,6 +4095,21 @@ This section lists the formal classes, properties, and controlled vocabularies t
   <dl class="description">
     <dt>In scheme</dt>
     <dd><a href="#scheme-measurement-context-scheme">Measurement context scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="Species">
+  <h3>Species<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#Species</p>
+  <div class="comment">
+    <span class="markdown">Species identity field used in canonical WSP outputs.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-wsp-output-variable-scheme">WSP output variable scheme</a></dd>
   </dl>
 </div>
 <div class="entity" id="SpeciesAtRiskRecoveryTheme">
@@ -3938,6 +4359,21 @@ This section lists the formal classes, properties, and controlled vocabularies t
     <dd><a href="#scheme-escapement-estimate-type-scheme">Escapement Estimate Type Scheme</a></dd>
   </dl>
 </div>
+<div class="entity" id="IntegratedStatusUndetermined">
+  <h3>Undetermined integrated status<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#IntegratedStatusUndetermined</p>
+  <div class="comment">
+    <span class="markdown">Integrated status outcome used when an assessment is unresolved or pending completion.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-integrated-status-outcome-scheme">Integrated status outcome scheme</a></dd>
+  </dl>
+</div>
 <div class="entity" id="UnrankedIndexQuality">
   <h3>Unranked index quality<sup class="type-skos" title="SKOS concept">skos</sup></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#UnrankedIndexQuality</p>
@@ -4084,6 +4520,32 @@ This section lists the formal classes, properties, and controlled vocabularies t
     <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
   </dl>
 </div>
+<div class="entity" id="WSPOutputVariable">
+  <h3>WSP output variable<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#WSPOutputVariable</p>
+  <div class="comment">
+    <span class="markdown">A canonical variable field used in approved Wild Salmon Policy output tables.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+  <dl class="description">
+    <dt>In scheme</dt>
+    <dd><a href="#scheme-wsp-output-variable-scheme">WSP output variable scheme</a></dd>
+  </dl>
+</div>
+<div class="entity" id="WSPOutputVariableScheme">
+  <h3>WSP output variable scheme<sup class="type-skos" title="SKOS concept">skos</sup></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#WSPOutputVariableScheme</p>
+  <div class="comment">
+    <span class="markdown">Controlled vocabulary for canonical WSP output variables used in rapid-status and integrated-status exports.</span>
+  </div>
+  <dl class="definedBy">
+    <dt>Is defined by</dt>
+    <dd><a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a></dd>
+  </dl>
+</div>
 <div class="entity" id="WSPRapidStatusAssessmentMethod">
   <h3>WSP rapid-status assessment method<sup class="type-skos" title="SKOS concept">skos</sup></h3>
   <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#WSPRapidStatusAssessmentMethod</p>
@@ -4185,7 +4647,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <li><a href="#https://w3id.org/smn/Life-HistoryCharacteristic" title="https://w3id.org/smn/Life-HistoryCharacteristic">Life-history characteristic</a></li>
   <li><a href="#https://w3id.org/smn/LimitReferencePoint" title="https://w3id.org/smn/LimitReferencePoint">Limit reference point</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/ENVO_01000618" title="http://purl.obolibrary.org/obo/ENVO_01000618">lotic water body</a></li>
-  <li><a href="#https://w3id.org/smn/LowerBiologicalBenchmark" title="https://w3id.org/smn/LowerBiologicalBenchmark">Lower biological benchmark</a></li>
+  <li><a href="#LowerBiologicalBenchmark" title="https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark">Lower biological benchmark</a></li>
   <li><a href="#MainstemMortalityRate" title="https://w3id.org/gcdfo/salmon#MainstemMortalityRate">Mainstem mortality rate</a></li>
   <li><a href="#MarineSurvivalIndex" title="https://w3id.org/gcdfo/salmon#MarineSurvivalIndex">Marine survival index</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/BFO_0000040" title="http://purl.obolibrary.org/obo/BFO_0000040">material entity</a></li>
@@ -4262,7 +4724,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <li><a href="#https://w3id.org/smn/totalLength" title="https://w3id.org/smn/totalLength">Total length</a></li>
   <li><a href="#https://w3id.org/smn/TotalLengthMeasurement" title="https://w3id.org/smn/TotalLengthMeasurement">Total length measurement</a></li>
   <li><a href="#TotalMortalityRate" title="https://w3id.org/gcdfo/salmon#TotalMortalityRate">Total mortality rate</a></li>
-  <li><a href="#https://w3id.org/smn/UpperBiologicalBenchmark" title="https://w3id.org/smn/UpperBiologicalBenchmark">Upper biological benchmark</a></li>
+  <li><a href="#UpperBiologicalBenchmark" title="https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark">Upper biological benchmark</a></li>
   <li><a href="#UpperStockReferencePoint" title="https://w3id.org/gcdfo/salmon#UpperStockReferencePoint">Upper stock reference</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/ENVO_00000063" title="http://purl.obolibrary.org/obo/ENVO_00000063">water body</a></li>
   <li><a href="#WSPRapidStatus" title="https://w3id.org/gcdfo/salmon#WSPRapidStatus">WSP rapid status</a></li>
@@ -5510,9 +5972,9 @@ This section provides details for each class and property defined by DFO Salmon 
    </dd>
   </dl>
  </div>
- <div class="entity" id="https://w3id.org/smn/LowerBiologicalBenchmark">
+ <div class="entity" id="LowerBiologicalBenchmark">
   <h3>Lower biological benchmark<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/smn/LowerBiologicalBenchmark</p>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark</p>
   <div class="comment">
    <span class="markdown">Lower benchmark value for a Conservation Unit (CU) metric used to delineate Wild Salmon Policy status zones (typically the boundary between Red and Amber zones). This CU-level biological benchmark is distinct from SMU-level fisheries management lower reference points such as FRP-L.</span>
   </div>
@@ -5806,7 +6268,7 @@ This section provides details for each class and property defined by DFO Salmon 
     has sub-classes
    </dt>
    <dd>
-    <a href="#https://w3id.org/smn/LowerBiologicalBenchmark" title="https://w3id.org/smn/LowerBiologicalBenchmark">Lower biological benchmark</a> <sup class="type-c" title="class">c</sup>, <a href="#https://w3id.org/smn/UpperBiologicalBenchmark" title="https://w3id.org/smn/UpperBiologicalBenchmark">Upper biological benchmark</a> <sup class="type-c" title="class">c</sup>
+    <a href="#LowerBiologicalBenchmark" title="https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark">Lower biological benchmark</a> <sup class="type-c" title="class">c</sup>, <a href="#UpperBiologicalBenchmark" title="https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark">Upper biological benchmark</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -7738,9 +8200,9 @@ This section provides details for each class and property defined by DFO Salmon 
    </dd>
   </dl>
  </div>
- <div class="entity" id="https://w3id.org/smn/UpperBiologicalBenchmark">
+ <div class="entity" id="UpperBiologicalBenchmark">
   <h3>Upper biological benchmark<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/smn/UpperBiologicalBenchmark</p>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark</p>
   <div class="comment">
    <span class="markdown">Upper benchmark value for a metric used to delineate Wild Salmon Policy status zones (typically the boundary between Amber and Green zones).</span>
   </div>
@@ -9029,6 +9491,13 @@ This section provides details for each class and property defined by DFO Salmon 
 <li>Added: SubClass of https://w3id.org/smn/ObservedRateOrAbundance</li>
 </ul>
 </li>
+<li><a href="#IntegratedStatusOutcome">https://w3id.org/gcdfo/salmon#IntegratedStatusOutcome</a>
+</li>
+<li><a href="#LowerBiologicalBenchmark">https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark</a>
+<ul>
+<li>Added: SubClass of https://w3id.org/smn/MetricBenchmark</li>
+</ul>
+</li>
 <li><a href="#MainstemMortalityRate">https://w3id.org/gcdfo/salmon#MainstemMortalityRate</a>
 <ul>
 <li>Added: SubClass of https://w3id.org/smn/ObservedRateOrAbundance</li>
@@ -9154,6 +9623,11 @@ This section provides details for each class and property defined by DFO Salmon 
 <li><a href="#TotalMortalityRate">https://w3id.org/gcdfo/salmon#TotalMortalityRate</a>
 <ul>
 <li>Added: SubClass of https://w3id.org/smn/ObservedRateOrAbundance</li>
+</ul>
+</li>
+<li><a href="#UpperBiologicalBenchmark">https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark</a>
+<ul>
+<li>Added: SubClass of https://w3id.org/smn/MetricBenchmark</li>
 </ul>
 </li>
 <li><a href="#WSPRapidStatusAlgorithmThreshold">https://w3id.org/gcdfo/salmon#WSPRapidStatusAlgorithmThreshold</a>
@@ -9324,11 +9798,6 @@ This section provides details for each class and property defined by DFO Salmon 
 <li>Added: SubClass of https://w3id.org/smn/ReferencePoint</li>
 </ul>
 </li>
-<li><a href="#https://w3id.org/smn/LowerBiologicalBenchmark">https://w3id.org/smn/LowerBiologicalBenchmark</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/MetricBenchmark</li>
-</ul>
-</li>
 <li><a href="#https://w3id.org/smn/Measurement">https://w3id.org/smn/Measurement</a>
 <ul>
 <li>Added: SubClass of https://w3id.org/smn/Observation</li>
@@ -9455,11 +9924,6 @@ This section provides details for each class and property defined by DFO Salmon 
 <li><a href="#https://w3id.org/smn/TotalLengthMeasurement">https://w3id.org/smn/TotalLengthMeasurement</a>
 <ul>
 <li>Added: SubClass of https://w3id.org/smn/FishLengthMeasurementType</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/UpperBiologicalBenchmark">https://w3id.org/smn/UpperBiologicalBenchmark</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/MetricBenchmark</li>
 </ul>
 </li>
 <li><a href="#https://w3id.org/smn/alevin">https://w3id.org/smn/alevin</a>
