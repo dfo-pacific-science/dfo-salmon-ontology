@@ -321,6 +321,73 @@ summary:focus-visible {
   border-color: var(--bs-link-color);
 }
 
+.gcdfo-start-here {
+  margin: 1rem 0 1.35rem;
+  padding: 1rem 1rem 1.1rem;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 0.9rem;
+  background: linear-gradient(180deg, rgba(37, 99, 235, 0.05), rgba(37, 99, 235, 0.02));
+}
+
+.gcdfo-start-here-hero > :last-child {
+  margin-bottom: 0;
+}
+
+.gcdfo-eyebrow {
+  margin: 0 0 0.3rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bs-secondary-color);
+}
+
+.gcdfo-start-here h2 {
+  margin-top: 0;
+  margin-bottom: 0.45rem;
+}
+
+.gcdfo-start-here-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.8rem;
+  margin-top: 0.95rem;
+}
+
+.gcdfo-intro-card {
+  padding: 0.8rem 0.9rem;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 0.8rem;
+  background: var(--bs-body-bg);
+  box-shadow: 0 1px 0 rgba(15, 23, 42, 0.04);
+}
+
+.gcdfo-intro-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.45rem;
+  border-bottom: 0;
+  padding-bottom: 0;
+  font-size: 1rem;
+}
+
+.gcdfo-intro-card ul,
+.gcdfo-intro-card ol {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+.gcdfo-intro-card li + li {
+  margin-top: 0.35rem;
+}
+
+.gcdfo-start-here-note {
+  margin: 0.9rem 0 0;
+  padding: 0.7rem 0.85rem;
+  border-left: 4px solid #2563eb;
+  border-radius: 0.45rem;
+  background: rgba(37, 99, 235, 0.08);
+}
+
 .gcdfo-badge-legacy {
   display: inline-block;
   margin-left: 0.4rem;

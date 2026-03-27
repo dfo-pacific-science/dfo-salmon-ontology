@@ -12,6 +12,57 @@ import re
 from pathlib import Path
 
 
+INTRO_MARKER_START = "<!-- BEGIN gcdfo start-here -->"
+INTRO_MARKER_END = "<!-- END gcdfo start-here -->"
+INTRO_HTML = f"""
+{INTRO_MARKER_START}
+<section class=\"gcdfo-start-here\" id=\"start-here\" aria-labelledby=\"start-here-title\">
+  <div class=\"gcdfo-start-here-hero\">
+    <p class=\"gcdfo-eyebrow\">Start here</p>
+    <h2 id=\"start-here-title\">A reviewer-friendly overview for scientists and biologists</h2>
+    <p>This ontology is a shared vocabulary and relationship map for DFO Pacific salmon data. Its job is to make terms like Conservation Unit, survey event, spawner abundance, reference point, and status zone mean the same thing across datasets, methods, assessments, and reporting products.</p>
+  </div>
+  <div class=\"gcdfo-start-here-grid\">
+    <section class=\"gcdfo-intro-card\" aria-labelledby=\"gcdfo-what-is\">
+      <h3 id=\"gcdfo-what-is\">What this is</h3>
+      <ul>
+        <li>An operational ontology for Pacific salmon science, assessment, and data stewardship at DFO.</li>
+        <li>A way to connect field observations -&gt; measurements/results -&gt; assessments -&gt; reference points and status concepts.</li>
+        <li>A place to standardize controlled vocabularies such as status zones, benchmark types, and method schemes.</li>
+      </ul>
+    </section>
+    <section class=\"gcdfo-intro-card\" aria-labelledby=\"gcdfo-what-is-not\">
+      <h3 id=\"gcdfo-what-is-not\">What this is not</h3>
+      <ul>
+        <li>Not a complete ontology of salmon biology or ecology.</li>
+        <li>Not a replacement for scientific judgment or program-specific methods.</li>
+        <li>Not raw data; it is the schema and vocabulary that help raw data line up.</li>
+      </ul>
+    </section>
+    <section class=\"gcdfo-intro-card\" id=\"gcdfo-review-paths\" aria-labelledby=\"gcdfo-review-paths-title\">
+      <h3 id=\"gcdfo-review-paths-title\">Suggested review path</h3>
+      <ol>
+        <li><strong>Units:</strong> <a href=\"#ConservationUnit\">Conservation Unit</a>, <a href=\"#https://w3id.org/smn/Population\">Population</a>, <a href=\"#StockManagementUnit\">Stock Management Unit</a>, <a href=\"#https://w3id.org/smn/Stock\">Stock</a>.</li>
+        <li><strong>Assessment flow:</strong> <a href=\"#https://w3id.org/smn/SurveyEvent\">Survey event</a> -&gt; <a href=\"#SpawnerAbundance\">Spawner abundance</a> / results -&gt; <a href=\"#https://w3id.org/smn/StockAssessment\">Stock assessment</a> -&gt; <a href=\"#WSPBiologicalStatusZoneScheme\">WSP status zone</a> and reference points.</li>
+        <li><strong>Controlled vocabularies:</strong> go to the <a href=\"#skos\">SKOS</a> section for code-list style terms and approved value schemes.</li>
+      </ol>
+    </section>
+    <section class=\"gcdfo-intro-card\" aria-labelledby=\"gcdfo-use-page\">
+      <h3 id=\"gcdfo-use-page\">How to use this page</h3>
+      <ul>
+        <li>Use <strong>Search terms</strong> at the top right, or press <kbd>/</kbd>.</li>
+        <li>Use the quick-jump chips for major sections.</li>
+        <li>Browse <strong>Classes</strong> for entities and processes, and <strong>Object properties</strong> for relationships.</li>
+        <li>Open <strong>WebVOWL</strong> for a high-level structure view, then use the detailed term pages when checking definitions and links.</li>
+      </ul>
+    </section>
+  </div>
+  <p class=\"gcdfo-start-here-note\"><strong>Why this matters:</strong> this is the contract that helps biological meaning survive when data move between field programs, stock assessments, genetics workflows, dashboards, and reporting products.</p>
+</section>
+{INTRO_MARKER_END}
+""".strip()
+
+
 def _canonicalize_change_lists(content: str) -> str:
     """Sort Added/Deleted changelog <ul> blocks to make docs generation idempotent.
 
@@ -44,6 +95,24 @@ def _canonicalize_change_lists(content: str) -> str:
     return ul_pattern.sub(_normalize_ul, content)
 
 
+def _upsert_intro_panel(content: str) -> str:
+    if INTRO_MARKER_START in content and INTRO_MARKER_END in content:
+        pattern = re.compile(
+            rf"{re.escape(INTRO_MARKER_START)}.*?{re.escape(INTRO_MARKER_END)}",
+            flags=re.S,
+        )
+        return pattern.sub(INTRO_HTML, content, count=1)
+
+    if '<div class="status">' in content:
+        return content.replace('<div class="status">', INTRO_HTML + '\n<div class="status">', 1)
+
+    return content
+
+
+OVERVIEW_OLD = """<span class=\"markdown\">\nThis ontology has the following classes and properties.</span>"""
+OVERVIEW_NEW = """<span class=\"markdown\">\nThis section lists the formal classes, properties, and controlled vocabularies that implement the overview above. If you are reviewing from a science or biology perspective, start with the <a href=\"#start-here\">Start here</a> panel first.</span>"""
+
+
 def patch_html(path: Path) -> None:
     content = path.read_text(encoding="utf-8")
     original = content
@@ -51,6 +120,10 @@ def patch_html(path: Path) -> None:
     # Title/name text normalization
     content = content.replace("GC DFO Salmon Ontology", "DFO Salmon Ontology")
     content = content.replace("Ontology Specification Draft", "Ontology Specification")
+
+    # Add reviewer-friendly intro near the top of the page.
+    content = _upsert_intro_panel(content)
+    content = content.replace(OVERVIEW_OLD, OVERVIEW_NEW)
 
     # Expand overview sections by default (index.html structure)
     content = re.sub(

@@ -134,6 +134,7 @@
 
   function chooseTargets() {
     var targets = [
+      { id: "start-here", label: "Start here" },
       { id: "overv", label: "Overview" },
       { id: "classes-headline", label: "Classes" },
       { id: "objectproperties", label: "Object properties" },
