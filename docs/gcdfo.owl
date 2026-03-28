@@ -1967,6 +1967,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <dcterms:source rdf:resource="https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Absolute abundance metric status</rdfs:label>
         <skos:altLabel xml:lang="en">AbsAbdCat</skos:altLabel>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#WSPOutputVariable"/>
         <skos:definition xml:lang="en">Categorical status derived from the absolute abundance metric benchmark ratio.</skos:definition>
@@ -1992,6 +1993,7 @@
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Abundance data type</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/smn/MeasurementContext"/>
         <skos:definition xml:lang="en">A categorical attribute indicating whether an abundance time series is recorded as absolute abundance or as a relative index (used by rapid-status workflows).</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/smn/MeasurementContextScheme"/>
@@ -2013,6 +2015,7 @@
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Abundance percentile metric</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#RapidStatusMetric"/>
         <skos:definition xml:lang="en">An abundance percentile metric giving the percentile rank of the current generational average spawner abundance relative to a historical reference distribution.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#RapidStatusMetricScheme"/>
@@ -2033,6 +2036,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <dcterms:source rdf:resource="https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Abundance percentile metric status</rdfs:label>
         <skos:altLabel xml:lang="en">PercentileCat</skos:altLabel>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#WSPOutputVariable"/>
         <skos:definition xml:lang="en">Categorical status derived from abundance percentile metric values.</skos:definition>
@@ -2055,6 +2059,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Legacy methods: Helicopter, Fixed Wing Aircraft, Aerial, Drone, UAS, UAV</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Aerial Survey Count</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/smn/EnumerationMethod"/>
         <skos:definition xml:lang="en">Overflights (helicopter, fixed wing, or drone) with documented flight lines, coverage, visibility, and sensor settings. Imagery may be reviewed post-flight.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EnumerationMethodScheme"/>
@@ -2070,6 +2075,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#Age1YearClass">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Age 1 year class</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#AgeClassValue"/>
         <skos:definition xml:lang="en">Age class value 1 year.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#AgeClassValueScheme"/>
@@ -2085,6 +2091,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#Age2YearClass">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Age 2 year class</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#AgeClassValue"/>
         <skos:definition xml:lang="en">Age class value 2 years.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#AgeClassValueScheme"/>
@@ -2100,6 +2107,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#Age3YearClass">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Age 3 year class</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#AgeClassValue"/>
         <skos:definition xml:lang="en">Age class value 3 years.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#AgeClassValueScheme"/>
@@ -2115,6 +2123,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#Age4YearClass">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Age 4 year class</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#AgeClassValue"/>
         <skos:definition xml:lang="en">Age class value 4 years.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#AgeClassValueScheme"/>
@@ -2130,6 +2139,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#Age5YearClass">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Age 5 year class</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#AgeClassValue"/>
         <skos:definition xml:lang="en">Age class value 5 years.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#AgeClassValueScheme"/>
@@ -2145,6 +2155,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#Age6YearClass">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Age 6 year class</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#AgeClassValue"/>
         <skos:definition xml:lang="en">Age class value 6 years.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#AgeClassValueScheme"/>
@@ -2160,6 +2171,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#Age7YearClass">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Age 7 year class</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#AgeClassValue"/>
         <skos:definition xml:lang="en">Age class value 7 years.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#AgeClassValueScheme"/>
@@ -2175,6 +2187,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#AgeAtMaturityBasis">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Age at maturity basis</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#AgeBasis"/>
         <skos:definition xml:lang="en">Age measured at maturity.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#AgeBasisScheme"/>
@@ -2190,6 +2203,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#AgeAtReturnBasis">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Age at return basis</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#AgeBasis"/>
         <skos:definition xml:lang="en">Age measured at return migration (adult return timing).</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#AgeBasisScheme"/>
@@ -2205,6 +2219,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#AgeAtSamplingBasis">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Age at sampling basis</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#AgeBasis"/>
         <skos:definition xml:lang="en">Age measured at the time of sampling or observation.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#AgeBasisScheme"/>
@@ -2220,6 +2235,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#AgeBasis">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Age basis</rdfs:label>
         <skos:definition xml:lang="en">The reference event or life-history point that an age value is measured against.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#AgeBasisScheme"/>
         <skos:prefLabel xml:lang="en">Age basis</skos:prefLabel>
@@ -2248,6 +2264,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#AgeClassValue">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Age class value</rdfs:label>
         <skos:definition xml:lang="en">An integer-like age class value used as a compositional constraint in salmon measurements.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#AgeClassValueScheme"/>
         <skos:prefLabel xml:lang="en">Age class value</skos:prefLabel>
@@ -2274,6 +2291,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#AgeDimension">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Age dimension</rdfs:label>
         <skos:definition xml:lang="en">The age component represented by a value (total age, freshwater years, or ocean years).</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#AgeDimensionScheme"/>
         <skos:prefLabel xml:lang="en">Age dimension</skos:prefLabel>
@@ -2300,6 +2318,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#AgeNotation">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Age notation</rdfs:label>
         <skos:definition xml:lang="en">A notation system used to encode salmon age values in stock assessment data.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#AgeNotationScheme"/>
         <skos:prefLabel xml:lang="en">Age notation</skos:prefLabel>
@@ -2332,6 +2351,7 @@
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Amber zone</rdfs:label>
         <skos:definition xml:lang="en">Amber status implies caution in the management of the Conservation Unit. While a CU in the Amber zone should be at a low risk of loss, there will be a degree of lost production. Decisions about the conservation of CUs in the Amber zone will involve broader consideration of biological, social, and economic issues. </skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#IntegratedStatusOutcomeScheme"/>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZoneScheme"/>
@@ -2348,6 +2368,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#AreaUnderTheCurve">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Area Under the Curve</rdfs:label>
         <skos:altLabel xml:lang="en">AUC</skos:altLabel>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#EstimateMethod"/>
         <skos:definition xml:lang="en">Integrates serial counts over time using a survey-life parameter; may apply observer efficiency.</skos:definition>
@@ -2381,6 +2402,7 @@
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Benchmark ratio metric</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#RapidStatusMetric"/>
         <skos:definition xml:lang="en">A benchmark-ratio metric equal to the ratio of current generational average spawner abundance to a specified benchmark (lower or upper benchmark), where 1.0 indicates equality to that benchmark.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#RapidStatusMetricScheme"/>
@@ -2416,6 +2438,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Limits to Type 2 maximum</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Bypass/Breach Risk</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteria"/>
         <skos:definition xml:lang="en">Bypass or breach risks not monitored and verified negligible</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteriaScheme"/>
@@ -2434,6 +2457,7 @@
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Brood year</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#YearBasis"/>
         <skos:closeMatch rdf:resource="http://purl.dataone.org/odo/SALMON_00000520"/>
         <skos:definition xml:lang="en">The parental year for a group of returning salmon, i.e. the calendar year when the majority of parents of these fish spawned.</skos:definition>
@@ -2466,6 +2490,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Document calibration source years, transferability, diagnostics. Type-2 when calibration robust and applicable; else Type-3.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Calibrated Time Series</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#EstimateMethod"/>
         <skos:definition xml:lang="en">Regression/state-space model calibrated to a Type-1/2 series converts a lower-precision index to abundance.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EstimateMethodScheme"/>
@@ -2482,6 +2507,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <obo:IAO_0000115 xml:lang="en">The calendar year in which returning salmon are caught in fisheries (as opposed to the brood year in which the cohort was spawned).</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Catch year</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#YearBasis"/>
         <skos:definition xml:lang="en">The calendar year in which returning salmon are caught in fisheries (as opposed to the brood year in which the cohort was spawned).</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#YearBasisScheme"/>
@@ -2498,6 +2524,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Limits to Type 3 maximum</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Classification</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteria"/>
         <skos:definition xml:lang="en">Classification/attribution not documented</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteriaScheme"/>
@@ -2522,6 +2549,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <dcterms:source rdf:resource="https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Conservation Unit name</rdfs:label>
         <skos:altLabel xml:lang="en">Stock (canonical WSP output column label)</skos:altLabel>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#WSPOutputVariable"/>
         <skos:definition xml:lang="en">Full Conservation Unit name field used in canonical WSP outputs.</skos:definition>
@@ -2542,6 +2570,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Limits to Type 2 maximum</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Cross-section Coverage</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteria"/>
         <skos:definition xml:lang="en">Incomplete cross-section coverage</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteriaScheme"/>
@@ -2557,6 +2586,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Data, Models, and Provenance</rdfs:label>
         <skos:definition xml:lang="en">Data models, analytical workflows, provenance, quality dimensions, and metadata supporting salmon science.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#ThemeScheme"/>
         <skos:prefLabel xml:lang="en">Data, Models, and Provenance</skos:prefLabel>
@@ -2570,6 +2600,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#DataQualityRatingContext">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Data quality rating context</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/smn/MeasurementContext"/>
         <skos:definition xml:lang="en">Measurement context indicating categorical or ordinal quality ratings.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/smn/MeasurementContextScheme"/>
@@ -2585,6 +2616,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Limits to Type 3 maximum</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Detectability</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteria"/>
         <skos:definition xml:lang="en">Detectability factors not validated</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteriaScheme"/>
@@ -2601,6 +2633,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Limits to Type 2 maximum</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Device Configuration</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteria"/>
         <skos:definition xml:lang="en">Device not within operational specifications</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteriaScheme"/>
@@ -2617,6 +2650,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Downgrades Type 1/2 by one level</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Documentation</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteria"/>
         <skos:definition xml:lang="en">Missing SIL/SEN logs or QA/methods report</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteriaScheme"/>
@@ -2632,6 +2666,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#DowngradeCriteria">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Downgrade Criteria</rdfs:label>
         <skos:definition xml:lang="en">Criteria that may result in downgrading an escapement estimate type classification</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteriaScheme"/>
         <skos:prefLabel xml:lang="en">Downgrade Criteria</skos:prefLabel>
@@ -2660,6 +2695,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Limits to Type 4 maximum</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Effort Standardization</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteria"/>
         <skos:definition xml:lang="en">Effort not standardized</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteriaScheme"/>
@@ -2676,6 +2712,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Legacy methods: Electrofishing, Electroshocking</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Electrofishing Count</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/smn/EnumerationMethod"/>
         <skos:definition xml:lang="en">Effort-standardized electrofishing passes used to generate catch-per-unit-effort (CPUE) indices.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EnumerationMethodScheme"/>
@@ -2705,6 +2742,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Limits to Type 2 maximum</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Environmental Conditions</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteria"/>
         <skos:definition xml:lang="en">Environmental conditions outside specifications</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteriaScheme"/>
@@ -2720,6 +2758,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#EstimateMethod">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Estimate Method</rdfs:label>
         <skos:definition xml:lang="en">A method used to analyze and estimate salmon abundance from enumeration data</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EstimateMethodScheme"/>
         <skos:prefLabel xml:lang="en">Estimate Method</skos:prefLabel>
@@ -2747,6 +2786,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#EstimateType">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Estimate Type</rdfs:label>
         <skos:definition xml:lang="en">Classification of escapement estimate quality based on Hyatt 1997 framework</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EstimateTypeScheme"/>
         <skos:prefLabel xml:lang="en">Estimate Type</skos:prefLabel>
@@ -2775,6 +2815,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <dcterms:source rdf:resource="https://www.pac.dfo-mpo.gc.ca/fm-gp/fraser/docs/archiv-reports-rapports/indigenous-autochtone/2010FrasRvrChkInformDoc.htm"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">European age notation</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#AgeNotation"/>
         <skos:definition xml:lang="en">Salmon age notation that records freshwater years followed by ocean years (for example, 1.2).</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#AgeNotationScheme"/>
@@ -2794,6 +2835,7 @@
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. 2021. Marine Survival Forecast of Southern British Columbia Coho (describes applying expansion factors to PIT detections to estimate total escapement).</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://waves-vagues.dfo-mpo.gc.ca/Library/40978680.pdf"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Expansion factor</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#ExpansionMathematicalOperations"/>
         <skos:definition xml:lang="en">A multiplicative factor used to expand observed counts or detections from a sampled subset (e.g., indicator sites, PIT detections) to an estimated total abundance or escapement.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EstimateMethodScheme"/>
@@ -2810,6 +2852,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Legacy methods: Lake Expansion, Redd Expansion, Peak×Factor, (Peak+CumDead)×Factor, Addition/Subtraction, Multiplication/Division. Inherits base method&apos;s Type; weak provenance = downgrade one Type.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Expansion/Mathematical Operations</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#EstimateMethod"/>
         <skos:definition xml:lang="en">Applies expansion factors or arithmetic transforms to a base count/index.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EstimateMethodScheme"/>
@@ -2825,6 +2868,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#FishStockProvisions">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Fish Stocks Provisions</rdfs:label>
         <skos:altLabel xml:lang="en">FSP</skos:altLabel>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#PolicyFramework"/>
         <skos:definition xml:lang="en">Legal provisions in Canada&apos;s Fisheries Act and regulations related to maintaining and rebuilding fish stocks, including obligations triggered when reference points are breached.</skos:definition>
@@ -2842,6 +2886,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#FisheriesManagementTheme">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Fisheries Management</rdfs:label>
         <skos:definition xml:lang="en">Fishery openings, harvest control rules, catch/effort measures, and exploitation monitoring for salmon fisheries.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#ThemeScheme"/>
         <skos:prefLabel xml:lang="en">Fisheries Management</skos:prefLabel>
@@ -2856,6 +2901,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Legacy methods: Electronic/Optical counter, Resistivity Counter, Video/Camera counter</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Fixed Site Census (Electronic)</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/smn/EnumerationMethod"/>
         <skos:definition xml:lang="en">Automated counting at a constrained opening using electronic/optical counters, resistivity counters, or video/camera systems. QA review of automated events, cross-section coverage, and uptime/coverage are documented.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EnumerationMethodScheme"/>
@@ -2872,6 +2918,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Legacy methods: Fence, Weir, Fixed Site Census (manual)</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Fixed Site Census (Manual)</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/smn/EnumerationMethod"/>
         <skos:definition xml:lang="en">Salmon are guided through a controlled opening in a fence/weir where trained observers visually tally each passage event on a continuous or daily schedule. Counting chambers/windows and SIL/SEN daily logs document coverage; bypass routes are monitored and closed where possible.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EnumerationMethodScheme"/>
@@ -2887,6 +2934,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#FixedStationTally">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Fixed‑Station Tally</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#EstimateMethod"/>
         <skos:definition xml:lang="en">Seasonal total = roll‑up of daily/continuous counts from a fixed (non‑sonar) station; simple arithmetic with documented coverage.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EstimateMethodScheme"/>
@@ -2902,6 +2950,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#FreshwaterAgeDimension">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Freshwater age dimension</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#AgeDimension"/>
         <skos:definition xml:lang="en">Age value represents years spent in freshwater.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#AgeDimensionScheme"/>
@@ -2920,6 +2969,7 @@
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Generational average abundance</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#RapidStatusMetric"/>
         <skos:definition xml:lang="en">The generational average of spawner abundance, calculated as a geometric mean across the number of years corresponding to the most common age at return (generation length), optionally after smoothing depending on CU group.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#RapidStatusMetricScheme"/>
@@ -2939,6 +2989,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#GeneticsStockCompositionTheme">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Genetics and Stock Composition</rdfs:label>
         <skos:definition xml:lang="en">Genetic markers, assays, and analyses used to infer stock composition, parentage, and population structure.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#ThemeScheme"/>
         <skos:prefLabel xml:lang="en">Genetics and Stock Composition</skos:prefLabel>
@@ -2953,6 +3004,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <dcterms:source rdf:resource="https://www.pac.dfo-mpo.gc.ca/fm-gp/fraser/docs/archiv-reports-rapports/indigenous-autochtone/2010FrasRvrChkInformDoc.htm"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Gilbert-Rich age notation</rdfs:label>
         <skos:altLabel xml:lang="en">GR age notation</skos:altLabel>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#AgeNotation"/>
         <skos:definition xml:lang="en">Salmon age notation where total age is annotated with freshwater years as a subscript-like suffix (for example, 4_2 for total age 4 with 2 freshwater years).</skos:definition>
@@ -2974,6 +3026,7 @@
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Green zone</rdfs:label>
         <skos:definition xml:lang="en">Social and economic considerations will tend to be the primary drivers for the management of Conservation Units in the Green zone, though ecosystem or other non-consumptive use values could also be considered.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#IntegratedStatusOutcomeScheme"/>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZoneScheme"/>
@@ -2990,6 +3043,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#HabitatEcosystemClimateTheme">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Habitat, Ecosystem, and Climate Pressures</rdfs:label>
         <skos:definition xml:lang="en">Habitat attributes, ecosystem conditions, and climate or environmental stressors affecting salmon.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#ThemeScheme"/>
         <skos:prefLabel xml:lang="en">Habitat, Ecosystem, and Climate Pressures</skos:prefLabel>
@@ -3004,6 +3058,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Legacy methods: Hydroacoustics, Sonar (ARIS/DIDSON). Not Type-1 under Hyatt; interpolation and classification error are central downgrades.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Hydroacoustic Modelling</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#EstimateMethod"/>
         <skos:definition xml:lang="en">Model pipeline converts sonar detections to passage totals; sets range/angle/blind zones; species/size attribution rules documented.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EstimateMethodScheme"/>
@@ -3020,6 +3075,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Legacy methods: Sonar-ARIS, Sonar-DIDSON, Hydroacoustic</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Hydroacoustic Sonar Count</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/smn/EnumerationMethod"/>
         <skos:definition xml:lang="en">Sonar detections (ARIS, DIDSON, or other hydroacoustic systems) with documented coverage, visibility/noise conditions, and uptime. Raw detections require processing through a modelling/classification pipeline.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EnumerationMethodScheme"/>
@@ -3036,6 +3092,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Limits to Type 2 maximum</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Infill Method</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteria"/>
         <skos:definition xml:lang="en">Interpolation used for missing data; defensibility must be documented</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteriaScheme"/>
@@ -3054,6 +3111,7 @@
         <obo:IAO_0000119 xml:lang="en">Approved WSP statuses output uses IntStatusRaw value AmberGreen and IntStatusRaw_Short code AG.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Amber/Green integrated status</rdfs:label>
         <skos:definition xml:lang="en">Blended integrated status outcome between Amber and Green used when expert evidence supports an intermediate boundary outcome.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#IntegratedStatusOutcomeScheme"/>
         <skos:notation>AG</skos:notation>
@@ -3073,6 +3131,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <dcterms:source rdf:resource="https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Integrated status (binary red/not-red)</rdfs:label>
         <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
         <skos:altLabel xml:lang="en">IntStatus2</skos:altLabel>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#WSPOutputVariable"/>
@@ -3095,6 +3154,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <dcterms:source rdf:resource="https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Collapsed integrated status code</rdfs:label>
         <skos:altLabel xml:lang="en">IntStatus_Short</skos:altLabel>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#WSPOutputVariable"/>
         <skos:definition xml:lang="en">Short code representation of the three-category collapsed integrated status field.</skos:definition>
@@ -3118,6 +3178,7 @@
         <obo:IAO_0000119 xml:lang="en">WSP integrated-status documentation defines data deficient outcomes where status cannot be assigned because information is insufficient.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Data deficient integrated status</rdfs:label>
         <skos:definition xml:lang="en">Integrated status outcome indicating insufficient information to assign a biological zone outcome.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#IntegratedStatusOutcomeScheme"/>
         <skos:notation>DD</skos:notation>
@@ -3135,6 +3196,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <dcterms:source rdf:resource="https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Integrated status (5-category legacy alias)</rdfs:label>
         <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
         <skos:altLabel xml:lang="en">IntStatus5</skos:altLabel>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#WSPOutputVariable"/>
@@ -3157,6 +3219,7 @@
         <rdf:type rdf:resource="https://w3id.org/gcdfo/salmon#IntegratedStatusOutcome"/>
         <dcterms:source rdf:resource="https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Not-red integrated status</rdfs:label>
         <skos:definition xml:lang="en">Binary integrated-status outcome indicating the Conservation Unit is not in Red status after binary collapse of integrated outcomes.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#IntegratedStatusOutcomeScheme"/>
         <skos:notation>NotRed</skos:notation>
@@ -3197,6 +3260,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <dcterms:source rdf:resource="https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Integrated status (raw)</rdfs:label>
         <skos:altLabel xml:lang="en">IntStatusRaw</skos:altLabel>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#WSPOutputVariable"/>
         <skos:definition xml:lang="en">Expert-assigned integrated WSP status outcome prior to collapsed-category derivations.</skos:definition>
@@ -3219,6 +3283,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <dcterms:source rdf:resource="https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Raw integrated status code</rdfs:label>
         <skos:altLabel xml:lang="en">IntStatusRaw_Short</skos:altLabel>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#WSPOutputVariable"/>
         <skos:definition xml:lang="en">Short code representation of IntegratedStatusRaw values.</skos:definition>
@@ -3242,6 +3307,7 @@
         <obo:IAO_0000119 xml:lang="en">Approved WSP statuses output uses IntStatusRaw value RedAmber and IntStatusRaw_Short code RA.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Red/Amber integrated status</rdfs:label>
         <skos:definition xml:lang="en">Blended integrated status outcome between Red and Amber used when expert evidence supports an intermediate boundary outcome.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#IntegratedStatusOutcomeScheme"/>
         <skos:notation>RA</skos:notation>
@@ -3261,6 +3327,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <dcterms:source rdf:resource="https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Integrated status (3-category collapsed)</rdfs:label>
         <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
         <skos:altLabel xml:lang="en">IntStatus3</skos:altLabel>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#WSPOutputVariable"/>
@@ -3285,6 +3352,7 @@
         <obo:IAO_0000119 xml:lang="en">Approved WSP statuses output uses UD for undetermined integrated-status outcomes.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Undetermined integrated status</rdfs:label>
         <skos:altLabel xml:lang="en">to be determined</skos:altLabel>
         <skos:definition xml:lang="en">Integrated status outcome used when an assessment is unresolved or pending completion.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#IntegratedStatusOutcomeScheme"/>
@@ -3306,6 +3374,7 @@
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Long-term trend metric</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#RapidStatusMetric"/>
         <skos:definition xml:lang="en">A long-term trend metric comparing the current generational average (geometric mean) spawner abundance to the long-term average (geometric mean) spawner abundance for an assessed time series.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#RapidStatusMetricScheme"/>
@@ -3326,6 +3395,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <dcterms:source rdf:resource="https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Long-term trend metric status</rdfs:label>
         <skos:altLabel xml:lang="en">LongTrendCat</skos:altLabel>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#WSPOutputVariable"/>
         <skos:definition xml:lang="en">Categorical status derived from the long-term trend metric using WSP status-zone thresholds.</skos:definition>
@@ -3347,6 +3417,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#LowerBenchmark">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Lower benchmark</rdfs:label>
         <skos:definition xml:lang="en">A lower-threshold benchmark value, typically delineating the boundary between Red and Amber status zones.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#BenchmarkLevelScheme"/>
         <skos:prefLabel xml:lang="en">Lower benchmark</skos:prefLabel>
@@ -3361,6 +3432,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#ManagementReferenceContext">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Management reference context</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/smn/MeasurementContext"/>
         <skos:definition xml:lang="en">Measurement context indicating values are management benchmarks or reference-oriented metrics.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/smn/MeasurementContextScheme"/>
@@ -3377,6 +3449,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Legacy methods: Petersen, Jolly-Seber, Open model, Bayesian MR. Store uncertainty (e.g., CV) when available; note tag loss/recovery protocols.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Mark-Recapture Analysis</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#EstimateMethod"/>
         <skos:definition xml:lang="en">Capture-recapture estimators (Petersen, Jolly-Seber, open/Bayesian models) applied to field marks/recoveries.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EstimateMethodScheme"/>
@@ -3393,6 +3466,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Limits to Type 3 maximum</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Mark-Recapture Assumptions</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteria"/>
         <skos:definition xml:lang="en">MR assumptions not evaluated</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteriaScheme"/>
@@ -3409,6 +3483,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Legacy methods: Tag Recovery</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Mark-Recapture Field Program</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/smn/EnumerationMethod"/>
         <skos:definition xml:lang="en">Field program involving marking and subsequent recapture/recovery of tagged fish with documented assumptions and recovery coverage.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EnumerationMethodScheme"/>
@@ -3425,6 +3500,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Limits to Type 5 maximum</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Method Unknown/Inconsistent</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteria"/>
         <skos:definition xml:lang="en">Survey/analytical methods not adequately identified/consistent</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteriaScheme"/>
@@ -3440,6 +3516,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Monitoring and Field Work</rdfs:label>
         <skos:definition xml:lang="en">Field observations, sampling protocols, survey events, gear, and measurement methods used to collect salmon data.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#ThemeScheme"/>
         <skos:prefLabel xml:lang="en">Monitoring and Field Work</skos:prefLabel>
@@ -3454,6 +3531,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Limits to Type 4 maximum</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Number of Visits</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteria"/>
         <skos:definition xml:lang="en">Insufficient number of survey visits</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteriaScheme"/>
@@ -3469,6 +3547,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#OceanAgeDimension">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Ocean age dimension</rdfs:label>
         <skos:altLabel xml:lang="en">Marine age dimension</skos:altLabel>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#AgeDimension"/>
         <skos:definition xml:lang="en">Age value represents years spent in the marine environment.</skos:definition>
@@ -3485,6 +3564,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Legacy methods: Peak Live, Peak Live + Dead, Peak + Cumulative Dead, Cumulative New</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Peak Count Analysis</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#EstimateMethod"/>
         <skos:definition xml:lang="en">Uses the peak survey (live ± dead variants) as the season estimate/index.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EstimateMethodScheme"/>
@@ -3504,6 +3584,7 @@
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Percent change metric</rdfs:label>
         <skos:altLabel xml:lang="en">Rapid-status percent change metric</skos:altLabel>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#RapidStatusMetric"/>
         <skos:definition xml:lang="en">A short-term trend metric quantifying the percent (linear) change in spawner abundance over the most recent three generations.</skos:definition>
@@ -3525,6 +3606,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <dcterms:source rdf:resource="https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Percent change metric status</rdfs:label>
         <skos:altLabel xml:lang="en">PercChangeCat</skos:altLabel>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#WSPOutputVariable"/>
         <skos:definition xml:lang="en">Categorical status derived from the percent-change metric using WSP status-zone thresholds.</skos:definition>
@@ -3546,6 +3628,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#PolicyFramework">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Policy framework</rdfs:label>
         <skos:definition xml:lang="en">A policy, legal, or governance framework that defines how salmon status metrics, benchmarks, or reference points are set and interpreted.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#PolicyFrameworkScheme"/>
         <skos:prefLabel xml:lang="en">Policy framework</skos:prefLabel>
@@ -3576,6 +3659,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Policy, Governance, and Organizational Structure</rdfs:label>
         <skos:definition xml:lang="en">DFO policy frameworks, governance, regulations, and organizational structure relevant to salmon management.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#ThemeScheme"/>
         <skos:prefLabel xml:lang="en">Policy, Governance, and Organizational Structure</skos:prefLabel>
@@ -3589,6 +3673,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#PrecautionaryApproach">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Precautionary Approach</rdfs:label>
         <skos:altLabel xml:lang="en">PA</skos:altLabel>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#PolicyFramework"/>
         <skos:definition xml:lang="en">DFO policy framework for applying precaution in fisheries decision-making, including use of reference points and stock status zones.</skos:definition>
@@ -3607,6 +3692,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Downgrades by one level</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Precision/Accuracy</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteria"/>
         <skos:definition xml:lang="en">Precision/accuracy weaker than expected for type</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteriaScheme"/>
@@ -3626,6 +3712,7 @@
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Probability of decline below lower benchmark metric</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#RapidStatusMetric"/>
         <skos:definition xml:lang="en">A probability metric estimating the risk that spawner abundance will be below the lower benchmark, given uncertainty in benchmark estimates and/or abundance estimates, for a defined forecast or assessment horizon.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#RapidStatusMetricScheme"/>
@@ -3646,6 +3733,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <dcterms:source rdf:resource="https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Probability-of-decline-below-lower-benchmark metric status</rdfs:label>
         <skos:altLabel xml:lang="en">ProbDeclBelowLBMCat</skos:altLabel>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#WSPOutputVariable"/>
         <skos:definition xml:lang="en">Categorical status derived from the probability-of-decline-below-lower-benchmark metric.</skos:definition>
@@ -3669,7 +3757,8 @@
         <rdf:type rdf:resource="https://w3id.org/gcdfo/salmon#ConfidenceCategory"/>
         <obo:IAO_0000115 xml:lang="en">Rapid status confidence category indicating that high-quality abundance metrics support the result.</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <rdfs:label xml:lang="en">High rapid-status confidence</rdfs:label>
+        <rdfs:label xml:lang="en">High confidence</rdfs:label>
+        <skos:altLabel xml:lang="en">High rapid-status confidence</skos:altLabel>
         <skos:definition xml:lang="en">Rapid status confidence category indicating that high-quality abundance metrics support the result.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#RapidStatusConfidenceScheme"/>
         <skos:prefLabel xml:lang="en">High confidence</skos:prefLabel>
@@ -3686,7 +3775,8 @@
         <rdf:type rdf:resource="https://w3id.org/gcdfo/salmon#ConfidenceCategory"/>
         <obo:IAO_0000115 xml:lang="en">Rapid status confidence category indicating limited supporting data (for example, derived from trend metrics alone).</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <rdfs:label xml:lang="en">Low rapid-status confidence</rdfs:label>
+        <rdfs:label xml:lang="en">Low confidence</rdfs:label>
+        <skos:altLabel xml:lang="en">Low rapid-status confidence</skos:altLabel>
         <skos:definition xml:lang="en">Rapid status confidence category indicating limited supporting data (for example, derived from trend metrics alone).</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#RapidStatusConfidenceScheme"/>
         <skos:prefLabel xml:lang="en">Low confidence</skos:prefLabel>
@@ -3703,7 +3793,8 @@
         <rdf:type rdf:resource="https://w3id.org/gcdfo/salmon#ConfidenceCategory"/>
         <obo:IAO_0000115 xml:lang="en">Rapid status confidence category indicating mixed evidence or reliance on trend metrics supplemented by some abundance information.</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
-        <rdfs:label xml:lang="en">Medium rapid-status confidence</rdfs:label>
+        <rdfs:label xml:lang="en">Medium confidence</rdfs:label>
+        <skos:altLabel xml:lang="en">Medium rapid-status confidence</skos:altLabel>
         <skos:definition xml:lang="en">Rapid status confidence category indicating mixed evidence or reliance on trend metrics supplemented by some abundance information.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#RapidStatusConfidenceScheme"/>
         <skos:prefLabel xml:lang="en">Medium confidence</skos:prefLabel>
@@ -3733,6 +3824,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <usedProcedure rdf:resource="https://w3id.org/gcdfo/salmon#WSPRapidStatusAssessmentMethod"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Rapid status metric</rdfs:label>
         <skos:definition xml:lang="en">A compound variable concept representing a metric used by WSP rapid-status workflows.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#RapidStatusMetricScheme"/>
         <skos:prefLabel xml:lang="en">Rapid status metric</skos:prefLabel>
@@ -3768,6 +3860,7 @@
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Rapid status score metric</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#RapidStatusMetric"/>
         <skos:definition xml:lang="en">A numeric score produced by a rapid-status algorithm used to represent an ordered status outcome and/or decision-rule position.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#RapidStatusMetricScheme"/>
@@ -3788,6 +3881,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Limits to Type 3 maximum</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Reach Coverage</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteria"/>
         <skos:definition xml:lang="en">Insufficient reach coverage</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteriaScheme"/>
@@ -3803,6 +3897,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#RecruitStageContext">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Recruit stage context</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/smn/MeasurementContext"/>
         <skos:definition xml:lang="en">Measurement context indicating values refer to recruits.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/smn/MeasurementContextScheme"/>
@@ -3821,6 +3916,7 @@
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Red zone</rdfs:label>
         <skos:definition xml:lang="en">A Conservation Unit in the Red zone is undesirable because of the risk of extirpation, and the loss of ecological benefits and salmon production. Changes in status will trigger management actions that will vary depending on species, geographic regions, and cause of the decline.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#IntegratedStatusOutcomeScheme"/>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZoneScheme"/>
@@ -3838,6 +3934,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Legacy methods: Redd Counts</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Redd Count</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/smn/EnumerationMethod"/>
         <skos:definition xml:lang="en">Redd counts with documentation of detectability, timing, and reach coverage. Conversion to spawner estimates requires spawners-per-redd factors handled in analysis.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EnumerationMethodScheme"/>
@@ -3854,6 +3951,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Requires validated spawners-per-redd factor and documentation of detectability assumptions.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Redd Expansion Analysis</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#EstimateMethod"/>
         <skos:definition xml:lang="en">Converts redd counts to spawner estimates using spawners-per-redd expansion factors.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EstimateMethodScheme"/>
@@ -3870,6 +3968,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <dcterms:source rdf:resource="https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Relative abundance metric status</rdfs:label>
         <skos:altLabel xml:lang="en">RelAbdCat</skos:altLabel>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#WSPOutputVariable"/>
         <skos:definition xml:lang="en">Categorical status derived from the relative abundance metric benchmark ratio.</skos:definition>
@@ -3894,6 +3993,7 @@
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Pacific Salmon Glossary (Pacific Region web page).</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Return year</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#YearBasis"/>
         <skos:definition xml:lang="en">The calendar year in which adult salmon return from the ocean to freshwater systems (a year basis used to contextualize run/return-related measurements).</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#YearBasisScheme"/>
@@ -3911,6 +4011,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Limits to Type 2 maximum</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Review/QA</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteria"/>
         <skos:definition xml:lang="en">Insufficient QA review of automated events</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteriaScheme"/>
@@ -3927,6 +4028,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Limits to Type 2 maximum</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Run Coverage</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteria"/>
         <skos:definition xml:lang="en">Run-window coverage &lt; 95% of season days</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteriaScheme"/>
@@ -3942,6 +4044,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Salmon Enhancement and Hatcheries</rdfs:label>
         <skos:definition xml:lang="en">Hatchery production, broodstock management, releases, and enhancement program practices for salmon.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#ThemeScheme"/>
         <skos:prefLabel xml:lang="en">Salmon Enhancement and Hatcheries</skos:prefLabel>
@@ -3956,6 +4059,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <dcterms:source rdf:resource="https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Species</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#WSPOutputVariable"/>
         <skos:definition xml:lang="en">Species identity field used in canonical WSP outputs.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#WSPOutputVariableScheme"/>
@@ -3974,6 +4078,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#SpeciesAtRiskRecoveryTheme">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Species at Risk and Recovery</rdfs:label>
         <skos:definition xml:lang="en">COSEWIC/SARA recovery planning, critical habitat, threats, and status assessments for species of conservation concern.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#ThemeScheme"/>
         <skos:prefLabel xml:lang="en">Species at Risk and Recovery</skos:prefLabel>
@@ -3987,6 +4092,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#StockAssessmentTheme">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Stock Assessment</rdfs:label>
         <skos:definition xml:lang="en">Stock assessment models, benchmarks, status determinations, and performance metrics for salmon units.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#ThemeScheme"/>
         <skos:prefLabel xml:lang="en">Stock Assessment</skos:prefLabel>
@@ -4030,6 +4136,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Limits to Type 3 maximum</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Timing</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteria"/>
         <skos:definition xml:lang="en">Poor timing of surveys</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteriaScheme"/>
@@ -4045,6 +4152,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#TotalAgeDimension">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Total age dimension</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#AgeDimension"/>
         <skos:definition xml:lang="en">Age value represents total age in years.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#AgeDimensionScheme"/>
@@ -4060,6 +4168,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Legacy methods: Trap, Hatchery Passage Counting</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Trap Count</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/smn/EnumerationMethod"/>
         <skos:definition xml:lang="en">Trap-based counts from non-spanning traps with documented emptying schedule, efficiency measurements, and coverage information.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EnumerationMethodScheme"/>
@@ -4076,6 +4185,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Limits to Type 3 maximum</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Trap Efficiency</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteria"/>
         <skos:definition xml:lang="en">Trap efficiency not measured/validated</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteriaScheme"/>
@@ -4092,6 +4202,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Requires documented trap efficiency measurements and cross-section coverage factors.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Trap Model Analysis</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#EstimateMethod"/>
         <skos:definition xml:lang="en">Trap-based counts adjusted with efficiency/coverage models to estimate total passage.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EstimateMethodScheme"/>
@@ -4107,6 +4218,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#Type1">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Type-1, True Abundance, high resolution</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#EstimateType"/>
         <skos:definition xml:lang="en">Total, seasonal counts through fence or fishway; virtually no bypass. Simple, often single step analysis. Reliable resolution of between year differences &gt;10% (in absolute units).</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EstimateTypeScheme"/>
@@ -4122,6 +4234,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#Type2">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Type-2, True Abundance, medium resolution</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#EstimateType"/>
         <skos:definition xml:lang="en">Indirect estimate of total spawner abundance with qualified accuracy and known precision (i.e., a variance estimate—an explicit quantitative measure of uncertainty around the estimate). Derived from high-effort, standardized methods (e.g., mark-recapture, serial counts for area under the curve) with documented analytical conversions (including interpolation/calibration as needed). Reported in absolute units (estimate ± variance). Reliable resolution of between-year differences &gt;25% (in absolute units).</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EstimateTypeScheme"/>
@@ -4137,6 +4250,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#Type3">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Type-3, Relative Abundance, high resolution</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#EstimateType"/>
         <skos:definition xml:lang="en">Relative abundance index (i.e., not an absolute count) derived from moderate to high effort surveys (typically 3 or more site visits) using standardized methods applied consistently between and within years (e.g., equal-effort surveys executed by walk, swim, overflight). Accuracy and precision are not fully quantified (i.e., no explicit variance estimate), but are assumed stable enough for within-series comparisons. Reliable resolution of between-year differences &gt;25% (in relative units).</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EstimateTypeScheme"/>
@@ -4152,6 +4266,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#Type4">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Type-4, Relative Abundance, medium resolution</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#EstimateType"/>
         <skos:definition xml:lang="en">Low to moderate effort (1-4 trips), known survey method. Simple analysis by known methods. Reliable resolution of between year differences &gt;200% (in relative units).</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EstimateTypeScheme"/>
@@ -4167,6 +4282,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#Type5">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Type-5, Relative Abundance, low resolution</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#EstimateType"/>
         <skos:definition xml:lang="en">Low effort (e.g. 1 trip), use of vaguely defined, inconsistent or poorly executed methods. Unknown to ill defined; inconsistent or poorly executed. Uncertain numeric comparisons, but high reliability for presence or absence.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EstimateTypeScheme"/>
@@ -4182,6 +4298,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#Type6">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Type-6, Presence or Absence</rdfs:label>
         <skos:altLabel xml:lang="en">Presence/Not Detected</skos:altLabel>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#EstimateType"/>
         <skos:definition xml:lang="en">Non-numeric, year-specific record of presence/not detected (i.e., present/absent without estimating a count), tied to an explicit time and location, with reliable species identification. Underlying field methods may be highly variable; analysis is not required.</skos:definition>
@@ -4201,6 +4318,7 @@
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. 2020. 2020 summary of abundance data for Chinook salmon (Oncorhynchus tshawytscha) in southern British Columbia, Canada (nuSEDS Estimate Classification includes &apos;Unknown: no quality rating&apos;).</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://waves-vagues.dfo-mpo.gc.ca/Library/40890041.pdf"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Unranked index quality</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#EstimateType"/>
         <skos:definition xml:lang="en">A data quality category indicating that no spawner-abundance estimate classification / index quality rating was assigned for the record (i.e., an &apos;Unknown&apos; estimate classification with no quality rating).</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EstimateTypeScheme"/>
@@ -4216,6 +4334,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#UpperBenchmark">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Upper benchmark</rdfs:label>
         <skos:definition xml:lang="en">An upper-threshold benchmark value, typically delineating the boundary between Amber and Green status zones.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#BenchmarkLevelScheme"/>
         <skos:prefLabel xml:lang="en">Upper benchmark</skos:prefLabel>
@@ -4231,6 +4350,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Limits to Type 2 maximum</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Uptime</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteria"/>
         <skos:definition xml:lang="en">Counting/device uptime &lt; 95% (or &lt;90% with interpolation)</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteriaScheme"/>
@@ -4247,6 +4367,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Limits to Type 3 maximum</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Visibility</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteria"/>
         <skos:definition xml:lang="en">Poor visibility conditions</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#DowngradeCriteriaScheme"/>
@@ -4263,6 +4384,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Legacy methods: Stream Walk, Ground count, Bank Walk</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Visual Ground Count</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/smn/EnumerationMethod"/>
         <skos:definition xml:lang="en">Visual surveys conducted by stream/bank walk with documented visit schedule, reach coverage, timing, and visibility conditions.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EnumerationMethodScheme"/>
@@ -4279,6 +4401,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:comment xml:lang="en">Legacy methods: Snorkel, Snorkel Swim</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Visual Snorkel Count</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/smn/EnumerationMethod"/>
         <skos:definition xml:lang="en">Two or more trained snorkelers conduct standardized passes within defined segments, tallying live/dead by species. Field forms capture visibility class, segment boundaries, and repeat-visit schedule; counts are aggregated across observers/passes.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EnumerationMethodScheme"/>
@@ -4317,6 +4440,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#WSPOutputVariable">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">WSP output variable</rdfs:label>
         <skos:definition xml:lang="en">A canonical variable field used in approved Wild Salmon Policy output tables.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#WSPOutputVariableScheme"/>
         <skos:prefLabel xml:lang="en">WSP output variable</skos:prefLabel>
@@ -4349,6 +4473,7 @@
         <obo:IAO_0000119 xml:lang="en">Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada&apos;s Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://publications.gc.ca/site/eng/9.928944/publication.html"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">WSP rapid-status assessment method</rdfs:label>
         <skos:altLabel xml:lang="en">WSP rapid status method</skos:altLabel>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#EstimateMethod"/>
         <skos:definition xml:lang="en">The analytical method used to produce rapid-status metrics under the Wild Salmon Policy rapid-status approach.</skos:definition>
@@ -4366,6 +4491,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#WildSalmonPolicy">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Wild Salmon Policy</rdfs:label>
         <skos:altLabel xml:lang="en">WSP</skos:altLabel>
         <skos:broader rdf:resource="https://w3id.org/gcdfo/salmon#PolicyFramework"/>
         <skos:definition xml:lang="en">Canada&apos;s Wild Salmon Policy framework for conserving and managing wild Pacific salmon, including integrated status assessments and biological benchmarks for Conservation Units.</skos:definition>
@@ -4383,6 +4509,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Wild Salmon Policy</rdfs:label>
         <skos:definition xml:lang="en">Conservation Unit based stock assessment methods, metrics, and metadata</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#ThemeScheme"/>
         <skos:prefLabel xml:lang="en">Wild Salmon Policy</skos:prefLabel>
@@ -4397,6 +4524,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <obo:IAO_0000115 xml:lang="en">A year-based temporal reference used to contextualize measurements or rates (e.g., brood year, catch year, or return year).</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Year basis</rdfs:label>
         <skos:definition xml:lang="en">A year-based temporal reference used to contextualize measurements or rates (e.g., brood year, catch year, or return year).</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#YearBasisScheme"/>
         <skos:prefLabel xml:lang="en">Year basis</skos:prefLabel>
@@ -4425,6 +4553,7 @@
     <rdf:Description rdf:about="https://w3id.org/smn/CatchContext">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <rdfs:label xml:lang="en">Catch context</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/smn/MeasurementContext"/>
         <skos:definition xml:lang="en">Measurement context indicating values refer to fishery catch.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/smn/MeasurementContextScheme"/>
@@ -4439,6 +4568,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/smn/EnumerationMethod">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <rdfs:label xml:lang="en">Enumeration Method</rdfs:label>
         <skos:definition xml:lang="en">A method used to enumerate or count salmon in the field</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#EnumerationMethodScheme"/>
         <skos:prefLabel xml:lang="en">Enumeration Method</skos:prefLabel>
@@ -4456,6 +4586,7 @@
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. 2018. Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Canadian Science Advisory Secretariat Science Advisory Report 2018/001 (Erratum: October 2023).</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/csas-sccs/Publications/SAR-AS/2018/2018_001-eng.html"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <rdfs:label xml:lang="en">Hatchery-origin</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/smn/SalmonOrigin"/>
         <skos:definition xml:lang="en">Individuals that were born or reared in a hatchery facility.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/smn/SalmonOriginScheme"/>
@@ -4472,6 +4603,7 @@
     <rdf:Description rdf:about="https://w3id.org/smn/InRiverPhase">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <rdfs:label xml:lang="en">In-river phase</rdfs:label>
         <skos:altLabel xml:lang="en">Freshwater phase</skos:altLabel>
         <skos:broader rdf:resource="https://w3id.org/smn/LifePhase"/>
         <skos:definition xml:lang="en">Freshwater in-river phase (migration and/or residence) outside the marine environment.</skos:definition>
@@ -4487,6 +4619,7 @@
     <rdf:Description rdf:about="https://w3id.org/smn/LifePhase">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <rdfs:label xml:lang="en">Life phase</rdfs:label>
         <skos:definition xml:lang="en">A phase or segment used to stratify salmon measurements by where or when they apply (e.g., ocean phase, terminal phase).</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/smn/LifePhaseScheme"/>
         <skos:prefLabel xml:lang="en">Life phase</skos:prefLabel>
@@ -4513,6 +4646,7 @@
     <rdf:Description rdf:about="https://w3id.org/smn/MainstemPhase">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <rdfs:label xml:lang="en">Mainstem phase</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/smn/LifePhase"/>
         <skos:definition xml:lang="en">Freshwater mainstem migration phase in a river system (often corresponding to mainstem in-river fisheries or monitoring segments).</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/smn/LifePhaseScheme"/>
@@ -4527,6 +4661,7 @@
     <rdf:Description rdf:about="https://w3id.org/smn/MeasurementContext">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <rdfs:label xml:lang="en">Measurement context</rdfs:label>
         <skos:definition xml:lang="en">A context qualifier used to disambiguate the interpretation of a measurement column.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/smn/MeasurementContextScheme"/>
         <skos:prefLabel xml:lang="en">Measurement context</skos:prefLabel>
@@ -4557,6 +4692,7 @@
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. 2018. Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Canadian Science Advisory Secretariat Science Advisory Report 2018/001 (Erratum: October 2023).</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://www.dfo-mpo.gc.ca/csas-sccs/Publications/SAR-AS/2018/2018_001-eng.html"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <rdfs:label xml:lang="en">Natural-origin</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/smn/SalmonOrigin"/>
         <skos:definition xml:lang="en">Individuals that are born and reared in the wild (natural environment).</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/smn/SalmonOriginScheme"/>
@@ -4573,6 +4709,7 @@
     <rdf:Description rdf:about="https://w3id.org/smn/OceanPhase">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <rdfs:label xml:lang="en">Ocean phase</rdfs:label>
         <skos:altLabel xml:lang="en">Marine phase</skos:altLabel>
         <skos:broader rdf:resource="https://w3id.org/smn/LifePhase"/>
         <skos:definition xml:lang="en">Phase of the salmon life cycle or assessment period occurring in the marine environment.</skos:definition>
@@ -4588,6 +4725,7 @@
     <rdf:Description rdf:about="https://w3id.org/smn/RunContext">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <rdfs:label xml:lang="en">Run context</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/smn/MeasurementContext"/>
         <skos:definition xml:lang="en">Measurement context indicating values refer to run size or returning run composition.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/smn/MeasurementContextScheme"/>
@@ -4602,6 +4740,7 @@
     <rdf:Description rdf:about="https://w3id.org/smn/SalmonOrigin">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <rdfs:label xml:lang="en">Salmon origin</rdfs:label>
         <skos:definition xml:lang="en">Origin category describing whether salmon are naturally produced, hatchery produced, or mixed-origin.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/smn/SalmonOriginScheme"/>
         <skos:prefLabel xml:lang="en">Salmon origin</skos:prefLabel>
@@ -4631,6 +4770,7 @@
     <rdf:Description rdf:about="https://w3id.org/smn/SpawnerStageContext">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <rdfs:label xml:lang="en">Spawner stage context</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/smn/MeasurementContext"/>
         <skos:definition xml:lang="en">Measurement context indicating values refer to spawners or spawning-stage fish.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/smn/MeasurementContextScheme"/>
@@ -4645,6 +4785,7 @@
     <rdf:Description rdf:about="https://w3id.org/smn/SurvivalOrMortalityContext">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <rdfs:label xml:lang="en">Survival or mortality context</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/smn/MeasurementContext"/>
         <skos:definition xml:lang="en">Measurement context indicating values represent survival, mortality, or related rates.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/smn/MeasurementContextScheme"/>
@@ -4659,6 +4800,7 @@
     <rdf:Description rdf:about="https://w3id.org/smn/TerminalPhase">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
+        <rdfs:label xml:lang="en">Terminal phase</rdfs:label>
         <skos:broader rdf:resource="https://w3id.org/smn/LifePhase"/>
         <skos:definition xml:lang="en">Phase occurring in terminal areas near river mouths or spawning areas (often including terminal fisheries and local migration to spawning sites).</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/smn/LifePhaseScheme"/>
@@ -4678,6 +4820,7 @@
 
     <rdf:Description rdf:about="https://w3id.org/gcdfo/salmon#ConfidenceCategory">
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Confidence category</rdfs:label>
         <skos:definition xml:lang="en">Categorical confidence rating (High, Medium, Low) for stock assessment metrics.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#RapidStatusConfidenceScheme"/>
         <skos:prefLabel xml:lang="en">Confidence category</skos:prefLabel>
@@ -4686,6 +4829,7 @@
     </rdf:Description>
     <rdf:Description rdf:about="https://w3id.org/gcdfo/salmon#IntegratedStatusOutcome">
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Integrated status outcome</rdfs:label>
         <skos:definition xml:lang="en">Outcome category assigned by integrated WSP status workflows for a Conservation Unit.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#IntegratedStatusOutcomeScheme"/>
         <skos:prefLabel xml:lang="en">Integrated status outcome</skos:prefLabel>
@@ -4696,6 +4840,7 @@
         <obo:IAO_0000119 xml:lang="en">Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf.</obo:IAO_0000119>
         <dcterms:source rdf:resource="https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf"/>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
+        <rdfs:label xml:lang="en">Wild Salmon Policy biological status zone</rdfs:label>
         <skos:definition xml:lang="en">The biological status of a Conservation Unit (CU) will normally be based on the abundance and distribution of spawners in the unit, or proxies thereof. For each CU, higher and lower benchmarks will be defined that will delimit three status zones: Green, Amber, and Red. As spawner abundance decreases, a CU moves towards the lower status zone, and the extent of management intervention for conservation purposes will increase.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZoneScheme"/>
         <skos:prefLabel xml:lang="en">Wild Salmon Policy biological status zone</skos:prefLabel>

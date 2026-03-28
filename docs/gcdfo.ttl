@@ -1492,6 +1492,7 @@ gcdfo:AbsoluteAbundanceMetricStatus rdf:type owl:NamedIndividual ,
                                              skos:Concept ;
                                     dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv> ;
                                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                    rdfs:label "Absolute abundance metric status"@en ;
                                     skos:altLabel "AbsAbdCat"@en ;
                                     skos:broader gcdfo:WSPOutputVariable ;
                                     skos:definition "Categorical status derived from the absolute abundance metric benchmark ratio."@en ;
@@ -1514,6 +1515,7 @@ gcdfo:AbundanceDataType rdf:type owl:NamedIndividual ,
                         <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."@en ;
                         dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
                         rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                        rdfs:label "Abundance data type"@en ;
                         skos:broader smn:MeasurementContext ;
                         skos:definition "A categorical attribute indicating whether an abundance time series is recorded as absolute abundance or as a relative index (used by rapid-status workflows)."@en ;
                         skos:inScheme smn:MeasurementContextScheme ;
@@ -1532,6 +1534,7 @@ gcdfo:AbundancePercentileMetric rdf:type owl:NamedIndividual ,
                                 <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."@en ;
                                 dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
                                 rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                rdfs:label "Abundance percentile metric"@en ;
                                 skos:broader gcdfo:RapidStatusMetric ;
                                 skos:definition "An abundance percentile metric giving the percentile rank of the current generational average spawner abundance relative to a historical reference distribution."@en ;
                                 skos:inScheme gcdfo:RapidStatusMetricScheme ;
@@ -1549,6 +1552,7 @@ gcdfo:AbundancePercentileMetricStatus rdf:type owl:NamedIndividual ,
                                                skos:Concept ;
                                       dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
                                       rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                      rdfs:label "Abundance percentile metric status"@en ;
                                       skos:altLabel "PercentileCat"@en ;
                                       skos:broader gcdfo:WSPOutputVariable ;
                                       skos:definition "Categorical status derived from abundance percentile metric values."@en ;
@@ -1568,6 +1572,7 @@ gcdfo:AerialSurveyCount rdf:type owl:NamedIndividual ,
                                  skos:Concept ;
                         rdfs:comment "Legacy methods: Helicopter, Fixed Wing Aircraft, Aerial, Drone, UAS, UAV"@en ;
                         rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                        rdfs:label "Aerial Survey Count"@en ;
                         skos:broader smn:EnumerationMethod ;
                         skos:definition "Overflights (helicopter, fixed wing, or drone) with documented flight lines, coverage, visibility, and sensor settings. Imagery may be reviewed post-flight."@en ;
                         skos:inScheme gcdfo:EnumerationMethodScheme ;
@@ -1580,6 +1585,7 @@ gcdfo:AerialSurveyCount rdf:type owl:NamedIndividual ,
 gcdfo:Age1YearClass rdf:type owl:NamedIndividual ,
                              skos:Concept ;
                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                    rdfs:label "Age 1 year class"@en ;
                     skos:broader gcdfo:AgeClassValue ;
                     skos:definition "Age class value 1 year."@en ;
                     skos:inScheme gcdfo:AgeClassValueScheme ;
@@ -1592,6 +1598,7 @@ gcdfo:Age1YearClass rdf:type owl:NamedIndividual ,
 gcdfo:Age2YearClass rdf:type owl:NamedIndividual ,
                              skos:Concept ;
                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                    rdfs:label "Age 2 year class"@en ;
                     skos:broader gcdfo:AgeClassValue ;
                     skos:definition "Age class value 2 years."@en ;
                     skos:inScheme gcdfo:AgeClassValueScheme ;
@@ -1604,6 +1611,7 @@ gcdfo:Age2YearClass rdf:type owl:NamedIndividual ,
 gcdfo:Age3YearClass rdf:type owl:NamedIndividual ,
                              skos:Concept ;
                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                    rdfs:label "Age 3 year class"@en ;
                     skos:broader gcdfo:AgeClassValue ;
                     skos:definition "Age class value 3 years."@en ;
                     skos:inScheme gcdfo:AgeClassValueScheme ;
@@ -1616,6 +1624,7 @@ gcdfo:Age3YearClass rdf:type owl:NamedIndividual ,
 gcdfo:Age4YearClass rdf:type owl:NamedIndividual ,
                              skos:Concept ;
                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                    rdfs:label "Age 4 year class"@en ;
                     skos:broader gcdfo:AgeClassValue ;
                     skos:definition "Age class value 4 years."@en ;
                     skos:inScheme gcdfo:AgeClassValueScheme ;
@@ -1628,6 +1637,7 @@ gcdfo:Age4YearClass rdf:type owl:NamedIndividual ,
 gcdfo:Age5YearClass rdf:type owl:NamedIndividual ,
                              skos:Concept ;
                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                    rdfs:label "Age 5 year class"@en ;
                     skos:broader gcdfo:AgeClassValue ;
                     skos:definition "Age class value 5 years."@en ;
                     skos:inScheme gcdfo:AgeClassValueScheme ;
@@ -1640,6 +1650,7 @@ gcdfo:Age5YearClass rdf:type owl:NamedIndividual ,
 gcdfo:Age6YearClass rdf:type owl:NamedIndividual ,
                              skos:Concept ;
                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                    rdfs:label "Age 6 year class"@en ;
                     skos:broader gcdfo:AgeClassValue ;
                     skos:definition "Age class value 6 years."@en ;
                     skos:inScheme gcdfo:AgeClassValueScheme ;
@@ -1652,6 +1663,7 @@ gcdfo:Age6YearClass rdf:type owl:NamedIndividual ,
 gcdfo:Age7YearClass rdf:type owl:NamedIndividual ,
                              skos:Concept ;
                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                    rdfs:label "Age 7 year class"@en ;
                     skos:broader gcdfo:AgeClassValue ;
                     skos:definition "Age class value 7 years."@en ;
                     skos:inScheme gcdfo:AgeClassValueScheme ;
@@ -1664,6 +1676,7 @@ gcdfo:Age7YearClass rdf:type owl:NamedIndividual ,
 gcdfo:AgeAtMaturityBasis rdf:type owl:NamedIndividual ,
                                   skos:Concept ;
                          rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                         rdfs:label "Age at maturity basis"@en ;
                          skos:broader gcdfo:AgeBasis ;
                          skos:definition "Age measured at maturity."@en ;
                          skos:inScheme gcdfo:AgeBasisScheme ;
@@ -1676,6 +1689,7 @@ gcdfo:AgeAtMaturityBasis rdf:type owl:NamedIndividual ,
 gcdfo:AgeAtReturnBasis rdf:type owl:NamedIndividual ,
                                 skos:Concept ;
                        rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                       rdfs:label "Age at return basis"@en ;
                        skos:broader gcdfo:AgeBasis ;
                        skos:definition "Age measured at return migration (adult return timing)."@en ;
                        skos:inScheme gcdfo:AgeBasisScheme ;
@@ -1688,6 +1702,7 @@ gcdfo:AgeAtReturnBasis rdf:type owl:NamedIndividual ,
 gcdfo:AgeAtSamplingBasis rdf:type owl:NamedIndividual ,
                                   skos:Concept ;
                          rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                         rdfs:label "Age at sampling basis"@en ;
                          skos:broader gcdfo:AgeBasis ;
                          skos:definition "Age measured at the time of sampling or observation."@en ;
                          skos:inScheme gcdfo:AgeBasisScheme ;
@@ -1700,6 +1715,7 @@ gcdfo:AgeAtSamplingBasis rdf:type owl:NamedIndividual ,
 gcdfo:AgeBasis rdf:type owl:NamedIndividual ,
                         skos:Concept ;
                rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+               rdfs:label "Age basis"@en ;
                skos:definition "The reference event or life-history point that an age value is measured against."@en ;
                skos:inScheme gcdfo:AgeBasisScheme ;
                skos:prefLabel "Age basis"@en ;
@@ -1722,6 +1738,7 @@ gcdfo:AgeBasisScheme rdf:type owl:NamedIndividual ,
 gcdfo:AgeClassValue rdf:type owl:NamedIndividual ,
                              skos:Concept ;
                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                    rdfs:label "Age class value"@en ;
                     skos:definition "An integer-like age class value used as a compositional constraint in salmon measurements."@en ;
                     skos:inScheme gcdfo:AgeClassValueScheme ;
                     skos:prefLabel "Age class value"@en ;
@@ -1742,6 +1759,7 @@ gcdfo:AgeClassValueScheme rdf:type owl:NamedIndividual ,
 gcdfo:AgeDimension rdf:type owl:NamedIndividual ,
                             skos:Concept ;
                    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                   rdfs:label "Age dimension"@en ;
                    skos:definition "The age component represented by a value (total age, freshwater years, or ocean years)."@en ;
                    skos:inScheme gcdfo:AgeDimensionScheme ;
                    skos:prefLabel "Age dimension"@en ;
@@ -1762,6 +1780,7 @@ gcdfo:AgeDimensionScheme rdf:type owl:NamedIndividual ,
 gcdfo:AgeNotation rdf:type owl:NamedIndividual ,
                            skos:Concept ;
                   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                  rdfs:label "Age notation"@en ;
                   skos:definition "A notation system used to encode salmon age values in stock assessment data."@en ;
                   skos:inScheme gcdfo:AgeNotationScheme ;
                   skos:prefLabel "Age notation"@en ;
@@ -1788,6 +1807,7 @@ gcdfo:AmberZone rdf:type owl:NamedIndividual ,
                 <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en ;
                 dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf> ;
                 rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                rdfs:label "Amber zone"@en ;
                 skos:definition "Amber status implies caution in the management of the Conservation Unit. While a CU in the Amber zone should be at a low risk of loss, there will be a degree of lost production. Decisions about the conservation of CUs in the Amber zone will involve broader consideration of biological, social, and economic issues. "@en ;
                 skos:inScheme gcdfo:IntegratedStatusOutcomeScheme ,
                               gcdfo:WSPBiologicalStatusZoneScheme ;
@@ -1801,6 +1821,7 @@ gcdfo:AmberZone rdf:type owl:NamedIndividual ,
 gcdfo:AreaUnderTheCurve rdf:type owl:NamedIndividual ,
                                  skos:Concept ;
                         rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                        rdfs:label "Area Under the Curve"@en ;
                         skos:altLabel "AUC"@en ;
                         skos:broader gcdfo:EstimateMethod ;
                         skos:definition "Integrates serial counts over time using a survey-life parameter; may apply observer efficiency."@en ;
@@ -1828,6 +1849,7 @@ gcdfo:BenchmarkRatioMetric rdf:type owl:NamedIndividual ,
                            <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."@en ;
                            dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
                            rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                           rdfs:label "Benchmark ratio metric"@en ;
                            skos:broader gcdfo:RapidStatusMetric ;
                            skos:definition "A benchmark-ratio metric equal to the ratio of current generational average spawner abundance to a specified benchmark (lower or upper benchmark), where 1.0 indicates equality to that benchmark."@en ;
                            skos:inScheme gcdfo:RapidStatusMetricScheme ;
@@ -1857,6 +1879,7 @@ gcdfo:BreachBypass rdf:type owl:NamedIndividual ,
                             skos:Concept ;
                    rdfs:comment "Limits to Type 2 maximum"@en ;
                    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                   rdfs:label "Bypass/Breach Risk"@en ;
                    skos:broader gcdfo:DowngradeCriteria ;
                    skos:definition "Bypass or breach risks not monitored and verified negligible"@en ;
                    skos:inScheme gcdfo:DowngradeCriteriaScheme ;
@@ -1872,6 +1895,7 @@ gcdfo:BroodYear rdf:type owl:NamedIndividual ,
                 <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html."@en ;
                 dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html> ;
                 rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                rdfs:label "Brood year"@en ;
                 skos:broader gcdfo:YearBasis ;
                 skos:closeMatch odo:SALMON_00000520 ;
                 skos:definition "The parental year for a group of returning salmon, i.e. the calendar year when the majority of parents of these fish spawned."@en ;
@@ -1898,6 +1922,7 @@ gcdfo:CalibratedTimeSeries rdf:type owl:NamedIndividual ,
                                     skos:Concept ;
                            rdfs:comment "Document calibration source years, transferability, diagnostics. Type-2 when calibration robust and applicable; else Type-3."@en ;
                            rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                           rdfs:label "Calibrated Time Series"@en ;
                            skos:broader gcdfo:EstimateMethod ;
                            skos:definition "Regression/state-space model calibrated to a Type-1/2 series converts a lower-precision index to abundance."@en ;
                            skos:inScheme gcdfo:EstimateMethodScheme ;
@@ -1911,6 +1936,7 @@ gcdfo:CatchYear rdf:type owl:NamedIndividual ,
                          skos:Concept ;
                 <http://purl.obolibrary.org/obo/IAO_0000115> "The calendar year in which returning salmon are caught in fisheries (as opposed to the brood year in which the cohort was spawned)."@en ;
                 rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                rdfs:label "Catch year"@en ;
                 skos:broader gcdfo:YearBasis ;
                 skos:definition "The calendar year in which returning salmon are caught in fisheries (as opposed to the brood year in which the cohort was spawned)."@en ;
                 skos:inScheme gcdfo:YearBasisScheme ;
@@ -1924,6 +1950,7 @@ gcdfo:Classification rdf:type owl:NamedIndividual ,
                               skos:Concept ;
                      rdfs:comment "Limits to Type 3 maximum"@en ;
                      rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                     rdfs:label "Classification"@en ;
                      skos:broader gcdfo:DowngradeCriteria ;
                      skos:definition "Classification/attribution not documented"@en ;
                      skos:inScheme gcdfo:DowngradeCriteriaScheme ;
@@ -1942,6 +1969,7 @@ gcdfo:ConservationUnitName rdf:type owl:NamedIndividual ,
                                     skos:Concept ;
                            dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv> ;
                            rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                           rdfs:label "Conservation Unit name"@en ;
                            skos:altLabel "Stock (canonical WSP output column label)"@en ;
                            skos:broader gcdfo:WSPOutputVariable ;
                            skos:definition "Full Conservation Unit name field used in canonical WSP outputs."@en ;
@@ -1959,6 +1987,7 @@ gcdfo:CrossSectionCoverage rdf:type owl:NamedIndividual ,
                                     skos:Concept ;
                            rdfs:comment "Limits to Type 2 maximum"@en ;
                            rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                           rdfs:label "Cross-section Coverage"@en ;
                            skos:broader gcdfo:DowngradeCriteria ;
                            skos:definition "Incomplete cross-section coverage"@en ;
                            skos:inScheme gcdfo:DowngradeCriteriaScheme ;
@@ -1971,6 +2000,7 @@ gcdfo:CrossSectionCoverage rdf:type owl:NamedIndividual ,
 gcdfo:DataModelProvenanceTheme rdf:type owl:NamedIndividual ,
                                         skos:Concept ;
                                rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                               rdfs:label "Data, Models, and Provenance"@en ;
                                skos:definition "Data models, analytical workflows, provenance, quality dimensions, and metadata supporting salmon science."@en ;
                                skos:inScheme gcdfo:ThemeScheme ;
                                skos:prefLabel "Data, Models, and Provenance"@en ;
@@ -1981,6 +2011,7 @@ gcdfo:DataModelProvenanceTheme rdf:type owl:NamedIndividual ,
 gcdfo:DataQualityRatingContext rdf:type owl:NamedIndividual ,
                                         skos:Concept ;
                                rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                               rdfs:label "Data quality rating context"@en ;
                                skos:broader smn:MeasurementContext ;
                                skos:definition "Measurement context indicating categorical or ordinal quality ratings."@en ;
                                skos:inScheme smn:MeasurementContextScheme ;
@@ -1993,6 +2024,7 @@ gcdfo:Detectability rdf:type owl:NamedIndividual ,
                              skos:Concept ;
                     rdfs:comment "Limits to Type 3 maximum"@en ;
                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                    rdfs:label "Detectability"@en ;
                     skos:broader gcdfo:DowngradeCriteria ;
                     skos:definition "Detectability factors not validated"@en ;
                     skos:inScheme gcdfo:DowngradeCriteriaScheme ;
@@ -2006,6 +2038,7 @@ gcdfo:DeviceConfiguration rdf:type owl:NamedIndividual ,
                                    skos:Concept ;
                           rdfs:comment "Limits to Type 2 maximum"@en ;
                           rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                          rdfs:label "Device Configuration"@en ;
                           skos:broader gcdfo:DowngradeCriteria ;
                           skos:definition "Device not within operational specifications"@en ;
                           skos:inScheme gcdfo:DowngradeCriteriaScheme ;
@@ -2019,6 +2052,7 @@ gcdfo:Documentation rdf:type owl:NamedIndividual ,
                              skos:Concept ;
                     rdfs:comment "Downgrades Type 1/2 by one level"@en ;
                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                    rdfs:label "Documentation"@en ;
                     skos:broader gcdfo:DowngradeCriteria ;
                     skos:definition "Missing SIL/SEN logs or QA/methods report"@en ;
                     skos:inScheme gcdfo:DowngradeCriteriaScheme ;
@@ -2031,6 +2065,7 @@ gcdfo:Documentation rdf:type owl:NamedIndividual ,
 gcdfo:DowngradeCriteria rdf:type owl:NamedIndividual ,
                                  skos:Concept ;
                         rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                        rdfs:label "Downgrade Criteria"@en ;
                         skos:definition "Criteria that may result in downgrading an escapement estimate type classification"@en ;
                         skos:inScheme gcdfo:DowngradeCriteriaScheme ;
                         skos:prefLabel "Downgrade Criteria"@en ;
@@ -2053,6 +2088,7 @@ gcdfo:EffortStandardization rdf:type owl:NamedIndividual ,
                                      skos:Concept ;
                             rdfs:comment "Limits to Type 4 maximum"@en ;
                             rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                            rdfs:label "Effort Standardization"@en ;
                             skos:broader gcdfo:DowngradeCriteria ;
                             skos:definition "Effort not standardized"@en ;
                             skos:inScheme gcdfo:DowngradeCriteriaScheme ;
@@ -2066,6 +2102,7 @@ gcdfo:ElectrofishingCount rdf:type owl:NamedIndividual ,
                                    skos:Concept ;
                           rdfs:comment "Legacy methods: Electrofishing, Electroshocking"@en ;
                           rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                          rdfs:label "Electrofishing Count"@en ;
                           skos:broader smn:EnumerationMethod ;
                           skos:definition "Effort-standardized electrofishing passes used to generate catch-per-unit-effort (CPUE) indices."@en ;
                           skos:inScheme gcdfo:EnumerationMethodScheme ;
@@ -2089,6 +2126,7 @@ gcdfo:EnvironmentalConditions rdf:type owl:NamedIndividual ,
                                        skos:Concept ;
                               rdfs:comment "Limits to Type 2 maximum"@en ;
                               rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                              rdfs:label "Environmental Conditions"@en ;
                               skos:broader gcdfo:DowngradeCriteria ;
                               skos:definition "Environmental conditions outside specifications"@en ;
                               skos:inScheme gcdfo:DowngradeCriteriaScheme ;
@@ -2101,6 +2139,7 @@ gcdfo:EnvironmentalConditions rdf:type owl:NamedIndividual ,
 gcdfo:EstimateMethod rdf:type owl:NamedIndividual ,
                               skos:Concept ;
                      rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                     rdfs:label "Estimate Method"@en ;
                      skos:definition "A method used to analyze and estimate salmon abundance from enumeration data"@en ;
                      skos:inScheme gcdfo:EstimateMethodScheme ;
                      skos:prefLabel "Estimate Method"@en ;
@@ -2122,6 +2161,7 @@ gcdfo:EstimateMethodScheme rdf:type owl:NamedIndividual ,
 gcdfo:EstimateType rdf:type owl:NamedIndividual ,
                             skos:Concept ;
                    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                   rdfs:label "Estimate Type"@en ;
                    skos:definition "Classification of escapement estimate quality based on Hyatt 1997 framework"@en ;
                    skos:inScheme gcdfo:EstimateTypeScheme ;
                    skos:prefLabel "Estimate Type"@en ;
@@ -2144,6 +2184,7 @@ gcdfo:EuropeanAgeNotation rdf:type owl:NamedIndividual ,
                                    skos:Concept ;
                           dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/fraser/docs/archiv-reports-rapports/indigenous-autochtone/2010FrasRvrChkInformDoc.htm> ;
                           rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                          rdfs:label "European age notation"@en ;
                           skos:broader gcdfo:AgeNotation ;
                           skos:definition "Salmon age notation that records freshwater years followed by ocean years (for example, 1.2)."@en ;
                           skos:inScheme gcdfo:AgeNotationScheme ;
@@ -2160,6 +2201,7 @@ gcdfo:ExpansionFactor rdf:type owl:NamedIndividual ,
                       <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. 2021. Marine Survival Forecast of Southern British Columbia Coho (describes applying expansion factors to PIT detections to estimate total escapement)."@en ;
                       dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/Library/40978680.pdf> ;
                       rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                      rdfs:label "Expansion factor"@en ;
                       skos:broader gcdfo:ExpansionMathematicalOperations ;
                       skos:definition "A multiplicative factor used to expand observed counts or detections from a sampled subset (e.g., indicator sites, PIT detections) to an estimated total abundance or escapement."@en ;
                       skos:inScheme gcdfo:EstimateMethodScheme ;
@@ -2173,6 +2215,7 @@ gcdfo:ExpansionMathematicalOperations rdf:type owl:NamedIndividual ,
                                                skos:Concept ;
                                       rdfs:comment "Legacy methods: Lake Expansion, Redd Expansion, Peak×Factor, (Peak+CumDead)×Factor, Addition/Subtraction, Multiplication/Division. Inherits base method's Type; weak provenance = downgrade one Type."@en ;
                                       rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                      rdfs:label "Expansion/Mathematical Operations"@en ;
                                       skos:broader gcdfo:EstimateMethod ;
                                       skos:definition "Applies expansion factors or arithmetic transforms to a base count/index."@en ;
                                       skos:inScheme gcdfo:EstimateMethodScheme ;
@@ -2185,6 +2228,7 @@ gcdfo:ExpansionMathematicalOperations rdf:type owl:NamedIndividual ,
 gcdfo:FishStockProvisions rdf:type owl:NamedIndividual ,
                                    skos:Concept ;
                           rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                          rdfs:label "Fish Stocks Provisions"@en ;
                           skos:altLabel "FSP"@en ;
                           skos:broader gcdfo:PolicyFramework ;
                           skos:definition "Legal provisions in Canada's Fisheries Act and regulations related to maintaining and rebuilding fish stocks, including obligations triggered when reference points are breached."@en ;
@@ -2199,6 +2243,7 @@ gcdfo:FishStockProvisions rdf:type owl:NamedIndividual ,
 gcdfo:FisheriesManagementTheme rdf:type owl:NamedIndividual ,
                                         skos:Concept ;
                                rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                               rdfs:label "Fisheries Management"@en ;
                                skos:definition "Fishery openings, harvest control rules, catch/effort measures, and exploitation monitoring for salmon fisheries."@en ;
                                skos:inScheme gcdfo:ThemeScheme ;
                                skos:prefLabel "Fisheries Management"@en ;
@@ -2210,6 +2255,7 @@ gcdfo:FixedSiteCensusElectronic rdf:type owl:NamedIndividual ,
                                          skos:Concept ;
                                 rdfs:comment "Legacy methods: Electronic/Optical counter, Resistivity Counter, Video/Camera counter"@en ;
                                 rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                rdfs:label "Fixed Site Census (Electronic)"@en ;
                                 skos:broader smn:EnumerationMethod ;
                                 skos:definition "Automated counting at a constrained opening using electronic/optical counters, resistivity counters, or video/camera systems. QA review of automated events, cross-section coverage, and uptime/coverage are documented."@en ;
                                 skos:inScheme gcdfo:EnumerationMethodScheme ;
@@ -2223,6 +2269,7 @@ gcdfo:FixedSiteCensusManual rdf:type owl:NamedIndividual ,
                                      skos:Concept ;
                             rdfs:comment "Legacy methods: Fence, Weir, Fixed Site Census (manual)"@en ;
                             rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                            rdfs:label "Fixed Site Census (Manual)"@en ;
                             skos:broader smn:EnumerationMethod ;
                             skos:definition "Salmon are guided through a controlled opening in a fence/weir where trained observers visually tally each passage event on a continuous or daily schedule. Counting chambers/windows and SIL/SEN daily logs document coverage; bypass routes are monitored and closed where possible."@en ;
                             skos:inScheme gcdfo:EnumerationMethodScheme ;
@@ -2235,6 +2282,7 @@ gcdfo:FixedSiteCensusManual rdf:type owl:NamedIndividual ,
 gcdfo:FixedStationTally rdf:type owl:NamedIndividual ,
                                  skos:Concept ;
                         rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                        rdfs:label "Fixed‑Station Tally"@en ;
                         skos:broader gcdfo:EstimateMethod ;
                         skos:definition "Seasonal total = roll‑up of daily/continuous counts from a fixed (non‑sonar) station; simple arithmetic with documented coverage."@en ;
                         skos:inScheme gcdfo:EstimateMethodScheme ;
@@ -2247,6 +2295,7 @@ gcdfo:FixedStationTally rdf:type owl:NamedIndividual ,
 gcdfo:FreshwaterAgeDimension rdf:type owl:NamedIndividual ,
                                       skos:Concept ;
                              rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                             rdfs:label "Freshwater age dimension"@en ;
                              skos:broader gcdfo:AgeDimension ;
                              skos:definition "Age value represents years spent in freshwater."@en ;
                              skos:inScheme gcdfo:AgeDimensionScheme ;
@@ -2262,6 +2311,7 @@ gcdfo:GenerationalAverageAbundance rdf:type owl:NamedIndividual ,
                                    <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."@en ;
                                    dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
                                    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                   rdfs:label "Generational average abundance"@en ;
                                    skos:broader gcdfo:RapidStatusMetric ;
                                    skos:definition "The generational average of spawner abundance, calculated as a geometric mean across the number of years corresponding to the most common age at return (generation length), optionally after smoothing depending on CU group."@en ;
                                    skos:inScheme gcdfo:RapidStatusMetricScheme ;
@@ -2278,6 +2328,7 @@ gcdfo:GenerationalAverageAbundance rdf:type owl:NamedIndividual ,
 gcdfo:GeneticsStockCompositionTheme rdf:type owl:NamedIndividual ,
                                              skos:Concept ;
                                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                    rdfs:label "Genetics and Stock Composition"@en ;
                                     skos:definition "Genetic markers, assays, and analyses used to infer stock composition, parentage, and population structure."@en ;
                                     skos:inScheme gcdfo:ThemeScheme ;
                                     skos:prefLabel "Genetics and Stock Composition"@en ;
@@ -2289,6 +2340,7 @@ gcdfo:GilbertRichAgeNotation rdf:type owl:NamedIndividual ,
                                       skos:Concept ;
                              dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/fraser/docs/archiv-reports-rapports/indigenous-autochtone/2010FrasRvrChkInformDoc.htm> ;
                              rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                             rdfs:label "Gilbert-Rich age notation"@en ;
                              skos:altLabel "GR age notation"@en ;
                              skos:broader gcdfo:AgeNotation ;
                              skos:definition "Salmon age notation where total age is annotated with freshwater years as a subscript-like suffix (for example, 4_2 for total age 4 with 2 freshwater years)."@en ;
@@ -2307,6 +2359,7 @@ gcdfo:GreenZone rdf:type owl:NamedIndividual ,
                 <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en ;
                 dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf> ;
                 rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                rdfs:label "Green zone"@en ;
                 skos:definition "Social and economic considerations will tend to be the primary drivers for the management of Conservation Units in the Green zone, though ecosystem or other non-consumptive use values could also be considered."@en ;
                 skos:inScheme gcdfo:IntegratedStatusOutcomeScheme ,
                               gcdfo:WSPBiologicalStatusZoneScheme ;
@@ -2320,6 +2373,7 @@ gcdfo:GreenZone rdf:type owl:NamedIndividual ,
 gcdfo:HabitatEcosystemClimateTheme rdf:type owl:NamedIndividual ,
                                             skos:Concept ;
                                    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                   rdfs:label "Habitat, Ecosystem, and Climate Pressures"@en ;
                                    skos:definition "Habitat attributes, ecosystem conditions, and climate or environmental stressors affecting salmon."@en ;
                                    skos:inScheme gcdfo:ThemeScheme ;
                                    skos:prefLabel "Habitat, Ecosystem, and Climate Pressures"@en ;
@@ -2331,6 +2385,7 @@ gcdfo:HydroacousticModelling rdf:type owl:NamedIndividual ,
                                       skos:Concept ;
                              rdfs:comment "Legacy methods: Hydroacoustics, Sonar (ARIS/DIDSON). Not Type-1 under Hyatt; interpolation and classification error are central downgrades."@en ;
                              rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                             rdfs:label "Hydroacoustic Modelling"@en ;
                              skos:broader gcdfo:EstimateMethod ;
                              skos:definition "Model pipeline converts sonar detections to passage totals; sets range/angle/blind zones; species/size attribution rules documented."@en ;
                              skos:inScheme gcdfo:EstimateMethodScheme ;
@@ -2344,6 +2399,7 @@ gcdfo:HydroacousticSonarCount rdf:type owl:NamedIndividual ,
                                        skos:Concept ;
                               rdfs:comment "Legacy methods: Sonar-ARIS, Sonar-DIDSON, Hydroacoustic"@en ;
                               rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                              rdfs:label "Hydroacoustic Sonar Count"@en ;
                               skos:broader smn:EnumerationMethod ;
                               skos:definition "Sonar detections (ARIS, DIDSON, or other hydroacoustic systems) with documented coverage, visibility/noise conditions, and uptime. Raw detections require processing through a modelling/classification pipeline."@en ;
                               skos:inScheme gcdfo:EnumerationMethodScheme ;
@@ -2357,6 +2413,7 @@ gcdfo:InfillMethod rdf:type owl:NamedIndividual ,
                             skos:Concept ;
                    rdfs:comment "Limits to Type 2 maximum"@en ;
                    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                   rdfs:label "Infill Method"@en ;
                    skos:broader gcdfo:DowngradeCriteria ;
                    skos:definition "Interpolation used for missing data; defensibility must be documented"@en ;
                    skos:inScheme gcdfo:DowngradeCriteriaScheme ;
@@ -2372,6 +2429,7 @@ gcdfo:IntegratedStatusAmberGreen rdf:type owl:NamedIndividual ,
                                  <http://purl.obolibrary.org/obo/IAO_0000119> "Approved WSP statuses output uses IntStatusRaw value AmberGreen and IntStatusRaw_Short code AG."@en ;
                                  dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
                                  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                 rdfs:label "Amber/Green integrated status"@en ;
                                  skos:definition "Blended integrated status outcome between Amber and Green used when expert evidence supports an intermediate boundary outcome."@en ;
                                  skos:inScheme gcdfo:IntegratedStatusOutcomeScheme ;
                                  skos:notation "AG" ;
@@ -2388,6 +2446,7 @@ gcdfo:IntegratedStatusBinary rdf:type owl:NamedIndividual ,
                                       skos:Concept ;
                              dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
                              rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                             rdfs:label "Integrated status (binary red/not-red)"@en ;
                              owl:deprecated "true"^^xsd:boolean ;
                              skos:altLabel "IntStatus2"@en ;
                              skos:broader gcdfo:WSPOutputVariable ;
@@ -2407,6 +2466,7 @@ gcdfo:IntegratedStatusCollapsedCode rdf:type owl:NamedIndividual ,
                                              skos:Concept ;
                                     dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
                                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                    rdfs:label "Collapsed integrated status code"@en ;
                                     skos:altLabel "IntStatus_Short"@en ;
                                     skos:broader gcdfo:WSPOutputVariable ;
                                     skos:definition "Short code representation of the three-category collapsed integrated status field."@en ;
@@ -2427,6 +2487,7 @@ gcdfo:IntegratedStatusDataDeficient rdf:type owl:NamedIndividual ,
                                     <http://purl.obolibrary.org/obo/IAO_0000119> "WSP integrated-status documentation defines data deficient outcomes where status cannot be assigned because information is insufficient."@en ;
                                     dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
                                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                    rdfs:label "Data deficient integrated status"@en ;
                                     skos:definition "Integrated status outcome indicating insufficient information to assign a biological zone outcome."@en ;
                                     skos:inScheme gcdfo:IntegratedStatusOutcomeScheme ;
                                     skos:notation "DD" ;
@@ -2441,6 +2502,7 @@ gcdfo:IntegratedStatusFiveCategoryAlias rdf:type owl:NamedIndividual ,
                                                  skos:Concept ;
                                         dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv> ;
                                         rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                        rdfs:label "Integrated status (5-category legacy alias)"@en ;
                                         owl:deprecated "true"^^xsd:boolean ;
                                         skos:altLabel "IntStatus5"@en ;
                                         skos:broader gcdfo:WSPOutputVariable ;
@@ -2460,6 +2522,7 @@ gcdfo:IntegratedStatusNotRed rdf:type owl:NamedIndividual ,
                                       gcdfo:IntegratedStatusOutcome ;
                              dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
                              rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                             rdfs:label "Not-red integrated status"@en ;
                              skos:definition "Binary integrated-status outcome indicating the Conservation Unit is not in Red status after binary collapse of integrated outcomes."@en ;
                              skos:inScheme gcdfo:IntegratedStatusOutcomeScheme ;
                              skos:notation "NotRed" ;
@@ -2491,6 +2554,7 @@ gcdfo:IntegratedStatusRaw rdf:type owl:NamedIndividual ,
                                    skos:Concept ;
                           dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv> ;
                           rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                          rdfs:label "Integrated status (raw)"@en ;
                           skos:altLabel "IntStatusRaw"@en ;
                           skos:broader gcdfo:WSPOutputVariable ;
                           skos:definition "Expert-assigned integrated WSP status outcome prior to collapsed-category derivations."@en ;
@@ -2510,6 +2574,7 @@ gcdfo:IntegratedStatusRawCode rdf:type owl:NamedIndividual ,
                                        skos:Concept ;
                               dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
                               rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                              rdfs:label "Raw integrated status code"@en ;
                               skos:altLabel "IntStatusRaw_Short"@en ;
                               skos:broader gcdfo:WSPOutputVariable ;
                               skos:definition "Short code representation of IntegratedStatusRaw values."@en ;
@@ -2530,6 +2595,7 @@ gcdfo:IntegratedStatusRedAmber rdf:type owl:NamedIndividual ,
                                <http://purl.obolibrary.org/obo/IAO_0000119> "Approved WSP statuses output uses IntStatusRaw value RedAmber and IntStatusRaw_Short code RA."@en ;
                                dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
                                rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                               rdfs:label "Red/Amber integrated status"@en ;
                                skos:definition "Blended integrated status outcome between Red and Amber used when expert evidence supports an intermediate boundary outcome."@en ;
                                skos:inScheme gcdfo:IntegratedStatusOutcomeScheme ;
                                skos:notation "RA" ;
@@ -2546,6 +2612,7 @@ gcdfo:IntegratedStatusThreeCategory rdf:type owl:NamedIndividual ,
                                              skos:Concept ;
                                     dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
                                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                    rdfs:label "Integrated status (3-category collapsed)"@en ;
                                     owl:deprecated "true"^^xsd:boolean ;
                                     skos:altLabel "IntStatus3"@en ;
                                     skos:broader gcdfo:WSPOutputVariable ;
@@ -2567,6 +2634,7 @@ gcdfo:IntegratedStatusUndetermined rdf:type owl:NamedIndividual ,
                                    <http://purl.obolibrary.org/obo/IAO_0000119> "Approved WSP statuses output uses UD for undetermined integrated-status outcomes."@en ;
                                    dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved.csv> ;
                                    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                   rdfs:label "Undetermined integrated status"@en ;
                                    skos:altLabel "to be determined"@en ;
                                    skos:definition "Integrated status outcome used when an assessment is unresolved or pending completion."@en ;
                                    skos:inScheme gcdfo:IntegratedStatusOutcomeScheme ;
@@ -2585,6 +2653,7 @@ gcdfo:LongTermTrendMetric rdf:type owl:NamedIndividual ,
                           <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."@en ;
                           dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
                           rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                          rdfs:label "Long-term trend metric"@en ;
                           skos:broader gcdfo:RapidStatusMetric ;
                           skos:definition "A long-term trend metric comparing the current generational average (geometric mean) spawner abundance to the long-term average (geometric mean) spawner abundance for an assessed time series."@en ;
                           skos:inScheme gcdfo:RapidStatusMetricScheme ;
@@ -2602,6 +2671,7 @@ gcdfo:LongTermTrendMetricStatus rdf:type owl:NamedIndividual ,
                                          skos:Concept ;
                                 dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv> ;
                                 rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                rdfs:label "Long-term trend metric status"@en ;
                                 skos:altLabel "LongTrendCat"@en ;
                                 skos:broader gcdfo:WSPOutputVariable ;
                                 skos:definition "Categorical status derived from the long-term trend metric using WSP status-zone thresholds."@en ;
@@ -2620,6 +2690,7 @@ gcdfo:LongTermTrendMetricStatus rdf:type owl:NamedIndividual ,
 gcdfo:LowerBenchmark rdf:type owl:NamedIndividual ,
                               skos:Concept ;
                      rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                     rdfs:label "Lower benchmark"@en ;
                      skos:definition "A lower-threshold benchmark value, typically delineating the boundary between Red and Amber status zones."@en ;
                      skos:inScheme gcdfo:BenchmarkLevelScheme ;
                      skos:prefLabel "Lower benchmark"@en ;
@@ -2631,6 +2702,7 @@ gcdfo:LowerBenchmark rdf:type owl:NamedIndividual ,
 gcdfo:ManagementReferenceContext rdf:type owl:NamedIndividual ,
                                           skos:Concept ;
                                  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                 rdfs:label "Management reference context"@en ;
                                  skos:broader smn:MeasurementContext ;
                                  skos:definition "Measurement context indicating values are management benchmarks or reference-oriented metrics."@en ;
                                  skos:inScheme smn:MeasurementContextScheme ;
@@ -2644,6 +2716,7 @@ gcdfo:MarkRecaptureAnalysis rdf:type owl:NamedIndividual ,
                                      skos:Concept ;
                             rdfs:comment "Legacy methods: Petersen, Jolly-Seber, Open model, Bayesian MR. Store uncertainty (e.g., CV) when available; note tag loss/recovery protocols."@en ;
                             rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                            rdfs:label "Mark-Recapture Analysis"@en ;
                             skos:broader gcdfo:EstimateMethod ;
                             skos:definition "Capture-recapture estimators (Petersen, Jolly-Seber, open/Bayesian models) applied to field marks/recoveries."@en ;
                             skos:inScheme gcdfo:EstimateMethodScheme ;
@@ -2657,6 +2730,7 @@ gcdfo:MarkRecaptureAssumptions rdf:type owl:NamedIndividual ,
                                         skos:Concept ;
                                rdfs:comment "Limits to Type 3 maximum"@en ;
                                rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                               rdfs:label "Mark-Recapture Assumptions"@en ;
                                skos:broader gcdfo:DowngradeCriteria ;
                                skos:definition "MR assumptions not evaluated"@en ;
                                skos:inScheme gcdfo:DowngradeCriteriaScheme ;
@@ -2670,6 +2744,7 @@ gcdfo:MarkRecaptureFieldProgram rdf:type owl:NamedIndividual ,
                                          skos:Concept ;
                                 rdfs:comment "Legacy methods: Tag Recovery"@en ;
                                 rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                rdfs:label "Mark-Recapture Field Program"@en ;
                                 skos:broader smn:EnumerationMethod ;
                                 skos:definition "Field program involving marking and subsequent recapture/recovery of tagged fish with documented assumptions and recovery coverage."@en ;
                                 skos:inScheme gcdfo:EnumerationMethodScheme ;
@@ -2683,6 +2758,7 @@ gcdfo:MethodUnknown rdf:type owl:NamedIndividual ,
                              skos:Concept ;
                     rdfs:comment "Limits to Type 5 maximum"@en ;
                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                    rdfs:label "Method Unknown/Inconsistent"@en ;
                     skos:broader gcdfo:DowngradeCriteria ;
                     skos:definition "Survey/analytical methods not adequately identified/consistent"@en ;
                     skos:inScheme gcdfo:DowngradeCriteriaScheme ;
@@ -2695,6 +2771,7 @@ gcdfo:MethodUnknown rdf:type owl:NamedIndividual ,
 gcdfo:MonitoringFieldWorkTheme rdf:type owl:NamedIndividual ,
                                         skos:Concept ;
                                rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                               rdfs:label "Monitoring and Field Work"@en ;
                                skos:definition "Field observations, sampling protocols, survey events, gear, and measurement methods used to collect salmon data."@en ;
                                skos:inScheme gcdfo:ThemeScheme ;
                                skos:prefLabel "Monitoring and Field Work"@en ;
@@ -2706,6 +2783,7 @@ gcdfo:NumberOfVisits rdf:type owl:NamedIndividual ,
                               skos:Concept ;
                      rdfs:comment "Limits to Type 4 maximum"@en ;
                      rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                     rdfs:label "Number of Visits"@en ;
                      skos:broader gcdfo:DowngradeCriteria ;
                      skos:definition "Insufficient number of survey visits"@en ;
                      skos:inScheme gcdfo:DowngradeCriteriaScheme ;
@@ -2718,6 +2796,7 @@ gcdfo:NumberOfVisits rdf:type owl:NamedIndividual ,
 gcdfo:OceanAgeDimension rdf:type owl:NamedIndividual ,
                                  skos:Concept ;
                         rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                        rdfs:label "Ocean age dimension"@en ;
                         skos:altLabel "Marine age dimension"@en ;
                         skos:broader gcdfo:AgeDimension ;
                         skos:definition "Age value represents years spent in the marine environment."@en ;
@@ -2731,6 +2810,7 @@ gcdfo:PeakCountAnalysis rdf:type owl:NamedIndividual ,
                                  skos:Concept ;
                         rdfs:comment "Legacy methods: Peak Live, Peak Live + Dead, Peak + Cumulative Dead, Cumulative New"@en ;
                         rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                        rdfs:label "Peak Count Analysis"@en ;
                         skos:broader gcdfo:EstimateMethod ;
                         skos:definition "Uses the peak survey (live ± dead variants) as the season estimate/index."@en ;
                         skos:inScheme gcdfo:EstimateMethodScheme ;
@@ -2747,6 +2827,7 @@ gcdfo:PercentChangeMetric rdf:type owl:NamedIndividual ,
                           <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."@en ;
                           dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
                           rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                          rdfs:label "Percent change metric"@en ;
                           skos:altLabel "Rapid-status percent change metric"@en ;
                           skos:broader gcdfo:RapidStatusMetric ;
                           skos:definition "A short-term trend metric quantifying the percent (linear) change in spawner abundance over the most recent three generations."@en ;
@@ -2765,6 +2846,7 @@ gcdfo:PercentChangeMetricStatus rdf:type owl:NamedIndividual ,
                                          skos:Concept ;
                                 dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv> ;
                                 rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                rdfs:label "Percent change metric status"@en ;
                                 skos:altLabel "PercChangeCat"@en ;
                                 skos:broader gcdfo:WSPOutputVariable ;
                                 skos:definition "Categorical status derived from the percent-change metric using WSP status-zone thresholds."@en ;
@@ -2783,6 +2865,7 @@ gcdfo:PercentChangeMetricStatus rdf:type owl:NamedIndividual ,
 gcdfo:PolicyFramework rdf:type owl:NamedIndividual ,
                                skos:Concept ;
                       rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                      rdfs:label "Policy framework"@en ;
                       skos:definition "A policy, legal, or governance framework that defines how salmon status metrics, benchmarks, or reference points are set and interpreted."@en ;
                       skos:inScheme gcdfo:PolicyFrameworkScheme ;
                       skos:prefLabel "Policy framework"@en ;
@@ -2807,6 +2890,7 @@ gcdfo:PolicyFrameworkScheme rdf:type owl:NamedIndividual ,
 gcdfo:PolicyGovernanceTheme rdf:type owl:NamedIndividual ,
                                      skos:Concept ;
                             rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                            rdfs:label "Policy, Governance, and Organizational Structure"@en ;
                             skos:definition "DFO policy frameworks, governance, regulations, and organizational structure relevant to salmon management."@en ;
                             skos:inScheme gcdfo:ThemeScheme ;
                             skos:prefLabel "Policy, Governance, and Organizational Structure"@en ;
@@ -2817,6 +2901,7 @@ gcdfo:PolicyGovernanceTheme rdf:type owl:NamedIndividual ,
 gcdfo:PrecautionaryApproach rdf:type owl:NamedIndividual ,
                                      skos:Concept ;
                             rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                            rdfs:label "Precautionary Approach"@en ;
                             skos:altLabel "PA"@en ;
                             skos:broader gcdfo:PolicyFramework ;
                             skos:definition "DFO policy framework for applying precaution in fisheries decision-making, including use of reference points and stock status zones."@en ;
@@ -2832,6 +2917,7 @@ gcdfo:PrecisionAccuracy rdf:type owl:NamedIndividual ,
                                  skos:Concept ;
                         rdfs:comment "Downgrades by one level"@en ;
                         rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                        rdfs:label "Precision/Accuracy"@en ;
                         skos:broader gcdfo:DowngradeCriteria ;
                         skos:definition "Precision/accuracy weaker than expected for type"@en ;
                         skos:inScheme gcdfo:DowngradeCriteriaScheme ;
@@ -2848,6 +2934,7 @@ gcdfo:ProbabilityDeclineBelowLowerBenchmarkMetric rdf:type owl:NamedIndividual ,
                                                   <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."@en ;
                                                   dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
                                                   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                                  rdfs:label "Probability of decline below lower benchmark metric"@en ;
                                                   skos:broader gcdfo:RapidStatusMetric ;
                                                   skos:definition "A probability metric estimating the risk that spawner abundance will be below the lower benchmark, given uncertainty in benchmark estimates and/or abundance estimates, for a defined forecast or assessment horizon."@en ;
                                                   skos:inScheme gcdfo:RapidStatusMetricScheme ;
@@ -2865,6 +2952,7 @@ gcdfo:ProbabilityDeclineBelowLowerBenchmarkMetricStatus rdf:type owl:NamedIndivi
                                                                  skos:Concept ;
                                                         dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv> ;
                                                         rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                                        rdfs:label "Probability-of-decline-below-lower-benchmark metric status"@en ;
                                                         skos:altLabel "ProbDeclBelowLBMCat"@en ;
                                                         skos:broader gcdfo:WSPOutputVariable ;
                                                         skos:definition "Categorical status derived from the probability-of-decline-below-lower-benchmark metric."@en ;
@@ -2885,7 +2973,8 @@ gcdfo:RapidStatusConfidenceHigh rdf:type owl:NamedIndividual ,
                                          gcdfo:ConfidenceCategory ;
                                 <http://purl.obolibrary.org/obo/IAO_0000115> "Rapid status confidence category indicating that high-quality abundance metrics support the result."@en ;
                                 rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
-                                rdfs:label "High rapid-status confidence"@en ;
+                                rdfs:label "High confidence"@en ;
+                                skos:altLabel "High rapid-status confidence"@en ;
                                 skos:definition "Rapid status confidence category indicating that high-quality abundance metrics support the result."@en ;
                                 skos:inScheme gcdfo:RapidStatusConfidenceScheme ;
                                 skos:prefLabel "High confidence"@en ;
@@ -2899,7 +2988,8 @@ gcdfo:RapidStatusConfidenceLow rdf:type owl:NamedIndividual ,
                                         gcdfo:ConfidenceCategory ;
                                <http://purl.obolibrary.org/obo/IAO_0000115> "Rapid status confidence category indicating limited supporting data (for example, derived from trend metrics alone)."@en ;
                                rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
-                               rdfs:label "Low rapid-status confidence"@en ;
+                               rdfs:label "Low confidence"@en ;
+                               skos:altLabel "Low rapid-status confidence"@en ;
                                skos:definition "Rapid status confidence category indicating limited supporting data (for example, derived from trend metrics alone)."@en ;
                                skos:inScheme gcdfo:RapidStatusConfidenceScheme ;
                                skos:prefLabel "Low confidence"@en ;
@@ -2913,7 +3003,8 @@ gcdfo:RapidStatusConfidenceMedium rdf:type owl:NamedIndividual ,
                                            gcdfo:ConfidenceCategory ;
                                   <http://purl.obolibrary.org/obo/IAO_0000115> "Rapid status confidence category indicating mixed evidence or reliance on trend metrics supplemented by some abundance information."@en ;
                                   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
-                                  rdfs:label "Medium rapid-status confidence"@en ;
+                                  rdfs:label "Medium confidence"@en ;
+                                  skos:altLabel "Medium rapid-status confidence"@en ;
                                   skos:definition "Rapid status confidence category indicating mixed evidence or reliance on trend metrics supplemented by some abundance information."@en ;
                                   skos:inScheme gcdfo:RapidStatusConfidenceScheme ;
                                   skos:prefLabel "Medium confidence"@en ;
@@ -2937,6 +3028,7 @@ gcdfo:RapidStatusMetric rdf:type owl:NamedIndividual ,
                                  skos:Concept ;
                         gcdfo:usedProcedure gcdfo:WSPRapidStatusAssessmentMethod ;
                         rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                        rdfs:label "Rapid status metric"@en ;
                         skos:definition "A compound variable concept representing a metric used by WSP rapid-status workflows."@en ;
                         skos:inScheme gcdfo:RapidStatusMetricScheme ;
                         skos:prefLabel "Rapid status metric"@en ;
@@ -2966,6 +3058,7 @@ gcdfo:RapidStatusScoreMetric rdf:type owl:NamedIndividual ,
                              <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."@en ;
                              dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
                              rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                             rdfs:label "Rapid status score metric"@en ;
                              skos:broader gcdfo:RapidStatusMetric ;
                              skos:definition "A numeric score produced by a rapid-status algorithm used to represent an ordered status outcome and/or decision-rule position."@en ;
                              skos:inScheme gcdfo:RapidStatusMetricScheme ;
@@ -2983,6 +3076,7 @@ gcdfo:ReachCoverage rdf:type owl:NamedIndividual ,
                              skos:Concept ;
                     rdfs:comment "Limits to Type 3 maximum"@en ;
                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                    rdfs:label "Reach Coverage"@en ;
                     skos:broader gcdfo:DowngradeCriteria ;
                     skos:definition "Insufficient reach coverage"@en ;
                     skos:inScheme gcdfo:DowngradeCriteriaScheme ;
@@ -2995,6 +3089,7 @@ gcdfo:ReachCoverage rdf:type owl:NamedIndividual ,
 gcdfo:RecruitStageContext rdf:type owl:NamedIndividual ,
                                    skos:Concept ;
                           rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                          rdfs:label "Recruit stage context"@en ;
                           skos:broader smn:MeasurementContext ;
                           skos:definition "Measurement context indicating values refer to recruits."@en ;
                           skos:inScheme smn:MeasurementContextScheme ;
@@ -3010,6 +3105,7 @@ gcdfo:RedZone rdf:type owl:NamedIndividual ,
               <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en ;
               dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf> ;
               rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+              rdfs:label "Red zone"@en ;
               skos:definition "A Conservation Unit in the Red zone is undesirable because of the risk of extirpation, and the loss of ecological benefits and salmon production. Changes in status will trigger management actions that will vary depending on species, geographic regions, and cause of the decline."@en ;
               skos:inScheme gcdfo:IntegratedStatusOutcomeScheme ,
                             gcdfo:WSPBiologicalStatusZoneScheme ;
@@ -3024,6 +3120,7 @@ gcdfo:ReddCount rdf:type owl:NamedIndividual ,
                          skos:Concept ;
                 rdfs:comment "Legacy methods: Redd Counts"@en ;
                 rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                rdfs:label "Redd Count"@en ;
                 skos:broader smn:EnumerationMethod ;
                 skos:definition "Redd counts with documentation of detectability, timing, and reach coverage. Conversion to spawner estimates requires spawners-per-redd factors handled in analysis."@en ;
                 skos:inScheme gcdfo:EnumerationMethodScheme ;
@@ -3037,6 +3134,7 @@ gcdfo:ReddExpansionAnalysis rdf:type owl:NamedIndividual ,
                                      skos:Concept ;
                             rdfs:comment "Requires validated spawners-per-redd factor and documentation of detectability assumptions."@en ;
                             rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                            rdfs:label "Redd Expansion Analysis"@en ;
                             skos:broader gcdfo:EstimateMethod ;
                             skos:definition "Converts redd counts to spawner estimates using spawners-per-redd expansion factors."@en ;
                             skos:inScheme gcdfo:EstimateMethodScheme ;
@@ -3050,6 +3148,7 @@ gcdfo:RelativeAbundanceMetricStatus rdf:type owl:NamedIndividual ,
                                              skos:Concept ;
                                     dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv> ;
                                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                    rdfs:label "Relative abundance metric status"@en ;
                                     skos:altLabel "RelAbdCat"@en ;
                                     skos:broader gcdfo:WSPOutputVariable ;
                                     skos:definition "Categorical status derived from the relative abundance metric benchmark ratio."@en ;
@@ -3071,6 +3170,7 @@ gcdfo:ReturnYear rdf:type owl:NamedIndividual ,
                  <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Pacific Salmon Glossary (Pacific Region web page)."@en ;
                  dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html> ;
                  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                 rdfs:label "Return year"@en ;
                  skos:broader gcdfo:YearBasis ;
                  skos:definition "The calendar year in which adult salmon return from the ocean to freshwater systems (a year basis used to contextualize run/return-related measurements)."@en ;
                  skos:inScheme gcdfo:YearBasisScheme ;
@@ -3085,6 +3185,7 @@ gcdfo:ReviewQA rdf:type owl:NamedIndividual ,
                         skos:Concept ;
                rdfs:comment "Limits to Type 2 maximum"@en ;
                rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+               rdfs:label "Review/QA"@en ;
                skos:broader gcdfo:DowngradeCriteria ;
                skos:definition "Insufficient QA review of automated events"@en ;
                skos:inScheme gcdfo:DowngradeCriteriaScheme ;
@@ -3098,6 +3199,7 @@ gcdfo:RunCoverage rdf:type owl:NamedIndividual ,
                            skos:Concept ;
                   rdfs:comment "Limits to Type 2 maximum"@en ;
                   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                  rdfs:label "Run Coverage"@en ;
                   skos:broader gcdfo:DowngradeCriteria ;
                   skos:definition "Run-window coverage < 95% of season days"@en ;
                   skos:inScheme gcdfo:DowngradeCriteriaScheme ;
@@ -3110,6 +3212,7 @@ gcdfo:RunCoverage rdf:type owl:NamedIndividual ,
 gcdfo:SalmonEnhancementHatcheriesTheme rdf:type owl:NamedIndividual ,
                                                 skos:Concept ;
                                        rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                       rdfs:label "Salmon Enhancement and Hatcheries"@en ;
                                        skos:definition "Hatchery production, broodstock management, releases, and enhancement program practices for salmon."@en ;
                                        skos:inScheme gcdfo:ThemeScheme ;
                                        skos:prefLabel "Salmon Enhancement and Hatcheries"@en ;
@@ -3121,6 +3224,7 @@ gcdfo:Species rdf:type owl:NamedIndividual ,
                        skos:Concept ;
               dcterms:source <https://github.com/sos-program/Approved-WSP-Statuses/blob/master/OUTPUT/Retrospective_RapidStatus_Results_Approved_VariableDescriptions.csv> ;
               rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+              rdfs:label "Species"@en ;
               skos:broader gcdfo:WSPOutputVariable ;
               skos:definition "Species identity field used in canonical WSP outputs."@en ;
               skos:inScheme gcdfo:WSPOutputVariableScheme ;
@@ -3136,6 +3240,7 @@ gcdfo:Species rdf:type owl:NamedIndividual ,
 gcdfo:SpeciesAtRiskRecoveryTheme rdf:type owl:NamedIndividual ,
                                           skos:Concept ;
                                  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                 rdfs:label "Species at Risk and Recovery"@en ;
                                  skos:definition "COSEWIC/SARA recovery planning, critical habitat, threats, and status assessments for species of conservation concern."@en ;
                                  skos:inScheme gcdfo:ThemeScheme ;
                                  skos:prefLabel "Species at Risk and Recovery"@en ;
@@ -3146,6 +3251,7 @@ gcdfo:SpeciesAtRiskRecoveryTheme rdf:type owl:NamedIndividual ,
 gcdfo:StockAssessmentTheme rdf:type owl:NamedIndividual ,
                                     skos:Concept ;
                            rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                           rdfs:label "Stock Assessment"@en ;
                            skos:definition "Stock assessment models, benchmarks, status determinations, and performance metrics for salmon units."@en ;
                            skos:inScheme gcdfo:ThemeScheme ;
                            skos:prefLabel "Stock Assessment"@en ;
@@ -3180,6 +3286,7 @@ gcdfo:Timing rdf:type owl:NamedIndividual ,
                       skos:Concept ;
              rdfs:comment "Limits to Type 3 maximum"@en ;
              rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+             rdfs:label "Timing"@en ;
              skos:broader gcdfo:DowngradeCriteria ;
              skos:definition "Poor timing of surveys"@en ;
              skos:inScheme gcdfo:DowngradeCriteriaScheme ;
@@ -3192,6 +3299,7 @@ gcdfo:Timing rdf:type owl:NamedIndividual ,
 gcdfo:TotalAgeDimension rdf:type owl:NamedIndividual ,
                                  skos:Concept ;
                         rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                        rdfs:label "Total age dimension"@en ;
                         skos:broader gcdfo:AgeDimension ;
                         skos:definition "Age value represents total age in years."@en ;
                         skos:inScheme gcdfo:AgeDimensionScheme ;
@@ -3204,6 +3312,7 @@ gcdfo:TrapCount rdf:type owl:NamedIndividual ,
                          skos:Concept ;
                 rdfs:comment "Legacy methods: Trap, Hatchery Passage Counting"@en ;
                 rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                rdfs:label "Trap Count"@en ;
                 skos:broader smn:EnumerationMethod ;
                 skos:definition "Trap-based counts from non-spanning traps with documented emptying schedule, efficiency measurements, and coverage information."@en ;
                 skos:inScheme gcdfo:EnumerationMethodScheme ;
@@ -3217,6 +3326,7 @@ gcdfo:TrapEfficiency rdf:type owl:NamedIndividual ,
                               skos:Concept ;
                      rdfs:comment "Limits to Type 3 maximum"@en ;
                      rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                     rdfs:label "Trap Efficiency"@en ;
                      skos:broader gcdfo:DowngradeCriteria ;
                      skos:definition "Trap efficiency not measured/validated"@en ;
                      skos:inScheme gcdfo:DowngradeCriteriaScheme ;
@@ -3230,6 +3340,7 @@ gcdfo:TrapModelAnalysis rdf:type owl:NamedIndividual ,
                                  skos:Concept ;
                         rdfs:comment "Requires documented trap efficiency measurements and cross-section coverage factors."@en ;
                         rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                        rdfs:label "Trap Model Analysis"@en ;
                         skos:broader gcdfo:EstimateMethod ;
                         skos:definition "Trap-based counts adjusted with efficiency/coverage models to estimate total passage."@en ;
                         skos:inScheme gcdfo:EstimateMethodScheme ;
@@ -3242,6 +3353,7 @@ gcdfo:TrapModelAnalysis rdf:type owl:NamedIndividual ,
 gcdfo:Type1 rdf:type owl:NamedIndividual ,
                      skos:Concept ;
             rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+            rdfs:label "Type-1, True Abundance, high resolution"@en ;
             skos:broader gcdfo:EstimateType ;
             skos:definition "Total, seasonal counts through fence or fishway; virtually no bypass. Simple, often single step analysis. Reliable resolution of between year differences >10% (in absolute units)."@en ;
             skos:inScheme gcdfo:EstimateTypeScheme ;
@@ -3254,6 +3366,7 @@ gcdfo:Type1 rdf:type owl:NamedIndividual ,
 gcdfo:Type2 rdf:type owl:NamedIndividual ,
                      skos:Concept ;
             rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+            rdfs:label "Type-2, True Abundance, medium resolution"@en ;
             skos:broader gcdfo:EstimateType ;
             skos:definition "Indirect estimate of total spawner abundance with qualified accuracy and known precision (i.e., a variance estimate—an explicit quantitative measure of uncertainty around the estimate). Derived from high-effort, standardized methods (e.g., mark-recapture, serial counts for area under the curve) with documented analytical conversions (including interpolation/calibration as needed). Reported in absolute units (estimate ± variance). Reliable resolution of between-year differences >25% (in absolute units)."@en ;
             skos:inScheme gcdfo:EstimateTypeScheme ;
@@ -3266,6 +3379,7 @@ gcdfo:Type2 rdf:type owl:NamedIndividual ,
 gcdfo:Type3 rdf:type owl:NamedIndividual ,
                      skos:Concept ;
             rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+            rdfs:label "Type-3, Relative Abundance, high resolution"@en ;
             skos:broader gcdfo:EstimateType ;
             skos:definition "Relative abundance index (i.e., not an absolute count) derived from moderate to high effort surveys (typically 3 or more site visits) using standardized methods applied consistently between and within years (e.g., equal-effort surveys executed by walk, swim, overflight). Accuracy and precision are not fully quantified (i.e., no explicit variance estimate), but are assumed stable enough for within-series comparisons. Reliable resolution of between-year differences >25% (in relative units)."@en ;
             skos:inScheme gcdfo:EstimateTypeScheme ;
@@ -3278,6 +3392,7 @@ gcdfo:Type3 rdf:type owl:NamedIndividual ,
 gcdfo:Type4 rdf:type owl:NamedIndividual ,
                      skos:Concept ;
             rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+            rdfs:label "Type-4, Relative Abundance, medium resolution"@en ;
             skos:broader gcdfo:EstimateType ;
             skos:definition "Low to moderate effort (1-4 trips), known survey method. Simple analysis by known methods. Reliable resolution of between year differences >200% (in relative units)."@en ;
             skos:inScheme gcdfo:EstimateTypeScheme ;
@@ -3290,6 +3405,7 @@ gcdfo:Type4 rdf:type owl:NamedIndividual ,
 gcdfo:Type5 rdf:type owl:NamedIndividual ,
                      skos:Concept ;
             rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+            rdfs:label "Type-5, Relative Abundance, low resolution"@en ;
             skos:broader gcdfo:EstimateType ;
             skos:definition "Low effort (e.g. 1 trip), use of vaguely defined, inconsistent or poorly executed methods. Unknown to ill defined; inconsistent or poorly executed. Uncertain numeric comparisons, but high reliability for presence or absence."@en ;
             skos:inScheme gcdfo:EstimateTypeScheme ;
@@ -3302,6 +3418,7 @@ gcdfo:Type5 rdf:type owl:NamedIndividual ,
 gcdfo:Type6 rdf:type owl:NamedIndividual ,
                      skos:Concept ;
             rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+            rdfs:label "Type-6, Presence or Absence"@en ;
             skos:altLabel "Presence/Not Detected"@en ;
             skos:broader gcdfo:EstimateType ;
             skos:definition "Non-numeric, year-specific record of presence/not detected (i.e., present/absent without estimating a count), tied to an explicit time and location, with reliable species identification. Underlying field methods may be highly variable; analysis is not required."@en ;
@@ -3318,6 +3435,7 @@ gcdfo:UnrankedIndexQuality rdf:type owl:NamedIndividual ,
                            <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. 2020. 2020 summary of abundance data for Chinook salmon (Oncorhynchus tshawytscha) in southern British Columbia, Canada (nuSEDS Estimate Classification includes 'Unknown: no quality rating')."@en ;
                            dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/Library/40890041.pdf> ;
                            rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                           rdfs:label "Unranked index quality"@en ;
                            skos:broader gcdfo:EstimateType ;
                            skos:definition "A data quality category indicating that no spawner-abundance estimate classification / index quality rating was assigned for the record (i.e., an 'Unknown' estimate classification with no quality rating)."@en ;
                            skos:inScheme gcdfo:EstimateTypeScheme ;
@@ -3330,6 +3448,7 @@ gcdfo:UnrankedIndexQuality rdf:type owl:NamedIndividual ,
 gcdfo:UpperBenchmark rdf:type owl:NamedIndividual ,
                               skos:Concept ;
                      rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                     rdfs:label "Upper benchmark"@en ;
                      skos:definition "An upper-threshold benchmark value, typically delineating the boundary between Amber and Green status zones."@en ;
                      skos:inScheme gcdfo:BenchmarkLevelScheme ;
                      skos:prefLabel "Upper benchmark"@en ;
@@ -3342,6 +3461,7 @@ gcdfo:Uptime rdf:type owl:NamedIndividual ,
                       skos:Concept ;
              rdfs:comment "Limits to Type 2 maximum"@en ;
              rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+             rdfs:label "Uptime"@en ;
              skos:broader gcdfo:DowngradeCriteria ;
              skos:definition "Counting/device uptime < 95% (or <90% with interpolation)"@en ;
              skos:inScheme gcdfo:DowngradeCriteriaScheme ;
@@ -3355,6 +3475,7 @@ gcdfo:Visibility rdf:type owl:NamedIndividual ,
                           skos:Concept ;
                  rdfs:comment "Limits to Type 3 maximum"@en ;
                  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                 rdfs:label "Visibility"@en ;
                  skos:broader gcdfo:DowngradeCriteria ;
                  skos:definition "Poor visibility conditions"@en ;
                  skos:inScheme gcdfo:DowngradeCriteriaScheme ;
@@ -3368,6 +3489,7 @@ gcdfo:VisualGroundCount rdf:type owl:NamedIndividual ,
                                  skos:Concept ;
                         rdfs:comment "Legacy methods: Stream Walk, Ground count, Bank Walk"@en ;
                         rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                        rdfs:label "Visual Ground Count"@en ;
                         skos:broader smn:EnumerationMethod ;
                         skos:definition "Visual surveys conducted by stream/bank walk with documented visit schedule, reach coverage, timing, and visibility conditions."@en ;
                         skos:inScheme gcdfo:EnumerationMethodScheme ;
@@ -3381,6 +3503,7 @@ gcdfo:VisualSnorkelCount rdf:type owl:NamedIndividual ,
                                   skos:Concept ;
                          rdfs:comment "Legacy methods: Snorkel, Snorkel Swim"@en ;
                          rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                         rdfs:label "Visual Snorkel Count"@en ;
                          skos:broader smn:EnumerationMethod ;
                          skos:definition "Two or more trained snorkelers conduct standardized passes within defined segments, tallying live/dead by species. Field forms capture visibility class, segment boundaries, and repeat-visit schedule; counts are aggregated across observers/passes."@en ;
                          skos:inScheme gcdfo:EnumerationMethodScheme ;
@@ -3410,6 +3533,7 @@ gcdfo:WSPBiologicalStatusZoneScheme rdf:type owl:NamedIndividual ,
 gcdfo:WSPOutputVariable rdf:type owl:NamedIndividual ,
                                  skos:Concept ;
                         rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                        rdfs:label "WSP output variable"@en ;
                         skos:definition "A canonical variable field used in approved Wild Salmon Policy output tables."@en ;
                         skos:inScheme gcdfo:WSPOutputVariableScheme ;
                         skos:prefLabel "WSP output variable"@en ;
@@ -3436,6 +3560,7 @@ gcdfo:WSPRapidStatusAssessmentMethod rdf:type owl:NamedIndividual ,
                                      <http://purl.obolibrary.org/obo/IAO_0000119> "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570."@en ;
                                      dcterms:source <https://publications.gc.ca/site/eng/9.928944/publication.html> ;
                                      rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                     rdfs:label "WSP rapid-status assessment method"@en ;
                                      skos:altLabel "WSP rapid status method"@en ;
                                      skos:broader gcdfo:EstimateMethod ;
                                      skos:definition "The analytical method used to produce rapid-status metrics under the Wild Salmon Policy rapid-status approach."@en ;
@@ -3450,6 +3575,7 @@ gcdfo:WSPRapidStatusAssessmentMethod rdf:type owl:NamedIndividual ,
 gcdfo:WildSalmonPolicy rdf:type owl:NamedIndividual ,
                                 skos:Concept ;
                        rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                       rdfs:label "Wild Salmon Policy"@en ;
                        skos:altLabel "WSP"@en ;
                        skos:broader gcdfo:PolicyFramework ;
                        skos:definition "Canada's Wild Salmon Policy framework for conserving and managing wild Pacific salmon, including integrated status assessments and biological benchmarks for Conservation Units."@en ;
@@ -3464,6 +3590,7 @@ gcdfo:WildSalmonPolicy rdf:type owl:NamedIndividual ,
 gcdfo:WildSalmonPolicyTheme rdf:type owl:NamedIndividual ,
                                      skos:Concept ;
                             rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                            rdfs:label "Wild Salmon Policy"@en ;
                             skos:definition "Conservation Unit based stock assessment methods, metrics, and metadata"@en ;
                             skos:inScheme gcdfo:ThemeScheme ;
                             skos:prefLabel "Wild Salmon Policy"@en ;
@@ -3475,6 +3602,7 @@ gcdfo:YearBasis rdf:type owl:NamedIndividual ,
                          skos:Concept ;
                 <http://purl.obolibrary.org/obo/IAO_0000115> "A year-based temporal reference used to contextualize measurements or rates (e.g., brood year, catch year, or return year)."@en ;
                 rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                rdfs:label "Year basis"@en ;
                 skos:definition "A year-based temporal reference used to contextualize measurements or rates (e.g., brood year, catch year, or return year)."@en ;
                 skos:inScheme gcdfo:YearBasisScheme ;
                 skos:prefLabel "Year basis"@en ;
@@ -3496,6 +3624,7 @@ gcdfo:YearBasisScheme rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/smn/CatchContext
 smn:CatchContext rdf:type skos:Concept ;
                  rdfs:isDefinedBy <https://w3id.org/smn> ;
+                 rdfs:label "Catch context"@en ;
                  skos:broader smn:MeasurementContext ;
                  skos:definition "Measurement context indicating values refer to fishery catch."@en ;
                  skos:inScheme smn:MeasurementContextScheme ;
@@ -3507,6 +3636,7 @@ smn:CatchContext rdf:type skos:Concept ;
 smn:EnumerationMethod rdf:type owl:NamedIndividual ,
                                skos:Concept ;
                       rdfs:isDefinedBy <https://w3id.org/smn> ;
+                      rdfs:label "Enumeration Method"@en ;
                       skos:definition "A method used to enumerate or count salmon in the field"@en ;
                       skos:inScheme gcdfo:EnumerationMethodScheme ;
                       skos:prefLabel "Enumeration Method"@en ;
@@ -3520,6 +3650,7 @@ smn:HatcheryOrigin rdf:type skos:Concept ;
                    <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. 2018. Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Canadian Science Advisory Secretariat Science Advisory Report 2018/001 (Erratum: October 2023)."@en ;
                    dcterms:source <https://www.dfo-mpo.gc.ca/csas-sccs/Publications/SAR-AS/2018/2018_001-eng.html> ;
                    rdfs:isDefinedBy <https://w3id.org/smn> ;
+                   rdfs:label "Hatchery-origin"@en ;
                    skos:broader smn:SalmonOrigin ;
                    skos:definition "Individuals that were born or reared in a hatchery facility."@en ;
                    skos:inScheme smn:SalmonOriginScheme ;
@@ -3532,6 +3663,7 @@ smn:HatcheryOrigin rdf:type skos:Concept ;
 ###  https://w3id.org/smn/InRiverPhase
 smn:InRiverPhase rdf:type skos:Concept ;
                  rdfs:isDefinedBy <https://w3id.org/smn> ;
+                 rdfs:label "In-river phase"@en ;
                  skos:altLabel "Freshwater phase"@en ;
                  skos:broader smn:LifePhase ;
                  skos:definition "Freshwater in-river phase (migration and/or residence) outside the marine environment."@en ;
@@ -3543,6 +3675,7 @@ smn:InRiverPhase rdf:type skos:Concept ;
 ###  https://w3id.org/smn/LifePhase
 smn:LifePhase rdf:type skos:Concept ;
               rdfs:isDefinedBy <https://w3id.org/smn> ;
+              rdfs:label "Life phase"@en ;
               skos:definition "A phase or segment used to stratify salmon measurements by where or when they apply (e.g., ocean phase, terminal phase)."@en ;
               skos:inScheme smn:LifePhaseScheme ;
               skos:prefLabel "Life phase"@en ;
@@ -3561,6 +3694,7 @@ smn:LifePhaseScheme rdf:type skos:ConceptScheme ;
 ###  https://w3id.org/smn/MainstemPhase
 smn:MainstemPhase rdf:type skos:Concept ;
                   rdfs:isDefinedBy <https://w3id.org/smn> ;
+                  rdfs:label "Mainstem phase"@en ;
                   skos:broader smn:LifePhase ;
                   skos:definition "Freshwater mainstem migration phase in a river system (often corresponding to mainstem in-river fisheries or monitoring segments)."@en ;
                   skos:inScheme smn:LifePhaseScheme ;
@@ -3571,6 +3705,7 @@ smn:MainstemPhase rdf:type skos:Concept ;
 ###  https://w3id.org/smn/MeasurementContext
 smn:MeasurementContext rdf:type skos:Concept ;
                        rdfs:isDefinedBy <https://w3id.org/smn> ;
+                       rdfs:label "Measurement context"@en ;
                        skos:definition "A context qualifier used to disambiguate the interpretation of a measurement column."@en ;
                        skos:inScheme smn:MeasurementContextScheme ;
                        skos:prefLabel "Measurement context"@en ;
@@ -3593,6 +3728,7 @@ smn:NaturalOrigin rdf:type skos:Concept ;
                   <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. 2018. Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Canadian Science Advisory Secretariat Science Advisory Report 2018/001 (Erratum: October 2023)."@en ;
                   dcterms:source <https://www.dfo-mpo.gc.ca/csas-sccs/Publications/SAR-AS/2018/2018_001-eng.html> ;
                   rdfs:isDefinedBy <https://w3id.org/smn> ;
+                  rdfs:label "Natural-origin"@en ;
                   skos:broader smn:SalmonOrigin ;
                   skos:definition "Individuals that are born and reared in the wild (natural environment)."@en ;
                   skos:inScheme smn:SalmonOriginScheme ;
@@ -3605,6 +3741,7 @@ smn:NaturalOrigin rdf:type skos:Concept ;
 ###  https://w3id.org/smn/OceanPhase
 smn:OceanPhase rdf:type skos:Concept ;
                rdfs:isDefinedBy <https://w3id.org/smn> ;
+               rdfs:label "Ocean phase"@en ;
                skos:altLabel "Marine phase"@en ;
                skos:broader smn:LifePhase ;
                skos:definition "Phase of the salmon life cycle or assessment period occurring in the marine environment."@en ;
@@ -3616,6 +3753,7 @@ smn:OceanPhase rdf:type skos:Concept ;
 ###  https://w3id.org/smn/RunContext
 smn:RunContext rdf:type skos:Concept ;
                rdfs:isDefinedBy <https://w3id.org/smn> ;
+               rdfs:label "Run context"@en ;
                skos:broader smn:MeasurementContext ;
                skos:definition "Measurement context indicating values refer to run size or returning run composition."@en ;
                skos:inScheme smn:MeasurementContextScheme ;
@@ -3626,6 +3764,7 @@ smn:RunContext rdf:type skos:Concept ;
 ###  https://w3id.org/smn/SalmonOrigin
 smn:SalmonOrigin rdf:type skos:Concept ;
                  rdfs:isDefinedBy <https://w3id.org/smn> ;
+                 rdfs:label "Salmon origin"@en ;
                  skos:definition "Origin category describing whether salmon are naturally produced, hatchery produced, or mixed-origin."@en ;
                  skos:inScheme smn:SalmonOriginScheme ;
                  skos:prefLabel "Salmon origin"@en ;
@@ -3647,6 +3786,7 @@ smn:SalmonOriginScheme rdf:type skos:ConceptScheme ;
 ###  https://w3id.org/smn/SpawnerStageContext
 smn:SpawnerStageContext rdf:type skos:Concept ;
                         rdfs:isDefinedBy <https://w3id.org/smn> ;
+                        rdfs:label "Spawner stage context"@en ;
                         skos:broader smn:MeasurementContext ;
                         skos:definition "Measurement context indicating values refer to spawners or spawning-stage fish."@en ;
                         skos:inScheme smn:MeasurementContextScheme ;
@@ -3657,6 +3797,7 @@ smn:SpawnerStageContext rdf:type skos:Concept ;
 ###  https://w3id.org/smn/SurvivalOrMortalityContext
 smn:SurvivalOrMortalityContext rdf:type skos:Concept ;
                                rdfs:isDefinedBy <https://w3id.org/smn> ;
+                               rdfs:label "Survival or mortality context"@en ;
                                skos:broader smn:MeasurementContext ;
                                skos:definition "Measurement context indicating values represent survival, mortality, or related rates."@en ;
                                skos:inScheme smn:MeasurementContextScheme ;
@@ -3667,6 +3808,7 @@ smn:SurvivalOrMortalityContext rdf:type skos:Concept ;
 ###  https://w3id.org/smn/TerminalPhase
 smn:TerminalPhase rdf:type skos:Concept ;
                   rdfs:isDefinedBy <https://w3id.org/smn> ;
+                  rdfs:label "Terminal phase"@en ;
                   skos:broader smn:LifePhase ;
                   skos:definition "Phase occurring in terminal areas near river mouths or spawning areas (often including terminal fisheries and local migration to spawning sites)."@en ;
                   skos:inScheme smn:LifePhaseScheme ;
@@ -3679,6 +3821,7 @@ smn:TerminalPhase rdf:type skos:Concept ;
 #################################################################
 
 gcdfo:ConfidenceCategory rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                         rdfs:label "Confidence category"@en ;
                          skos:definition "Categorical confidence rating (High, Medium, Low) for stock assessment metrics."@en ;
                          skos:inScheme gcdfo:RapidStatusConfidenceScheme ;
                          skos:prefLabel "Confidence category"@en ;
@@ -3687,6 +3830,7 @@ gcdfo:ConfidenceCategory rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
 
 
 gcdfo:IntegratedStatusOutcome rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                              rdfs:label "Integrated status outcome"@en ;
                               skos:definition "Outcome category assigned by integrated WSP status workflows for a Conservation Unit."@en ;
                               skos:inScheme gcdfo:IntegratedStatusOutcomeScheme ;
                               skos:prefLabel "Integrated status outcome"@en ;
@@ -3697,6 +3841,7 @@ gcdfo:IntegratedStatusOutcome rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
 gcdfo:WSPBiologicalStatusZone <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en ;
                               dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf> ;
                               rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                              rdfs:label "Wild Salmon Policy biological status zone"@en ;
                               skos:definition "The biological status of a Conservation Unit (CU) will normally be based on the abundance and distribution of spawners in the unit, or proxies thereof. For each CU, higher and lower benchmarks will be defined that will delimit three status zones: Green, Amber, and Red. As spawner abundance decreases, a CU moves towards the lower status zone, and the extent of management intervention for conservation purposes will increase."@en ;
                               skos:inScheme gcdfo:WSPBiologicalStatusZoneScheme ;
                               skos:prefLabel "Wild Salmon Policy biological status zone"@en ;
