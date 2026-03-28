@@ -269,6 +269,7 @@
     <!-- https://w3id.org/gcdfo/salmon#theme -->
 
     <owl:AnnotationProperty rdf:about="https://w3id.org/gcdfo/salmon#theme">
+        <obo:IAO_0000115 xml:lang="en">Associates OWL classes and SKOS concepts with high-level thematic concept schemes (e.g., Stock Assessment, GSI, Policy).</obo:IAO_0000115>
         <rdfs:comment xml:lang="en">Associates OWL classes and SKOS concepts with high-level thematic concept schemes (e.g., Stock Assessment, GSI, Policy).</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">theme</rdfs:label>
@@ -3669,6 +3670,7 @@
         <obo:IAO_0000115 xml:lang="en">Rapid status confidence category indicating that high-quality abundance metrics support the result.</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">High rapid-status confidence</rdfs:label>
+        <skos:definition xml:lang="en">Rapid status confidence category indicating that high-quality abundance metrics support the result.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#RapidStatusConfidenceScheme"/>
         <skos:prefLabel xml:lang="en">High confidence</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
@@ -3685,6 +3687,7 @@
         <obo:IAO_0000115 xml:lang="en">Rapid status confidence category indicating limited supporting data (for example, derived from trend metrics alone).</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">Low rapid-status confidence</rdfs:label>
+        <skos:definition xml:lang="en">Rapid status confidence category indicating limited supporting data (for example, derived from trend metrics alone).</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#RapidStatusConfidenceScheme"/>
         <skos:prefLabel xml:lang="en">Low confidence</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>
@@ -3701,6 +3704,7 @@
         <obo:IAO_0000115 xml:lang="en">Rapid status confidence category indicating mixed evidence or reliance on trend metrics supplemented by some abundance information.</obo:IAO_0000115>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/gcdfo/salmon"/>
         <rdfs:label xml:lang="en">Medium rapid-status confidence</rdfs:label>
+        <skos:definition xml:lang="en">Rapid status confidence category indicating mixed evidence or reliance on trend metrics supplemented by some abundance information.</skos:definition>
         <skos:inScheme rdf:resource="https://w3id.org/gcdfo/salmon#RapidStatusConfidenceScheme"/>
         <skos:prefLabel xml:lang="en">Medium confidence</skos:prefLabel>
         <theme rdf:resource="https://w3id.org/gcdfo/salmon#StockAssessmentTheme"/>

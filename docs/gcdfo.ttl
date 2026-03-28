@@ -193,6 +193,7 @@ gcdfo:iadoptProperty rdf:type owl:AnnotationProperty ;
 
 ###  https://w3id.org/gcdfo/salmon#theme
 gcdfo:theme rdf:type owl:AnnotationProperty ;
+            <http://purl.obolibrary.org/obo/IAO_0000115> "Associates OWL classes and SKOS concepts with high-level thematic concept schemes (e.g., Stock Assessment, GSI, Policy)."@en ;
             rdfs:comment "Associates OWL classes and SKOS concepts with high-level thematic concept schemes (e.g., Stock Assessment, GSI, Policy)."@en ;
             rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
             rdfs:label "theme"@en ;
@@ -2885,6 +2886,7 @@ gcdfo:RapidStatusConfidenceHigh rdf:type owl:NamedIndividual ,
                                 <http://purl.obolibrary.org/obo/IAO_0000115> "Rapid status confidence category indicating that high-quality abundance metrics support the result."@en ;
                                 rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                                 rdfs:label "High rapid-status confidence"@en ;
+                                skos:definition "Rapid status confidence category indicating that high-quality abundance metrics support the result."@en ;
                                 skos:inScheme gcdfo:RapidStatusConfidenceScheme ;
                                 skos:prefLabel "High confidence"@en ;
                                 gcdfo:theme gcdfo:StockAssessmentTheme ,
@@ -2898,6 +2900,7 @@ gcdfo:RapidStatusConfidenceLow rdf:type owl:NamedIndividual ,
                                <http://purl.obolibrary.org/obo/IAO_0000115> "Rapid status confidence category indicating limited supporting data (for example, derived from trend metrics alone)."@en ;
                                rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                                rdfs:label "Low rapid-status confidence"@en ;
+                               skos:definition "Rapid status confidence category indicating limited supporting data (for example, derived from trend metrics alone)."@en ;
                                skos:inScheme gcdfo:RapidStatusConfidenceScheme ;
                                skos:prefLabel "Low confidence"@en ;
                                gcdfo:theme gcdfo:StockAssessmentTheme ,
@@ -2911,6 +2914,7 @@ gcdfo:RapidStatusConfidenceMedium rdf:type owl:NamedIndividual ,
                                   <http://purl.obolibrary.org/obo/IAO_0000115> "Rapid status confidence category indicating mixed evidence or reliance on trend metrics supplemented by some abundance information."@en ;
                                   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                                   rdfs:label "Medium rapid-status confidence"@en ;
+                                  skos:definition "Rapid status confidence category indicating mixed evidence or reliance on trend metrics supplemented by some abundance information."@en ;
                                   skos:inScheme gcdfo:RapidStatusConfidenceScheme ;
                                   skos:prefLabel "Medium confidence"@en ;
                                   gcdfo:theme gcdfo:StockAssessmentTheme ,

@@ -59,6 +59,7 @@ skos:closeMatch    a owl:AnnotationProperty .
 
 gcdfo:theme a owl:AnnotationProperty ;
   rdfs:label "theme"@en ;
+  iao:0000115 "Associates OWL classes and SKOS concepts with high-level thematic concept schemes (e.g., Stock Assessment, GSI, Policy)."@en ;
   rdfs:comment "Associates OWL classes and SKOS concepts with high-level thematic concept schemes (e.g., Stock Assessment, GSI, Policy)."@en ;
   gcdfo:theme gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
@@ -1879,6 +1880,7 @@ gcdfo:ConfidenceCategory a skos:Concept ;
   rdfs:label "High rapid-status confidence"@en ;
   skos:prefLabel "High confidence"@en ;
   iao:0000115 "Rapid status confidence category indicating that high-quality abundance metrics support the result."@en ; # definition
+  skos:definition "Rapid status confidence category indicating that high-quality abundance metrics support the result."@en ;
   skos:inScheme :RapidStatusConfidenceScheme ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
@@ -1887,6 +1889,7 @@ gcdfo:RapidStatusConfidenceMedium a gcdfo:ConfidenceCategory , skos:Concept ;
   rdfs:label "Medium rapid-status confidence"@en ;
   skos:prefLabel "Medium confidence"@en ;
   iao:0000115 "Rapid status confidence category indicating mixed evidence or reliance on trend metrics supplemented by some abundance information."@en ; # definition
+  skos:definition "Rapid status confidence category indicating mixed evidence or reliance on trend metrics supplemented by some abundance information."@en ;
   skos:inScheme :RapidStatusConfidenceScheme ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
@@ -1895,6 +1898,7 @@ gcdfo:RapidStatusConfidenceLow a gcdfo:ConfidenceCategory , skos:Concept ;
   rdfs:label "Low rapid-status confidence"@en ;
   skos:prefLabel "Low confidence"@en ;
   iao:0000115 "Rapid status confidence category indicating limited supporting data (for example, derived from trend metrics alone)."@en ; # definition
+  skos:definition "Rapid status confidence category indicating limited supporting data (for example, derived from trend metrics alone)."@en ;
   skos:inScheme :RapidStatusConfidenceScheme ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .

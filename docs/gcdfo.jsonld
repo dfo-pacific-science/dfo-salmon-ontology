@@ -6942,6 +6942,12 @@
         "@value": "High rapid-status confidence"
       }
     ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Rapid status confidence category indicating that high-quality abundance metrics support the result."
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#RapidStatusConfidenceScheme"
@@ -6985,6 +6991,12 @@
         "@value": "Low rapid-status confidence"
       }
     ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Rapid status confidence category indicating limited supporting data (for example, derived from trend metrics alone)."
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#RapidStatusConfidenceScheme"
@@ -7026,6 +7038,12 @@
       {
         "@language": "en",
         "@value": "Medium rapid-status confidence"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Rapid status confidence category indicating mixed evidence or reliance on trend metrics supplemented by some abundance information."
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -11062,6 +11080,12 @@
     "@id": "https://w3id.org/gcdfo/salmon#theme",
     "@type": [
       "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "Associates OWL classes and SKOS concepts with high-level thematic concept schemes (e.g., Stock Assessment, GSI, Policy)."
+      }
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {

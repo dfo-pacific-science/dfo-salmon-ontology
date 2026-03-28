@@ -290,7 +290,10 @@
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
       "annotations" : {
-        "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+        "isDefinedBy" : [
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" },
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" }
+        ],
         "IAO_0000115" : [
           {
             "identifier" : "IAO_0000115",
@@ -337,7 +340,10 @@
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
       "annotations" : {
-        "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+        "isDefinedBy" : [
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" },
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" }
+        ],
         "IAO_0000115" : [
           {
             "identifier" : "IAO_0000115",
@@ -408,6 +414,7 @@
       "iri" : "https://w3id.org/smn/SalmonLifeStage",
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "SalmonLifeStage", "en" : "Salmon life stage" },
       "subClasses" : [ "10" ],
       "attributes" : [ "external" ],
@@ -418,6 +425,7 @@
       "iri" : "https://w3id.org/smn/Characteristic",
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "Characteristic", "en" : "Characteristic" },
       "subClasses" : [ "63", "8", "125", "115" ],
       "attributes" : [ "external" ],
@@ -428,6 +436,7 @@
       "iri" : "https://w3id.org/smn/alevin",
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "alevin", "en" : "Alevin" },
       "attributes" : [ "external" ],
       "id" : "10",
@@ -477,7 +486,10 @@
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
       "annotations" : {
-        "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+        "isDefinedBy" : [
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" },
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" }
+        ],
         "IAO_0000115" : [
           {
             "identifier" : "IAO_0000115",
@@ -536,7 +548,10 @@
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
       "annotations" : {
-        "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+        "isDefinedBy" : [
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" },
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" }
+        ],
         "IAO_0000115" : [
           {
             "identifier" : "IAO_0000115",
@@ -840,7 +855,10 @@
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
       "annotations" : {
-        "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+        "isDefinedBy" : [
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" },
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" }
+        ],
         "closeMatch" : [ { "identifier" : "closeMatch", "language" : "undefined", "value" : "http://www.w3.org/ns/sosa/FeatureOfInterest", "type" : "iri" } ],
         "IAO_0000115" : [
           {
@@ -872,7 +890,10 @@
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
       "annotations" : {
-        "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+        "isDefinedBy" : [
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" },
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" }
+        ],
         "IAO_0000115" : [
           {
             "identifier" : "IAO_0000115",
@@ -909,7 +930,10 @@
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
       "annotations" : {
-        "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+        "isDefinedBy" : [
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" },
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" }
+        ],
         "IAO_0000115" : [
           {
             "identifier" : "IAO_0000115",
@@ -998,6 +1022,7 @@
       "iri" : "https://w3id.org/smn/Observation",
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "Observation", "en" : "Observation" },
       "subClasses" : [ "81" ],
       "attributes" : [ "external" ],
@@ -1043,7 +1068,10 @@
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
       "annotations" : {
-        "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+        "isDefinedBy" : [
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" },
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" }
+        ],
         "IAO_0000115" : [
           {
             "identifier" : "IAO_0000115",
@@ -1158,7 +1186,8 @@
             "value" : "A documented method description linked to how a salmon metric or estimate was produced.",
             "type" : "label"
           }
-        ]
+        ],
+        "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ]
       },
       "label" : { "IRI-based" : "MethodDocumentation", "en" : "Method documentation" },
       "attributes" : [ "external" ],
@@ -1230,6 +1259,7 @@
       "iri" : "https://w3id.org/smn/NCBITaxon_8018",
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "NCBITaxon_8018", "en" : "Oncorhynchus keta proxy class" },
       "attributes" : [ "external" ],
       "id" : "55",
@@ -1281,6 +1311,7 @@
       "iri" : "https://w3id.org/smn/fusiform",
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "fusiform", "en" : "Fusiform" },
       "attributes" : [ "external" ],
       "id" : "62",
@@ -1290,6 +1321,7 @@
       "iri" : "https://w3id.org/smn/BodyShape",
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "BodyShape", "en" : "Body shape" },
       "subClasses" : [ "62" ],
       "attributes" : [ "external" ],
@@ -1300,6 +1332,7 @@
       "iri" : "https://w3id.org/smn/ForkLengthMeasurement",
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "ForkLengthMeasurement", "en" : "Fork-length measurement" },
       "attributes" : [ "external" ],
       "id" : "64",
@@ -1309,6 +1342,7 @@
       "iri" : "https://w3id.org/smn/FishLengthMeasurementType",
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "FishLengthMeasurementType", "en" : "Fish length measurement type" },
       "subClasses" : [ "161", "64", "147" ],
       "attributes" : [ "external" ],
@@ -1378,7 +1412,10 @@
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
       "annotations" : {
-        "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+        "isDefinedBy" : [
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" },
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" }
+        ],
         "IAO_0000115" : [
           {
             "identifier" : "IAO_0000115",
@@ -1410,7 +1447,10 @@
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
       "annotations" : {
-        "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+        "isDefinedBy" : [
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" },
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" }
+        ],
         "IAO_0000115" : [
           {
             "identifier" : "IAO_0000115",
@@ -1662,7 +1702,10 @@
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
       "annotations" : {
-        "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+        "isDefinedBy" : [
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" },
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" }
+        ],
         "closeMatch" : [ { "identifier" : "closeMatch", "language" : "undefined", "value" : "http://www.w3.org/ns/sosa/FeatureOfInterest", "type" : "iri" } ],
         "IAO_0000115" : [
           {
@@ -1695,6 +1738,17 @@
       "iri" : "https://w3id.org/smn/Measurement",
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
+      "annotations" : {
+        "IAO_0000115" : [
+          {
+            "identifier" : "IAO_0000115",
+            "language" : "en",
+            "value" : "A salmon-domain observation focused on one feature of interest and one characteristic.",
+            "type" : "label"
+          }
+        ],
+        "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ]
+      },
       "label" : { "IRI-based" : "Measurement", "en" : "Measurement" },
       "subClasses" : [ "65", "82", "83", "84" ],
       "comment" : { "en" : "A salmon-domain observation focused on one feature of interest and one characteristic." },
@@ -1706,6 +1760,7 @@
       "iri" : "https://w3id.org/smn/IndividualMeasurement",
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "IndividualMeasurement", "en" : "Individual measurement" },
       "attributes" : [ "external" ],
       "id" : "82",
@@ -1715,6 +1770,7 @@
       "iri" : "https://w3id.org/smn/AggregatedMeasurement",
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "AggregatedMeasurement", "en" : "Aggregated measurement" },
       "attributes" : [ "external" ],
       "id" : "83",
@@ -1724,6 +1780,7 @@
       "iri" : "https://w3id.org/smn/ModelMeasurement",
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "ModelMeasurement", "en" : "Model measurement" },
       "attributes" : [ "external" ],
       "id" : "84",
@@ -1734,7 +1791,10 @@
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
       "annotations" : {
-        "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+        "isDefinedBy" : [
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" },
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" }
+        ],
         "IAO_0000115" : [
           {
             "identifier" : "IAO_0000115",
@@ -1804,7 +1864,10 @@
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
       "annotations" : {
-        "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+        "isDefinedBy" : [
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" },
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" }
+        ],
         "IAO_0000115" : [
           { "identifier" : "IAO_0000115", "language" : "en", "value" : "A survey event specifically for estimating escapement.", "type" : "label" }
         ],
@@ -1844,6 +1907,7 @@
       "iri" : "https://w3id.org/smn/Entity",
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "Entity", "en" : "Entity" },
       "subClasses" : [ "95", "96", "97" ],
       "attributes" : [ "external" ],
@@ -1864,6 +1928,7 @@
       "iri" : "https://w3id.org/smn/SalmonGroup",
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "SalmonGroup", "en" : "Salmon group" },
       "subClasses" : [ "170", "210" ],
       "attributes" : [ "external" ],
@@ -1874,6 +1939,7 @@
       "iri" : "https://w3id.org/smn/HabitatUnit",
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "HabitatUnit", "en" : "Habitat unit" },
       "attributes" : [ "external" ],
       "id" : "96",
@@ -1883,6 +1949,7 @@
       "iri" : "https://w3id.org/smn/SalmonIndividual",
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "SalmonIndividual", "en" : "Salmon individual" },
       "attributes" : [ "external" ],
       "id" : "97",
@@ -1893,7 +1960,10 @@
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
       "annotations" : {
-        "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+        "isDefinedBy" : [
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" },
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" }
+        ],
         "IAO_0000115" : [
           {
             "identifier" : "IAO_0000115",
@@ -2109,6 +2179,7 @@
       "iri" : "https://w3id.org/smn/GeographicFeature",
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "GeographicFeature", "en" : "Geographic feature" },
       "subClasses" : [ "80" ],
       "attributes" : [ "external" ],
@@ -2120,7 +2191,10 @@
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
       "annotations" : {
-        "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+        "isDefinedBy" : [
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" },
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" }
+        ],
         "IAO_0000115" : [
           {
             "identifier" : "IAO_0000115",
@@ -2172,7 +2246,8 @@
             "value" : "An assessment artifact describing confidence, uncertainty, and quality constraints for a salmon data product or metric.",
             "type" : "label"
           }
-        ]
+        ],
+        "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ]
       },
       "label" : { "IRI-based" : "DataQualityAssessment", "en" : "Data quality assessment" },
       "attributes" : [ "external" ],
@@ -2284,6 +2359,7 @@
       "iri" : "https://w3id.org/smn/Run",
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "Run", "en" : "Run" },
       "attributes" : [ "external" ],
       "id" : "114",
@@ -2293,6 +2369,7 @@
       "iri" : "https://w3id.org/smn/Life-HistoryCharacteristic",
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "Life-HistoryCharacteristic", "en" : "Life-history characteristic" },
       "subClasses" : [ "114" ],
       "attributes" : [ "external" ],
@@ -2340,6 +2417,17 @@
       "iri" : "https://w3id.org/smn/SamplingEvent",
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
+      "annotations" : {
+        "IAO_0000115" : [
+          {
+            "identifier" : "IAO_0000115",
+            "language" : "en",
+            "value" : "A sampling activity that targets a geographic feature, yields a sample, and records a time.",
+            "type" : "label"
+          }
+        ],
+        "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ]
+      },
       "label" : { "IRI-based" : "SamplingEvent", "en" : "Sampling event" },
       "comment" : { "en" : "A sampling activity that targets a geographic feature, yields a sample, and records a time." },
       "attributes" : [ "external" ],
@@ -2370,6 +2458,7 @@
       "iri" : "https://w3id.org/smn/MorphologicalCharacteristic",
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "MorphologicalCharacteristic", "en" : "Morphological characteristic" },
       "subClasses" : [ "224", "134" ],
       "attributes" : [ "external" ],
@@ -2472,7 +2561,8 @@
             "value" : "A class used to categorize fisheries or survey event instances by operational type.",
             "type" : "label"
           }
-        ]
+        ],
+        "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ]
       },
       "label" : { "IRI-based" : "EventType", "en" : "Event type" },
       "subClasses" : [ "129" ],
@@ -2483,6 +2573,7 @@
       "iri" : "https://w3id.org/smn/FishingType",
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "FishingType", "en" : "Fishing type" },
       "subClasses" : [ "166" ],
       "attributes" : [ "external" ],
@@ -2493,6 +2584,7 @@
       "iri" : "https://w3id.org/smn/orbitalLength",
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "orbitalLength", "en" : "Orbital length" },
       "attributes" : [ "external" ],
       "id" : "133",
@@ -2503,6 +2595,7 @@
       "equivalent" : [ "254" ],
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "FishLength", "en" : "Fish length" },
       "subClasses" : [ "133", "136", "138" ],
       "attributes" : [ "equivalent", "external" ],
@@ -2513,6 +2606,7 @@
       "iri" : "https://w3id.org/smn/totalLength",
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "totalLength", "en" : "Total length" },
       "attributes" : [ "external" ],
       "id" : "136",
@@ -2522,6 +2616,7 @@
       "iri" : "https://w3id.org/smn/standardLength",
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "standardLength", "en" : "Standard length" },
       "attributes" : [ "external" ],
       "id" : "138",
@@ -2975,7 +3070,10 @@
           "iri" : "https://w3id.org/smn/LifePhaseScheme",
           "baseIri" : "https://w3id.org/smn",
           "annotations" : {
-            "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+            "isDefinedBy" : [
+              { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" },
+              { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" }
+            ],
             "prefLabel" : [ { "identifier" : "prefLabel", "language" : "en", "value" : "Life phase scheme", "type" : "label" } ],
             "theme" : [ { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme", "type" : "iri" } ],
             "definition" : [
@@ -2994,7 +3092,10 @@
           "iri" : "https://w3id.org/smn/MeasurementContextScheme",
           "baseIri" : "https://w3id.org/smn",
           "annotations" : {
-            "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+            "isDefinedBy" : [
+              { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" },
+              { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" }
+            ],
             "prefLabel" : [ { "identifier" : "prefLabel", "language" : "en", "value" : "Measurement context scheme", "type" : "label" } ],
             "definition" : [
               {
@@ -3016,7 +3117,10 @@
           "iri" : "https://w3id.org/smn/SalmonOriginScheme",
           "baseIri" : "https://w3id.org/smn",
           "annotations" : {
-            "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+            "isDefinedBy" : [
+              { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" },
+              { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" }
+            ],
             "prefLabel" : [
               { "identifier" : "prefLabel", "language" : "en", "value" : "Salmon origin scheme", "type" : "label" },
               { "identifier" : "prefLabel", "language" : "en", "value" : "Salmon Origin Scheme", "type" : "label" }
@@ -5894,15 +5998,6 @@
           "iri" : "https://w3id.org/gcdfo/salmon#RapidStatusConfidenceHigh",
           "baseIri" : "https://w3id.org/gcdfo/salmon",
           "annotations" : {
-            "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
-            "inScheme" : [
-              {
-                "identifier" : "inScheme",
-                "language" : "undefined",
-                "value" : "https://w3id.org/gcdfo/salmon#RapidStatusConfidenceScheme",
-                "type" : "iri"
-              }
-            ],
             "IAO_0000115" : [
               {
                 "identifier" : "IAO_0000115",
@@ -5911,6 +6006,23 @@
                 "type" : "label"
               }
             ],
+            "definition" : [
+              {
+                "identifier" : "definition",
+                "language" : "en",
+                "value" : "Rapid status confidence category indicating that high-quality abundance metrics support the result.",
+                "type" : "label"
+              }
+            ],
+            "inScheme" : [
+              {
+                "identifier" : "inScheme",
+                "language" : "undefined",
+                "value" : "https://w3id.org/gcdfo/salmon#RapidStatusConfidenceScheme",
+                "type" : "iri"
+              }
+            ],
+            "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
             "prefLabel" : [ { "identifier" : "prefLabel", "language" : "en", "value" : "High confidence", "type" : "label" } ],
             "theme" : [
               { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme", "type" : "iri" },
@@ -5923,10 +6035,17 @@
           "iri" : "https://w3id.org/gcdfo/salmon#RapidStatusConfidenceLow",
           "baseIri" : "https://w3id.org/gcdfo/salmon",
           "annotations" : {
-            "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
             "IAO_0000115" : [
               {
                 "identifier" : "IAO_0000115",
+                "language" : "en",
+                "value" : "Rapid status confidence category indicating limited supporting data (for example, derived from trend metrics alone).",
+                "type" : "label"
+              }
+            ],
+            "definition" : [
+              {
+                "identifier" : "definition",
                 "language" : "en",
                 "value" : "Rapid status confidence category indicating limited supporting data (for example, derived from trend metrics alone).",
                 "type" : "label"
@@ -5940,6 +6059,7 @@
                 "type" : "iri"
               }
             ],
+            "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
             "prefLabel" : [ { "identifier" : "prefLabel", "language" : "en", "value" : "Low confidence", "type" : "label" } ],
             "theme" : [
               { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme", "type" : "iri" },
@@ -5952,10 +6072,17 @@
           "iri" : "https://w3id.org/gcdfo/salmon#RapidStatusConfidenceMedium",
           "baseIri" : "https://w3id.org/gcdfo/salmon",
           "annotations" : {
-            "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
             "IAO_0000115" : [
               {
                 "identifier" : "IAO_0000115",
+                "language" : "en",
+                "value" : "Rapid status confidence category indicating mixed evidence or reliance on trend metrics supplemented by some abundance information.",
+                "type" : "label"
+              }
+            ],
+            "definition" : [
+              {
+                "identifier" : "definition",
                 "language" : "en",
                 "value" : "Rapid status confidence category indicating mixed evidence or reliance on trend metrics supplemented by some abundance information.",
                 "type" : "label"
@@ -5969,6 +6096,7 @@
                 "type" : "iri"
               }
             ],
+            "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
             "prefLabel" : [ { "identifier" : "prefLabel", "language" : "en", "value" : "Medium confidence", "type" : "label" } ],
             "theme" : [
               { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme", "type" : "iri" },
@@ -6978,7 +7106,10 @@
           "iri" : "https://w3id.org/smn/CatchContext",
           "baseIri" : "https://w3id.org/smn",
           "annotations" : {
-            "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+            "isDefinedBy" : [
+              { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" },
+              { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" }
+            ],
             "inScheme" : [ { "identifier" : "inScheme", "language" : "undefined", "value" : "https://w3id.org/smn/MeasurementContextScheme", "type" : "iri" } ],
             "prefLabel" : [ { "identifier" : "prefLabel", "language" : "en", "value" : "Catch context", "type" : "label" } ],
             "definition" : [
@@ -6998,7 +7129,10 @@
           "iri" : "https://w3id.org/smn/HatcheryOrigin",
           "baseIri" : "https://w3id.org/smn",
           "annotations" : {
-            "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+            "isDefinedBy" : [
+              { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" },
+              { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" }
+            ],
             "inScheme" : [ { "identifier" : "inScheme", "language" : "undefined", "value" : "https://w3id.org/smn/SalmonOriginScheme", "type" : "iri" } ],
             "prefLabel" : [ { "identifier" : "prefLabel", "language" : "en", "value" : "Hatchery-origin", "type" : "label" } ],
             "IAO_0000119" : [
@@ -7048,7 +7182,10 @@
           "iri" : "https://w3id.org/smn/InRiverPhase",
           "baseIri" : "https://w3id.org/smn",
           "annotations" : {
-            "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+            "isDefinedBy" : [
+              { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" },
+              { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" }
+            ],
             "inScheme" : [ { "identifier" : "inScheme", "language" : "undefined", "value" : "https://w3id.org/smn/LifePhaseScheme", "type" : "iri" } ],
             "prefLabel" : [ { "identifier" : "prefLabel", "language" : "en", "value" : "In-river phase", "type" : "label" } ],
             "definition" : [
@@ -7069,7 +7206,10 @@
           "iri" : "https://w3id.org/smn/LifePhase",
           "baseIri" : "https://w3id.org/smn",
           "annotations" : {
-            "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+            "isDefinedBy" : [
+              { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" },
+              { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" }
+            ],
             "inScheme" : [ { "identifier" : "inScheme", "language" : "undefined", "value" : "https://w3id.org/smn/LifePhaseScheme", "type" : "iri" } ],
             "prefLabel" : [ { "identifier" : "prefLabel", "language" : "en", "value" : "Life phase", "type" : "label" } ],
             "definition" : [
@@ -7088,7 +7228,10 @@
           "iri" : "https://w3id.org/smn/MainstemPhase",
           "baseIri" : "https://w3id.org/smn",
           "annotations" : {
-            "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+            "isDefinedBy" : [
+              { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" },
+              { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" }
+            ],
             "inScheme" : [ { "identifier" : "inScheme", "language" : "undefined", "value" : "https://w3id.org/smn/LifePhaseScheme", "type" : "iri" } ],
             "prefLabel" : [ { "identifier" : "prefLabel", "language" : "en", "value" : "Mainstem phase", "type" : "label" } ],
             "theme" : [ { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme", "type" : "iri" } ],
@@ -7108,7 +7251,10 @@
           "iri" : "https://w3id.org/smn/MeasurementContext",
           "baseIri" : "https://w3id.org/smn",
           "annotations" : {
-            "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+            "isDefinedBy" : [
+              { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" },
+              { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" }
+            ],
             "inScheme" : [ { "identifier" : "inScheme", "language" : "undefined", "value" : "https://w3id.org/smn/MeasurementContextScheme", "type" : "iri" } ],
             "prefLabel" : [ { "identifier" : "prefLabel", "language" : "en", "value" : "Measurement context", "type" : "label" } ],
             "theme" : [
@@ -7136,7 +7282,10 @@
           "iri" : "https://w3id.org/smn/NaturalOrigin",
           "baseIri" : "https://w3id.org/smn",
           "annotations" : {
-            "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+            "isDefinedBy" : [
+              { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" },
+              { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" }
+            ],
             "inScheme" : [ { "identifier" : "inScheme", "language" : "undefined", "value" : "https://w3id.org/smn/SalmonOriginScheme", "type" : "iri" } ],
             "prefLabel" : [ { "identifier" : "prefLabel", "language" : "en", "value" : "Natural-origin", "type" : "label" } ],
             "IAO_0000119" : [
@@ -7181,7 +7330,10 @@
           "iri" : "https://w3id.org/smn/OceanPhase",
           "baseIri" : "https://w3id.org/smn",
           "annotations" : {
-            "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+            "isDefinedBy" : [
+              { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" },
+              { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" }
+            ],
             "inScheme" : [ { "identifier" : "inScheme", "language" : "undefined", "value" : "https://w3id.org/smn/LifePhaseScheme", "type" : "iri" } ],
             "prefLabel" : [ { "identifier" : "prefLabel", "language" : "en", "value" : "Ocean phase", "type" : "label" } ],
             "definition" : [
@@ -7202,7 +7354,10 @@
           "iri" : "https://w3id.org/smn/RunContext",
           "baseIri" : "https://w3id.org/smn",
           "annotations" : {
-            "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+            "isDefinedBy" : [
+              { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" },
+              { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" }
+            ],
             "inScheme" : [ { "identifier" : "inScheme", "language" : "undefined", "value" : "https://w3id.org/smn/MeasurementContextScheme", "type" : "iri" } ],
             "prefLabel" : [ { "identifier" : "prefLabel", "language" : "en", "value" : "Run context", "type" : "label" } ],
             "theme" : [ { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme", "type" : "iri" } ],
@@ -7222,7 +7377,10 @@
           "iri" : "https://w3id.org/smn/SalmonOrigin",
           "baseIri" : "https://w3id.org/smn",
           "annotations" : {
-            "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+            "isDefinedBy" : [
+              { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" },
+              { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" }
+            ],
             "inScheme" : [ { "identifier" : "inScheme", "language" : "undefined", "value" : "https://w3id.org/smn/SalmonOriginScheme", "type" : "iri" } ],
             "prefLabel" : [ { "identifier" : "prefLabel", "language" : "en", "value" : "Salmon origin", "type" : "label" } ],
             "theme" : [
@@ -7249,7 +7407,10 @@
           "iri" : "https://w3id.org/smn/SpawnerStageContext",
           "baseIri" : "https://w3id.org/smn",
           "annotations" : {
-            "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+            "isDefinedBy" : [
+              { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" },
+              { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" }
+            ],
             "inScheme" : [ { "identifier" : "inScheme", "language" : "undefined", "value" : "https://w3id.org/smn/MeasurementContextScheme", "type" : "iri" } ],
             "prefLabel" : [ { "identifier" : "prefLabel", "language" : "en", "value" : "Spawner stage context", "type" : "label" } ],
             "theme" : [ { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme", "type" : "iri" } ],
@@ -7269,7 +7430,10 @@
           "iri" : "https://w3id.org/smn/SurvivalOrMortalityContext",
           "baseIri" : "https://w3id.org/smn",
           "annotations" : {
-            "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+            "isDefinedBy" : [
+              { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" },
+              { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" }
+            ],
             "inScheme" : [ { "identifier" : "inScheme", "language" : "undefined", "value" : "https://w3id.org/smn/MeasurementContextScheme", "type" : "iri" } ],
             "prefLabel" : [ { "identifier" : "prefLabel", "language" : "en", "value" : "Survival or mortality context", "type" : "label" } ],
             "definition" : [
@@ -7289,7 +7453,10 @@
           "iri" : "https://w3id.org/smn/TerminalPhase",
           "baseIri" : "https://w3id.org/smn",
           "annotations" : {
-            "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+            "isDefinedBy" : [
+              { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" },
+              { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" }
+            ],
             "inScheme" : [ { "identifier" : "inScheme", "language" : "undefined", "value" : "https://w3id.org/smn/LifePhaseScheme", "type" : "iri" } ],
             "prefLabel" : [ { "identifier" : "prefLabel", "language" : "en", "value" : "Terminal phase", "type" : "label" } ],
             "definition" : [
@@ -7368,6 +7535,7 @@
       "iri" : "https://w3id.org/smn/StandardLengthMeasurement",
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "StandardLengthMeasurement", "en" : "Standard length measurement" },
       "attributes" : [ "external" ],
       "id" : "147",
@@ -7610,6 +7778,7 @@
       "iri" : "https://w3id.org/smn/TotalLengthMeasurement",
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "TotalLengthMeasurement", "en" : "Total length measurement" },
       "attributes" : [ "external" ],
       "id" : "161",
@@ -7632,6 +7801,7 @@
       "iri" : "https://w3id.org/smn/seiningEvent",
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "seiningEvent", "en" : "Seining event" },
       "attributes" : [ "external" ],
       "id" : "166",
@@ -7641,6 +7811,7 @@
       "iri" : "https://w3id.org/smn/SalmonStockUnit",
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "SalmonStockUnit", "en" : "Salmon stock unit" },
       "attributes" : [ "external" ],
       "id" : "170",
@@ -7720,7 +7891,10 @@
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
       "annotations" : {
-        "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+        "isDefinedBy" : [
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" },
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" }
+        ],
         "IAO_0000115" : [
           {
             "identifier" : "IAO_0000115",
@@ -7829,6 +8003,7 @@
       "iri" : "https://w3id.org/smn/ForkLengthMeasurementMethod",
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "ForkLengthMeasurementMethod", "en" : "Fork-length measurement method" },
       "subClasses" : [ "190", "191" ],
       "attributes" : [ "external" ],
@@ -7839,6 +8014,7 @@
       "iri" : "https://w3id.org/smn/FishForkLengthMeasurementMethod",
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "FishForkLengthMeasurementMethod", "en" : "Fish fork-length measurement method" },
       "subClasses" : [ "188" ],
       "attributes" : [ "external" ],
@@ -7849,6 +8025,7 @@
       "iri" : "https://w3id.org/smn/ForkLengthMeasurementFieldMethod",
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "ForkLengthMeasurementFieldMethod", "en" : "Fork-length field method" },
       "attributes" : [ "external" ],
       "id" : "190",
@@ -7858,6 +8035,7 @@
       "iri" : "https://w3id.org/smn/ForkLengthMeasurementLabMethod",
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "ForkLengthMeasurementLabMethod", "en" : "Fork-length lab method" },
       "attributes" : [ "external" ],
       "id" : "191",
@@ -7869,7 +8047,10 @@
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
       "annotations" : {
-        "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+        "isDefinedBy" : [
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" },
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" }
+        ],
         "IAO_0000115" : [
           {
             "identifier" : "IAO_0000115",
@@ -8013,6 +8194,7 @@
       "iri" : "https://w3id.org/smn/SalmonPopulationGroup",
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "SalmonPopulationGroup", "en" : "Salmon population group" },
       "attributes" : [ "external" ],
       "id" : "210",
@@ -8084,6 +8266,7 @@
       "iri" : "https://w3id.org/smn/FishLengthMeasurementMethod",
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "FishLengthMeasurementMethod", "en" : "Fish length measurement method" },
       "subClasses" : [ "189" ],
       "attributes" : [ "external" ],
@@ -8095,18 +8278,20 @@
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
       "annotations" : {
-        "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
-        "inScheme" : [
-          { "identifier" : "inScheme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#EnumerationMethodScheme", "type" : "iri" }
-        ],
-        "prefLabel" : [ { "identifier" : "prefLabel", "language" : "en", "value" : "Enumeration Method", "type" : "label" } ],
-        "theme" : [
-          { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme", "type" : "iri" },
-          { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme", "type" : "iri" }
+        "IAO_0000115" : [
+          { "identifier" : "IAO_0000115", "language" : "en", "value" : "A method used to enumerate or count salmon in the field", "type" : "label" }
         ],
         "definition" : [
           { "identifier" : "definition", "language" : "en", "value" : "A method used to enumerate or count salmon in the field", "type" : "label" }
         ],
+        "inScheme" : [
+          { "identifier" : "inScheme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#EnumerationMethodScheme", "type" : "iri" }
+        ],
+        "isDefinedBy" : [
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" },
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" }
+        ],
+        "prefLabel" : [ { "identifier" : "prefLabel", "language" : "en", "value" : "Enumeration Method", "type" : "label" } ],
         "scopeNote" : [
           {
             "identifier" : "scopeNote",
@@ -8114,6 +8299,10 @@
             "value" : "DFO profile note: this ontology uses the shared `smn:EnumerationMethod` concept directly and constrains local narrower methods beneath it.",
             "type" : "label"
           }
+        ],
+        "theme" : [
+          { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme", "type" : "iri" },
+          { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme", "type" : "iri" }
         ]
       },
       "label" : { "IRI-based" : "EnumerationMethod", "en" : "Enumeration Method" },
@@ -8137,6 +8326,7 @@
       "iri" : "https://w3id.org/smn/FishWeight",
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "FishWeight", "en" : "Fish weight" },
       "attributes" : [ "external" ],
       "id" : "224",
@@ -8178,10 +8368,17 @@
           "iri" : "https://w3id.org/gcdfo/salmon#RapidStatusConfidenceLow",
           "baseIri" : "https://w3id.org/gcdfo/salmon",
           "annotations" : {
-            "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
             "IAO_0000115" : [
               {
                 "identifier" : "IAO_0000115",
+                "language" : "en",
+                "value" : "Rapid status confidence category indicating limited supporting data (for example, derived from trend metrics alone).",
+                "type" : "label"
+              }
+            ],
+            "definition" : [
+              {
+                "identifier" : "definition",
                 "language" : "en",
                 "value" : "Rapid status confidence category indicating limited supporting data (for example, derived from trend metrics alone).",
                 "type" : "label"
@@ -8195,6 +8392,7 @@
                 "type" : "iri"
               }
             ],
+            "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
             "prefLabel" : [ { "identifier" : "prefLabel", "language" : "en", "value" : "Low confidence", "type" : "label" } ],
             "theme" : [
               { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme", "type" : "iri" },
@@ -8207,10 +8405,17 @@
           "iri" : "https://w3id.org/gcdfo/salmon#RapidStatusConfidenceMedium",
           "baseIri" : "https://w3id.org/gcdfo/salmon",
           "annotations" : {
-            "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
             "IAO_0000115" : [
               {
                 "identifier" : "IAO_0000115",
+                "language" : "en",
+                "value" : "Rapid status confidence category indicating mixed evidence or reliance on trend metrics supplemented by some abundance information.",
+                "type" : "label"
+              }
+            ],
+            "definition" : [
+              {
+                "identifier" : "definition",
                 "language" : "en",
                 "value" : "Rapid status confidence category indicating mixed evidence or reliance on trend metrics supplemented by some abundance information.",
                 "type" : "label"
@@ -8224,6 +8429,7 @@
                 "type" : "iri"
               }
             ],
+            "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
             "prefLabel" : [ { "identifier" : "prefLabel", "language" : "en", "value" : "Medium confidence", "type" : "label" } ],
             "theme" : [
               { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme", "type" : "iri" },
@@ -8236,15 +8442,6 @@
           "iri" : "https://w3id.org/gcdfo/salmon#RapidStatusConfidenceHigh",
           "baseIri" : "https://w3id.org/gcdfo/salmon",
           "annotations" : {
-            "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
-            "inScheme" : [
-              {
-                "identifier" : "inScheme",
-                "language" : "undefined",
-                "value" : "https://w3id.org/gcdfo/salmon#RapidStatusConfidenceScheme",
-                "type" : "iri"
-              }
-            ],
             "IAO_0000115" : [
               {
                 "identifier" : "IAO_0000115",
@@ -8253,6 +8450,23 @@
                 "type" : "label"
               }
             ],
+            "definition" : [
+              {
+                "identifier" : "definition",
+                "language" : "en",
+                "value" : "Rapid status confidence category indicating that high-quality abundance metrics support the result.",
+                "type" : "label"
+              }
+            ],
+            "inScheme" : [
+              {
+                "identifier" : "inScheme",
+                "language" : "undefined",
+                "value" : "https://w3id.org/gcdfo/salmon#RapidStatusConfidenceScheme",
+                "type" : "iri"
+              }
+            ],
+            "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
             "prefLabel" : [ { "identifier" : "prefLabel", "language" : "en", "value" : "High confidence", "type" : "label" } ],
             "theme" : [
               { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme", "type" : "iri" },
@@ -8425,6 +8639,7 @@
       "equivalent" : [ "134" ],
       "baseIri" : "https://w3id.org/smn",
       "instances" : 0,
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "forkLength", "en" : "Fork length" },
       "attributes" : [ "equivalent", "external" ],
       "id" : "254"
@@ -9281,7 +9496,10 @@
       "baseIri" : "https://w3id.org/smn",
       "range" : "33",
       "annotations" : {
-        "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+        "isDefinedBy" : [
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" },
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" }
+        ],
         "IAO_0000115" : [ { "identifier" : "IAO_0000115", "language" : "en", "value" : "Relates a population to one of its constituent demes.", "type" : "label" } ],
         "theme" : [
           { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme", "type" : "iri" },
@@ -9368,7 +9586,10 @@
       "baseIri" : "https://w3id.org/smn",
       "range" : "32",
       "annotations" : {
-        "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+        "isDefinedBy" : [
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" },
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" }
+        ],
         "IAO_0000115" : [
           {
             "identifier" : "IAO_0000115",
@@ -9404,6 +9625,7 @@
       "iri" : "https://w3id.org/smn/characteristicFor",
       "baseIri" : "https://w3id.org/smn",
       "range" : "60",
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "characteristicFor", "en" : "characteristic for" },
       "domain" : "17",
       "attributes" : [ "external", "object" ],
@@ -9445,6 +9667,7 @@
       "iri" : "https://w3id.org/smn/observedTaxonSpecies",
       "baseIri" : "https://w3id.org/smn",
       "range" : "56",
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "observedTaxonSpecies", "en" : "observed taxon species" },
       "domain" : "40",
       "attributes" : [ "external", "object" ],
@@ -9689,7 +9912,10 @@
       "baseIri" : "https://w3id.org/smn",
       "range" : "32",
       "annotations" : {
-        "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+        "isDefinedBy" : [
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" },
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" }
+        ],
         "IAO_0000115" : [ { "identifier" : "IAO_0000115", "language" : "en", "value" : "Relates a deme to the population it belongs to.", "type" : "label" } ],
         "theme" : [
           { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme", "type" : "iri" },
@@ -9756,7 +9982,10 @@
       "baseIri" : "https://w3id.org/smn",
       "range" : "229",
       "annotations" : {
-        "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+        "isDefinedBy" : [
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" },
+          { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" }
+        ],
         "IAO_0000115" : [
           {
             "identifier" : "IAO_0000115",
@@ -9819,8 +10048,8 @@
       "attributes" : [ "external", "object" ],
       "id" : "232"
     },
-    { "domain" : "142", "range" : "222", "id" : "234", "label" : { "IRI-based" : "15", "undefined" : "is a" } },
-    { "domain" : "142", "range" : "236", "id" : "235", "label" : { "IRI-based" : "16", "undefined" : "is a" } },
+    { "domain" : "142", "range" : "222", "id" : "234", "label" : { "IRI-based" : "16", "undefined" : "is a" } },
+    { "domain" : "142", "range" : "236", "id" : "235", "label" : { "IRI-based" : "14", "undefined" : "is a" } },
     {
       "iri" : "https://w3id.org/gcdfo/salmon#hasAssessmentReferencePoint",
       "inverse" : "238",
@@ -9930,6 +10159,7 @@
       "iri" : "https://w3id.org/smn/basedOn",
       "baseIri" : "https://w3id.org/smn",
       "range" : "222",
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "basedOn", "en" : "based on" },
       "domain" : "83",
       "attributes" : [ "external", "object" ],
@@ -9999,6 +10229,7 @@
       "iri" : "https://w3id.org/smn/observedTaxonFamily",
       "baseIri" : "https://w3id.org/smn",
       "range" : "145",
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "observedTaxonFamily", "en" : "observed taxon family" },
       "domain" : "40",
       "attributes" : [ "external", "object" ],
@@ -10027,6 +10258,7 @@
       "iri" : "https://w3id.org/smn/hasMeasurement",
       "baseIri" : "https://w3id.org/smn",
       "range" : "81",
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "hasMeasurement", "en" : "has measurement" },
       "domain" : "60",
       "attributes" : [ "external", "object" ],
@@ -10037,6 +10269,7 @@
       "iri" : "https://w3id.org/smn/hasEventType",
       "baseIri" : "https://w3id.org/smn",
       "range" : "128",
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "hasEventType", "en" : "has event type" },
       "domain" : "123",
       "attributes" : [ "external", "object" ],
@@ -10112,6 +10345,7 @@
       "iri" : "https://w3id.org/smn/basedOn",
       "baseIri" : "https://w3id.org/smn",
       "range" : "222",
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "basedOn", "en" : "based on" },
       "domain" : "83",
       "attributes" : [ "external", "object", "someValues" ],
@@ -10140,7 +10374,7 @@
     { "range" : "43", "domain" : "1", "attributes" : [ "anonymous", "object" ], "id" : "334" },
     { "range" : "43", "domain" : "248", "attributes" : [ "anonymous", "object" ], "id" : "335" },
     { "range" : "43", "domain" : "116", "attributes" : [ "anonymous", "object" ], "id" : "336" },
-    { "domain" : "142", "range" : "339", "id" : "342", "label" : { "IRI-based" : "14", "undefined" : "is a" } },
+    { "domain" : "142", "range" : "339", "id" : "342", "label" : { "IRI-based" : "15", "undefined" : "is a" } },
     { "range" : "99", "domain" : "340", "attributes" : [ "anonymous", "object" ], "id" : "343" },
     { "range" : "99", "domain" : "341", "attributes" : [ "anonymous", "object" ], "id" : "344" }
   ]
