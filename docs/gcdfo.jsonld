@@ -11262,7 +11262,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -11306,7 +11306,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -11339,7 +11339,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -11398,7 +11398,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -11434,7 +11434,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -11473,7 +11473,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -11526,7 +11526,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -11568,7 +11568,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -11618,7 +11618,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -11662,7 +11662,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#altLabel": [
@@ -11717,7 +11717,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -11756,7 +11756,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -11789,7 +11789,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -11839,7 +11839,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -11878,7 +11878,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -11916,7 +11916,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -11952,7 +11952,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -12011,7 +12011,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -12052,7 +12052,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -12102,7 +12102,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -12132,7 +12132,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#altLabel": [
@@ -12188,7 +12188,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -12244,7 +12244,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -12283,7 +12283,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -12313,7 +12313,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -12351,7 +12351,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -12387,7 +12387,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -12426,7 +12426,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -12481,7 +12481,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -12537,7 +12537,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -12581,7 +12581,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -12617,7 +12617,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -12661,7 +12661,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -12694,7 +12694,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -12738,7 +12738,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -12779,7 +12779,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -12825,7 +12825,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -12872,7 +12872,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -12919,7 +12919,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
