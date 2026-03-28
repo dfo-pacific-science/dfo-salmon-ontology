@@ -122,7 +122,7 @@ If a term is clearly **cross-organization, policy-neutral, and reusable**, it pr
 - **GitHub-based collaboration**: all changes via Pull Requests with Issues for discussion.
 - **Quality first**: use competency questions and design patterns to guide development.
 - **Before creating terms**: search existing terms and check competency questions.
-- **Document everything per the conventions checklist**: for OWL terms use `rdfs:label`, `iao:0000115`, and `rdfs:isDefinedBy`; add `iao:0000119` and/or `dcterms:source` when authoritative provenance exists; use `rdfs:comment` only for editorial notes.
+- **Document everything per the conventions checklist**: for OWL terms use `rdfs:label`, `iao:0000115`, and `rdfs:isDefinedBy`; add `iao:0000119` and/or `dcterms:source` when authoritative provenance exists; use `rdfs:comment` only for editorial notes. `rdfs:isDefinedBy` must follow term ownership (`gcdfo:` → GCDFO, shared `smn:` → SMN).
 - **Test with data**: validate terms with sample data and SPARQL queries.
 
 **For detailed modeling conventions, see [GC DFO Salmon Ontology Conventions Guide](docs/CONVENTIONS.md).**
