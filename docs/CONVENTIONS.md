@@ -200,7 +200,7 @@ The `ontology/dfo-salmon.ttl` file must contain **schema elements only** - no in
 - **Type declaration:** `a owl:Class` - This tells the system this is a class
 - **Label:** `rdfs:label "Human Name"@en` - A human-readable name in English (required, one per language)
 - **Definition:** `iao:0000115 "1–2 sentence definition."@en` - A clear explanation of what this class represents (required, one only)
-- **Source attribution:** `rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon>` - Links back to our ontology (required)
+- **Source attribution:** `rdfs:isDefinedBy <owning ontology IRI>` - Required. This must follow term ownership, not just the file you are editing. Use `https://w3id.org/gcdfo/salmon` for `gcdfo:` terms, `https://w3id.org/smn` for shared `smn:` terms, and the external ontology IRI for imported external terms.
 
 **Optional elements:**
 
@@ -235,7 +235,7 @@ The `ontology/dfo-salmon.ttl` file must contain **schema elements only** - no in
 - **Type declaration:** `a owl:ObjectProperty`
 - **Label:** `rdfs:label "Human Name"@en` - A human-readable name (required, one per language)
 - **Definition:** `iao:0000115 "1–2 sentence definition."@en` - A clear explanation of what this property represents (required, one only)
-- **Source attribution:** `rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon>` - Links back to our ontology (required)
+- **Source attribution:** `rdfs:isDefinedBy <owning ontology IRI>` - Required. Use the ontology that owns the property IRI (`gcdfo:` → `https://w3id.org/gcdfo/salmon`, shared `smn:` → `https://w3id.org/smn`).
 
 **Optional but recommended:**
 
@@ -280,7 +280,7 @@ Do not use `rdfs:seeAlso` for semantic alignment.
 - **Type declaration:** `a owl:DatatypeProperty`
 - **Label:** `rdfs:label "Human Name"@en` - A human-readable name (required, one per language)
 - **Definition:** `iao:0000115 "1–2 sentence definition."@en` - A clear explanation of what this property represents (required, one only)
-- **Source attribution:** `rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon>` - Links back to our ontology (required)
+- **Source attribution:** `rdfs:isDefinedBy <owning ontology IRI>` - Required. Use the ontology that owns the property IRI (`gcdfo:` → `https://w3id.org/gcdfo/salmon`, shared `smn:` → `https://w3id.org/smn`).
 
 **Optional but recommended:**
 
@@ -324,7 +324,7 @@ Do not use `rdfs:seeAlso` for semantic alignment.
 - **Label:** `skos:prefLabel "Human Name"@en` - A human-readable name (required, ≤1 per language)
 - **Scheme membership:** `skos:inScheme :SchemeName` - The concept scheme this concept belongs to (required)
 - **Definition:** `skos:definition "1–2 sentence definition."@en` - A clear explanation (recommended, 1×)
-- **Source attribution:** `rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon>` - Links back to our ontology (required)
+- **Source attribution:** `rdfs:isDefinedBy <owning ontology IRI>` - Required. Use the ontology that owns the concept IRI (`gcdfo:` → `https://w3id.org/gcdfo/salmon`, shared `smn:` → `https://w3id.org/smn`).
 
 **Optional elements:**
 
@@ -1773,7 +1773,7 @@ Use inverse properties where they materially improve query ergonomics.
 - **Properties**: Import RO and reuse, or map via `owl:equivalentProperty` / `rdfs:subPropertyOf`
 - **Classes**: Import external ontologies or map via `owl:equivalentClass` / `rdfs:subClassOf`
 - **SKOS concepts**: Use `skos:exactMatch`/`skos:closeMatch` only for concept-level mappings
-- **rdfs:isDefinedBy**: Point at your ontology/module IRI (required)
+- **rdfs:isDefinedBy**: Point at the ontology/module that owns the term IRI (required). Do not point shared `smn:` terms at GCDFO just because they are referenced in `dfo-salmon.ttl`.
 - **rdfs:seeAlso**: Use only for helpful extra links, not for semantic alignment
 - Store external IRIs as literals in `…UnitIRI` properties (for units, may transition to object properties)
 - Use `dcterms:source` to reference external vocabularies

@@ -59,6 +59,7 @@ skos:closeMatch    a owl:AnnotationProperty .
 
 gcdfo:theme a owl:AnnotationProperty ;
   rdfs:label "theme"@en ;
+  iao:0000115 "Associates OWL classes and SKOS concepts with high-level thematic concept schemes (e.g., Stock Assessment, GSI, Policy)."@en ;
   rdfs:comment "Associates OWL classes and SKOS concepts with high-level thematic concept schemes (e.g., Stock Assessment, GSI, Policy)."@en ;
   gcdfo:theme gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
@@ -71,6 +72,7 @@ gcdfo:ThemeScheme a skos:ConceptScheme ;
 
 gcdfo:StockAssessmentTheme a skos:Concept ;
   skos:prefLabel "Stock Assessment"@en ;
+  rdfs:label "Stock Assessment"@en ;
   skos:inScheme gcdfo:ThemeScheme ;
   skos:definition "Stock assessment models, benchmarks, status determinations, and performance metrics for salmon units."@en ;
   gcdfo:theme gcdfo:DataModelProvenanceTheme ;
@@ -78,6 +80,7 @@ gcdfo:StockAssessmentTheme a skos:Concept ;
 
 gcdfo:MonitoringFieldWorkTheme a skos:Concept ;
   skos:prefLabel "Monitoring and Field Work"@en ;
+  rdfs:label "Monitoring and Field Work"@en ;
   skos:inScheme gcdfo:ThemeScheme ;
   skos:definition "Field observations, sampling protocols, survey events, gear, and measurement methods used to collect salmon data."@en ;
   gcdfo:theme gcdfo:DataModelProvenanceTheme ;
@@ -85,6 +88,7 @@ gcdfo:MonitoringFieldWorkTheme a skos:Concept ;
 
 gcdfo:GeneticsStockCompositionTheme a skos:Concept ;
   skos:prefLabel "Genetics and Stock Composition"@en ;
+  rdfs:label "Genetics and Stock Composition"@en ;
   skos:inScheme gcdfo:ThemeScheme ;
   skos:definition "Genetic markers, assays, and analyses used to infer stock composition, parentage, and population structure."@en ;
   gcdfo:theme gcdfo:DataModelProvenanceTheme ;
@@ -92,6 +96,7 @@ gcdfo:GeneticsStockCompositionTheme a skos:Concept ;
 
 gcdfo:WildSalmonPolicyTheme a skos:Concept ;
   skos:prefLabel "Wild Salmon Policy"@en ;
+  rdfs:label "Wild Salmon Policy"@en ;
   skos:inScheme gcdfo:ThemeScheme ;
   skos:definition "Conservation Unit based stock assessment methods, metrics, and metadata"@en ;
   gcdfo:theme gcdfo:DataModelProvenanceTheme ;
@@ -99,6 +104,7 @@ gcdfo:WildSalmonPolicyTheme a skos:Concept ;
 
 gcdfo:FisheriesManagementTheme a skos:Concept ;
   skos:prefLabel "Fisheries Management"@en ;
+  rdfs:label "Fisheries Management"@en ;
   skos:inScheme gcdfo:ThemeScheme ;
   skos:definition "Fishery openings, harvest control rules, catch/effort measures, and exploitation monitoring for salmon fisheries."@en ;
   gcdfo:theme gcdfo:DataModelProvenanceTheme ;
@@ -106,6 +112,7 @@ gcdfo:FisheriesManagementTheme a skos:Concept ;
 
 gcdfo:SpeciesAtRiskRecoveryTheme a skos:Concept ;
   skos:prefLabel "Species at Risk and Recovery"@en ;
+  rdfs:label "Species at Risk and Recovery"@en ;
   skos:inScheme gcdfo:ThemeScheme ;
   skos:definition "COSEWIC/SARA recovery planning, critical habitat, threats, and status assessments for species of conservation concern."@en ;
   gcdfo:theme gcdfo:DataModelProvenanceTheme ;
@@ -113,6 +120,7 @@ gcdfo:SpeciesAtRiskRecoveryTheme a skos:Concept ;
 
 gcdfo:SalmonEnhancementHatcheriesTheme a skos:Concept ;
   skos:prefLabel "Salmon Enhancement and Hatcheries"@en ;
+  rdfs:label "Salmon Enhancement and Hatcheries"@en ;
   skos:inScheme gcdfo:ThemeScheme ;
   skos:definition "Hatchery production, broodstock management, releases, and enhancement program practices for salmon."@en ;
   gcdfo:theme gcdfo:DataModelProvenanceTheme ;
@@ -120,6 +128,7 @@ gcdfo:SalmonEnhancementHatcheriesTheme a skos:Concept ;
 
 gcdfo:HabitatEcosystemClimateTheme a skos:Concept ;
   skos:prefLabel "Habitat, Ecosystem, and Climate Pressures"@en ;
+  rdfs:label "Habitat, Ecosystem, and Climate Pressures"@en ;
   skos:inScheme gcdfo:ThemeScheme ;
   skos:definition "Habitat attributes, ecosystem conditions, and climate or environmental stressors affecting salmon."@en ;
   gcdfo:theme gcdfo:DataModelProvenanceTheme ;
@@ -127,6 +136,7 @@ gcdfo:HabitatEcosystemClimateTheme a skos:Concept ;
 
 gcdfo:PolicyGovernanceTheme a skos:Concept ;
   skos:prefLabel "Policy, Governance, and Organizational Structure"@en ;
+  rdfs:label "Policy, Governance, and Organizational Structure"@en ;
   skos:inScheme gcdfo:ThemeScheme ;
   skos:definition "DFO policy frameworks, governance, regulations, and organizational structure relevant to salmon management."@en ;
   gcdfo:theme gcdfo:DataModelProvenanceTheme ;
@@ -134,6 +144,7 @@ gcdfo:PolicyGovernanceTheme a skos:Concept ;
 
 gcdfo:DataModelProvenanceTheme a skos:Concept ;
   skos:prefLabel "Data, Models, and Provenance"@en ;
+  rdfs:label "Data, Models, and Provenance"@en ;
   skos:inScheme gcdfo:ThemeScheme ;
   skos:definition "Data models, analytical workflows, provenance, quality dimensions, and metadata supporting salmon science."@en ;
   gcdfo:theme gcdfo:DataModelProvenanceTheme ;
@@ -465,7 +476,7 @@ smn:SalmonOriginScheme a skos:ConceptScheme ;
   skos:definition "Controlled vocabulary for describing the origin of individual salmon (e.g., natural-origin, hatchery-origin, mixed-origin)."@en ;
   skos:hasTopConcept smn:SalmonOrigin ;
   gcdfo:theme gcdfo:SalmonEnhancementHatcheriesTheme, gcdfo:StockAssessmentTheme, gcdfo:GeneticsStockCompositionTheme ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 :StockStatusZoneScheme a skos:ConceptScheme ;
   skos:prefLabel "Stock Status Zone Scheme (legacy alias)"@en ;
@@ -555,14 +566,14 @@ smn:MeasurementContextScheme a skos:ConceptScheme ;
   skos:definition "Controlled vocabulary for compositional measurement context qualifiers (for example, catch context, run context)."@en ;
   skos:hasTopConcept smn:MeasurementContext ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:LifePhaseScheme a skos:ConceptScheme ;
   skos:prefLabel "Life phase scheme"@en ;
   skos:definition "Controlled vocabulary for life-phase or fishery/migration segment qualifiers used to stratify measurements (e.g., ocean, terminal, mainstem)."@en ;
   skos:hasTopConcept smn:LifePhase ;
   gcdfo:theme gcdfo:StockAssessmentTheme ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 :BenchmarkLevelScheme a skos:ConceptScheme ;
   skos:prefLabel "Benchmark Level Scheme"@en ;
@@ -579,6 +590,7 @@ smn:LifePhaseScheme a skos:ConceptScheme ;
 
 gcdfo:AgeNotation a skos:Concept ;
   skos:prefLabel "Age notation"@en ;
+  rdfs:label "Age notation"@en ;
   skos:definition "A notation system used to encode salmon age values in stock assessment data."@en ;
   skos:inScheme :AgeNotationScheme ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
@@ -586,6 +598,7 @@ gcdfo:AgeNotation a skos:Concept ;
 
 gcdfo:GilbertRichAgeNotation a skos:Concept ;
   skos:prefLabel "Gilbert-Rich age notation"@en ;
+  rdfs:label "Gilbert-Rich age notation"@en ;
   skos:altLabel "GR age notation"@en ;
   skos:definition "Salmon age notation where total age is annotated with freshwater years as a subscript-like suffix (for example, 4_2 for total age 4 with 2 freshwater years)."@en ;
   skos:notation "Gilbert-Rich"^^xsd:string ;
@@ -597,6 +610,7 @@ gcdfo:GilbertRichAgeNotation a skos:Concept ;
 
 gcdfo:EuropeanAgeNotation a skos:Concept ;
   skos:prefLabel "European age notation"@en ;
+  rdfs:label "European age notation"@en ;
   skos:definition "Salmon age notation that records freshwater years followed by ocean years (for example, 1.2)."@en ;
   skos:notation "European"^^xsd:string ;
   skos:inScheme :AgeNotationScheme ;
@@ -607,6 +621,7 @@ gcdfo:EuropeanAgeNotation a skos:Concept ;
 
 gcdfo:AgeBasis a skos:Concept ;
   skos:prefLabel "Age basis"@en ;
+  rdfs:label "Age basis"@en ;
   skos:definition "The reference event or life-history point that an age value is measured against."@en ;
   skos:inScheme :AgeBasisScheme ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
@@ -614,6 +629,7 @@ gcdfo:AgeBasis a skos:Concept ;
 
 gcdfo:AgeAtReturnBasis a skos:Concept ;
   skos:prefLabel "Age at return basis"@en ;
+  rdfs:label "Age at return basis"@en ;
   skos:definition "Age measured at return migration (adult return timing)."@en ;
   skos:inScheme :AgeBasisScheme ;
   skos:broader gcdfo:AgeBasis ;
@@ -622,6 +638,7 @@ gcdfo:AgeAtReturnBasis a skos:Concept ;
 
 gcdfo:AgeAtMaturityBasis a skos:Concept ;
   skos:prefLabel "Age at maturity basis"@en ;
+  rdfs:label "Age at maturity basis"@en ;
   skos:definition "Age measured at maturity."@en ;
   skos:inScheme :AgeBasisScheme ;
   skos:broader gcdfo:AgeBasis ;
@@ -630,6 +647,7 @@ gcdfo:AgeAtMaturityBasis a skos:Concept ;
 
 gcdfo:AgeAtSamplingBasis a skos:Concept ;
   skos:prefLabel "Age at sampling basis"@en ;
+  rdfs:label "Age at sampling basis"@en ;
   skos:definition "Age measured at the time of sampling or observation."@en ;
   skos:inScheme :AgeBasisScheme ;
   skos:broader gcdfo:AgeBasis ;
@@ -638,6 +656,7 @@ gcdfo:AgeAtSamplingBasis a skos:Concept ;
 
 gcdfo:AgeDimension a skos:Concept ;
   skos:prefLabel "Age dimension"@en ;
+  rdfs:label "Age dimension"@en ;
   skos:definition "The age component represented by a value (total age, freshwater years, or ocean years)."@en ;
   skos:inScheme :AgeDimensionScheme ;
   gcdfo:theme gcdfo:StockAssessmentTheme ;
@@ -645,6 +664,7 @@ gcdfo:AgeDimension a skos:Concept ;
 
 gcdfo:TotalAgeDimension a skos:Concept ;
   skos:prefLabel "Total age dimension"@en ;
+  rdfs:label "Total age dimension"@en ;
   skos:definition "Age value represents total age in years."@en ;
   skos:inScheme :AgeDimensionScheme ;
   skos:broader gcdfo:AgeDimension ;
@@ -653,6 +673,7 @@ gcdfo:TotalAgeDimension a skos:Concept ;
 
 gcdfo:FreshwaterAgeDimension a skos:Concept ;
   skos:prefLabel "Freshwater age dimension"@en ;
+  rdfs:label "Freshwater age dimension"@en ;
   skos:definition "Age value represents years spent in freshwater."@en ;
   skos:inScheme :AgeDimensionScheme ;
   skos:broader gcdfo:AgeDimension ;
@@ -661,6 +682,7 @@ gcdfo:FreshwaterAgeDimension a skos:Concept ;
 
 gcdfo:OceanAgeDimension a skos:Concept ;
   skos:prefLabel "Ocean age dimension"@en ;
+  rdfs:label "Ocean age dimension"@en ;
   skos:altLabel "Marine age dimension"@en ;
   skos:definition "Age value represents years spent in the marine environment."@en ;
   skos:inScheme :AgeDimensionScheme ;
@@ -670,6 +692,7 @@ gcdfo:OceanAgeDimension a skos:Concept ;
 
 gcdfo:AgeClassValue a skos:Concept ;
   skos:prefLabel "Age class value"@en ;
+  rdfs:label "Age class value"@en ;
   skos:definition "An integer-like age class value used as a compositional constraint in salmon measurements."@en ;
   skos:inScheme :AgeClassValueScheme ;
   gcdfo:theme gcdfo:StockAssessmentTheme ;
@@ -677,6 +700,7 @@ gcdfo:AgeClassValue a skos:Concept ;
 
 gcdfo:Age1YearClass a skos:Concept ;
   skos:prefLabel "Age 1 year class"@en ;
+  rdfs:label "Age 1 year class"@en ;
   skos:notation "1"^^xsd:integer ;
   skos:definition "Age class value 1 year."@en ;
   skos:inScheme :AgeClassValueScheme ;
@@ -686,6 +710,7 @@ gcdfo:Age1YearClass a skos:Concept ;
 
 gcdfo:Age2YearClass a skos:Concept ;
   skos:prefLabel "Age 2 year class"@en ;
+  rdfs:label "Age 2 year class"@en ;
   skos:notation "2"^^xsd:integer ;
   skos:definition "Age class value 2 years."@en ;
   skos:inScheme :AgeClassValueScheme ;
@@ -695,6 +720,7 @@ gcdfo:Age2YearClass a skos:Concept ;
 
 gcdfo:Age3YearClass a skos:Concept ;
   skos:prefLabel "Age 3 year class"@en ;
+  rdfs:label "Age 3 year class"@en ;
   skos:notation "3"^^xsd:integer ;
   skos:definition "Age class value 3 years."@en ;
   skos:inScheme :AgeClassValueScheme ;
@@ -704,6 +730,7 @@ gcdfo:Age3YearClass a skos:Concept ;
 
 gcdfo:Age4YearClass a skos:Concept ;
   skos:prefLabel "Age 4 year class"@en ;
+  rdfs:label "Age 4 year class"@en ;
   skos:notation "4"^^xsd:integer ;
   skos:definition "Age class value 4 years."@en ;
   skos:inScheme :AgeClassValueScheme ;
@@ -713,6 +740,7 @@ gcdfo:Age4YearClass a skos:Concept ;
 
 gcdfo:Age5YearClass a skos:Concept ;
   skos:prefLabel "Age 5 year class"@en ;
+  rdfs:label "Age 5 year class"@en ;
   skos:notation "5"^^xsd:integer ;
   skos:definition "Age class value 5 years."@en ;
   skos:inScheme :AgeClassValueScheme ;
@@ -722,6 +750,7 @@ gcdfo:Age5YearClass a skos:Concept ;
 
 gcdfo:Age6YearClass a skos:Concept ;
   skos:prefLabel "Age 6 year class"@en ;
+  rdfs:label "Age 6 year class"@en ;
   skos:notation "6"^^xsd:integer ;
   skos:definition "Age class value 6 years."@en ;
   skos:inScheme :AgeClassValueScheme ;
@@ -731,6 +760,7 @@ gcdfo:Age6YearClass a skos:Concept ;
 
 gcdfo:Age7YearClass a skos:Concept ;
   skos:prefLabel "Age 7 year class"@en ;
+  rdfs:label "Age 7 year class"@en ;
   skos:notation "7"^^xsd:integer ;
   skos:definition "Age class value 7 years."@en ;
   skos:inScheme :AgeClassValueScheme ;
@@ -740,37 +770,42 @@ gcdfo:Age7YearClass a skos:Concept ;
 
 smn:MeasurementContext a skos:Concept ;
   skos:prefLabel "Measurement context"@en ;
+  rdfs:label "Measurement context"@en ;
   skos:definition "A context qualifier used to disambiguate the interpretation of a measurement column."@en ;
   skos:inScheme smn:MeasurementContextScheme ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:CatchContext a skos:Concept ;
   skos:prefLabel "Catch context"@en ;
+  rdfs:label "Catch context"@en ;
   skos:definition "Measurement context indicating values refer to fishery catch."@en ;
   skos:inScheme smn:MeasurementContextScheme ;
   skos:broader smn:MeasurementContext ;
   gcdfo:theme gcdfo:StockAssessmentTheme ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:RunContext a skos:Concept ;
   skos:prefLabel "Run context"@en ;
+  rdfs:label "Run context"@en ;
   skos:definition "Measurement context indicating values refer to run size or returning run composition."@en ;
   skos:inScheme smn:MeasurementContextScheme ;
   skos:broader smn:MeasurementContext ;
   gcdfo:theme gcdfo:StockAssessmentTheme ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:SpawnerStageContext a skos:Concept ;
   skos:prefLabel "Spawner stage context"@en ;
+  rdfs:label "Spawner stage context"@en ;
   skos:definition "Measurement context indicating values refer to spawners or spawning-stage fish."@en ;
   skos:inScheme smn:MeasurementContextScheme ;
   skos:broader smn:MeasurementContext ;
   gcdfo:theme gcdfo:StockAssessmentTheme ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 gcdfo:RecruitStageContext a skos:Concept ;
   skos:prefLabel "Recruit stage context"@en ;
+  rdfs:label "Recruit stage context"@en ;
   skos:definition "Measurement context indicating values refer to recruits."@en ;
   skos:inScheme smn:MeasurementContextScheme ;
   skos:broader smn:MeasurementContext ;
@@ -779,14 +814,16 @@ gcdfo:RecruitStageContext a skos:Concept ;
 
 smn:SurvivalOrMortalityContext a skos:Concept ;
   skos:prefLabel "Survival or mortality context"@en ;
+  rdfs:label "Survival or mortality context"@en ;
   skos:definition "Measurement context indicating values represent survival, mortality, or related rates."@en ;
   skos:inScheme smn:MeasurementContextScheme ;
   skos:broader smn:MeasurementContext ;
   gcdfo:theme gcdfo:StockAssessmentTheme ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 gcdfo:ManagementReferenceContext a skos:Concept ;
   skos:prefLabel "Management reference context"@en ;
+  rdfs:label "Management reference context"@en ;
   skos:definition "Measurement context indicating values are management benchmarks or reference-oriented metrics."@en ;
   skos:inScheme smn:MeasurementContextScheme ;
   skos:broader smn:MeasurementContext ;
@@ -795,6 +832,7 @@ gcdfo:ManagementReferenceContext a skos:Concept ;
 
 gcdfo:DataQualityRatingContext a skos:Concept ;
   skos:prefLabel "Data quality rating context"@en ;
+  rdfs:label "Data quality rating context"@en ;
   skos:definition "Measurement context indicating categorical or ordinal quality ratings."@en ;
   skos:inScheme smn:MeasurementContextScheme ;
   skos:broader smn:MeasurementContext ;
@@ -803,74 +841,83 @@ gcdfo:DataQualityRatingContext a skos:Concept ;
 
 smn:SalmonOrigin a skos:Concept ;
   skos:prefLabel "Salmon origin"@en ;
+  rdfs:label "Salmon origin"@en ;
   skos:definition "Origin category describing whether salmon are naturally produced, hatchery produced, or mixed-origin."@en ;
   skos:inScheme smn:SalmonOriginScheme ;
   gcdfo:theme gcdfo:SalmonEnhancementHatcheriesTheme, gcdfo:StockAssessmentTheme ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:HatcheryOrigin a skos:Concept ;
   skos:prefLabel "Hatchery-origin"@en ;
+  rdfs:label "Hatchery-origin"@en ;
   skos:definition "Individuals that were born or reared in a hatchery facility."@en ;
   skos:inScheme smn:SalmonOriginScheme ;
   skos:broader smn:SalmonOrigin ;
   iao:0000119 "Fisheries and Oceans Canada. 2018. Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Canadian Science Advisory Secretariat Science Advisory Report 2018/001 (Erratum: October 2023)."@en ; # definition source
   dcterms:source <https://www.dfo-mpo.gc.ca/csas-sccs/Publications/SAR-AS/2018/2018_001-eng.html> ;
   gcdfo:theme gcdfo:SalmonEnhancementHatcheriesTheme, gcdfo:StockAssessmentTheme, gcdfo:GeneticsStockCompositionTheme ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:NaturalOrigin a skos:Concept ;
   skos:prefLabel "Natural-origin"@en ;
+  rdfs:label "Natural-origin"@en ;
   skos:definition "Individuals that are born and reared in the wild (natural environment)."@en ;
   skos:inScheme smn:SalmonOriginScheme ;
   skos:broader smn:SalmonOrigin ;
   iao:0000119 "Fisheries and Oceans Canada. 2018. Review of genetically based targets for enhanced contributions to Canadian Pacific Chinook Salmon populations. DFO Canadian Science Advisory Secretariat Science Advisory Report 2018/001 (Erratum: October 2023)."@en ; # definition source
   dcterms:source <https://www.dfo-mpo.gc.ca/csas-sccs/Publications/SAR-AS/2018/2018_001-eng.html> ;
   gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:GeneticsStockCompositionTheme ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:LifePhase a skos:Concept ;
   skos:prefLabel "Life phase"@en ;
+  rdfs:label "Life phase"@en ;
   skos:definition "A phase or segment used to stratify salmon measurements by where or when they apply (e.g., ocean phase, terminal phase)."@en ;
   skos:inScheme smn:LifePhaseScheme ;
   gcdfo:theme gcdfo:StockAssessmentTheme ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:OceanPhase a skos:Concept ;
   skos:prefLabel "Ocean phase"@en ;
+  rdfs:label "Ocean phase"@en ;
   skos:altLabel "Marine phase"@en ;
   skos:definition "Phase of the salmon life cycle or assessment period occurring in the marine environment."@en ;
   skos:inScheme smn:LifePhaseScheme ;
   skos:broader smn:LifePhase ;
   gcdfo:theme gcdfo:StockAssessmentTheme ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:TerminalPhase a skos:Concept ;
   skos:prefLabel "Terminal phase"@en ;
+  rdfs:label "Terminal phase"@en ;
   skos:definition "Phase occurring in terminal areas near river mouths or spawning areas (often including terminal fisheries and local migration to spawning sites)."@en ;
   skos:inScheme smn:LifePhaseScheme ;
   skos:broader smn:LifePhase ;
   gcdfo:theme gcdfo:StockAssessmentTheme ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:MainstemPhase a skos:Concept ;
   skos:prefLabel "Mainstem phase"@en ;
+  rdfs:label "Mainstem phase"@en ;
   skos:definition "Freshwater mainstem migration phase in a river system (often corresponding to mainstem in-river fisheries or monitoring segments)."@en ;
   skos:inScheme smn:LifePhaseScheme ;
   skos:broader smn:LifePhase ;
   gcdfo:theme gcdfo:StockAssessmentTheme ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:InRiverPhase a skos:Concept ;
   skos:prefLabel "In-river phase"@en ;
+  rdfs:label "In-river phase"@en ;
   skos:altLabel "Freshwater phase"@en ;
   skos:definition "Freshwater in-river phase (migration and/or residence) outside the marine environment."@en ;
   skos:inScheme smn:LifePhaseScheme ;
   skos:broader smn:LifePhase ;
   gcdfo:theme gcdfo:StockAssessmentTheme ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 gcdfo:LowerBenchmark a skos:Concept ;
   skos:prefLabel "Lower benchmark"@en ;
+  rdfs:label "Lower benchmark"@en ;
   skos:definition "A lower-threshold benchmark value, typically delineating the boundary between Red and Amber status zones."@en ;
   skos:inScheme :BenchmarkLevelScheme ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
@@ -878,6 +925,7 @@ gcdfo:LowerBenchmark a skos:Concept ;
 
 gcdfo:UpperBenchmark a skos:Concept ;
   skos:prefLabel "Upper benchmark"@en ;
+  rdfs:label "Upper benchmark"@en ;
   skos:definition "An upper-threshold benchmark value, typically delineating the boundary between Amber and Green status zones."@en ;
   skos:inScheme :BenchmarkLevelScheme ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
@@ -885,6 +933,7 @@ gcdfo:UpperBenchmark a skos:Concept ;
 
 gcdfo:PolicyFramework a skos:Concept ;
   skos:prefLabel "Policy framework"@en ;
+  rdfs:label "Policy framework"@en ;
   skos:definition "A policy, legal, or governance framework that defines how salmon status metrics, benchmarks, or reference points are set and interpreted."@en ;
   skos:inScheme :PolicyFrameworkScheme ;
   gcdfo:theme gcdfo:PolicyGovernanceTheme, gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
@@ -892,6 +941,7 @@ gcdfo:PolicyFramework a skos:Concept ;
 
 gcdfo:WildSalmonPolicy a skos:Concept ;
   skos:prefLabel "Wild Salmon Policy"@en ;
+  rdfs:label "Wild Salmon Policy"@en ;
   skos:altLabel "WSP"@en ;
   skos:definition "Canada's Wild Salmon Policy framework for conserving and managing wild Pacific salmon, including integrated status assessments and biological benchmarks for Conservation Units."@en ;
   skos:inScheme :PolicyFrameworkScheme ;
@@ -901,6 +951,7 @@ gcdfo:WildSalmonPolicy a skos:Concept ;
 
 gcdfo:PrecautionaryApproach a skos:Concept ;
   skos:prefLabel "Precautionary Approach"@en ;
+  rdfs:label "Precautionary Approach"@en ;
   skos:altLabel "PA"@en ;
   skos:definition "DFO policy framework for applying precaution in fisheries decision-making, including use of reference points and stock status zones."@en ;
   skos:inScheme :PolicyFrameworkScheme ;
@@ -910,6 +961,7 @@ gcdfo:PrecautionaryApproach a skos:Concept ;
 
 gcdfo:FishStockProvisions a skos:Concept ;
   skos:prefLabel "Fish Stocks Provisions"@en ;
+  rdfs:label "Fish Stocks Provisions"@en ;
   skos:altLabel "FSP"@en ;
   skos:definition "Legal provisions in Canada's Fisheries Act and regulations related to maintaining and rebuilding fish stocks, including obligations triggered when reference points are breached."@en ;
   skos:inScheme :PolicyFrameworkScheme ;
@@ -923,14 +975,16 @@ gcdfo:FishStockProvisions a skos:Concept ;
 
 smn:EnumerationMethod a skos:Concept ;
   skos:prefLabel "Enumeration Method"@en ;
+  rdfs:label "Enumeration Method"@en ;
   skos:definition "A method used to enumerate or count salmon in the field"@en ;
   skos:scopeNote "DFO profile note: this ontology uses the shared `smn:EnumerationMethod` concept directly and constrains local narrower methods beneath it."@en ;
   skos:inScheme :EnumerationMethodScheme ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 :FixedSiteCensusManual a skos:Concept ;
   skos:prefLabel "Fixed Site Census (Manual)"@en ;
+  rdfs:label "Fixed Site Census (Manual)"@en ;
   skos:definition "Salmon are guided through a controlled opening in a fence/weir where trained observers visually tally each passage event on a continuous or daily schedule. Counting chambers/windows and SIL/SEN daily logs document coverage; bypass routes are monitored and closed where possible."@en ;
   skos:inScheme :EnumerationMethodScheme ;
   skos:broader smn:EnumerationMethod ;
@@ -940,6 +994,7 @@ smn:EnumerationMethod a skos:Concept ;
 
 :FixedSiteCensusElectronic a skos:Concept ;
   skos:prefLabel "Fixed Site Census (Electronic)"@en ;
+  rdfs:label "Fixed Site Census (Electronic)"@en ;
   skos:definition "Automated counting at a constrained opening using electronic/optical counters, resistivity counters, or video/camera systems. QA review of automated events, cross-section coverage, and uptime/coverage are documented."@en ;
   skos:inScheme :EnumerationMethodScheme ;
   skos:broader smn:EnumerationMethod ;
@@ -949,6 +1004,7 @@ smn:EnumerationMethod a skos:Concept ;
 
 :VisualGroundCount a skos:Concept ;
   skos:prefLabel "Visual Ground Count"@en ;
+  rdfs:label "Visual Ground Count"@en ;
   skos:definition "Visual surveys conducted by stream/bank walk with documented visit schedule, reach coverage, timing, and visibility conditions."@en ;
   skos:inScheme :EnumerationMethodScheme ;
   skos:broader smn:EnumerationMethod ;
@@ -959,6 +1015,7 @@ smn:EnumerationMethod a skos:Concept ;
 
 :VisualSnorkelCount a skos:Concept ;
   skos:prefLabel "Visual Snorkel Count"@en ;
+  rdfs:label "Visual Snorkel Count"@en ;
   skos:definition "Two or more trained snorkelers conduct standardized passes within defined segments, tallying live/dead by species. Field forms capture visibility class, segment boundaries, and repeat-visit schedule; counts are aggregated across observers/passes."@en ;
   skos:inScheme :EnumerationMethodScheme ;
   skos:broader smn:EnumerationMethod ;
@@ -968,6 +1025,7 @@ smn:EnumerationMethod a skos:Concept ;
 
 :AerialSurveyCount a skos:Concept ;
   skos:prefLabel "Aerial Survey Count"@en ;
+  rdfs:label "Aerial Survey Count"@en ;
   skos:definition "Overflights (helicopter, fixed wing, or drone) with documented flight lines, coverage, visibility, and sensor settings. Imagery may be reviewed post-flight."@en ;
   skos:inScheme :EnumerationMethodScheme ;
   skos:broader smn:EnumerationMethod ;
@@ -977,6 +1035,7 @@ smn:EnumerationMethod a skos:Concept ;
 
 :HydroacousticSonarCount a skos:Concept ;
   skos:prefLabel "Hydroacoustic Sonar Count"@en ;
+  rdfs:label "Hydroacoustic Sonar Count"@en ;
   skos:definition "Sonar detections (ARIS, DIDSON, or other hydroacoustic systems) with documented coverage, visibility/noise conditions, and uptime. Raw detections require processing through a modelling/classification pipeline."@en ;
   skos:inScheme :EnumerationMethodScheme ;
   skos:broader smn:EnumerationMethod ;
@@ -986,6 +1045,7 @@ smn:EnumerationMethod a skos:Concept ;
 
 :TrapCount a skos:Concept ;
   skos:prefLabel "Trap Count"@en ;
+  rdfs:label "Trap Count"@en ;
   skos:definition "Trap-based counts from non-spanning traps with documented emptying schedule, efficiency measurements, and coverage information."@en ;
   skos:inScheme :EnumerationMethodScheme ;
   skos:broader smn:EnumerationMethod ;
@@ -995,6 +1055,7 @@ smn:EnumerationMethod a skos:Concept ;
 
 :ReddCount a skos:Concept ;
   skos:prefLabel "Redd Count"@en ;
+  rdfs:label "Redd Count"@en ;
   skos:definition "Redd counts with documentation of detectability, timing, and reach coverage. Conversion to spawner estimates requires spawners-per-redd factors handled in analysis."@en ;
   skos:inScheme :EnumerationMethodScheme ;
   skos:broader smn:EnumerationMethod ;
@@ -1004,6 +1065,7 @@ smn:EnumerationMethod a skos:Concept ;
 
 :ElectrofishingCount a skos:Concept ;
   skos:prefLabel "Electrofishing Count"@en ;
+  rdfs:label "Electrofishing Count"@en ;
   skos:definition "Effort-standardized electrofishing passes used to generate catch-per-unit-effort (CPUE) indices."@en ;
   skos:inScheme :EnumerationMethodScheme ;
   skos:broader smn:EnumerationMethod ;
@@ -1013,6 +1075,7 @@ smn:EnumerationMethod a skos:Concept ;
 
 :MarkRecaptureFieldProgram a skos:Concept ;
   skos:prefLabel "Mark-Recapture Field Program"@en ;
+  rdfs:label "Mark-Recapture Field Program"@en ;
   skos:definition "Field program involving marking and subsequent recapture/recovery of tagged fish with documented assumptions and recovery coverage."@en ;
   skos:inScheme :EnumerationMethodScheme ;
   skos:broader smn:EnumerationMethod ;
@@ -1026,6 +1089,7 @@ smn:EnumerationMethod a skos:Concept ;
 
 :FixedStationTally a skos:Concept ;
   skos:prefLabel "Fixed‑Station Tally"@en ;
+  rdfs:label "Fixed‑Station Tally"@en ;
   skos:definition "Seasonal total = roll‑up of daily/continuous counts from a fixed (non‑sonar) station; simple arithmetic with documented coverage."@en ;
   skos:inScheme :EstimateMethodScheme ;
   skos:broader :EstimateMethod ;
@@ -1034,6 +1098,7 @@ smn:EnumerationMethod a skos:Concept ;
 
 :AreaUnderTheCurve a skos:Concept ;
   skos:prefLabel "Area Under the Curve"@en ;
+  rdfs:label "Area Under the Curve"@en ;
   skos:altLabel "AUC"@en ;
   skos:definition "Integrates serial counts over time using a survey-life parameter; may apply observer efficiency."@en ;
   skos:inScheme :EstimateMethodScheme ;
@@ -1043,6 +1108,7 @@ smn:EnumerationMethod a skos:Concept ;
 
 :PeakCountAnalysis a skos:Concept ;
   skos:prefLabel "Peak Count Analysis"@en ;
+  rdfs:label "Peak Count Analysis"@en ;
   skos:definition "Uses the peak survey (live ± dead variants) as the season estimate/index."@en ;
   skos:inScheme :EstimateMethodScheme ;
   skos:broader :EstimateMethod ;
@@ -1052,6 +1118,7 @@ smn:EnumerationMethod a skos:Concept ;
 
 :HydroacousticModelling a skos:Concept ;
   skos:prefLabel "Hydroacoustic Modelling"@en ;
+  rdfs:label "Hydroacoustic Modelling"@en ;
   skos:definition "Model pipeline converts sonar detections to passage totals; sets range/angle/blind zones; species/size attribution rules documented."@en ;
   skos:inScheme :EstimateMethodScheme ;
   skos:broader :EstimateMethod ;
@@ -1061,6 +1128,7 @@ smn:EnumerationMethod a skos:Concept ;
 
 :ExpansionMathematicalOperations a skos:Concept ;
   skos:prefLabel "Expansion/Mathematical Operations"@en ;
+  rdfs:label "Expansion/Mathematical Operations"@en ;
   skos:definition "Applies expansion factors or arithmetic transforms to a base count/index."@en ;
   skos:inScheme :EstimateMethodScheme ;
   skos:broader :EstimateMethod ;
@@ -1070,6 +1138,7 @@ smn:EnumerationMethod a skos:Concept ;
 
 :CalibratedTimeSeries a skos:Concept ;
   skos:prefLabel "Calibrated Time Series"@en ;
+  rdfs:label "Calibrated Time Series"@en ;
   skos:definition "Regression/state-space model calibrated to a Type-1/2 series converts a lower-precision index to abundance."@en ;
   skos:inScheme :EstimateMethodScheme ;
   skos:broader :EstimateMethod ;
@@ -1079,6 +1148,7 @@ smn:EnumerationMethod a skos:Concept ;
 
 :MarkRecaptureAnalysis a skos:Concept ;
   skos:prefLabel "Mark-Recapture Analysis"@en ;
+  rdfs:label "Mark-Recapture Analysis"@en ;
   skos:definition "Capture-recapture estimators (Petersen, Jolly-Seber, open/Bayesian models) applied to field marks/recoveries."@en ;
   skos:inScheme :EstimateMethodScheme ;
   skos:broader :EstimateMethod ;
@@ -1088,6 +1158,7 @@ smn:EnumerationMethod a skos:Concept ;
 
 :TrapModelAnalysis a skos:Concept ;
   skos:prefLabel "Trap Model Analysis"@en ;
+  rdfs:label "Trap Model Analysis"@en ;
   skos:definition "Trap-based counts adjusted with efficiency/coverage models to estimate total passage."@en ;
   skos:inScheme :EstimateMethodScheme ;
   skos:broader :EstimateMethod ;
@@ -1097,6 +1168,7 @@ smn:EnumerationMethod a skos:Concept ;
 
 :ReddExpansionAnalysis a skos:Concept ;
   skos:prefLabel "Redd Expansion Analysis"@en ;
+  rdfs:label "Redd Expansion Analysis"@en ;
   skos:definition "Converts redd counts to spawner estimates using spawners-per-redd expansion factors."@en ;
   skos:inScheme :EstimateMethodScheme ;
   skos:broader :EstimateMethod ;
@@ -1106,6 +1178,7 @@ smn:EnumerationMethod a skos:Concept ;
 
 :EstimateMethod a skos:Concept ;
   skos:prefLabel "Estimate Method"@en ;
+  rdfs:label "Estimate Method"@en ;
   skos:definition "A method used to analyze and estimate salmon abundance from enumeration data"@en ;
   skos:inScheme :EstimateMethodScheme ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
@@ -1113,6 +1186,7 @@ smn:EnumerationMethod a skos:Concept ;
 
 gcdfo:WSPRapidStatusAssessmentMethod a skos:Concept ;
   skos:prefLabel "WSP rapid-status assessment method"@en ;
+  rdfs:label "WSP rapid-status assessment method"@en ;
   skos:altLabel "WSP rapid status method"@en ;
   skos:definition "The analytical method used to produce rapid-status metrics under the Wild Salmon Policy rapid-status approach."@en ;
   skos:inScheme :EstimateMethodScheme ;
@@ -1128,6 +1202,7 @@ gcdfo:WSPRapidStatusAssessmentMethod a skos:Concept ;
 
 :Type1 a skos:Concept ;
   skos:prefLabel "Type-1, True Abundance, high resolution"@en ;
+  rdfs:label "Type-1, True Abundance, high resolution"@en ;
   skos:definition "Total, seasonal counts through fence or fishway; virtually no bypass. Simple, often single step analysis. Reliable resolution of between year differences >10% (in absolute units)."@en ;
   skos:inScheme :EstimateTypeScheme ;
   skos:broader :EstimateType ;
@@ -1136,6 +1211,7 @@ gcdfo:WSPRapidStatusAssessmentMethod a skos:Concept ;
 
 :Type2 a skos:Concept ;
   skos:prefLabel "Type-2, True Abundance, medium resolution"@en ;
+  rdfs:label "Type-2, True Abundance, medium resolution"@en ;
   skos:definition "Indirect estimate of total spawner abundance with qualified accuracy and known precision (i.e., a variance estimate—an explicit quantitative measure of uncertainty around the estimate). Derived from high-effort, standardized methods (e.g., mark-recapture, serial counts for area under the curve) with documented analytical conversions (including interpolation/calibration as needed). Reported in absolute units (estimate ± variance). Reliable resolution of between-year differences >25% (in absolute units)."@en ;
   skos:inScheme :EstimateTypeScheme ;
   skos:broader :EstimateType ;
@@ -1144,6 +1220,7 @@ gcdfo:WSPRapidStatusAssessmentMethod a skos:Concept ;
 
 :Type3 a skos:Concept ;
   skos:prefLabel "Type-3, Relative Abundance, high resolution"@en ;
+  rdfs:label "Type-3, Relative Abundance, high resolution"@en ;
   skos:definition "Relative abundance index (i.e., not an absolute count) derived from moderate to high effort surveys (typically 3 or more site visits) using standardized methods applied consistently between and within years (e.g., equal-effort surveys executed by walk, swim, overflight). Accuracy and precision are not fully quantified (i.e., no explicit variance estimate), but are assumed stable enough for within-series comparisons. Reliable resolution of between-year differences >25% (in relative units)."@en ;
   skos:inScheme :EstimateTypeScheme ;
   skos:broader :EstimateType ;
@@ -1152,6 +1229,7 @@ gcdfo:WSPRapidStatusAssessmentMethod a skos:Concept ;
 
 :Type4 a skos:Concept ;
   skos:prefLabel "Type-4, Relative Abundance, medium resolution"@en ;
+  rdfs:label "Type-4, Relative Abundance, medium resolution"@en ;
   skos:definition "Low to moderate effort (1-4 trips), known survey method. Simple analysis by known methods. Reliable resolution of between year differences >200% (in relative units)."@en ;
   skos:inScheme :EstimateTypeScheme ;
   skos:broader :EstimateType ;
@@ -1160,6 +1238,7 @@ gcdfo:WSPRapidStatusAssessmentMethod a skos:Concept ;
 
 :Type5 a skos:Concept ;
   skos:prefLabel "Type-5, Relative Abundance, low resolution"@en ;
+  rdfs:label "Type-5, Relative Abundance, low resolution"@en ;
   skos:definition "Low effort (e.g. 1 trip), use of vaguely defined, inconsistent or poorly executed methods. Unknown to ill defined; inconsistent or poorly executed. Uncertain numeric comparisons, but high reliability for presence or absence."@en ;
   skos:inScheme :EstimateTypeScheme ;
   skos:broader :EstimateType ;
@@ -1168,6 +1247,7 @@ gcdfo:WSPRapidStatusAssessmentMethod a skos:Concept ;
 
 :Type6 a skos:Concept ;
   skos:prefLabel "Type-6, Presence or Absence"@en ;
+  rdfs:label "Type-6, Presence or Absence"@en ;
   skos:altLabel "Presence/Not Detected"@en ;
   skos:definition "Non-numeric, year-specific record of presence/not detected (i.e., present/absent without estimating a count), tied to an explicit time and location, with reliable species identification. Underlying field methods may be highly variable; analysis is not required."@en ;
   skos:inScheme :EstimateTypeScheme ;
@@ -1177,6 +1257,7 @@ gcdfo:WSPRapidStatusAssessmentMethod a skos:Concept ;
 
 :EstimateType a skos:Concept ;
   skos:prefLabel "Estimate Type"@en ;
+  rdfs:label "Estimate Type"@en ;
   skos:definition "Classification of escapement estimate quality based on Hyatt 1997 framework"@en ;
   skos:inScheme :EstimateTypeScheme ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
@@ -1188,6 +1269,7 @@ gcdfo:WSPRapidStatusAssessmentMethod a skos:Concept ;
 
 :DowngradeCriteria a skos:Concept ;
   skos:prefLabel "Downgrade Criteria"@en ;
+  rdfs:label "Downgrade Criteria"@en ;
   skos:definition "Criteria that may result in downgrading an escapement estimate type classification"@en ;
   skos:inScheme :DowngradeCriteriaScheme ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
@@ -1195,6 +1277,7 @@ gcdfo:WSPRapidStatusAssessmentMethod a skos:Concept ;
 
 :BreachBypass a skos:Concept ;
   skos:prefLabel "Bypass/Breach Risk"@en ;
+  rdfs:label "Bypass/Breach Risk"@en ;
   skos:definition "Bypass or breach risks not monitored and verified negligible"@en ;
   skos:inScheme :DowngradeCriteriaScheme ;
   skos:broader :DowngradeCriteria ;
@@ -1204,6 +1287,7 @@ gcdfo:WSPRapidStatusAssessmentMethod a skos:Concept ;
 
 :RunCoverage a skos:Concept ;
   skos:prefLabel "Run Coverage"@en ;
+  rdfs:label "Run Coverage"@en ;
   skos:definition "Run-window coverage < 95% of season days"@en ;
   skos:inScheme :DowngradeCriteriaScheme ;
   skos:broader :DowngradeCriteria ;
@@ -1213,6 +1297,7 @@ gcdfo:WSPRapidStatusAssessmentMethod a skos:Concept ;
 
 :Uptime a skos:Concept ;
   skos:prefLabel "Uptime"@en ;
+  rdfs:label "Uptime"@en ;
   skos:definition "Counting/device uptime < 95% (or <90% with interpolation)"@en ;
   skos:inScheme :DowngradeCriteriaScheme ;
   skos:broader :DowngradeCriteria ;
@@ -1222,6 +1307,7 @@ gcdfo:WSPRapidStatusAssessmentMethod a skos:Concept ;
 
 :InfillMethod a skos:Concept ;
   skos:prefLabel "Infill Method"@en ;
+  rdfs:label "Infill Method"@en ;
   skos:definition "Interpolation used for missing data; defensibility must be documented"@en ;
   skos:inScheme :DowngradeCriteriaScheme ;
   skos:broader :DowngradeCriteria ;
@@ -1231,6 +1317,7 @@ gcdfo:WSPRapidStatusAssessmentMethod a skos:Concept ;
 
 :Documentation a skos:Concept ;
   skos:prefLabel "Documentation"@en ;
+  rdfs:label "Documentation"@en ;
   skos:definition "Missing SIL/SEN logs or QA/methods report"@en ;
   skos:inScheme :DowngradeCriteriaScheme ;
   skos:broader :DowngradeCriteria ;
@@ -1240,6 +1327,7 @@ gcdfo:WSPRapidStatusAssessmentMethod a skos:Concept ;
 
 :CrossSectionCoverage a skos:Concept ;
   skos:prefLabel "Cross-section Coverage"@en ;
+  rdfs:label "Cross-section Coverage"@en ;
   skos:definition "Incomplete cross-section coverage"@en ;
   skos:inScheme :DowngradeCriteriaScheme ;
   skos:broader :DowngradeCriteria ;
@@ -1249,6 +1337,7 @@ gcdfo:WSPRapidStatusAssessmentMethod a skos:Concept ;
 
 :ReviewQA a skos:Concept ;
   skos:prefLabel "Review/QA"@en ;
+  rdfs:label "Review/QA"@en ;
   skos:definition "Insufficient QA review of automated events"@en ;
   skos:inScheme :DowngradeCriteriaScheme ;
   skos:broader :DowngradeCriteria ;
@@ -1258,6 +1347,7 @@ gcdfo:WSPRapidStatusAssessmentMethod a skos:Concept ;
 
 :DeviceConfiguration a skos:Concept ;
   skos:prefLabel "Device Configuration"@en ;
+  rdfs:label "Device Configuration"@en ;
   skos:definition "Device not within operational specifications"@en ;
   skos:inScheme :DowngradeCriteriaScheme ;
   skos:broader :DowngradeCriteria ;
@@ -1267,6 +1357,7 @@ gcdfo:WSPRapidStatusAssessmentMethod a skos:Concept ;
 
 :EnvironmentalConditions a skos:Concept ;
   skos:prefLabel "Environmental Conditions"@en ;
+  rdfs:label "Environmental Conditions"@en ;
   skos:definition "Environmental conditions outside specifications"@en ;
   skos:inScheme :DowngradeCriteriaScheme ;
   skos:broader :DowngradeCriteria ;
@@ -1276,6 +1367,7 @@ gcdfo:WSPRapidStatusAssessmentMethod a skos:Concept ;
 
 :Visibility a skos:Concept ;
   skos:prefLabel "Visibility"@en ;
+  rdfs:label "Visibility"@en ;
   skos:definition "Poor visibility conditions"@en ;
   skos:inScheme :DowngradeCriteriaScheme ;
   skos:broader :DowngradeCriteria ;
@@ -1285,6 +1377,7 @@ gcdfo:WSPRapidStatusAssessmentMethod a skos:Concept ;
 
 :Classification a skos:Concept ;
   skos:prefLabel "Classification"@en ;
+  rdfs:label "Classification"@en ;
   skos:definition "Classification/attribution not documented"@en ;
   skos:inScheme :DowngradeCriteriaScheme ;
   skos:broader :DowngradeCriteria ;
@@ -1294,6 +1387,7 @@ gcdfo:WSPRapidStatusAssessmentMethod a skos:Concept ;
 
 :ReachCoverage a skos:Concept ;
   skos:prefLabel "Reach Coverage"@en ;
+  rdfs:label "Reach Coverage"@en ;
   skos:definition "Insufficient reach coverage"@en ;
   skos:inScheme :DowngradeCriteriaScheme ;
   skos:broader :DowngradeCriteria ;
@@ -1303,6 +1397,7 @@ gcdfo:WSPRapidStatusAssessmentMethod a skos:Concept ;
 
 :Timing a skos:Concept ;
   skos:prefLabel "Timing"@en ;
+  rdfs:label "Timing"@en ;
   skos:definition "Poor timing of surveys"@en ;
   skos:inScheme :DowngradeCriteriaScheme ;
   skos:broader :DowngradeCriteria ;
@@ -1312,6 +1407,7 @@ gcdfo:WSPRapidStatusAssessmentMethod a skos:Concept ;
 
 :NumberOfVisits a skos:Concept ;
   skos:prefLabel "Number of Visits"@en ;
+  rdfs:label "Number of Visits"@en ;
   skos:definition "Insufficient number of survey visits"@en ;
   skos:inScheme :DowngradeCriteriaScheme ;
   skos:broader :DowngradeCriteria ;
@@ -1321,6 +1417,7 @@ gcdfo:WSPRapidStatusAssessmentMethod a skos:Concept ;
 
 :TrapEfficiency a skos:Concept ;
   skos:prefLabel "Trap Efficiency"@en ;
+  rdfs:label "Trap Efficiency"@en ;
   skos:definition "Trap efficiency not measured/validated"@en ;
   skos:inScheme :DowngradeCriteriaScheme ;
   skos:broader :DowngradeCriteria ;
@@ -1330,6 +1427,7 @@ gcdfo:WSPRapidStatusAssessmentMethod a skos:Concept ;
 
 :EffortStandardization a skos:Concept ;
   skos:prefLabel "Effort Standardization"@en ;
+  rdfs:label "Effort Standardization"@en ;
   skos:definition "Effort not standardized"@en ;
   skos:inScheme :DowngradeCriteriaScheme ;
   skos:broader :DowngradeCriteria ;
@@ -1339,6 +1437,7 @@ gcdfo:WSPRapidStatusAssessmentMethod a skos:Concept ;
 
 :MarkRecaptureAssumptions a skos:Concept ;
   skos:prefLabel "Mark-Recapture Assumptions"@en ;
+  rdfs:label "Mark-Recapture Assumptions"@en ;
   skos:definition "MR assumptions not evaluated"@en ;
   skos:inScheme :DowngradeCriteriaScheme ;
   skos:broader :DowngradeCriteria ;
@@ -1348,6 +1447,7 @@ gcdfo:WSPRapidStatusAssessmentMethod a skos:Concept ;
 
 :Detectability a skos:Concept ;
   skos:prefLabel "Detectability"@en ;
+  rdfs:label "Detectability"@en ;
   skos:definition "Detectability factors not validated"@en ;
   skos:inScheme :DowngradeCriteriaScheme ;
   skos:broader :DowngradeCriteria ;
@@ -1357,6 +1457,7 @@ gcdfo:WSPRapidStatusAssessmentMethod a skos:Concept ;
 
 :PrecisionAccuracy a skos:Concept ;
   skos:prefLabel "Precision/Accuracy"@en ;
+  rdfs:label "Precision/Accuracy"@en ;
   skos:definition "Precision/accuracy weaker than expected for type"@en ;
   skos:inScheme :DowngradeCriteriaScheme ;
   skos:broader :DowngradeCriteria ;
@@ -1366,6 +1467,7 @@ gcdfo:WSPRapidStatusAssessmentMethod a skos:Concept ;
 
 :MethodUnknown a skos:Concept ;
   skos:prefLabel "Method Unknown/Inconsistent"@en ;
+  rdfs:label "Method Unknown/Inconsistent"@en ;
   skos:definition "Survey/analytical methods not adequately identified/consistent"@en ;
   skos:inScheme :DowngradeCriteriaScheme ;
   skos:broader :DowngradeCriteria ;
@@ -1382,21 +1484,21 @@ smn:ObservedRateOrAbundance a owl:Class ;
   iao:0000115 "A measurement datum representing an empirically observed rate, count, or abundance derived from monitoring or survey data."@en ; # definition
   rdfs:subClassOf iao:0000109 ; # measurement datum
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:TargetOrLimitRateOrAbundance a owl:Class ;
   rdfs:label "Target or limit rate or abundance"@en ;
   iao:0000115 "A value specification representing a policy- or model-defined target or limit, such as TAC or UMSY."@en ; # definition
   rdfs:subClassOf iao:0000109 ; # measurement datum
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:PolicyGovernanceTheme, gcdfo:DataModelProvenanceTheme ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:ReportingOrManagementStratum a owl:Class ;
   rdfs:label "Reporting or management stratum"@en ;
   iao:0000115 "An information-defined grouping of fish populations used for reporting, conservation assessment, or management purposes. Examples include Conservation Units (CUs), Stock Management Units (MUs), and Designatable Units (DUs)."@en ; # definition
   rdfs:subClassOf iao:0000030 ; # information content entity
   gcdfo:theme gcdfo:PolicyGovernanceTheme, gcdfo:StockAssessmentTheme ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 #################################################################
 # Object Properties — Biological and Management Unit Composition
@@ -1407,7 +1509,7 @@ smn:hasDeme a owl:ObjectProperty ;
   iao:0000115 "Relates a population to one of its constituent demes."@en ; # definition
   rdfs:domain smn:Population ;
   rdfs:range smn:Deme ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
   gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:GeneticsStockCompositionTheme .
 
 smn:demeOf a owl:ObjectProperty ;
@@ -1416,7 +1518,7 @@ smn:demeOf a owl:ObjectProperty ;
   owl:inverseOf smn:hasDeme ;
   rdfs:domain smn:Deme ;
   rdfs:range smn:Population ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
   gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:GeneticsStockCompositionTheme .
 
 smn:hasPopulation a owl:ObjectProperty ;
@@ -1425,7 +1527,7 @@ smn:hasPopulation a owl:ObjectProperty ;
   rdfs:comment "DFO profile note: within this ontology, `smn:hasPopulation` is primarily used for ConservationUnit-to-Population composition."@en ;
   rdfs:domain gcdfo:ConservationUnit ;
   rdfs:range smn:Population ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
   gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme .
 
 smn:populationOf a owl:ObjectProperty ;
@@ -1435,7 +1537,7 @@ smn:populationOf a owl:ObjectProperty ;
   owl:inverseOf smn:hasPopulation ;
   rdfs:domain smn:Population ;
   rdfs:range gcdfo:ConservationUnit ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
   gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme .
 
 gcdfo:hasConservationUnit a owl:ObjectProperty ;
@@ -1618,6 +1720,7 @@ gcdfo:usedProcedure a owl:AnnotationProperty ;
 
 gcdfo:YearBasis a skos:Concept ;
   skos:prefLabel "Year basis"@en ;
+  rdfs:label "Year basis"@en ;
   skos:definition "A year-based temporal reference used to contextualize measurements or rates (e.g., brood year, catch year, or return year)."@en ;
   iao:0000115 "A year-based temporal reference used to contextualize measurements or rates (e.g., brood year, catch year, or return year)."@en ; # definition
   skos:inScheme :YearBasisScheme ;
@@ -1626,6 +1729,7 @@ gcdfo:YearBasis a skos:Concept ;
 
 gcdfo:BroodYear a skos:Concept ;
   skos:prefLabel "Brood year"@en ;
+  rdfs:label "Brood year"@en ;
   skos:definition "The parental year for a group of returning salmon, i.e. the calendar year when the majority of parents of these fish spawned."@en ;
   iao:0000115 "The parental year for a group of returning salmon, i.e. the calendar year when the majority of parents of these fish spawned."@en ; # definition
   skos:inScheme :YearBasisScheme ;
@@ -1638,6 +1742,7 @@ gcdfo:BroodYear a skos:Concept ;
 
 gcdfo:CatchYear a skos:Concept ;
   skos:prefLabel "Catch year"@en ;
+  rdfs:label "Catch year"@en ;
   skos:definition "The calendar year in which returning salmon are caught in fisheries (as opposed to the brood year in which the cohort was spawned)."@en ;
   iao:0000115 "The calendar year in which returning salmon are caught in fisheries (as opposed to the brood year in which the cohort was spawned)."@en ; # definition
   skos:inScheme :YearBasisScheme ;
@@ -1651,7 +1756,7 @@ smn:Stock a owl:Class ;
   iao:0000119 "Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html."@en ; # definition source
   dcterms:source <https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html> ;
   rdfs:subClassOf smn:ReportingOrManagementStratum ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
   skos:altLabel "Fish stock"@en ;
   gcdfo:theme gcdfo:PolicyGovernanceTheme, gcdfo:StockAssessmentTheme, gcdfo:FisheriesManagementTheme .
 
@@ -1659,7 +1764,7 @@ smn:Deme a owl:Class ;
   rdfs:label "Deme"@en ;
   iao:0000115 "A local interbreeding group of organisms within a species. In salmon, a deme typically corresponds to a spawning population at a specific site. Demes are the finest biological unit and make up populations."@en ; # definition
   rdfs:subClassOf dwc:Organism ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
   gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:GeneticsStockCompositionTheme, gcdfo:StockAssessmentTheme .
 
 smn:Population a owl:Class ;
@@ -1667,7 +1772,7 @@ smn:Population a owl:Class ;
   iao:0000115 "A group of organisms of the same species occupying a defined area that interbreed and share a gene pool. In salmon, populations are composed of one or more demes and form the biological basis for Conservation Units."@en ; # definition
   rdfs:comment "DFO profile note: this ontology applies `smn:Population` in Wild Salmon Policy / Conservation Unit contexts."@en ;
   rdfs:subClassOf dwc:Organism ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
   gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:GeneticsStockCompositionTheme, gcdfo:StockAssessmentTheme .
 
 smn:StockAssessment a owl:Class ;
@@ -1677,7 +1782,7 @@ smn:StockAssessment a owl:Class ;
   iao:0000119 "Fisheries and Oceans Canada. Introduction to Stock Assessment. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/module-1/09-eng.html."@en ; # definition source
   dcterms:source <https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/module-1/09-eng.html> ;
   gcdfo:theme gcdfo:StockAssessmentTheme ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 gcdfo:ConservationUnit a owl:Class ;
   rdfs:label "Conservation Unit"@en ;
@@ -1718,7 +1823,7 @@ smn:Escapement a owl:Class ;
   iao:0000119 "Fisheries and Oceans Canada. 2005. Canada's Policy for Conservation of Wild Pacific Salmon. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf."@en ; # definition source
   dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf> ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:SurveyEvent a owl:Class ;
   rdfs:label "Survey event"@en ;
@@ -1727,7 +1832,7 @@ smn:SurveyEvent a owl:Class ;
   iao:0000119 "Fisheries and Oceans Canada. About the Sustainability Survey for Fisheries. https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html."@en ; # definition source
   dcterms:source <https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html> ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:EscapementSurveyEvent a owl:Class ;
   rdfs:label "Escapement Survey Event"@en ;
@@ -1735,14 +1840,14 @@ smn:EscapementSurveyEvent a owl:Class ;
   iao:0000115 "A survey event specifically for estimating escapement."@en ; # definition
   rdfs:subClassOf smn:SurveyEvent ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:EscapementMeasurement a owl:Class ;
   rdfs:label "Escapement measurement"@en ;
   iao:0000115 "A measurement or estimate of escapement tied to a stock and a survey event."@en ; # definition
   rdfs:subClassOf iao:0000109, sosa:Result ; # measurement datum / observation result
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:ReferencePoint a owl:Class ;
   rdfs:label "Reference point"@en ;
@@ -1750,7 +1855,7 @@ smn:ReferencePoint a owl:Class ;
   rdfs:comment "DFO profile note: this ontology applies `smn:ReferencePoint` in DFO fisheries-management and assessment workflows."@en ;
   iao:0000119 "Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html."@en ; # definition source
   dcterms:source <https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html> ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:FisheriesManagementTheme, gcdfo:PolicyGovernanceTheme ;
   rdfs:subClassOf iao:0000030 . # Information content entity.
 
@@ -1762,7 +1867,7 @@ smn:LimitReferencePoint a owl:Class ;
   iao:0000119 "Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html."@en ; # definition source
   dcterms:source <https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html> ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:FisheriesManagementTheme, gcdfo:PolicyGovernanceTheme ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:FisheriesReferencePointLower a owl:Class ;
   rdfs:label "Fisheries Reference Point - Lower"@en ;
@@ -1771,7 +1876,7 @@ smn:FisheriesReferencePointLower a owl:Class ;
   rdfs:subClassOf smn:LimitReferencePoint ;
   iao:0000119 "Fisheries and Oceans Canada. (2022). Methodologies and Guidelines for Defining Limit Reference Points for Pacific Salmon. DFO Can. Sci. Advis. Sec. Sci. Advis. Rep. 2022/030. (Erratum: December 2022)."@en ; # definition source
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:FisheriesManagementTheme, gcdfo:PolicyGovernanceTheme ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 gcdfo:UpperStockReferencePoint a owl:Class ;
   rdfs:label "Upper stock reference"@en ;
@@ -1785,6 +1890,7 @@ gcdfo:UpperStockReferencePoint a owl:Class ;
 
 gcdfo:WSPBiologicalStatusZone a skos:Concept ;
   skos:prefLabel "Wild Salmon Policy biological status zone"@en ;
+  rdfs:label "Wild Salmon Policy biological status zone"@en ;
   skos:definition "The biological status of a Conservation Unit (CU) will normally be based on the abundance and distribution of spawners in the unit, or proxies thereof. For each CU, higher and lower benchmarks will be defined that will delimit three status zones: Green, Amber, and Red. As spawner abundance decreases, a CU moves towards the lower status zone, and the extent of management intervention for conservation purposes will increase."@en ;
   skos:inScheme gcdfo:WSPBiologicalStatusZoneScheme ;
   iao:0000119 "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en ; # definition source
@@ -1794,6 +1900,7 @@ gcdfo:WSPBiologicalStatusZone a skos:Concept ;
 
 gcdfo:GreenZone a gcdfo:WSPBiologicalStatusZone , gcdfo:IntegratedStatusOutcome , skos:Concept ;
   skos:prefLabel "Green zone"@en ;
+  rdfs:label "Green zone"@en ;
   skos:notation "G"^^xsd:string ;
   skos:definition "Social and economic considerations will tend to be the primary drivers for the management of Conservation Units in the Green zone, though ecosystem or other non-consumptive use values could also be considered."@en ;
   skos:inScheme gcdfo:WSPBiologicalStatusZoneScheme, :IntegratedStatusOutcomeScheme ;
@@ -1804,6 +1911,7 @@ gcdfo:GreenZone a gcdfo:WSPBiologicalStatusZone , gcdfo:IntegratedStatusOutcome 
 
 gcdfo:AmberZone a gcdfo:WSPBiologicalStatusZone , gcdfo:IntegratedStatusOutcome , skos:Concept ;
   skos:prefLabel "Amber zone"@en ;
+  rdfs:label "Amber zone"@en ;
   skos:notation "A"^^xsd:string ;
   skos:definition "Amber status implies caution in the management of the Conservation Unit. While a CU in the Amber zone should be at a low risk of loss, there will be a degree of lost production. Decisions about the conservation of CUs in the Amber zone will involve broader consideration of biological, social, and economic issues. "@en ;
   skos:inScheme gcdfo:WSPBiologicalStatusZoneScheme, :IntegratedStatusOutcomeScheme ;
@@ -1814,6 +1922,7 @@ gcdfo:AmberZone a gcdfo:WSPBiologicalStatusZone , gcdfo:IntegratedStatusOutcome 
 
 gcdfo:RedZone a gcdfo:WSPBiologicalStatusZone , gcdfo:IntegratedStatusOutcome , skos:Concept ;
   skos:prefLabel "Red zone"@en ;
+  rdfs:label "Red zone"@en ;
   skos:notation "R"^^xsd:string ;
   skos:definition "A Conservation Unit in the Red zone is undesirable because of the risk of extirpation, and the loss of ecological benefits and salmon production. Changes in status will trigger management actions that will vary depending on species, geographic regions, and cause of the decline."@en ;
   skos:inScheme gcdfo:WSPBiologicalStatusZoneScheme, :IntegratedStatusOutcomeScheme ;
@@ -1839,7 +1948,7 @@ smn:MetricBenchmark a owl:Class ;
   dcterms:source <https://publications.gc.ca/site/eng/9.928944/publication.html> ;
   rdfs:subClassOf iao:0000030 ; # Information content entity
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 gcdfo:LowerBiologicalBenchmark a owl:Class ;
   rdfs:label "Lower biological benchmark"@en ;
@@ -1870,31 +1979,38 @@ gcdfo:WSPRapidStatusAlgorithmThreshold a owl:Class ;
 
 gcdfo:ConfidenceCategory a skos:Concept ;
   skos:prefLabel "Confidence category"@en ;
+  rdfs:label "Confidence category"@en ;
   skos:definition "Categorical confidence rating (High, Medium, Low) for stock assessment metrics."@en ; # definition
   skos:inScheme :RapidStatusConfidenceScheme ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
   gcdfo:RapidStatusConfidenceHigh a gcdfo:ConfidenceCategory , skos:Concept ;
-  rdfs:label "High rapid-status confidence"@en ;
   skos:prefLabel "High confidence"@en ;
+    rdfs:label "High confidence"@en ;
+    skos:altLabel "High rapid-status confidence"@en ;
   iao:0000115 "Rapid status confidence category indicating that high-quality abundance metrics support the result."@en ; # definition
+  skos:definition "Rapid status confidence category indicating that high-quality abundance metrics support the result."@en ;
   skos:inScheme :RapidStatusConfidenceScheme ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:RapidStatusConfidenceMedium a gcdfo:ConfidenceCategory , skos:Concept ;
-  rdfs:label "Medium rapid-status confidence"@en ;
   skos:prefLabel "Medium confidence"@en ;
+  rdfs:label "Medium confidence"@en ;
+  skos:altLabel "Medium rapid-status confidence"@en ;
   iao:0000115 "Rapid status confidence category indicating mixed evidence or reliance on trend metrics supplemented by some abundance information."@en ; # definition
+  skos:definition "Rapid status confidence category indicating mixed evidence or reliance on trend metrics supplemented by some abundance information."@en ;
   skos:inScheme :RapidStatusConfidenceScheme ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:RapidStatusConfidenceLow a gcdfo:ConfidenceCategory , skos:Concept ;
-  rdfs:label "Low rapid-status confidence"@en ;
   skos:prefLabel "Low confidence"@en ;
+  rdfs:label "Low confidence"@en ;
+  skos:altLabel "Low rapid-status confidence"@en ;
   iao:0000115 "Rapid status confidence category indicating limited supporting data (for example, derived from trend metrics alone)."@en ; # definition
+  skos:definition "Rapid status confidence category indicating limited supporting data (for example, derived from trend metrics alone)."@en ;
   skos:inScheme :RapidStatusConfidenceScheme ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:WildSalmonPolicyTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
@@ -1906,7 +2022,7 @@ smn:ExploitationRate a owl:Class ;
   iao:0000119 "Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html."@en ; # definition source
   dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html> ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:FisheriesManagementTheme ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 gcdfo:ObservedExploitationRate a owl:Class ;
   rdfs:label "Observed exploitation rate"@en ;
@@ -1931,7 +2047,7 @@ smn:TotalExploitationRate a owl:Class ;
   rdfs:subClassOf gcdfo:ObservedExploitationRate ;
   iao:0000115 "The overall proportion of the total return of adult salmon removed by all fisheries over a defined period, aggregating across gear or fishery components."@en ; # definition
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:FisheriesManagementTheme ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:IndicatorRiver a owl:Class ;
   rdfs:label "Indicator river"@en ;
@@ -1940,7 +2056,7 @@ smn:IndicatorRiver a owl:Class ;
   iao:0000115 "A reporting and assessment stratum identifying monitored indicator streams that provide representative indices of spawner abundance for nearby streams."@en ; # definition
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme, gcdfo:PolicyGovernanceTheme ;
   dcterms:source <https://www.salmonexplorer.ca/methods/glossary.html> ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+  rdfs:isDefinedBy <https://w3id.org/smn> .
 
 
 #################################################################
@@ -1951,6 +2067,7 @@ smn:IndicatorRiver a owl:Class ;
 ### AbundanceDataType (SKOS)
 gcdfo:AbundanceDataType a skos:Concept ;
   skos:prefLabel "Abundance data type"@en ;
+  rdfs:label "Abundance data type"@en ;
   skos:definition "A categorical attribute indicating whether an abundance time series is recorded as absolute abundance or as a relative index (used by rapid-status workflows)."@en ;
   iao:0000115 "A categorical attribute indicating whether an abundance time series is recorded as absolute abundance or as a relative index (used by rapid-status workflows)."@en ;
   skos:scopeNote "In SPSR rapid-status workflows, this field distinguishes absolute abundance vs relative index inputs (often abbreviated in code as 'Abs_Abd' and 'RelIdx')."@en ;
@@ -1965,6 +2082,7 @@ gcdfo:AbundanceDataType a skos:Concept ;
 
 gcdfo:RapidStatusMetric a skos:Concept ;
   skos:prefLabel "Rapid status metric"@en ;
+  rdfs:label "Rapid status metric"@en ;
   skos:definition "A compound variable concept representing a metric used by WSP rapid-status workflows."@en ;
   skos:inScheme :RapidStatusMetricScheme ;
   gcdfo:iadoptEntity gcdfo:ConservationUnit ;
@@ -1974,6 +2092,7 @@ gcdfo:RapidStatusMetric a skos:Concept ;
 
 gcdfo:GenerationalAverageAbundance a skos:Concept ;
   skos:prefLabel "Generational average abundance"@en ;
+  rdfs:label "Generational average abundance"@en ;
   skos:definition "The generational average of spawner abundance, calculated as a geometric mean across the number of years corresponding to the most common age at return (generation length), optionally after smoothing depending on CU group."@en ;
   iao:0000115 "The generational average of spawner abundance, calculated as a geometric mean across the number of years corresponding to the most common age at return (generation length), optionally after smoothing depending on CU group."@en ;
   skos:inScheme :RapidStatusMetricScheme ;
@@ -1989,6 +2108,7 @@ gcdfo:GenerationalAverageAbundance a skos:Concept ;
 
 gcdfo:LongTermTrendMetric a skos:Concept ;
   skos:prefLabel "Long-term trend metric"@en ;
+  rdfs:label "Long-term trend metric"@en ;
   skos:definition "A long-term trend metric comparing the current generational average (geometric mean) spawner abundance to the long-term average (geometric mean) spawner abundance for an assessed time series."@en ;
   iao:0000115 "A long-term trend metric comparing the current generational average (geometric mean) spawner abundance to the long-term average (geometric mean) spawner abundance for an assessed time series."@en ;
   skos:inScheme :RapidStatusMetricScheme ;
@@ -2004,6 +2124,7 @@ gcdfo:LongTermTrendMetric a skos:Concept ;
 
 gcdfo:PercentChangeMetric a skos:Concept ;
   skos:prefLabel "Percent change metric"@en ;
+  rdfs:label "Percent change metric"@en ;
   skos:altLabel "Rapid-status percent change metric"@en ;
   skos:definition "A short-term trend metric quantifying the percent (linear) change in spawner abundance over the most recent three generations."@en ;
   iao:0000115 "A short-term trend metric quantifying the percent (linear) change in spawner abundance over the most recent three generations."@en ;
@@ -2020,6 +2141,7 @@ gcdfo:PercentChangeMetric a skos:Concept ;
 
 gcdfo:BenchmarkRatioMetric a skos:Concept ;
   skos:prefLabel "Benchmark ratio metric"@en ;
+  rdfs:label "Benchmark ratio metric"@en ;
   skos:definition "A benchmark-ratio metric equal to the ratio of current generational average spawner abundance to a specified benchmark (lower or upper benchmark), where 1.0 indicates equality to that benchmark."@en ;
   iao:0000115 "A benchmark-ratio metric equal to the ratio of current generational average spawner abundance to a specified benchmark (lower or upper benchmark), where 1.0 indicates equality to that benchmark."@en ;
   skos:inScheme :RapidStatusMetricScheme ;
@@ -2035,6 +2157,7 @@ gcdfo:BenchmarkRatioMetric a skos:Concept ;
 
 gcdfo:ProbabilityDeclineBelowLowerBenchmarkMetric a skos:Concept ;
   skos:prefLabel "Probability of decline below lower benchmark metric"@en ;
+  rdfs:label "Probability of decline below lower benchmark metric"@en ;
   skos:definition "A probability metric estimating the risk that spawner abundance will be below the lower benchmark, given uncertainty in benchmark estimates and/or abundance estimates, for a defined forecast or assessment horizon."@en ;
   iao:0000115 "A probability metric estimating the risk that spawner abundance will be below the lower benchmark, given uncertainty in benchmark estimates and/or abundance estimates, for a defined forecast or assessment horizon."@en ;
   skos:inScheme :RapidStatusMetricScheme ;
@@ -2050,6 +2173,7 @@ gcdfo:ProbabilityDeclineBelowLowerBenchmarkMetric a skos:Concept ;
 
 gcdfo:AbundancePercentileMetric a skos:Concept ;
   skos:prefLabel "Abundance percentile metric"@en ;
+  rdfs:label "Abundance percentile metric"@en ;
   skos:definition "An abundance percentile metric giving the percentile rank of the current generational average spawner abundance relative to a historical reference distribution."@en ;
   iao:0000115 "An abundance percentile metric giving the percentile rank of the current generational average spawner abundance relative to a historical reference distribution."@en ;
   skos:inScheme :RapidStatusMetricScheme ;
@@ -2065,6 +2189,7 @@ gcdfo:AbundancePercentileMetric a skos:Concept ;
 
 gcdfo:RapidStatusScoreMetric a skos:Concept ;
   skos:prefLabel "Rapid status score metric"@en ;
+  rdfs:label "Rapid status score metric"@en ;
   skos:definition "A numeric score produced by a rapid-status algorithm used to represent an ordered status outcome and/or decision-rule position."@en ;
   iao:0000115 "A numeric score produced by a rapid-status algorithm used to represent an ordered status outcome and/or decision-rule position."@en ;
   skos:inScheme :RapidStatusMetricScheme ;
@@ -2096,6 +2221,7 @@ gcdfo:RapidStatusScoreMetric a skos:Concept ;
 
 gcdfo:IntegratedStatusOutcome a skos:Concept ;
   skos:prefLabel "Integrated status outcome"@en ;
+  rdfs:label "Integrated status outcome"@en ;
   skos:definition "Outcome category assigned by integrated WSP status workflows for a Conservation Unit."@en ;
   skos:inScheme :IntegratedStatusOutcomeScheme ;
   gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme ;
@@ -2103,6 +2229,7 @@ gcdfo:IntegratedStatusOutcome a skos:Concept ;
 
 gcdfo:IntegratedStatusRedAmber a gcdfo:IntegratedStatusOutcome , skos:Concept ;
   skos:prefLabel "Red/Amber integrated status"@en ;
+  rdfs:label "Red/Amber integrated status"@en ;
   skos:notation "RA"^^xsd:string ;
   skos:definition "Blended integrated status outcome between Red and Amber used when expert evidence supports an intermediate boundary outcome."@en ;
   skos:inScheme :IntegratedStatusOutcomeScheme ;
@@ -2114,6 +2241,7 @@ gcdfo:IntegratedStatusRedAmber a gcdfo:IntegratedStatusOutcome , skos:Concept ;
 
 gcdfo:IntegratedStatusAmberGreen a gcdfo:IntegratedStatusOutcome , skos:Concept ;
   skos:prefLabel "Amber/Green integrated status"@en ;
+  rdfs:label "Amber/Green integrated status"@en ;
   skos:notation "AG"^^xsd:string ;
   skos:definition "Blended integrated status outcome between Amber and Green used when expert evidence supports an intermediate boundary outcome."@en ;
   skos:inScheme :IntegratedStatusOutcomeScheme ;
@@ -2125,6 +2253,7 @@ gcdfo:IntegratedStatusAmberGreen a gcdfo:IntegratedStatusOutcome , skos:Concept 
 
 gcdfo:IntegratedStatusDataDeficient a gcdfo:IntegratedStatusOutcome , skos:Concept ;
   skos:prefLabel "Data deficient integrated status"@en ;
+  rdfs:label "Data deficient integrated status"@en ;
   skos:notation "DD"^^xsd:string ;
   skos:definition "Integrated status outcome indicating insufficient information to assign a biological zone outcome."@en ;
   skos:inScheme :IntegratedStatusOutcomeScheme ;
@@ -2135,6 +2264,7 @@ gcdfo:IntegratedStatusDataDeficient a gcdfo:IntegratedStatusOutcome , skos:Conce
 
 gcdfo:IntegratedStatusUndetermined a gcdfo:IntegratedStatusOutcome , skos:Concept ;
   skos:prefLabel "Undetermined integrated status"@en ;
+  rdfs:label "Undetermined integrated status"@en ;
   skos:altLabel "to be determined"@en ;
   skos:notation "UD"^^xsd:string ;
   skos:definition "Integrated status outcome used when an assessment is unresolved or pending completion."@en ;
@@ -2146,6 +2276,7 @@ gcdfo:IntegratedStatusUndetermined a gcdfo:IntegratedStatusOutcome , skos:Concep
 
 gcdfo:IntegratedStatusNotRed a gcdfo:IntegratedStatusOutcome , skos:Concept ;
   skos:prefLabel "Not-red integrated status"@en ;
+  rdfs:label "Not-red integrated status"@en ;
   skos:notation "NotRed"^^xsd:string ;
   skos:definition "Binary integrated-status outcome indicating the Conservation Unit is not in Red status after binary collapse of integrated outcomes."@en ;
   skos:inScheme :IntegratedStatusOutcomeScheme ;
@@ -2155,6 +2286,7 @@ gcdfo:IntegratedStatusNotRed a gcdfo:IntegratedStatusOutcome , skos:Concept ;
 
 gcdfo:WSPOutputVariable a skos:Concept ;
   skos:prefLabel "WSP output variable"@en ;
+  rdfs:label "WSP output variable"@en ;
   skos:definition "A canonical variable field used in approved Wild Salmon Policy output tables."@en ;
   skos:inScheme :WSPOutputVariableScheme ;
   gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
@@ -2162,6 +2294,7 @@ gcdfo:WSPOutputVariable a skos:Concept ;
 
 gcdfo:Species a skos:Concept ;
   skos:prefLabel "Species"@en ;
+  rdfs:label "Species"@en ;
   skos:definition "Species identity field used in canonical WSP outputs."@en ;
   skos:scopeNote "Use taxonomic IRIs (for example DwC/GBIF/ITIS) where available; canonical approved outputs currently use common-name strings such as Chinook, Sockeye, Coho, Chum, and Pink."@en ;
   skos:inScheme :WSPOutputVariableScheme ;
@@ -2173,6 +2306,7 @@ gcdfo:Species a skos:Concept ;
 
 gcdfo:ConservationUnitName a skos:Concept ;
   skos:prefLabel "Conservation Unit name"@en ;
+  rdfs:label "Conservation Unit name"@en ;
   skos:altLabel "Stock (canonical WSP output column label)"@en ;
   skos:definition "Full Conservation Unit name field used in canonical WSP outputs."@en ;
   skos:scopeNote "The canonical WSP output column is labelled Stock but currently carries CU names. Entity-level stock semantics are represented with smn:Stock."@en ;
@@ -2185,6 +2319,7 @@ gcdfo:ConservationUnitName a skos:Concept ;
 
 gcdfo:IntegratedStatusRaw a skos:Concept ;
   skos:prefLabel "Integrated status (raw)"@en ;
+  rdfs:label "Integrated status (raw)"@en ;
   skos:altLabel "IntStatusRaw"@en ;
   skos:definition "Expert-assigned integrated WSP status outcome prior to collapsed-category derivations."@en ;
   skos:scopeNote "Observed canonical values include Red, Amber, Green, RedAmber, AmberGreen, DD, and UD."@en ;
@@ -2199,6 +2334,7 @@ gcdfo:IntegratedStatusRaw a skos:Concept ;
 
 gcdfo:IntegratedStatusRawCode a skos:Concept ;
   skos:prefLabel "Raw integrated status code"@en ;
+  rdfs:label "Raw integrated status code"@en ;
   skos:altLabel "IntStatusRaw_Short"@en ;
   skos:definition "Short code representation of IntegratedStatusRaw values."@en ;
   skos:scopeNote "Observed canonical codes include R, RA, A, AG, G, DD, and UD."@en ;
@@ -2212,6 +2348,7 @@ gcdfo:IntegratedStatusRawCode a skos:Concept ;
 
 gcdfo:IntegratedStatusCollapsedCode a skos:Concept ;
   skos:prefLabel "Collapsed integrated status code"@en ;
+  rdfs:label "Collapsed integrated status code"@en ;
   skos:altLabel "IntStatus_Short"@en ;
   skos:definition "Short code representation of the three-category collapsed integrated status field."@en ;
   skos:scopeNote "Observed canonical codes include R, A, G, DD, and UD."@en ;
@@ -2225,6 +2362,7 @@ gcdfo:IntegratedStatusCollapsedCode a skos:Concept ;
 
 gcdfo:IntegratedStatusFiveCategoryAlias a skos:Concept ;
   skos:prefLabel "Integrated status (5-category legacy alias)"@en ;
+  rdfs:label "Integrated status (5-category legacy alias)"@en ;
   skos:altLabel "IntStatus5"@en ;
   skos:definition "Legacy alias field that duplicates IntStatusRaw in canonical WSP outputs."@en ;
   skos:scopeNote "Canonical variable descriptions mark this field as to be removed."@en ;
@@ -2238,6 +2376,7 @@ gcdfo:IntegratedStatusFiveCategoryAlias a skos:Concept ;
 
 gcdfo:IntegratedStatusThreeCategory a skos:Concept ;
   skos:prefLabel "Integrated status (3-category collapsed)"@en ;
+  rdfs:label "Integrated status (3-category collapsed)"@en ;
   skos:altLabel "IntStatus3"@en ;
   skos:definition "Derived integrated-status field where RedAmber collapses to Red, AmberGreen collapses to Amber, and DD/UD are preserved."@en ;
   skos:inScheme :WSPOutputVariableScheme ;
@@ -2252,6 +2391,7 @@ gcdfo:IntegratedStatusThreeCategory a skos:Concept ;
 
 gcdfo:IntegratedStatusBinary a skos:Concept ;
   skos:prefLabel "Integrated status (binary red/not-red)"@en ;
+  rdfs:label "Integrated status (binary red/not-red)"@en ;
   skos:altLabel "IntStatus2"@en ;
   skos:definition "Derived integrated-status field collapsed to Red, NotRed, DD, or UD categories."@en ;
   skos:inScheme :WSPOutputVariableScheme ;
@@ -2266,6 +2406,7 @@ gcdfo:IntegratedStatusBinary a skos:Concept ;
 
 gcdfo:LongTermTrendMetricStatus a skos:Concept ;
   skos:prefLabel "Long-term trend metric status"@en ;
+  rdfs:label "Long-term trend metric status"@en ;
   skos:altLabel "LongTrendCat"@en ;
   skos:definition "Categorical status derived from the long-term trend metric using WSP status-zone thresholds."@en ;
   skos:scopeNote "Operational thresholds are typically 0.50 (lower) and 0.75 (upper) of long-term average abundance."@en ;
@@ -2280,6 +2421,7 @@ gcdfo:LongTermTrendMetricStatus a skos:Concept ;
 
 gcdfo:PercentChangeMetricStatus a skos:Concept ;
   skos:prefLabel "Percent change metric status"@en ;
+  rdfs:label "Percent change metric status"@en ;
   skos:altLabel "PercChangeCat"@en ;
   skos:definition "Categorical status derived from the percent-change metric using WSP status-zone thresholds."@en ;
   skos:scopeNote "Operational thresholds in current rapid-status implementations commonly use -25% and -15% boundaries."@en ;
@@ -2294,6 +2436,7 @@ gcdfo:PercentChangeMetricStatus a skos:Concept ;
 
 gcdfo:ProbabilityDeclineBelowLowerBenchmarkMetricStatus a skos:Concept ;
   skos:prefLabel "Probability-of-decline-below-lower-benchmark metric status"@en ;
+  rdfs:label "Probability-of-decline-below-lower-benchmark metric status"@en ;
   skos:altLabel "ProbDeclBelowLBMCat"@en ;
   skos:definition "Categorical status derived from the probability-of-decline-below-lower-benchmark metric."@en ;
   skos:scopeNote "Canonical approved output currently records this field as NA and variable metadata labels it as not currently in use."@en ;
@@ -2308,6 +2451,7 @@ gcdfo:ProbabilityDeclineBelowLowerBenchmarkMetricStatus a skos:Concept ;
 
 gcdfo:AbundancePercentileMetricStatus a skos:Concept ;
   skos:prefLabel "Abundance percentile metric status"@en ;
+  rdfs:label "Abundance percentile metric status"@en ;
   skos:altLabel "PercentileCat"@en ;
   skos:definition "Categorical status derived from abundance percentile metric values."@en ;
   skos:scopeNote "Canonical approved outputs contain non-NA values despite stale variable-description text indicating NA."@en ;
@@ -2322,6 +2466,7 @@ gcdfo:AbundancePercentileMetricStatus a skos:Concept ;
 
 gcdfo:RelativeAbundanceMetricStatus a skos:Concept ;
   skos:prefLabel "Relative abundance metric status"@en ;
+  rdfs:label "Relative abundance metric status"@en ;
   skos:altLabel "RelAbdCat"@en ;
   skos:definition "Categorical status derived from the relative abundance metric benchmark ratio."@en ;
   skos:inScheme :WSPOutputVariableScheme ;
@@ -2335,6 +2480,7 @@ gcdfo:RelativeAbundanceMetricStatus a skos:Concept ;
 
 gcdfo:AbsoluteAbundanceMetricStatus a skos:Concept ;
   skos:prefLabel "Absolute abundance metric status"@en ;
+  rdfs:label "Absolute abundance metric status"@en ;
   skos:altLabel "AbsAbdCat"@en ;
   skos:definition "Categorical status derived from the absolute abundance metric benchmark ratio."@en ;
   skos:scopeNote "Absolute abundance status uses 1,000 and 10,000 spawner thresholds under current WSP guidance."@en ;
@@ -2351,6 +2497,7 @@ gcdfo:AbsoluteAbundanceMetricStatus a skos:Concept ;
 
 gcdfo:ReturnYear a skos:Concept ;
   skos:prefLabel "Return year"@en ;
+  rdfs:label "Return year"@en ;
   skos:definition "The calendar year in which adult salmon return from the ocean to freshwater systems (a year basis used to contextualize run/return-related measurements)."@en ;
   iao:0000115 "The calendar year in which adult salmon return from the ocean to freshwater systems (a year basis used to contextualize run/return-related measurements)."@en ;
   skos:inScheme :YearBasisScheme ;
@@ -2362,6 +2509,7 @@ gcdfo:ReturnYear a skos:Concept ;
 
 gcdfo:UnrankedIndexQuality a skos:Concept ;
     skos:prefLabel "Unranked index quality"@en ;
+  rdfs:label "Unranked index quality"@en ;
     skos:definition "A data quality category indicating that no spawner-abundance estimate classification / index quality rating was assigned for the record (i.e., an 'Unknown' estimate classification with no quality rating)."@en ;
     iao:0000115 "A data quality category indicating that no spawner-abundance estimate classification / index quality rating was assigned for the record (i.e., an 'Unknown' estimate classification with no quality rating)."@en ;
     skos:inScheme :EstimateTypeScheme ;
@@ -2373,6 +2521,7 @@ gcdfo:UnrankedIndexQuality a skos:Concept ;
 
 gcdfo:ExpansionFactor a skos:Concept ;
   skos:prefLabel "Expansion factor"@en ;
+  rdfs:label "Expansion factor"@en ;
   skos:definition "A multiplicative factor used to expand observed counts or detections from a sampled subset (e.g., indicator sites, PIT detections) to an estimated total abundance or escapement."@en ;
   iao:0000115 "A multiplicative factor used to expand observed counts or detections from a sampled subset (e.g., indicator sites, PIT detections) to an estimated total abundance or escapement."@en ;
   skos:inScheme :EstimateMethodScheme ;

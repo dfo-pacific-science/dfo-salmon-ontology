@@ -1324,6 +1324,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Absolute abundance metric status"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#altLabel": [
       {
         "@language": "en",
@@ -1415,6 +1421,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Abundance data type"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/smn/MeasurementContext"
@@ -1480,6 +1492,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Abundance percentile metric"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -1549,6 +1567,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Abundance percentile metric status"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#altLabel": [
@@ -1628,6 +1652,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Aerial Survey Count"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/smn/EnumerationMethod"
@@ -1667,6 +1697,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Age 1 year class"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -1713,6 +1749,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Age 2 year class"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#AgeClassValue"
@@ -1755,6 +1797,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Age 3 year class"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -1801,6 +1849,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Age 4 year class"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#AgeClassValue"
@@ -1843,6 +1897,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Age 5 year class"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -1889,6 +1949,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Age 6 year class"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#AgeClassValue"
@@ -1931,6 +1997,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Age 7 year class"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -1977,6 +2049,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Age at maturity basis"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#AgeBasis"
@@ -2016,6 +2094,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Age at return basis"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -2059,6 +2143,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Age at sampling basis"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#AgeBasis"
@@ -2098,6 +2188,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Age basis"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -2172,6 +2268,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Age class value"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#definition": [
       {
         "@language": "en",
@@ -2238,6 +2340,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Age dimension"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#definition": [
       {
         "@language": "en",
@@ -2302,6 +2410,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Age notation"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -2389,6 +2503,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Amber zone"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#definition": [
       {
         "@language": "en",
@@ -2432,6 +2552,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Area Under the Curve"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#altLabel": [
@@ -2527,6 +2653,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Benchmark ratio metric"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -2638,6 +2770,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Bypass/Breach Risk"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#DowngradeCriteria"
@@ -2694,6 +2832,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Brood year"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -2840,6 +2984,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Calibrated Time Series"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#EstimateMethod"
@@ -2885,6 +3035,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Catch year"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -2934,6 +3090,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Classification"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#DowngradeCriteria"
@@ -2973,6 +3135,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Confidence category"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -3078,6 +3246,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Conservation Unit name"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#altLabel": [
       {
         "@language": "en",
@@ -3145,6 +3319,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Cross-section Coverage"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#DowngradeCriteria"
@@ -3186,6 +3366,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Data, Models, and Provenance"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#definition": [
       {
         "@language": "en",
@@ -3217,6 +3403,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Data quality rating context"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -3261,6 +3453,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Detectability"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -3310,6 +3508,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Device Configuration"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#DowngradeCriteria"
@@ -3357,6 +3561,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Documentation"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#DowngradeCriteria"
@@ -3396,6 +3606,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Downgrade Criteria"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -3473,6 +3689,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Effort Standardization"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#DowngradeCriteria"
@@ -3518,6 +3740,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Electrofishing Count"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -3600,6 +3828,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Environmental Conditions"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#DowngradeCriteria"
@@ -3639,6 +3873,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Estimate Method"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -3708,6 +3948,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Estimate Type"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -3784,6 +4030,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "European age notation"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#AgeNotation"
@@ -3848,6 +4100,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Expansion factor"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#ExpansionMathematicalOperations"
@@ -3895,6 +4153,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Expansion/Mathematical Operations"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#EstimateMethod"
@@ -3934,6 +4198,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Fish Stocks Provisions"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#altLabel": [
@@ -3986,6 +4256,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Fisheries Management"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#definition": [
       {
         "@language": "en",
@@ -4023,6 +4299,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Fixed Site Census (Electronic)"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -4072,6 +4354,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Fixed Site Census (Manual)"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/smn/EnumerationMethod"
@@ -4113,6 +4401,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Fixed‑Station Tally"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#EstimateMethod"
@@ -4152,6 +4446,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Freshwater age dimension"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -4207,6 +4507,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Generational average abundance"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -4273,6 +4579,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Genetics and Stock Composition"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#definition": [
       {
         "@language": "en",
@@ -4309,6 +4621,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Gilbert-Rich age notation"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#altLabel": [
@@ -4377,6 +4695,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Green zone"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#definition": [
       {
         "@language": "en",
@@ -4422,6 +4746,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Habitat, Ecosystem, and Climate Pressures"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#definition": [
       {
         "@language": "en",
@@ -4459,6 +4789,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Hydroacoustic Modelling"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -4506,6 +4842,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Hydroacoustic Sonar Count"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -4602,6 +4944,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Infill Method"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#DowngradeCriteria"
@@ -4653,6 +5001,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Amber/Green integrated status"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -4711,6 +5065,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Integrated status (binary red/not-red)"
       }
     ],
     "http://www.w3.org/2002/07/owl#deprecated": [
@@ -4787,6 +5147,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Collapsed integrated status code"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#altLabel": [
@@ -4867,6 +5233,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Data deficient integrated status"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#definition": [
       {
         "@language": "en",
@@ -4915,6 +5287,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Integrated status (5-category legacy alias)"
       }
     ],
     "http://www.w3.org/2002/07/owl#deprecated": [
@@ -4990,6 +5368,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Not-red integrated status"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#definition": [
       {
         "@language": "en",
@@ -5033,6 +5417,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Integrated status outcome"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -5115,6 +5505,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Integrated status (raw)"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#altLabel": [
       {
         "@language": "en",
@@ -5189,6 +5585,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Raw integrated status code"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#altLabel": [
@@ -5269,6 +5671,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Red/Amber integrated status"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#definition": [
       {
         "@language": "en",
@@ -5325,6 +5733,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Integrated status (3-category collapsed)"
       }
     ],
     "http://www.w3.org/2002/07/owl#deprecated": [
@@ -5410,6 +5824,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Undetermined integrated status"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#altLabel": [
       {
         "@language": "en",
@@ -5476,6 +5896,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Long-term trend metric"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -5547,6 +5973,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Long-term trend metric status"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#altLabel": [
       {
         "@language": "en",
@@ -5616,6 +6048,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Lower benchmark"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -5748,6 +6186,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Management reference context"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/smn/MeasurementContext"
@@ -5842,6 +6286,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Mark-Recapture Analysis"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#EstimateMethod"
@@ -5887,6 +6337,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Mark-Recapture Assumptions"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -5936,6 +6392,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Mark-Recapture Field Program"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/smn/EnumerationMethod"
@@ -5983,6 +6445,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Method Unknown/Inconsistent"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#DowngradeCriteria"
@@ -6024,6 +6492,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Monitoring and Field Work"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#definition": [
       {
         "@language": "en",
@@ -6061,6 +6535,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Number of Visits"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -6155,6 +6635,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Ocean age dimension"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#altLabel": [
@@ -6307,6 +6793,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Peak Count Analysis"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#EstimateMethod"
@@ -6363,6 +6855,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Percent change metric"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#altLabel": [
@@ -6440,6 +6938,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Percent change metric status"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#altLabel": [
       {
         "@language": "en",
@@ -6509,6 +7013,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Policy framework"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -6589,6 +7099,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Policy, Governance, and Organizational Structure"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#definition": [
       {
         "@language": "en",
@@ -6620,6 +7136,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Precautionary Approach"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#altLabel": [
@@ -6678,6 +7200,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Precision/Accuracy"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#DowngradeCriteria"
@@ -6734,6 +7262,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Probability of decline below lower benchmark metric"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -6803,6 +7337,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Probability-of-decline-below-lower-benchmark metric status"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#altLabel": [
@@ -6939,7 +7479,19 @@
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
+        "@value": "High confidence"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#altLabel": [
+      {
+        "@language": "en",
         "@value": "High rapid-status confidence"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Rapid status confidence category indicating that high-quality abundance metrics support the result."
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -6982,7 +7534,19 @@
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
+        "@value": "Low confidence"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#altLabel": [
+      {
+        "@language": "en",
         "@value": "Low rapid-status confidence"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Rapid status confidence category indicating limited supporting data (for example, derived from trend metrics alone)."
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -7025,7 +7589,19 @@
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
+        "@value": "Medium confidence"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#altLabel": [
+      {
+        "@language": "en",
         "@value": "Medium rapid-status confidence"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Rapid status confidence category indicating mixed evidence or reliance on trend metrics supplemented by some abundance information."
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
@@ -7092,6 +7668,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Rapid status metric"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -7199,6 +7781,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Rapid status score metric"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#RapidStatusMetric"
@@ -7269,6 +7857,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Reach Coverage"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#DowngradeCriteria"
@@ -7308,6 +7902,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Recruit stage context"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -7361,6 +7961,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Red zone"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#definition": [
       {
         "@language": "en",
@@ -7412,6 +8018,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Redd Count"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/smn/EnumerationMethod"
@@ -7459,6 +8071,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Redd Expansion Analysis"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#EstimateMethod"
@@ -7503,6 +8121,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Relative abundance metric status"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#altLabel": [
@@ -8160,6 +8784,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Return year"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#YearBasis"
@@ -8210,6 +8840,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Review/QA"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#DowngradeCriteria"
@@ -8257,6 +8893,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Run Coverage"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#DowngradeCriteria"
@@ -8296,6 +8938,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Salmon Enhancement and Hatcheries"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -8533,6 +9181,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Species"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#WSPOutputVariable"
@@ -8588,6 +9242,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Species at Risk and Recovery"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#definition": [
       {
         "@language": "en",
@@ -8619,6 +9279,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Stock Assessment"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -8894,6 +9560,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Timing"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#DowngradeCriteria"
@@ -8933,6 +9605,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Total age dimension"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -9026,6 +9704,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Trap Count"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/smn/EnumerationMethod"
@@ -9071,6 +9755,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Trap Efficiency"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -9120,6 +9810,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Trap Model Analysis"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#EstimateMethod"
@@ -9159,6 +9855,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Type-1, True Abundance, high resolution"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -9202,6 +9904,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Type-2, True Abundance, medium resolution"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#EstimateType"
@@ -9241,6 +9949,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Type-3, Relative Abundance, high resolution"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -9284,6 +9998,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Type-4, Relative Abundance, medium resolution"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#EstimateType"
@@ -9325,6 +10045,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Type-5, Relative Abundance, low resolution"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#EstimateType"
@@ -9364,6 +10090,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Type-6, Presence or Absence"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#altLabel": [
@@ -9430,6 +10162,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Unranked index quality"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#EstimateType"
@@ -9469,6 +10207,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Upper benchmark"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -9619,6 +10363,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Uptime"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#DowngradeCriteria"
@@ -9664,6 +10414,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Visibility"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -9713,6 +10469,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Visual Ground Count"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
         "@id": "https://w3id.org/smn/EnumerationMethod"
@@ -9758,6 +10520,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Visual Snorkel Count"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -9810,6 +10578,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Wild Salmon Policy biological status zone"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -9888,6 +10662,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "WSP output variable"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -10076,6 +10856,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "WSP rapid-status assessment method"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#altLabel": [
       {
         "@language": "en",
@@ -10124,6 +10910,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Wild Salmon Policy"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#altLabel": [
@@ -10176,6 +10968,12 @@
         "@id": "https://w3id.org/gcdfo/salmon"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Wild Salmon Policy"
+      }
+    ],
     "http://www.w3.org/2004/02/skos/core#definition": [
       {
         "@language": "en",
@@ -10213,6 +11011,12 @@
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Year basis"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -11063,6 +11867,12 @@
     "@type": [
       "http://www.w3.org/2002/07/owl#AnnotationProperty"
     ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "Associates OWL classes and SKOS concepts with high-level thematic concept schemes (e.g., Stock Assessment, GSI, Policy)."
+      }
+    ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
@@ -11238,7 +12048,13 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Catch context"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -11282,7 +12098,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -11315,7 +12131,13 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Enumeration Method"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -11374,7 +12196,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -11410,7 +12232,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -11449,7 +12271,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -11502,7 +12324,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -11544,7 +12366,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -11594,7 +12416,13 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Hatchery-origin"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -11638,7 +12466,13 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "In-river phase"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#altLabel": [
@@ -11693,7 +12527,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -11732,7 +12566,13 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Life phase"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -11765,7 +12605,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -11815,7 +12655,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -11854,7 +12694,13 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Mainstem phase"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -11892,7 +12738,13 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Measurement context"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -11928,7 +12780,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -11987,7 +12839,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -12028,7 +12880,13 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Natural-origin"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -12078,7 +12936,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -12108,7 +12966,13 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Ocean phase"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#altLabel": [
@@ -12164,7 +13028,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -12220,7 +13084,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -12259,7 +13123,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -12289,7 +13153,13 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Run context"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -12327,7 +13197,13 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Salmon origin"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -12363,7 +13239,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -12402,7 +13278,13 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Spawner stage context"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -12457,7 +13339,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -12513,7 +13395,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -12557,7 +13439,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -12593,7 +13475,13 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Survival or mortality context"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -12637,7 +13525,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -12670,7 +13558,13 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Terminal phase"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
@@ -12714,7 +13608,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -12755,7 +13649,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -12801,7 +13695,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -12848,7 +13742,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -12895,7 +13789,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon"
+        "@id": "https://w3id.org/smn"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
