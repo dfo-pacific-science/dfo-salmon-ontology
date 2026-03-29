@@ -22,7 +22,7 @@
     ],
     "title" : { "en" : "DFO Salmon Ontology" },
     "iri" : "https://w3id.org/gcdfo/salmon",
-    "version" : "0.0.7",
+    "version" : "0.0.8",
     "author" : [ "Fishery & Assessment Data Section (FADS) Data Stewardship Unit" ],
     "description" : {
       "en" : "OWL + SKOS ontology for DFO salmon data: stocks/CUs/MUs, survey events, escapement measurements, and GSI constructs; aligns to DwC via rdfs:subClassOf; hybrid approach with SKOS for methods and OWL for events."
@@ -31,7 +31,7 @@
       "en" : "Migration note (2026-03-15): overlapping shared terms now use `smn:` IRIs directly in this ontology; DFO-specific semantics remain only where no shared replacement exists."
     },
     "other" : {
-      "priorVersion" : [ { "identifier" : "priorVersion", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon/0.0.2", "type" : "iri" } ],
+      "priorVersion" : [ { "identifier" : "priorVersion", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon/0.0.7", "type" : "iri" } ],
       "creator" : [
         {
           "identifier" : "creator",
@@ -41,7 +41,7 @@
         }
       ],
       "created" : [ { "identifier" : "created", "language" : "undefined", "value" : "2025-09-06", "type" : "label" } ],
-      "versionInfo" : [ { "identifier" : "versionInfo", "language" : "undefined", "value" : "0.0.7", "type" : "label" } ],
+      "versionInfo" : [ { "identifier" : "versionInfo", "language" : "undefined", "value" : "0.0.8", "type" : "label" } ],
       "title" : [ { "identifier" : "title", "language" : "en", "value" : "DFO Salmon Ontology", "type" : "label" } ],
       "seeAlso" : [
         {
@@ -65,7 +65,7 @@
         }
       ],
       "preferredNamespacePrefix" : [ { "identifier" : "preferredNamespacePrefix", "language" : "undefined", "value" : "gcdfo", "type" : "label" } ],
-      "modified" : [ { "identifier" : "modified", "language" : "undefined", "value" : "2026-03-27", "type" : "label" } ],
+      "modified" : [ { "identifier" : "modified", "language" : "undefined", "value" : "2026-03-29", "type" : "label" } ],
       "publisher" : [
         {
           "identifier" : "publisher",
@@ -178,7 +178,6 @@
     { "id" : "128", "type" : "owl:Class" },
     { "id" : "129", "type" : "owl:Class" },
     { "id" : "133", "type" : "owl:Class" },
-    { "id" : "134", "type" : "owl:equivalentClass" },
     { "id" : "136", "type" : "owl:Class" },
     { "id" : "138", "type" : "owl:Class" },
     { "id" : "139", "type" : "owl:Class" },
@@ -233,7 +232,6 @@
     { "id" : "248", "type" : "owl:Class" },
     { "id" : "249", "type" : "owl:Class" },
     { "id" : "250", "type" : "owl:Class" },
-    { "id" : "254", "type" : "owl:equivalentClass" },
     { "id" : "268", "type" : "owl:Class" },
     { "id" : "273", "type" : "owl:Class" },
     { "id" : "278", "type" : "owl:Class" },
@@ -241,7 +239,12 @@
     { "id" : "316", "type" : "owl:Class" },
     { "id" : "339", "type" : "owl:Class" },
     { "id" : "340", "type" : "owl:Class" },
-    { "id" : "341", "type" : "owl:Class" }
+    { "id" : "341", "type" : "owl:Class" },
+    { "id" : "346", "type" : "owl:Class" },
+    { "id" : "347", "type" : "owl:Class" },
+    { "id" : "348", "type" : "owl:Class" },
+    { "id" : "349", "type" : "owl:Class" },
+    { "id" : "350", "type" : "owl:Class" }
   ],
   "classAttribute" : [
     {
@@ -1062,7 +1065,7 @@
         ]
       },
       "label" : { "IRI-based" : "ObservedRateOrAbundance", "en" : "Observed rate or abundance" },
-      "subClasses" : [ "49", "102", "186", "140", "154", "1", "42", "116", "248", "196", "239", "249", "215" ],
+      "subClasses" : [ "1", "42", "49", "102", "116", "140", "154", "186", "196", "215", "239", "248", "249", "347", "349" ],
       "attributes" : [ "external" ],
       "id" : "43",
       "superClasses" : [ "58" ]
@@ -2183,7 +2186,7 @@
         ]
       },
       "label" : { "IRI-based" : "ReferencePoint", "en" : "Reference point" },
-      "subClasses" : [ "177", "112" ],
+      "subClasses" : [ "112", "177", "346" ],
       "comment" : { "en" : "DFO profile note: this ontology applies `smn:ReferencePoint` in DFO fisheries-management and assessment workflows." },
       "attributes" : [ "external" ],
       "id" : "106",
@@ -2415,7 +2418,7 @@
       "instances" : 0,
       "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
       "label" : { "IRI-based" : "MorphologicalCharacteristic", "en" : "Morphological characteristic" },
-      "subClasses" : [ "224", "134" ],
+      "subClasses" : [ "224", "348" ],
       "attributes" : [ "external" ],
       "id" : "125",
       "superClasses" : [ "9" ]
@@ -2543,19 +2546,7 @@
       "label" : { "IRI-based" : "orbitalLength", "en" : "Orbital length" },
       "attributes" : [ "external" ],
       "id" : "133",
-      "superClasses" : [ "134" ]
-    },
-    {
-      "iri" : "https://w3id.org/smn/FishLength",
-      "equivalent" : [ "254" ],
-      "baseIri" : "https://w3id.org/smn",
-      "instances" : 0,
-      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
-      "label" : { "IRI-based" : "FishLength", "en" : "Fish length" },
-      "subClasses" : [ "133", "136", "138" ],
-      "attributes" : [ "equivalent", "external" ],
-      "id" : "134",
-      "superClasses" : [ "125" ]
+      "superClasses" : [ "348" ]
     },
     {
       "iri" : "https://w3id.org/smn/totalLength",
@@ -2565,7 +2556,7 @@
       "label" : { "IRI-based" : "totalLength", "en" : "Total length" },
       "attributes" : [ "external" ],
       "id" : "136",
-      "superClasses" : [ "134" ]
+      "superClasses" : [ "348" ]
     },
     {
       "iri" : "https://w3id.org/smn/standardLength",
@@ -2575,7 +2566,7 @@
       "label" : { "IRI-based" : "standardLength", "en" : "Standard length" },
       "attributes" : [ "external" ],
       "id" : "138",
-      "superClasses" : [ "134" ]
+      "superClasses" : [ "348" ]
     },
     {
       "iri" : "http://www.w3.org/2004/02/skos/core#ConceptScheme",
@@ -2837,6 +2828,65 @@
             ]
           },
           "labels" : { "IRI-based" : "PolicyFrameworkScheme" }
+        },
+        {
+          "iri" : "https://w3id.org/gcdfo/salmon#PopulationEnhancementStatusScheme",
+          "baseIri" : "https://w3id.org/gcdfo/salmon",
+          "annotations" : {
+            "IAO_0000119" : [
+              {
+                "identifier" : "IAO_0000119",
+                "language" : "en",
+                "value" : "Fisheries and Oceans Canada. 2013. Genetically Based Targets for Enhanced Contributions to Canadian Pacific Chinook Salmon Populations. Canadian Science Advisory Secretariat Research Document 2013/099.",
+                "type" : "label"
+              }
+            ],
+            "definition" : [
+              {
+                "identifier" : "definition",
+                "language" : "en",
+                "value" : "Controlled vocabulary for a DFO population-level operational classification used by source assessment and enhancement workflows to indicate whether a salmon population is treated as enhancement-supported.",
+                "type" : "label"
+              }
+            ],
+            "hasTopConcept" : [
+              {
+                "identifier" : "hasTopConcept",
+                "language" : "undefined",
+                "value" : "https://w3id.org/gcdfo/salmon#PopulationEnhancementStatus",
+                "type" : "iri"
+              }
+            ],
+            "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+            "prefLabel" : [ { "identifier" : "prefLabel", "language" : "en", "value" : "Population enhancement status scheme", "type" : "label" } ],
+            "scopeNote" : [
+              {
+                "identifier" : "scopeNote",
+                "language" : "en",
+                "value" : "This vocabulary is a population-level status classification for source-system and assessment use. It does not describe the origin of individual fish and does not encode a pHOS threshold.",
+                "type" : "label"
+              }
+            ],
+            "source" : [
+              {
+                "identifier" : "source",
+                "language" : "undefined",
+                "value" : "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40702285.pdf",
+                "type" : "iri"
+              }
+            ],
+            "theme" : [
+              { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme", "type" : "iri" },
+              {
+                "identifier" : "theme",
+                "language" : "undefined",
+                "value" : "https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme",
+                "type" : "iri"
+              },
+              { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme", "type" : "iri" }
+            ]
+          },
+          "labels" : { "IRI-based" : "PopulationEnhancementStatusScheme" }
         },
         {
           "iri" : "https://w3id.org/gcdfo/salmon#RapidStatusConfidenceScheme",
@@ -3171,6 +3221,54 @@
       "instances" : 4,
       "label" : { "IRI-based" : "Concept" },
       "individuals" : [
+        {
+          "iri" : "https://w3id.org/gcdfo/salmon#AbsoluteAbundanceDataType",
+          "baseIri" : "https://w3id.org/gcdfo/salmon",
+          "annotations" : {
+            "IAO_0000115" : [
+              {
+                "identifier" : "IAO_0000115",
+                "language" : "en",
+                "value" : "An abundance data type value indicating that an abundance series is recorded as absolute abundance rather than as a relative index.",
+                "type" : "label"
+              }
+            ],
+            "IAO_0000119" : [
+              {
+                "identifier" : "IAO_0000119",
+                "language" : "en",
+                "value" : "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO's Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004.",
+                "type" : "label"
+              }
+            ],
+            "broader" : [ { "identifier" : "broader", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#AbundanceDataType", "type" : "iri" } ],
+            "definition" : [
+              {
+                "identifier" : "definition",
+                "language" : "en",
+                "value" : "An abundance data type value indicating that an abundance series is recorded as absolute abundance rather than as a relative index.",
+                "type" : "label"
+              }
+            ],
+            "inScheme" : [ { "identifier" : "inScheme", "language" : "undefined", "value" : "https://w3id.org/smn/MeasurementContextScheme", "type" : "iri" } ],
+            "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+            "prefLabel" : [ { "identifier" : "prefLabel", "language" : "en", "value" : "Absolute abundance data type", "type" : "label" } ],
+            "source" : [
+              {
+                "identifier" : "source",
+                "language" : "undefined",
+                "value" : "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf",
+                "type" : "iri"
+              }
+            ],
+            "theme" : [
+              { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme", "type" : "iri" },
+              { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme", "type" : "iri" },
+              { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme", "type" : "iri" }
+            ]
+          },
+          "labels" : { "IRI-based" : "AbsoluteAbundanceDataType", "en" : "Absolute abundance data type" }
+        },
         {
           "iri" : "https://w3id.org/gcdfo/salmon#AbsoluteAbundanceMetricStatus",
           "baseIri" : "https://w3id.org/gcdfo/salmon",
@@ -4187,6 +4285,80 @@
           "labels" : { "IRI-based" : "ElectrofishingCount", "en" : "Electrofishing Count" }
         },
         {
+          "iri" : "https://w3id.org/gcdfo/salmon#EnhancedPopulation",
+          "baseIri" : "https://w3id.org/gcdfo/salmon",
+          "annotations" : {
+            "IAO_0000115" : [
+              {
+                "identifier" : "IAO_0000115",
+                "language" : "en",
+                "value" : "A population enhancement status value indicating that the source workflow treats a salmon population as directly supported by hatchery rearing and release or managed spawning-channel production.",
+                "type" : "label"
+              }
+            ],
+            "IAO_0000119" : [
+              {
+                "identifier" : "IAO_0000119",
+                "language" : "en",
+                "value" : "Fisheries and Oceans Canada. 2013. Genetically Based Targets for Enhanced Contributions to Canadian Pacific Chinook Salmon Populations. Canadian Science Advisory Secretariat Research Document 2013/099.",
+                "type" : "label"
+              }
+            ],
+            "broader" : [
+              {
+                "identifier" : "broader",
+                "language" : "undefined",
+                "value" : "https://w3id.org/gcdfo/salmon#PopulationEnhancementStatus",
+                "type" : "iri"
+              }
+            ],
+            "definition" : [
+              {
+                "identifier" : "definition",
+                "language" : "en",
+                "value" : "A population enhancement status value indicating that the source workflow treats a salmon population as directly supported by hatchery rearing and release or managed spawning-channel production.",
+                "type" : "label"
+              }
+            ],
+            "inScheme" : [
+              {
+                "identifier" : "inScheme",
+                "language" : "undefined",
+                "value" : "https://w3id.org/gcdfo/salmon#PopulationEnhancementStatusScheme",
+                "type" : "iri"
+              }
+            ],
+            "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+            "prefLabel" : [ { "identifier" : "prefLabel", "language" : "en", "value" : "Enhanced population", "type" : "label" } ],
+            "scopeNote" : [
+              {
+                "identifier" : "scopeNote",
+                "language" : "en",
+                "value" : "This is a population-level operational classification. It does not mean every fish is hatchery-origin, and it should not be assigned solely from a pHOS estimate.",
+                "type" : "label"
+              }
+            ],
+            "source" : [
+              {
+                "identifier" : "source",
+                "language" : "undefined",
+                "value" : "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40702285.pdf",
+                "type" : "iri"
+              }
+            ],
+            "theme" : [
+              {
+                "identifier" : "theme",
+                "language" : "undefined",
+                "value" : "https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme",
+                "type" : "iri"
+              },
+              { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme", "type" : "iri" }
+            ]
+          },
+          "labels" : { "IRI-based" : "EnhancedPopulation", "en" : "Enhanced population" }
+        },
+        {
           "iri" : "https://w3id.org/gcdfo/salmon#EnvironmentalConditions",
           "baseIri" : "https://w3id.org/gcdfo/salmon",
           "annotations" : {
@@ -4458,12 +4630,12 @@
           "annotations" : {
             "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
             "inScheme" : [ { "identifier" : "inScheme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#EstimateMethodScheme", "type" : "iri" } ],
-            "prefLabel" : [ { "identifier" : "prefLabel", "language" : "en", "value" : "Fixed‑Station Tally", "type" : "label" } ],
+            "prefLabel" : [ { "identifier" : "prefLabel", "language" : "en", "value" : "Fixed?Station Tally", "type" : "label" } ],
             "definition" : [
               {
                 "identifier" : "definition",
                 "language" : "en",
-                "value" : "Seasonal total = roll‑up of daily/continuous counts from a fixed (non‑sonar) station; simple arithmetic with documented coverage.",
+                "value" : "Seasonal total = roll?up of daily/continuous counts from a fixed (non?sonar) station; simple arithmetic with documented coverage.",
                 "type" : "label"
               }
             ],
@@ -4473,7 +4645,7 @@
             ],
             "broader" : [ { "identifier" : "broader", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#EstimateMethod", "type" : "iri" } ]
           },
-          "labels" : { "IRI-based" : "FixedStationTally", "en" : "Fixed‑Station Tally" }
+          "labels" : { "IRI-based" : "FixedStationTally", "en" : "Fixed?Station Tally" }
         },
         {
           "iri" : "https://w3id.org/gcdfo/salmon#FreshwaterAgeDimension",
@@ -5549,6 +5721,80 @@
           "labels" : { "IRI-based" : "MonitoringFieldWorkTheme", "en" : "Monitoring and Field Work" }
         },
         {
+          "iri" : "https://w3id.org/gcdfo/salmon#NonEnhancedPopulation",
+          "baseIri" : "https://w3id.org/gcdfo/salmon",
+          "annotations" : {
+            "IAO_0000115" : [
+              {
+                "identifier" : "IAO_0000115",
+                "language" : "en",
+                "value" : "A population enhancement status value indicating that the source workflow does not treat a salmon population as directly supported by hatchery rearing and release or managed spawning-channel production.",
+                "type" : "label"
+              }
+            ],
+            "IAO_0000119" : [
+              {
+                "identifier" : "IAO_0000119",
+                "language" : "en",
+                "value" : "Fisheries and Oceans Canada. 2013. Genetically Based Targets for Enhanced Contributions to Canadian Pacific Chinook Salmon Populations. Canadian Science Advisory Secretariat Research Document 2013/099.",
+                "type" : "label"
+              }
+            ],
+            "broader" : [
+              {
+                "identifier" : "broader",
+                "language" : "undefined",
+                "value" : "https://w3id.org/gcdfo/salmon#PopulationEnhancementStatus",
+                "type" : "iri"
+              }
+            ],
+            "definition" : [
+              {
+                "identifier" : "definition",
+                "language" : "en",
+                "value" : "A population enhancement status value indicating that the source workflow does not treat a salmon population as directly supported by hatchery rearing and release or managed spawning-channel production.",
+                "type" : "label"
+              }
+            ],
+            "inScheme" : [
+              {
+                "identifier" : "inScheme",
+                "language" : "undefined",
+                "value" : "https://w3id.org/gcdfo/salmon#PopulationEnhancementStatusScheme",
+                "type" : "iri"
+              }
+            ],
+            "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+            "prefLabel" : [ { "identifier" : "prefLabel", "language" : "en", "value" : "Non-enhanced population", "type" : "label" } ],
+            "scopeNote" : [
+              {
+                "identifier" : "scopeNote",
+                "language" : "en",
+                "value" : "This is a population-level operational classification. It is not a statement that all fish are natural-origin, and it should not be assigned solely from a pHOS estimate.",
+                "type" : "label"
+              }
+            ],
+            "source" : [
+              {
+                "identifier" : "source",
+                "language" : "undefined",
+                "value" : "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40702285.pdf",
+                "type" : "iri"
+              }
+            ],
+            "theme" : [
+              {
+                "identifier" : "theme",
+                "language" : "undefined",
+                "value" : "https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme",
+                "type" : "iri"
+              },
+              { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme", "type" : "iri" }
+            ]
+          },
+          "labels" : { "IRI-based" : "NonEnhancedPopulation", "en" : "Non-enhanced population" }
+        },
+        {
           "iri" : "https://w3id.org/gcdfo/salmon#NumberOfVisits",
           "baseIri" : "https://w3id.org/gcdfo/salmon",
           "annotations" : {
@@ -5776,6 +6022,73 @@
             "theme" : [ { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme", "type" : "iri" } ]
           },
           "labels" : { "IRI-based" : "PolicyGovernanceTheme", "en" : "Policy, Governance, and Organizational Structure" }
+        },
+        {
+          "iri" : "https://w3id.org/gcdfo/salmon#PopulationEnhancementStatus",
+          "baseIri" : "https://w3id.org/gcdfo/salmon",
+          "annotations" : {
+            "IAO_0000115" : [
+              {
+                "identifier" : "IAO_0000115",
+                "language" : "en",
+                "value" : "A DFO population-level operational classification indicating whether a source workflow treats a salmon population as enhancement-supported.",
+                "type" : "label"
+              }
+            ],
+            "IAO_0000119" : [
+              {
+                "identifier" : "IAO_0000119",
+                "language" : "en",
+                "value" : "Fisheries and Oceans Canada. 2013. Genetically Based Targets for Enhanced Contributions to Canadian Pacific Chinook Salmon Populations. Canadian Science Advisory Secretariat Research Document 2013/099.",
+                "type" : "label"
+              }
+            ],
+            "definition" : [
+              {
+                "identifier" : "definition",
+                "language" : "en",
+                "value" : "A DFO population-level operational classification indicating whether a source workflow treats a salmon population as enhancement-supported.",
+                "type" : "label"
+              }
+            ],
+            "inScheme" : [
+              {
+                "identifier" : "inScheme",
+                "language" : "undefined",
+                "value" : "https://w3id.org/gcdfo/salmon#PopulationEnhancementStatusScheme",
+                "type" : "iri"
+              }
+            ],
+            "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+            "prefLabel" : [ { "identifier" : "prefLabel", "language" : "en", "value" : "Population enhancement status", "type" : "label" } ],
+            "scopeNote" : [
+              {
+                "identifier" : "scopeNote",
+                "language" : "en",
+                "value" : "Use this status only as a population-level source-system or assessment classification. It is distinct from individual fish-origin concepts such as smn:HatcheryOrigin and smn:NaturalOrigin, and it is not inferred solely from gcdfo:ProportionHatcheryOriginSpawners.",
+                "type" : "label"
+              }
+            ],
+            "source" : [
+              {
+                "identifier" : "source",
+                "language" : "undefined",
+                "value" : "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40702285.pdf",
+                "type" : "iri"
+              }
+            ],
+            "theme" : [
+              { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme", "type" : "iri" },
+              {
+                "identifier" : "theme",
+                "language" : "undefined",
+                "value" : "https://w3id.org/gcdfo/salmon#SalmonEnhancementHatcheriesTheme",
+                "type" : "iri"
+              },
+              { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme", "type" : "iri" }
+            ]
+          },
+          "labels" : { "IRI-based" : "PopulationEnhancementStatus", "en" : "Population enhancement status" }
         },
         {
           "iri" : "https://w3id.org/gcdfo/salmon#PrecautionaryApproach",
@@ -6335,6 +6648,54 @@
             ]
           },
           "labels" : { "IRI-based" : "RelativeAbundanceMetricStatus", "en" : "Relative abundance metric status" }
+        },
+        {
+          "iri" : "https://w3id.org/gcdfo/salmon#RelativeIndexDataType",
+          "baseIri" : "https://w3id.org/gcdfo/salmon",
+          "annotations" : {
+            "IAO_0000115" : [
+              {
+                "identifier" : "IAO_0000115",
+                "language" : "en",
+                "value" : "An abundance data type value indicating that an abundance series is recorded as a relative index rather than as absolute abundance.",
+                "type" : "label"
+              }
+            ],
+            "IAO_0000119" : [
+              {
+                "identifier" : "IAO_0000119",
+                "language" : "en",
+                "value" : "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO's Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004.",
+                "type" : "label"
+              }
+            ],
+            "broader" : [ { "identifier" : "broader", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#AbundanceDataType", "type" : "iri" } ],
+            "definition" : [
+              {
+                "identifier" : "definition",
+                "language" : "en",
+                "value" : "An abundance data type value indicating that an abundance series is recorded as a relative index rather than as absolute abundance.",
+                "type" : "label"
+              }
+            ],
+            "inScheme" : [ { "identifier" : "inScheme", "language" : "undefined", "value" : "https://w3id.org/smn/MeasurementContextScheme", "type" : "iri" } ],
+            "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+            "prefLabel" : [ { "identifier" : "prefLabel", "language" : "en", "value" : "Relative index data type", "type" : "label" } ],
+            "source" : [
+              {
+                "identifier" : "source",
+                "language" : "undefined",
+                "value" : "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf",
+                "type" : "iri"
+              }
+            ],
+            "theme" : [
+              { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme", "type" : "iri" },
+              { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme", "type" : "iri" },
+              { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#WildSalmonPolicyTheme", "type" : "iri" }
+            ]
+          },
+          "labels" : { "IRI-based" : "RelativeIndexDataType", "en" : "Relative index data type" }
         },
         {
           "iri" : "https://w3id.org/gcdfo/salmon#ReturnYear",
@@ -8539,16 +8900,6 @@
       "superClasses" : [ "127" ]
     },
     {
-      "iri" : "https://w3id.org/smn/forkLength",
-      "equivalent" : [ "134" ],
-      "baseIri" : "https://w3id.org/smn",
-      "instances" : 0,
-      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
-      "label" : { "IRI-based" : "forkLength", "en" : "Fork length" },
-      "attributes" : [ "equivalent", "external" ],
-      "id" : "254"
-    },
-    {
       "iri" : "https://w3id.org/iadopt/ont/Constraint",
       "baseIri" : "https://w3id.org/iadopt/ont",
       "instances" : 0,
@@ -9146,6 +9497,132 @@
       "label" : { "IRI-based" : "UpperBiologicalBenchmark", "en" : "Upper biological benchmark" },
       "id" : "341",
       "superClasses" : [ "99" ]
+    },
+    {
+      "iri" : "https://w3id.org/gcdfo/salmon#RemovalReference",
+      "baseIri" : "https://w3id.org/gcdfo/salmon",
+      "instances" : 0,
+      "annotations" : {
+        "IAO_0000115" : [
+          {
+            "identifier" : "IAO_0000115",
+            "language" : "en",
+            "value" : "A fisheries-management reference point that specifies the maximum acceptable removal rate for a stock under a precautionary harvest strategy.",
+            "type" : "label"
+          }
+        ],
+        "IAO_0000119" : [
+          {
+            "identifier" : "IAO_0000119",
+            "language" : "en",
+            "value" : "Fisheries and Oceans Canada. 2009. A Harvest Strategy Compliant with the Precautionary Approach. Fisheries Management Branch working document describing removal reference rates in salmon harvest strategies.",
+            "type" : "label"
+          }
+        ],
+        "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+        "source" : [ { "identifier" : "source", "language" : "undefined", "value" : "https://waves-vagues.dfo-mpo.gc.ca/Library/322464.pdf", "type" : "iri" } ],
+        "theme" : [
+          { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme", "type" : "iri" },
+          { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme", "type" : "iri" },
+          { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme", "type" : "iri" }
+        ]
+      },
+      "label" : { "IRI-based" : "RemovalReference", "en" : "Removal reference" },
+      "id" : "346",
+      "superClasses" : [ "106" ]
+    },
+    {
+      "iri" : "https://w3id.org/smn/CatchAbundance",
+      "baseIri" : "https://w3id.org/smn",
+      "instances" : 0,
+      "annotations" : {
+        "IAO_0000115" : [
+          {
+            "identifier" : "IAO_0000115",
+            "language" : "en",
+            "value" : "A measurement datum recording the number of salmon represented in fishery catch for a defined fishery, place, time, or stock context.",
+            "type" : "label"
+          }
+        ],
+        "IAO_0000119" : [
+          {
+            "identifier" : "IAO_0000119",
+            "language" : "en",
+            "value" : "Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html.",
+            "type" : "label"
+          }
+        ],
+        "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ],
+        "source" : [
+          {
+            "identifier" : "source",
+            "language" : "undefined",
+            "value" : "https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html",
+            "type" : "iri"
+          }
+        ]
+      },
+      "label" : { "IRI-based" : "CatchAbundance", "en" : "Catch abundance" },
+      "attributes" : [ "external" ],
+      "id" : "347",
+      "superClasses" : [ "43" ]
+    },
+    {
+      "iri" : "https://w3id.org/smn/FishLength",
+      "baseIri" : "https://w3id.org/smn",
+      "instances" : 0,
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
+      "label" : { "IRI-based" : "FishLength", "en" : "Fish length" },
+      "subClasses" : [ "133", "136", "138", "350" ],
+      "attributes" : [ "external" ],
+      "id" : "348",
+      "superClasses" : [ "125" ]
+    },
+    {
+      "iri" : "https://w3id.org/smn/RecruitAbundance",
+      "baseIri" : "https://w3id.org/smn",
+      "instances" : 0,
+      "annotations" : {
+        "IAO_0000115" : [
+          {
+            "identifier" : "IAO_0000115",
+            "language" : "en",
+            "value" : "A measurement datum recording the number of recruits added to a salmon stock, population, or indicator return series for a defined brood-year or assessment accounting context.",
+            "type" : "label"
+          }
+        ],
+        "IAO_0000119" : [
+          {
+            "identifier" : "IAO_0000119",
+            "language" : "en",
+            "value" : "Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html.",
+            "type" : "label"
+          }
+        ],
+        "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ],
+        "source" : [
+          {
+            "identifier" : "source",
+            "language" : "undefined",
+            "value" : "https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html",
+            "type" : "iri"
+          }
+        ]
+      },
+      "label" : { "IRI-based" : "RecruitAbundance", "en" : "Recruit abundance" },
+      "attributes" : [ "external" ],
+      "id" : "349",
+      "superClasses" : [ "43" ]
+    },
+    {
+      "iri" : "https://w3id.org/smn/forkLength",
+      "baseIri" : "https://w3id.org/smn",
+      "instances" : 0,
+      "annotations" : { "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ] },
+      "label" : { "IRI-based" : "forkLength", "en" : "Fork length" },
+      "attributes" : [ "external" ],
+      "id" : "350",
+      "superClasses" : [ "348" ]
     }
   ],
   "property" : [
@@ -9191,9 +9668,6 @@
     { "id" : "122", "type" : "owl:objectProperty" },
     { "id" : "130", "type" : "owl:objectProperty" },
     { "id" : "131", "type" : "rdfs:SubClassOf" },
-    { "id" : "132", "type" : "rdfs:SubClassOf" },
-    { "id" : "135", "type" : "rdfs:SubClassOf" },
-    { "id" : "137", "type" : "rdfs:SubClassOf" },
     { "id" : "146", "type" : "rdfs:SubClassOf" },
     { "id" : "148", "type" : "rdfs:SubClassOf" },
     { "id" : "151", "type" : "rdfs:SubClassOf" },
@@ -9280,7 +9754,6 @@
     { "id" : "284", "type" : "rdfs:SubClassOf" },
     { "id" : "285", "type" : "rdfs:SubClassOf" },
     { "id" : "286", "type" : "rdfs:SubClassOf" },
-    { "id" : "287", "type" : "rdfs:SubClassOf" },
     { "id" : "288", "type" : "rdfs:SubClassOf" },
     { "id" : "289", "type" : "rdfs:SubClassOf" },
     { "id" : "290", "type" : "rdfs:SubClassOf" },
@@ -9303,8 +9776,6 @@
     { "id" : "307", "type" : "rdfs:SubClassOf" },
     { "id" : "309", "type" : "rdfs:SubClassOf" },
     { "id" : "310", "type" : "rdfs:SubClassOf" },
-    { "id" : "311", "type" : "owl:someValuesFrom" },
-    { "id" : "312", "type" : "owl:someValuesFrom" },
     { "id" : "313", "type" : "owl:someValuesFrom" },
     { "id" : "314", "type" : "owl:someValuesFrom" },
     { "id" : "315", "type" : "owl:someValuesFrom" },
@@ -9328,7 +9799,17 @@
     { "id" : "336", "type" : "rdfs:SubClassOf" },
     { "id" : "342", "type" : "rdf:Property" },
     { "id" : "343", "type" : "rdfs:SubClassOf" },
-    { "id" : "344", "type" : "rdfs:SubClassOf" }
+    { "id" : "344", "type" : "rdfs:SubClassOf" },
+    { "id" : "351", "type" : "owl:someValuesFrom" },
+    { "id" : "352", "type" : "owl:someValuesFrom" },
+    { "id" : "353", "type" : "rdfs:SubClassOf" },
+    { "id" : "354", "type" : "rdfs:SubClassOf" },
+    { "id" : "355", "type" : "rdfs:SubClassOf" },
+    { "id" : "356", "type" : "rdfs:SubClassOf" },
+    { "id" : "357", "type" : "rdfs:SubClassOf" },
+    { "id" : "358", "type" : "rdfs:SubClassOf" },
+    { "id" : "359", "type" : "rdfs:SubClassOf" },
+    { "id" : "360", "type" : "rdfs:SubClassOf" }
   ],
   "propertyAttribute" : [
     { "range" : "2", "domain" : "1", "attributes" : [ "anonymous", "object" ], "id" : "0" },
@@ -9714,9 +10195,6 @@
       "id" : "130"
     },
     { "range" : "72", "domain" : "71", "attributes" : [ "anonymous", "object" ], "id" : "131" },
-    { "range" : "134", "domain" : "133", "attributes" : [ "anonymous", "object" ], "id" : "132" },
-    { "range" : "134", "domain" : "136", "attributes" : [ "anonymous", "object" ], "id" : "135" },
-    { "range" : "134", "domain" : "138", "attributes" : [ "anonymous", "object" ], "id" : "137" },
     { "range" : "115", "domain" : "114", "attributes" : [ "anonymous", "object" ], "id" : "146" },
     { "range" : "150", "domain" : "149", "attributes" : [ "anonymous", "object" ], "id" : "148" },
     { "range" : "150", "domain" : "152", "attributes" : [ "anonymous", "object" ], "id" : "151" },
@@ -9940,8 +10418,8 @@
       "attributes" : [ "external", "object" ],
       "id" : "232"
     },
-    { "domain" : "142", "range" : "222", "id" : "234", "label" : { "IRI-based" : "15", "undefined" : "is a" } },
-    { "domain" : "142", "range" : "236", "id" : "235", "label" : { "IRI-based" : "13", "undefined" : "is a" } },
+    { "domain" : "142", "range" : "222", "id" : "234", "label" : { "IRI-based" : "16", "undefined" : "is a" } },
+    { "domain" : "142", "range" : "236", "id" : "235", "label" : { "IRI-based" : "15", "undefined" : "is a" } },
     {
       "iri" : "https://w3id.org/gcdfo/salmon#hasAssessmentReferencePoint",
       "inverse" : "238",
@@ -10086,7 +10564,6 @@
     { "range" : "125", "domain" : "224", "attributes" : [ "anonymous", "object" ], "id" : "284" },
     { "range" : "189", "domain" : "188", "attributes" : [ "anonymous", "object" ], "id" : "285" },
     { "range" : "195", "domain" : "194", "attributes" : [ "anonymous", "object" ], "id" : "286" },
-    { "range" : "125", "domain" : "134", "attributes" : [ "anonymous", "object" ], "id" : "287" },
     { "range" : "58", "domain" : "68", "attributes" : [ "anonymous", "object" ], "id" : "288" },
     { "range" : "58", "domain" : "110", "attributes" : [ "anonymous", "object" ], "id" : "289" },
     { "range" : "88", "domain" : "87", "attributes" : [ "anonymous", "object" ], "id" : "290" },
@@ -10173,24 +10650,6 @@
     {
       "iri" : "http://www.w3.org/ns/sosa/observedProperty",
       "baseIri" : "http://www.w3.org/ns/sosa",
-      "range" : "134",
-      "label" : { "IRI-based" : "observedProperty" },
-      "domain" : "65",
-      "attributes" : [ "external", "object", "someValues" ],
-      "id" : "311"
-    },
-    {
-      "iri" : "http://www.w3.org/ns/sosa/observedProperty",
-      "baseIri" : "http://www.w3.org/ns/sosa",
-      "range" : "254",
-      "label" : { "IRI-based" : "observedProperty" },
-      "domain" : "64",
-      "attributes" : [ "external", "object", "someValues" ],
-      "id" : "312"
-    },
-    {
-      "iri" : "http://www.w3.org/ns/sosa/observedProperty",
-      "baseIri" : "http://www.w3.org/ns/sosa",
       "range" : "9",
       "label" : { "IRI-based" : "observedProperty" },
       "domain" : "81",
@@ -10266,8 +10725,34 @@
     { "range" : "43", "domain" : "1", "attributes" : [ "anonymous", "object" ], "id" : "334" },
     { "range" : "43", "domain" : "248", "attributes" : [ "anonymous", "object" ], "id" : "335" },
     { "range" : "43", "domain" : "116", "attributes" : [ "anonymous", "object" ], "id" : "336" },
-    { "domain" : "142", "range" : "339", "id" : "342", "label" : { "IRI-based" : "16", "undefined" : "is a" } },
+    { "domain" : "142", "range" : "339", "id" : "342", "label" : { "IRI-based" : "13", "undefined" : "is a" } },
     { "range" : "99", "domain" : "340", "attributes" : [ "anonymous", "object" ], "id" : "343" },
-    { "range" : "99", "domain" : "341", "attributes" : [ "anonymous", "object" ], "id" : "344" }
+    { "range" : "99", "domain" : "341", "attributes" : [ "anonymous", "object" ], "id" : "344" },
+    {
+      "iri" : "http://www.w3.org/ns/sosa/observedProperty",
+      "baseIri" : "http://www.w3.org/ns/sosa",
+      "range" : "348",
+      "label" : { "IRI-based" : "observedProperty" },
+      "domain" : "65",
+      "attributes" : [ "external", "object", "someValues" ],
+      "id" : "351"
+    },
+    {
+      "iri" : "http://www.w3.org/ns/sosa/observedProperty",
+      "baseIri" : "http://www.w3.org/ns/sosa",
+      "range" : "350",
+      "label" : { "IRI-based" : "observedProperty" },
+      "domain" : "64",
+      "attributes" : [ "external", "object", "someValues" ],
+      "id" : "352"
+    },
+    { "range" : "106", "domain" : "346", "attributes" : [ "anonymous", "object" ], "id" : "353" },
+    { "range" : "43", "domain" : "347", "attributes" : [ "anonymous", "object" ], "id" : "354" },
+    { "range" : "125", "domain" : "348", "attributes" : [ "anonymous", "object" ], "id" : "355" },
+    { "range" : "43", "domain" : "349", "attributes" : [ "anonymous", "object" ], "id" : "356" },
+    { "range" : "348", "domain" : "350", "attributes" : [ "anonymous", "object" ], "id" : "357" },
+    { "range" : "348", "domain" : "133", "attributes" : [ "anonymous", "object" ], "id" : "358" },
+    { "range" : "348", "domain" : "138", "attributes" : [ "anonymous", "object" ], "id" : "359" },
+    { "range" : "348", "domain" : "136", "attributes" : [ "anonymous", "object" ], "id" : "360" }
   ]
 }
