@@ -17,7 +17,7 @@
 
 
 <!-- SCHEMA.ORG METADATA -->
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"https://w3id.org/gcdfo/salmon#","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://w3id.org/gcdfo/salmon#","name":"DFO Salmon Ontology", "headline":"Document describing the ontology https://w3id.org/gcdfo/salmon#", "dateReleased":"2025-09-06", "dateModified":"2026-03-27", "version":"0.0.7", "license":"https://creativecommons.org/licenses/by/4.0/", "codeRepository":"https://github.com/dfo-pacific-science/dfo-salmon-ontology", "author":[{"@type":"Person","name":"Fishery & Assessment Data Section (FADS) Data Stewardship Unit"}], "contributor":[{"@type":"Person","name":"Brett Johnson"},{"@type":"Person","name":"Melissa K. Morrison"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"https://w3id.org/gcdfo/salmon#","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://w3id.org/gcdfo/salmon#","name":"DFO Salmon Ontology", "headline":"Document describing the ontology https://w3id.org/gcdfo/salmon#", "dateReleased":"2025-09-06", "dateModified":"2026-03-29", "version":"0.0.8", "license":"https://creativecommons.org/licenses/by/4.0/", "codeRepository":"https://github.com/dfo-pacific-science/dfo-salmon-ontology", "author":[{"@type":"Person","name":"Fishery & Assessment Data Section (FADS) Data Stewardship Unit"}], "contributor":[{"@type":"Person","name":"Brett Johnson"},{"@type":"Person","name":"Melissa K. Morrison"}]}</script>
 
 <script src="resources/jquery.js"></script> 
 <script src="resources/marked.min.js"></script> 
@@ -71,13 +71,13 @@ $(function(){
 
 
 <dl>
-<dt>Modified on: 2026-03-27</dt>
+<dt>Modified on: 2026-03-29</dt>
 <dt>This version:</dt>
-<dd><a href="https://w3id.org/gcdfo/salmon/0.0.7">https://w3id.org/gcdfo/salmon/0.0.7</a></dd>
+<dd><a href="https://w3id.org/gcdfo/salmon/0.0.8">https://w3id.org/gcdfo/salmon/0.0.8</a></dd>
 <dt>Previous version:</dt>
-<dd><a href="https://w3id.org/gcdfo/salmon/0.0.2">https://w3id.org/gcdfo/salmon/0.0.2</a></dd>
+<dd><a href="https://w3id.org/gcdfo/salmon/0.0.7">https://w3id.org/gcdfo/salmon/0.0.7</a></dd>
 <dt>Revision:</dt>
-<dd>0.0.7</dd>
+<dd>0.0.8</dd>
 <dt>Authors:</dt>
 <dd>Fishery & Assessment Data Section (FADS) Data Stewardship Unit</dd>
 
@@ -92,7 +92,7 @@ $(function(){
 <dt>Download serialization:</dt><dd><span><a href="ontology.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span><span><a href="ontology.owl" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span><span><a href="ontology.nt" target="_blank"><img src="https://img.shields.io/badge/Format-N_Triples-blue.svg" alt="N-Triples" /></a> </span><span><a href="ontology.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span></dd><dt>License:</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"><img src="https://img.shields.io/badge/License-https://creativecommons.org/licenses/by/4.0/-blue.svg" alt="https://creativecommons.org/licenses/by/4.0/" /></a>
 </dd><dt>Visualization:</dt><dd><a href="webvowl/index.html#" target="_blank"><img src="https://img.shields.io/badge/Visualize_with-WebVowl-blue.svg" alt="Visualize with WebVowl" /></a></dd>
 <!-- <dt>Evaluation:</dt><dd><a href="OOPSevaluation/oopsEval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd> --><dt>Cite as:</dt>
-<dd>Fishery & Assessment Data Section (FADS) Data Stewardship Unit. DFO Salmon Ontology. Revision: 0.0.7. Retrieved from: https://w3id.org/gcdfo/salmon/0.0.7</dd>
+<dd>Fishery & Assessment Data Section (FADS) Data Stewardship Unit. DFO Salmon Ontology. Revision: 0.0.8. Retrieved from: https://w3id.org/gcdfo/salmon/0.0.8</dd>
 <dt>Vocabulary maintained at:</dt>
 <dd><a href="https://github.com/dfo-pacific-science/dfo-salmon-ontology">https://github.com/dfo-pacific-science/dfo-salmon-ontology</a></dd>
 </dl>
@@ -172,6 +172,9 @@ This section lists the formal classes, properties, and controlled vocabularies t
    </li>
    <li>
       <a href="#https://w3id.org/smn/BodyShape" title="https://w3id.org/smn/BodyShape">Body shape</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/smn/CatchAbundance" title="https://w3id.org/smn/CatchAbundance">Catch abundance</a>
    </li>
    <li>
       <a href="#https://w3id.org/smn/Characteristic" title="https://w3id.org/smn/Characteristic">Characteristic</a>
@@ -444,6 +447,9 @@ This section lists the formal classes, properties, and controlled vocabularies t
          title="https://w3id.org/gcdfo/salmon#WSPRapidStatusAlgorithmThreshold">Rapid-status algorithm threshold</a>
    </li>
    <li>
+      <a href="#https://w3id.org/smn/RecruitAbundance" title="https://w3id.org/smn/RecruitAbundance">Recruit abundance</a>
+   </li>
+   <li>
       <a href="#https://w3id.org/smn/ReferencePoint" title="https://w3id.org/smn/ReferencePoint">Reference point</a>
    </li>
    <li>
@@ -493,6 +499,9 @@ This section lists the formal classes, properties, and controlled vocabularies t
    <li>
       <a href="#RelativeWildSpawnerAbundanceTrend"
          title="https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundanceTrend">Relative wild spawner abundance trend</a>
+   </li>
+   <li>
+      <a href="#RemovalReference" title="https://w3id.org/gcdfo/salmon#RemovalReference">Removal reference</a>
    </li>
    <li>
       <a href="#https://w3id.org/smn/ReportingOrManagementStratum"
@@ -743,6 +752,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <li><a href="#http://www.w3.org/ns/oa#Annotation" title="http://www.w3.org/ns/oa#Annotation">Annotation</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/ENVO_00000234" title="http://purl.obolibrary.org/obo/ENVO_00000234">bayou</a></li>
   <li><a href="#https://w3id.org/smn/BodyShape" title="https://w3id.org/smn/BodyShape">Body shape</a></li>
+  <li><a href="#https://w3id.org/smn/CatchAbundance" title="https://w3id.org/smn/CatchAbundance">Catch abundance</a></li>
   <li><a href="#https://w3id.org/smn/Characteristic" title="https://w3id.org/smn/Characteristic">Characteristic</a></li>
   <li><a href="#ConservationUnit" title="https://w3id.org/gcdfo/salmon#ConservationUnit">Conservation Unit</a></li>
   <li><a href="#CWTMarineSurvivalRate" title="https://w3id.org/gcdfo/salmon#CWTMarineSurvivalRate">CWT marine survival rate</a></li>
@@ -822,6 +832,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <li><a href="#ProportionHatcheryOriginSpawners" title="https://w3id.org/gcdfo/salmon#ProportionHatcheryOriginSpawners">Proportion of hatchery-origin spawners</a></li>
   <li><a href="#http://www.w3.org/ns/dqv#QualityAnnotation" title="http://www.w3.org/ns/dqv#QualityAnnotation">Quality Annotation</a></li>
   <li><a href="#WSPRapidStatusAlgorithmThreshold" title="https://w3id.org/gcdfo/salmon#WSPRapidStatusAlgorithmThreshold">Rapid-status algorithm threshold</a></li>
+  <li><a href="#https://w3id.org/smn/RecruitAbundance" title="https://w3id.org/smn/RecruitAbundance">Recruit abundance</a></li>
   <li><a href="#https://w3id.org/smn/ReferencePoint" title="https://w3id.org/smn/ReferencePoint">Reference point</a></li>
   <li><a href="#RelativeHatcherySpawnerAbundance" title="https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundance">Relative hatchery spawner abundance</a></li>
   <li><a href="#RelativeHatcherySpawnerAbundanceChange" title="https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundanceChange">Relative hatchery spawner abundance change</a></li>
@@ -835,6 +846,7 @@ This section provides details for each class and property defined by DFO Salmon 
   <li><a href="#RelativeWildSpawnerAbundanceChange" title="https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundanceChange">Relative wild spawner abundance change</a></li>
   <li><a href="#RelativeWildSpawnerAbundancePercentile" title="https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundancePercentile">Relative wild spawner abundance percentile</a></li>
   <li><a href="#RelativeWildSpawnerAbundanceTrend" title="https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundanceTrend">Relative wild spawner abundance trend</a></li>
+  <li><a href="#RemovalReference" title="https://w3id.org/gcdfo/salmon#RemovalReference">Removal reference</a></li>
   <li><a href="#https://w3id.org/smn/ReportingOrManagementStratum" title="https://w3id.org/smn/ReportingOrManagementStratum">Reporting or management stratum</a></li>
   <li><a href="#http://purl.obolibrary.org/obo/ENVO_00000022" title="http://purl.obolibrary.org/obo/ENVO_00000022">river</a></li>
   <li><a href="#https://w3id.org/smn/Run" title="https://w3id.org/smn/Run">Run</a></li>
@@ -1002,6 +1014,40 @@ This section provides details for each class and property defined by DFO Salmon 
    </dt>
    <dd>
     <a href="#https://w3id.org/smn/fusiform" title="https://w3id.org/smn/fusiform">Fusiform</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/smn/CatchAbundance">
+  <h3>Catch abundance<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/smn/CatchAbundance</p>
+  <div class="comment">
+   <span class="markdown">A measurement datum recording the number of salmon represented in fishery catch for a defined fishery, place, time, or stock context.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/smn">https://w3id.org/smn</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html.
+   </dd>
+   <dd>
+    <a href="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html">https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/smn/ObservedRateOrAbundance" title="https://w3id.org/smn/ObservedRateOrAbundance">Observed rate or abundance</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -1599,12 +1645,6 @@ This section provides details for each class and property defined by DFO Salmon 
   </dl>
   <dl class="description">
    <dt>
-    is equivalent to
-   </dt>
-   <dd>
-    <a href="#https://w3id.org/smn/forkLength" title="https://w3id.org/smn/forkLength">Fork length</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-   <dt>
     has super-classes
    </dt>
    <dd>
@@ -1614,7 +1654,7 @@ This section provides details for each class and property defined by DFO Salmon 
     has sub-classes
    </dt>
    <dd>
-    <a href="#https://w3id.org/smn/orbitalLength" title="https://w3id.org/smn/orbitalLength">Orbital length</a> <sup class="type-c" title="class">c</sup>, <a href="#https://w3id.org/smn/standardLength" title="https://w3id.org/smn/standardLength">Standard length</a> <sup class="type-c" title="class">c</sup>, <a href="#https://w3id.org/smn/totalLength" title="https://w3id.org/smn/totalLength">Total length</a> <sup class="type-c" title="class">c</sup>
+    <a href="#https://w3id.org/smn/forkLength" title="https://w3id.org/smn/forkLength">Fork length</a> <sup class="type-c" title="class">c</sup>, <a href="#https://w3id.org/smn/orbitalLength" title="https://w3id.org/smn/orbitalLength">Orbital length</a> <sup class="type-c" title="class">c</sup>, <a href="#https://w3id.org/smn/standardLength" title="https://w3id.org/smn/standardLength">Standard length</a> <sup class="type-c" title="class">c</sup>, <a href="#https://w3id.org/smn/totalLength" title="https://w3id.org/smn/totalLength">Total length</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -1827,7 +1867,14 @@ This section provides details for each class and property defined by DFO Salmon 
     <a href="https://w3id.org/smn">https://w3id.org/smn</a>
    </dd>
   </dl>
-  <dl class="description"></dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/smn/FishLength" title="https://w3id.org/smn/FishLength">Fish length</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
  </div>
  <div class="entity" id="https://w3id.org/smn/ForkLengthMeasurementFieldMethod">
   <h3>Fork-length field method<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
@@ -2809,7 +2856,7 @@ This section provides details for each class and property defined by DFO Salmon 
     has sub-classes
    </dt>
    <dd>
-    <a href="#CWTMarineSurvivalRate" title="https://w3id.org/gcdfo/salmon#CWTMarineSurvivalRate">CWT marine survival rate</a> <sup class="type-c" title="class">c</sup>, <a href="#InRiverMortalityRate" title="https://w3id.org/gcdfo/salmon#InRiverMortalityRate">In-river mortality rate</a> <sup class="type-c" title="class">c</sup>, <a href="#MainstemMortalityRate" title="https://w3id.org/gcdfo/salmon#MainstemMortalityRate">Mainstem mortality rate</a> <sup class="type-c" title="class">c</sup>, <a href="#MarineSurvivalIndex" title="https://w3id.org/gcdfo/salmon#MarineSurvivalIndex">Marine survival index</a> <sup class="type-c" title="class">c</sup>, <a href="#ObservedExploitationRate" title="https://w3id.org/gcdfo/salmon#ObservedExploitationRate">Observed exploitation rate</a> <sup class="type-c" title="class">c</sup>, <a href="#OceanMortalityRate" title="https://w3id.org/gcdfo/salmon#OceanMortalityRate">Ocean mortality rate</a> <sup class="type-c" title="class">c</sup>, <a href="#ProportionHatcheryOriginSpawners" title="https://w3id.org/gcdfo/salmon#ProportionHatcheryOriginSpawners">Proportion of hatchery-origin spawners</a> <sup class="type-c" title="class">c</sup>, <a href="#SpawnerAbundance" title="https://w3id.org/gcdfo/salmon#SpawnerAbundance">Spawner abundance</a> <sup class="type-c" title="class">c</sup>, <a href="#SpawnerAbundanceChange" title="https://w3id.org/gcdfo/salmon#SpawnerAbundanceChange">Spawner abundance change</a> <sup class="type-c" title="class">c</sup>, <a href="#SpawnerAbundancePercentile" title="https://w3id.org/gcdfo/salmon#SpawnerAbundancePercentile">Spawner abundance percentile</a> <sup class="type-c" title="class">c</sup>, <a href="#SpawnerAbundanceTrend" title="https://w3id.org/gcdfo/salmon#SpawnerAbundanceTrend">Spawner abundance trend</a> <sup class="type-c" title="class">c</sup>, <a href="#TerminalMortalityRate" title="https://w3id.org/gcdfo/salmon#TerminalMortalityRate">Terminal mortality rate</a> <sup class="type-c" title="class">c</sup>, <a href="#TotalMortalityRate" title="https://w3id.org/gcdfo/salmon#TotalMortalityRate">Total mortality rate</a> <sup class="type-c" title="class">c</sup>
+    <a href="#CWTMarineSurvivalRate" title="https://w3id.org/gcdfo/salmon#CWTMarineSurvivalRate">CWT marine survival rate</a> <sup class="type-c" title="class">c</sup>, <a href="#https://w3id.org/smn/CatchAbundance" title="https://w3id.org/smn/CatchAbundance">Catch abundance</a> <sup class="type-c" title="class">c</sup>, <a href="#InRiverMortalityRate" title="https://w3id.org/gcdfo/salmon#InRiverMortalityRate">In-river mortality rate</a> <sup class="type-c" title="class">c</sup>, <a href="#MainstemMortalityRate" title="https://w3id.org/gcdfo/salmon#MainstemMortalityRate">Mainstem mortality rate</a> <sup class="type-c" title="class">c</sup>, <a href="#MarineSurvivalIndex" title="https://w3id.org/gcdfo/salmon#MarineSurvivalIndex">Marine survival index</a> <sup class="type-c" title="class">c</sup>, <a href="#ObservedExploitationRate" title="https://w3id.org/gcdfo/salmon#ObservedExploitationRate">Observed exploitation rate</a> <sup class="type-c" title="class">c</sup>, <a href="#OceanMortalityRate" title="https://w3id.org/gcdfo/salmon#OceanMortalityRate">Ocean mortality rate</a> <sup class="type-c" title="class">c</sup>, <a href="#ProportionHatcheryOriginSpawners" title="https://w3id.org/gcdfo/salmon#ProportionHatcheryOriginSpawners">Proportion of hatchery-origin spawners</a> <sup class="type-c" title="class">c</sup>, <a href="#https://w3id.org/smn/RecruitAbundance" title="https://w3id.org/smn/RecruitAbundance">Recruit abundance</a> <sup class="type-c" title="class">c</sup>, <a href="#SpawnerAbundance" title="https://w3id.org/gcdfo/salmon#SpawnerAbundance">Spawner abundance</a> <sup class="type-c" title="class">c</sup>, <a href="#SpawnerAbundanceChange" title="https://w3id.org/gcdfo/salmon#SpawnerAbundanceChange">Spawner abundance change</a> <sup class="type-c" title="class">c</sup>, <a href="#SpawnerAbundancePercentile" title="https://w3id.org/gcdfo/salmon#SpawnerAbundancePercentile">Spawner abundance percentile</a> <sup class="type-c" title="class">c</sup>, <a href="#SpawnerAbundanceTrend" title="https://w3id.org/gcdfo/salmon#SpawnerAbundanceTrend">Spawner abundance trend</a> <sup class="type-c" title="class">c</sup>, <a href="#TerminalMortalityRate" title="https://w3id.org/gcdfo/salmon#TerminalMortalityRate">Terminal mortality rate</a> <sup class="type-c" title="class">c</sup>, <a href="#TotalMortalityRate" title="https://w3id.org/gcdfo/salmon#TotalMortalityRate">Total mortality rate</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     is in range of
@@ -3249,6 +3296,40 @@ This section provides details for each class and property defined by DFO Salmon 
    </dd>
   </dl>
  </div>
+ <div class="entity" id="https://w3id.org/smn/RecruitAbundance">
+  <h3>Recruit abundance<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/smn/RecruitAbundance</p>
+  <div class="comment">
+   <span class="markdown">A measurement datum recording the number of recruits added to a salmon stock, population, or indicator return series for a defined brood-year or assessment accounting context.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/smn">https://w3id.org/smn</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Fisheries and Oceans Canada. Pacific Salmon - Glossary (Pacific Region). https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html.
+   </dd>
+   <dd>
+    <a href="https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html">https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/smn/ObservedRateOrAbundance" title="https://w3id.org/smn/ObservedRateOrAbundance">Observed rate or abundance</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
  <div class="entity" id="https://w3id.org/smn/ReferencePoint">
   <h3>Reference point<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/smn/ReferencePoint</p>
@@ -3288,7 +3369,7 @@ This section provides details for each class and property defined by DFO Salmon 
     has sub-classes
    </dt>
    <dd>
-    <a href="#https://w3id.org/smn/LimitReferencePoint" title="https://w3id.org/smn/LimitReferencePoint">Limit reference point</a> <sup class="type-c" title="class">c</sup>, <a href="#UpperStockReferencePoint" title="https://w3id.org/gcdfo/salmon#UpperStockReferencePoint">Upper stock reference</a> <sup class="type-c" title="class">c</sup>
+    <a href="#https://w3id.org/smn/LimitReferencePoint" title="https://w3id.org/smn/LimitReferencePoint">Limit reference point</a> <sup class="type-c" title="class">c</sup>, <a href="#RemovalReference" title="https://w3id.org/gcdfo/salmon#RemovalReference">Removal reference</a> <sup class="type-c" title="class">c</sup>, <a href="#UpperStockReferencePoint" title="https://w3id.org/gcdfo/salmon#UpperStockReferencePoint">Upper stock reference</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     is in domain of
@@ -3739,6 +3820,40 @@ This section provides details for each class and property defined by DFO Salmon 
    </dt>
    <dd>
     <a href="#RelativeSpawnerAbundanceTrend" title="https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundanceTrend">Relative spawner abundance trend</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="RemovalReference">
+  <h3>Removal reference<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/gcdfo/salmon#RemovalReference</p>
+  <div class="comment">
+   <span class="markdown">A fisheries-management reference point that specifies the maximum acceptable removal rate for a stock under a precautionary harvest strategy.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/gcdfo/salmon">https://w3id.org/gcdfo/salmon</a>
+   </dd>
+  </dl>
+  <dl class="definedBy">
+   <dt>
+    Source
+   </dt>
+   <dd>
+    Fisheries and Oceans Canada. 2009. A Harvest Strategy Compliant with the Precautionary Approach. Fisheries Management Branch working document describing removal reference rates in salmon harvest strategies.
+   </dd>
+   <dd>
+    <a href="https://waves-vagues.dfo-mpo.gc.ca/Library/322464.pdf">https://waves-vagues.dfo-mpo.gc.ca/Library/322464.pdf</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/smn/ReferencePoint" title="https://w3id.org/smn/ReferencePoint">Reference point</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -5870,901 +5985,7 @@ This section provides details for each class and property defined by DFO Salmon 
    
 
 <!--CHANGELOG SECTION-->
-   <div id="changelog"><div id="changelog">
-<h2 id="changes" class="list">Changes from last version</h2>
-<h3 id="changeClass" class="list">Classes</h3>
-<details><summary><u>Modified classes</u></summary>
-<ul><li><a href="#http://purl.obolibrary.org/obo/ENVO_01000617">http://purl.obolibrary.org/obo/ENVO_01000617</a>
-<ul>
-<li>Added: SubClass of http://purl.obolibrary.org/obo/ENVO_00000063</li>
-</ul>
-<ul>
-<li>Deleted: SubClass of http://purl.obolibrary.org/obo/BFO_0000040</li>
-</ul>
-</li>
-<li><a href="#http://purl.obolibrary.org/obo/ENVO_01000618">http://purl.obolibrary.org/obo/ENVO_01000618</a>
-<ul>
-<li>Added: SubClass of http://purl.obolibrary.org/obo/ENVO_00000063</li>
-</ul>
-<ul>
-<li>Deleted: SubClass of http://purl.obolibrary.org/obo/BFO_0000040</li>
-</ul>
-</li>
-<li><a href="#http://rs.tdwg.org/dwc/terms/Event">http://rs.tdwg.org/dwc/terms/Event</a>
-<ul>
-<li>Added: EquivalentClasses EquivalentClasses(&lt;http://rs.tdwg.org/dwc/terms/Event&gt; &lt;http://www.w3.org/ns/sosa/Sampling&gt;)</li>
-</ul>
-</li>
-<li><a href="#http://rs.tdwg.org/dwc/terms/Occurrence">http://rs.tdwg.org/dwc/terms/Occurrence</a>
-<ul>
-<li>Added: EquivalentClasses EquivalentClasses(&lt;http://rs.tdwg.org/dwc/terms/Occurrence&gt; &lt;http://www.w3.org/ns/sosa/Observation&gt;)</li>
-</ul>
-</li>
-<li><a href="#ConfidenceCategory">https://w3id.org/gcdfo/salmon#ConfidenceCategory</a>
-<ul>
-<li>Added: rdfs:label "Confidence category"@en</li>
-</ul>
-</li>
-<li><a href="#ConservationUnit">https://w3id.org/gcdfo/salmon#ConservationUnit</a>
-<ul>
-<li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. 2005. Canada's Policy for Conservation of Wild Pacific Salmon. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf."@en</li>
-<li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Canada's Policy for Conservation of Wild Pacific Salmon - Glossary. https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/wsp-pss/policy-politique-eng.html#glossary."@en</li>
-<li>Added: <http://purl.org/dc/terms/source> https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf</li>
-<li>Added: SubClass of https://w3id.org/smn/ReportingOrManagementStratum</li>
-</ul>
-<ul>
-<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000119> "Canada's Policy for Conservation of Wild Pacific Salmon Glossary."@en</li>
-<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. (2005). Canada's Policy for Conservation of Wild Pacific Salmon. Retrieved from https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/315577.pdf."@en</li>
-<li>Deleted: SubClass of https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum</li>
-</ul>
-</li>
-<li><a href="#StockManagementUnit">https://w3id.org/gcdfo/salmon#StockManagementUnit</a>
-<ul>
-<li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html."@en</li>
-<li>Added: SubClass of https://w3id.org/smn/ReportingOrManagementStratum</li>
-</ul>
-<ul>
-<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000119> "DFO Introduction to Stock Assessment Glossary."@en</li>
-<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. (2024). Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html. [Accessed 09-10-2025]."@en</li>
-<li>Deleted: SubClass of https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum</li>
-</ul>
-</li>
-<li><a href="#UpperStockReferencePoint">https://w3id.org/gcdfo/salmon#UpperStockReferencePoint</a>
-<ul>
-<li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html."@en</li>
-<li>Added: <http://purl.org/dc/terms/source> https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html</li>
-<li>Added: SubClass of https://w3id.org/smn/ReferencePoint</li>
-</ul>
-<ul>
-<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000119> "DFO Introduction to Stock Assessment Glossary."@en</li>
-<li>Deleted: SubClass of https://w3id.org/gcdfo/salmon#ReferencePoint</li>
-</ul>
-</li>
-<li><a href="#WSPBiologicalStatusZone">https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZone</a>
-<ul>
-<li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Wild Salmon Policy 2018-2022 Implementation Plan. https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en</li>
-<li>Added: <http://purl.org/dc/terms/source> https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf</li>
-<li>Added: <http://www.w3.org/2004/02/skos/core#inScheme> https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZoneScheme</li>
-<li>Added: rdfs:label "Wild Salmon Policy biological status zone"@en</li>
-</ul>
-<ul>
-<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. (2021). Wild Salmon Policy 2018-2022 Implementation Plan. Available at https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40728109.pdf."@en</li>
-<li>Deleted: rdfs:seeAlso https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZoneScheme</li>
-</ul>
-</li>
-<li><a href="#WSPRapidStatus">https://w3id.org/gcdfo/salmon#WSPRapidStatus</a>
-<ul>
-<li>Added: <http://purl.obolibrary.org/obo/IAO_0000115> "The WSP rapid status assessment approach builds on previously completed WSP integrated status assessments. The WSP rapid status approach ensures statuses are scientifically objective, consistent, and comparable across BC/Yukon CUs. This approach is also relatively easy to implement, applicable to data rich and data poor CUs, and can be updated annually."@en</li>
-<li>Added: <http://purl.obolibrary.org/obo/IAO_0000119> "Pestal, G., MacDonald, B.L., Grant, S.C.H., and Holt, C.A. 2023. State of the salmon: rapid status assessment approach for Pacific salmon under Canada's Wild Salmon Policy. Canadian Technical Report of Fisheries and Aquatic Sciences 3570."@en</li>
-<li>Added: <http://purl.org/dc/terms/source> https://publications.gc.ca/site/eng/9.928944/publication.html</li>
-<li>Added: SubClass of http://purl.obolibrary.org/obo/IAO_0000030</li>
-</ul>
-<ul>
-<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000115> "The WSP rapid status assessment approach builds on previously completed WSP integrated status assessments. The detailed WSP integrated assessments are labour intensive, taking 10-40 experts up to three days to complete for each group of CUs. For this reason, assessments have only been completed for ~11% of the 377 current Pacific Salmon CUs, many of which are outdated. The WSP rapid approach can fill gaps by expanding coverage of CU statuses across time, species, and geographic areas. The WSP rapid status approach ensures statuses are scientifically objective, consistent, and comparable across BC/Yukon CUs. This approach is also relatively easy to implement, applicable to data rich and data poor CUs, and can be updated annually."@en</li>
-<li>Deleted: <http://purl.obolibrary.org/obo/IAO_0000119> "Pestal, G., MacDonald, B. L., Grant, S. C. H., and Holt, C. A. (2023). State of the Salmon: rapid status assessment approach for Pacific salmon under Canada’s Wild Salmon Policy. Can. Tech. Rep. Fish. Aquat. Sci. 3570: xiv + 200 p."@en</li>
-</ul>
-</li>
-</ul></details><details><summary><u>Added classes</u></summary>
-<ul><li><a href="#http://purl.obolibrary.org/obo/ENVO_00000063">http://purl.obolibrary.org/obo/ENVO_00000063</a>
-<ul>
-<li>Added: SubClass of http://purl.obolibrary.org/obo/BFO_0000040</li>
-</ul>
-</li>
-<li><a href="#http://purl.obolibrary.org/obo/NCBITaxon_8015">http://purl.obolibrary.org/obo/NCBITaxon_8015</a>
-</li>
-<li><a href="#http://purl.obolibrary.org/obo/NCBITaxon_8018">http://purl.obolibrary.org/obo/NCBITaxon_8018</a>
-<ul>
-<li>Added: SubClass of http://purl.obolibrary.org/obo/NCBITaxon_8015</li>
-</ul>
-</li>
-<li><a href="#http://rs.tdwg.org/dwc/terms/MaterialSample">http://rs.tdwg.org/dwc/terms/MaterialSample</a>
-<ul>
-<li>Added: EquivalentClasses EquivalentClasses(&lt;http://rs.tdwg.org/dwc/terms/MaterialSample&gt; &lt;http://www.w3.org/ns/sosa/Sample&gt;)</li>
-</ul>
-</li>
-<li><a href="#http://www.opengis.net/ont/geosparql#Feature">http://www.opengis.net/ont/geosparql#Feature</a>
-<ul>
-<li>Added: SubClass of http://www.w3.org/ns/sosa/FeatureOfInterest</li>
-</ul>
-</li>
-<li><a href="#http://www.w3.org/2006/time#Instant">http://www.w3.org/2006/time#Instant</a>
-</li>
-<li><a href="#http://www.w3.org/ns/prov#Activity">http://www.w3.org/ns/prov#Activity</a>
-</li>
-<li><a href="#http://www.w3.org/ns/sosa/FeatureOfInterest">http://www.w3.org/ns/sosa/FeatureOfInterest</a>
-<ul>
-<li>Added: EquivalentClasses EquivalentClasses(&lt;http://www.w3.org/ns/sosa/FeatureOfInterest&gt; &lt;https://w3id.org/iadopt/ont/Entity&gt;)</li>
-</ul>
-</li>
-<li><a href="#http://www.w3.org/ns/sosa/Observation">http://www.w3.org/ns/sosa/Observation</a>
-<ul>
-<li>Added: EquivalentClasses EquivalentClasses(&lt;http://rs.tdwg.org/dwc/terms/Occurrence&gt; &lt;http://www.w3.org/ns/sosa/Observation&gt;)</li>
-</ul>
-</li>
-<li><a href="#http://www.w3.org/ns/sosa/Procedure">http://www.w3.org/ns/sosa/Procedure</a>
-</li>
-<li><a href="#http://www.w3.org/ns/sosa/Property">http://www.w3.org/ns/sosa/Property</a>
-<ul>
-<li>Added: EquivalentClasses EquivalentClasses(&lt;http://www.w3.org/ns/sosa/Property&gt; &lt;https://w3id.org/iadopt/ont/Property&gt;)</li>
-</ul>
-</li>
-<li><a href="#http://www.w3.org/ns/sosa/Result">http://www.w3.org/ns/sosa/Result</a>
-</li>
-<li><a href="#http://www.w3.org/ns/sosa/Sample">http://www.w3.org/ns/sosa/Sample</a>
-<ul>
-<li>Added: EquivalentClasses EquivalentClasses(&lt;http://rs.tdwg.org/dwc/terms/MaterialSample&gt; &lt;http://www.w3.org/ns/sosa/Sample&gt;)</li>
-</ul>
-</li>
-<li><a href="#http://www.w3.org/ns/sosa/Sampling">http://www.w3.org/ns/sosa/Sampling</a>
-<ul>
-<li>Added: EquivalentClasses EquivalentClasses(&lt;http://rs.tdwg.org/dwc/terms/Event&gt; &lt;http://www.w3.org/ns/sosa/Sampling&gt;)</li>
-</ul>
-</li>
-<li><a href="#CWTMarineSurvivalRate">https://w3id.org/gcdfo/salmon#CWTMarineSurvivalRate</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/ObservedRateOrAbundance</li>
-</ul>
-</li>
-<li><a href="#InRiverMortalityRate">https://w3id.org/gcdfo/salmon#InRiverMortalityRate</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/ObservedRateOrAbundance</li>
-</ul>
-</li>
-<li><a href="#IntegratedStatusOutcome">https://w3id.org/gcdfo/salmon#IntegratedStatusOutcome</a>
-</li>
-<li><a href="#LowerBiologicalBenchmark">https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/MetricBenchmark</li>
-</ul>
-</li>
-<li><a href="#MainstemMortalityRate">https://w3id.org/gcdfo/salmon#MainstemMortalityRate</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/ObservedRateOrAbundance</li>
-</ul>
-</li>
-<li><a href="#MarineSurvivalIndex">https://w3id.org/gcdfo/salmon#MarineSurvivalIndex</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/ObservedRateOrAbundance</li>
-</ul>
-</li>
-<li><a href="#ObservedExploitationRate">https://w3id.org/gcdfo/salmon#ObservedExploitationRate</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/ExploitationRate</li>
-<li>Added: SubClass of https://w3id.org/smn/ObservedRateOrAbundance</li>
-</ul>
-</li>
-<li><a href="#OceanMortalityRate">https://w3id.org/gcdfo/salmon#OceanMortalityRate</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/ObservedRateOrAbundance</li>
-</ul>
-</li>
-<li><a href="#PacificFisheryManagementArea">https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/ReportingOrManagementStratum</li>
-</ul>
-</li>
-<li><a href="#ProportionHatcheryOriginSpawners">https://w3id.org/gcdfo/salmon#ProportionHatcheryOriginSpawners</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/ObservedRateOrAbundance</li>
-</ul>
-</li>
-<li><a href="#RelativeHatcherySpawnerAbundance">https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundance</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundance</li>
-</ul>
-</li>
-<li><a href="#RelativeHatcherySpawnerAbundanceChange">https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundanceChange</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundanceChange</li>
-</ul>
-</li>
-<li><a href="#RelativeHatcherySpawnerAbundancePercentile">https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundancePercentile</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundancePercentile</li>
-</ul>
-</li>
-<li><a href="#RelativeHatcherySpawnerAbundanceTrend">https://w3id.org/gcdfo/salmon#RelativeHatcherySpawnerAbundanceTrend</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundanceTrend</li>
-</ul>
-</li>
-<li><a href="#RelativeSpawnerAbundance">https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundance</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#SpawnerAbundance</li>
-</ul>
-</li>
-<li><a href="#RelativeSpawnerAbundanceChange">https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundanceChange</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#SpawnerAbundanceChange</li>
-</ul>
-</li>
-<li><a href="#RelativeSpawnerAbundancePercentile">https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundancePercentile</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#SpawnerAbundancePercentile</li>
-</ul>
-</li>
-<li><a href="#RelativeSpawnerAbundanceTrend">https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundanceTrend</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#SpawnerAbundanceTrend</li>
-</ul>
-</li>
-<li><a href="#RelativeWildSpawnerAbundance">https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundance</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundance</li>
-</ul>
-</li>
-<li><a href="#RelativeWildSpawnerAbundanceChange">https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundanceChange</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundanceChange</li>
-</ul>
-</li>
-<li><a href="#RelativeWildSpawnerAbundancePercentile">https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundancePercentile</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundancePercentile</li>
-</ul>
-</li>
-<li><a href="#RelativeWildSpawnerAbundanceTrend">https://w3id.org/gcdfo/salmon#RelativeWildSpawnerAbundanceTrend</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#RelativeSpawnerAbundanceTrend</li>
-</ul>
-</li>
-<li><a href="#SpawnerAbundance">https://w3id.org/gcdfo/salmon#SpawnerAbundance</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/ObservedRateOrAbundance</li>
-</ul>
-</li>
-<li><a href="#SpawnerAbundanceChange">https://w3id.org/gcdfo/salmon#SpawnerAbundanceChange</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/ObservedRateOrAbundance</li>
-</ul>
-</li>
-<li><a href="#SpawnerAbundancePercentile">https://w3id.org/gcdfo/salmon#SpawnerAbundancePercentile</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/ObservedRateOrAbundance</li>
-</ul>
-</li>
-<li><a href="#SpawnerAbundanceTrend">https://w3id.org/gcdfo/salmon#SpawnerAbundanceTrend</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/ObservedRateOrAbundance</li>
-</ul>
-</li>
-<li><a href="#TargetOrLimitExploitationRate">https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/ExploitationRate</li>
-<li>Added: SubClass of https://w3id.org/smn/TargetOrLimitRateOrAbundance</li>
-</ul>
-</li>
-<li><a href="#TerminalMortalityRate">https://w3id.org/gcdfo/salmon#TerminalMortalityRate</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/ObservedRateOrAbundance</li>
-</ul>
-</li>
-<li><a href="#TotalMortalityRate">https://w3id.org/gcdfo/salmon#TotalMortalityRate</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/ObservedRateOrAbundance</li>
-</ul>
-</li>
-<li><a href="#UpperBiologicalBenchmark">https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/MetricBenchmark</li>
-</ul>
-</li>
-<li><a href="#WSPRapidStatusAlgorithmThreshold">https://w3id.org/gcdfo/salmon#WSPRapidStatusAlgorithmThreshold</a>
-<ul>
-<li>Added: SubClass of http://purl.obolibrary.org/obo/IAO_0000030</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/iadopt/ont/Constraint">https://w3id.org/iadopt/ont/Constraint</a>
-</li>
-<li><a href="#https://w3id.org/iadopt/ont/Entity">https://w3id.org/iadopt/ont/Entity</a>
-<ul>
-<li>Added: EquivalentClasses EquivalentClasses(&lt;http://www.w3.org/ns/sosa/FeatureOfInterest&gt; &lt;https://w3id.org/iadopt/ont/Entity&gt;)</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/iadopt/ont/Property">https://w3id.org/iadopt/ont/Property</a>
-<ul>
-<li>Added: EquivalentClasses EquivalentClasses(&lt;http://www.w3.org/ns/sosa/Property&gt; &lt;https://w3id.org/iadopt/ont/Property&gt;)</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/iadopt/ont/StatisticalModifier">https://w3id.org/iadopt/ont/StatisticalModifier</a>
-</li>
-<li><a href="#https://w3id.org/iadopt/ont/Variable">https://w3id.org/iadopt/ont/Variable</a>
-</li>
-<li><a href="#https://w3id.org/smn/AggregatedMeasurement">https://w3id.org/smn/AggregatedMeasurement</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/Measurement</li>
-<li></ul>
-</li>
-<li><a href="#https://w3id.org/smn/BodyShape">https://w3id.org/smn/BodyShape</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/Characteristic</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/Characteristic">https://w3id.org/smn/Characteristic</a>
-<ul>
-<li>Added: SubClass of http://www.w3.org/ns/sosa/Property</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/DataQualityAssessment">https://w3id.org/smn/DataQualityAssessment</a>
-<ul>
-<li>Added: SubClass of http://purl.obolibrary.org/obo/IAO_0000030</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/Deme">https://w3id.org/smn/Deme</a>
-<ul>
-<li>Added: SubClass of http://rs.tdwg.org/dwc/terms/Organism</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/Entity">https://w3id.org/smn/Entity</a>
-<ul>
-<li>Added: SubClass of http://www.w3.org/ns/sosa/FeatureOfInterest</li>
-<li>Added: SubClass of https://w3id.org/iadopt/ont/Entity</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/EnumerationMethod">https://w3id.org/smn/EnumerationMethod</a>
-<ul>
-<li>Added: SubClass of http://www.w3.org/ns/sosa/Procedure</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/Escapement">https://w3id.org/smn/Escapement</a>
-<ul>
-<li>Added: SubClass of http://purl.obolibrary.org/obo/BFO_0000015</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/EscapementMeasurement">https://w3id.org/smn/EscapementMeasurement</a>
-<ul>
-<li>Added: SubClass of http://purl.obolibrary.org/obo/IAO_0000109</li>
-<li>Added: SubClass of http://www.w3.org/ns/sosa/Result</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/EscapementSurveyEvent">https://w3id.org/smn/EscapementSurveyEvent</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/SurveyEvent</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/EventType">https://w3id.org/smn/EventType</a>
-</li>
-<li><a href="#https://w3id.org/smn/ExploitationRate">https://w3id.org/smn/ExploitationRate</a>
-<ul>
-<li>Added: SubClass of http://purl.obolibrary.org/obo/IAO_0000109</li>
-<li>Added: SubClass of https://w3id.org/smn/TargetOrLimitRateOrAbundance</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/FishForkLengthMeasurementMethod">https://w3id.org/smn/FishForkLengthMeasurementMethod</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/FishLengthMeasurementMethod</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/FishLength">https://w3id.org/smn/FishLength</a>
-<ul>
-<li>Added: EquivalentClasses EquivalentClasses(&lt;https://w3id.org/smn/FishLength&gt; &lt;https://w3id.org/smn/forkLength&gt;)</li>
-<li>Added: SubClass of https://w3id.org/smn/MorphologicalCharacteristic</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/FishLengthMeasurementMethod">https://w3id.org/smn/FishLengthMeasurementMethod</a>
-<ul>
-<li>Added: SubClass of http://www.w3.org/ns/sosa/Procedure</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/FishLengthMeasurementType">https://w3id.org/smn/FishLengthMeasurementType</a>
-<ul>
-<li><li><li>Added: SubClass of https://w3id.org/smn/Measurement</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/FishWeight">https://w3id.org/smn/FishWeight</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/MorphologicalCharacteristic</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/FisheriesReferencePointLower">https://w3id.org/smn/FisheriesReferencePointLower</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/LimitReferencePoint</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/FishingType">https://w3id.org/smn/FishingType</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/EventType</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/ForkLengthMeasurement">https://w3id.org/smn/ForkLengthMeasurement</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/FishLengthMeasurementType</li>
-<li></ul>
-</li>
-<li><a href="#https://w3id.org/smn/ForkLengthMeasurementFieldMethod">https://w3id.org/smn/ForkLengthMeasurementFieldMethod</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/ForkLengthMeasurementMethod</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/ForkLengthMeasurementLabMethod">https://w3id.org/smn/ForkLengthMeasurementLabMethod</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/ForkLengthMeasurementMethod</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/ForkLengthMeasurementMethod">https://w3id.org/smn/ForkLengthMeasurementMethod</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/FishForkLengthMeasurementMethod</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/GeographicFeature">https://w3id.org/smn/GeographicFeature</a>
-<ul>
-<li>Added: SubClass of http://www.opengis.net/ont/geosparql#Feature</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/HabitatUnit">https://w3id.org/smn/HabitatUnit</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/Entity</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/IndicatorRiver">https://w3id.org/smn/IndicatorRiver</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/GeographicFeature</li>
-<li>Added: SubClass of https://w3id.org/smn/ReportingOrManagementStratum</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/IndividualMeasurement">https://w3id.org/smn/IndividualMeasurement</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/Measurement</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/Life-HistoryCharacteristic">https://w3id.org/smn/Life-HistoryCharacteristic</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/Characteristic</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/LimitReferencePoint">https://w3id.org/smn/LimitReferencePoint</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/ReferencePoint</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/Measurement">https://w3id.org/smn/Measurement</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/Observation</li>
-<li><li></ul>
-</li>
-<li><a href="#https://w3id.org/smn/MethodDocumentation">https://w3id.org/smn/MethodDocumentation</a>
-<ul>
-<li>Added: SubClass of http://purl.obolibrary.org/obo/IAO_0000030</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/MetricBenchmark">https://w3id.org/smn/MetricBenchmark</a>
-<ul>
-<li>Added: SubClass of http://purl.obolibrary.org/obo/IAO_0000030</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/ModelMeasurement">https://w3id.org/smn/ModelMeasurement</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/Measurement</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/MorphologicalCharacteristic">https://w3id.org/smn/MorphologicalCharacteristic</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/Characteristic</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/NCBITaxon_8018">https://w3id.org/smn/NCBITaxon_8018</a>
-<ul>
-<li>Added: SubClass of http://purl.obolibrary.org/obo/NCBITaxon_8018</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/Observation">https://w3id.org/smn/Observation</a>
-<ul>
-<li>Added: SubClass of http://www.w3.org/ns/sosa/Observation</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/ObservedRateOrAbundance">https://w3id.org/smn/ObservedRateOrAbundance</a>
-<ul>
-<li>Added: SubClass of http://purl.obolibrary.org/obo/IAO_0000109</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/Population">https://w3id.org/smn/Population</a>
-<ul>
-<li>Added: SubClass of http://rs.tdwg.org/dwc/terms/Organism</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/ReferencePoint">https://w3id.org/smn/ReferencePoint</a>
-<ul>
-<li>Added: SubClass of http://purl.obolibrary.org/obo/IAO_0000030</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/ReportingOrManagementStratum">https://w3id.org/smn/ReportingOrManagementStratum</a>
-<ul>
-<li>Added: SubClass of http://purl.obolibrary.org/obo/IAO_0000030</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/Run">https://w3id.org/smn/Run</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/Life-HistoryCharacteristic</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/SalmonGroup">https://w3id.org/smn/SalmonGroup</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/Entity</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/SalmonIndividual">https://w3id.org/smn/SalmonIndividual</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/Entity</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/SalmonLifeStage">https://w3id.org/smn/SalmonLifeStage</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/Characteristic</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/SalmonPopulationGroup">https://w3id.org/smn/SalmonPopulationGroup</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/SalmonGroup</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/SalmonStockUnit">https://w3id.org/smn/SalmonStockUnit</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/SalmonGroup</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/SamplingEvent">https://w3id.org/smn/SamplingEvent</a>
-<ul>
-<li><li><li><li>Added: SubClass of http://www.w3.org/ns/sosa/Sampling</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/StandardLengthMeasurement">https://w3id.org/smn/StandardLengthMeasurement</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/FishLengthMeasurementType</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/Stock">https://w3id.org/smn/Stock</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/ReportingOrManagementStratum</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/StockAssessment">https://w3id.org/smn/StockAssessment</a>
-<ul>
-<li>Added: SubClass of http://purl.obolibrary.org/obo/BFO_0000015</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/SurveyEvent">https://w3id.org/smn/SurveyEvent</a>
-<ul>
-<li>Added: SubClass of http://rs.tdwg.org/dwc/terms/Event</li>
-<li>Added: SubClass of http://www.w3.org/ns/prov#Activity</li>
-<li>Added: SubClass of http://www.w3.org/ns/sosa/Sampling</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/TargetOrLimitRateOrAbundance">https://w3id.org/smn/TargetOrLimitRateOrAbundance</a>
-<ul>
-<li>Added: SubClass of http://purl.obolibrary.org/obo/IAO_0000109</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/TotalExploitationRate">https://w3id.org/smn/TotalExploitationRate</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/gcdfo/salmon#ObservedExploitationRate</li>
-<li>Added: SubClass of https://w3id.org/smn/ExploitationRate</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/TotalLengthMeasurement">https://w3id.org/smn/TotalLengthMeasurement</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/FishLengthMeasurementType</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/alevin">https://w3id.org/smn/alevin</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/SalmonLifeStage</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/forkLength">https://w3id.org/smn/forkLength</a>
-<ul>
-<li>Added: EquivalentClasses EquivalentClasses(&lt;https://w3id.org/smn/FishLength&gt; &lt;https://w3id.org/smn/forkLength&gt;)</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/fusiform">https://w3id.org/smn/fusiform</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/BodyShape</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/orbitalLength">https://w3id.org/smn/orbitalLength</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/FishLength</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/seiningEvent">https://w3id.org/smn/seiningEvent</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/FishingType</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/standardLength">https://w3id.org/smn/standardLength</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/FishLength</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/totalLength">https://w3id.org/smn/totalLength</a>
-<ul>
-<li>Added: SubClass of https://w3id.org/smn/FishLength</li>
-</ul>
-</li>
-</ul></details><details><summary><u>Deleted classes</u></summary>
-<ul><li><a href="#AlgorithmThreshold">https://w3id.org/gcdfo/salmon#AlgorithmThreshold</a>
-</li>
-<li><a href="#BroodYear">https://w3id.org/gcdfo/salmon#BroodYear</a>
-</li>
-<li><a href="#CatchYear">https://w3id.org/gcdfo/salmon#CatchYear</a>
-</li>
-<li><a href="#Escapement">https://w3id.org/gcdfo/salmon#Escapement</a>
-</li>
-<li><a href="#EscapementMeasurement">https://w3id.org/gcdfo/salmon#EscapementMeasurement</a>
-</li>
-<li><a href="#EscapementSurveyEvent">https://w3id.org/gcdfo/salmon#EscapementSurveyEvent</a>
-</li>
-<li><a href="#ExploitationRate">https://w3id.org/gcdfo/salmon#ExploitationRate</a>
-</li>
-<li><a href="#IndicatorRiver">https://w3id.org/gcdfo/salmon#IndicatorRiver</a>
-</li>
-<li><a href="#LimitReferencePoint">https://w3id.org/gcdfo/salmon#LimitReferencePoint</a>
-</li>
-<li><a href="#MetricBenchmark">https://w3id.org/gcdfo/salmon#MetricBenchmark</a>
-</li>
-<li><a href="#ObservedRateOrAbundance">https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance</a>
-</li>
-<li><a href="#ReferencePoint">https://w3id.org/gcdfo/salmon#ReferencePoint</a>
-</li>
-<li><a href="#ReportingOrManagementStratum">https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum</a>
-</li>
-<li><a href="#Stock">https://w3id.org/gcdfo/salmon#Stock</a>
-</li>
-<li><a href="#StockAssessment">https://w3id.org/gcdfo/salmon#StockAssessment</a>
-</li>
-<li><a href="#SurveyEvent">https://w3id.org/gcdfo/salmon#SurveyEvent</a>
-</li>
-<li><a href="#TargetOrLimitRateOrAbundance">https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance</a>
-</li>
-<li><a href="#TotalExploitationRate">https://w3id.org/gcdfo/salmon#TotalExploitationRate</a>
-</li>
-<li><a href="#YearBasis">https://w3id.org/gcdfo/salmon#YearBasis</a>
-</li>
-</ul></details><h3 id="changeProp" class="list">Object Properties</h3>
-<details><summary><u>Added object properties</u></summary>
-<ul><li><a href="#http://purl.obolibrary.org/obo/RO_0002351">http://purl.obolibrary.org/obo/RO_0002351</a>
-</li>
-<li><a href="#http://www.w3.org/ns/prov#generated">http://www.w3.org/ns/prov#generated</a>
-</li>
-<li><a href="#http://www.w3.org/ns/prov#used">http://www.w3.org/ns/prov#used</a>
-</li>
-<li><a href="#http://www.w3.org/ns/prov#wasDerivedFrom">http://www.w3.org/ns/prov#wasDerivedFrom</a>
-</li>
-<li><a href="#http://www.w3.org/ns/sosa/hasFeatureOfInterest">http://www.w3.org/ns/sosa/hasFeatureOfInterest</a>
-</li>
-<li><a href="#http://www.w3.org/ns/sosa/hasResult">http://www.w3.org/ns/sosa/hasResult</a>
-</li>
-<li><a href="#http://www.w3.org/ns/sosa/isSampleOf">http://www.w3.org/ns/sosa/isSampleOf</a>
-</li>
-<li><a href="#http://www.w3.org/ns/sosa/observedProperty">http://www.w3.org/ns/sosa/observedProperty</a>
-</li>
-<li><a href="#http://www.w3.org/ns/sosa/resultTime">http://www.w3.org/ns/sosa/resultTime</a>
-</li>
-<li><a href="#http://www.w3.org/ns/sosa/usedProcedure">http://www.w3.org/ns/sosa/usedProcedure</a>
-</li>
-<li><a href="#conservationUnitOf">https://w3id.org/gcdfo/salmon#conservationUnitOf</a>
-<ul>
-<li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/gcdfo/salmon#conservationUnitOf&gt; &lt;https://w3id.org/gcdfo/salmon#hasConservationUnit&gt;)</li>
-<li>Added: domain https://w3id.org/gcdfo/salmon#ConservationUnit</li>
-<li>Added: Range https://w3id.org/gcdfo/salmon#StockManagementUnit</li>
-</ul>
-</li>
-<li><a href="#hasAssessmentReferencePoint">https://w3id.org/gcdfo/salmon#hasAssessmentReferencePoint</a>
-<ul>
-<li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/gcdfo/salmon#hasAssessmentReferencePoint&gt; &lt;https://w3id.org/gcdfo/salmon#isAssessmentReferencePointFor&gt;)</li>
-<li>Added: Range https://w3id.org/smn/ReferencePoint</li>
-<li>Added: SubProperty of http://www.w3.org/ns/prov#used</li>
-<li>Added: domain https://w3id.org/smn/StockAssessment</li>
-</ul>
-</li>
-<li><a href="#hasAssessmentSubject">https://w3id.org/gcdfo/salmon#hasAssessmentSubject</a>
-<ul>
-<li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/gcdfo/salmon#hasAssessmentSubject&gt; &lt;https://w3id.org/gcdfo/salmon#isAssessmentSubjectOf&gt;)</li>
-<li>Added: Range Union of (https://w3id.org/smn/Population, https://w3id.org/smn/ReportingOrManagementStratum)</li>
-<li>Added: domain https://w3id.org/smn/StockAssessment</li>
-</ul>
-</li>
-<li><a href="#hasConservationUnit">https://w3id.org/gcdfo/salmon#hasConservationUnit</a>
-<ul>
-<li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/gcdfo/salmon#conservationUnitOf&gt; &lt;https://w3id.org/gcdfo/salmon#hasConservationUnit&gt;)</li>
-<li>Added: Range https://w3id.org/gcdfo/salmon#ConservationUnit</li>
-<li>Added: domain https://w3id.org/gcdfo/salmon#StockManagementUnit</li>
-</ul>
-</li>
-<li><a href="#hasFeatureOfInterest">https://w3id.org/gcdfo/salmon#hasFeatureOfInterest</a>
-<ul>
-<li>Added: Range https://w3id.org/smn/ReportingOrManagementStratum</li>
-<li>Added: SubProperty of http://www.w3.org/ns/prov#used</li>
-<li>Added: SubProperty of http://www.w3.org/ns/sosa/hasFeatureOfInterest</li>
-<li>Added: SubProperty of https://w3id.org/smn/hasFeatureOfInterest</li>
-<li>Added: domain https://w3id.org/smn/SurveyEvent</li>
-</ul>
-</li>
-<li><a href="#hasObservationResult">https://w3id.org/gcdfo/salmon#hasObservationResult</a>
-<ul>
-<li>Added: Range https://w3id.org/smn/EscapementMeasurement</li>
-<li>Added: SubProperty of http://www.w3.org/ns/prov#generated</li>
-<li>Added: SubProperty of http://www.w3.org/ns/sosa/hasResult</li>
-<li>Added: SubProperty of https://w3id.org/smn/hasObservationResult</li>
-<li>Added: domain https://w3id.org/smn/SurveyEvent</li>
-</ul>
-</li>
-<li><a href="#hasObservedVariable">https://w3id.org/gcdfo/salmon#hasObservedVariable</a>
-<ul>
-<li>Added: Range http://www.w3.org/2004/02/skos/core#Concept</li>
-<li>Added: SubProperty of http://www.w3.org/ns/sosa/observedProperty</li>
-<li>Added: domain https://w3id.org/smn/SurveyEvent</li>
-</ul>
-</li>
-<li><a href="#hasTargetOrLimitExploitationRate">https://w3id.org/gcdfo/salmon#hasTargetOrLimitExploitationRate</a>
-<ul>
-<li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/gcdfo/salmon#hasTargetOrLimitExploitationRate&gt; &lt;https://w3id.org/gcdfo/salmon#isTargetOrLimitForObservedExploitationRate&gt;)</li>
-<li>Added: Range https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate</li>
-<li>Added: domain https://w3id.org/gcdfo/salmon#ObservedExploitationRate</li>
-</ul>
-</li>
-<li><a href="#hasYearBasis">https://w3id.org/gcdfo/salmon#hasYearBasis</a>
-<ul>
-<li>Added: Range http://www.w3.org/2004/02/skos/core#Concept</li>
-<li>Added: domain Union of (https://w3id.org/gcdfo/salmon#ObservedExploitationRate, https://w3id.org/gcdfo/salmon#SpawnerAbundance, https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate, https://w3id.org/smn/EscapementMeasurement, https://w3id.org/smn/ExploitationRate, https://w3id.org/smn/TotalExploitationRate)</li>
-</ul>
-</li>
-<li><a href="#isAssessmentReferencePointFor">https://w3id.org/gcdfo/salmon#isAssessmentReferencePointFor</a>
-<ul>
-<li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/gcdfo/salmon#hasAssessmentReferencePoint&gt; &lt;https://w3id.org/gcdfo/salmon#isAssessmentReferencePointFor&gt;)</li>
-<li>Added: Range https://w3id.org/smn/StockAssessment</li>
-<li>Added: domain https://w3id.org/smn/ReferencePoint</li>
-</ul>
-</li>
-<li><a href="#isAssessmentSubjectOf">https://w3id.org/gcdfo/salmon#isAssessmentSubjectOf</a>
-<ul>
-<li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/gcdfo/salmon#hasAssessmentSubject&gt; &lt;https://w3id.org/gcdfo/salmon#isAssessmentSubjectOf&gt;)</li>
-<li>Added: Range https://w3id.org/smn/StockAssessment</li>
-<li>Added: domain Union of (https://w3id.org/smn/Population, https://w3id.org/smn/ReportingOrManagementStratum)</li>
-</ul>
-</li>
-<li><a href="#isDatumUsedInAssessment">https://w3id.org/gcdfo/salmon#isDatumUsedInAssessment</a>
-<ul>
-<li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/gcdfo/salmon#isDatumUsedInAssessment&gt; &lt;https://w3id.org/gcdfo/salmon#usesAssessmentDatum&gt;)</li>
-<li>Added: Range https://w3id.org/smn/StockAssessment</li>
-<li>Added: domain http://purl.obolibrary.org/obo/IAO_0000109</li>
-</ul>
-</li>
-<li><a href="#isSampleOfStratum">https://w3id.org/gcdfo/salmon#isSampleOfStratum</a>
-<ul>
-<li>Added: Range https://w3id.org/smn/ReportingOrManagementStratum</li>
-<li>Added: SubProperty of http://www.w3.org/ns/prov#wasDerivedFrom</li>
-<li>Added: SubProperty of http://www.w3.org/ns/sosa/isSampleOf</li>
-<li>Added: SubProperty of https://w3id.org/smn/isSampleOfStratum</li>
-<li>Added: domain http://rs.tdwg.org/dwc/terms/MaterialEntity</li>
-</ul>
-</li>
-<li><a href="#isTargetOrLimitForObservedExploitationRate">https://w3id.org/gcdfo/salmon#isTargetOrLimitForObservedExploitationRate</a>
-<ul>
-<li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/gcdfo/salmon#hasTargetOrLimitExploitationRate&gt; &lt;https://w3id.org/gcdfo/salmon#isTargetOrLimitForObservedExploitationRate&gt;)</li>
-<li>Added: Range https://w3id.org/gcdfo/salmon#ObservedExploitationRate</li>
-<li>Added: domain https://w3id.org/gcdfo/salmon#TargetOrLimitExploitationRate</li>
-</ul>
-</li>
-<li><a href="#usedProcedure">https://w3id.org/gcdfo/salmon#usedProcedure</a>
-<ul>
-<li>Added: SubProperty of http://www.w3.org/ns/sosa/usedProcedure</li>
-</ul>
-</li>
-<li><a href="#usesAssessmentDatum">https://w3id.org/gcdfo/salmon#usesAssessmentDatum</a>
-<ul>
-<li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/gcdfo/salmon#isDatumUsedInAssessment&gt; &lt;https://w3id.org/gcdfo/salmon#usesAssessmentDatum&gt;)</li>
-<li>Added: Range Union of (http://purl.obolibrary.org/obo/IAO_0000109, https://w3id.org/smn/ObservedRateOrAbundance, https://w3id.org/smn/TargetOrLimitRateOrAbundance)</li>
-<li>Added: SubProperty of http://www.w3.org/ns/prov#used</li>
-<li>Added: domain https://w3id.org/smn/StockAssessment</li>
-</ul>
-</li>
-<li><a href="#usesObservationProcedure">https://w3id.org/gcdfo/salmon#usesObservationProcedure</a>
-<ul>
-<li>Added: Range http://purl.obolibrary.org/obo/IAO_0000104</li>
-<li>Added: SubProperty of http://www.w3.org/ns/prov#used</li>
-<li>Added: SubProperty of http://www.w3.org/ns/sosa/usedProcedure</li>
-<li>Added: SubProperty of https://w3id.org/smn/usesObservationProcedure</li>
-<li>Added: domain https://w3id.org/smn/SurveyEvent</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/basedOn">https://w3id.org/smn/basedOn</a>
-<ul>
-<li>Added: Range https://w3id.org/smn/EnumerationMethod</li>
-<li>Added: domain https://w3id.org/smn/AggregatedMeasurement</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/characteristicFor">https://w3id.org/smn/characteristicFor</a>
-<ul>
-<li>Added: Range http://www.w3.org/ns/sosa/FeatureOfInterest</li>
-<li>Added: domain http://www.w3.org/ns/sosa/Property</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/demeOf">https://w3id.org/smn/demeOf</a>
-<ul>
-<li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/smn/demeOf&gt; &lt;https://w3id.org/smn/hasDeme&gt;)</li>
-<li>Added: Range https://w3id.org/smn/Population</li>
-<li>Added: domain https://w3id.org/smn/Deme</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/hasDeme">https://w3id.org/smn/hasDeme</a>
-<ul>
-<li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/smn/demeOf&gt; &lt;https://w3id.org/smn/hasDeme&gt;)</li>
-<li>Added: Range https://w3id.org/smn/Deme</li>
-<li>Added: SubProperty of http://purl.obolibrary.org/obo/RO_0002351</li>
-<li>Added: domain https://w3id.org/smn/Population</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/hasEventType">https://w3id.org/smn/hasEventType</a>
-<ul>
-<li>Added: Range https://w3id.org/smn/EventType</li>
-<li>Added: domain https://w3id.org/smn/SamplingEvent</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/hasFeatureOfInterest">https://w3id.org/smn/hasFeatureOfInterest</a>
-</li>
-<li><a href="#https://w3id.org/smn/hasMeasurement">https://w3id.org/smn/hasMeasurement</a>
-<ul>
-<li>Added: Range https://w3id.org/smn/Measurement</li>
-<li>Added: domain http://www.w3.org/ns/sosa/FeatureOfInterest</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/hasObservationResult">https://w3id.org/smn/hasObservationResult</a>
-</li>
-<li><a href="#https://w3id.org/smn/hasPopulation">https://w3id.org/smn/hasPopulation</a>
-<ul>
-<li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/smn/hasPopulation&gt; &lt;https://w3id.org/smn/populationOf&gt;)</li>
-<li>Added: Range https://w3id.org/smn/Population</li>
-<li>Added: SubProperty of http://purl.obolibrary.org/obo/RO_0002351</li>
-<li>Added: domain https://w3id.org/gcdfo/salmon#ConservationUnit</li>
-<li>Added: domain https://w3id.org/smn/ReportingOrManagementStratum</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/isSampleOfStratum">https://w3id.org/smn/isSampleOfStratum</a>
-</li>
-<li><a href="#https://w3id.org/smn/observedTaxonFamily">https://w3id.org/smn/observedTaxonFamily</a>
-<ul>
-<li>Added: Range http://purl.obolibrary.org/obo/NCBITaxon_8015</li>
-<li>Added: domain http://www.w3.org/ns/sosa/Observation</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/observedTaxonSpecies">https://w3id.org/smn/observedTaxonSpecies</a>
-<ul>
-<li>Added: Range http://purl.obolibrary.org/obo/NCBITaxon_8018</li>
-<li>Added: domain http://www.w3.org/ns/sosa/Observation</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/populationOf">https://w3id.org/smn/populationOf</a>
-<ul>
-<li>Added: InverseObjectProperties InverseObjectProperties(&lt;https://w3id.org/smn/hasPopulation&gt; &lt;https://w3id.org/smn/populationOf&gt;)</li>
-<li>Added: Range https://w3id.org/gcdfo/salmon#ConservationUnit</li>
-<li>Added: Range https://w3id.org/smn/ReportingOrManagementStratum</li>
-<li>Added: domain https://w3id.org/smn/Population</li>
-</ul>
-</li>
-<li><a href="#https://w3id.org/smn/usesObservationProcedure">https://w3id.org/smn/usesObservationProcedure</a>
-</li>
-</ul></details></div>
-</div>
+   <div id="changelog">null</div>
 <div id="acknowledgments">
 <h2 id="ack" class="list">Acknowledgments <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 <p>

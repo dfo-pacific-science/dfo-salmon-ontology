@@ -190,13 +190,13 @@ xsd:anyURI   a rdfs:Datatype .
   vann:preferredNamespaceUri "https://w3id.org/gcdfo/salmon#" ;
   vann:preferredNamespacePrefix "gcdfo" ;
   dcterms:created "2025-09-06"^^xsd:date ;
-  dcterms:modified "2026-03-27"^^xsd:date ;
+  dcterms:modified "2026-03-29"^^xsd:date ;
   dcterms:description "OWL + SKOS ontology for DFO salmon data: stocks/CUs/MUs, survey events, escapement measurements, and GSI constructs; aligns to DwC via rdfs:subClassOf; hybrid approach with SKOS for methods and OWL for events."@en ;
   schema:codeRepository <https://github.com/dfo-pacific-science/dfo-salmon-ontology> ;
   rdfs:seeAlso <https://github.com/dfo-pacific-science/dfo-salmon-ontology> ;
-  owl:versionInfo "0.0.7" ;
-  owl:versionIRI <https://w3id.org/gcdfo/salmon/0.0.7> ;
-  owl:priorVersion <https://w3id.org/gcdfo/salmon/0.0.2> ;
+  owl:versionInfo "0.0.8" ;
+  owl:versionIRI <https://w3id.org/gcdfo/salmon/0.0.8> ;
+  owl:priorVersion <https://w3id.org/gcdfo/salmon/0.0.7> ;
   owl:imports <https://w3id.org/smn> ;
   rdfs:comment "Migration note (2026-03-15): overlapping shared terms now use `smn:` IRIs directly in this ontology; DFO-specific semantics remain only where no shared replacement exists."@en ;
   iao:0000115 "Hybrid OWL+SKOS ontology for DFO salmon data. Uses SKOS for controlled vocabularies (methods, criteria) and OWL for formal relationships and events."@en . # definition
@@ -477,6 +477,16 @@ smn:SalmonOriginScheme a skos:ConceptScheme ;
   skos:hasTopConcept smn:SalmonOrigin ;
   gcdfo:theme gcdfo:SalmonEnhancementHatcheriesTheme, gcdfo:StockAssessmentTheme, gcdfo:GeneticsStockCompositionTheme ;
   rdfs:isDefinedBy <https://w3id.org/smn> .
+
+gcdfo:PopulationEnhancementStatusScheme a skos:ConceptScheme ;
+  skos:prefLabel "Population enhancement status scheme"@en ;
+  skos:definition "Controlled vocabulary for a DFO population-level operational classification used by source assessment and enhancement workflows to indicate whether a salmon population is treated as enhancement-supported."@en ;
+  skos:hasTopConcept gcdfo:PopulationEnhancementStatus ;
+  skos:scopeNote "This vocabulary is a population-level status classification for source-system and assessment use. It does not describe the origin of individual fish and does not encode a pHOS threshold."@en ;
+  iao:0000119 "Fisheries and Oceans Canada. 2013. Genetically Based Targets for Enhanced Contributions to Canadian Pacific Chinook Salmon Populations. Canadian Science Advisory Secretariat Research Document 2013/099."@en ;
+  dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40702285.pdf> ;
+  gcdfo:theme gcdfo:SalmonEnhancementHatcheriesTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 :StockStatusZoneScheme a skos:ConceptScheme ;
   skos:prefLabel "Stock Status Zone Scheme (legacy alias)"@en ;
@@ -868,6 +878,44 @@ smn:NaturalOrigin a skos:Concept ;
   dcterms:source <https://www.dfo-mpo.gc.ca/csas-sccs/Publications/SAR-AS/2018/2018_001-eng.html> ;
   gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:GeneticsStockCompositionTheme ;
   rdfs:isDefinedBy <https://w3id.org/smn> .
+
+gcdfo:PopulationEnhancementStatus a skos:Concept ;
+  skos:prefLabel "Population enhancement status"@en ;
+  rdfs:label "Population enhancement status"@en ;
+  skos:definition "A DFO population-level operational classification indicating whether a source workflow treats a salmon population as enhancement-supported."@en ;
+  iao:0000115 "A DFO population-level operational classification indicating whether a source workflow treats a salmon population as enhancement-supported."@en ;
+  skos:inScheme gcdfo:PopulationEnhancementStatusScheme ;
+  skos:scopeNote "Use this status only as a population-level source-system or assessment classification. It is distinct from individual fish-origin concepts such as smn:HatcheryOrigin and smn:NaturalOrigin, and it is not inferred solely from gcdfo:ProportionHatcheryOriginSpawners."@en ;
+  iao:0000119 "Fisheries and Oceans Canada. 2013. Genetically Based Targets for Enhanced Contributions to Canadian Pacific Chinook Salmon Populations. Canadian Science Advisory Secretariat Research Document 2013/099."@en ;
+  dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40702285.pdf> ;
+  gcdfo:theme gcdfo:SalmonEnhancementHatcheriesTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:EnhancedPopulation a skos:Concept ;
+  skos:prefLabel "Enhanced population"@en ;
+  rdfs:label "Enhanced population"@en ;
+  skos:definition "A population enhancement status value indicating that the source workflow treats a salmon population as directly supported by hatchery rearing and release or managed spawning-channel production."@en ;
+  iao:0000115 "A population enhancement status value indicating that the source workflow treats a salmon population as directly supported by hatchery rearing and release or managed spawning-channel production."@en ;
+  skos:inScheme gcdfo:PopulationEnhancementStatusScheme ;
+  skos:broader gcdfo:PopulationEnhancementStatus ;
+  skos:scopeNote "This is a population-level operational classification. It does not mean every fish is hatchery-origin, and it should not be assigned solely from a pHOS estimate."@en ;
+  iao:0000119 "Fisheries and Oceans Canada. 2013. Genetically Based Targets for Enhanced Contributions to Canadian Pacific Chinook Salmon Populations. Canadian Science Advisory Secretariat Research Document 2013/099."@en ;
+  dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40702285.pdf> ;
+  gcdfo:theme gcdfo:SalmonEnhancementHatcheriesTheme, gcdfo:StockAssessmentTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:NonEnhancedPopulation a skos:Concept ;
+  skos:prefLabel "Non-enhanced population"@en ;
+  rdfs:label "Non-enhanced population"@en ;
+  skos:definition "A population enhancement status value indicating that the source workflow does not treat a salmon population as directly supported by hatchery rearing and release or managed spawning-channel production."@en ;
+  iao:0000115 "A population enhancement status value indicating that the source workflow does not treat a salmon population as directly supported by hatchery rearing and release or managed spawning-channel production."@en ;
+  skos:inScheme gcdfo:PopulationEnhancementStatusScheme ;
+  skos:broader gcdfo:PopulationEnhancementStatus ;
+  skos:scopeNote "This is a population-level operational classification. It is not a statement that all fish are natural-origin, and it should not be assigned solely from a pHOS estimate."@en ;
+  iao:0000119 "Fisheries and Oceans Canada. 2013. Genetically Based Targets for Enhanced Contributions to Canadian Pacific Chinook Salmon Populations. Canadian Science Advisory Secretariat Research Document 2013/099."@en ;
+  dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/40702285.pdf> ;
+  gcdfo:theme gcdfo:SalmonEnhancementHatcheriesTheme, gcdfo:StockAssessmentTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 smn:LifePhase a skos:Concept ;
   skos:prefLabel "Life phase"@en ;
@@ -2042,6 +2090,15 @@ gcdfo:TargetOrLimitExploitationRate a owl:Class ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:FisheriesManagementTheme, gcdfo:PolicyGovernanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
+gcdfo:RemovalReference a owl:Class ;
+  rdfs:label "Removal reference"@en ;
+  iao:0000115 "A fisheries-management reference point that specifies the maximum acceptable removal rate for a stock under a precautionary harvest strategy."@en ;
+  rdfs:subClassOf smn:ReferencePoint ;
+  iao:0000119 "Fisheries and Oceans Canada. 2009. A Harvest Strategy Compliant with the Precautionary Approach. Fisheries Management Branch working document describing removal reference rates in salmon harvest strategies."@en ;
+  dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/Library/322464.pdf> ;
+  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:FisheriesManagementTheme, gcdfo:PolicyGovernanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
 smn:TotalExploitationRate a owl:Class ;
   rdfs:label "Total exploitation rate"@en ;
   rdfs:subClassOf gcdfo:ObservedExploitationRate ;
@@ -2074,6 +2131,30 @@ gcdfo:AbundanceDataType a skos:Concept ;
   skos:inScheme smn:MeasurementContextScheme ;
   skos:broader smn:MeasurementContext ;
   iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO’s Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."@en ;
+  dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
+  gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:AbsoluteAbundanceDataType a skos:Concept ;
+  skos:prefLabel "Absolute abundance data type"@en ;
+  rdfs:label "Absolute abundance data type"@en ;
+  skos:definition "An abundance data type value indicating that an abundance series is recorded as absolute abundance rather than as a relative index."@en ;
+  iao:0000115 "An abundance data type value indicating that an abundance series is recorded as absolute abundance rather than as a relative index."@en ;
+  skos:inScheme smn:MeasurementContextScheme ;
+  skos:broader gcdfo:AbundanceDataType ;
+  iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO's Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."@en ;
+  dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
+  gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
+
+gcdfo:RelativeIndexDataType a skos:Concept ;
+  skos:prefLabel "Relative index data type"@en ;
+  rdfs:label "Relative index data type"@en ;
+  skos:definition "An abundance data type value indicating that an abundance series is recorded as a relative index rather than as absolute abundance."@en ;
+  iao:0000115 "An abundance data type value indicating that an abundance series is recorded as a relative index rather than as absolute abundance."@en ;
+  skos:inScheme smn:MeasurementContextScheme ;
+  skos:broader gcdfo:AbundanceDataType ;
+  iao:0000119 "Fisheries and Oceans Canada. 2024. Rapid Status Approximations for Pacific Salmon Derived from Integrated Expert Assessments under DFO's Wild Salmon Policy. CSAS Pacific Region Science Response 2024/004."@en ;
   dcterms:source <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/41225260.pdf> ;
   gcdfo:theme gcdfo:WildSalmonPolicyTheme, gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
