@@ -64,7 +64,8 @@ prepare-import-catalog:
 	else \
 		mkdir -p release/tmp; \
 		echo "Flat SMN sibling not found; fetching pinned smn commit $(SMN_PIN)"; \
-		curl -sfL "https://raw.githubusercontent.com/salmon-data-mobilization/salmon-domain-ontology/$(SMN_PIN)/salmon-domain-ontology.ttl" -o release/tmp/smn-pinned.ttl; \
+		curl -sfL "https://raw.githubusercontent.com/salmon-data-mobilization/salmon-domain-ontology/$(SMN_PIN)/salmon-domain-ontology.ttl" -o release/tmp/smn-pinned.ttl \
+		  || { echo "❌ Failed to fetch pinned smn commit $(SMN_PIN); aborting rather than writing a catalog to a missing file."; exit 1; }; \
 		SMN_URI=$$(python3 -c 'import pathlib,sys; print(pathlib.Path(sys.argv[1]).resolve().as_uri())' release/tmp/smn-pinned.ttl); \
 		printf '%s\n' \
 			'<?xml version="1.0" encoding="UTF-8"?>' \
@@ -145,7 +146,7 @@ verify-mappings:
 	@python3 scripts/verify_mappings.py
 
 test: verify-mappings theme-coverage alpha-lint reason
-	@echo "✅ Test bundle completed (theme coverage + alpha-lint + ELK reasoning)."
+	@echo "✅ Test bundle completed (mapping-set structure + theme coverage + alpha-lint + ELK reasoning)."
 
 ci:
 	@echo "🔁 Running full CI bundle (tests, quality, docs)..."

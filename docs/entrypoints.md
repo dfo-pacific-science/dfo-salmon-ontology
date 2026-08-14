@@ -30,7 +30,7 @@ Purpose: one short, reliable map of what is canonical vs optional/deprecated.
 
 ## Test
 
-- Test command(s): `make test` (theme coverage + alpha-lint + ELK reasoning)
+- Test command(s): `make test` (mapping-set structure + theme coverage + alpha-lint + ELK reasoning)
 - Fast smoke: `make theme-coverage` or `make alpha-lint`
 
 ## App Entry Points / Wiring
