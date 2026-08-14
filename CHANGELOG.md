@@ -2,7 +2,34 @@
 
 ## [Unreleased]
 
+### Added
+- `mappings/gcdfo-to-smn.sssom.tsv`: the smn/gcdfo boundary published as data —
+  28 reviewed rows (exactMatch for terms smn migrated verbatim, closeMatch for
+  adapted terms, one cross-category relatedMatch), validated with sssom-py and
+  metasalmon's `read_sssom_mapping_set()`; structural CI check in
+  `scripts/verify_mappings.py` wired into `make test`.
+
 ### Changed
+- **Removed** the four object properties that duplicated their smn twins
+  verbatim (`gcdfo:hasFeatureOfInterest`, `gcdfo:hasObservationResult`,
+  `gcdfo:usesObservationProcedure`, `gcdfo:isSampleOfStratum`): use
+  `smn:hasFeatureOfInterest`, `smn:hasObservationResult`,
+  `smn:usesObservationProcedure`, `smn:isSampleOfStratum` directly. The
+  competency-question examples now do.
+- **Re-namespaced** `smn:FisheriesReferencePointLower` to
+  `gcdfo:FisheriesReferencePointLower`: the term was minted in the smn
+  namespace but never declared upstream, and it is DFO-policy-scoped like its
+  sibling reference-point terms.
+- MIREOT mirrors refreshed against smn main (post methods-as-SKOS):
+  `smn:EnumerationMethod` is instance-typed `sosa:Procedure` and a member of
+  `smn:MethodScheme`; the `smn:EscapementMeasurement` mirror follows the
+  upstream rename to `smn:EscapementEstimate`; the `smn:SurveyEvent` mirror
+  drops the `sosa:Sampling` superclass smn deliberately demoted.
+- The smn import now resolves to a **pinned commit** (`SMN_PIN` in the
+  Makefile) when no sibling checkout exists, instead of silently fetching
+  remote latest.
+- `docs/ADR.md` gains a numbering-correspondence note declaring the
+  `docs/adr/` files canonical.
 - Added explicit `owl:imports` linkage to shared `smn` and conservative boundary alignment axioms for safe overlap terms.
 - Kept `Population`, `hasPopulation`/`populationOf`, `ReferencePoint`, and `MetricBenchmark` as intentional DFO-local semantics in the boundary pass.
 - Documented `EnumerationMethod` as an intentionally SKOS-modeled concept root (no OWL-class equivalence cutover in this pass).

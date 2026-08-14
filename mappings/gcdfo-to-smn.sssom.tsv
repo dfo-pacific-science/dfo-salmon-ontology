@@ -1,0 +1,45 @@
+# curie_map:
+#   gcdfo: "https://w3id.org/gcdfo/salmon#"
+#   smn: "https://w3id.org/smn/"
+#   skos: "http://www.w3.org/2004/02/skos/core#"
+#   semapv: "https://w3id.org/semapv/vocab/"
+# mapping_set_id: "https://w3id.org/gcdfo/salmon/mappings/gcdfo-to-smn"
+# mapping_set_description: "Curated boundary mapping between the GC DFO Salmon Ontology (subject side, release 0.0.8 plus the 2026-08-13 S9 step-3 cleanup, repo dfo-pacific-science/dfo-salmon-ontology) and the shared Salmon Domain Ontology (object side, repo salmon-data-mobilization/salmon-domain-ontology at commit a5d4f284e859b4c878cbec5baa04d368ab1990d3). Every row is a reviewed editorial commitment grounded in smn's per-term migration provenance: terms smn migrated verbatim map skos:exactMatch; terms smn adapted (definition or scope changed) map skos:closeMatch; one cross-category concept-to-property link is skos:relatedMatch. Same-IRI MIREOT mirrors are identity, not mappings, and take no rows."
+# license: "https://creativecommons.org/licenses/by/4.0/"
+# mapping_set_version: "0.1.0"
+# subject_source: "https://w3id.org/gcdfo/salmon"
+# subject_source_version: "0.0.8+s9-step3 (release 0.0.8 commit c7a5425 plus the 2026-08-13 boundary cleanup)"
+# object_source: "https://w3id.org/smn"
+# object_source_version: "main commit a5d4f284e859b4c878cbec5baa04d368ab1990d3 (post-0.0.2; includes the 2026-08-13 methods-as-SKOS migration and the EscapementEstimate rename)"
+# mapping_date: "2026-08-13"
+# sssom_version: "1.1"
+# see_also: "https://github.com/salmon-data-mobilization/metasalmon/blob/main/knowledge/plans/2026-08-12-ontology-alignment-pass.md"
+subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification	mapping_date	comment
+gcdfo:AgeNotation	Age notation	skos:exactMatch	smn:AgeNotation	Age notation	semapv:ManualMappingCuration	2026-08-13	Migrated verbatim; smn iao:0000119 names this term.
+gcdfo:GilbertRichAgeNotation	Gilbert-Rich age notation	skos:closeMatch	smn:GilbertRichAgeNotation	Gilbert-Rich age notation	semapv:ManualMappingCuration	2026-08-13	Adapted: smn reworded the definition during migration.
+gcdfo:EuropeanAgeNotation	European age notation	skos:closeMatch	smn:EuropeanAgeNotation	European age notation	semapv:ManualMappingCuration	2026-08-13	Adapted: smn reworded the definition during migration.
+gcdfo:AgeBasis	Age basis	skos:exactMatch	smn:AgeBasis	Age basis	semapv:ManualMappingCuration	2026-08-13	Migrated verbatim.
+gcdfo:AgeAtReturnBasis	Age at return basis	skos:closeMatch	smn:AgeAtReturnBasis	Age at return basis	semapv:ManualMappingCuration	2026-08-13	Adapted definition.
+gcdfo:AgeAtMaturityBasis	Age at maturity basis	skos:closeMatch	smn:AgeAtMaturityBasis	Age at maturity basis	semapv:ManualMappingCuration	2026-08-13	Adapted definition.
+gcdfo:AgeAtSamplingBasis	Age at sampling basis	skos:closeMatch	smn:AgeAtSamplingBasis	Age at sampling basis	semapv:ManualMappingCuration	2026-08-13	Adapted definition.
+gcdfo:AgeDimension	Age dimension	skos:exactMatch	smn:AgeDimension	Age dimension	semapv:ManualMappingCuration	2026-08-13	Migrated verbatim.
+gcdfo:TotalAgeDimension	Total age dimension	skos:closeMatch	smn:TotalAgeDimension	Total age dimension	semapv:ManualMappingCuration	2026-08-13	Adapted definition.
+gcdfo:FreshwaterAgeDimension	Freshwater age dimension	skos:closeMatch	smn:FreshwaterAgeDimension	Freshwater age dimension	semapv:ManualMappingCuration	2026-08-13	Adapted definition.
+gcdfo:OceanAgeDimension	Ocean age dimension	skos:closeMatch	smn:OceanAgeDimension	Ocean age dimension	semapv:ManualMappingCuration	2026-08-13	Adapted definition.
+gcdfo:AgeClassValue	Age class value	skos:closeMatch	smn:AgeClassValue	Age class value	semapv:ManualMappingCuration	2026-08-13	Adapted and relabeled; smn adds a scope note excluding brood-cohort readings.
+gcdfo:YearBasis	Year basis	skos:closeMatch	smn:YearBasis	Year basis	semapv:ManualMappingCuration	2026-08-13	Adapted definition.
+gcdfo:AgeNotationScheme	Age notation scheme	skos:exactMatch	smn:AgeNotationScheme	Age notation scheme	semapv:ManualMappingCuration	2026-08-13	Migrated verbatim.
+gcdfo:AgeBasisScheme	Age basis scheme	skos:exactMatch	smn:AgeBasisScheme	Age basis scheme	semapv:ManualMappingCuration	2026-08-13	Migrated verbatim.
+gcdfo:AgeDimensionScheme	Age dimension scheme	skos:exactMatch	smn:AgeDimensionScheme	Age dimension scheme	semapv:ManualMappingCuration	2026-08-13	Migrated verbatim.
+gcdfo:AgeClassValueScheme	Age class value scheme	skos:exactMatch	smn:AgeClassValueScheme	Age class value scheme	semapv:ManualMappingCuration	2026-08-13	Migrated and relabeled; membership unchanged.
+gcdfo:YearBasisScheme	Year basis scheme	skos:closeMatch	smn:YearBasisScheme	Year basis scheme	semapv:ManualMappingCuration	2026-08-13	Adapted from the 0.0.8 year-basis vocabulary.
+gcdfo:Age1YearClass	Age-1 year class	skos:exactMatch	smn:AgeClassValue1	Age class value 1	semapv:ManualMappingCuration	2026-08-13	Migrated and relabeled; same age-class semantics.
+gcdfo:Age2YearClass	Age-2 year class	skos:exactMatch	smn:AgeClassValue2	Age class value 2	semapv:ManualMappingCuration	2026-08-13	Migrated and relabeled; same age-class semantics.
+gcdfo:Age3YearClass	Age-3 year class	skos:exactMatch	smn:AgeClassValue3	Age class value 3	semapv:ManualMappingCuration	2026-08-13	Migrated and relabeled; same age-class semantics.
+gcdfo:Age4YearClass	Age-4 year class	skos:exactMatch	smn:AgeClassValue4	Age class value 4	semapv:ManualMappingCuration	2026-08-13	Migrated and relabeled; same age-class semantics.
+gcdfo:Age5YearClass	Age-5 year class	skos:exactMatch	smn:AgeClassValue5	Age class value 5	semapv:ManualMappingCuration	2026-08-13	Migrated and relabeled; same age-class semantics.
+gcdfo:Age6YearClass	Age-6 year class	skos:exactMatch	smn:AgeClassValue6	Age class value 6	semapv:ManualMappingCuration	2026-08-13	Migrated and relabeled; same age-class semantics.
+gcdfo:Age7YearClass	Age-7 year class	skos:exactMatch	smn:AgeClassValue7	Age class value 7	semapv:ManualMappingCuration	2026-08-13	Migrated and relabeled; same age-class semantics.
+gcdfo:CatchYear	Catch year	skos:closeMatch	smn:CatchYearBasis	Catch year basis	semapv:ManualMappingCuration	2026-08-13	Adapted: smn models the basis concept separately from the coordinate property.
+gcdfo:CatchYear	Catch year	skos:relatedMatch	smn:catchYear	catch year (datatype property)	semapv:ManualMappingCuration	2026-08-13	Cross-category link: the gcdfo concept informed smn's row-varying coordinate property; see smn CONVENTIONS section 12.
+gcdfo:EscapementMeasurement	Escapement measurement	skos:exactMatch	smn:EscapementEstimate	Escapement estimate	semapv:ManualMappingCuration	2026-08-13	Same migrated term; smn renamed it 2026-08-13 because the class is an IAO measurement datum, not an activity (smn finding F6).

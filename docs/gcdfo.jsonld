@@ -20,7 +20,7 @@
             "@id": "https://w3id.org/gcdfo/salmon#SpawnerAbundance"
           },
           {
-            "@id": "https://w3id.org/smn/EscapementMeasurement"
+            "@id": "https://w3id.org/smn/EscapementEstimate"
           }
         ]
       }
@@ -4419,6 +4419,63 @@
     "https://w3id.org/gcdfo/salmon#theme": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/gcdfo/salmon#FisheriesReferencePointLower",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "A lower fisheries-management reference point defined for Stock Management Units (SMUs) and related fishery decision frameworks. It may be informed by Conservation Unit (CU) lower biological benchmarks, but is not identical to CU-level lower biological benchmarks used to delineate Wild Salmon Policy biological status zones."
+      }
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Fisheries and Oceans Canada. (2022). Methodologies and Guidelines for Defining Limit Reference Points for Pacific Salmon. DFO Can. Sci. Advis. Sec. Sci. Advis. Rep. 2022/030. (Erratum: December 2022)."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Re-namespaced from smn:FisheriesReferencePointLower on 2026-08-13 (S9 step 3): the term was minted in the smn namespace but never declared upstream, and every sibling DFO-policy reference-point term is gcdfo-namespaced; smn's wave-1 migration dispositioned it as policy/program-specific."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Fisheries Reference Point - Lower"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/smn/LimitReferencePoint"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#altLabel": [
+      {
+        "@language": "en",
+        "@value": "FRP-L"
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
       }
     ]
   },
@@ -11726,113 +11783,6 @@
     ]
   },
   {
-    "@id": "https://w3id.org/gcdfo/salmon#hasFeatureOfInterest",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000115": [
-      {
-        "@language": "en",
-        "@value": "Relates a survey event to the reporting or management stratum that the event targets for inference or status interpretation."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "https://w3id.org/smn/SurveyEvent"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "has feature of interest"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://w3id.org/smn/ReportingOrManagementStratum"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
-      {
-        "@id": "http://www.w3.org/ns/prov#used"
-      },
-      {
-        "@id": "http://www.w3.org/ns/sosa/hasFeatureOfInterest"
-      },
-      {
-        "@id": "https://w3id.org/smn/hasFeatureOfInterest"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/gcdfo/salmon#hasObservationResult",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000115": [
-      {
-        "@language": "en",
-        "@value": "Relates a survey event to a measurement datum/result it produces for salmon assessment workflows."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "https://w3id.org/smn/SurveyEvent"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "has observation result"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://w3id.org/smn/EscapementMeasurement"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
-      {
-        "@id": "http://www.w3.org/ns/prov#generated"
-      },
-      {
-        "@id": "http://www.w3.org/ns/sosa/hasResult"
-      },
-      {
-        "@id": "https://w3id.org/smn/hasObservationResult"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
     "@id": "https://w3id.org/gcdfo/salmon#hasObservedVariable",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
@@ -12207,61 +12157,6 @@
     ]
   },
   {
-    "@id": "https://w3id.org/gcdfo/salmon#isSampleOfStratum",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000115": [
-      {
-        "@language": "en",
-        "@value": "Relates a material sample to the reporting or management stratum it is taken to represent in analysis."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "http://rs.tdwg.org/dwc/terms/MaterialEntity"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "is sample of stratum"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://w3id.org/smn/ReportingOrManagementStratum"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
-      {
-        "@id": "http://www.w3.org/ns/prov#wasDerivedFrom"
-      },
-      {
-        "@id": "http://www.w3.org/ns/sosa/isSampleOf"
-      },
-      {
-        "@id": "https://w3id.org/smn/isSampleOfStratum"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
     "@id": "https://w3id.org/gcdfo/salmon#isTargetOrLimitForObservedExploitationRate",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
@@ -12438,58 +12333,6 @@
     ]
   },
   {
-    "@id": "https://w3id.org/gcdfo/salmon#usesObservationProcedure",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000115": [
-      {
-        "@language": "en",
-        "@value": "Relates a survey event to the procedure/protocol used to execute it."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "https://w3id.org/smn/SurveyEvent"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "uses observation procedure"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://purl.obolibrary.org/obo/IAO_0000104"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
-      {
-        "@id": "http://www.w3.org/ns/prov#used"
-      },
-      {
-        "@id": "http://www.w3.org/ns/sosa/usedProcedure"
-      },
-      {
-        "@id": "https://w3id.org/smn/usesObservationProcedure"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#DataModelProvenanceTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
     "@id": "https://w3id.org/smn/CatchContext",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#Concept"
@@ -12575,7 +12418,8 @@
   {
     "@id": "https://w3id.org/smn/EnumerationMethod",
     "@type": [
-      "http://www.w3.org/2004/02/skos/core#Concept"
+      "http://www.w3.org/2004/02/skos/core#Concept",
+      "http://www.w3.org/ns/sosa/Procedure"
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
@@ -12585,30 +12429,33 @@
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "Enumeration Method"
+        "@value": "Enumeration method"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
       {
         "@language": "en",
-        "@value": "A method used to enumerate or count salmon in the field"
+        "@value": "A method used to enumerate or count salmon in the field."
       }
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#EnumerationMethodScheme"
+      },
+      {
+        "@id": "https://w3id.org/smn/MethodScheme"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#prefLabel": [
       {
         "@language": "en",
-        "@value": "Enumeration Method"
+        "@value": "Enumeration method"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#scopeNote": [
       {
         "@language": "en",
-        "@value": "DFO profile note: this ontology uses the shared `smn:EnumerationMethod` concept directly and constrains local narrower methods beneath it."
+        "@value": "DFO profile note: this ontology uses the shared `smn:EnumerationMethod` concept directly and constrains local narrower methods beneath it. Mirror updated 2026-08-13 to match upstream after smn's methods-as-SKOS migration: the concept is instance-typed sosa:Procedure and is the top concept of smn:MethodScheme; membership in the local gcdfo:EnumerationMethodScheme is retained as the profile attachment point."
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
@@ -12668,7 +12515,7 @@
     ]
   },
   {
-    "@id": "https://w3id.org/smn/EscapementMeasurement",
+    "@id": "https://w3id.org/smn/EscapementEstimate",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
@@ -12686,7 +12533,7 @@
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "Escapement measurement"
+        "@value": "Escapement estimate"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
@@ -12789,57 +12636,6 @@
     "https://w3id.org/gcdfo/salmon#theme": [
       {
         "@id": "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/smn/FisheriesReferencePointLower",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000115": [
-      {
-        "@language": "en",
-        "@value": "A lower fisheries-management reference point defined for Stock Management Units (SMUs) and related fishery decision frameworks. It may be informed by Conservation Unit (CU) lower biological benchmarks, but is not identical to CU-level lower biological benchmarks used to delineate Wild Salmon Policy biological status zones."
-      }
-    ],
-    "http://purl.obolibrary.org/obo/IAO_0000119": [
-      {
-        "@language": "en",
-        "@value": "Fisheries and Oceans Canada. (2022). Methodologies and Guidelines for Defining Limit Reference Points for Pacific Salmon. DFO Can. Sci. Advis. Sec. Sci. Advis. Rep. 2022/030. (Erratum: December 2022)."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/smn"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Fisheries Reference Point - Lower"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://w3id.org/smn/LimitReferencePoint"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#altLabel": [
-      {
-        "@language": "en",
-        "@value": "FRP-L"
-      }
-    ],
-    "https://w3id.org/gcdfo/salmon#theme": [
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme"
-      },
-      {
-        "@id": "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme"
       },
       {
         "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
@@ -13885,6 +13681,12 @@
         "@id": "https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Mirror updated 2026-08-13: the sosa:Sampling superclass was removed to match upstream, which demoted that claim to skos:closeMatch (smn alignment pass, finding F7)."
+      }
+    ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
         "@id": "https://w3id.org/smn"
@@ -13902,9 +13704,6 @@
       },
       {
         "@id": "http://www.w3.org/ns/prov#Activity"
-      },
-      {
-        "@id": "http://www.w3.org/ns/sosa/Sampling"
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
