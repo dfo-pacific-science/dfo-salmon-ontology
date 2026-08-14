@@ -96,7 +96,7 @@ If a term is clearly **cross-organization, policy-neutral, and reusable**, it pr
 5. **Use Protégé Desktop** to edit `ontology/dfo-salmon.ttl` with OntoGraf for visualization.
 6. **Use project targets for quality control**: `make reason` (or `make quality-check` for the full ROBOT report).
 7. **Discuss changes** in GitHub Issues before creating PRs.
-8. **Run validations**: run `make theme-coverage` (smoke), `make alpha-lint` (alpha migration lints), or `make test` (theme coverage + alpha-lint + ELK reasoning); use `make quality-check` for the full ROBOT report. Note: if using `devenv`/`nix` (optional), prefix commands with `devenv shell`.
+8. **Run validations**: run `make theme-coverage` (smoke), `make alpha-lint` (alpha migration lints), or `make test` (mapping-set structure + theme coverage + alpha-lint + ELK reasoning); use `make quality-check` for the full ROBOT report. Note: if using `devenv`/`nix` (optional), prefix commands with `devenv shell`.
 9. **Single local+CI entrypoint**: `make ci` (runs tests, ROBOT quality-check, and `make docs-refresh` so that ontology + docs + serializations stay in sync).
 
 ### For Users

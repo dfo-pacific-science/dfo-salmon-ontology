@@ -83,7 +83,7 @@ ORDER BY ?assessment ?referencePoint
 ```sparql
 SELECT ?surveyEvent ?datum ?assessment WHERE {
   ?surveyEvent a gcdfo:SurveyEvent ;
-               gcdfo:hasObservationResult ?datum .
+               smn:hasObservationResult ?datum .
   ?datum gcdfo:isDatumUsedInAssessment ?assessment .
 }
 ORDER BY ?surveyEvent ?assessment
@@ -97,7 +97,7 @@ SELECT ?subject ?surveyEvent ?datum ?assessment ?referencePoint WHERE {
               gcdfo:hasAssessmentSubject ?subject ;
               gcdfo:hasAssessmentReferencePoint ?referencePoint .
   ?surveyEvent a gcdfo:SurveyEvent ;
-               gcdfo:hasObservationResult ?datum .
+               smn:hasObservationResult ?datum .
   ?datum gcdfo:isDatumUsedInAssessment ?assessment .
 }
 ORDER BY ?subject ?assessment ?surveyEvent

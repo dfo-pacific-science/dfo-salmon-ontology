@@ -9,6 +9,10 @@ WIDOCO_JAR := tools/widoco.jar
 WIDOCO_URL := https://github.com/dgarijo/Widoco/releases/download/v$(WIDOCO_VERSION)/widoco-$(WIDOCO_VERSION)-jar-with-dependencies_JDK-17.jar
 DSU_ONTOLOGY_DIR ?= ../data-stewardship-unit/data/ontology
 SMN_FLAT_TTL ?= ../salmon-domain-ontology/salmon-domain-ontology.ttl
+# Pinned smn commit used when no sibling checkout exists (was: silent
+# remote-latest resolution, which made provenance uncitable). Bump
+# deliberately; the SSSOM mapping set's object_source_version cites it.
+SMN_PIN ?= a5d4f284e859b4c878cbec5baa04d368ab1990d3
 ROBOT_CATALOG := release/tmp/robot-catalog.xml
 WIDOCO_ONTOLOGY_INPUT := release/tmp/dfo-salmon-docs-input.ttl
 
@@ -58,12 +62,19 @@ prepare-import-catalog:
 			> "$(ROBOT_CATALOG)"; \
 		echo "✅ ROBOT catalog maps smn import to flat root file: $(SMN_FLAT_TTL)"; \
 	else \
+		mkdir -p release/tmp; \
+		echo "Flat SMN sibling not found; fetching pinned smn commit $(SMN_PIN)"; \
+		curl -sfL "https://raw.githubusercontent.com/salmon-data-mobilization/salmon-domain-ontology/$(SMN_PIN)/salmon-domain-ontology.ttl" -o release/tmp/smn-pinned.ttl \
+		  || { echo "❌ Failed to fetch pinned smn commit $(SMN_PIN); aborting rather than writing a catalog to a missing file."; exit 1; }; \
+		SMN_URI=$$(python3 -c 'import pathlib,sys; print(pathlib.Path(sys.argv[1]).resolve().as_uri())' release/tmp/smn-pinned.ttl); \
 		printf '%s\n' \
 			'<?xml version="1.0" encoding="UTF-8"?>' \
 			'<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">' \
-			'</catalog>' \
+			"  <uri name=\"https://w3id.org/smn\" uri=\"$$SMN_URI\"/>" \
+			"  <uri name=\"https://w3id.org/smn/\" uri=\"$$SMN_URI\"/>" \
 			> "$(ROBOT_CATALOG)"; \
-		echo "⚠️  Flat SMN file not found at $(SMN_FLAT_TTL); using remote import resolution."; \
+		printf '%s\n' '</catalog>' >> "$(ROBOT_CATALOG)"; \
+		echo "✅ ROBOT catalog maps smn import to pinned commit $(SMN_PIN)"; \
 	fi
 
 # Quality checking with proper ROBOT configuration
@@ -131,8 +142,11 @@ theme-coverage: check-robot prepare-import-catalog
 alpha-lint: check-robot prepare-import-catalog
 	@ROBOT_CATALOG=$(ROBOT_CATALOG) ./scripts/run-sparql-lint.sh ontology/dfo-salmon.ttl
 
-test: theme-coverage alpha-lint reason
-	@echo "✅ Test bundle completed (theme coverage + alpha-lint + ELK reasoning)."
+verify-mappings:
+	@python3 scripts/verify_mappings.py
+
+test: verify-mappings theme-coverage alpha-lint reason
+	@echo "✅ Test bundle completed (mapping-set structure + theme coverage + alpha-lint + ELK reasoning)."
 
 ci:
 	@echo "🔁 Running full CI bundle (tests, quality, docs)..."

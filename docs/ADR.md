@@ -17,6 +17,23 @@ This document records the key architectural decisions made for the DFO Salmon On
 
 ---
 
+> **Numbering note (2026-08-13).** This inline document predates the
+> per-decision files under `docs/adr/`, and the two numbering systems
+> diverged after 001. **The `docs/adr/` files are canonical** — they are what
+> `CONVENTIONS.md` cites. Correspondence:
+>
+> | This document | Canonical file |
+> |---|---|
+> | ADR-001 Hybrid OWL+SKOS | `docs/adr/001-hybrid-owl-skos-modeling.md` |
+> | ADR-004 Schema vs Data Separation | `docs/adr/002-schema-data-separation.md` |
+> | ADR-006 IRI and Versioning Policy | `docs/adr/003-iri-versioning-policy.md` |
+> | ADR-008 ROBOT Toolchain | `docs/adr/004-robot-toolchain-selection.md` |
+> | ADR-007 External Vocabulary Alignment | `docs/adr/005-external-vocabulary-integration.md` |
+> | *(no inline entry)* | `docs/adr/006-shared-layer-boundary-and-conservative-smn-alignment.md` — the smn boundary decision, made after this document was written |
+>
+> Entries here with no file (002, 003, 005, 009, 010) were never promoted to
+> the canonical registry; treat them as historical background.
+
 ## ADR-001: Hybrid OWL+SKOS Modeling Approach
 
 **Date:** 2025-01-07  
