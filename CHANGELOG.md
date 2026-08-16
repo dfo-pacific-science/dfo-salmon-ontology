@@ -24,9 +24,10 @@ between namespaces**; consumers holding the old IRIs should read
   cross-category concept-to-property link). Four of the exactMatch rows are
   *replacement rows* for the `gcdfo:` properties removed in this release, so a
   dataset holding a retired IRI can resolve it. Mapping-set version `0.1.0`;
-  subject source `0.0.8+s9-step3`; object source smn `main` at commit
-  `a5d4f284e859b4c878cbec5baa04d368ab1990d3`. Validated out of band with
-  sssom-py and metasalmon's `read_sssom_mapping_set()`.
+  subject source `0.0.8+s9-step3`; object source smn **0.0.3** (release tag,
+  commit `f7205eea45817cc6a58e4f15b4f31f344da8434f`) — see the pin correction
+  below. Validated out of band with sssom-py and metasalmon's
+  `read_sssom_mapping_set()`.
 - `scripts/verify_mappings.py` and a `make verify-mappings` target: a
   stdlib-only, CI-fatal structural check of the mapping set (byte contract,
   required metadata, fixed column set, row completeness, uniqueness, declared
