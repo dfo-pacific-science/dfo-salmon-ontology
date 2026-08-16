@@ -8,6 +8,12 @@ Purpose: one short, reliable map of what is canonical vs optional/deprecated.
 - Local URL(s): n/a
 - Required environment variables (names only, no secrets): none
 
+## Local prerequisites
+
+- Java 17, plus `make install-robot` and `make install-widoco`
+- Python deps: `pip install -r scripts/requirements.txt`
+  - `rdflib` is pinned there to the exact version CI installs, because it decides the bytes of `docs/gcdfo.jsonld` and CI rejects any post-`make ci` difference
+
 ## Build / Publish
 
 - Canonical docs + artifacts refresh: `make docs-refresh`
@@ -15,9 +21,13 @@ Purpose: one short, reliable map of what is canonical vs optional/deprecated.
   - regenerates `docs/gcdfo.{ttl,owl,jsonld}` from `ontology/dfo-salmon.ttl`
   - refreshes SKOS sections in `docs/index.html`
 - Full CI-equivalent local run: `make ci`
-- Optional helper to reduce generated-artifact drift after CI: `make ci-sync-artifacts`
+- Supported way to stage regenerated artifacts locally: `make ci-sync-artifacts`
+  - runs `make ci`, then stages every tracked path it regenerates, listed once in the Makefile as `CI_ARTIFACT_PATHS`: `docs/gcdfo.{ttl,owl,jsonld}`, `docs/index.html`, `docs/index-en.html`, and the WIDOCO-owned `docs/provenance/`, `docs/resources/`, `docs/webvowl/` trees
+  - that list is what CI's post-`make ci` clean-tree check enforces, so the two must not diverge; the CI failure message points here rather than repeating the paths
 - WIDOCO only: `make docs-widoco`
   - internally builds `release/tmp/dfo-salmon-docs-input.ttl` via `make docs-widoco-input` (collapsed import closure for deterministic docs rendering)
+  - then runs `scripts/normalize_webvowl_json.py` over `docs/webvowl/data/ontology.json` to stabilize OWL2VOWL's nondeterministic ids/ordering against the previously tracked copy; see [ADR-007](adr/007-webvowl-duplicate-node-disambiguation.md)
+  - the recipe runs under `set -e`, so a normalizer or WIDOCO failure fails the build instead of printing success
 - Release snapshot (immutable docs version): `make release-snapshot VERSION=X.Y.Z`
 
 ### Deprecated optional utility flow (non-canonical)

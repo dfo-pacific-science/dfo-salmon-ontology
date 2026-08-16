@@ -142,8 +142,8 @@ If a term is clearly **cross-organization, policy-neutral, and reusable**, it pr
    - `owl:versionInfo`
    - `owl:versionIRI` (example: `https://w3id.org/gcdfo/salmon/0.0.9`)
    - `owl:priorVersion` (previous version IRI)
-2. Promote the `## [Unreleased]` section of `CHANGELOG.md` to `## [X.Y.Z] - YYYY-MM-DD` and leave a fresh empty `## [Unreleased]` above it.
-3. Run `make ci-sync-artifacts` (or `devenv shell make ci-sync-artifacts`) and commit regenerated artifacts from `docs/` (including `docs/gcdfo.{ttl,owl,jsonld}`, `docs/index.html`, and `docs/index-en.html` when changed).
+2. Promote the `## [Unreleased]` section of `CHANGELOG.md` to `## [X.Y.Z] - YYYY-MM-DD` and leave a fresh empty `## [Unreleased]` above it. Promote **everything** that will be inside the tag, including entries other PRs left under `## [Unreleased]` — the 0.0.7 backfill in `CHANGELOG.md` records what happens when that step is skipped.
+3. Run `make ci-sync-artifacts` (or `devenv shell make ci-sync-artifacts`) and commit everything it stages. It prints the staged paths and covers the full regenerated set — the serializations, the WIDOCO HTML, and the `docs/webvowl/`, `docs/resources/`, and `docs/provenance/` trees — which is what CI's post-`make ci` clean-tree check enforces.
 4. Run `make release-snapshot VERSION=X.Y.Z` (or `devenv shell make release-snapshot VERSION=X.Y.Z`) to create a release snapshot (an immutable copy under `docs/releases/X.Y.Z/`). Snapshots are immutable: never re-cut one with `FORCE=1` as routine workflow.
 5. Commit and push `docs/releases/X.Y.Z/` so GitHub Pages serves the versioned files.
 6. **Tag and publish.** After the release PR merges, cut an **annotated** tag on the merge commit that made the version current (a tag is a Git label for a specific commit), then create a GitHub Release whose body is the `CHANGELOG.md` entry. Ontology repos in this ecosystem use **bare `X.Y.Z` tags** (no `v` prefix — that prefix is reserved for the R package `metasalmon`) and mark pre-1.0 releases as pre-releases:
