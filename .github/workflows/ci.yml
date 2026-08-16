@@ -68,9 +68,9 @@ jobs:
 
       - name: Fail if CI bundle produced uncommitted changes
         run: |
-          CHANGES="$(git status --porcelain --untracked-files=all -- . ':(exclude)docs/webvowl/data/ontology.json')"
+          CHANGES="$(git status --porcelain --untracked-files=all -- .)"
           if [ -n "$CHANGES" ]; then
-            echo "::error::Running 'make ci' produced tracked/untracked changes. Please run it locally and commit regenerated artifacts (including docs/gcdfo.{ttl,owl,jsonld} and docs/index*.html) before pushing."
+            echo "::error::Running 'make ci' produced tracked/untracked changes. Please run it locally and commit regenerated artifacts (including docs/gcdfo.{ttl,owl,jsonld}, docs/index*.html, and docs/webvowl/data/ontology.json) before pushing."
             printf '%s\n' "$CHANGES"
             exit 1
           fi

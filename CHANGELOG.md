@@ -2,6 +2,23 @@
 
 ## [Unreleased]
 
+### Fixed
+- The WebVOWL output-stabilization gate was reporting success while doing nothing, and had
+  been since PR #78. Three compounding faults: `scripts/normalize_webvowl_json.py` aborted
+  on every run (`Non-unique semantic class key`) because the merged closure emits three
+  `xsd:gYear` datatype nodes and the class key required `(type, iri)` to be unique; the
+  `docs-widoco` recipe was one `;`-chained shell with no `set -e`, so make took the trailing
+  `echo`'s exit status and printed a success mark over the crash; and CI excluded
+  `docs/webvowl/data/ontology.json` from its uncommitted-changes check, so nothing
+  downstream noticed. Colliding class keys are now widened with the node's property-wiring
+  context, `docs-widoco` and `release-snapshot` run under `set -e`, and the CI exclusion is
+  removed. See [ADR-007](docs/adr/007-webvowl-duplicate-node-disambiguation.md).
+- `docs/webvowl/data/ontology.json` is re-baselined from raw generator output to the
+  normalizer's own rendering, which lands the corrections it was always meant to apply:
+  `owl:inverseOf` edges OWL2VOWL drops (13 properties) and `skos:prefLabel` preference over
+  `rdfs:label` (2 classes, one of which — `smn:EscapementSurveyEvent` — carries two
+  competing English `rdfs:label` values upstream).
+
 ### Added
 - `mappings/gcdfo-to-smn.sssom.tsv`: the smn/gcdfo boundary published as data —
   28 reviewed rows (exactMatch for terms smn migrated verbatim, closeMatch for

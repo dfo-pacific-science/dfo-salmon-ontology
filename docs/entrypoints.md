@@ -18,6 +18,8 @@ Purpose: one short, reliable map of what is canonical vs optional/deprecated.
 - Optional helper to reduce generated-artifact drift after CI: `make ci-sync-artifacts`
 - WIDOCO only: `make docs-widoco`
   - internally builds `release/tmp/dfo-salmon-docs-input.ttl` via `make docs-widoco-input` (collapsed import closure for deterministic docs rendering)
+  - then runs `scripts/normalize_webvowl_json.py` over `docs/webvowl/data/ontology.json` to stabilize OWL2VOWL's nondeterministic ids/ordering against the previously tracked copy; see [ADR-007](adr/007-webvowl-duplicate-node-disambiguation.md)
+  - the recipe runs under `set -e`, so a normalizer or WIDOCO failure fails the build instead of printing success
 - Release snapshot (immutable docs version): `make release-snapshot VERSION=X.Y.Z`
 
 ### Deprecated optional utility flow (non-canonical)

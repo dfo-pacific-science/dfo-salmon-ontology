@@ -215,7 +215,8 @@ docs-widoco-input: check-robot prepare-import-catalog
 
 docs-widoco: check-widoco docs-widoco-input
 	@echo "🧙 Regenerating WIDOCO docs..."
-	@OUT="release/tmp/widoco"; \
+	@set -e; \
+	OUT="release/tmp/widoco"; \
 	BASELINE="release/tmp/webvowl-baseline.json"; \
 	rm -rf "$$OUT"; \
 	mkdir -p "$$OUT"; \
@@ -276,7 +277,8 @@ release-snapshot: docs-refresh
 		echo "❌ VERSION is required (e.g., make release-snapshot VERSION=0.0.999)"; \
 		exit 1; \
 	fi
-	@DEST="docs/releases/$(VERSION)"; \
+	@set -e; \
+	DEST="docs/releases/$(VERSION)"; \
 	if [ -d "$$DEST" ] && [ "$(FORCE)" != "1" ]; then \
 		echo "❌ Snapshot already exists: $$DEST (set FORCE=1 to overwrite)"; \
 		exit 1; \
