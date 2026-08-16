@@ -574,7 +574,7 @@ gcdfo:WildSalmonPolicy
 gcdfo:ConservationUnit 
   a owl:Class ;
   rdfs:label "Conservation Unit"@en ;
-  skos:definition "A group of fish sufficiently isolated from other groups that, if extirpated, is very unlikely to recolonize naturally within an acceptable timeframe."@en ;
+  skos:definition "A group of wild salmon sufficiently isolated from other groups that, if extirpated, is very unlikely to recolonize naturally within an acceptable timeframe."@en ;
   dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/wsp-pss/policy-politique-eng.html#glossary> .
 
 gcdfo:WSPBiologicalStatusZone 
