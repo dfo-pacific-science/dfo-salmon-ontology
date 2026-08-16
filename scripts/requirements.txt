@@ -1,2 +1,14 @@
-rdflib>=6.2,<7
+# Pinned to the version CI installs (.github/workflows/ci.yml). Not a taste
+# preference: rdflib decides the bytes of docs/gcdfo.jsonld, which CI's
+# post-`make ci` clean-tree check enforces. Under the previous `>=6.2,<7`
+# range, rdflib 6.3.2 drops `"@type": "xsd:integer"` from 20 skos:notation
+# values that 7.2.1 keeps, so a contributor following this file could not
+# produce a tree CI accepts, no matter what they committed. Bump this and
+# the CI pin together, and regenerate docs/gcdfo.jsonld in the same commit.
+rdflib==7.2.1
+
+# Only scripts/extract-term-tables.py needs this, and that flow is the
+# deprecated local-only utility documented in docs/entrypoints.md — it is not
+# part of `make ci`, so it does not constrain any committed artifact and stays
+# a range. Pin it if it ever feeds a tracked output.
 PyYAML>=6.0,<7

@@ -72,7 +72,7 @@ declaration for any otherwise-untyped IRI used in class or property position, so
 naming a term core no longer declares does not fail loudly — it mints that term as a fresh
 `owl:Class` or `owl:ObjectProperty`. That is how eight retired `gcdfo:` terms survived here
 after the core migration to `smn:`; see
-[ADR-007](../../docs/adr/007-alignment-overlays-follow-core-to-smn.md). Run against the
+[ADR-008](../../docs/adr/008-alignment-overlays-follow-core-to-smn.md). Run against the
 pre-fix overlays, the check reports the terms each one re-minted: two for `alignment-main`
 (`gcdfo:hasDeme`, `gcdfo:hasPopulation`), five for `alignment-research`. It reports nothing for
 the other three retired names, because those appeared only in annotation position, where the
@@ -104,9 +104,9 @@ java -jar tools/robot.jar merge \
 an OWL class, and it reports these overlays' class bridges. `check-modules` deliberately does
 not run it, because that lint is scoped to the terms this repo authors and these bridges are
 not the overlays' invention: the imported `smn` closure contributes **18** such rows before any
-overlay is loaded — including `smn:SurveyEvent skos:closeMatch sosa:Sampling` and
-`gcdfo:FisheriesReferencePointLower skos:closeMatch iadopt:Constraint`, which upstream asserts
-about a DFO class. The shared layer also deliberately *demoted* a `sosa:Sampling` superclass
+overlay is loaded, including `smn:SurveyEvent skos:closeMatch sosa:Sampling` and
+`smn:ReferencePoint skos:closeMatch iadopt:Constraint` — every row the retarget produces is
+already one of them. The shared layer also deliberately *demoted* a `sosa:Sampling` superclass
 claim to `skos:closeMatch` (alignment finding F7). Rewriting the overlays as
 `rdfs:subClassOf`/`owl:equivalentClass` would assert unconfirmed equivalence in the file whose
 stated purpose is to avoid brittle equivalence axioms, and would contradict that upstream

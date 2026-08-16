@@ -30,7 +30,7 @@ help:
 	@echo "  alpha-lint      Run alpha migration SPARQL lints (year-basis scheme, variable decomposition, skos:*Match property lint)"
 	@echo "  check-modules   Merge each ontology/modules/ overlay with core and check the result"
 	@echo "  test            Run fast validation bundle: theme-coverage + alpha-lint + ELK reasoning + check-modules"
-	@echo "  ci-sync-artifacts Run make ci, then stage generated docs artifacts for commit"
+	@echo "  ci-sync-artifacts Run make ci, then stage every docs/ artifact it regenerates"
 	@echo ""
 	@echo "Format Conversion:"
 	@echo "  convert-owl     Convert to OWL format"
@@ -168,9 +168,35 @@ ci:
 	@$(MAKE) docs-refresh
 	@echo "✅ CI bundle completed."
 
+# Every tracked path `make ci` regenerates. This is the single list of that
+# set: `.github/workflows/ci.yml` rejects *any* uncommitted change left after
+# `make ci` across the whole worktree, and deliberately does not repeat these
+# paths, because two copies of one list is how they drifted apart before.
+#
+# Directory pathspecs for the three WIDOCO-owned trees are deliberate.
+# `docs-widoco` rsyncs each of them wholesale, so naming individual files lets
+# a WIDOCO upgrade emit one this helper silently skips — which is exactly how
+# `docs/webvowl/data/ontology.json` stayed out of the helper while CI enforced
+# it. `docs/resources/gcdfo-*.{css,js}` are repo-authored overrides that live
+# inside a generated tree; they are staged too when edited, which is intended,
+# since they ship as part of the same docs build.
+CI_ARTIFACT_PATHS := \
+	docs/gcdfo.ttl docs/gcdfo.owl docs/gcdfo.jsonld \
+	docs/index.html docs/index-en.html \
+	docs/provenance docs/resources docs/webvowl
+
+# No `|| true` here: a `git add` that fails must not print a success mark over
+# the failure, which is the same fault this target's own `make ci` dependency
+# was fixed for.
 ci-sync-artifacts: ci
-	@git add docs/gcdfo.ttl docs/gcdfo.owl docs/gcdfo.jsonld docs/index.html docs/index-en.html || true
-	@echo "✅ Staged generated docs artifacts after make ci."
+	@git add -- $(CI_ARTIFACT_PATHS)
+	@STAGED="$$(git diff --cached --name-only -- $(CI_ARTIFACT_PATHS))"; \
+	if [ -n "$$STAGED" ]; then \
+		echo "✅ Staged generated docs artifacts after make ci:"; \
+		printf '%s\n' "$$STAGED" | sed 's/^/   /'; \
+	else \
+		echo "✅ make ci changed no generated docs artifacts; nothing to stage."; \
+	fi
 
 # Setup
 install-robot:
@@ -228,7 +254,8 @@ docs-widoco-input: check-robot prepare-import-catalog
 
 docs-widoco: check-widoco docs-widoco-input
 	@echo "🧙 Regenerating WIDOCO docs..."
-	@OUT="release/tmp/widoco"; \
+	@set -e; \
+	OUT="release/tmp/widoco"; \
 	BASELINE="release/tmp/webvowl-baseline.json"; \
 	rm -rf "$$OUT"; \
 	mkdir -p "$$OUT"; \
@@ -289,7 +316,8 @@ release-snapshot: docs-refresh
 		echo "❌ VERSION is required (e.g., make release-snapshot VERSION=0.0.999)"; \
 		exit 1; \
 	fi
-	@DEST="docs/releases/$(VERSION)"; \
+	@set -e; \
+	DEST="docs/releases/$(VERSION)"; \
 	if [ -d "$$DEST" ] && [ "$(FORCE)" != "1" ]; then \
 		echo "❌ Snapshot already exists: $$DEST (set FORCE=1 to overwrite)"; \
 		exit 1; \

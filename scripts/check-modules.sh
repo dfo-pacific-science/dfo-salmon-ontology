@@ -9,7 +9,7 @@
 # position — so an overlay naming a term core no longer declares does not fail
 # loudly, it silently mints that term. Eight retired gcdfo: terms survived that
 # way after the core migration to smn:, five of them minted as fresh owl:Class /
-# owl:ObjectProperty declarations. See ADR-007.
+# owl:ObjectProperty declarations. See ADR-008.
 #
 # Three checks per module, each of which states what would retire it:
 #
@@ -28,7 +28,7 @@
 # cross-framework idiom — the imported smn closure contributes 18 such rows
 # before any overlay is loaded, and smn deliberately demoted a subClassOf claim
 # to skos:closeMatch (alignment finding F7). Linting the overlays for it would
-# report upstream's modelling, not theirs. ADR-007 records the evidence. This
+# report upstream's modelling, not theirs. ADR-008 records the evidence. This
 # exemption retires if the shared layer moves off that idiom, at which point the
 # class lint can be run over the merged closure like any other check.
 
@@ -121,7 +121,7 @@ for module in "${modules[@]}"; do
     sed 's/^/     /' "$minted"
     echo "     Each is a term this module names that core no longer declares."
     echo "     Retarget it at the term core uses, or delete the axiom — do not"
-    echo "     re-declare the retired name. See ADR-007."
+    echo "     re-declare the retired name. See ADR-008."
     failures=$((failures + 1))
   else
     echo "✅ Minted terms: none (module names no term core has retired)"

@@ -69,7 +69,7 @@
 #################################################################
 # Stronger subclass candidates
 #
-# Subjects retargeted to smn: 2026-08-16 (ADR-007). The gcdfo: twins of
+# Subjects retargeted to smn: 2026-08-16 (ADR-008). The gcdfo: twins of
 # these terms were retired when the core ontology migrated overlapping
 # shared terms to smn: IRIs directly (dfo-salmon.ttl migration note,
 # 2026-03-15); the bridges kept pointing at the retired gcdfo: names.
@@ -115,7 +115,7 @@ gcdfo:WSPRapidStatus skos:closeMatch <https://w3id.org/iadopt/ont/Variable> .
 # duplicated the smn:* properties verbatim. This module is not wired into any
 # build; kept as a historical staging record.
 #
-# 2026-08-16 (ADR-007): "not wired into any build" is true of CI but not of
+# 2026-08-16 (ADR-008): "not wired into any build" is true of CI but not of
 # contributors -- modules/README.md tells them to load this file alongside
 # core. Throughout this file, the alignment axioms that still named the
 # retired gcdfo: twins have been retargeted at their smn: counterparts.

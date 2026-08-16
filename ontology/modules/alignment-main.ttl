@@ -16,7 +16,7 @@
 #################################################################
 # Conservative class bridges (annotation-level)
 #
-# Subjects retargeted to smn: 2026-08-16 (ADR-007). The gcdfo: twins of
+# Subjects retargeted to smn: 2026-08-16 (ADR-008). The gcdfo: twins of
 # these terms were retired when the core ontology migrated overlapping
 # shared terms to smn: IRIs directly (dfo-salmon.ttl migration note,
 # 2026-03-15); the bridges kept pointing at the retired gcdfo: names.
@@ -25,15 +25,15 @@
 # Why skos:closeMatch on terms that are OWL classes, and not
 # rdfs:subClassOf / owl:equivalentClass: closeMatch is the shared layer's
 # own cross-framework idiom, not a slip. The imported smn closure asserts
-# 18 such class-to-class matches before this overlay is loaded — seven of
-# them the very rows below, verbatim — and smn deliberately *demoted* a
+# 18 such class-to-class matches before this overlay is loaded, and all
+# seven smn: rows below are among them, verbatim. smn also *demoted* a
 # sosa:Sampling superclass claim to skos:closeMatch (alignment finding F7,
 # mirrored in dfo-salmon.ttl). Promoting these to entailment-bearing OWL
 # axioms would assert equivalences nobody has confirmed, in the file whose
 # stated job is to avoid brittle equivalence axioms, and would contradict
 # an upstream decision. Promote a row only when the pairing is confirmed
 # AND the shared layer makes the same claim in OWL; that is the condition
-# under which this note stops applying. Measured evidence: ADR-007.
+# under which this note stops applying. Measured evidence: ADR-008.
 #################################################################
 
 smn:SurveyEvent skos:closeMatch <http://www.w3.org/ns/sosa/Sampling> .

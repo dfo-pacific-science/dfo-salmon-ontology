@@ -7,7 +7,7 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 # and over core+overlay and fails on any term the overlay adds. The OWL API
 # supplies a declaration for any otherwise-untyped IRI used in class or property
 # position, so an overlay naming a term core no longer declares does not fail
-# loudly — it silently mints that term. See ADR-007.
+# loudly — it silently mints that term. See ADR-008.
 #
 # External namespaces (sosa:, iadopt:, dwc:, prov:, ro:) are deliberately out of
 # scope: alignment-research.ttl declares external class stubs on purpose, for

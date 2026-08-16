@@ -1,4 +1,4 @@
-# ADR-007: Alignment overlay modules follow core to `smn:`
+# ADR-008: Alignment overlay modules follow core to `smn:`
 
 ## Status
 
@@ -129,16 +129,23 @@ follows, from measurement rather than from argument.
 
 ### Measured: what `scripts/sparql/skos-match-on-owl-classes.rq` actually reports
 
-Run over merged closures (ROBOT 1.9.8, `smn` at `a5d4f28`, 2026-08-16):
+Run over merged closures (ROBOT 1.9.8, 2026-08-16). Two `smn` resolutions are shown because
+the build uses either: the pinned `SMN_PIN` commit `a5d4f28` when no sibling checkout exists,
+or `SMN_FLAT_TTL` when one does. The numbers move by one row between them, and the conclusion
+does not.
 
-| Closure | Rows |
-|---|---|
-| core alone, import closure collapsed, **no overlay** | **18** |
-| core + `alignment-main`, before the retarget | 30 |
-| core + `alignment-main`, after the retarget | **24** |
-| core + `alignment-research`, before the retarget | 33 |
-| core + `alignment-research`, after the retarget | **27** |
-| `ontology/dfo-salmon.ttl` as `make test` queries it (imports not merged) | 0 |
+| Closure | Pinned `a5d4f28` | Sibling checkout at `78b4435` |
+|---|---|---|
+| core alone, import closure collapsed, **no overlay** | **18** | **18** |
+| core + `alignment-main`, before the retarget | 31 | 30 |
+| core + `alignment-main`, after the retarget | **24** | **24** |
+| core + `alignment-research`, before the retarget | 34 | 33 |
+| core + `alignment-research`, after the retarget | **27** | **27** |
+| `ontology/dfo-salmon.ttl` as `make test` queries it (imports not merged) | 0 | 0 |
+
+The one-row difference is `FisheriesReferencePointLower`: the pin asserts the match about
+`smn:FisheriesReferencePointLower`, a term upstream minted but never declared, and `78b4435`
+re-namespaces it to `gcdfo:FisheriesReferencePointLower`. Both baselines are 18 rows.
 
 Three things follow. First, the retarget **reduced** the count — it removed six phantom-subject
 rows per overlay and added none to `alignment-main`; the single row it adds to
@@ -152,9 +159,13 @@ are in the closure either way.
 ### Decision: keep `skos:*Match`; do not convert to `rdfs:subClassOf`/`owl:equivalentClass`
 
 Class-to-class `skos:closeMatch` is the shared layer's own cross-framework idiom, not a slip in
-these overlays. `smn` asserts it 18 times in the closure this repo imports — including
-`gcdfo:FisheriesReferencePointLower skos:closeMatch iadopt:Constraint`, upstream asserting it
-about a DFO class — and `smn` deliberately **demoted** a `sosa:Sampling` superclass claim to
+these overlays. `smn` asserts it 18 times in the closure this repo imports, about its own OWL
+classes (`smn:SurveyEvent skos:closeMatch sosa:Sampling`, `smn:ReferencePoint skos:closeMatch
+iadopt:Constraint`, and the rest of the retargeted set) and about third-party pairs
+(`sosa:Observation skos:closeMatch dwc:Occurrence`). Upstream `78b4435` goes further and asserts
+one about a DFO class, `gcdfo:FisheriesReferencePointLower skos:closeMatch iadopt:Constraint`;
+the pin predates that re-namespacing. `smn` also deliberately **demoted** a `sosa:Sampling`
+superclass claim to
 `skos:closeMatch` (alignment finding F7, mirrored in `dfo-salmon.ttl`). Converting the overlay
 rows to OWL axioms would assert equivalences nobody has confirmed, in the file whose stated job
 is to avoid brittle equivalence axioms, and would reverse F7. Rows graduate individually when
