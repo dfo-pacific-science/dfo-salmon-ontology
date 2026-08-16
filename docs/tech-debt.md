@@ -5,6 +5,34 @@ Keep it short, specific, and tied to real boundary/publishing risks.
 
 ## Active Technical Debt
 
+### 2026-08-16 — Nothing checks that `docs/releases/<version>/` still matches `docs/`
+
+**What**: `make release-snapshot` copies `docs/gcdfo.{ttl,owl,jsonld}` into
+`docs/releases/<version>/` once. Nothing re-checks the copy afterwards. A merge
+into the release branch after the snapshot is cut leaves the snapshot holding
+superseded bytes, and every gate stays green: CI's clean-tree check only
+verifies that `make ci` regenerates `docs/` reproducibly, and `make ci` does not
+write `docs/releases/` at all.
+
+**Impact**: caught on this release. `docs/releases/0.0.9/` was cut before PR #77
+merged, so it carried the pre-WSP "A group of fish…" `gcdfo:ConservationUnit`
+definition while `docs/gcdfo.ttl` carried "A group of wild salmon…". Publishing
+that would have frozen a known-superseded definition into an immutable release
+snapshot — the exact outcome the decision to land #77 before 0.0.9 was meant to
+prevent. Re-cut with `FORCE=1`; the diff was one line per serialization.
+
+**Why it is debt rather than a fixed bug**: the re-cut fixes this release. The
+next release branch that takes a merge after snapshotting has the same hole, and
+the failure is silent, so it will be found by inspection or not at all.
+
+**Intended fix path**: a CI check comparing each `docs/releases/<version>/` file
+against `docs/` **only when `<version>` equals the current `owl:versionInfo`** —
+older snapshots must keep diverging, that is what makes them snapshots. Cheap,
+and it fails exactly when a release branch has moved under its own snapshot.
+
+**Retires when**: a gate in `make ci` fails on a `docs/releases/<current
+version>/` file that does not match its `docs/` counterpart.
+
 ### 2026-08-16 — Term definitions are authored in four places, not derived
 
 **What**: a `gcdfo:` term definition string exists as four independently

@@ -139,6 +139,13 @@ between namespaces**; consumers holding the old IRIs should read
 
 ### Changed (release preparation)
 
+- `docs/releases/0.0.9/` was re-cut after PR #77 merged. The snapshot had been
+  taken before that merge, so it still carried the superseded "A group of fish…"
+  `gcdfo:ConservationUnit` definition while `docs/gcdfo.*` carried the WSP
+  wording; nothing in `make ci` compares the two, because `make ci` does not
+  write `docs/releases/` at all. Re-cutting an *unpublished* snapshot is not the
+  `FORCE=1` overwrite the README warns against — 0.0.9 is not tagged yet — but
+  the gap that let it drift is recorded in `docs/tech-debt.md`.
 - `SMN_PIN` and the mapping set's `object_source_version` now cite the smn
   **0.0.3 release tag** (commit `f7205ee`) instead of an intermediate `main`
   commit. A downstream resolving this import closure must be able to point at
