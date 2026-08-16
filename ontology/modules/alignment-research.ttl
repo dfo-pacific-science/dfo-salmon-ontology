@@ -76,6 +76,13 @@
 # Left dangling, a core+overlay merge silently re-minted them as fresh
 # owl:Class / owl:ObjectProperty declarations in the gcdfo: namespace.
 # gcdfo: subjects below are the terms DFO still owns and declares.
+#
+# On skos:closeMatch between terms that are OWL classes: see the same note
+# in alignment-main.ttl. It is the shared layer's own idiom (18 such rows
+# arrive with the smn import, before any overlay loads), and smn itself
+# demoted a subClassOf claim to closeMatch in finding F7. The rdfs:subClassOf
+# rows below are the ones this file is willing to state in OWL, which is
+# exactly why it carries a "review before merge" warning.
 #################################################################
 
 smn:SurveyEvent rdfs:subClassOf prov:Activity ;
@@ -129,7 +136,11 @@ smn:hasDeme rdfs:subPropertyOf ro:0002351 .
 smn:hasPopulation rdfs:subPropertyOf ro:0002351 .
 gcdfo:hasConservationUnit rdfs:subPropertyOf ro:0002351 .
 
-<http://www.w3.org/ns/sosa/Sampling> skos:closeMatch dwc:Event .
+# broadMatch, not closeMatch: dwc:Event is broader than sosa:Sampling. Mirrors
+# the shared layer, which asserts skos:broadMatch here. Asserting closeMatch put
+# two different mapping strengths on one pair in every core+overlay merge
+# (caught by `make check-modules`, 2026-08-16).
+<http://www.w3.org/ns/sosa/Sampling> skos:broadMatch dwc:Event .
 <http://www.w3.org/ns/sosa/Sample> skos:closeMatch dwc:MaterialEntity .
 <http://www.w3.org/ns/sosa/Observation> skos:closeMatch dwc:Occurrence .
 <http://www.w3.org/ns/sosa/Procedure> skos:closeMatch <https://rs.tdwg.org/dwc/dp/terms/Protocol> .

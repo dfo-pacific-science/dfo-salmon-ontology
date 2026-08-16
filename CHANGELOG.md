@@ -3,6 +3,13 @@
 ## [Unreleased]
 
 ### Added
+- `make check-modules`: the validation entrypoint for `ontology/modules/*.ttl`.
+  Merges each optional overlay with core — the path `ontology/modules/README.md`
+  tells contributors to use — and fails on terms the merge mints in the
+  `gcdfo:`/`smn:` namespaces, on a pair carrying two different `skos:*Match`
+  predicates, and on an inconsistent merged closure. Wired into `make test`, so
+  the overlays are no longer excluded from validation; documented in
+  `docs/entrypoints.md`.
 - `mappings/gcdfo-to-smn.sssom.tsv`: the smn/gcdfo boundary published as data —
   28 reviewed rows (exactMatch for terms smn migrated verbatim, closeMatch for
   adapted terms, one cross-category relatedMatch), validated with sssom-py and
@@ -10,6 +17,15 @@
   `scripts/verify_mappings.py` wired into `make test`.
 
 ### Changed
+- **Alignment overlays retargeted at `smn:`** after the core migration
+  (`ADR-007`): eight axiom subjects in `ontology/modules/alignment-main.ttl` and
+  `alignment-research.ttl` named `gcdfo:` terms core had retired, which a
+  core+overlay merge silently re-minted. Both overlays also asserted
+  `sosa:Sampling skos:closeMatch dwc:Event` where the shared layer asserts
+  `skos:broadMatch`; they now mirror upstream. The overlays keep `skos:*Match`
+  for class-to-class bridges — that is the shared layer's own idiom, which
+  contributes 18 such rows to the import closure before any overlay loads;
+  ADR-007 carries the measurements.
 - **Removed** the four object properties that duplicated their smn twins
   verbatim (`gcdfo:hasFeatureOfInterest`, `gcdfo:hasObservationResult`,
   `gcdfo:usesObservationProcedure`, `gcdfo:isSampleOfStratum`): use

@@ -30,8 +30,12 @@ Purpose: one short, reliable map of what is canonical vs optional/deprecated.
 
 ## Test
 
-- Test command(s): `make test` (mapping-set structure + theme coverage + alpha-lint + ELK reasoning)
+- Test command(s): `make test` (mapping-set structure + theme coverage + alpha-lint + ELK reasoning + module overlays)
 - Fast smoke: `make theme-coverage` or `make alpha-lint`
+- Optional alignment overlays: `make check-modules`
+  - the only path that validates `ontology/modules/*.ttl`; every other target loads `ontology/dfo-salmon.ttl`, which does not import them
+  - merges each overlay with core — the documented contributor path, see [`ontology/modules/README.md`](../ontology/modules/README.md) — then checks the merge for minted `gcdfo:`/`smn:` terms, conflicting `skos:*Match` strengths, and ELK consistency
+  - runs inside `make test`, so the overlays are no longer excluded from validation; run it standalone when iterating on a module
 
 ## App Entry Points / Wiring
 
@@ -40,6 +44,7 @@ Purpose: one short, reliable map of what is canonical vs optional/deprecated.
 - Shared-layer build resolution (default local): `make prepare-import-catalog` maps `https://w3id.org/smn` to `../salmon-domain-ontology/salmon-domain-ontology.ttl` (flat, import-free root artifact) when present.
 - Shared-layer fallback resolution: if `SMN_FLAT_TTL` is missing, ROBOT/WIDOCO flows fall back to remote import resolution via `https://w3id.org/smn`.
 - Namespace boundary policy (canonical): see [`README.md` — "Namespace Boundary and Shared-Layer Preference"](../README.md#namespace-boundary-and-shared-layer-preference).
+- Locally-owned optional overlays: `ontology/modules/alignment-main.ttl`, `ontology/modules/alignment-research.ttl` — not imported by core, loaded by contributors alongside it, validated by `make check-modules`.
 - Optional metamodel/upper-level views are no longer owned here; use the shared SMN `ontology/views/` layer for that perspective.
 - Boundary detail here is intentionally minimized; this file only records the import/wiring mechanics above.
 - Runtime routes/handlers: none

@@ -109,33 +109,89 @@ for. No `smn:` term is redefined, renamed, or given DFO-specific semantics.
 
 - The overlays now depend on upstream `smn:` term names, so an upstream rename breaks them.
   `smn:EscapementEstimate` is already one such rename, tracked in
-  `mappings/gcdfo-to-smn.sssom.tsv`.
+  `mappings/gcdfo-to-smn.sssom.tsv`. `make check-modules` now fails on the next one instead of
+  absorbing it silently: a renamed term stops being declared in core's closure, so the overlay's
+  reference to the old name shows up as a minted term.
 - These axioms are now semantically live rather than inert, which raises the cost of a
   careless merge of the research overlay. That module's existing "review before merge"
   warning matters more than it did.
 
 ### Neutral
 
-- CI behaviour is unchanged; `make test` neither caught this nor validates the fix, because
-  the build still does not load these modules. Verification is a core + overlay merge —
-  see below. Wiring the overlays into automated validation is a separate, larger question
-  (they use `skos:*Match` on OWL classes, which `scripts/sparql/skos-match-on-owl-classes.rq`
-  lints against in core) and is deliberately not settled here.
+- The overlays are now validated: `make check-modules` merges each with core and checks the
+  result, and `make test` runs it. See "Wiring the overlays into validation" below.
+
+## Wiring the overlays into validation
+
+The first version of this ADR left the overlays outside automated validation and recorded the
+`skos:*Match`-on-OWL-classes question as open. Review (PR #81) pushed on both. Resolved as
+follows, from measurement rather than from argument.
+
+### Measured: what `scripts/sparql/skos-match-on-owl-classes.rq` actually reports
+
+Run over merged closures (ROBOT 1.9.8, `smn` at `a5d4f28`, 2026-08-16):
+
+| Closure | Rows |
+|---|---|
+| core alone, import closure collapsed, **no overlay** | **18** |
+| core + `alignment-main`, before the retarget | 30 |
+| core + `alignment-main`, after the retarget | **24** |
+| core + `alignment-research`, before the retarget | 33 |
+| core + `alignment-research`, after the retarget | **27** |
+| `ontology/dfo-salmon.ttl` as `make test` queries it (imports not merged) | 0 |
+
+Three things follow. First, the retarget **reduced** the count — it removed six phantom-subject
+rows per overlay and added none to `alignment-main`; the single row it adds to
+`alignment-research` (`smn:ReportingOrManagementStratum skos:closeMatch iadopt:Entity`) replaces
+the identical row on the retired `gcdfo:` name. Second, every retargeted row that remains is
+**already asserted verbatim by upstream `smn`** — it is in the 18-row core baseline, so the
+overlay contributes a duplicate triple, not a new claim. Third, `make test` reports 0 not
+because core is clean but because `robot query` does not load the import closure; the 18 rows
+are in the closure either way.
+
+### Decision: keep `skos:*Match`; do not convert to `rdfs:subClassOf`/`owl:equivalentClass`
+
+Class-to-class `skos:closeMatch` is the shared layer's own cross-framework idiom, not a slip in
+these overlays. `smn` asserts it 18 times in the closure this repo imports — including
+`gcdfo:FisheriesReferencePointLower skos:closeMatch iadopt:Constraint`, upstream asserting it
+about a DFO class — and `smn` deliberately **demoted** a `sosa:Sampling` superclass claim to
+`skos:closeMatch` (alignment finding F7, mirrored in `dfo-salmon.ttl`). Converting the overlay
+rows to OWL axioms would assert equivalences nobody has confirmed, in the file whose stated job
+is to avoid brittle equivalence axioms, and would reverse F7. Rows graduate individually when
+the pairing is confirmed and the shared layer states it in OWL.
+
+`make check-modules` therefore does not run the class lint, and `ontology/modules/README.md`
+records the condition that retires that exemption: the shared layer moving off the idiom.
+
+### Decision: check the overlays for what they can actually get wrong
+
+`make check-modules` (in `make test`) merges each overlay with core and checks:
+
+1. **Minted terms** — no `gcdfo:`/`smn:` term declared in the merge that core does not declare.
+   This is the defect above, made executable. Run against the pre-fix overlays it reports
+   exactly the re-minting table: `gcdfo:hasDeme` and `gcdfo:hasPopulation` for
+   `alignment-main`, those two plus `gcdfo:SurveyEvent`, `gcdfo:EscapementSurveyEvent` and
+   `gcdfo:EscapementMeasurement` for `alignment-research`. Run against the fixed ones it
+   reports none. It says nothing about the other three retired names — they appeared only in
+   annotation position, where nothing is minted — so this check bounds the silent-resurrection
+   failure, not the whole retarget.
+2. **Mapping-strength conflicts** — no pair carrying two different `skos:*Match` predicates.
+   This found a real defect that predates this PR: both overlays asserted
+   `sosa:Sampling skos:closeMatch dwc:Event` while `smn` asserts `skos:broadMatch` on the same
+   pair. Fixed here by mirroring upstream.
+3. **ELK consistency** of the merged closure — the claim this ADR makes above, made executable.
+
+The overlays restate several mappings `smn` already owns. Where a restatement agrees it is a
+harmless duplicate triple; check 2 is what catches one that does not.
 
 ## More Information
 
-Verify with a merge of core and each overlay, then check that no IRI asserted about is
-undeclared in the closure:
-
 ```bash
-java -jar tools/robot.jar merge \
-  --catalog release/tmp/robot-catalog.xml \
-  --input ontology/dfo-salmon.ttl \
-  --input ontology/modules/alignment-main.ttl \
-  --output /tmp/merged.ttl
+make check-modules
 ```
 
-A green `make test` is **not** evidence for this change either way.
+A green `make test` **now** covers these files. Before this change it did not, and a green run
+was not evidence about them either way.
 
 The last full definitions of the retired terms are recoverable with
 `git show 7489532:ontology/07-dfo-salmon-terms.txt` (that snapshot was removed as an

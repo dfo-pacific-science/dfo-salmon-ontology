@@ -1,0 +1,34 @@
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+# Every term declared in the queried graph whose IRI belongs to a namespace this
+# ecosystem owns: gcdfo: (DFO) or smn: (shared layer).
+#
+# Used by scripts/check-modules.sh, which runs this over the core import closure
+# and over core+overlay and fails on any term the overlay adds. The OWL API
+# supplies a declaration for any otherwise-untyped IRI used in class or property
+# position, so an overlay naming a term core no longer declares does not fail
+# loudly — it silently mints that term. See ADR-007.
+#
+# External namespaces (sosa:, iadopt:, dwc:, prov:, ro:) are deliberately out of
+# scope: alignment-research.ttl declares external class stubs on purpose, for
+# WebVOWL readability. That exclusion retires if those stubs are ever moved out
+# of the overlays, at which point this filter can drop and the check can assert
+# that an overlay declares nothing at all.
+SELECT DISTINCT ?term
+WHERE {
+  VALUES ?type {
+    owl:Class
+    owl:ObjectProperty
+    owl:DatatypeProperty
+    owl:AnnotationProperty
+    owl:NamedIndividual
+  }
+
+  ?term a ?type .
+
+  FILTER(
+    STRSTARTS(STR(?term), "https://w3id.org/gcdfo/salmon#") ||
+    STRSTARTS(STR(?term), "https://w3id.org/smn/")
+  )
+}
+ORDER BY ?term

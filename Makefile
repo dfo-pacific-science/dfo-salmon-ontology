@@ -16,7 +16,7 @@ SMN_PIN ?= a5d4f284e859b4c878cbec5baa04d368ab1990d3
 ROBOT_CATALOG := release/tmp/robot-catalog.xml
 WIDOCO_ONTOLOGY_INPUT := release/tmp/dfo-salmon-docs-input.ttl
 
-.PHONY: help quality-check reason convert clean install-robot install-widoco theme-coverage alpha-lint test ci-sync-artifacts docs-refresh docs-widoco docs-widoco-input docs-serializations docs-skos docs-postprocess prepare-import-catalog release-snapshot
+.PHONY: help quality-check reason convert clean install-robot install-widoco theme-coverage alpha-lint check-modules test ci-sync-artifacts docs-refresh docs-widoco docs-widoco-input docs-serializations docs-skos docs-postprocess prepare-import-catalog release-snapshot
 
 # Default target
 help:
@@ -28,7 +28,8 @@ help:
 	@echo "  reason-all      Run all available reasoners (ELK, HermiT, JFact)"
 	@echo "  theme-coverage  Run gcdfo:theme coverage SPARQL check (writes release/tmp/theme-coverage.tsv)"
 	@echo "  alpha-lint      Run alpha migration SPARQL lints (year-basis scheme, variable decomposition, skos:*Match property lint)"
-	@echo "  test            Run fast validation bundle: theme-coverage + alpha-lint + ELK reasoning"
+	@echo "  check-modules   Merge each ontology/modules/ overlay with core and check the result"
+	@echo "  test            Run fast validation bundle: theme-coverage + alpha-lint + ELK reasoning + check-modules"
 	@echo "  ci-sync-artifacts Run make ci, then stage generated docs artifacts for commit"
 	@echo ""
 	@echo "Format Conversion:"
@@ -49,6 +50,7 @@ help:
 prepare-import-catalog:
 	@mkdir -p release/tmp
 	@SMN_FILE="$(SMN_FLAT_TTL)"; \
+	GCDFO_URI=$$(python3 -c 'import pathlib,sys; print(pathlib.Path(sys.argv[1]).resolve().as_uri())' ontology/dfo-salmon.ttl); \
 	if [ -f "$$SMN_FILE" ]; then \
 		SMN_URI=$$(python3 -c 'import pathlib,sys; print(pathlib.Path(sys.argv[1]).resolve().as_uri())' "$$SMN_FILE"); \
 		printf '%s\n' \
@@ -58,6 +60,7 @@ prepare-import-catalog:
 			"  <uri name=\"https://w3id.org/smn/\" uri=\"$$SMN_URI\"/>" \
 			"  <uri name=\"https://w3id.org/smn/smn.ttl\" uri=\"$$SMN_URI\"/>" \
 			"  <uri name=\"https://w3id.org/smn/salmon-domain-ontology.ttl\" uri=\"$$SMN_URI\"/>" \
+			"  <uri name=\"https://w3id.org/gcdfo/salmon\" uri=\"$$GCDFO_URI\"/>" \
 			'</catalog>' \
 			> "$(ROBOT_CATALOG)"; \
 		echo "✅ ROBOT catalog maps smn import to flat root file: $(SMN_FLAT_TTL)"; \
@@ -72,6 +75,7 @@ prepare-import-catalog:
 			'<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">' \
 			"  <uri name=\"https://w3id.org/smn\" uri=\"$$SMN_URI\"/>" \
 			"  <uri name=\"https://w3id.org/smn/\" uri=\"$$SMN_URI\"/>" \
+			"  <uri name=\"https://w3id.org/gcdfo/salmon\" uri=\"$$GCDFO_URI\"/>" \
 			> "$(ROBOT_CATALOG)"; \
 		printf '%s\n' '</catalog>' >> "$(ROBOT_CATALOG)"; \
 		echo "✅ ROBOT catalog maps smn import to pinned commit $(SMN_PIN)"; \
@@ -145,8 +149,17 @@ alpha-lint: check-robot prepare-import-catalog
 verify-mappings:
 	@python3 scripts/verify_mappings.py
 
-test: verify-mappings theme-coverage alpha-lint reason
-	@echo "✅ Test bundle completed (mapping-set structure + theme coverage + alpha-lint + ELK reasoning)."
+# The optional overlays in ontology/modules/ are not imported by core, so every
+# other target in this file loads core without them. This one merges each overlay
+# with core the way ontology/modules/README.md tells contributors to, and checks
+# what that merge produces. It is part of `test` on purpose: before it existed,
+# the overlays were excluded from validation and a defect in them could not fail
+# any build.
+check-modules: check-robot prepare-import-catalog
+	@ROBOT_JAR=$(ROBOT_JAR) ROBOT_CATALOG=$(ROBOT_CATALOG) ./scripts/check-modules.sh
+
+test: verify-mappings theme-coverage alpha-lint reason check-modules
+	@echo "✅ Test bundle completed (mapping-set structure + theme coverage + alpha-lint + ELK reasoning + module overlays)."
 
 ci:
 	@echo "🔁 Running full CI bundle (tests, quality, docs)..."

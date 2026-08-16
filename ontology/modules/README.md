@@ -58,9 +58,37 @@ Derived from the latest four alignment artifacts shared in chat:
 
 ## Verifying a module
 
-`make test` does **not** load these files — the build neither imports them nor names them, so
-a green test bundle says nothing about them either way. Check a module by merging it with core,
-the same way a contributor would use it:
+```bash
+make check-modules
+```
+
+This is the entrypoint for these files, and it runs as part of `make test`. Every other target
+loads `ontology/dfo-salmon.ttl` alone, which imports neither overlay and so reports nothing
+about them; `check-modules` merges each overlay with core the way this README tells you to use
+them, and checks what that merge produces.
+
+It matters because the merge is where these files can fail silently. The OWL API supplies a
+declaration for any otherwise-untyped IRI used in class or property position, so an overlay
+naming a term core no longer declares does not fail loudly — it mints that term as a fresh
+`owl:Class` or `owl:ObjectProperty`. That is how eight retired `gcdfo:` terms survived here
+after the core migration to `smn:`; see
+[ADR-007](../../docs/adr/007-alignment-overlays-follow-core-to-smn.md). Run against the
+pre-fix overlays, the check reports the terms each one re-minted: two for `alignment-main`
+(`gcdfo:hasDeme`, `gcdfo:hasPopulation`), five for `alignment-research`. It reports nothing for
+the other three retired names, because those appeared only in annotation position, where the
+OWL API mints nothing — retargeting them was still correct, but this check is not what proves
+it.
+
+What it checks, per module — each with the condition that would retire it:
+
+| Check | Retires when |
+|---|---|
+| The merge declares no `gcdfo:`/`smn:` term that core does not | never in practice — it depends on the OWL API minting declarations for untyped IRIs |
+| No pair of terms carries two different `skos:*Match` predicates | the overlays stop restating mappings the shared layer already makes |
+| The merged closure is ELK-consistent | never; it is the minimum a loadable overlay must meet |
+
+To inspect a merge by hand, `check-modules` leaves it in `release/tmp/modules/`, or build one
+directly:
 
 ```bash
 java -jar tools/robot.jar merge \
@@ -70,12 +98,24 @@ java -jar tools/robot.jar merge \
   --output /tmp/merged.ttl
 ```
 
-Then confirm no IRI the module asserts about is left undeclared in the merged closure. This
-matters because the OWL API supplies a declaration for any otherwise-untyped IRI used in class
-or property position: a module naming a term that core no longer declares does not fail loudly,
-it silently mints that term as a fresh `owl:Class` or `owl:ObjectProperty`. That is how eight
-retired `gcdfo:` terms survived here after the core migration to `smn:` — see
-[ADR-007](../../docs/adr/007-alignment-overlays-follow-core-to-smn.md).
+### Why these files use `skos:closeMatch` between OWL classes
+
+`scripts/sparql/skos-match-on-owl-classes.rq` lints against `skos:*Match` where either side is
+an OWL class, and it reports these overlays' class bridges. `check-modules` deliberately does
+not run it, because that lint is scoped to the terms this repo authors and these bridges are
+not the overlays' invention: the imported `smn` closure contributes **18** such rows before any
+overlay is loaded — including `smn:SurveyEvent skos:closeMatch sosa:Sampling` and
+`gcdfo:FisheriesReferencePointLower skos:closeMatch iadopt:Constraint`, which upstream asserts
+about a DFO class. The shared layer also deliberately *demoted* a `sosa:Sampling` superclass
+claim to `skos:closeMatch` (alignment finding F7). Rewriting the overlays as
+`rdfs:subClassOf`/`owl:equivalentClass` would assert unconfirmed equivalence in the file whose
+stated purpose is to avoid brittle equivalence axioms, and would contradict that upstream
+decision.
+
+This exemption retires if the shared layer moves off the `skos:*Match` idiom for class-to-class
+alignment; at that point the class lint can run over the merged closure like any other check.
+Individual rows graduate earlier: promote one to `rdfs:subClassOf`/`owl:equivalentClass` when
+the pairing has been confirmed **and** the shared layer states it in OWL.
 
 ## SDP decomposition workflow (practical split)
 

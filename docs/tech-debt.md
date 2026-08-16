@@ -5,7 +5,29 @@ Keep it short, specific, and tied to real boundary/publishing risks.
 
 ## Active Technical Debt
 
-- None currently tracked.
+### 2026-08-16 — Alignment overlays restate mappings the shared layer already owns
+
+**What**: `ontology/modules/alignment-main.ttl` and `alignment-research.ttl` assert
+cross-framework `skos:*Match` rows that the imported `smn` closure already asserts —
+`sosa:Observation`↔`dwc:Occurrence`, `sosa:Sample`↔`dwc:MaterialEntity`,
+`sosa:Procedure`↔`dwc:Protocol`, `sosa:Property`↔`iadopt:Property` and, after the ADR-007
+retarget, several `smn:` class and property bridges. Where the restatement agrees it is a
+duplicate triple in the merged closure and changes nothing.
+
+**Why it is debt**: where a restatement *disagrees*, it silently contradicts upstream. Two
+cases found on 2026-08-16: `sosa:Sampling skos:closeMatch dwc:Event` against upstream's
+`skos:broadMatch` (fixed, ADR-007), and `iadopt:Variable skos:closeMatch sosa:Property`
+against upstream's more precise `skos:closeMatch sosa:ObservableProperty` (left as-is —
+changing a crosswalk claim is a domain decision, not a review fix).
+
+**Impact**: low and now bounded. `make check-modules` fails on any pair carrying two
+different `skos:*Match` predicates, so a future divergence of this shape cannot land quietly.
+It does not catch a restatement that is merely looser than upstream, like the
+`iadopt:Variable` row.
+
+**Intended fix**: decide per row whether the overlay should own a cross-framework mapping at
+all. Rows that only echo `smn` belong upstream; the overlays should carry what DFO adds. Do
+this with a domain reviewer, not as a cleanup pass.
 
 ## Resolved Technical Debt
 
