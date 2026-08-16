@@ -49,6 +49,17 @@
   `scripts/verify_mappings.py` wired into `make test`.
 
 ### Changed
+- `gcdfo:ConservationUnit`'s definition now reads "A group of **wild salmon**
+  sufficiently isolated from other groups…" instead of "A group of **fish**…",
+  matching the Wild Salmon Policy glossary it already cites (#76). The string
+  is authored in four places and every authored copy was updated in the same
+  change: `ontology/dfo-salmon.ttl` (canonical), the curated
+  `ontology/views/wsp-composite-escapement-view.ttl` (`skos:definition`), the
+  `draft/dfo-salmon-draft.ttl` idea bank, and the generated `docs/` artifacts
+  (`gcdfo.{ttl,owl,jsonld}`, `index.html`, `index-en.html`, WebVOWL data),
+  which were regenerated with `make ci`. `docs/releases/*/` snapshots are
+  immutable and deliberately keep the old wording. See `docs/tech-debt.md` for
+  the duplication itself.
 - **Alignment overlays retargeted at `smn:`** after the core migration
   (`ADR-008`): eight axiom subjects in `ontology/modules/alignment-main.ttl` and
   `alignment-research.ttl` named `gcdfo:` terms core had retired, which a
