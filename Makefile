@@ -12,7 +12,9 @@ SMN_FLAT_TTL ?= ../salmon-domain-ontology/salmon-domain-ontology.ttl
 # Pinned smn commit used when no sibling checkout exists (was: silent
 # remote-latest resolution, which made provenance uncitable). Bump
 # deliberately; the SSSOM mapping set's object_source_version cites it.
-SMN_PIN ?= a5d4f284e859b4c878cbec5baa04d368ab1990d3
+# Pinned to an smn RELEASE, not an intermediate commit: a downstream that
+# resolves this closure must be able to point at a tagged, immutable artifact.
+SMN_PIN ?= f7205eea45817cc6a58e4f15b4f31f344da8434f
 ROBOT_CATALOG := release/tmp/robot-catalog.xml
 WIDOCO_ONTOLOGY_INPUT := release/tmp/dfo-salmon-docs-input.ttl
 

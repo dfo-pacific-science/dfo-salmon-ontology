@@ -211,8 +211,8 @@ Run these from any machine:
   - `curl -I -H 'Accept: application/rdf+xml' https://w3id.org/gcdfo/salmon/`
   - `curl -I -H 'Accept: application/ld+json' https://w3id.org/gcdfo/salmon/`
 - Version path:
-  - `curl -I https://w3id.org/gcdfo/salmon/0.0.999`
-  - `curl -I -H 'Accept: text/turtle' https://w3id.org/gcdfo/salmon/0.0.999`
+  - `curl -I https://w3id.org/gcdfo/salmon/0.0.8`
+  - `curl -I -H 'Accept: text/turtle' https://w3id.org/gcdfo/salmon/0.0.8`
 
 ### When you do (and do not) need another W3ID PR
 
