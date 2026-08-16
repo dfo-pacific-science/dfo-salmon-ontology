@@ -5,6 +5,87 @@ Keep it short, specific, and tied to real boundary/publishing risks.
 
 ## Active Technical Debt
 
+### 2026-08-16 — Term definitions are authored in four places, not derived
+
+**What**: a `gcdfo:` term definition string exists as four independently
+authored copies. `gcdfo:ConservationUnit` is the worked example: `iao:0000115`
+in `ontology/dfo-salmon.ttl` (canonical), `skos:definition` in the curated
+`ontology/views/wsp-composite-escapement-view.ttl`, `iao:0000115` in the
+`draft/dfo-salmon-draft.ttl` idea bank, and the `docs/` publication artifacts.
+
+**Why it happened**: only the `docs/` copies are derived. `make docs-refresh`
+regenerates `docs/gcdfo.{ttl,owl,jsonld}`, `docs/index*.html`, and
+`docs/webvowl/data/ontology.json` from `ontology/dfo-salmon.ttl`, and the CI
+drift gate enforces that. Nothing derives or checks the view or the draft, so
+they drift silently and a definition edit looks complete when it is not.
+
+**Impact**: PR #77 shipped the WSP wording fix to the canonical file alone and
+the drift gate failed on the unregenerated `docs/` artifacts; the two authored
+TTL copies would have kept the superseded "A group of fish…" wording with no
+signal at all. Anyone loading the WSP composite-escapement view gets a
+definition that contradicts the ontology it annotates.
+
+**Intended fix path**: the view is the copy worth removing — it re-states a
+definition it does not own, so either generate its `skos:definition` from
+`ontology/dfo-salmon.ttl` at build time or drop the predicate and let consumers
+dereference the term. The draft is a documented idea bank
+(`README.md`, `CONTRIBUTING.md`) and stays authored; a lint that flags
+definition strings differing between the draft and the canonical file would
+make its drift visible. Do the view first — it is published material.
+
+**Retires when**: no file outside `ontology/dfo-salmon.ttl`, the generated
+`docs/` tree, and the immutable `docs/releases/*/` snapshots authors an
+`iao:0000115`/`skos:definition` string for a `gcdfo:` term, or a CI check fails
+when one diverges from the canonical file.
+
+### 2026-08-16 — `ontology/views/` review artifacts regenerate nondeterministically
+
+**What**: `scripts/generate_wsp_composite_escapement_review_artifacts.py`
+writes a different `ontology/views/wsp-composite-escapement-review.graphml` on
+every run. Three consecutive runs on an unchanged input produced three distinct
+files (edge blocks re-ordered; the `.md` output is stable).
+
+**Why it happened**: the graphml edge emission iterates unordered collections,
+so ordering follows set/dict iteration rather than an explicit sort.
+
+**Impact**: the script cannot be used to verify that a view edit propagated —
+every run reports a change. It is not wired into `make ci`, so it does not
+break the drift gate; it just makes the artifact untrustworthy as a diff, and
+regenerating it buries a real edit under thousands of columns of churn. PR #77
+therefore updated the view TTL without regenerating the graphml.
+
+**Intended fix path**: sort the edge (and node) emission by a stable key —
+IRI/label under C ordering — before writing, then regenerate once so the
+committed artifact matches a deterministic run.
+
+**Retires when**: two consecutive runs of the script on an unchanged
+`ontology/views/wsp-composite-escapement-view.ttl` produce byte-identical
+`.graphml` output.
+
+### 2026-08-16 — Alignment overlays restate mappings the shared layer already owns
+
+**What**: `ontology/modules/alignment-main.ttl` and `alignment-research.ttl` assert
+cross-framework `skos:*Match` rows that the imported `smn` closure already asserts —
+`sosa:Observation`↔`dwc:Occurrence`, `sosa:Sample`↔`dwc:MaterialEntity`,
+`sosa:Procedure`↔`dwc:Protocol`, `sosa:Property`↔`iadopt:Property` and, after the ADR-008
+retarget, several `smn:` class and property bridges. Where the restatement agrees it is a
+duplicate triple in the merged closure and changes nothing.
+
+**Why it is debt**: where a restatement *disagrees*, it silently contradicts upstream. Two
+cases found on 2026-08-16: `sosa:Sampling skos:closeMatch dwc:Event` against upstream's
+`skos:broadMatch` (fixed, ADR-008), and `iadopt:Variable skos:closeMatch sosa:Property`
+against upstream's more precise `skos:closeMatch sosa:ObservableProperty` (left as-is —
+changing a crosswalk claim is a domain decision, not a review fix).
+
+**Impact**: low and now bounded. `make check-modules` fails on any pair carrying two
+different `skos:*Match` predicates, so a future divergence of this shape cannot land quietly.
+It does not catch a restatement that is merely looser than upstream, like the
+`iadopt:Variable` row.
+
+**Intended fix**: decide per row whether the overlay should own a cross-framework mapping at
+all. Rows that only echo `smn` belong upstream; the overlays should carry what DFO adds. Do
+this with a domain reviewer, not as a cleanup pass.
+
 ### 2026-08-16 — A failed `make docs-widoco` can re-baseline WebVOWL output to raw generator bytes
 
 **What**: `docs-widoco` snapshots the working-tree `docs/webvowl/data/ontology.json` as the

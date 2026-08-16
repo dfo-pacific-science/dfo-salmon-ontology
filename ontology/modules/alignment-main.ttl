@@ -15,19 +15,38 @@
 
 #################################################################
 # Conservative class bridges (annotation-level)
+#
+# Subjects retargeted to smn: 2026-08-16 (ADR-008). The gcdfo: twins of
+# these terms were retired when the core ontology migrated overlapping
+# shared terms to smn: IRIs directly (dfo-salmon.ttl migration note,
+# 2026-03-15); the bridges kept pointing at the retired gcdfo: names.
+# gcdfo: subjects below are the terms DFO still owns and declares.
+#
+# Why skos:closeMatch on terms that are OWL classes, and not
+# rdfs:subClassOf / owl:equivalentClass: closeMatch is the shared layer's
+# own cross-framework idiom, not a slip. The imported smn closure asserts
+# 18 such class-to-class matches before this overlay is loaded, and all
+# seven smn: rows below are among them, verbatim. smn also *demoted* a
+# sosa:Sampling superclass claim to skos:closeMatch (alignment finding F7,
+# mirrored in dfo-salmon.ttl). Promoting these to entailment-bearing OWL
+# axioms would assert equivalences nobody has confirmed, in the file whose
+# stated job is to avoid brittle equivalence axioms, and would contradict
+# an upstream decision. Promote a row only when the pairing is confirmed
+# AND the shared layer makes the same claim in OWL; that is the condition
+# under which this note stops applying. Measured evidence: ADR-008.
 #################################################################
 
-gcdfo:SurveyEvent skos:closeMatch <http://www.w3.org/ns/sosa/Sampling> .
-gcdfo:EscapementSurveyEvent skos:closeMatch <http://www.w3.org/ns/sosa/Sampling> .
-gcdfo:EscapementMeasurement skos:closeMatch <http://www.w3.org/ns/sosa/Result> .
+smn:SurveyEvent skos:closeMatch <http://www.w3.org/ns/sosa/Sampling> .
+smn:EscapementSurveyEvent skos:closeMatch <http://www.w3.org/ns/sosa/Sampling> .
+smn:EscapementEstimate skos:closeMatch <http://www.w3.org/ns/sosa/Result> . # was gcdfo:EscapementMeasurement; renamed upstream (SSSOM exactMatch)
 
-gcdfo:ReportingOrManagementStratum skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
+smn:ReportingOrManagementStratum skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
 smn:Stock skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
 gcdfo:ConservationUnit skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
 gcdfo:StockManagementUnit skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
-gcdfo:IndicatorRiver skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
+smn:IndicatorRiver skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
 
-gcdfo:ReferencePoint skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
+smn:ReferencePoint skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
 gcdfo:LowerBiologicalBenchmark skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
 gcdfo:FisheriesReferencePointLower skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
 
@@ -35,8 +54,8 @@ gcdfo:FisheriesReferencePointLower skos:closeMatch <https://w3id.org/iadopt/ont/
 # Safe property reuse links
 #################################################################
 
-gcdfo:hasDeme rdfs:subPropertyOf ro:0002351 .
-gcdfo:hasPopulation rdfs:subPropertyOf ro:0002351 .
+smn:hasDeme rdfs:subPropertyOf ro:0002351 .
+smn:hasPopulation rdfs:subPropertyOf ro:0002351 .
 gcdfo:hasConservationUnit rdfs:subPropertyOf ro:0002351 .
 
 #################################################################
@@ -50,7 +69,11 @@ gcdfo:hasConservationUnit rdfs:subPropertyOf ro:0002351 .
 <http://www.w3.org/ns/sosa/Property> skos:closeMatch <https://w3id.org/iadopt/ont/Property> .
 <https://w3id.org/iadopt/ont/Variable> skos:closeMatch <http://www.w3.org/ns/sosa/Property> .
 
-<http://www.w3.org/ns/sosa/Sampling> skos:closeMatch dwc:Event .
+# broadMatch, not closeMatch: dwc:Event is broader than sosa:Sampling. Mirrors
+# the shared layer, which asserts skos:broadMatch here. Asserting closeMatch put
+# two different mapping strengths on one pair in every core+overlay merge
+# (caught by `make check-modules`, 2026-08-16).
+<http://www.w3.org/ns/sosa/Sampling> skos:broadMatch dwc:Event .
 <http://www.w3.org/ns/sosa/Sample> skos:closeMatch dwc:MaterialEntity .
 <http://www.w3.org/ns/sosa/Observation> skos:closeMatch dwc:Occurrence .
 <http://www.w3.org/ns/sosa/Procedure> skos:closeMatch <https://rs.tdwg.org/dwc/dp/terms/Protocol> .

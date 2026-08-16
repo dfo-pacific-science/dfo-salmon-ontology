@@ -1062,7 +1062,7 @@ gcdfo:NotAtRisk a gcdfo:COSEWICStatusCategory , skos:Concept ;
 
 gcdfo:ConservationUnit a owl:Class ;
   rdfs:label "Conservation Unit"@en ;
-  iao:0000115 "A group of fish sufficiently isolated from other groups that, if extirpated, is very unlikely to recolonize naturally within an acceptable timeframe."@en ; # definition
+  iao:0000115 "A group of wild salmon sufficiently isolated from other groups that, if extirpated, is very unlikely to recolonize naturally within an acceptable timeframe."@en ; # definition
   iao:0000119 "Canada's Policy for Conservation of Wild Pacific Salmon Glossary."@en ; # definition source
   dcterms:source <https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/wsp-pss/policy-politique-eng.html#glossary> ;
   rdfs:subClassOf gcdfo:ReportingOrManagementStratum ;

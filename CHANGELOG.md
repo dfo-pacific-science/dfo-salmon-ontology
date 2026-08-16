@@ -35,6 +35,13 @@ between namespaces**; consumers holding the old IRIs should read
   prerequisite of `make test`.
 - `SMN_PIN` in the `Makefile`: the smn commit the import closure resolves to
   when no sibling `../salmon-domain-ontology` checkout is present.
+- `make check-modules`: the validation entrypoint for `ontology/modules/*.ttl`.
+  Merges each optional overlay with core — the path `ontology/modules/README.md`
+  tells contributors to use — and fails on terms the merge mints in the
+  `gcdfo:`/`smn:` namespaces, on a pair carrying two different `skos:*Match`
+  predicates, and on an inconsistent merged closure. Wired into `make test`, so
+  the overlays are no longer excluded from validation; documented in
+  `docs/entrypoints.md` and [ADR-008](docs/adr/008-alignment-overlays-follow-core-to-smn.md).
 
 ### Removed
 - The four object properties that duplicated their smn twins verbatim (same
@@ -50,6 +57,25 @@ between namespaces**; consumers holding the old IRIs should read
   unwired staging module) were removed in the same pass.
 
 ### Changed
+- `gcdfo:ConservationUnit`'s definition now reads "A group of **wild salmon**
+  sufficiently isolated from other groups…" instead of "A group of **fish**…",
+  matching the Wild Salmon Policy glossary it already cites (#76). The string
+  is authored in four places and every authored copy was updated in the same
+  change: `ontology/dfo-salmon.ttl` (canonical), the curated
+  `ontology/views/wsp-composite-escapement-view.ttl` (`skos:definition`), the
+  `draft/dfo-salmon-draft.ttl` idea bank, and the generated `docs/` artifacts
+  (`gcdfo.{ttl,owl,jsonld}`, `index.html`, `index-en.html`, WebVOWL data).
+  `docs/releases/0.0.8/` and earlier snapshots are immutable and deliberately
+  keep the old wording. See `docs/tech-debt.md` for the duplication itself.
+- **Alignment overlays retargeted at `smn:`** after the core migration
+  (`ADR-008`): eight axiom subjects in `ontology/modules/alignment-main.ttl` and
+  `alignment-research.ttl` named `gcdfo:` terms core had retired, which a
+  core+overlay merge silently re-minted. Both overlays also asserted
+  `sosa:Sampling skos:closeMatch dwc:Event` where the shared layer asserts
+  `skos:broadMatch`; they now mirror upstream. The overlays keep `skos:*Match`
+  for class-to-class bridges — that is the shared layer's own idiom, which
+  contributes 18 such rows to the import closure before any overlay loads;
+  ADR-008 carries the measurements.
 - **Re-namespaced** `smn:FisheriesReferencePointLower` to
   `gcdfo:FisheriesReferencePointLower` (and its `rdfs:isDefinedBy` from
   `https://w3id.org/smn` to `https://w3id.org/gcdfo/salmon`): the term was
