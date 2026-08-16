@@ -2,6 +2,38 @@
 
 ## [Unreleased]
 
+### Fixed
+- The WebVOWL output-stabilization gate was reporting success while doing nothing, and had
+  been since PR #78. Three compounding faults: `scripts/normalize_webvowl_json.py` aborted
+  on every run (`Non-unique semantic class key`) because the merged closure emits three
+  `xsd:gYear` datatype nodes and the class key required `(type, iri)` to be unique; the
+  `docs-widoco` recipe was one `;`-chained shell with no `set -e`, so make took the trailing
+  `echo`'s exit status and printed a success mark over the crash; and CI excluded
+  `docs/webvowl/data/ontology.json` from its uncommitted-changes check, so nothing
+  downstream noticed. Colliding class keys are now widened with the node's property-wiring
+  context, `docs-widoco` and `release-snapshot` run under `set -e`, and the CI exclusion is
+  removed. See [ADR-007](docs/adr/007-webvowl-duplicate-node-disambiguation.md).
+- `make ci-sync-artifacts` staged only `docs/gcdfo.{ttl,owl,jsonld}` and `docs/index*.html`,
+  so a contributor who committed exactly what the supported helper prepared still pushed a
+  tree CI rejects as dirty. `make ci` also rewrites `docs/webvowl/`, `docs/resources/` and
+  `docs/provenance/` — 26 further tracked files, including the
+  `docs/webvowl/data/ontology.json` the drift check now covers. The helper stages all of
+  them, by directory pathspec so a WIDOCO upgrade cannot emit a file it skips, and reports
+  what it staged instead of printing a success mark through `|| true`. The path list now
+  exists only as `CI_ARTIFACT_PATHS` in the Makefile: CI's failure message and `README.md`
+  each carried their own incomplete copy, which is how the copies drifted apart.
+- `scripts/requirements.txt` allowed `rdflib>=6.2,<7` while CI installs `rdflib==7.2.1`, and
+  the two do not agree on `docs/gcdfo.jsonld`: rdflib 6.3.2 drops `"@type": "xsd:integer"`
+  from 20 `skos:notation` values that 7.2.1 keeps. A contributor following the repo's own
+  dependency file therefore could not produce a tree CI accepts, whatever they committed.
+  Pinned to the CI version; `docs/entrypoints.md` now names the install step, which nothing
+  documented before.
+- `docs/webvowl/data/ontology.json` is re-baselined from raw generator output to the
+  normalizer's own rendering, which lands the corrections it was always meant to apply:
+  `owl:inverseOf` edges OWL2VOWL drops (13 properties) and `skos:prefLabel` preference over
+  `rdfs:label` (2 classes, one of which — `smn:EscapementSurveyEvent` — carries two
+  competing English `rdfs:label` values upstream).
+
 ### Added
 - `mappings/gcdfo-to-smn.sssom.tsv`: the smn/gcdfo boundary published as data —
   28 reviewed rows (exactMatch for terms smn migrated verbatim, closeMatch for
