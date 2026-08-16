@@ -13,7 +13,7 @@
 !docs/plans/
 !docs/plans/**/*
 !docs/tech-debt.md
-!docs/todo-list.md
+!docs/todo_list.md
 !docs/context/
 !docs/context/**/*
 !docs/examples/
