@@ -22,6 +22,12 @@
   what it staged instead of printing a success mark through `|| true`. The path list now
   exists only as `CI_ARTIFACT_PATHS` in the Makefile: CI's failure message and `README.md`
   each carried their own incomplete copy, which is how the copies drifted apart.
+- `scripts/requirements.txt` allowed `rdflib>=6.2,<7` while CI installs `rdflib==7.2.1`, and
+  the two do not agree on `docs/gcdfo.jsonld`: rdflib 6.3.2 drops `"@type": "xsd:integer"`
+  from 20 `skos:notation` values that 7.2.1 keeps. A contributor following the repo's own
+  dependency file therefore could not produce a tree CI accepts, whatever they committed.
+  Pinned to the CI version; `docs/entrypoints.md` now names the install step, which nothing
+  documented before.
 - `docs/webvowl/data/ontology.json` is re-baselined from raw generator output to the
   normalizer's own rendering, which lands the corrections it was always meant to apply:
   `owl:inverseOf` edges OWL2VOWL drops (13 properties) and `skos:prefLabel` preference over

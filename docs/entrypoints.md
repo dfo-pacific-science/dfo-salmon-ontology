@@ -8,6 +8,12 @@ Purpose: one short, reliable map of what is canonical vs optional/deprecated.
 - Local URL(s): n/a
 - Required environment variables (names only, no secrets): none
 
+## Local prerequisites
+
+- Java 17, plus `make install-robot` and `make install-widoco`
+- Python deps: `pip install -r scripts/requirements.txt`
+  - `rdflib` is pinned there to the exact version CI installs, because it decides the bytes of `docs/gcdfo.jsonld` and CI rejects any post-`make ci` difference
+
 ## Build / Publish
 
 - Canonical docs + artifacts refresh: `make docs-refresh`
