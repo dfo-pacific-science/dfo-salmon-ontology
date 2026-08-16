@@ -1,0 +1,42 @@
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+# Two different skos:*Match predicates asserted between the same ordered pair of
+# terms. That is a modelling contradiction rather than a redundancy: the pair
+# cannot be both "roughly equivalent" (closeMatch) and "one broader than the
+# other" (broadMatch).
+#
+# This is the check that matters for the alignment overlays, because they restate
+# cross-framework mappings the shared layer already makes. A restatement that
+# agrees is a harmless duplicate triple; a restatement that disagrees silently
+# contradicts upstream. Run by scripts/check-modules.sh over each core+overlay
+# merge.
+#
+# Scope note: only the same direction (?term ?p ?matched) is compared. The
+# reverse direction is deliberately excluded because skos:broadMatch and
+# skos:narrowMatch are legitimate inverses of each other, so comparing across
+# directions would report correct modelling as a conflict. That exclusion retires
+# if this repo ever needs to police reverse-direction pairs, which would require
+# encoding which predicate pairs are inverses rather than conflicts.
+SELECT DISTINCT ?term ?predicateA ?predicateB ?matchedTerm
+WHERE {
+  VALUES ?predicateA {
+    skos:exactMatch
+    skos:closeMatch
+    skos:broadMatch
+    skos:narrowMatch
+    skos:relatedMatch
+  }
+  VALUES ?predicateB {
+    skos:exactMatch
+    skos:closeMatch
+    skos:broadMatch
+    skos:narrowMatch
+    skos:relatedMatch
+  }
+
+  ?term ?predicateA ?matchedTerm .
+  ?term ?predicateB ?matchedTerm .
+
+  FILTER(STR(?predicateA) < STR(?predicateB))
+}
+ORDER BY ?term ?predicateA ?predicateB ?matchedTerm
