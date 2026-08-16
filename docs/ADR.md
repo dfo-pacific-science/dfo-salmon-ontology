@@ -30,6 +30,11 @@ This document records the key architectural decisions made for the DFO Salmon On
 > | ADR-008 ROBOT Toolchain | `docs/adr/004-robot-toolchain-selection.md` |
 > | ADR-007 External Vocabulary Alignment | `docs/adr/005-external-vocabulary-integration.md` |
 > | *(no inline entry)* | `docs/adr/006-shared-layer-boundary-and-conservative-smn-alignment.md` — the smn boundary decision, made after this document was written |
+> | *(no inline entry)* | `docs/adr/007-alignment-overlays-follow-core-to-smn.md` — closes out ADR-006's deferred set for the overlay modules; made after this document was written |
+>
+> Note the numbering collision: inline "ADR-007" above is External Vocabulary
+> Alignment, which is canonical `docs/adr/005`. Canonical `docs/adr/007` is a
+> different, later decision. Cite the canonical filenames, not the inline numbers.
 >
 > Entries here with no file (002, 003, 005, 009, 010) were never promoted to
 > the canonical registry; treat them as historical background.

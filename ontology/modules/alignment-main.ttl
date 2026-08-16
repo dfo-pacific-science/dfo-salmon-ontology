@@ -15,19 +15,25 @@
 
 #################################################################
 # Conservative class bridges (annotation-level)
+#
+# Subjects retargeted to smn: 2026-08-16 (ADR-007). The gcdfo: twins of
+# these terms were retired when the core ontology migrated overlapping
+# shared terms to smn: IRIs directly (dfo-salmon.ttl migration note,
+# 2026-03-15); the bridges kept pointing at the retired gcdfo: names.
+# gcdfo: subjects below are the terms DFO still owns and declares.
 #################################################################
 
-gcdfo:SurveyEvent skos:closeMatch <http://www.w3.org/ns/sosa/Sampling> .
-gcdfo:EscapementSurveyEvent skos:closeMatch <http://www.w3.org/ns/sosa/Sampling> .
-gcdfo:EscapementMeasurement skos:closeMatch <http://www.w3.org/ns/sosa/Result> .
+smn:SurveyEvent skos:closeMatch <http://www.w3.org/ns/sosa/Sampling> .
+smn:EscapementSurveyEvent skos:closeMatch <http://www.w3.org/ns/sosa/Sampling> .
+smn:EscapementEstimate skos:closeMatch <http://www.w3.org/ns/sosa/Result> . # was gcdfo:EscapementMeasurement; renamed upstream (SSSOM exactMatch)
 
-gcdfo:ReportingOrManagementStratum skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
+smn:ReportingOrManagementStratum skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
 smn:Stock skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
 gcdfo:ConservationUnit skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
 gcdfo:StockManagementUnit skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
-gcdfo:IndicatorRiver skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
+smn:IndicatorRiver skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
 
-gcdfo:ReferencePoint skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
+smn:ReferencePoint skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
 gcdfo:LowerBiologicalBenchmark skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
 gcdfo:FisheriesReferencePointLower skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
 
@@ -35,8 +41,8 @@ gcdfo:FisheriesReferencePointLower skos:closeMatch <https://w3id.org/iadopt/ont/
 # Safe property reuse links
 #################################################################
 
-gcdfo:hasDeme rdfs:subPropertyOf ro:0002351 .
-gcdfo:hasPopulation rdfs:subPropertyOf ro:0002351 .
+smn:hasDeme rdfs:subPropertyOf ro:0002351 .
+smn:hasPopulation rdfs:subPropertyOf ro:0002351 .
 gcdfo:hasConservationUnit rdfs:subPropertyOf ro:0002351 .
 
 #################################################################

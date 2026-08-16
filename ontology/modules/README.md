@@ -56,6 +56,27 @@ Derived from the latest four alignment artifacts shared in chat:
 - Prefer `skos:closeMatch` unless exact equivalence has been confirmed.
 - Validation rules should remain in SHACL where appropriate.
 
+## Verifying a module
+
+`make test` does **not** load these files — the build neither imports them nor names them, so
+a green test bundle says nothing about them either way. Check a module by merging it with core,
+the same way a contributor would use it:
+
+```bash
+java -jar tools/robot.jar merge \
+  --catalog release/tmp/robot-catalog.xml \
+  --input ontology/dfo-salmon.ttl \
+  --input ontology/modules/alignment-main.ttl \
+  --output /tmp/merged.ttl
+```
+
+Then confirm no IRI the module asserts about is left undeclared in the merged closure. This
+matters because the OWL API supplies a declaration for any otherwise-untyped IRI used in class
+or property position: a module naming a term that core no longer declares does not fail loudly,
+it silently mints that term as a fresh `owl:Class` or `owl:ObjectProperty`. That is how eight
+retired `gcdfo:` terms survived here after the core migration to `smn:` — see
+[ADR-007](../../docs/adr/007-alignment-overlays-follow-core-to-smn.md).
+
 ## SDP decomposition workflow (practical split)
 
 For Salmon Data Package work (`term_iri`, `property_iri`, `entity_iri`, optional `constraint_iri`, `method_iri`):
