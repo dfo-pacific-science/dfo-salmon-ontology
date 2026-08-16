@@ -68,24 +68,40 @@
 
 #################################################################
 # Stronger subclass candidates
+#
+# Subjects retargeted to smn: 2026-08-16 (ADR-008). The gcdfo: twins of
+# these terms were retired when the core ontology migrated overlapping
+# shared terms to smn: IRIs directly (dfo-salmon.ttl migration note,
+# 2026-03-15); the bridges kept pointing at the retired gcdfo: names.
+# Left dangling, a core+overlay merge silently re-minted them as fresh
+# owl:Class / owl:ObjectProperty declarations in the gcdfo: namespace.
+# gcdfo: subjects below are the terms DFO still owns and declares.
+#
+# On skos:closeMatch between terms that are OWL classes: see the same note
+# in alignment-main.ttl. It is the shared layer's own idiom (18 such rows
+# arrive with the smn import, before any overlay loads), and smn itself
+# demoted a subClassOf claim to closeMatch in finding F7. The rdfs:subClassOf
+# rows below are the ones this file is willing to state in OWL, which is
+# exactly why it carries a "review before merge" warning.
 #################################################################
 
-gcdfo:SurveyEvent rdfs:subClassOf prov:Activity ;
+smn:SurveyEvent rdfs:subClassOf prov:Activity ;
   skos:closeMatch <http://www.w3.org/ns/sosa/Sampling> .
 
-gcdfo:EscapementSurveyEvent rdfs:subClassOf prov:Activity, <http://www.w3.org/ns/sosa/Sampling> ;
+smn:EscapementSurveyEvent rdfs:subClassOf prov:Activity, <http://www.w3.org/ns/sosa/Sampling> ;
   skos:closeMatch <http://www.w3.org/ns/sosa/Sampling> .
 
-gcdfo:EscapementMeasurement rdfs:subClassOf <http://www.w3.org/ns/sosa/Result> ;
+# was gcdfo:EscapementMeasurement; renamed upstream (SSSOM exactMatch)
+smn:EscapementEstimate rdfs:subClassOf <http://www.w3.org/ns/sosa/Result> ;
   skos:closeMatch <http://www.w3.org/ns/sosa/Result> .
 
-gcdfo:ReportingOrManagementStratum skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest>, <https://w3id.org/iadopt/ont/Entity> .
+smn:ReportingOrManagementStratum skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest>, <https://w3id.org/iadopt/ont/Entity> .
 smn:Stock skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
 gcdfo:ConservationUnit skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
 gcdfo:StockManagementUnit skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
-gcdfo:IndicatorRiver skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
+smn:IndicatorRiver skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
 
-gcdfo:ReferencePoint skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
+smn:ReferencePoint skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
 gcdfo:LowerBiologicalBenchmark skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
 gcdfo:FisheriesReferencePointLower skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
 gcdfo:WSPRapidStatus skos:closeMatch <https://w3id.org/iadopt/ont/Variable> .
@@ -98,6 +114,11 @@ gcdfo:WSPRapidStatus skos:closeMatch <https://w3id.org/iadopt/ont/Variable> .
 # 2026-08-13 (S9 step 3) together with their dfo-salmon.ttl twins: they
 # duplicated the smn:* properties verbatim. This module is not wired into any
 # build; kept as a historical staging record.
+#
+# 2026-08-16 (ADR-008): "not wired into any build" is true of CI but not of
+# contributors -- modules/README.md tells them to load this file alongside
+# core. Throughout this file, the alignment axioms that still named the
+# retired gcdfo: twins have been retargeted at their smn: counterparts.
 
 #################################################################
 # Canonical SOSA -> PROV alignment links (from SSN alignment)
@@ -111,11 +132,15 @@ gcdfo:WSPRapidStatus skos:closeMatch <https://w3id.org/iadopt/ont/Variable> .
 # RO + representation-level bridges
 #################################################################
 
-gcdfo:hasDeme rdfs:subPropertyOf ro:0002351 .
-gcdfo:hasPopulation rdfs:subPropertyOf ro:0002351 .
+smn:hasDeme rdfs:subPropertyOf ro:0002351 .
+smn:hasPopulation rdfs:subPropertyOf ro:0002351 .
 gcdfo:hasConservationUnit rdfs:subPropertyOf ro:0002351 .
 
-<http://www.w3.org/ns/sosa/Sampling> skos:closeMatch dwc:Event .
+# broadMatch, not closeMatch: dwc:Event is broader than sosa:Sampling. Mirrors
+# the shared layer, which asserts skos:broadMatch here. Asserting closeMatch put
+# two different mapping strengths on one pair in every core+overlay merge
+# (caught by `make check-modules`, 2026-08-16).
+<http://www.w3.org/ns/sosa/Sampling> skos:broadMatch dwc:Event .
 <http://www.w3.org/ns/sosa/Sample> skos:closeMatch dwc:MaterialEntity .
 <http://www.w3.org/ns/sosa/Observation> skos:closeMatch dwc:Occurrence .
 <http://www.w3.org/ns/sosa/Procedure> skos:closeMatch <https://rs.tdwg.org/dwc/dp/terms/Protocol> .
