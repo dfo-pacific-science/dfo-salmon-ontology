@@ -166,11 +166,54 @@ exclusion added to silence pre-fix churn outlives the churn unless something for
 **Resolution**: kept `README.md#namespace-boundary-and-shared-layer-preference` as the canonical boundary policy, and reduced `docs/entrypoints.md` plus `docs/context/w3id.md` to scope/reference notes that link back to it.
 **Lessons Learned**: keep namespace policy in one high-visibility maintainer doc; contextual docs should point at it rather than paraphrasing it.
 
-### 2026-03-15 — `make ci` / `make docs-refresh` WebVOWL churn stabilized
+### 2026-03-15 — `make ci` / `make docs-refresh` WebVOWL churn stabilized (first attempt; superseded)
 
-**Resolved Date**: 2026-03-15
-**Resolution**: `make docs-widoco` now compares the generated `docs/webvowl/data/ontology.json` against the prior tracked baseline semantically, restores the exact baseline bytes for no-op refreshes, and normalizes ids/order when the graph meaning changes. That keeps repeated doc refreshes readable without changing ontology semantics.
-**Lessons Learned**: when a generator is semantically stable but serialization-noisy, compare meaning first; preserve prior bytes for true no-op runs and normalize deterministically when real changes land.
+**Resolved Date**: 2026-03-15, but **the fix did not hold** — see the 2026-08-16 entry above.
+Read the two together; this one alone overstates the state of the repo between
+2026-08-14 (PR #78) and 2026-08-16 (PR #82).
+
+**What was actually done on 2026-03-15**: `make docs-widoco` fingerprinted the deterministic
+merged ontology input plus the pinned WIDOCO version into `docs/webvowl/data/ontology.stamp`
+and, whenever that fingerprint was unchanged, restored the pre-run
+`docs/webvowl/data/ontology.json` bytes via `scripts/stabilize_webvowl_output.py`. Byte-restore
+on an unchanged-input hash — not a semantic comparison.
+
+**What superseded it**: PR #78 replaced that script with `scripts/normalize_webvowl_json.py`,
+which compares the generated file against the tracked baseline *semantically*, restores the
+exact baseline bytes for true no-op refreshes, and normalizes ids/order when the graph meaning
+changes ([ADR-007](adr/007-webvowl-duplicate-node-disambiguation.md)). PR #78 removed the
+stabilizer from the `docs-widoco` recipe and left both files behind as unreferenced ghost
+code: `docs/webvowl/data/ontology.stamp` is deleted, and `scripts/stabilize_webvowl_output.py`
+awaits the sign-off `AGENTS.md` requires before anything under `scripts/` is removed.
+
+**Why this went unnoticed for five months**: the docs did not go stale — going stale leaves a
+visible mismatch. PR #78 rewrote this entry's *Resolution* text **in place**, and
+`docs/context/widoco.md` with it, so both read as accurate descriptions of the normalizer while
+keeping the 2026-03-15 heading that had resolved a different implementation. That is the actual
+defect. A stale doc says something the code no longer does and invites the question; an
+in-place rewrite says something the code *does* do and destroys the only record that a
+replacement ever happened, so nothing invites the question — the superseded approach keeps
+looking current, its leftover files keep looking wired, and the log offers no seam where a
+reader could notice the substitution.
+
+**What made the claim false in the interim**: the replacement crashed on every run and the
+build reported success anyway, so between PR #78 and PR #82 nothing stabilized the artifact at
+all — while this entry sat in the Resolved section asserting that something did.
+
+**Re-verification hook**: do not trust this entry on its own wording; it has been wrong before.
+Run `SMN_FLAT_TTL=/nonexistent/smn.ttl make ci` twice and confirm
+`git status --porcelain --untracked-files=all` is empty both times. Since PR #82 removed the
+`docs/webvowl/data/ontology.json` exclusion from `.github/workflows/ci.yml`, CI runs that same
+check on every PR, so a regression here fails the build rather than needing anyone to re-read
+this file.
+
+**Lessons Learned**: when a mechanism is replaced, do not edit the entry that resolved the old
+one — append a new entry and mark the old one superseded. Rewriting in place is not
+documentation maintenance; it is overwriting the evidence that a replacement happened, which
+is why nobody went looking for the files the replacement orphaned. Keep the original date
+attached to the original mechanism, name the successor, and attach a command that re-checks
+the claim — otherwise the log reads as evidence of a working gate during exactly the window
+when the gate was a placebo.
 
 ### 2026-03-15 — Shared-term overlap cleanup completed
 
