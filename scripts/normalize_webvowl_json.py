@@ -25,6 +25,7 @@ from __future__ import annotations
 import argparse
 import json
 import subprocess
+import sys
 from collections import Counter, OrderedDict, defaultdict
 from pathlib import Path
 from typing import Any, Callable
@@ -89,6 +90,11 @@ def annotation_key(value: Any) -> Any:
 
 def semantic_sort_key(value: Any) -> str:
     return json.dumps(value, sort_keys=True, ensure_ascii=False, separators=(",", ":"))
+
+
+def id_sort_key(value: Any) -> tuple[int, Any]:
+    """Sort WebVOWL ids numerically, tolerating the occasional non-numeric one."""
+    return (0, int(value)) if str(value).isdigit() else (1, str(value))
 
 
 def semantic_normalize(value: Any) -> Any:
@@ -156,26 +162,81 @@ class WebVowlGraph:
         self.prop_types = {item["id"]: item["type"] for item in data["property"]}
         self.prop_attrs = {item["id"]: item for item in data["propertyAttribute"]}
 
-        self.class_keys = {
-            old_id: self._class_key(old_id) for old_id in self.class_attrs.keys()
-        }
-        self.prop_keys = {
-            old_id: self._prop_key(old_id) for old_id in self.prop_attrs.keys()
-        }
+        # Property keys already carry their own wiring (domain/range refs), which is
+        # what keeps same-IRI property nodes apart. Class keys need widening.
+        self.class_keys = self._make_unique(
+            {old_id: self._class_key(old_id) for old_id in self.class_attrs.keys()},
+            self._reference_context,
+            "class",
+        )
+        self.prop_keys = self._make_unique(
+            {old_id: self._prop_key(old_id) for old_id in self.prop_attrs.keys()},
+            None,
+            "property",
+        )
 
-        self.class_key_to_id = self._invert_unique(self.class_keys, "class")
-        self.prop_key_to_id = self._invert_unique(self.prop_keys, "property")
+        self.class_key_to_id = {key: old_id for old_id, key in self.class_keys.items()}
+        self.prop_key_to_id = {key: old_id for old_id, key in self.prop_keys.items()}
 
     @staticmethod
-    def _invert_unique(mapping: dict[str, Any], label: str) -> dict[Any, str]:
-        inverse: dict[Any, str] = {}
-        for object_id, key in mapping.items():
-            if key in inverse:
-                raise ValueError(
-                    f"Non-unique semantic {label} key for ids {inverse[key]} and {object_id}"
+    def _collisions(keys: dict[str, Any]) -> dict[Any, list[str]]:
+        groups: dict[Any, list[str]] = defaultdict(list)
+        for object_id, key in keys.items():
+            groups[key].append(object_id)
+        return {key: ids for key, ids in groups.items() if len(ids) > 1}
+
+    def _make_unique(
+        self,
+        keys: dict[str, Any],
+        widen: Callable[[str], Any] | None,
+        label: str,
+    ) -> dict[str, Any]:
+        """Widen semantic keys until each one identifies a single node.
+
+        OWL2VOWL legitimately emits several nodes that share a base key: a datatype
+        such as xsd:gYear gets one leaf node per property that ranges over it. Those
+        nodes are not interchangeable — each anchors a different edge — so merging
+        them would change the rendered graph, and refusing them would abort a build
+        over output the generator is entitled to produce. Widen instead, and only
+        for the nodes that actually collide, so unaffected nodes keep the short key
+        that lets them hold their baseline id across ontology edits.
+        """
+        widened = dict(keys)
+
+        if widen is not None:
+            for ids in self._collisions(widened).values():
+                for object_id in ids:
+                    widened[object_id] += (("context", widen(object_id)),)
+
+        for key, ids in sorted(self._collisions(widened).items(), key=semantic_sort_key):
+            # Nothing id-free tells these nodes apart, so their ids may drift between
+            # runs. Order them deterministically and say so rather than failing.
+            ordered = sorted(ids, key=id_sort_key)
+            print(
+                f"warning: {len(ordered)} indistinguishable {label} nodes share semantic "
+                f"key {semantic_sort_key(key)}; assigning ids positionally to {ordered}",
+                file=sys.stderr,
+            )
+            for ordinal, object_id in enumerate(ordered):
+                widened[object_id] += (("ordinal", ordinal),)
+
+        return widened
+
+    def _reference_context(self, class_id: str) -> tuple[Any, ...]:
+        """Id-free description of how a class node is wired into the property graph."""
+        context = []
+        for prop_id, prop in self.prop_attrs.items():
+            if prop["domain"] == class_id:
+                other = self.class_attrs[prop["range"]].get("iri", "")
+                context.append(
+                    ("domainOf", self.prop_types[prop_id], prop.get("iri", ""), other)
                 )
-            inverse[key] = object_id
-        return inverse
+            if prop["range"] == class_id:
+                other = self.class_attrs[prop["domain"]].get("iri", "")
+                context.append(
+                    ("rangeOf", self.prop_types[prop_id], prop.get("iri", ""), other)
+                )
+        return tuple(sorted(context))
 
     def _named_class_ref(self, class_id: str) -> tuple[Any, ...]:
         item = self.class_attrs[class_id]
@@ -192,29 +253,7 @@ class WebVowlGraph:
                     for mid in item["union"]
                 )
             )
-            context = []
-            for prop_id, prop in self.prop_attrs.items():
-                if prop["domain"] == class_id:
-                    other = self.class_attrs[prop["range"]].get("iri", "")
-                    context.append(
-                        (
-                            "domainOf",
-                            self.prop_types[prop_id],
-                            prop.get("iri", ""),
-                            other,
-                        )
-                    )
-                if prop["range"] == class_id:
-                    other = self.class_attrs[prop["domain"]].get("iri", "")
-                    context.append(
-                        (
-                            "rangeOf",
-                            self.prop_types[prop_id],
-                            prop.get("iri", ""),
-                            other,
-                        )
-                    )
-            return ("union", members, tuple(sorted(context)))
+            return ("union", members, self._reference_context(class_id))
         return (
             "anon",
             self.class_types[class_id],
@@ -461,10 +500,7 @@ class Normalizer:
 
     @staticmethod
     def _sort_mapped_ids(values: list[str]) -> list[str]:
-        return sorted(
-            values,
-            key=lambda x: (0, int(x)) if str(x).isdigit() else (1, str(x)),
-        )
+        return sorted(values, key=id_sort_key)
 
     def _normalize_ref_list(
         self,
