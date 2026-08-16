@@ -142,7 +142,7 @@ If a term is clearly **cross-organization, policy-neutral, and reusable**, it pr
    - `owl:versionInfo`
    - `owl:versionIRI` (example: `https://w3id.org/gcdfo/salmon/0.0.999`)
    - `owl:priorVersion` (previous version IRI)
-2. Run `make ci-sync-artifacts` (or `devenv shell make ci-sync-artifacts`) and commit regenerated artifacts from `docs/` (including `docs/gcdfo.{ttl,owl,jsonld}`, `docs/index.html`, and `docs/index-en.html` when changed).
+2. Run `make ci-sync-artifacts` (or `devenv shell make ci-sync-artifacts`) and commit everything it stages. It prints the staged paths and covers the full regenerated set — the serializations, the WIDOCO HTML, and the `docs/webvowl/`, `docs/resources/`, and `docs/provenance/` trees — which is what CI's post-`make ci` clean-tree check enforces.
 3. Run `make release-snapshot VERSION=X.Y.Z` (or `devenv shell make release-snapshot VERSION=X.Y.Z`) to create a release snapshot (an immutable copy under `docs/releases/X.Y.Z/`).
 4. Commit and push `docs/releases/X.Y.Z/` so GitHub Pages serves the versioned files.
 5. Optional: tag the release (a tag is a Git label for a specific commit, e.g., `v0.0.999`).

@@ -70,7 +70,7 @@ jobs:
         run: |
           CHANGES="$(git status --porcelain --untracked-files=all -- .)"
           if [ -n "$CHANGES" ]; then
-            echo "::error::Running 'make ci' produced tracked/untracked changes. Please run it locally and commit regenerated artifacts (including docs/gcdfo.{ttl,owl,jsonld}, docs/index*.html, and docs/webvowl/data/ontology.json) before pushing."
+            echo "::error::Running 'make ci' produced tracked/untracked changes. Run 'make ci-sync-artifacts' locally and commit what it stages before pushing; the changed paths are listed below. The artifact list lives only in the Makefile (CI_ARTIFACT_PATHS) so it cannot drift from this check."
             printf '%s\n' "$CHANGES"
             exit 1
           fi

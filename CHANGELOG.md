@@ -13,6 +13,15 @@
   downstream noticed. Colliding class keys are now widened with the node's property-wiring
   context, `docs-widoco` and `release-snapshot` run under `set -e`, and the CI exclusion is
   removed. See [ADR-007](docs/adr/007-webvowl-duplicate-node-disambiguation.md).
+- `make ci-sync-artifacts` staged only `docs/gcdfo.{ttl,owl,jsonld}` and `docs/index*.html`,
+  so a contributor who committed exactly what the supported helper prepared still pushed a
+  tree CI rejects as dirty. `make ci` also rewrites `docs/webvowl/`, `docs/resources/` and
+  `docs/provenance/` — 26 further tracked files, including the
+  `docs/webvowl/data/ontology.json` the drift check now covers. The helper stages all of
+  them, by directory pathspec so a WIDOCO upgrade cannot emit a file it skips, and reports
+  what it staged instead of printing a success mark through `|| true`. The path list now
+  exists only as `CI_ARTIFACT_PATHS` in the Makefile: CI's failure message and `README.md`
+  each carried their own incomplete copy, which is how the copies drifted apart.
 - `docs/webvowl/data/ontology.json` is re-baselined from raw generator output to the
   normalizer's own rendering, which lands the corrections it was always meant to apply:
   `owl:inverseOf` edges OWL2VOWL drops (13 properties) and `skos:prefLabel` preference over

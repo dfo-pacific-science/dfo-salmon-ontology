@@ -15,7 +15,9 @@ Purpose: one short, reliable map of what is canonical vs optional/deprecated.
   - regenerates `docs/gcdfo.{ttl,owl,jsonld}` from `ontology/dfo-salmon.ttl`
   - refreshes SKOS sections in `docs/index.html`
 - Full CI-equivalent local run: `make ci`
-- Optional helper to reduce generated-artifact drift after CI: `make ci-sync-artifacts`
+- Supported way to stage regenerated artifacts locally: `make ci-sync-artifacts`
+  - runs `make ci`, then stages every tracked path it regenerates, listed once in the Makefile as `CI_ARTIFACT_PATHS`: `docs/gcdfo.{ttl,owl,jsonld}`, `docs/index.html`, `docs/index-en.html`, and the WIDOCO-owned `docs/provenance/`, `docs/resources/`, `docs/webvowl/` trees
+  - that list is what CI's post-`make ci` clean-tree check enforces, so the two must not diverge; the CI failure message points here rather than repeating the paths
 - WIDOCO only: `make docs-widoco`
   - internally builds `release/tmp/dfo-salmon-docs-input.ttl` via `make docs-widoco-input` (collapsed import closure for deterministic docs rendering)
   - then runs `scripts/normalize_webvowl_json.py` over `docs/webvowl/data/ontology.json` to stabilize OWL2VOWL's nondeterministic ids/ordering against the previously tracked copy; see [ADR-007](adr/007-webvowl-duplicate-node-disambiguation.md)
