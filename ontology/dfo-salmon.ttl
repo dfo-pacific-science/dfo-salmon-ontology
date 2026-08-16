@@ -1021,12 +1021,12 @@ gcdfo:FishStockProvisions a skos:Concept ;
 # SKOS Enumeration Methods
 #################################################################
 
-smn:EnumerationMethod a skos:Concept ;
-  skos:prefLabel "Enumeration Method"@en ;
-  rdfs:label "Enumeration Method"@en ;
-  skos:definition "A method used to enumerate or count salmon in the field"@en ;
-  skos:scopeNote "DFO profile note: this ontology uses the shared `smn:EnumerationMethod` concept directly and constrains local narrower methods beneath it."@en ;
-  skos:inScheme :EnumerationMethodScheme ;
+smn:EnumerationMethod a skos:Concept, sosa:Procedure ;
+  skos:prefLabel "Enumeration method"@en ;
+  rdfs:label "Enumeration method"@en ;
+  skos:definition "A method used to enumerate or count salmon in the field."@en ;
+  skos:scopeNote "DFO profile note: this ontology uses the shared `smn:EnumerationMethod` concept directly and constrains local narrower methods beneath it. Mirror updated 2026-08-13 to match upstream after smn's methods-as-SKOS migration: the concept is instance-typed sosa:Procedure and is the top concept of smn:MethodScheme; membership in the local gcdfo:EnumerationMethodScheme is retained as the profile attachment point."@en ;
+  skos:inScheme smn:MethodScheme, :EnumerationMethodScheme ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
   rdfs:isDefinedBy <https://w3id.org/smn> .
 
@@ -1625,47 +1625,31 @@ gcdfo:isTargetOrLimitForObservedExploitationRate a owl:ObjectProperty ;
 gcdfo:hasYearBasis a owl:ObjectProperty ;
   rdfs:label "has year basis"@en ;
   iao:0000115 "Links a measurement or rate to the year basis (e.g., brood year, catch year, or return year) it is reported against."@en ; # definition
-  rdfs:domain [ owl:unionOf ( smn:ExploitationRate gcdfo:ObservedExploitationRate gcdfo:TargetOrLimitExploitationRate smn:TotalExploitationRate gcdfo:SpawnerAbundance smn:EscapementMeasurement ) ] ;
+  rdfs:domain [ owl:unionOf ( smn:ExploitationRate gcdfo:ObservedExploitationRate gcdfo:TargetOrLimitExploitationRate smn:TotalExploitationRate gcdfo:SpawnerAbundance smn:EscapementEstimate ) ] ;
   rdfs:range skos:Concept ;
   rdfs:comment "Expected values are concepts in :YearBasisScheme (for example, gcdfo:BroodYear, gcdfo:CatchYear, and gcdfo:ReturnYear)."@en ;
   rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme .
 
-gcdfo:hasFeatureOfInterest a owl:ObjectProperty ;
-  rdfs:label "has feature of interest"@en ;
-  iao:0000115 "Relates a survey event to the reporting or management stratum that the event targets for inference or status interpretation."@en ; # definition
-  rdfs:domain smn:SurveyEvent ;
-  rdfs:range smn:ReportingOrManagementStratum ;
-  rdfs:subPropertyOf prov:used, sosa:hasFeatureOfInterest, smn:hasFeatureOfInterest ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
-  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme, gcdfo:PolicyGovernanceTheme .
+# gcdfo:hasFeatureOfInterest removed 2026-08-13 (S9 step 3): it duplicated
+# smn:hasFeatureOfInterest verbatim (label, definition, domain, range) and added no
+# semantic content. Use the smn property; see mappings/gcdfo-to-smn.sssom.tsv
+# and CHANGELOG.
 
-gcdfo:hasObservationResult a owl:ObjectProperty ;
-  rdfs:label "has observation result"@en ;
-  iao:0000115 "Relates a survey event to a measurement datum/result it produces for salmon assessment workflows."@en ; # definition
-  rdfs:domain smn:SurveyEvent ;
-  rdfs:range smn:EscapementMeasurement ;
-  rdfs:subPropertyOf prov:generated, sosa:hasResult, smn:hasObservationResult ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
-  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme .
+# gcdfo:hasObservationResult removed 2026-08-13 (S9 step 3): it duplicated
+# smn:hasObservationResult verbatim (label, definition, domain, range) and added no
+# semantic content. Use the smn property; see mappings/gcdfo-to-smn.sssom.tsv
+# and CHANGELOG.
 
-gcdfo:usesObservationProcedure a owl:ObjectProperty ;
-  rdfs:label "uses observation procedure"@en ;
-  iao:0000115 "Relates a survey event to the procedure/protocol used to execute it."@en ; # definition
-  rdfs:domain smn:SurveyEvent ;
-  rdfs:range iao:0000104 ; # plan specification
-  rdfs:subPropertyOf prov:used, sosa:usedProcedure, smn:usesObservationProcedure ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
-  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme .
+# gcdfo:usesObservationProcedure removed 2026-08-13 (S9 step 3): it duplicated
+# smn:usesObservationProcedure verbatim (label, definition, domain, range) and added no
+# semantic content. Use the smn property; see mappings/gcdfo-to-smn.sssom.tsv
+# and CHANGELOG.
 
-gcdfo:isSampleOfStratum a owl:ObjectProperty ;
-  rdfs:label "is sample of stratum"@en ;
-  iao:0000115 "Relates a material sample to the reporting or management stratum it is taken to represent in analysis."@en ; # definition
-  rdfs:domain dwc:MaterialEntity ;
-  rdfs:range smn:ReportingOrManagementStratum ;
-  rdfs:subPropertyOf prov:wasDerivedFrom, sosa:isSampleOf, smn:isSampleOfStratum ;
-  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
-  gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:DataModelProvenanceTheme, gcdfo:PolicyGovernanceTheme .
+# gcdfo:isSampleOfStratum removed 2026-08-13 (S9 step 3): it duplicated
+# smn:isSampleOfStratum verbatim (label, definition, domain, range) and added no
+# semantic content. Use the smn property; see mappings/gcdfo-to-smn.sssom.tsv
+# and CHANGELOG.
 
 gcdfo:hasObservedVariable a owl:ObjectProperty ;
   rdfs:label "has observed variable"@en ;
@@ -1876,10 +1860,11 @@ smn:Escapement a owl:Class ;
 smn:SurveyEvent a owl:Class ;
   rdfs:label "Survey event"@en ;
   iao:0000115 "A field event that collects information about key fish stocks to track their status, and track progress to implement fishery policies and measures for these stocks."@en ; # definition
-  rdfs:subClassOf dwc:Event, prov:Activity, sosa:Sampling ;
+  rdfs:subClassOf dwc:Event, prov:Activity ;
   iao:0000119 "Fisheries and Oceans Canada. About the Sustainability Survey for Fisheries. https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html."@en ; # definition source
   dcterms:source <https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html> ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
+  rdfs:comment "Mirror updated 2026-08-13: the sosa:Sampling superclass was removed to match upstream, which demoted that claim to skos:closeMatch (smn alignment pass, finding F7)."@en ;
   rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:EscapementSurveyEvent a owl:Class ;
@@ -1890,8 +1875,8 @@ smn:EscapementSurveyEvent a owl:Class ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
   rdfs:isDefinedBy <https://w3id.org/smn> .
 
-smn:EscapementMeasurement a owl:Class ;
-  rdfs:label "Escapement measurement"@en ;
+smn:EscapementEstimate a owl:Class ;
+  rdfs:label "Escapement estimate"@en ;
   iao:0000115 "A measurement or estimate of escapement tied to a stock and a survey event."@en ; # definition
   rdfs:subClassOf iao:0000109, sosa:Result ; # measurement datum / observation result
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:MonitoringFieldWorkTheme ;
@@ -1917,14 +1902,15 @@ smn:LimitReferencePoint a owl:Class ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:FisheriesManagementTheme, gcdfo:PolicyGovernanceTheme ;
   rdfs:isDefinedBy <https://w3id.org/smn> .
 
-smn:FisheriesReferencePointLower a owl:Class ;
+gcdfo:FisheriesReferencePointLower a owl:Class ;
   rdfs:label "Fisheries Reference Point - Lower"@en ;
   skos:altLabel "FRP-L"@en ;
   iao:0000115 "A lower fisheries-management reference point defined for Stock Management Units (SMUs) and related fishery decision frameworks. It may be informed by Conservation Unit (CU) lower biological benchmarks, but is not identical to CU-level lower biological benchmarks used to delineate Wild Salmon Policy biological status zones."@en ; # definition
   rdfs:subClassOf smn:LimitReferencePoint ;
   iao:0000119 "Fisheries and Oceans Canada. (2022). Methodologies and Guidelines for Defining Limit Reference Points for Pacific Salmon. DFO Can. Sci. Advis. Sec. Sci. Advis. Rep. 2022/030. (Erratum: December 2022)."@en ; # definition source
+  rdfs:comment "Re-namespaced from smn:FisheriesReferencePointLower on 2026-08-13 (S9 step 3): the term was minted in the smn namespace but never declared upstream, and every sibling DFO-policy reference-point term is gcdfo-namespaced; smn's wave-1 migration dispositioned it as policy/program-specific."@en ;
   gcdfo:theme gcdfo:StockAssessmentTheme, gcdfo:FisheriesManagementTheme, gcdfo:PolicyGovernanceTheme ;
-  rdfs:isDefinedBy <https://w3id.org/smn> .
+  rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> .
 
 gcdfo:UpperStockReferencePoint a owl:Class ;
   rdfs:label "Upper stock reference"@en ;
