@@ -183,8 +183,8 @@ which compares the generated file against the tracked baseline *semantically*, r
 exact baseline bytes for true no-op refreshes, and normalizes ids/order when the graph meaning
 changes ([ADR-007](adr/007-webvowl-duplicate-node-disambiguation.md)). PR #78 removed the
 stabilizer from the `docs-widoco` recipe and left both files behind as unreferenced ghost
-code: `docs/webvowl/data/ontology.stamp` is deleted, and `scripts/stabilize_webvowl_output.py`
-awaits the sign-off `AGENTS.md` requires before anything under `scripts/` is removed.
+code; `docs/webvowl/data/ontology.stamp` and `scripts/stabilize_webvowl_output.py` are both
+deleted now, leaving one active path.
 
 **Why this went unnoticed for five months**: the docs did not go stale — going stale leaves a
 visible mismatch. PR #78 rewrote this entry's *Resolution* text **in place**, and

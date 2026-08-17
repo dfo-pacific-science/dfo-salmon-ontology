@@ -20,9 +20,12 @@
   reader: `grep -rn stabilize_webvowl_output` and `grep -rn ontology.stamp`
   return nothing outside the dead script itself, and `make ci` run twice leaves
   the stamp byte-identical and untouched. It was frozen at
-  `widoco-1.4.25:a70a3d52…` since 2026-03-15. `scripts/stabilize_webvowl_output.py`
-  is the same dead path and is removed under separate sign-off, since `AGENTS.md`
-  requires asking before deleting anything under `scripts/`.
+  `widoco-1.4.25:a70a3d52…` since 2026-03-15.
+- `scripts/stabilize_webvowl_output.py`, the stamp's only writer and the last
+  live-looking trace of that approach. Nothing has invoked it since PR #78
+  removed it from the `docs-widoco` recipe; `scripts/normalize_webvowl_json.py`
+  is the single active path, described in `docs/entrypoints.md` and
+  [ADR-007](docs/adr/007-webvowl-duplicate-node-disambiguation.md).
 
 ### Changed
 - `docs/tech-debt.md`'s 2026-03-15 "WebVOWL churn stabilized" entry no longer
