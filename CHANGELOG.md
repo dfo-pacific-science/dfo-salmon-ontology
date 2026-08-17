@@ -10,6 +10,45 @@
 
 ## [Unreleased]
 
+### Added
+- `gcdfo:PacificFisheryManagementAreaScheme`, a SKOS controlled vocabulary of the
+  **48** Pacific fishery management areas, plus one `skos:Concept` per area
+  (`gcdfo:PacificFisheryManagementArea1` … `gcdfo:PacificFisheryManagementArea142`).
+  `gcdfo:PacificFisheryManagementArea` has existed as an `owl:Class` since the
+  route-coverage batch, but the value list did not, so nothing could say *which*
+  area a record referred to. Each concept carries `skos:prefLabel`,
+  `skos:altLabel` (`Area N`, `PFMA N`), `skos:notation "N"^^xsd:integer`, a
+  regulation-grounded `skos:definition`, `skos:inScheme`, and two `iao:0000119`
+  definition sources. Members are typed `a gcdfo:PacificFisheryManagementArea ,
+  skos:Concept`, the same class-plus-value-list pattern already used by
+  `gcdfo:IntegratedStatusOutcome` and `gcdfo:ConfidenceCategory`; the scheme is
+  flat, with no `skos:hasTopConcept`, following `:BenchmarkLevelScheme`.
+  - **Source and completeness.** The list is the enumeration in Schedule 2
+    (Management Area Boundary Descriptions) of the *Pacific Fishery Management
+    Area Regulations, 2007* (SOR/2007-77), consolidation current to 2026-06-17,
+    last amended 2017-04-13, taken from the Justice Laws XML and retrieved
+    2026-08-17. Schedule 2 numbers its items 1–48 contiguously, which is what
+    makes the extraction verifiable; the resulting area set (1–29, 101–111, 121,
+    123–127, 130, 142) was cross-checked term-for-term against DFO's own
+    published area listing at
+    <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html>,
+    which lists the identical set. The two sources agree, so the vocabulary is
+    complete rather than partial. Each concept also records that page's
+    "Description" text as a `skos:scopeNote` (Areas 21 and 22 share one map
+    sheet there, and the page gives 108 and 109 the same description; both are
+    transcribed as published).
+  - **Scope decision: Areas only.** Schedule 2 further divides these Areas into
+    604 numbered Subareas (for example, Subarea 12-14). Subareas are
+    deliberately not minted. The scheme's `skos:scopeNote` states this, so the
+    vocabulary is complete *for Areas* and explicitly silent about Subareas
+    rather than silently short. Minting Subareas is a separate decision.
+  - **What this does not resolve.** A second `skos:scopeNote` records that these
+    regulated numbered areas are *not* the four coarse DFO Pacific Region salmon
+    Areas (`SOUTH COAST`, `NORTH COAST`, `FRASER AND INTERIOR`,
+    `YUKON AND TRANSBOUNDARY`) that some DFO source systems carry in a
+    `DFO_AREA` column. That coarser stratum is a different unit at a different
+    granularity and still has no term in this ontology; see issue #67.
+
 ### Removed
 - `docs/webvowl/data/ontology.stamp`, the orphaned output of the pre-normalizer
   WebVOWL stabilization approach. It recorded a merged-input + WIDOCO-version
@@ -28,6 +67,12 @@
   [ADR-007](docs/adr/007-webvowl-duplicate-node-disambiguation.md).
 
 ### Changed
+- `gcdfo:PacificFisheryManagementArea` now carries `rdfs:seeAlso` pointing at the
+  new `gcdfo:PacificFisheryManagementAreaScheme` and a `skos:scopeNote` saying
+  that its values are enumerated there and that the class is *not* the four
+  coarse DFO Pacific Region salmon Areas. Without this a reader of the class had
+  no way to find the value list, and no warning against the granularity
+  confusion that issue #67 turned up.
 - `docs/tech-debt.md`'s 2026-03-15 "WebVOWL churn stabilized" entry no longer
   reads as a standing guarantee. PR #78 rewrote that entry **in place** — new
   mechanism, original date — so the log described `normalize_webvowl_json.py`
