@@ -864,7 +864,9 @@ gcdfo:PacificFisheryManagementArea rdf:type owl:Class ;
                                    dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-1.html> ;
                                    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                                    rdfs:label "Pacific fishery management area"@en ;
+                                   rdfs:seeAlso gcdfo:PacificFisheryManagementAreaScheme ;
                                    skos:altLabel "PFMA"@en ;
+                                   skos:scopeNote "The prescribed areas themselves are enumerated as a SKOS controlled vocabulary in the Pacific Fishery Management Area Scheme; each concept there is a value of this class. This class is the area stratum, not the four coarse DFO Pacific Region salmon Areas used as an administrative grouping by some DFO source systems."@en ;
                                    gcdfo:theme gcdfo:FisheriesManagementTheme ,
                                                gcdfo:PolicyGovernanceTheme ,
                                                gcdfo:StockAssessmentTheme .
@@ -2774,6 +2776,1080 @@ gcdfo:OceanAgeDimension rdf:type owl:NamedIndividual ,
                         skos:inScheme gcdfo:AgeDimensionScheme ;
                         skos:prefLabel "Ocean age dimension"@en ;
                         gcdfo:theme gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea1
+gcdfo:PacificFisheryManagementArea1 rdf:type owl:NamedIndividual ,
+                                             skos:Concept ,
+                                             gcdfo:PacificFisheryManagementArea ;
+                                    <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                 "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 1 (Area 1). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                    dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                   <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                    rdfs:label "Pacific fishery management area 1"@en ;
+                                    skos:altLabel "Area 1"@en ,
+                                                  "PFMA 1"@en ;
+                                    skos:definition "The division of Canadian fisheries waters prescribed as management Area 1, comprising those waters off the north coast of Graham Island, including Naden Harbour, Masset Sound and Masset Inlet, within the boundary described by the coordinates in item 1 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                    skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                    skos:notation 1 ;
+                                    skos:prefLabel "Pacific fishery management area 1"@en ;
+                                    skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 1 as Northern Haida Gwaii."@en ;
+                                    gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                gcdfo:PolicyGovernanceTheme ,
+                                                gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea10
+gcdfo:PacificFisheryManagementArea10 rdf:type owl:NamedIndividual ,
+                                              skos:Concept ,
+                                              gcdfo:PacificFisheryManagementArea ;
+                                     <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                  "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 10 (Area 10). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                     dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                    <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                     rdfs:label "Pacific fishery management area 10"@en ;
+                                     skos:altLabel "Area 10"@en ,
+                                                   "PFMA 10"@en ;
+                                     skos:definition "The division of Canadian fisheries waters prescribed as management Area 10, within the boundary described by the coordinates in item 10 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                     skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                     skos:notation 10 ;
+                                     skos:prefLabel "Pacific fishery management area 10"@en ;
+                                     skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 10 as Cranstown Point, Table Island."@en ;
+                                     gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                 gcdfo:PolicyGovernanceTheme ,
+                                                 gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea101
+gcdfo:PacificFisheryManagementArea101 rdf:type owl:NamedIndividual ,
+                                               skos:Concept ,
+                                               gcdfo:PacificFisheryManagementArea ;
+                                      <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                   "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 30 (Area 101). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                      dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                     <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                      rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                      rdfs:label "Pacific fishery management area 101"@en ;
+                                      skos:altLabel "Area 101"@en ,
+                                                    "PFMA 101"@en ;
+                                      skos:definition "The division of Canadian fisheries waters prescribed as management Area 101, comprising those waters of the Pacific Ocean and Dixon Entrance, within the boundary described by the coordinates in item 30 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                      skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                      skos:notation 101 ;
+                                      skos:prefLabel "Pacific fishery management area 101"@en ;
+                                      skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 101 as Open water north of Haida Gwaii."@en ;
+                                      gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                  gcdfo:PolicyGovernanceTheme ,
+                                                  gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea102
+gcdfo:PacificFisheryManagementArea102 rdf:type owl:NamedIndividual ,
+                                               skos:Concept ,
+                                               gcdfo:PacificFisheryManagementArea ;
+                                      <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                   "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 31 (Area 102). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                      dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                     <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                      rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                      rdfs:label "Pacific fishery management area 102"@en ;
+                                      skos:altLabel "Area 102"@en ,
+                                                    "PFMA 102"@en ;
+                                      skos:definition "The division of Canadian fisheries waters prescribed as management Area 102, comprising those waters of Hecate Strait, within the boundary described by the coordinates in item 31 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                      skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                      skos:notation 102 ;
+                                      skos:prefLabel "Pacific fishery management area 102"@en ;
+                                      skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 102 as Open water east of Haida Gwaii."@en ;
+                                      gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                  gcdfo:PolicyGovernanceTheme ,
+                                                  gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea103
+gcdfo:PacificFisheryManagementArea103 rdf:type owl:NamedIndividual ,
+                                               skos:Concept ,
+                                               gcdfo:PacificFisheryManagementArea ;
+                                      <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                   "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 32 (Area 103). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                      dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                     <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                      rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                      rdfs:label "Pacific fishery management area 103"@en ;
+                                      skos:altLabel "Area 103"@en ,
+                                                    "PFMA 103"@en ;
+                                      skos:definition "The division of Canadian fisheries waters prescribed as management Area 103, comprising those waters of Dixon Entrance, within the boundary described by the coordinates in item 32 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                      skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                      skos:notation 103 ;
+                                      skos:prefLabel "Pacific fishery management area 103"@en ;
+                                      skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 103 as Open water west of Zayas Island and Dundas Island."@en ;
+                                      gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                  gcdfo:PolicyGovernanceTheme ,
+                                                  gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea104
+gcdfo:PacificFisheryManagementArea104 rdf:type owl:NamedIndividual ,
+                                               skos:Concept ,
+                                               gcdfo:PacificFisheryManagementArea ;
+                                      <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                   "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 33 (Area 104). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                      dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                     <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                      rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                      rdfs:label "Pacific fishery management area 104"@en ;
+                                      skos:altLabel "Area 104"@en ,
+                                                    "PFMA 104"@en ;
+                                      skos:definition "The division of Canadian fisheries waters prescribed as management Area 104, comprising those waters of Hecate Strait, within the boundary described by the coordinates in item 33 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                      skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                      skos:notation 104 ;
+                                      skos:prefLabel "Pacific fishery management area 104"@en ;
+                                      skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 104 as Open water between Rose Point and Chatham Sound."@en ;
+                                      gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                  gcdfo:PolicyGovernanceTheme ,
+                                                  gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea105
+gcdfo:PacificFisheryManagementArea105 rdf:type owl:NamedIndividual ,
+                                               skos:Concept ,
+                                               gcdfo:PacificFisheryManagementArea ;
+                                      <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                   "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 34 (Area 105). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                      dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                     <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                      rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                      rdfs:label "Pacific fishery management area 105"@en ;
+                                      skos:altLabel "Area 105"@en ,
+                                                    "PFMA 105"@en ;
+                                      skos:definition "The division of Canadian fisheries waters prescribed as management Area 105, comprising those waters of Hecate Strait, within the boundary described by the coordinates in item 34 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                      skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                      skos:notation 105 ;
+                                      skos:prefLabel "Pacific fishery management area 105"@en ;
+                                      skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 105 as Open water west of Banks Island."@en ;
+                                      gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                  gcdfo:PolicyGovernanceTheme ,
+                                                  gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea106
+gcdfo:PacificFisheryManagementArea106 rdf:type owl:NamedIndividual ,
+                                               skos:Concept ,
+                                               gcdfo:PacificFisheryManagementArea ;
+                                      <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                   "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 35 (Area 106). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                      dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                     <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                      rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                      rdfs:label "Pacific fishery management area 106"@en ;
+                                      skos:altLabel "Area 106"@en ,
+                                                    "PFMA 106"@en ;
+                                      skos:definition "The division of Canadian fisheries waters prescribed as management Area 106, comprising those waters of Hecate Strait, within the boundary described by the coordinates in item 35 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                      skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                      skos:notation 106 ;
+                                      skos:prefLabel "Pacific fishery management area 106"@en ;
+                                      skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 106 as Hecate Strait."@en ;
+                                      gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                  gcdfo:PolicyGovernanceTheme ,
+                                                  gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea107
+gcdfo:PacificFisheryManagementArea107 rdf:type owl:NamedIndividual ,
+                                               skos:Concept ,
+                                               gcdfo:PacificFisheryManagementArea ;
+                                      <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                   "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 36 (Area 107). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                      dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                     <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                      rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                      rdfs:label "Pacific fishery management area 107"@en ;
+                                      skos:altLabel "Area 107"@en ,
+                                                    "PFMA 107"@en ;
+                                      skos:definition "The division of Canadian fisheries waters prescribed as management Area 107, comprising those waters of Queen Charlotte Sound, within the boundary described by the coordinates in item 36 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                      skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                      skos:notation 107 ;
+                                      skos:prefLabel "Pacific fishery management area 107"@en ;
+                                      skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 107 as Hecate Strait/Queen Charlotte Sound."@en ;
+                                      gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                  gcdfo:PolicyGovernanceTheme ,
+                                                  gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea108
+gcdfo:PacificFisheryManagementArea108 rdf:type owl:NamedIndividual ,
+                                               skos:Concept ,
+                                               gcdfo:PacificFisheryManagementArea ;
+                                      <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                   "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 37 (Area 108). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                      dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                     <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                      rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                      rdfs:label "Pacific fishery management area 108"@en ;
+                                      skos:altLabel "Area 108"@en ,
+                                                    "PFMA 108"@en ;
+                                      skos:definition "The division of Canadian fisheries waters prescribed as management Area 108, comprising those waters of Queen Charlotte Sound, within the boundary described by the coordinates in item 37 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                      skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                      skos:notation 108 ;
+                                      skos:prefLabel "Pacific fishery management area 108"@en ;
+                                      skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 108 as Open water west of Calvert Island."@en ;
+                                      gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                  gcdfo:PolicyGovernanceTheme ,
+                                                  gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea109
+gcdfo:PacificFisheryManagementArea109 rdf:type owl:NamedIndividual ,
+                                               skos:Concept ,
+                                               gcdfo:PacificFisheryManagementArea ;
+                                      <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                   "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 38 (Area 109). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                      dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                     <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                      rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                      rdfs:label "Pacific fishery management area 109"@en ;
+                                      skos:altLabel "Area 109"@en ,
+                                                    "PFMA 109"@en ;
+                                      skos:definition "The division of Canadian fisheries waters prescribed as management Area 109, comprising those waters of Queen Charlotte Sound, within the boundary described by the coordinates in item 38 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                      skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                      skos:notation 109 ;
+                                      skos:prefLabel "Pacific fishery management area 109"@en ;
+                                      skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 109 as Open water west of Calvert Island."@en ;
+                                      gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                  gcdfo:PolicyGovernanceTheme ,
+                                                  gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea11
+gcdfo:PacificFisheryManagementArea11 rdf:type owl:NamedIndividual ,
+                                              skos:Concept ,
+                                              gcdfo:PacificFisheryManagementArea ;
+                                     <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                  "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 11 (Area 11). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                     dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                    <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                     rdfs:label "Pacific fishery management area 11"@en ;
+                                     skos:altLabel "Area 11"@en ,
+                                                   "PFMA 11"@en ;
+                                     skos:definition "The division of Canadian fisheries waters prescribed as management Area 11, comprising those waters of Queen Charlotte Strait and adjacent waters, within the boundary described by the coordinates in item 11 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                     skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                     skos:notation 11 ;
+                                     skos:prefLabel "Pacific fishery management area 11"@en ;
+                                     skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 11 as Cape Caution, Westcott Point."@en ;
+                                     gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                 gcdfo:PolicyGovernanceTheme ,
+                                                 gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea110
+gcdfo:PacificFisheryManagementArea110 rdf:type owl:NamedIndividual ,
+                                               skos:Concept ,
+                                               gcdfo:PacificFisheryManagementArea ;
+                                      <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                   "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 39 (Area 110). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                      dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                     <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                      rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                      rdfs:label "Pacific fishery management area 110"@en ;
+                                      skos:altLabel "Area 110"@en ,
+                                                    "PFMA 110"@en ;
+                                      skos:definition "The division of Canadian fisheries waters prescribed as management Area 110, comprising those waters of Queen Charlotte Sound, within the boundary described by the coordinates in item 39 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                      skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                      skos:notation 110 ;
+                                      skos:prefLabel "Pacific fishery management area 110"@en ;
+                                      skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 110 as Open water southwest of Calvert Island."@en ;
+                                      gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                  gcdfo:PolicyGovernanceTheme ,
+                                                  gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea111
+gcdfo:PacificFisheryManagementArea111 rdf:type owl:NamedIndividual ,
+                                               skos:Concept ,
+                                               gcdfo:PacificFisheryManagementArea ;
+                                      <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                   "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 40 (Area 111). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                      dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                     <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                      rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                      rdfs:label "Pacific fishery management area 111"@en ;
+                                      skos:altLabel "Area 111"@en ,
+                                                    "PFMA 111"@en ;
+                                      skos:definition "The division of Canadian fisheries waters prescribed as management Area 111, comprising those waters of Queen Charlotte Sound, within the boundary described by the coordinates in item 40 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                      skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                      skos:notation 111 ;
+                                      skos:prefLabel "Pacific fishery management area 111"@en ;
+                                      skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 111 as Open water north of Vancouver Island."@en ;
+                                      gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                  gcdfo:PolicyGovernanceTheme ,
+                                                  gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea12
+gcdfo:PacificFisheryManagementArea12 rdf:type owl:NamedIndividual ,
+                                              skos:Concept ,
+                                              gcdfo:PacificFisheryManagementArea ;
+                                     <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                  "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 12 (Area 12). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                     dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                    <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                     rdfs:label "Pacific fishery management area 12"@en ;
+                                     skos:altLabel "Area 12"@en ,
+                                                   "PFMA 12"@en ;
+                                     skos:definition "The division of Canadian fisheries waters prescribed as management Area 12, comprising those waters between Vancouver Island and the mainland, within the boundary described by the coordinates in item 12 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                     skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                     skos:notation 12 ;
+                                     skos:prefLabel "Pacific fishery management area 12"@en ;
+                                     skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 12 as Northern Johnstone Strait."@en ;
+                                     gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                 gcdfo:PolicyGovernanceTheme ,
+                                                 gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea121
+gcdfo:PacificFisheryManagementArea121 rdf:type owl:NamedIndividual ,
+                                               skos:Concept ,
+                                               gcdfo:PacificFisheryManagementArea ;
+                                      <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                   "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 41 (Area 121). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                      dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                     <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                      rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                      rdfs:label "Pacific fishery management area 121"@en ;
+                                      skos:altLabel "Area 121"@en ,
+                                                    "PFMA 121"@en ;
+                                      skos:definition "The division of Canadian fisheries waters prescribed as management Area 121, comprising those waters off the west coast of Vancouver Island, within the boundary described by the coordinates in item 41 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                      skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                      skos:notation 121 ;
+                                      skos:prefLabel "Pacific fishery management area 121"@en ;
+                                      skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 121 as Open water southwest of Pachena Point."@en ;
+                                      gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                  gcdfo:PolicyGovernanceTheme ,
+                                                  gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea123
+gcdfo:PacificFisheryManagementArea123 rdf:type owl:NamedIndividual ,
+                                               skos:Concept ,
+                                               gcdfo:PacificFisheryManagementArea ;
+                                      <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                   "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 42 (Area 123). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                      dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                     <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                      rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                      rdfs:label "Pacific fishery management area 123"@en ;
+                                      skos:altLabel "Area 123"@en ,
+                                                    "PFMA 123"@en ;
+                                      skos:definition "The division of Canadian fisheries waters prescribed as management Area 123, comprising those waters off the west coast of Vancouver Island, within the boundary described by the coordinates in item 42 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                      skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                      skos:notation 123 ;
+                                      skos:prefLabel "Pacific fishery management area 123"@en ;
+                                      skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 123 as Open water southwest of Ucluelet."@en ;
+                                      gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                  gcdfo:PolicyGovernanceTheme ,
+                                                  gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea124
+gcdfo:PacificFisheryManagementArea124 rdf:type owl:NamedIndividual ,
+                                               skos:Concept ,
+                                               gcdfo:PacificFisheryManagementArea ;
+                                      <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                   "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 43 (Area 124). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                      dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                     <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                      rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                      rdfs:label "Pacific fishery management area 124"@en ;
+                                      skos:altLabel "Area 124"@en ,
+                                                    "PFMA 124"@en ;
+                                      skos:definition "The division of Canadian fisheries waters prescribed as management Area 124, comprising those waters off the west coast of Vancouver Island, within the boundary described by the coordinates in item 43 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                      skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                      skos:notation 124 ;
+                                      skos:prefLabel "Pacific fishery management area 124"@en ;
+                                      skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 124 as Open water southwest of Clayoquot Sound."@en ;
+                                      gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                  gcdfo:PolicyGovernanceTheme ,
+                                                  gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea125
+gcdfo:PacificFisheryManagementArea125 rdf:type owl:NamedIndividual ,
+                                               skos:Concept ,
+                                               gcdfo:PacificFisheryManagementArea ;
+                                      <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                   "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 44 (Area 125). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                      dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                     <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                      rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                      rdfs:label "Pacific fishery management area 125"@en ;
+                                      skos:altLabel "Area 125"@en ,
+                                                    "PFMA 125"@en ;
+                                      skos:definition "The division of Canadian fisheries waters prescribed as management Area 125, comprising those waters off the west coast of Vancouver Island, within the boundary described by the coordinates in item 44 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                      skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                      skos:notation 125 ;
+                                      skos:prefLabel "Pacific fishery management area 125"@en ;
+                                      skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 125 as Open water southwest of Nootka Sound."@en ;
+                                      gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                  gcdfo:PolicyGovernanceTheme ,
+                                                  gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea126
+gcdfo:PacificFisheryManagementArea126 rdf:type owl:NamedIndividual ,
+                                               skos:Concept ,
+                                               gcdfo:PacificFisheryManagementArea ;
+                                      <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                   "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 45 (Area 126). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                      dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                     <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                      rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                      rdfs:label "Pacific fishery management area 126"@en ;
+                                      skos:altLabel "Area 126"@en ,
+                                                    "PFMA 126"@en ;
+                                      skos:definition "The division of Canadian fisheries waters prescribed as management Area 126, comprising those waters off the west coast of Vancouver Island, within the boundary described by the coordinates in item 45 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                      skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                      skos:notation 126 ;
+                                      skos:prefLabel "Pacific fishery management area 126"@en ;
+                                      skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 126 as Open water southwest of Clerke Point."@en ;
+                                      gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                  gcdfo:PolicyGovernanceTheme ,
+                                                  gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea127
+gcdfo:PacificFisheryManagementArea127 rdf:type owl:NamedIndividual ,
+                                               skos:Concept ,
+                                               gcdfo:PacificFisheryManagementArea ;
+                                      <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                   "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 46 (Area 127). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                      dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                     <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                      rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                      rdfs:label "Pacific fishery management area 127"@en ;
+                                      skos:altLabel "Area 127"@en ,
+                                                    "PFMA 127"@en ;
+                                      skos:definition "The division of Canadian fisheries waters prescribed as management Area 127, comprising those waters off the west coast of Vancouver Island, within the boundary described by the coordinates in item 46 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                      skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                      skos:notation 127 ;
+                                      skos:prefLabel "Pacific fishery management area 127"@en ;
+                                      skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 127 as Open water west of Northern Vancouver Island."@en ;
+                                      gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                  gcdfo:PolicyGovernanceTheme ,
+                                                  gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea13
+gcdfo:PacificFisheryManagementArea13 rdf:type owl:NamedIndividual ,
+                                              skos:Concept ,
+                                              gcdfo:PacificFisheryManagementArea ;
+                                     <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                  "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 13 (Area 13). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                     dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                    <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                     rdfs:label "Pacific fishery management area 13"@en ;
+                                     skos:altLabel "Area 13"@en ,
+                                                   "PFMA 13"@en ;
+                                     skos:definition "The division of Canadian fisheries waters prescribed as management Area 13, comprising those waters between Vancouver Island and the mainland, within the boundary described by the coordinates in item 13 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                     skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                     skos:notation 13 ;
+                                     skos:prefLabel "Pacific fishery management area 13"@en ;
+                                     skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 13 as Quadra Island, Cortes Island."@en ;
+                                     gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                 gcdfo:PolicyGovernanceTheme ,
+                                                 gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea130
+gcdfo:PacificFisheryManagementArea130 rdf:type owl:NamedIndividual ,
+                                               skos:Concept ,
+                                               gcdfo:PacificFisheryManagementArea ;
+                                      <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                   "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 47 (Area 130). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                      dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                     <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                      rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                      rdfs:label "Pacific fishery management area 130"@en ;
+                                      skos:altLabel "Area 130"@en ,
+                                                    "PFMA 130"@en ;
+                                      skos:definition "The division of Canadian fisheries waters prescribed as management Area 130, within the boundary described by the coordinates in item 47 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                      skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                      skos:notation 130 ;
+                                      skos:prefLabel "Pacific fishery management area 130"@en ;
+                                      skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 130 as Open water west of Queen Charlotte Sound."@en ;
+                                      gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                  gcdfo:PolicyGovernanceTheme ,
+                                                  gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea14
+gcdfo:PacificFisheryManagementArea14 rdf:type owl:NamedIndividual ,
+                                              skos:Concept ,
+                                              gcdfo:PacificFisheryManagementArea ;
+                                     <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                  "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 14 (Area 14). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                     dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                    <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                     rdfs:label "Pacific fishery management area 14"@en ;
+                                     skos:altLabel "Area 14"@en ,
+                                                   "PFMA 14"@en ;
+                                     skos:definition "The division of Canadian fisheries waters prescribed as management Area 14, comprising those waters of the Strait of Georgia, within the boundary described by the coordinates in item 14 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                     skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                     skos:notation 14 ;
+                                     skos:prefLabel "Pacific fishery management area 14"@en ;
+                                     skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 14 as Oyster River, Parksville."@en ;
+                                     gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                 gcdfo:PolicyGovernanceTheme ,
+                                                 gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea142
+gcdfo:PacificFisheryManagementArea142 rdf:type owl:NamedIndividual ,
+                                               skos:Concept ,
+                                               gcdfo:PacificFisheryManagementArea ;
+                                      <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                   "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 48 (Area 142). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                      dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                     <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                      rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                      rdfs:label "Pacific fishery management area 142"@en ;
+                                      skos:altLabel "Area 142"@en ,
+                                                    "PFMA 142"@en ;
+                                      skos:definition "The division of Canadian fisheries waters prescribed as management Area 142, comprising those waters off the west coast of the Queen Charlotte Islands, within the boundary described by the coordinates in item 48 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                      skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                      skos:notation 142 ;
+                                      skos:prefLabel "Pacific fishery management area 142"@en ;
+                                      skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 142 as Open water west of Haida Gwaii."@en ;
+                                      gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                  gcdfo:PolicyGovernanceTheme ,
+                                                  gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea15
+gcdfo:PacificFisheryManagementArea15 rdf:type owl:NamedIndividual ,
+                                              skos:Concept ,
+                                              gcdfo:PacificFisheryManagementArea ;
+                                     <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                  "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 15 (Area 15). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                     dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                    <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                     rdfs:label "Pacific fishery management area 15"@en ;
+                                     skos:altLabel "Area 15"@en ,
+                                                   "PFMA 15"@en ;
+                                     skos:definition "The division of Canadian fisheries waters prescribed as management Area 15, comprising those waters between Vancouver Island and the mainland, within the boundary described by the coordinates in item 15 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                     skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                     skos:notation 15 ;
+                                     skos:prefLabel "Pacific fishery management area 15"@en ;
+                                     skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 15 as Brettell Point, Powell River."@en ;
+                                     gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                 gcdfo:PolicyGovernanceTheme ,
+                                                 gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea16
+gcdfo:PacificFisheryManagementArea16 rdf:type owl:NamedIndividual ,
+                                              skos:Concept ,
+                                              gcdfo:PacificFisheryManagementArea ;
+                                     <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                  "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 16 (Area 16). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                     dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                    <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                     rdfs:label "Pacific fishery management area 16"@en ;
+                                     skos:altLabel "Area 16"@en ,
+                                                   "PFMA 16"@en ;
+                                     skos:definition "The division of Canadian fisheries waters prescribed as management Area 16, comprising those waters between Vancouver Island and the mainland, within the boundary described by the coordinates in item 16 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                     skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                     skos:notation 16 ;
+                                     skos:prefLabel "Pacific fishery management area 16"@en ;
+                                     skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 16 as Texada Island, Lasqueti Island, Jervis Inlet."@en ;
+                                     gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                 gcdfo:PolicyGovernanceTheme ,
+                                                 gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea17
+gcdfo:PacificFisheryManagementArea17 rdf:type owl:NamedIndividual ,
+                                              skos:Concept ,
+                                              gcdfo:PacificFisheryManagementArea ;
+                                     <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                  "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 17 (Area 17). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                     dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                    <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                     rdfs:label "Pacific fishery management area 17"@en ;
+                                     skos:altLabel "Area 17"@en ,
+                                                   "PFMA 17"@en ;
+                                     skos:definition "The division of Canadian fisheries waters prescribed as management Area 17, comprising those waters of the east coast of Vancouver Island, within the boundary described by the coordinates in item 17 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                     skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                     skos:notation 17 ;
+                                     skos:prefLabel "Pacific fishery management area 17"@en ;
+                                     skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 17 as Nanoose Bay, Galiano Island."@en ;
+                                     gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                 gcdfo:PolicyGovernanceTheme ,
+                                                 gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea18
+gcdfo:PacificFisheryManagementArea18 rdf:type owl:NamedIndividual ,
+                                              skos:Concept ,
+                                              gcdfo:PacificFisheryManagementArea ;
+                                     <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                  "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 18 (Area 18). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                     dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                    <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                     rdfs:label "Pacific fishery management area 18"@en ;
+                                     skos:altLabel "Area 18"@en ,
+                                                   "PFMA 18"@en ;
+                                     skos:definition "The division of Canadian fisheries waters prescribed as management Area 18, within the boundary described by the coordinates in item 18 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                     skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                     skos:notation 18 ;
+                                     skos:prefLabel "Pacific fishery management area 18"@en ;
+                                     skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 18 as Mayne Island, Saanich."@en ;
+                                     gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                 gcdfo:PolicyGovernanceTheme ,
+                                                 gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea19
+gcdfo:PacificFisheryManagementArea19 rdf:type owl:NamedIndividual ,
+                                              skos:Concept ,
+                                              gcdfo:PacificFisheryManagementArea ;
+                                     <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                  "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 19 (Area 19). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                     dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                    <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                     rdfs:label "Pacific fishery management area 19"@en ;
+                                     skos:altLabel "Area 19"@en ,
+                                                   "PFMA 19"@en ;
+                                     skos:definition "The division of Canadian fisheries waters prescribed as management Area 19, comprising those waters of Juan de Fuca and Haro Straits and Saanich Inlet, within the boundary described by the coordinates in item 19 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                     skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                     skos:notation 19 ;
+                                     skos:prefLabel "Pacific fishery management area 19"@en ;
+                                     skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 19 as Saanich, William Head."@en ;
+                                     gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                 gcdfo:PolicyGovernanceTheme ,
+                                                 gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea2
+gcdfo:PacificFisheryManagementArea2 rdf:type owl:NamedIndividual ,
+                                             skos:Concept ,
+                                             gcdfo:PacificFisheryManagementArea ;
+                                    <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                 "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 2 (Area 2). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                    dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                   <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                    rdfs:label "Pacific fishery management area 2"@en ;
+                                    skos:altLabel "Area 2"@en ,
+                                                  "PFMA 2"@en ;
+                                    skos:definition "The division of Canadian fisheries waters prescribed as management Area 2, comprising those waters adjacent to the Queen Charlotte Islands, within the boundary described by the coordinates in item 2 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                    skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                    skos:notation 2 ;
+                                    skos:prefLabel "Pacific fishery management area 2"@en ;
+                                    skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 2 as Southern Haida Gwaii."@en ;
+                                    gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                gcdfo:PolicyGovernanceTheme ,
+                                                gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea20
+gcdfo:PacificFisheryManagementArea20 rdf:type owl:NamedIndividual ,
+                                              skos:Concept ,
+                                              gcdfo:PacificFisheryManagementArea ;
+                                     <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                  "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 20 (Area 20). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                     dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                    <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                     rdfs:label "Pacific fishery management area 20"@en ;
+                                     skos:altLabel "Area 20"@en ,
+                                                   "PFMA 20"@en ;
+                                     skos:definition "The division of Canadian fisheries waters prescribed as management Area 20, comprising those waters of Juan de Fuca Strait, within the boundary described by the coordinates in item 20 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                     skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                     skos:notation 20 ;
+                                     skos:prefLabel "Pacific fishery management area 20"@en ;
+                                     skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 20 as Sooke, Bonilla Point Lighthouse."@en ;
+                                     gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                 gcdfo:PolicyGovernanceTheme ,
+                                                 gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea21
+gcdfo:PacificFisheryManagementArea21 rdf:type owl:NamedIndividual ,
+                                              skos:Concept ,
+                                              gcdfo:PacificFisheryManagementArea ;
+                                     <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                  "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 21 (Area 21). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                     dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                    <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                     rdfs:label "Pacific fishery management area 21"@en ;
+                                     skos:altLabel "Area 21"@en ,
+                                                   "PFMA 21"@en ;
+                                     skos:definition "The division of Canadian fisheries waters prescribed as management Area 21, comprising those waters off the west coast of Vancouver Island, within the boundary described by the coordinates in item 21 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                     skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                     skos:notation 21 ;
+                                     skos:prefLabel "Pacific fishery management area 21"@en ;
+                                     skos:scopeNote "Fisheries and Oceans Canada's published area listing shows Areas 21 and 22 on a single map sheet, described as Tzuquanah Point, Nitinat Lake."@en ;
+                                     gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                 gcdfo:PolicyGovernanceTheme ,
+                                                 gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea22
+gcdfo:PacificFisheryManagementArea22 rdf:type owl:NamedIndividual ,
+                                              skos:Concept ,
+                                              gcdfo:PacificFisheryManagementArea ;
+                                     <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                  "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 22 (Area 22). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                     dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                    <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                     rdfs:label "Pacific fishery management area 22"@en ;
+                                     skos:altLabel "Area 22"@en ,
+                                                   "PFMA 22"@en ;
+                                     skos:definition "The division of Canadian fisheries waters prescribed as management Area 22, comprising those waters of Nitinat Lake, within the boundary described by the coordinates in item 22 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                     skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                     skos:notation 22 ;
+                                     skos:prefLabel "Pacific fishery management area 22"@en ;
+                                     skos:scopeNote "Fisheries and Oceans Canada's published area listing shows Areas 21 and 22 on a single map sheet, described as Tzuquanah Point, Nitinat Lake."@en ;
+                                     gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                 gcdfo:PolicyGovernanceTheme ,
+                                                 gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea23
+gcdfo:PacificFisheryManagementArea23 rdf:type owl:NamedIndividual ,
+                                              skos:Concept ,
+                                              gcdfo:PacificFisheryManagementArea ;
+                                     <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                  "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 23 (Area 23). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                     dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                    <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                     rdfs:label "Pacific fishery management area 23"@en ;
+                                     skos:altLabel "Area 23"@en ,
+                                                   "PFMA 23"@en ;
+                                     skos:definition "The division of Canadian fisheries waters prescribed as management Area 23, within the boundary described by the coordinates in item 23 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                     skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                     skos:notation 23 ;
+                                     skos:prefLabel "Pacific fishery management area 23"@en ;
+                                     skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 23 as Cape Beale, Ucluelet."@en ;
+                                     gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                 gcdfo:PolicyGovernanceTheme ,
+                                                 gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea24
+gcdfo:PacificFisheryManagementArea24 rdf:type owl:NamedIndividual ,
+                                              skos:Concept ,
+                                              gcdfo:PacificFisheryManagementArea ;
+                                     <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                  "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 24 (Area 24). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                     dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                    <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                     rdfs:label "Pacific fishery management area 24"@en ;
+                                     skos:altLabel "Area 24"@en ,
+                                                   "PFMA 24"@en ;
+                                     skos:definition "The division of Canadian fisheries waters prescribed as management Area 24, comprising those waters off the west coast of Vancouver Island, within the boundary described by the coordinates in item 24 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                     skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                     skos:notation 24 ;
+                                     skos:prefLabel "Pacific fishery management area 24"@en ;
+                                     skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 24 as Cox Point, Estevan Point."@en ;
+                                     gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                 gcdfo:PolicyGovernanceTheme ,
+                                                 gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea25
+gcdfo:PacificFisheryManagementArea25 rdf:type owl:NamedIndividual ,
+                                              skos:Concept ,
+                                              gcdfo:PacificFisheryManagementArea ;
+                                     <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                  "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 25 (Area 25). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                     dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                    <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                     rdfs:label "Pacific fishery management area 25"@en ;
+                                     skos:altLabel "Area 25"@en ,
+                                                   "PFMA 25"@en ;
+                                     skos:definition "The division of Canadian fisheries waters prescribed as management Area 25, comprising those waters off the west coast of Vancouver Island, within the boundary described by the coordinates in item 25 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                     skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                     skos:notation 25 ;
+                                     skos:prefLabel "Pacific fishery management area 25"@en ;
+                                     skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 25 as Nootka Sound, Esperanza Inlet."@en ;
+                                     gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                 gcdfo:PolicyGovernanceTheme ,
+                                                 gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea26
+gcdfo:PacificFisheryManagementArea26 rdf:type owl:NamedIndividual ,
+                                              skos:Concept ,
+                                              gcdfo:PacificFisheryManagementArea ;
+                                     <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                  "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 26 (Area 26). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                     dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                    <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                     rdfs:label "Pacific fishery management area 26"@en ;
+                                     skos:altLabel "Area 26"@en ,
+                                                   "PFMA 26"@en ;
+                                     skos:definition "The division of Canadian fisheries waters prescribed as management Area 26, comprising those waters off the west coast of Vancouver Island, within the boundary described by the coordinates in item 26 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                     skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                     skos:notation 26 ;
+                                     skos:prefLabel "Pacific fishery management area 26"@en ;
+                                     skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 26 as Union Island, Solander Island."@en ;
+                                     gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                 gcdfo:PolicyGovernanceTheme ,
+                                                 gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea27
+gcdfo:PacificFisheryManagementArea27 rdf:type owl:NamedIndividual ,
+                                              skos:Concept ,
+                                              gcdfo:PacificFisheryManagementArea ;
+                                     <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                  "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 27 (Area 27). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                     dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                    <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                     rdfs:label "Pacific fishery management area 27"@en ;
+                                     skos:altLabel "Area 27"@en ,
+                                                   "PFMA 27"@en ;
+                                     skos:definition "The division of Canadian fisheries waters prescribed as management Area 27, comprising those waters off the west coast of Vancouver Island, within the boundary described by the coordinates in item 27 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                     skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                     skos:notation 27 ;
+                                     skos:prefLabel "Pacific fishery management area 27"@en ;
+                                     skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 27 as Solander Island, Lawn Point, Cape Scott."@en ;
+                                     gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                 gcdfo:PolicyGovernanceTheme ,
+                                                 gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea28
+gcdfo:PacificFisheryManagementArea28 rdf:type owl:NamedIndividual ,
+                                              skos:Concept ,
+                                              gcdfo:PacificFisheryManagementArea ;
+                                     <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                  "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 28 (Area 28). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                     dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                    <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                     rdfs:label "Pacific fishery management area 28"@en ;
+                                     skos:altLabel "Area 28"@en ,
+                                                   "PFMA 28"@en ;
+                                     skos:definition "The division of Canadian fisheries waters prescribed as management Area 28, comprising those waters of Howe Sound and Burrard Inlet, within the boundary described by the coordinates in item 28 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                     skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                     skos:notation 28 ;
+                                     skos:prefLabel "Pacific fishery management area 28"@en ;
+                                     skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 28 as Bowen Island, Squamish, Vancouver, Indian Arm."@en ;
+                                     gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                 gcdfo:PolicyGovernanceTheme ,
+                                                 gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea29
+gcdfo:PacificFisheryManagementArea29 rdf:type owl:NamedIndividual ,
+                                              skos:Concept ,
+                                              gcdfo:PacificFisheryManagementArea ;
+                                     <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                  "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 29 (Area 29). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                     dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                    <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                     rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                     rdfs:label "Pacific fishery management area 29"@en ;
+                                     skos:altLabel "Area 29"@en ,
+                                                   "PFMA 29"@en ;
+                                     skos:definition "The division of Canadian fisheries waters prescribed as management Area 29, comprising those waters of Boundary Bay and Semiahmoo Bay lying northerly of the international boundary between Canada and the United States and those waters of the Strait of Georgia and the Fraser River, within the boundary described by the coordinates in item 29 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                     skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                     skos:notation 29 ;
+                                     skos:prefLabel "Pacific fishery management area 29"@en ;
+                                     skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 29 as Lower Strait of Georgia."@en ;
+                                     gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                 gcdfo:PolicyGovernanceTheme ,
+                                                 gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea3
+gcdfo:PacificFisheryManagementArea3 rdf:type owl:NamedIndividual ,
+                                             skos:Concept ,
+                                             gcdfo:PacificFisheryManagementArea ;
+                                    <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                 "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 3 (Area 3). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                    dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                   <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                    rdfs:label "Pacific fishery management area 3"@en ;
+                                    skos:altLabel "Area 3"@en ,
+                                                  "PFMA 3"@en ;
+                                    skos:definition "The division of Canadian fisheries waters prescribed as management Area 3, within the boundary described by the coordinates in item 3 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                    skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                    skos:notation 3 ;
+                                    skos:prefLabel "Pacific fishery management area 3"@en ;
+                                    skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 3 as Portland Inlet."@en ;
+                                    gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                gcdfo:PolicyGovernanceTheme ,
+                                                gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea4
+gcdfo:PacificFisheryManagementArea4 rdf:type owl:NamedIndividual ,
+                                             skos:Concept ,
+                                             gcdfo:PacificFisheryManagementArea ;
+                                    <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                 "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 4 (Area 4). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                    dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                   <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                    rdfs:label "Pacific fishery management area 4"@en ;
+                                    skos:altLabel "Area 4"@en ,
+                                                  "PFMA 4"@en ;
+                                    skos:definition "The division of Canadian fisheries waters prescribed as management Area 4, within the boundary described by the coordinates in item 4 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                    skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                    skos:notation 4 ;
+                                    skos:prefLabel "Pacific fishery management area 4"@en ;
+                                    skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 4 as Chatham Sound, Porcher Island."@en ;
+                                    gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                gcdfo:PolicyGovernanceTheme ,
+                                                gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea5
+gcdfo:PacificFisheryManagementArea5 rdf:type owl:NamedIndividual ,
+                                             skos:Concept ,
+                                             gcdfo:PacificFisheryManagementArea ;
+                                    <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                 "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 5 (Area 5). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                    dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                   <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                    rdfs:label "Pacific fishery management area 5"@en ;
+                                    skos:altLabel "Area 5"@en ,
+                                                  "PFMA 5"@en ;
+                                    skos:definition "The division of Canadian fisheries waters prescribed as management Area 5, within the boundary described by the coordinates in item 5 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                    skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                    skos:notation 5 ;
+                                    skos:prefLabel "Pacific fishery management area 5"@en ;
+                                    skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 5 as Greenville Channel, Principe Channel."@en ;
+                                    gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                gcdfo:PolicyGovernanceTheme ,
+                                                gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea6
+gcdfo:PacificFisheryManagementArea6 rdf:type owl:NamedIndividual ,
+                                             skos:Concept ,
+                                             gcdfo:PacificFisheryManagementArea ;
+                                    <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                 "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 6 (Area 6). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                    dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                   <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                    rdfs:label "Pacific fishery management area 6"@en ;
+                                    skos:altLabel "Area 6"@en ,
+                                                  "PFMA 6"@en ;
+                                    skos:definition "The division of Canadian fisheries waters prescribed as management Area 6, within the boundary described by the coordinates in item 6 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                    skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                    skos:notation 6 ;
+                                    skos:prefLabel "Pacific fishery management area 6"@en ;
+                                    skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 6 as Princess Royal Island."@en ;
+                                    gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                gcdfo:PolicyGovernanceTheme ,
+                                                gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea7
+gcdfo:PacificFisheryManagementArea7 rdf:type owl:NamedIndividual ,
+                                             skos:Concept ,
+                                             gcdfo:PacificFisheryManagementArea ;
+                                    <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                 "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 7 (Area 7). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                    dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                   <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                    rdfs:label "Pacific fishery management area 7"@en ;
+                                    skos:altLabel "Area 7"@en ,
+                                                  "PFMA 7"@en ;
+                                    skos:definition "The division of Canadian fisheries waters prescribed as management Area 7, within the boundary described by the coordinates in item 7 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                    skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                    skos:notation 7 ;
+                                    skos:prefLabel "Pacific fishery management area 7"@en ;
+                                    skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 7 as Price Island, Hunter Island."@en ;
+                                    gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                gcdfo:PolicyGovernanceTheme ,
+                                                gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea8
+gcdfo:PacificFisheryManagementArea8 rdf:type owl:NamedIndividual ,
+                                             skos:Concept ,
+                                             gcdfo:PacificFisheryManagementArea ;
+                                    <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                 "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 8 (Area 8). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                    dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                   <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                    rdfs:label "Pacific fishery management area 8"@en ;
+                                    skos:altLabel "Area 8"@en ,
+                                                  "PFMA 8"@en ;
+                                    skos:definition "The division of Canadian fisheries waters prescribed as management Area 8, within the boundary described by the coordinates in item 8 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                    skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                    skos:notation 8 ;
+                                    skos:prefLabel "Pacific fishery management area 8"@en ;
+                                    skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 8 as Fitz Hugh Sound."@en ;
+                                    gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                gcdfo:PolicyGovernanceTheme ,
+                                                gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea9
+gcdfo:PacificFisheryManagementArea9 rdf:type owl:NamedIndividual ,
+                                             skos:Concept ,
+                                             gcdfo:PacificFisheryManagementArea ;
+                                    <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17."@en ,
+                                                                                 "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2, item 9 (Area 9). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                    dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                   <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                    rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                    rdfs:label "Pacific fishery management area 9"@en ;
+                                    skos:altLabel "Area 9"@en ,
+                                                  "PFMA 9"@en ;
+                                    skos:definition "The division of Canadian fisheries waters prescribed as management Area 9, within the boundary described by the coordinates in item 9 of Schedule 2 to the Pacific Fishery Management Area Regulations, 2007."@en ;
+                                    skos:inScheme gcdfo:PacificFisheryManagementAreaScheme ;
+                                    skos:notation 9 ;
+                                    skos:prefLabel "Pacific fishery management area 9"@en ;
+                                    skos:scopeNote "Fisheries and Oceans Canada's published area listing describes Area 9 as Calvert Island, Rivers Inlet."@en ;
+                                    gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                gcdfo:PolicyGovernanceTheme ,
+                                                gcdfo:StockAssessmentTheme .
+
+
+###  https://w3id.org/gcdfo/salmon#PacificFisheryManagementAreaScheme
+gcdfo:PacificFisheryManagementAreaScheme rdf:type owl:NamedIndividual ,
+                                                  skos:ConceptScheme ;
+                                         <http://purl.obolibrary.org/obo/IAO_0000119> "Fisheries and Oceans Canada. Maps of Pacific Fishery Management Areas (area listing, page modified 2021-12-08); retrieved 2026-08-17. Used to cross-check the Area list and to record each area's published locality description."@en ,
+                                                                                      "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), Schedule 2 (Management Area Boundary Descriptions). Consolidation current to 2026-06-17, last amended 2017-04-13; retrieved 2026-08-17."@en ;
+                                         dcterms:source <https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-3.html> ,
+                                                        <https://www.pac.dfo-mpo.gc.ca/fm-gp/maps-cartes/areas-secteurs/index-eng.html> ;
+                                         rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                                         skos:altLabel "PFMA Scheme"@en ;
+                                         skos:definition "Controlled vocabulary of the 48 Pacific fishery management areas prescribed by section 5 of, and enumerated and described in Schedule 2 to, the Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77). Each member is a value of the Pacific fishery management area class in this ontology."@en ;
+                                         skos:prefLabel "Pacific Fishery Management Area Scheme"@en ;
+                                         skos:scopeNote "The vocabulary is complete at the Area level: it contains every Area enumerated in Schedule 2 (Areas 1 to 29 and 101 to 111, 121, 123 to 127, 130 and 142), cross-checked against DFO's published area listing. Schedule 2 subdivides those Areas into 604 numbered Subareas (for example, Subarea 12-14); Subareas are deliberately out of scope here and are not minted, so this scheme is complete for Areas and silent about Subareas."@en ,
+                                                        "These are the regulated numbered management areas. They are not the four coarse DFO Pacific Region salmon Areas (South Coast, North Coast, Fraser and Interior, Yukon and Transboundary) used as an administrative grouping by some DFO source systems; that coarser stratum is a different unit and has no term in this ontology."@en ;
+                                         gcdfo:theme gcdfo:FisheriesManagementTheme ,
+                                                     gcdfo:PolicyGovernanceTheme ,
+                                                     gcdfo:StockAssessmentTheme .
 
 
 ###  https://w3id.org/gcdfo/salmon#PeakCountAnalysis
