@@ -10,6 +10,40 @@
 
 ## [Unreleased]
 
+### Removed
+- `docs/webvowl/data/ontology.stamp`, the orphaned output of the pre-normalizer
+  WebVOWL stabilization approach. It recorded a merged-input + WIDOCO-version
+  hash so `scripts/stabilize_webvowl_output.py` could restore prior
+  `ontology.json` bytes on an unchanged input. PR #78 removed that script from
+  the `docs-widoco` recipe in favour of `scripts/normalize_webvowl_json.py` but
+  left both the script and the stamp behind, so the file had no writer and no
+  reader: `grep -rn stabilize_webvowl_output` and `grep -rn ontology.stamp`
+  return nothing outside the dead script itself, and `make ci` run twice leaves
+  the stamp byte-identical and untouched. It was frozen at
+  `widoco-1.4.25:a70a3d52…` since 2026-03-15.
+- `scripts/stabilize_webvowl_output.py`, the stamp's only writer and the last
+  live-looking trace of that approach. Nothing has invoked it since PR #78
+  removed it from the `docs-widoco` recipe; `scripts/normalize_webvowl_json.py`
+  is the single active path, described in `docs/entrypoints.md` and
+  [ADR-007](docs/adr/007-webvowl-duplicate-node-disambiguation.md).
+
+### Changed
+- `docs/tech-debt.md`'s 2026-03-15 "WebVOWL churn stabilized" entry no longer
+  reads as a standing guarantee. PR #78 rewrote that entry **in place** — new
+  mechanism, original date — so the log described `normalize_webvowl_json.py`
+  under a heading that had resolved a different implementation, and the evidence
+  that a replacement had happened at all was overwritten. The entry therefore
+  asserted a working gate throughout the window (PR #78 → PR #82) in which the
+  gate did nothing. It now records what the 2026-03-15 fix was, what superseded
+  it, when the claim was false, and a command that re-checks it.
+- `docs/context/widoco.md` now names `scripts/normalize_webvowl_json.py` as the
+  only thing that touches `docs/webvowl/data/ontology.json` after WIDOCO writes
+  it, links [ADR-007](docs/adr/007-webvowl-duplicate-node-disambiguation.md), and
+  records the `set -e` recipe and the CI drift gate. It had the same in-place
+  rewrite as the tech-debt entry and described the behaviour without naming any
+  code, so a reader could not tell which of the two scripts in `scripts/` was
+  live.
+
 ## [0.0.9] - 2026-08-16
 
 First release cut after the S9 step-3 shared-layer boundary work (PR #78). This

@@ -18,7 +18,8 @@ This file is **repo-specific** guidance for using WIDOCO here. Upstream/referenc
   - `docs/` HTML via WIDOCO (`make docs-widoco`, uses `tools/widoco.jar`; runs with `-ignoreIndividuals` so SKOS concepts are not duplicated as “Named Individuals”, and `-webVowl` so a WebVOWL diagram is published under `docs/webvowl/`)
     - `make docs-widoco` first builds `release/tmp/dfo-salmon-docs-input.ttl` via ROBOT `merge --collapse-import-closure true`
     - import resolution is driven by `release/tmp/robot-catalog.xml`, which maps `https://w3id.org/smn` to `SMN_FLAT_TTL` (default: `../salmon-domain-ontology/salmon-domain-ontology.ttl`) when present
-    - after export, the pipeline compares `docs/webvowl/data/ontology.json` against the prior tracked baseline semantically; if nothing meaningful changed it restores the exact baseline bytes, otherwise it normalizes ids/order to keep the diff deterministic and reviewer-friendly
+    - after export, `scripts/normalize_webvowl_json.py` — the one thing that touches `docs/webvowl/data/ontology.json` after WIDOCO writes it — compares the generated file against the prior tracked baseline semantically; if nothing meaningful changed it restores the exact baseline bytes, otherwise it normalizes ids/order to keep the diff deterministic and reviewer-friendly. See [ADR-007](../adr/007-webvowl-duplicate-node-disambiguation.md) for how it keys nodes, and `docs/entrypoints.md` for where it sits in the recipe
+    - the recipe runs under `set -e`, so a normalizer failure fails the build; CI's post-`make ci` clean-tree check covers `docs/webvowl/`, so a run that leaves the artifact changed fails the PR
   - `docs/gcdfo.ttl` + `docs/gcdfo.owl` (ROBOT convert)
   - `docs/gcdfo.jsonld` (Python `rdflib` conversion)
   - SKOS blocks inside `docs/index.html` (via `scripts/generate_skos_section.py`)
