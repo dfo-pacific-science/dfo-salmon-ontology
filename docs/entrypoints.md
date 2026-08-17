@@ -71,9 +71,15 @@ Purpose: one short, reliable map of what is canonical vs optional/deprecated.
 ## Release (manual)
 
 1. Update ontology header metadata (`dcterms:modified`, `owl:versionInfo`, `owl:versionIRI`, `owl:priorVersion`)
-2. Run `make ci` (or `make ci-sync-artifacts`) and commit generated docs artifacts
-3. Run `make release-snapshot VERSION=X.Y.Z`
-4. Commit/push `docs/` + `docs/releases/X.Y.Z/`
+2. Promote `CHANGELOG.md` `## [Unreleased]` to `## [X.Y.Z] - YYYY-MM-DD`
+3. Run `make ci` (or `make ci-sync-artifacts`) and commit generated docs artifacts
+4. Run `make release-snapshot VERSION=X.Y.Z`
+5. Commit/push `docs/` + `docs/releases/X.Y.Z/`
+6. After merge: annotated bare tag `X.Y.Z` on the merge commit, then `gh release create X.Y.Z --prerelease` with the changelog entry as the body
+
+Version numbers are strictly increasing (`0.0.8 → 0.0.9 → …`). `0.0.999` is a
+documented anomaly from an abandoned beta scheme, not a version to exceed.
+See `README.md` § CI + Release Workflow for the full command sequence.
 
 ## Canonical vs Non-canonical Output Paths
 

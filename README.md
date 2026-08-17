@@ -2,7 +2,7 @@
 
 **Namespace:** `https://w3id.org/gcdfo/salmon#` (prefix: `gcdfo:`)  
 **License:** CC-BY 4.0  
-**Status:** Version 0.0.999 (pre-1.0 “beta”)
+**Status:** Version 0.0.9 (pre-1.0)
 
 This README is the **technical runbook** for maintaining, building, and publishing the DFO-specific ontology repo.
 
@@ -140,12 +140,22 @@ If a term is clearly **cross-organization, policy-neutral, and reusable**, it pr
 1. Update ontology header fields in `ontology/dfo-salmon.ttl`:
    - `dcterms:modified`
    - `owl:versionInfo`
-   - `owl:versionIRI` (example: `https://w3id.org/gcdfo/salmon/0.0.999`)
+   - `owl:versionIRI` (example: `https://w3id.org/gcdfo/salmon/0.0.9`)
    - `owl:priorVersion` (previous version IRI)
-2. Run `make ci-sync-artifacts` (or `devenv shell make ci-sync-artifacts`) and commit everything it stages. It prints the staged paths and covers the full regenerated set — the serializations, the WIDOCO HTML, and the `docs/webvowl/`, `docs/resources/`, and `docs/provenance/` trees — which is what CI's post-`make ci` clean-tree check enforces.
-3. Run `make release-snapshot VERSION=X.Y.Z` (or `devenv shell make release-snapshot VERSION=X.Y.Z`) to create a release snapshot (an immutable copy under `docs/releases/X.Y.Z/`).
-4. Commit and push `docs/releases/X.Y.Z/` so GitHub Pages serves the versioned files.
-5. Optional: tag the release (a tag is a Git label for a specific commit, e.g., `v0.0.999`).
+2. Promote the `## [Unreleased]` section of `CHANGELOG.md` to `## [X.Y.Z] - YYYY-MM-DD` and leave a fresh empty `## [Unreleased]` above it. Promote **everything** that will be inside the tag, including entries other PRs left under `## [Unreleased]` — the 0.0.7 backfill in `CHANGELOG.md` records what happens when that step is skipped.
+3. Run `make ci-sync-artifacts` (or `devenv shell make ci-sync-artifacts`) and commit everything it stages. It prints the staged paths and covers the full regenerated set — the serializations, the WIDOCO HTML, and the `docs/webvowl/`, `docs/resources/`, and `docs/provenance/` trees — which is what CI's post-`make ci` clean-tree check enforces.
+4. Run `make release-snapshot VERSION=X.Y.Z` (or `devenv shell make release-snapshot VERSION=X.Y.Z`) to create a release snapshot (an immutable copy under `docs/releases/X.Y.Z/`). Snapshots are immutable: never re-cut one with `FORCE=1` as routine workflow.
+5. Commit and push `docs/releases/X.Y.Z/` so GitHub Pages serves the versioned files.
+6. **Tag and publish.** After the release PR merges, cut an **annotated** tag on the merge commit that made the version current (a tag is a Git label for a specific commit), then create a GitHub Release whose body is the `CHANGELOG.md` entry. Ontology repos in this ecosystem use **bare `X.Y.Z` tags** (no `v` prefix — that prefix is reserved for the R package `metasalmon`) and mark pre-1.0 releases as pre-releases:
+
+   ```sh
+   git switch main && git pull
+   git tag -a X.Y.Z -m "X.Y.Z: <short summary>"
+   git push origin X.Y.Z
+   gh release create X.Y.Z --prerelease --title "X.Y.Z — <summary>" --notes-file <changelog-entry.md>
+   ```
+
+**Versioning:** the version line is strictly increasing: `0.0.7 → 0.0.8 → 0.0.9 → …`. The `0.0.999` entry in `CHANGELOG.md` and the `docs/releases/0.0.999/` snapshot are a **documented anomaly** from an abandoned pre-1.0 "beta" numbering experiment; the sequence does not need to exceed it and `0.0.99x` numbering must not be re-adopted.
 
 **W3ID redirects:** You do **not** need a new W3ID PR for each release unless the hosting base URL changes; the existing redirect rules already handle `X.Y.Z` versions.
 

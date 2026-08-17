@@ -30,14 +30,15 @@ This file is **repo-specific** guidance for using WIDOCO here. Upstream/referenc
 1. Update ontology header fields in `ontology/dfo-salmon.ttl`:
    - `dcterms:modified`
    - `owl:versionInfo`
-   - `owl:versionIRI` (example: `https://w3id.org/gcdfo/salmon/0.0.999`)
+   - `owl:versionIRI` (example: `https://w3id.org/gcdfo/salmon/0.0.9`)
    - `owl:priorVersion` (previous version IRI; previous version means the immediate earlier release)
 2. Regenerate and verify:
    - `make ci` (or `devenv shell make ci` if using nix/devenv)
 3. Create the immutable snapshot for that version (served by GitHub Pages):
    - `make release-snapshot VERSION=X.Y.Z` (or `devenv shell make release-snapshot VERSION=X.Y.Z`)
 4. Commit and push the updated artifacts under `docs/` (including `docs/releases/X.Y.Z/`).
-5. Optional: create a Git tag (a tag is a Git label for a specific commit) such as `vX.Y.Z`.
+5. Promote `CHANGELOG.md` `## [Unreleased]` to `## [X.Y.Z] - YYYY-MM-DD`.
+6. After the release PR merges, create an **annotated** Git tag (a tag is a Git label for a specific commit) named `X.Y.Z` — bare, no `v` prefix — on the merge commit, then publish a GitHub Release with `--prerelease` whose body is that changelog entry.
 
 **Manual vs automated:** These release steps are manual (manual means you must run them yourself); CI (pull requests to `main` + pushes to `main`) does **not** create release snapshots or tags.
 
