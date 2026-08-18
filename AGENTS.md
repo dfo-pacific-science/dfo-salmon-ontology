@@ -54,6 +54,40 @@ Progressive disclosure rule: enumerate skills by reading YAML frontmatter only (
 - Update `docs/tech-debt.md` when technical debt is introduced (what, why, impact, and the intended fix path).
 - Create `docs/adr/<####-descriptive-adr>.md` (from `docs/adr/0001.md`) when making an architectural decision (i.e., you choose between competing approaches).
 
+## Durable Salmon Knowledge (write it down, elsewhere)
+
+Salmon knowledge commons: a separate repository holding source-backed prose
+about salmon, where every claim carries a citation.
+
+- When work here establishes something durable about **salmon** — biology,
+  ecology, management, what a term actually means, why a modelling choice went
+  the way it did — write it to
+  [`salmon-knowledge-commons`](https://github.com/salmon-data-mobilization/salmon-knowledge-commons).
+- Do NOT leave it in a PR description, a commit message, or a chat transcript.
+  Those evaporate, and the next agent re-derives it — which for an ontology
+  means a second term minted for a distinction someone already settled.
+- If you can push there, open a PR. If you cannot, put the finding in your
+  **Evidence** output with its sources, so a maintainer can.
+- Source-backed claims only. A claim with no citation is rejected there.
+- Never assert your own verification. `generated` records who wrote a card;
+  `verified` records who independently checked it. If you wrote it, you did not
+  verify it.
+
+Ontology gap: a concept that has no matching term in any of the vocabularies —
+`smn`, `gcdfo`, or the PSC controlled vocabulary.
+
+- Gaps are recorded in the commons too, each with a note saying what a term
+  would have to say and where it should be minted (`mint_target`).
+- That register is the front end of the ecosystem's term-request pipeline. A
+  gap left in a transcript is a term request that never gets filed.
+- Gaps whose `mint_target` is `gcdfo` are DFO-specific policy and
+  administration, and land here. **Species and other all-agency biological
+  concepts go to `smn`, never `gcdfo`** — the same boundary rule already stated
+  in the Project Overview below.
+- Reading the register is a reasonable way to decide what to mint next. Minting
+  remains a term-by-term decision under review; a gap entry is a proposal, not
+  an instruction.
+
 ## Tooling Defaults
 
 - Calling Context7 MCP is REQUIRED for language specs, syntax, and official docs anytime a language is used that could benefit from up to date references
