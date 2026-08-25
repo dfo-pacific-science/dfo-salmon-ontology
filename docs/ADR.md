@@ -32,6 +32,7 @@ This document records the key architectural decisions made for the DFO Salmon On
 > | *(no inline entry)* | `docs/adr/006-shared-layer-boundary-and-conservative-smn-alignment.md` — the smn boundary decision, made after this document was written |
 > | *(no inline entry)* | `docs/adr/007-webvowl-duplicate-node-disambiguation.md` — how the WebVOWL normalizer keys colliding datatype nodes; made after this document was written |
 > | *(no inline entry)* | `docs/adr/008-alignment-overlays-follow-core-to-smn.md` — closes out ADR-006's deferred set for the overlay modules, and wires the modules into validation; made after this document was written |
+> | *(no inline entry)* | `docs/adr/009-pfma-subarea-scheme-separation.md` — why the 604 PFMA Subareas get their own class, scheme and file rather than joining the Area scheme, why the link is `skos:broader`, and why the module imports core rather than the reverse; made after this document was written |
 >
 > Note the numbering collision: inline "ADR-007" above is External Vocabulary
 > Alignment, which is canonical `docs/adr/005`. Canonical `docs/adr/007` is a

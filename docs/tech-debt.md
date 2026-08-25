@@ -135,6 +135,119 @@ poisoned local baseline fails CI. Locally, run
 which `scripts/normalize_webvowl_json.py` already implements as its fallback in
 `load_git_head_text` — instead of from the working-tree copy.
 
+### 2026-08-25 — Regulation-derived value lists are hand-committed, and nothing re-checks them against the source
+
+**What**: the repo now carries 652 SKOS concepts transcribed from one external
+legal instrument — the 48 Pacific fishery management Areas in
+`ontology/dfo-salmon.ttl` (PR #86) and the 604 Subareas in
+`ontology/modules/vocabulary-pfma-subareas.ttl` — and no code in this repo can
+regenerate or re-verify them. The extraction ran once, out of tree, against the
+Justice Laws XML; what landed is the output, not the recipe. `make ci` checks
+that the committed TTL is internally consistent and that `docs/` derives from
+it. It cannot check that the TTL still matches SOR/2007-77.
+
+**Why it happened**: the Area vocabulary set the precedent of committing TTL
+only, on the reasonable ground that an unwired generator script is a second live
+path (see AGENTS.md, "one clear active path"). That trade was cheap at 48
+concepts and is no longer obviously cheap at 652.
+
+**Impact**: two silent failure modes. (1) **Amendment drift** — Schedule 2 has
+already been amended twice since registration (its historical note cites
+SOR/2011-39 and SOR/2017-58), so amendment is a live possibility, not a
+hypothetical. The next one would leave this vocabulary asserting IRIs for
+Subareas that no longer exist, and missing ones that do, with every gate green.
+(2) **Transcription error** — a wrong `skos:broader` parent or a dropped
+identifier is invisible to review at this volume; the checks that caught such
+errors during minting (three renderings of the instrument agreeing on the
+identifier set, one parent per Subarea, no dangling parents) ran once and left
+no artifact that runs again.
+
+**Intended fix path**: a checked-in extractor plus a `make` target that fetches
+the current consolidation, re-derives the identifier set and the parent map, and
+diffs both against the committed TTL — reporting, not rewriting, since minting
+stays a reviewed decision. It should be **network-optional and non-blocking in
+`make ci`** (Justice Laws availability must not gate the build) but runnable on
+demand and worth scheduling. The generator would then be wired, not ghost code,
+because the diff is its consumer.
+
+**Retires when**: a command in this repo can answer "does the committed PFMA
+vocabulary still match the current consolidation of SOR/2007-77?" without
+someone re-doing the extraction by hand.
+
+### 2026-08-25 — 604 `gcdfo:` IRIs are not retrievable from the `gcdfo:` document
+
+**What**: the PFMA Subarea concepts are `gcdfo:` IRIs
+(`https://w3id.org/gcdfo/salmon#PacificFisheryManagementSubarea12-14`) that live
+in `ontology/modules/vocabulary-pfma-subareas.ttl`, which
+`ontology/dfo-salmon.ttl` does not import. Dereferencing the ontology IRI
+returns a document that does not contain them. Each concept nonetheless carries
+`rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon>` — kept on purpose, so the two
+halves of one vocabulary agree about their own governance, but it is now a claim
+about who owns the term rather than about where to fetch it.
+
+**Why it happened**: the module cannot be imported by core, because
+`https://w3id.org/gcdfo/salmon/modules/<anything>` returns 404 — the W3ID
+`.htaccess` matches the ontology IRI and a `X.Y.Z` version pattern and nothing
+else (verified 2026-08-25 with `curl -I`). Importing an unresolvable IRI from
+the published `docs/gcdfo.ttl` would break every consumer that loads the
+ontology without this repo's ROBOT catalog, which is a worse defect than this
+one. See ADR-009 and `docs/context/w3id.md`.
+
+**Impact**: a consumer that resolves `gcdfo:` IRIs to find their definitions
+finds nothing for 604 of the 652 PFMA concepts, and has no machine-readable
+pointer to the module — `rdfs:isDefinedBy` points them back at the document that
+does not have it. The signposting is prose: a `skos:scopeNote` on
+`gcdfo:PacificFisheryManagementSubarea` names the module file.
+
+**Intended fix path**: a PR to `perma-id/w3id.org` adding a redirect for
+`https://w3id.org/gcdfo/salmon/modules/…`, then publishing the module under
+`docs/` and having core import it. That is a change to the W3ID publication
+contract, which `AGENTS.md` puts under explicit instruction, so it is not made
+here. Note the follow-on: importing the module puts its 604 concepts back into
+`release/tmp/dfo-salmon-docs-input.ttl` (built with
+`merge --collapse-import-closure true`) and therefore back into the WebVOWL
+graph, so that PR needs a WebVOWL exclusion step to land with it.
+
+**Retires when**: `curl -I https://w3id.org/gcdfo/salmon/modules/pfma-subarea-vocabulary`
+resolves and core imports the module — or when some other mechanism makes a
+Subarea IRI dereference to a document containing it.
+
+### 2026-08-25 — The published HTML does not say where the Subarea values are
+
+**What**: `gcdfo:PacificFisheryManagementSubarea` carries a `skos:scopeNote`
+naming `ontology/modules/vocabulary-pfma-subareas.ttl` and an `rdfs:seeAlso`
+linking to it on GitHub. Both reach `docs/gcdfo.ttl`, `docs/gcdfo.owl` and
+`docs/gcdfo.jsonld`. **Neither reaches `docs/index.html`.** WIDOCO renders a
+class's definition, its `iao:0000119` sources and its superclasses, and renders
+`skos:scopeNote` and `rdfs:seeAlso` for classes not at all — verified by reading
+the generated entity block. So a human on the documentation site is told the
+class exists and is given no route to its 604 values.
+
+**Why it happened**: the values moved out of `ontology/dfo-salmon.ttl` into a
+module (ADR-009), which is what keeps the docs navigable; the signpost left
+behind was written as ontology annotation on the assumption that the docs
+renderer would show it. It does not. Recording the assumption because it is the
+kind that looks satisfied — the annotation is present, correct, and published in
+three RDF serializations — while being false where it matters.
+
+**Impact**: bounded but real. It affects the two PFMA classes, which are the
+only classes in this ontology carrying `skos:scopeNote` (five statements between
+them), so this is not an ontology-wide loss of guidance. It is a dead end for
+the one vocabulary a reader is most likely to go looking for a value of.
+
+**Intended fix path**: the standalone vocabulary page designed in ADR-009 —
+`docs/vocabularies/pfma-subareas.html`, generated by extending
+`scripts/generate_skos_section.py` to take a source ontology and an output
+target, and linked from the class entry by `scripts/postprocess_widoco_html.py`.
+The link and the page are one job: linking from the entity block needs
+post-processing whether or not the page exists, so build them together. Do
+**not** solve it by moving the pointer into the class's definition — a
+definition defines a term, it does not give file paths.
+
+**Retires when**: a reader on <https://w3id.org/gcdfo/salmon> can get from
+`gcdfo:PacificFisheryManagementSubarea` to a list of its values without opening
+the repository.
+
 ## Resolved Technical Debt
 
 ### 2026-08-16 — WebVOWL output-stabilization gate was reporting success while doing nothing

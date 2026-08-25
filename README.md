@@ -59,8 +59,9 @@ If a term is clearly **cross-organization, policy-neutral, and reusable**, it pr
 
 ## Technical Overview
 
-- **One file**: `ontology/dfo-salmon.ttl` (OWL/Turtle)
+- **One file**: `ontology/dfo-salmon.ttl` (OWL/Turtle) — plus optional modules under `ontology/modules/`, which import it and are never imported by it
 - **Hybrid approach**: OWL for formal relationships, SKOS for controlled vocabularies
+- **Large controlled vocabularies live in modules**: `ontology/modules/vocabulary-pfma-subareas.ttl` holds the 604 PFMA Subarea concepts; the class they are values of stays in the core file. Load the module when you need to resolve a Subarea code. See [`ontology/modules/README.md`](ontology/modules/README.md)
 - **Darwin Core aligned**: Uses DwC classes as top-level framework for interoperability; **implements Darwin Core Conceptual Model (DwC-CM) patterns**
 - **OBO Foundry principles**: Open, interoperable, logically well-formed, scientifically accurate
 - **Pragmatic imports**: imports shared `smn` plus MIREOT for BFO/IAO/DQV (~12 terms); prefix-only for PROV-O/RO/SKOS

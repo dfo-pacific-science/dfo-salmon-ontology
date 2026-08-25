@@ -11,6 +11,95 @@
 ## [Unreleased]
 
 ### Added
+- `gcdfo:PacificFisheryManagementSubarea`, an `owl:Class`, and
+  `gcdfo:PacificFisheryManagementSubareaScheme`, a SKOS controlled vocabulary of
+  the **604** Subareas that Schedule 2 of the *Pacific Fishery Management Area
+  Regulations, 2007* (SOR/2007-77) carves out of the prescribed management
+  Areas, plus one `skos:Concept` per Subarea
+  (`gcdfo:PacificFisheryManagementSubarea1-1` …
+  `gcdfo:PacificFisheryManagementSubarea142-2`). The Area vocabulary added above
+  gave a record a way to say *which Area*; below the Area, DFO fisheries data is
+  routinely reported at Subarea resolution (a fishery notice opens "Subareas
+  13-1, 13-12 to 13-17"), and there was no IRI for any of it.
+  - **Structure mirrors the Area vocabulary.** Each concept carries
+    `skos:prefLabel`, `skos:altLabel` (`Subarea A-N`, `PFMA Subarea A-N`),
+    `skos:notation`, a regulation-grounded `skos:definition`, a `skos:scopeNote`
+    naming the parent Area's published DFO locality, `skos:inScheme`, and two
+    `iao:0000119` definition sources. Members are typed
+    `a gcdfo:PacificFisheryManagementSubarea , skos:Concept`, the same
+    class-plus-value-list pattern as the Areas, and the scheme is flat with no
+    `skos:hasTopConcept`.
+  - **Composition with the Areas.** Every Subarea carries `skos:broader` to its
+    parent Area concept — 604 links, no dangling references, exactly one parent
+    each, spread over the 42 Areas that Schedule 2 subdivides. `skos:broader` is
+    already this ontology's idiom for concept hierarchy, including across
+    namespaces (`skos:broader smn:MeasurementContext`), so no new relation was
+    needed. Subareas are held in a **separate scheme** rather than added to
+    `gcdfo:PacificFisheryManagementAreaScheme`: the Area scheme is usable as a
+    value set for a column that holds a PFMA, and folding 604 finer-grained
+    concepts into it would have silently widened that set. See
+    [ADR-009](docs/adr/009-pfma-subarea-scheme-separation.md).
+  - **The class is a sibling, not a subclass.** `gcdfo:PacificFisheryManagementSubarea`
+    is `rdfs:subClassOf smn:ReportingOrManagementStratum`, alongside
+    `gcdfo:PacificFisheryManagementArea` rather than beneath it. Section 1 of the
+    Regulations defines a Subarea as "a subdivision of a management area" — a
+    part, not a kind — so subclassing would have asserted that every Subarea *is*
+    an Area.
+  - **Why all 604 and not the four the worked example needs.** Under Brett's
+    standing rule **Q6-4, "mint from the source vocabulary always"**: where an
+    authority documents a vocabulary, the documented enumeration is what gets
+    minted, not the subset a dataset happens to have observed. The same rule
+    governs `PKE` and the sea-type life-history term, so this is applied policy
+    rather than a scope judgement re-made per vocabulary. See
+    [ADR-009](docs/adr/009-pfma-subarea-scheme-separation.md).
+  - **Source, and how the count was established.** Paragraph (b) of each of the
+    48 items of Schedule 2, read from the Justice Laws XML, consolidation current
+    to 2026-06-21, last amended 2017-04-13, retrieved 2026-08-25. The count is
+    **604**, distributed over **42** Areas; the remaining six (21, 22, 103, 109,
+    110, 111) are not subdivided by the instrument at all.
+  - **What could not be done the way the Areas were done.** The Area list was
+    confirmed against a second, independent DFO listing. No such listing exists
+    for Subareas: DFO's area pages carry maps only and refer the reader back to
+    these Regulations for the written Subarea descriptions, the per-area map PDFs
+    have no extractable text, and DFO's `gisp.dfo-mpo.gc.ca` Pacific Fishery
+    Management Areas map service no longer resolves (NXDOMAIN). The extraction
+    was instead checked against two further renderings of the *same* instrument —
+    the Justice Laws HTML consolidation of Schedule 2, and the French
+    consolidation (ANNEXE 2), which enumerates the identical 604 sous-secteurs
+    under the identical 48 secteurs. Three renderings agree on the identifier set
+    exactly. That is a weaker claim than the Areas' two-source agreement, and the
+    scheme's `skos:scopeNote` says so rather than implying parity.
+  - **Numbering is not contiguous.** Subarea numbers run from 1 within their Area
+    in every case but one: Area 2 runs 2-1 to 2-19 and then 2-31 to 2-100, with
+    no 2-20 to 2-30 (confirmed in both language versions). So the contiguity
+    argument that made the *Area* extraction self-checking is unavailable here,
+    and a scope note records that too.
+  - **No geometry.** Schedule 2 delimits each Subarea with prose about
+    coordinates, parallels, meridians and shorelines. These concepts identify and
+    label Subareas; they do not delimit them. `skos:notation` is a plain string
+    (`"12-14"`), not the `xsd:integer` the Areas use, because a Subarea
+    identifier is a compound code rather than a number.
+  - **The 604 concepts live in their own file**,
+    `ontology/modules/vocabulary-pfma-subareas.ttl`, which imports
+    `https://w3id.org/gcdfo/salmon` and is loaded alongside it. Only the class
+    stays in `ontology/dfo-salmon.ttl`, which gains 19 lines rather than
+    10,305. **No generated artifact changes**: `docs/index.html`,
+    `docs/gcdfo.{ttl,owl,jsonld}` and `docs/webvowl/data/ontology.json` are built
+    from the core file and its import closure, and the module is outside it. Held
+    in core the vocabulary cost 206,124 inserted lines, of which 98,685 were the
+    WebVOWL graph — 604 extra nodes in a diagram meant for humans. The import
+    points module→core and not the reverse because
+    `https://w3id.org/gcdfo/salmon/modules/…` returns 404 (the W3ID `.htaccess`
+    matches the ontology IRI and a `X.Y.Z` version pattern only), so importing it
+    from core would put an unresolvable `owl:imports` into the published
+    `docs/gcdfo.ttl`. See
+    [ADR-009](docs/adr/009-pfma-subarea-scheme-separation.md) and
+    `docs/tech-debt.md`. The class carries a `skos:scopeNote` naming the module
+    and an `rdfs:seeAlso` to it on GitHub; both reach the published RDF
+    (`docs/gcdfo.{ttl,owl,jsonld}`) but **not** the published HTML, because
+    WIDOCO renders neither annotation for a class — a gap recorded in
+    `docs/tech-debt.md` along with the standalone vocabulary page that would
+    close it, designed in ADR-009 and deliberately not built here.
 - `gcdfo:PacificFisheryManagementAreaScheme`, a SKOS controlled vocabulary of the
   **48** Pacific fishery management areas, plus one `skos:Concept` per area
   (`gcdfo:PacificFisheryManagementArea1` … `gcdfo:PacificFisheryManagementArea142`).
@@ -37,11 +126,15 @@
     "Description" text as a `skos:scopeNote` (Areas 21 and 22 share one map
     sheet there, and the page gives 108 and 109 the same description; both are
     transcribed as published).
-  - **Scope decision: Areas only.** Schedule 2 further divides these Areas into
-    604 numbered Subareas (for example, Subarea 12-14). Subareas are
-    deliberately not minted. The scheme's `skos:scopeNote` states this, so the
-    vocabulary is complete *for Areas* and explicitly silent about Subareas
-    rather than silently short. Minting Subareas is a separate decision.
+  - **Scope decision: Areas only — since superseded.** Schedule 2 further
+    divides these Areas into 604 numbered Subareas (for example, Subarea 12-14).
+    Subareas were deliberately not minted here, and the scheme's
+    `skos:scopeNote` said so, so the vocabulary was complete *for Areas* and
+    explicitly silent about Subareas rather than silently short. That separate
+    decision has since been taken the other way (Brett, 2026-08-24, under Q6-4
+    "mint from the source vocabulary always"): Subareas are now minted in their
+    own scheme, and the scope note has been rewritten to point at it. This bullet is kept because it records what the Area scheme
+    claimed while it claimed it — nothing about the Areas themselves changed.
   - **What this does not resolve.** A second `skos:scopeNote` records that these
     regulated numbered areas are *not* the four coarse DFO Pacific Region salmon
     Areas (`SOUTH COAST`, `NORTH COAST`, `FRASER AND INTERIOR`,
@@ -67,6 +160,38 @@
   [ADR-007](docs/adr/007-webvowl-duplicate-node-disambiguation.md).
 
 ### Changed
+- `make check-modules` now distinguishes two kinds of module. Its first check was
+  "the merge declares no `gcdfo:`/`smn:` term core does not" — right for an
+  alignment overlay, and a blanket ban on vocabulary modules: run unchanged
+  against the Subarea module it reported all 605 of its terms as defects. It is
+  now **A1**, no minted class or property, ever (the ADR-008 guard, at full
+  strength — every term in that incident was an `owl:Class` or
+  `owl:ObjectProperty`), and **A2**, minted individuals allowed only as
+  `skos:Concept` members of a `skos:ConceptScheme` the module itself declares.
+  A2 is *tighter* than the old rule was for overlays, because it also rejects a
+  concept parked in a scheme nobody declares. New queries:
+  `scripts/sparql/declared-owned-schema-iris.rq`,
+  `scripts/sparql/vocabulary-members.rq`.
+- `make check-modules` gained a fifth check: `gcdfo:theme` coverage over the
+  merged closure, using the same query `make theme-coverage` runs over core.
+  Without it, moving 605 concepts out of `ontology/dfo-salmon.ttl` would have
+  moved them out of the only check that enforces the theme rule, in the same
+  commit, silently. All three new behaviours were demonstrated failing before
+  being trusted green.
+- `gcdfo:PacificFisheryManagementAreaScheme`'s completeness `skos:scopeNote` no
+  longer says Subareas "are deliberately out of scope here and are not minted".
+  That sentence became false the moment the Subarea scheme landed, and it is the
+  one place a reader would look to find out whether Subareas exist in this
+  ontology. It now names the sibling scheme, says it is a vocabulary module
+  loaded alongside this ontology rather than part of this document, and states
+  the division of labour: this scheme is a value list of Areas only, and a record
+  whose value is a Subarea belongs in the other one. The scheme also gained
+  `rdfs:seeAlso` to it.
+- `gcdfo:PacificFisheryManagementArea` gained a second `skos:scopeNote` saying
+  that 42 of the 48 Areas are subdivided, that a Subarea is a different and
+  finer stratum with its own class, and that a Subarea is therefore *not* a value
+  of this class — so a column that may carry either has to declare which. Its
+  `rdfs:seeAlso` now also points at `gcdfo:PacificFisheryManagementSubarea`.
 - `gcdfo:PacificFisheryManagementArea` now carries `rdfs:seeAlso` pointing at the
   new `gcdfo:PacificFisheryManagementAreaScheme` and a `skos:scopeNote` saying
   that its values are enumerated there and that the class is *not* the four
