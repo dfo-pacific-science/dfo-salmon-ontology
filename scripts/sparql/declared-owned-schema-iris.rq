@@ -1,0 +1,47 @@
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+# Every *schema* term declared in the queried graph whose IRI belongs to a
+# namespace this ecosystem owns: gcdfo: (DFO) or smn: (shared layer).
+#
+# "Schema" here means class or property. This is deliberately the subset of
+# scripts/sparql/declared-owned-iris.rq that excludes owl:NamedIndividual, and
+# it exists because the two kinds of declaration fail differently:
+#
+#   * A class or property declaration can appear *by accident*. The OWL API
+#     supplies a declaration for any otherwise-untyped IRI used in class or
+#     property position, so a module naming a term core has retired silently
+#     re-mints it. That is ADR-008, and all seven terms in that incident were
+#     owl:Class or owl:ObjectProperty. scripts/check-modules.sh requires this
+#     query's delta against core to be empty, for every module, always.
+#
+#   * An individual declaration cannot appear that way. An untyped IRI in the
+#     object position of an annotation property (skos:broader, skos:inScheme,
+#     rdfs:seeAlso) mints nothing; an individual is declared only because a
+#     module wrote `x a SomeClass`, which is an explicit act. A vocabulary
+#     module does exactly that, 604 times on purpose, so check-modules judges
+#     individuals by a different rule — see scripts/sparql/vocabulary-members.rq.
+#
+# External namespaces (sosa:, iadopt:, dwc:, prov:, ro:) are out of scope for
+# the same reason as in declared-owned-iris.rq: alignment-research.ttl declares
+# external class stubs on purpose, for WebVOWL readability. That exclusion
+# retires if those stubs move out of the overlays.
+#
+# This query retires if the OWL API stops supplying declarations for untyped
+# IRIs in class or property position — i.e. never in practice.
+SELECT DISTINCT ?term
+WHERE {
+  VALUES ?type {
+    owl:Class
+    owl:ObjectProperty
+    owl:DatatypeProperty
+    owl:AnnotationProperty
+  }
+
+  ?term a ?type .
+
+  FILTER(
+    STRSTARTS(STR(?term), "https://w3id.org/gcdfo/salmon#") ||
+    STRSTARTS(STR(?term), "https://w3id.org/smn/")
+  )
+}
+ORDER BY ?term

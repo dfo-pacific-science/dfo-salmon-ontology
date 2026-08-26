@@ -1,0 +1,39 @@
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+# Every term in the queried graph that is a member of a SKOS controlled
+# vocabulary: a skos:Concept placed in a scheme that the same graph declares as
+# a skos:ConceptScheme, or such a scheme itself. Restricted to the namespaces
+# this ecosystem owns.
+#
+# Used by scripts/check-modules.sh to decide whether an individual that a
+# vocabulary module adds to the merge is a *vocabulary member* (legitimate: the
+# module's whole job is to enumerate one) or a stray individual (not
+# legitimate, and nothing else in the repo would notice it).
+#
+# The `?scheme a skos:ConceptScheme` clause is the load-bearing part. Without
+# it, `skos:inScheme <anything>` would satisfy the check, and a module could
+# park individuals in a scheme nobody declares — which is the same class of
+# silent addition ADR-008 is about, one level down. With it, a module can only
+# contribute individuals to a vocabulary it has actually declared.
+#
+# This query retires if the repo stops holding controlled vocabularies in
+# ontology/modules/ — at which point check-modules can go back to requiring
+# that a module add no individuals at all.
+SELECT DISTINCT ?term
+WHERE {
+  {
+    ?term a skos:Concept ;
+          skos:inScheme ?scheme .
+    ?scheme a skos:ConceptScheme .
+  }
+  UNION
+  {
+    ?term a skos:ConceptScheme .
+  }
+
+  FILTER(
+    STRSTARTS(STR(?term), "https://w3id.org/gcdfo/salmon#") ||
+    STRSTARTS(STR(?term), "https://w3id.org/smn/")
+  )
+}
+ORDER BY ?term

@@ -242,7 +242,8 @@
     { "id" : "269", "type" : "owl:Class" },
     { "id" : "271", "type" : "owl:Class" },
     { "id" : "272", "type" : "owl:Class" },
-    { "id" : "308", "type" : "owl:Class" }
+    { "id" : "308", "type" : "owl:Class" },
+    { "id" : "328", "type" : "owl:Class" }
   ],
   "classAttribute" : [
     {
@@ -1559,7 +1560,7 @@
         ]
       },
       "label" : { "IRI-based" : "ReportingOrManagementStratum", "en" : "Reporting or management stratum" },
-      "subClasses" : [ "64", "68", "74", "76", "78" ],
+      "subClasses" : [ "64", "68", "74", "76", "78", "328" ],
       "attributes" : [ "external" ],
       "id" : "65",
       "superClasses" : [ "47" ]
@@ -1850,6 +1851,12 @@
           {
             "identifier" : "scopeNote",
             "language" : "en",
+            "value" : "Schedule 2 subdivides 42 of the 48 Areas into numbered Subareas. A Subarea is a different, finer stratum with its own class and value list in this ontology (Pacific fishery management subarea); a Subarea is not a value of this class, so a column that may hold either has to say which.",
+            "type" : "label"
+          },
+          {
+            "identifier" : "scopeNote",
+            "language" : "en",
             "value" : "The prescribed areas themselves are enumerated as a SKOS controlled vocabulary in the Pacific Fishery Management Area Scheme; each concept there is a value of this class. This class is the area stratum, not the four coarse DFO Pacific Region salmon Areas used as an administrative grouping by some DFO source systems.",
             "type" : "label"
           }
@@ -1859,6 +1866,12 @@
             "identifier" : "seeAlso",
             "language" : "undefined",
             "value" : "https://w3id.org/gcdfo/salmon#PacificFisheryManagementAreaScheme",
+            "type" : "iri"
+          },
+          {
+            "identifier" : "seeAlso",
+            "language" : "undefined",
+            "value" : "https://w3id.org/gcdfo/salmon#PacificFisheryManagementSubarea",
             "type" : "iri"
           }
         ],
@@ -6706,7 +6719,7 @@
               {
                 "identifier" : "scopeNote",
                 "language" : "en",
-                "value" : "The vocabulary is complete at the Area level: it contains every Area enumerated in Schedule 2 (Areas 1 to 29 and 101 to 111, 121, 123 to 127, 130 and 142), cross-checked against DFO's published area listing. Schedule 2 subdivides those Areas into 604 numbered Subareas (for example, Subarea 12-14); Subareas are deliberately out of scope here and are not minted, so this scheme is complete for Areas and silent about Subareas.",
+                "value" : "The vocabulary is complete at the Area level: it contains every Area enumerated in Schedule 2 (Areas 1 to 29 and 101 to 111, 121, 123 to 127, 130 and 142), cross-checked against DFO's published area listing. Schedule 2 subdivides 42 of those Areas into 604 numbered Subareas (for example, Subarea 12-14). Those Subareas are held in the separate Pacific Fishery Management Subarea Scheme, which is a vocabulary module loaded alongside this ontology (ontology/modules/vocabulary-pfma-subareas.ttl) rather than part of this document, so this scheme stays a value list of Areas only: a record whose value is a Subarea belongs in that scheme, not this one.",
                 "type" : "label"
               },
               {
@@ -6714,6 +6727,14 @@
                 "language" : "en",
                 "value" : "These are the regulated numbered management areas. They are not the four coarse DFO Pacific Region salmon Areas (South Coast, North Coast, Fraser and Interior, Yukon and Transboundary) used as an administrative grouping by some DFO source systems; that coarser stratum is a different unit and has no term in this ontology.",
                 "type" : "label"
+              }
+            ],
+            "seeAlso" : [
+              {
+                "identifier" : "seeAlso",
+                "language" : "undefined",
+                "value" : "https://w3id.org/gcdfo/salmon#PacificFisheryManagementSubareaScheme",
+                "type" : "iri"
               }
             ],
             "source" : [
@@ -18527,6 +18548,87 @@
       "label" : { "IRI-based" : "Instant" },
       "attributes" : [ "external" ],
       "id" : "308"
+    },
+    {
+      "iri" : "https://w3id.org/gcdfo/salmon#PacificFisheryManagementSubarea",
+      "baseIri" : "https://w3id.org/gcdfo/salmon",
+      "instances" : 0,
+      "annotations" : {
+        "IAO_0000115" : [
+          {
+            "identifier" : "IAO_0000115",
+            "language" : "en",
+            "value" : "A reporting and management stratum representing a prescribed subdivision of a Pacific fishery management area.",
+            "type" : "label"
+          }
+        ],
+        "IAO_0000119" : [
+          {
+            "identifier" : "IAO_0000119",
+            "language" : "en",
+            "value" : "Government of Canada. Pacific Fishery Management Area Regulations, 2007 (SOR/2007-77), s. 1: Subarea means a subdivision of a management area. https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-1.html.",
+            "type" : "label"
+          }
+        ],
+        "altLabel" : [ { "identifier" : "altLabel", "language" : "en", "value" : "PFMA Subarea", "type" : "label" } ],
+        "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+        "scopeNote" : [
+          {
+            "identifier" : "scopeNote",
+            "language" : "en",
+            "value" : "A Subarea is a subdivision of a management area, not a kind of one, so this class is a sibling of the Pacific fishery management area class under the reporting-or-management stratum, not a subclass of it. The part-whole relation between an individual Subarea and its parent Area is carried by skos:broader on the concepts.",
+            "type" : "label"
+          },
+          {
+            "identifier" : "scopeNote",
+            "language" : "en",
+            "value" : "That scheme and its 604 concepts are not in this document. They are a separate vocabulary module, ontology/modules/vocabulary-pfma-subareas.ttl in the repository, which imports this ontology and is loaded alongside it; at 604 members the enumeration would otherwise swamp both this file and the generated documentation. Areas are unaffected and remain here. See docs/adr/009-pfma-subarea-scheme-separation.md.",
+            "type" : "label"
+          },
+          {
+            "identifier" : "scopeNote",
+            "language" : "en",
+            "value" : "The prescribed subareas themselves are enumerated as a SKOS controlled vocabulary in the Pacific Fishery Management Subarea Scheme; each concept there is a value of this class.",
+            "type" : "label"
+          }
+        ],
+        "seeAlso" : [
+          {
+            "identifier" : "seeAlso",
+            "language" : "undefined",
+            "value" : "https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/main/ontology/modules/vocabulary-pfma-subareas.ttl",
+            "type" : "iri"
+          },
+          {
+            "identifier" : "seeAlso",
+            "language" : "undefined",
+            "value" : "https://w3id.org/gcdfo/salmon#PacificFisheryManagementArea",
+            "type" : "iri"
+          },
+          {
+            "identifier" : "seeAlso",
+            "language" : "undefined",
+            "value" : "https://w3id.org/gcdfo/salmon#PacificFisheryManagementSubareaScheme",
+            "type" : "iri"
+          }
+        ],
+        "source" : [
+          {
+            "identifier" : "source",
+            "language" : "undefined",
+            "value" : "https://laws-lois.justice.gc.ca/eng/regulations/sor-2007-77/page-1.html",
+            "type" : "iri"
+          }
+        ],
+        "theme" : [
+          { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#FisheriesManagementTheme", "type" : "iri" },
+          { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#PolicyGovernanceTheme", "type" : "iri" },
+          { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme", "type" : "iri" }
+        ]
+      },
+      "label" : { "IRI-based" : "PacificFisheryManagementSubarea", "en" : "Pacific fishery management subarea" },
+      "id" : "328",
+      "superClasses" : [ "65" ]
     }
   ],
   "property" : [
@@ -18698,7 +18800,8 @@
     { "id" : "322", "type" : "rdfs:SubClassOf" },
     { "id" : "323", "type" : "rdfs:SubClassOf" },
     { "id" : "324", "type" : "rdfs:SubClassOf" },
-    { "id" : "325", "type" : "rdfs:SubClassOf" }
+    { "id" : "325", "type" : "rdfs:SubClassOf" },
+    { "id" : "329", "type" : "rdfs:SubClassOf" }
   ],
   "propertyAttribute" : [
     { "range" : "2", "domain" : "1", "attributes" : [ "object", "anonymous" ], "id" : "0" },
@@ -19287,8 +19390,8 @@
       "inverse" : "38"
     },
     { "domain" : "145", "range" : "220", "id" : "219", "label" : { "IRI-based" : "16", "undefined" : "is a" } },
-    { "domain" : "145", "range" : "222", "id" : "221", "label" : { "IRI-based" : "17", "undefined" : "is a" } },
-    { "domain" : "145", "range" : "23", "id" : "223", "label" : { "IRI-based" : "18", "undefined" : "is a" } },
+    { "domain" : "145", "range" : "222", "id" : "221", "label" : { "IRI-based" : "18", "undefined" : "is a" } },
+    { "domain" : "145", "range" : "23", "id" : "223", "label" : { "IRI-based" : "17", "undefined" : "is a" } },
     {
       "iri" : "https://w3id.org/gcdfo/salmon#hasAssessmentReferencePoint",
       "inverse" : "226",
@@ -19603,6 +19706,7 @@
     { "range" : "36", "domain" : "114", "attributes" : [ "object", "anonymous" ], "id" : "322" },
     { "range" : "36", "domain" : "35", "attributes" : [ "object", "anonymous" ], "id" : "323" },
     { "range" : "36", "domain" : "191", "attributes" : [ "object", "anonymous" ], "id" : "324" },
-    { "range" : "36", "domain" : "237", "attributes" : [ "object", "anonymous" ], "id" : "325" }
+    { "range" : "36", "domain" : "237", "attributes" : [ "object", "anonymous" ], "id" : "325" },
+    { "range" : "65", "domain" : "328", "attributes" : [ "anonymous", "object" ], "id" : "329" }
   ]
 }
