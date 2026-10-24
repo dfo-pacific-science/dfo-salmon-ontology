@@ -11,6 +11,16 @@
 ## [Unreleased]
 
 ### Added
+- `gcdfo:EnumerationMethod` is declared again, with the IRI and definition it
+  had in releases 0.0.2 and 0.0.999. It is a `skos:Concept` and a
+  `sosa:Procedure`, the top concept of `gcdfo:EnumerationMethodScheme`, and
+  `skos:exactMatch smn:EnumerationMethod`: smn minted that concept from this
+  one, and the two definitions are word for word the same. Ruled by Brett
+  Johnson on 2026-10-23 (hub item B-76): both method branches stay in this
+  ontology. See
+  [ADR-010](docs/adr/010-gcdfo-method-scheme-top-concepts.md). metasalmon and
+  metasalmonpy already map the NuSEDS value "Based on Angling Catch" to this
+  IRI, which no release since 0.0.8 had declared.
 - `gcdfo:PacificFisheryManagementSubarea`, an `owl:Class`, and
   `gcdfo:PacificFisheryManagementSubareaScheme`, a SKOS controlled vocabulary of
   the **604** Subareas that Schedule 2 of the *Pacific Fishery Management Area
@@ -160,6 +170,20 @@
   [ADR-007](docs/adr/007-webvowl-duplicate-node-disambiguation.md).
 
 ### Changed
+- The DFO enumeration methods (`FixedSiteCensusManual`,
+  `FixedSiteCensusElectronic`, `VisualGroundCount`, `VisualSnorkelCount`,
+  `AerialSurveyCount`, `HydroacousticSonarCount`, `TrapCount`, `ReddCount`,
+  `ElectrofishingCount`, `MarkRecaptureFieldProgram`) now have
+  `skos:broader gcdfo:EnumerationMethod` instead of `smn:EnumerationMethod`.
+  The `smn:EnumerationMethod` mirror stays, so the published files describe the
+  mapping target, but it is no longer a member of
+  `gcdfo:EnumerationMethodScheme`. This supersedes, for enumeration methods
+  only, the 2026-03-15 migration that ADR-008 records.
+- `gcdfo:EstimateMethod` is typed `sosa:Procedure` as well as `skos:Concept`
+  (B-76's first option; ADR-010 gives the reasoning). Every estimate method now
+  reaches a `sosa:Procedure` by `skos:broader`, which fixes hub item B-148. Of
+  the 45 declared `gcdfo:` targets in metasalmon's NuSEDS method crosswalks, 22
+  failed that test before this change and none fail after it.
 - `make check-modules` now distinguishes two kinds of module. Its first check was
   "the merge declares no `gcdfo:`/`smn:` term core does not" — right for an
   alignment overlay, and a blanket ban on vocabulary modules: run unchanged

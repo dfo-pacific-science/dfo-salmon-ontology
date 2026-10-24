@@ -6626,7 +6626,9 @@
           "annotations" : {
             "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
             "prefLabel" : [ { "identifier" : "prefLabel", "language" : "en", "value" : "Escapement Enumeration Method Scheme", "type" : "label" } ],
-            "hasTopConcept" : [ { "identifier" : "hasTopConcept", "language" : "undefined", "value" : "https://w3id.org/smn/EnumerationMethod", "type" : "iri" } ],
+            "hasTopConcept" : [
+              { "identifier" : "hasTopConcept", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#EnumerationMethod", "type" : "iri" }
+            ],
             "definition" : [ { "identifier" : "definition", "language" : "en", "value" : "Controlled vocabulary for salmon enumeration methods", "type" : "label" } ],
             "theme" : [ { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme", "type" : "iri" } ]
           },
@@ -7772,7 +7774,7 @@
               { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme", "type" : "iri" },
               { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme", "type" : "iri" }
             ],
-            "broader" : [ { "identifier" : "broader", "language" : "undefined", "value" : "https://w3id.org/smn/EnumerationMethod", "type" : "iri" } ]
+            "broader" : [ { "identifier" : "broader", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#EnumerationMethod", "type" : "iri" } ]
           },
           "comment" : { "en" : "Legacy methods: Helicopter, Fixed Wing Aircraft, Aerial, Drone, UAS, UAV" },
           "labels" : { "IRI-based" : "AerialSurveyCount", "en" : "Aerial Survey Count" }
@@ -8517,7 +8519,7 @@
               { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme", "type" : "iri" },
               { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme", "type" : "iri" }
             ],
-            "broader" : [ { "identifier" : "broader", "language" : "undefined", "value" : "https://w3id.org/smn/EnumerationMethod", "type" : "iri" } ]
+            "broader" : [ { "identifier" : "broader", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#EnumerationMethod", "type" : "iri" } ]
           },
           "comment" : { "en" : "Legacy methods: Electrofishing, Electroshocking" },
           "labels" : { "IRI-based" : "ElectrofishingCount", "en" : "Electrofishing Count" }
@@ -8597,6 +8599,37 @@
           "labels" : { "IRI-based" : "EnhancedPopulation", "en" : "Enhanced population" }
         },
         {
+          "iri" : "https://w3id.org/gcdfo/salmon#EnumerationMethod",
+          "baseIri" : "https://w3id.org/gcdfo/salmon",
+          "annotations" : {
+            "definition" : [
+              { "identifier" : "definition", "language" : "en", "value" : "A method used to enumerate or count salmon in the field.", "type" : "label" }
+            ],
+            "exactMatch" : [ { "identifier" : "exactMatch", "language" : "undefined", "value" : "https://w3id.org/smn/EnumerationMethod", "type" : "iri" } ],
+            "inScheme" : [
+              { "identifier" : "inScheme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#EnumerationMethodScheme", "type" : "iri" }
+            ],
+            "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+            "prefLabel" : [ { "identifier" : "prefLabel", "language" : "en", "value" : "Enumeration Method", "type" : "label" } ],
+            "scopeNote" : [
+              {
+                "identifier" : "scopeNote",
+                "language" : "en",
+                "value" : "Top concept of this ontology's enumeration-method scheme; every DFO enumeration method is narrower than it. It means what the shared smn:EnumerationMethod means: smn minted that concept from this one's release-0.0.2 definition, and the two definitions are word for word the same, hence skos:exactMatch. The separate IRI records that DFO's enumeration-method taxonomy is developed and maintained here, which is where smn's own boundary rules keep organization-specific method schemes. Typed sosa:Procedure, so every narrower method reaches a Procedure by skos:broader.",
+                "type" : "label"
+              }
+            ],
+            "theme" : [
+              { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme", "type" : "iri" },
+              { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme", "type" : "iri" }
+            ]
+          },
+          "comment" : {
+            "en" : "Declared in releases 0.0.2 and 0.0.999. Removed from the source on 2026-03-15, when this ontology adopted smn:EnumerationMethod as its enumeration top concept, so releases 0.0.8 and 0.0.9 do not declare it. Restored 2026-10-23 with the same IRI and definition; see docs/adr/010-gcdfo-method-scheme-top-concepts.md."
+          },
+          "labels" : { "IRI-based" : "EnumerationMethod", "en" : "Enumeration Method" }
+        },
+        {
           "iri" : "https://w3id.org/gcdfo/salmon#EnvironmentalConditions",
           "baseIri" : "https://w3id.org/gcdfo/salmon",
           "annotations" : {
@@ -8619,13 +8652,6 @@
           "iri" : "https://w3id.org/gcdfo/salmon#EstimateMethod",
           "baseIri" : "https://w3id.org/gcdfo/salmon",
           "annotations" : {
-            "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
-            "inScheme" : [ { "identifier" : "inScheme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#EstimateMethodScheme", "type" : "iri" } ],
-            "prefLabel" : [ { "identifier" : "prefLabel", "language" : "en", "value" : "Estimate Method", "type" : "label" } ],
-            "theme" : [
-              { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme", "type" : "iri" },
-              { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme", "type" : "iri" }
-            ],
             "definition" : [
               {
                 "identifier" : "definition",
@@ -8633,6 +8659,21 @@
                 "value" : "A method used to analyze and estimate salmon abundance from enumeration data",
                 "type" : "label"
               }
+            ],
+            "inScheme" : [ { "identifier" : "inScheme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#EstimateMethodScheme", "type" : "iri" } ],
+            "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+            "prefLabel" : [ { "identifier" : "prefLabel", "language" : "en", "value" : "Estimate Method", "type" : "label" } ],
+            "scopeNote" : [
+              {
+                "identifier" : "scopeNote",
+                "language" : "en",
+                "value" : "Typed sosa:Procedure on 2026-10-23. SOSA defines a Procedure as a workflow, protocol, plan, algorithm, or computational method specifying how to make an Observation, which covers the analytical methods narrower than this concept: mark-recapture estimators such as Petersen, area-under-the-curve integration, and regression or state-space calibration. So every method in this scheme reaches a Procedure by skos:broader. The branch stays in this ontology and is not part of smn:MethodScheme; see docs/adr/010-gcdfo-method-scheme-top-concepts.md.",
+                "type" : "label"
+              }
+            ],
+            "theme" : [
+              { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme", "type" : "iri" },
+              { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme", "type" : "iri" }
             ]
           },
           "labels" : { "IRI-based" : "EstimateMethod", "en" : "Estimate Method" }
@@ -8831,7 +8872,7 @@
                 "type" : "label"
               }
             ],
-            "broader" : [ { "identifier" : "broader", "language" : "undefined", "value" : "https://w3id.org/smn/EnumerationMethod", "type" : "iri" } ]
+            "broader" : [ { "identifier" : "broader", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#EnumerationMethod", "type" : "iri" } ]
           },
           "comment" : { "en" : "Legacy methods: Electronic/Optical counter, Resistivity Counter, Video/Camera counter" },
           "labels" : { "IRI-based" : "FixedSiteCensusElectronic", "en" : "Fixed Site Census (Electronic)" }
@@ -8857,7 +8898,7 @@
                 "type" : "label"
               }
             ],
-            "broader" : [ { "identifier" : "broader", "language" : "undefined", "value" : "https://w3id.org/smn/EnumerationMethod", "type" : "iri" } ]
+            "broader" : [ { "identifier" : "broader", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#EnumerationMethod", "type" : "iri" } ]
           },
           "comment" : { "en" : "Legacy methods: Fence, Weir, Fixed Site Census (manual)" },
           "labels" : { "IRI-based" : "FixedSiteCensusManual", "en" : "Fixed Site Census (Manual)" }
@@ -9123,7 +9164,7 @@
               { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme", "type" : "iri" },
               { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme", "type" : "iri" }
             ],
-            "broader" : [ { "identifier" : "broader", "language" : "undefined", "value" : "https://w3id.org/smn/EnumerationMethod", "type" : "iri" } ]
+            "broader" : [ { "identifier" : "broader", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#EnumerationMethod", "type" : "iri" } ]
           },
           "comment" : { "en" : "Legacy methods: Sonar-ARIS, Sonar-DIDSON, Hydroacoustic" },
           "labels" : { "IRI-based" : "HydroacousticSonarCount", "en" : "Hydroacoustic Sonar Count" }
@@ -9908,7 +9949,7 @@
               { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme", "type" : "iri" },
               { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme", "type" : "iri" }
             ],
-            "broader" : [ { "identifier" : "broader", "language" : "undefined", "value" : "https://w3id.org/smn/EnumerationMethod", "type" : "iri" } ]
+            "broader" : [ { "identifier" : "broader", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#EnumerationMethod", "type" : "iri" } ]
           },
           "comment" : { "en" : "Legacy methods: Tag Recovery" },
           "labels" : { "IRI-based" : "MarkRecaptureFieldProgram", "en" : "Mark-Recapture Field Program" }
@@ -14208,7 +14249,7 @@
                 "type" : "label"
               }
             ],
-            "broader" : [ { "identifier" : "broader", "language" : "undefined", "value" : "https://w3id.org/smn/EnumerationMethod", "type" : "iri" } ]
+            "broader" : [ { "identifier" : "broader", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#EnumerationMethod", "type" : "iri" } ]
           },
           "comment" : { "en" : "Legacy methods: Redd Counts" },
           "labels" : { "IRI-based" : "ReddCount", "en" : "Redd Count" }
@@ -14575,7 +14616,7 @@
               { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme", "type" : "iri" },
               { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme", "type" : "iri" }
             ],
-            "broader" : [ { "identifier" : "broader", "language" : "undefined", "value" : "https://w3id.org/smn/EnumerationMethod", "type" : "iri" } ]
+            "broader" : [ { "identifier" : "broader", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#EnumerationMethod", "type" : "iri" } ]
           },
           "comment" : { "en" : "Legacy methods: Trap, Hatchery Passage Counting" },
           "labels" : { "IRI-based" : "TrapCount", "en" : "Trap Count" }
@@ -14887,7 +14928,7 @@
                 "type" : "label"
               }
             ],
-            "broader" : [ { "identifier" : "broader", "language" : "undefined", "value" : "https://w3id.org/smn/EnumerationMethod", "type" : "iri" } ]
+            "broader" : [ { "identifier" : "broader", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#EnumerationMethod", "type" : "iri" } ]
           },
           "comment" : { "en" : "Legacy methods: Stream Walk, Ground count, Bank Walk" },
           "labels" : { "IRI-based" : "VisualGroundCount", "en" : "Visual Ground Count" }
@@ -14913,7 +14954,7 @@
                 "type" : "label"
               }
             ],
-            "broader" : [ { "identifier" : "broader", "language" : "undefined", "value" : "https://w3id.org/smn/EnumerationMethod", "type" : "iri" } ]
+            "broader" : [ { "identifier" : "broader", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#EnumerationMethod", "type" : "iri" } ]
           },
           "comment" : { "en" : "Legacy methods: Snorkel, Snorkel Swim" },
           "labels" : { "IRI-based" : "VisualSnorkelCount", "en" : "Visual Snorkel Count" }
@@ -15661,10 +15702,7 @@
           "baseIri" : "https://w3id.org/smn",
           "annotations" : {
             "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ],
-            "inScheme" : [
-              { "identifier" : "inScheme", "language" : "undefined", "value" : "https://w3id.org/smn/MethodScheme", "type" : "iri" },
-              { "identifier" : "inScheme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#EnumerationMethodScheme", "type" : "iri" }
-            ],
+            "inScheme" : [ { "identifier" : "inScheme", "language" : "undefined", "value" : "https://w3id.org/smn/MethodScheme", "type" : "iri" } ],
             "prefLabel" : [ { "identifier" : "prefLabel", "language" : "en", "value" : "Enumeration method", "type" : "label" } ],
             "IAO_0000119" : [
               {
@@ -15694,7 +15732,7 @@
               {
                 "identifier" : "scopeNote",
                 "language" : "en",
-                "value" : "DFO profile note: this ontology uses the shared `smn:EnumerationMethod` concept directly and constrains local narrower methods beneath it. Mirror updated 2026-08-13 to match upstream after smn's methods-as-SKOS migration: the concept is instance-typed sosa:Procedure and is the top concept of smn:MethodScheme; membership in the local gcdfo:EnumerationMethodScheme is retained as the profile attachment point.",
+                "value" : "MIREOT mirror of the shared smn concept, kept so that this ontology's published files describe the target of the skos:exactMatch from gcdfo:EnumerationMethod. Since 2026-10-23 this ontology's enumeration methods hang from gcdfo:EnumerationMethod, and this concept is no longer a member of gcdfo:EnumerationMethodScheme. Upstream it is instance-typed sosa:Procedure and is a top concept of smn:MethodScheme.",
                 "type" : "label"
               }
             ]
@@ -18022,6 +18060,109 @@
       "label" : { "IRI-based" : "Procedure" },
       "individuals" : [
         {
+          "iri" : "https://w3id.org/gcdfo/salmon#EnumerationMethod",
+          "baseIri" : "https://w3id.org/gcdfo/salmon",
+          "annotations" : {
+            "definition" : [
+              { "identifier" : "definition", "language" : "en", "value" : "A method used to enumerate or count salmon in the field.", "type" : "label" }
+            ],
+            "exactMatch" : [ { "identifier" : "exactMatch", "language" : "undefined", "value" : "https://w3id.org/smn/EnumerationMethod", "type" : "iri" } ],
+            "inScheme" : [
+              { "identifier" : "inScheme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#EnumerationMethodScheme", "type" : "iri" }
+            ],
+            "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+            "prefLabel" : [ { "identifier" : "prefLabel", "language" : "en", "value" : "Enumeration Method", "type" : "label" } ],
+            "scopeNote" : [
+              {
+                "identifier" : "scopeNote",
+                "language" : "en",
+                "value" : "Top concept of this ontology's enumeration-method scheme; every DFO enumeration method is narrower than it. It means what the shared smn:EnumerationMethod means: smn minted that concept from this one's release-0.0.2 definition, and the two definitions are word for word the same, hence skos:exactMatch. The separate IRI records that DFO's enumeration-method taxonomy is developed and maintained here, which is where smn's own boundary rules keep organization-specific method schemes. Typed sosa:Procedure, so every narrower method reaches a Procedure by skos:broader.",
+                "type" : "label"
+              }
+            ],
+            "theme" : [
+              { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme", "type" : "iri" },
+              { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme", "type" : "iri" }
+            ]
+          },
+          "comment" : {
+            "en" : "Declared in releases 0.0.2 and 0.0.999. Removed from the source on 2026-03-15, when this ontology adopted smn:EnumerationMethod as its enumeration top concept, so releases 0.0.8 and 0.0.9 do not declare it. Restored 2026-10-23 with the same IRI and definition; see docs/adr/010-gcdfo-method-scheme-top-concepts.md."
+          },
+          "labels" : { "IRI-based" : "EnumerationMethod", "en" : "Enumeration Method" }
+        },
+        {
+          "iri" : "https://w3id.org/gcdfo/salmon#EstimateMethod",
+          "baseIri" : "https://w3id.org/gcdfo/salmon",
+          "annotations" : {
+            "definition" : [
+              {
+                "identifier" : "definition",
+                "language" : "en",
+                "value" : "A method used to analyze and estimate salmon abundance from enumeration data",
+                "type" : "label"
+              }
+            ],
+            "inScheme" : [ { "identifier" : "inScheme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#EstimateMethodScheme", "type" : "iri" } ],
+            "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon", "type" : "iri" } ],
+            "prefLabel" : [ { "identifier" : "prefLabel", "language" : "en", "value" : "Estimate Method", "type" : "label" } ],
+            "scopeNote" : [
+              {
+                "identifier" : "scopeNote",
+                "language" : "en",
+                "value" : "Typed sosa:Procedure on 2026-10-23. SOSA defines a Procedure as a workflow, protocol, plan, algorithm, or computational method specifying how to make an Observation, which covers the analytical methods narrower than this concept: mark-recapture estimators such as Petersen, area-under-the-curve integration, and regression or state-space calibration. So every method in this scheme reaches a Procedure by skos:broader. The branch stays in this ontology and is not part of smn:MethodScheme; see docs/adr/010-gcdfo-method-scheme-top-concepts.md.",
+                "type" : "label"
+              }
+            ],
+            "theme" : [
+              { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme", "type" : "iri" },
+              { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme", "type" : "iri" }
+            ]
+          },
+          "labels" : { "IRI-based" : "EstimateMethod", "en" : "Estimate Method" }
+        },
+        {
+          "iri" : "https://w3id.org/smn/EnumerationMethod",
+          "baseIri" : "https://w3id.org/smn",
+          "annotations" : {
+            "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ],
+            "inScheme" : [ { "identifier" : "inScheme", "language" : "undefined", "value" : "https://w3id.org/smn/MethodScheme", "type" : "iri" } ],
+            "prefLabel" : [ { "identifier" : "prefLabel", "language" : "en", "value" : "Enumeration method", "type" : "label" } ],
+            "IAO_0000119" : [
+              {
+                "identifier" : "IAO_0000119",
+                "language" : "en",
+                "value" : "GC DFO Salmon Ontology release 0.0.2, term gcdfo:EnumerationMethod.",
+                "type" : "label"
+              }
+            ],
+            "theme" : [
+              { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme", "type" : "iri" },
+              { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme", "type" : "iri" }
+            ],
+            "definition" : [
+              { "identifier" : "definition", "language" : "en", "value" : "A method used to enumerate or count salmon in the field.", "type" : "label" }
+            ],
+            "source" : [
+              {
+                "identifier" : "source",
+                "language" : "undefined",
+                "value" : "https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl",
+                "type" : "iri"
+              }
+            ],
+            "topConceptOf" : [ { "identifier" : "topConceptOf", "language" : "undefined", "value" : "https://w3id.org/smn/MethodScheme", "type" : "iri" } ],
+            "scopeNote" : [
+              {
+                "identifier" : "scopeNote",
+                "language" : "en",
+                "value" : "MIREOT mirror of the shared smn concept, kept so that this ontology's published files describe the target of the skos:exactMatch from gcdfo:EnumerationMethod. Since 2026-10-23 this ontology's enumeration methods hang from gcdfo:EnumerationMethod, and this concept is no longer a member of gcdfo:EnumerationMethodScheme. Upstream it is instance-typed sosa:Procedure and is a top concept of smn:MethodScheme.",
+                "type" : "label"
+              }
+            ]
+          },
+          "labels" : { "IRI-based" : "EnumerationMethod", "en" : "Enumeration method" }
+        },
+        {
           "iri" : "https://w3id.org/smn/FishForkLengthMeasurementMethod",
           "baseIri" : "https://w3id.org/smn",
           "annotations" : {
@@ -18053,51 +18194,6 @@
             "broader" : [ { "identifier" : "broader", "language" : "undefined", "value" : "https://w3id.org/smn/ForkLengthMeasurementMethod", "type" : "iri" } ]
           },
           "labels" : { "IRI-based" : "ForkLengthMeasurementFieldMethod" }
-        },
-        {
-          "iri" : "https://w3id.org/smn/EnumerationMethod",
-          "baseIri" : "https://w3id.org/smn",
-          "annotations" : {
-            "isDefinedBy" : [ { "identifier" : "isDefinedBy", "language" : "undefined", "value" : "https://w3id.org/smn", "type" : "iri" } ],
-            "inScheme" : [
-              { "identifier" : "inScheme", "language" : "undefined", "value" : "https://w3id.org/smn/MethodScheme", "type" : "iri" },
-              { "identifier" : "inScheme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#EnumerationMethodScheme", "type" : "iri" }
-            ],
-            "prefLabel" : [ { "identifier" : "prefLabel", "language" : "en", "value" : "Enumeration method", "type" : "label" } ],
-            "IAO_0000119" : [
-              {
-                "identifier" : "IAO_0000119",
-                "language" : "en",
-                "value" : "GC DFO Salmon Ontology release 0.0.2, term gcdfo:EnumerationMethod.",
-                "type" : "label"
-              }
-            ],
-            "theme" : [
-              { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme", "type" : "iri" },
-              { "identifier" : "theme", "language" : "undefined", "value" : "https://w3id.org/gcdfo/salmon#StockAssessmentTheme", "type" : "iri" }
-            ],
-            "definition" : [
-              { "identifier" : "definition", "language" : "en", "value" : "A method used to enumerate or count salmon in the field.", "type" : "label" }
-            ],
-            "source" : [
-              {
-                "identifier" : "source",
-                "language" : "undefined",
-                "value" : "https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl",
-                "type" : "iri"
-              }
-            ],
-            "topConceptOf" : [ { "identifier" : "topConceptOf", "language" : "undefined", "value" : "https://w3id.org/smn/MethodScheme", "type" : "iri" } ],
-            "scopeNote" : [
-              {
-                "identifier" : "scopeNote",
-                "language" : "en",
-                "value" : "DFO profile note: this ontology uses the shared `smn:EnumerationMethod` concept directly and constrains local narrower methods beneath it. Mirror updated 2026-08-13 to match upstream after smn's methods-as-SKOS migration: the concept is instance-typed sosa:Procedure and is the top concept of smn:MethodScheme; membership in the local gcdfo:EnumerationMethodScheme is retained as the profile attachment point.",
-                "type" : "label"
-              }
-            ]
-          },
-          "labels" : { "IRI-based" : "EnumerationMethod", "en" : "Enumeration method" }
         },
         {
           "iri" : "https://w3id.org/smn/ForkLengthMeasurementLabMethod",
@@ -19389,9 +19485,9 @@
       "id" : "218",
       "inverse" : "38"
     },
-    { "domain" : "145", "range" : "220", "id" : "219", "label" : { "IRI-based" : "16", "undefined" : "is a" } },
+    { "domain" : "145", "range" : "220", "id" : "219", "label" : { "IRI-based" : "17", "undefined" : "is a" } },
     { "domain" : "145", "range" : "222", "id" : "221", "label" : { "IRI-based" : "18", "undefined" : "is a" } },
-    { "domain" : "145", "range" : "23", "id" : "223", "label" : { "IRI-based" : "17", "undefined" : "is a" } },
+    { "domain" : "145", "range" : "23", "id" : "223", "label" : { "IRI-based" : "16", "undefined" : "is a" } },
     {
       "iri" : "https://w3id.org/gcdfo/salmon#hasAssessmentReferencePoint",
       "inverse" : "226",

@@ -1534,7 +1534,7 @@ gcdfo:AerialSurveyCount rdf:type owl:NamedIndividual ,
                         rdfs:comment "Legacy methods: Helicopter, Fixed Wing Aircraft, Aerial, Drone, UAS, UAV"@en ;
                         rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                         rdfs:label "Aerial Survey Count"@en ;
-                        skos:broader smn:EnumerationMethod ;
+                        skos:broader gcdfo:EnumerationMethod ;
                         skos:definition "Overflights (helicopter, fixed wing, or drone) with documented flight lines, coverage, visibility, and sensor settings. Imagery may be reviewed post-flight."@en ;
                         skos:inScheme gcdfo:EnumerationMethodScheme ;
                         skos:prefLabel "Aerial Survey Count"@en ;
@@ -2064,7 +2064,7 @@ gcdfo:ElectrofishingCount rdf:type owl:NamedIndividual ,
                           rdfs:comment "Legacy methods: Electrofishing, Electroshocking"@en ;
                           rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                           rdfs:label "Electrofishing Count"@en ;
-                          skos:broader smn:EnumerationMethod ;
+                          skos:broader gcdfo:EnumerationMethod ;
                           skos:definition "Effort-standardized electrofishing passes used to generate catch-per-unit-effort (CPUE) indices."@en ;
                           skos:inScheme gcdfo:EnumerationMethodScheme ;
                           skos:prefLabel "Electrofishing Count"@en ;
@@ -2089,12 +2089,28 @@ gcdfo:EnhancedPopulation rdf:type owl:NamedIndividual ,
                                      gcdfo:StockAssessmentTheme .
 
 
+###  https://w3id.org/gcdfo/salmon#EnumerationMethod
+gcdfo:EnumerationMethod rdf:type owl:NamedIndividual ,
+                                 skos:Concept ,
+                                 sosa:Procedure ;
+                        rdfs:comment "Declared in releases 0.0.2 and 0.0.999. Removed from the source on 2026-03-15, when this ontology adopted smn:EnumerationMethod as its enumeration top concept, so releases 0.0.8 and 0.0.9 do not declare it. Restored 2026-10-23 with the same IRI and definition; see docs/adr/010-gcdfo-method-scheme-top-concepts.md."@en ;
+                        rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
+                        rdfs:label "Enumeration Method"@en ;
+                        skos:definition "A method used to enumerate or count salmon in the field."@en ;
+                        skos:exactMatch smn:EnumerationMethod ;
+                        skos:inScheme gcdfo:EnumerationMethodScheme ;
+                        skos:prefLabel "Enumeration Method"@en ;
+                        skos:scopeNote "Top concept of this ontology's enumeration-method scheme; every DFO enumeration method is narrower than it. It means what the shared smn:EnumerationMethod means: smn minted that concept from this one's release-0.0.2 definition, and the two definitions are word for word the same, hence skos:exactMatch. The separate IRI records that DFO's enumeration-method taxonomy is developed and maintained here, which is where smn's own boundary rules keep organization-specific method schemes. Typed sosa:Procedure, so every narrower method reaches a Procedure by skos:broader."@en ;
+                        gcdfo:theme gcdfo:MonitoringFieldWorkTheme ,
+                                    gcdfo:StockAssessmentTheme .
+
+
 ###  https://w3id.org/gcdfo/salmon#EnumerationMethodScheme
 gcdfo:EnumerationMethodScheme rdf:type owl:NamedIndividual ,
                                        skos:ConceptScheme ;
                               rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                               skos:definition "Controlled vocabulary for salmon enumeration methods"@en ;
-                              skos:hasTopConcept smn:EnumerationMethod ;
+                              skos:hasTopConcept gcdfo:EnumerationMethod ;
                               skos:prefLabel "Escapement Enumeration Method Scheme"@en ;
                               gcdfo:theme gcdfo:StockAssessmentTheme .
 
@@ -2115,12 +2131,14 @@ gcdfo:EnvironmentalConditions rdf:type owl:NamedIndividual ,
 
 ###  https://w3id.org/gcdfo/salmon#EstimateMethod
 gcdfo:EstimateMethod rdf:type owl:NamedIndividual ,
-                              skos:Concept ;
+                              skos:Concept ,
+                              sosa:Procedure ;
                      rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                      rdfs:label "Estimate Method"@en ;
                      skos:definition "A method used to analyze and estimate salmon abundance from enumeration data"@en ;
                      skos:inScheme gcdfo:EstimateMethodScheme ;
                      skos:prefLabel "Estimate Method"@en ;
+                     skos:scopeNote "Typed sosa:Procedure on 2026-10-23. SOSA defines a Procedure as a workflow, protocol, plan, algorithm, or computational method specifying how to make an Observation, which covers the analytical methods narrower than this concept: mark-recapture estimators such as Petersen, area-under-the-curve integration, and regression or state-space calibration. So every method in this scheme reaches a Procedure by skos:broader. The branch stays in this ontology and is not part of smn:MethodScheme; see docs/adr/010-gcdfo-method-scheme-top-concepts.md."@en ;
                      gcdfo:theme gcdfo:MonitoringFieldWorkTheme ,
                                  gcdfo:StockAssessmentTheme .
 
@@ -2234,7 +2252,7 @@ gcdfo:FixedSiteCensusElectronic rdf:type owl:NamedIndividual ,
                                 rdfs:comment "Legacy methods: Electronic/Optical counter, Resistivity Counter, Video/Camera counter"@en ;
                                 rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                                 rdfs:label "Fixed Site Census (Electronic)"@en ;
-                                skos:broader smn:EnumerationMethod ;
+                                skos:broader gcdfo:EnumerationMethod ;
                                 skos:definition "Automated counting at a constrained opening using electronic/optical counters, resistivity counters, or video/camera systems. QA review of automated events, cross-section coverage, and uptime/coverage are documented."@en ;
                                 skos:inScheme gcdfo:EnumerationMethodScheme ;
                                 skos:prefLabel "Fixed Site Census (Electronic)"@en ;
@@ -2248,7 +2266,7 @@ gcdfo:FixedSiteCensusManual rdf:type owl:NamedIndividual ,
                             rdfs:comment "Legacy methods: Fence, Weir, Fixed Site Census (manual)"@en ;
                             rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                             rdfs:label "Fixed Site Census (Manual)"@en ;
-                            skos:broader smn:EnumerationMethod ;
+                            skos:broader gcdfo:EnumerationMethod ;
                             skos:definition "Salmon are guided through a controlled opening in a fence/weir where trained observers visually tally each passage event on a continuous or daily schedule. Counting chambers/windows and SIL/SEN daily logs document coverage; bypass routes are monitored and closed where possible."@en ;
                             skos:inScheme gcdfo:EnumerationMethodScheme ;
                             skos:prefLabel "Fixed Site Census (Manual)"@en ;
@@ -2378,7 +2396,7 @@ gcdfo:HydroacousticSonarCount rdf:type owl:NamedIndividual ,
                               rdfs:comment "Legacy methods: Sonar-ARIS, Sonar-DIDSON, Hydroacoustic"@en ;
                               rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                               rdfs:label "Hydroacoustic Sonar Count"@en ;
-                              skos:broader smn:EnumerationMethod ;
+                              skos:broader gcdfo:EnumerationMethod ;
                               skos:definition "Sonar detections (ARIS, DIDSON, or other hydroacoustic systems) with documented coverage, visibility/noise conditions, and uptime. Raw detections require processing through a modelling/classification pipeline."@en ;
                               skos:inScheme gcdfo:EnumerationMethodScheme ;
                               skos:prefLabel "Hydroacoustic Sonar Count"@en ;
@@ -2723,7 +2741,7 @@ gcdfo:MarkRecaptureFieldProgram rdf:type owl:NamedIndividual ,
                                 rdfs:comment "Legacy methods: Tag Recovery"@en ;
                                 rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                                 rdfs:label "Mark-Recapture Field Program"@en ;
-                                skos:broader smn:EnumerationMethod ;
+                                skos:broader gcdfo:EnumerationMethod ;
                                 skos:definition "Field program involving marking and subsequent recapture/recovery of tagged fish with documented assumptions and recovery coverage."@en ;
                                 skos:inScheme gcdfo:EnumerationMethodScheme ;
                                 skos:prefLabel "Mark-Recapture Field Program"@en ;
@@ -4223,7 +4241,7 @@ gcdfo:ReddCount rdf:type owl:NamedIndividual ,
                 rdfs:comment "Legacy methods: Redd Counts"@en ;
                 rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                 rdfs:label "Redd Count"@en ;
-                skos:broader smn:EnumerationMethod ;
+                skos:broader gcdfo:EnumerationMethod ;
                 skos:definition "Redd counts with documentation of detectability, timing, and reach coverage. Conversion to spawner estimates requires spawners-per-redd factors handled in analysis."@en ;
                 skos:inScheme gcdfo:EnumerationMethodScheme ;
                 skos:prefLabel "Redd Count"@en ;
@@ -4432,7 +4450,7 @@ gcdfo:TrapCount rdf:type owl:NamedIndividual ,
                 rdfs:comment "Legacy methods: Trap, Hatchery Passage Counting"@en ;
                 rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                 rdfs:label "Trap Count"@en ;
-                skos:broader smn:EnumerationMethod ;
+                skos:broader gcdfo:EnumerationMethod ;
                 skos:definition "Trap-based counts from non-spanning traps with documented emptying schedule, efficiency measurements, and coverage information."@en ;
                 skos:inScheme gcdfo:EnumerationMethodScheme ;
                 skos:prefLabel "Trap Count"@en ;
@@ -4609,7 +4627,7 @@ gcdfo:VisualGroundCount rdf:type owl:NamedIndividual ,
                         rdfs:comment "Legacy methods: Stream Walk, Ground count, Bank Walk"@en ;
                         rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                         rdfs:label "Visual Ground Count"@en ;
-                        skos:broader smn:EnumerationMethod ;
+                        skos:broader gcdfo:EnumerationMethod ;
                         skos:definition "Visual surveys conducted by stream/bank walk with documented visit schedule, reach coverage, timing, and visibility conditions."@en ;
                         skos:inScheme gcdfo:EnumerationMethodScheme ;
                         skos:prefLabel "Visual Ground Count"@en ;
@@ -4623,7 +4641,7 @@ gcdfo:VisualSnorkelCount rdf:type owl:NamedIndividual ,
                          rdfs:comment "Legacy methods: Snorkel, Snorkel Swim"@en ;
                          rdfs:isDefinedBy <https://w3id.org/gcdfo/salmon> ;
                          rdfs:label "Visual Snorkel Count"@en ;
-                         skos:broader smn:EnumerationMethod ;
+                         skos:broader gcdfo:EnumerationMethod ;
                          skos:definition "Two or more trained snorkelers conduct standardized passes within defined segments, tallying live/dead by species. Field forms capture visibility class, segment boundaries, and repeat-visit schedule; counts are aggregated across observers/passes."@en ;
                          skos:inScheme gcdfo:EnumerationMethodScheme ;
                          skos:prefLabel "Visual Snorkel Count"@en ;
@@ -4757,10 +4775,9 @@ smn:EnumerationMethod rdf:type skos:Concept ,
                       rdfs:isDefinedBy <https://w3id.org/smn> ;
                       rdfs:label "Enumeration method"@en ;
                       skos:definition "A method used to enumerate or count salmon in the field."@en ;
-                      skos:inScheme gcdfo:EnumerationMethodScheme ,
-                                    smn:MethodScheme ;
+                      skos:inScheme smn:MethodScheme ;
                       skos:prefLabel "Enumeration method"@en ;
-                      skos:scopeNote "DFO profile note: this ontology uses the shared `smn:EnumerationMethod` concept directly and constrains local narrower methods beneath it. Mirror updated 2026-08-13 to match upstream after smn's methods-as-SKOS migration: the concept is instance-typed sosa:Procedure and is the top concept of smn:MethodScheme; membership in the local gcdfo:EnumerationMethodScheme is retained as the profile attachment point."@en ;
+                      skos:scopeNote "MIREOT mirror of the shared smn concept, kept so that this ontology's published files describe the target of the skos:exactMatch from gcdfo:EnumerationMethod. Since 2026-10-23 this ontology's enumeration methods hang from gcdfo:EnumerationMethod, and this concept is no longer a member of gcdfo:EnumerationMethodScheme. Upstream it is instance-typed sosa:Procedure and is a top concept of smn:MethodScheme."@en ;
                       gcdfo:theme gcdfo:MonitoringFieldWorkTheme ,
                                   gcdfo:StockAssessmentTheme .
 
