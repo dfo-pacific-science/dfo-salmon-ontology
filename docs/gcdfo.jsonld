@@ -1727,7 +1727,7 @@
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
-        "@id": "https://w3id.org/smn/EnumerationMethod"
+        "@id": "https://w3id.org/gcdfo/salmon#EnumerationMethod"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -3817,7 +3817,7 @@
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
-        "@id": "https://w3id.org/smn/EnumerationMethod"
+        "@id": "https://w3id.org/gcdfo/salmon#EnumerationMethod"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -3917,6 +3917,66 @@
     ]
   },
   {
+    "@id": "https://w3id.org/gcdfo/salmon#EnumerationMethod",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept",
+      "http://www.w3.org/ns/sosa/Procedure"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Declared in releases 0.0.2 and 0.0.999. Removed from the source on 2026-03-15, when this ontology adopted smn:EnumerationMethod as its enumeration top concept, so releases 0.0.8 and 0.0.9 do not declare it. Restored 2026-10-23 with the same IRI and definition; see docs/adr/010-gcdfo-method-scheme-top-concepts.md."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Enumeration Method"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A method used to enumerate or count salmon in the field."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://w3id.org/smn/EnumerationMethod"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#EnumerationMethodScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Enumeration Method"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Top concept of this ontology's enumeration-method scheme; every DFO enumeration method is narrower than it. It means what the shared smn:EnumerationMethod means: smn minted that concept from this one's release-0.0.2 definition, and the two definitions are word for word the same, hence skos:exactMatch. The separate IRI records that DFO's enumeration-method taxonomy is developed and maintained here, which is where smn's own boundary rules keep organization-specific method schemes. Typed sosa:Procedure, so every narrower method reaches a Procedure by skos:broader."
+      }
+    ],
+    "https://w3id.org/gcdfo/salmon#theme": [
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#MonitoringFieldWorkTheme"
+      },
+      {
+        "@id": "https://w3id.org/gcdfo/salmon#StockAssessmentTheme"
+      }
+    ]
+  },
+  {
     "@id": "https://w3id.org/gcdfo/salmon#EnumerationMethodScheme",
     "@type": [
       "http://www.w3.org/2004/02/skos/core#ConceptScheme"
@@ -3934,7 +3994,7 @@
     ],
     "http://www.w3.org/2004/02/skos/core#hasTopConcept": [
       {
-        "@id": "https://w3id.org/smn/EnumerationMethod"
+        "@id": "https://w3id.org/gcdfo/salmon#EnumerationMethod"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#prefLabel": [
@@ -4005,7 +4065,8 @@
   {
     "@id": "https://w3id.org/gcdfo/salmon#EstimateMethod",
     "@type": [
-      "http://www.w3.org/2004/02/skos/core#Concept"
+      "http://www.w3.org/2004/02/skos/core#Concept",
+      "http://www.w3.org/ns/sosa/Procedure"
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
@@ -4033,6 +4094,12 @@
       {
         "@language": "en",
         "@value": "Estimate Method"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Typed sosa:Procedure on 2026-10-23. SOSA defines a Procedure as a workflow, protocol, plan, algorithm, or computational method specifying how to make an Observation, which covers the analytical methods narrower than this concept: mark-recapture estimators such as Petersen, area-under-the-curve integration, and regression or state-space calibration. So every method in this scheme reaches a Procedure by skos:broader. The branch stays in this ontology and is not part of smn:MethodScheme; see docs/adr/010-gcdfo-method-scheme-top-concepts.md."
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
@@ -4503,7 +4570,7 @@
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
-        "@id": "https://w3id.org/smn/EnumerationMethod"
+        "@id": "https://w3id.org/gcdfo/salmon#EnumerationMethod"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -4556,7 +4623,7 @@
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
-        "@id": "https://w3id.org/smn/EnumerationMethod"
+        "@id": "https://w3id.org/gcdfo/salmon#EnumerationMethod"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -5046,7 +5113,7 @@
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
-        "@id": "https://w3id.org/smn/EnumerationMethod"
+        "@id": "https://w3id.org/gcdfo/salmon#EnumerationMethod"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -6594,7 +6661,7 @@
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
-        "@id": "https://w3id.org/smn/EnumerationMethod"
+        "@id": "https://w3id.org/gcdfo/salmon#EnumerationMethod"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -12714,7 +12781,7 @@
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
-        "@id": "https://w3id.org/smn/EnumerationMethod"
+        "@id": "https://w3id.org/gcdfo/salmon#EnumerationMethod"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -14517,7 +14584,7 @@
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
-        "@id": "https://w3id.org/smn/EnumerationMethod"
+        "@id": "https://w3id.org/gcdfo/salmon#EnumerationMethod"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -15282,7 +15349,7 @@
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
-        "@id": "https://w3id.org/smn/EnumerationMethod"
+        "@id": "https://w3id.org/gcdfo/salmon#EnumerationMethod"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -15335,7 +15402,7 @@
     ],
     "http://www.w3.org/2004/02/skos/core#broader": [
       {
-        "@id": "https://w3id.org/smn/EnumerationMethod"
+        "@id": "https://w3id.org/gcdfo/salmon#EnumerationMethod"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
@@ -16740,9 +16807,6 @@
     ],
     "http://www.w3.org/2004/02/skos/core#inScheme": [
       {
-        "@id": "https://w3id.org/gcdfo/salmon#EnumerationMethodScheme"
-      },
-      {
         "@id": "https://w3id.org/smn/MethodScheme"
       }
     ],
@@ -16755,7 +16819,7 @@
     "http://www.w3.org/2004/02/skos/core#scopeNote": [
       {
         "@language": "en",
-        "@value": "DFO profile note: this ontology uses the shared `smn:EnumerationMethod` concept directly and constrains local narrower methods beneath it. Mirror updated 2026-08-13 to match upstream after smn's methods-as-SKOS migration: the concept is instance-typed sosa:Procedure and is the top concept of smn:MethodScheme; membership in the local gcdfo:EnumerationMethodScheme is retained as the profile attachment point."
+        "@value": "MIREOT mirror of the shared smn concept, kept so that this ontology's published files describe the target of the skos:exactMatch from gcdfo:EnumerationMethod. Since 2026-10-23 this ontology's enumeration methods hang from gcdfo:EnumerationMethod, and this concept is no longer a member of gcdfo:EnumerationMethodScheme. Upstream it is instance-typed sosa:Procedure and is a top concept of smn:MethodScheme."
       }
     ],
     "https://w3id.org/gcdfo/salmon#theme": [
